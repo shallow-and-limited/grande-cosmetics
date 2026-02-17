@@ -1,0 +1,27 @@
+# THIS IS A TEMPLATE: modify as needed
+# Global ownership for all the files not covered by subsequent rules.
+* @shallow-and-limited
+
+# Save all docs in the docs folder
+# CHANGEME
+docs/
+
+# Save the theme in the storefront folder
+storefront/ @shallow-and-limited # @a_frontend_dev
+
+# Rahul should at least know about changes to the Github workflows,
+# and tooling such as docker and poetry, if/when he doesn't do them himself.
+.github/workflows/ @rahulpatidar0191
+**/pyproject.toml @rahulpatidar0191
+**/Dockerfile @rahulpatidar0191
+**/docker-compose.* @rahulpatidar0191
+
+# Save backend apps in the app's name folder
+# some-appropiately-named-app/ @a-backend-dev
+
+# Save react apps in the app's name folder
+# some-appropiately-named-app/ @a-react-dev @dexterchan94
+
+# Prevent too many people from being reviewer of release PRs
+# **/__version__.py @lishanl
+**/settings_schema.json @shallow-and-limited

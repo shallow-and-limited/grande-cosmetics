@@ -1,0 +1,368 @@
+{{ 'component-card.css' | asset_url | stylesheet_tag }}
+{{ 'blog.css' | asset_url | stylesheet_tag }}
+
+{%- render 'section_padding' %}
+
+{% paginate blog.articles by 48 %}
+  <div
+    id="{{ section.id }}"
+    class="color-{{ section.settings.color_scheme }} section-{{ section.id }}-padding"
+  >
+    <div
+      class="{{ section.settings.layout }} isolate {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+      {% if settings.animations_reveal_on_scroll %}
+        data-cascade
+      {% endif %}
+    >
+      {%- render 'section_header' -%}
+
+      {%- if section.settings.blog_handles != blank or section.settings.blog_navigation_title != blank -%}
+        <div class="blog__navigation">
+          {% assign blog_handles = section.settings.blog_handles | split: ',' %}
+          {% if section.settings.blog_navigation_title != blank %}
+            <h2 class="blog__navigation-title h1">{{ section.settings.blog_navigation_title }}</h2>
+          {% endif %}
+
+          {% if section.settings.blog_handles != blank %}
+            <ul class="blog__navigation-list list--unstyled hidden--mobile">
+              {% for handle in blog_handles %}
+                {%- assign handleized = handle | handleize -%}
+                {% assign handle_title = handle | replace: '-', ' ' %}
+
+                <li class="blog__navigation-item body body--large {% if blog.handle == handleized %}active{% endif %}">
+                  <a class="blog__navigation-link body link link--unstyled" href="/blogs/{{ handle | downcase }}">
+                    {{- handle_title -}}
+                  </a>
+                </li>
+              {% endfor %}
+            </ul>
+          {% endif %}
+
+          {% if section.settings.blog_handles != blank %}
+            <div class="blog__selects field field--select hidden--desktop">
+              <select class="blog__selects-select field__input" onchange="window.location.href = this.value;">
+                {% for handle in blog_handles %}
+                  {%- assign handleized = handle | handleize -%}
+                  {% assign handle_title = handle | replace: '-', ' ' %}
+
+                  <option
+                    value="/blogs/{{ handle | downcase }}"
+                    {% if blog.handle == handleized %}
+                      selected
+                    {% endif %}
+                  >
+                    {{ handle_title }}
+                  </option>
+                {% endfor %}
+              </select>
+              {% render 'icon-caret' %}
+            </div>
+          {% endif %}
+        </div>
+      {%- endif -%}
+
+      {%- assign blog_count = 0 -%}
+
+      {% if blog.handle == 'everything' %}
+        {% for handle in blog_handles %}
+          {%- assign blog_count = blog_count | plus: blogs[handle].articles_count -%}
+        {% endfor %}
+      {% else %}
+        {%- assign blog_count = blog_count | plus: blog.handle.articles_count -%}
+      {% endif %}
+
+      <blog-articles
+        data-blog-handle="{{ blog.handle }}"
+        data-blog-count="{{ blog_count }}"
+        data-page="1"
+        class="blog__content"
+      >
+        <ul class="blog__articles grid grid--{{ section.settings.columns_desktop }}-col-desktop grid--{{ section.settings.columns_mobile }}-col-mobile ">
+          {%- for article in blog.articles -%}
+            <div
+              class="grid__item blog__article {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+              {% if settings.animations_reveal_on_scroll %}
+                data-cascade
+                style="--animation-order: {{ forloop.index }};"
+              {% endif %}
+            >
+              {%-
+                render 'card',
+                item: article,
+                type: 'article',
+                show_date: section.settings.show_date,
+                show_author: section.settings.show_author
+              -%}
+            </div>
+          {%- endfor -%}
+        </ul>
+
+        {%- if section.settings.show_pagination and paginate.pages > 1 -%}
+          {%- render 'pagination', paginate: paginate -%}
+        {%- endif -%}
+      </blog-articles>
+    </div>
+  </div>
+{% endpaginate %}
+
+{% schema %}
+{
+  "name": "Blog",
+  "tag": "section",
+  "class": "section",
+  "enabled_on": {
+    "templates": [
+      "blog"
+    ]
+  },
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "info": "t:sections.all.colors.has_cards_info",
+      "default": "scheme-1"
+    },
+    {
+      "type": "select",
+      "id": "layout",
+      "label": "Layout",
+      "options": [
+        {
+          "value": "screen-width",
+          "label": "Screen width"
+        },
+        {
+          "value": "page-width",
+          "label": "Page width"
+        },
+        {
+          "value": "large-width",
+          "label": "Large width"
+        },
+        {
+          "value": "full-width",
+          "label": "Full width"
+        }
+      ],
+      "default": "page-width"
+    },
+    {
+      "type": "header",
+      "content": "Header"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "{{ blog.title }}"
+    },
+    {
+      "visible_if": "{{ section.settings.title != blank }}",
+      "type": "checkbox",
+      "id": "header_is_h1",
+      "label": "Header is H1",
+      "default": false
+    },
+    {
+      "visible_if": "{{ section.settings.title != blank }}",
+      "type": "checkbox",
+      "id": "visually_hide_header",
+      "label": "Visually hide header",
+      "default": false
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        {
+          "value": "h5",
+          "label": "X-Small"
+        },
+        {
+          "value": "h4",
+          "label": "Small"
+        },
+        {
+          "value": "h3",
+          "label": "Medium"
+        },
+        {
+          "value": "h2",
+          "label": "Large"
+        },
+        {
+          "value": "h1",
+          "label": "X-Large"
+        }
+      ],
+      "default": "h2",
+      "label": "t:sections.all.heading_size.label"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Subheading"
+    },
+    {
+      "type": "select",
+      "id": "text_style",
+      "options": [
+        {
+          "value": "body--small",
+          "label": "Small"
+        },
+        {
+          "value": "body",
+          "label": "Regular"
+        },
+        {
+          "value": "body--large",
+          "label": "Large"
+        }
+      ],
+      "default": "body",
+      "label": "Text style"
+    },
+    {
+      "type": "select",
+      "id": "mobile_text_style",
+      "options": [
+        {
+          "value": "body--small-mobile",
+          "label": "Small"
+        },
+        {
+          "value": "body--mobile",
+          "label": "Regular"
+        },
+        {
+          "value": "body--large-mobile",
+          "label": "Large"
+        }
+      ],
+      "default": "body--mobile",
+      "label": "Mobile text style"
+    },
+    {
+      "type": "select",
+      "id": "heading_alignment",
+      "label": "Heading Alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "t:sections.collapsible_content.settings.heading_alignment.options__1.label"
+        },
+        {
+          "value": "center",
+          "label": "t:sections.collapsible_content.settings.heading_alignment.options__2.label"
+        },
+        {
+          "value": "right",
+          "label": "t:sections.collapsible_content.settings.heading_alignment.options__3.label"
+        }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "header",
+      "content": "Blog Settings"
+    },
+    {
+      "type": "range",
+      "id": "columns_desktop",
+      "label": "Desktop columns",
+      "min": 1,
+      "max": 4,
+      "step": 1,
+      "default": 3
+    },
+    {
+      "type": "range",
+      "id": "columns_mobile",
+      "label": "Mobile columns",
+      "min": 1,
+      "max": 3,
+      "step": 1,
+      "default": 1
+    },
+    {
+      "type": "checkbox",
+      "id": "show_pagination",
+      "label": "Show pagination",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Blog Navigation",
+      "info": "Please follow steps"
+    },
+    {
+      "type": "header",
+      "content": "Step 1:",
+      "info": "Make new blog in shopify blog settings and get handle from create blog"
+    },
+    {
+      "type": "header",
+      "content": "Step 2:",
+      "info": "Add blog handle to where you would like it to appear in list, all items have comma except last item."
+    },
+    {
+      "type": "header",
+      "content": "Notes:",
+      "info": "Capitalize characters as you would like them to show. No spaces, handles have - where spaces are leave as is ex community-voices."
+    },
+    {
+      "type": "text",
+      "id": "blog_navigation_title",
+      "label": "Blog Navigation Title",
+      "default": "RECENT STORIES"
+    },
+    {
+      "type": "textarea",
+      "id": "blog_handles",
+      "label": "Blog Handle List",
+      "default": "News"
+    },
+    {
+      "type": "header",
+      "content": "Section Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 4,
+      "step": 0.5,
+      "unit": "rem",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 2
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 4,
+      "step": 0.5,
+      "unit": "rem",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 2
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom",
+      "min": 0,
+      "max": 4,
+      "step": 0.5,
+      "unit": "rem",
+      "label": "Section margin",
+      "default": 0
+    }
+  ],
+  "presets": [
+    {
+      "name": "Blog"
+    }
+  ]
+}
+{% endschema %}

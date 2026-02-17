@@ -1,0 +1,29 @@
+<cart-shipping-calculator
+  id="CartShippingBar"
+  class="cart__shipping"
+>
+  {%- liquid
+    assign threshold = settings.shipping_calculator_threshold | plus: 0
+
+    assign delta = threshold | minus: cart.total_price
+    assign delta_money = delta | money | prepend: '<span>' | append: '</span>'
+
+    assign diff = delta | times: 100 | divided_by: threshold
+    assign diff = 100 | minus: diff | at_most: 100
+  -%}
+
+  <label class="cart__shipping-label body">
+    {%- if delta > 0 -%}
+      {{ settings.shipping_calculator_incomplete | replace: '[price]', delta_money }}
+    {%- else -%}
+      {{ settings.shipping_calculator_complete }}
+    {%- endif %}
+  </label>
+
+  <div class="cart__shipping-container">
+    <div class="cart__shipping-bar color-{{ settings.shipping_calculator_color_scheme }}">
+      <span style="width: {{ diff }}%"></span>
+    </div>
+    <span class="cart__shipping-bar-label">{{ diff }}%</span>
+  </div>
+</cart-shipping-calculator>

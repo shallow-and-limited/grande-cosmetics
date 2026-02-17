@@ -1,0 +1,269 @@
+{%- assign unique_id = section.id | append: '-' | append: block.id | append: '-' | append: product.id -%}
+
+{%- assign media = false %}
+
+{%- if item.media.size > 1 -%}
+  {%- assign media = item.media -%}
+{%- else -%}
+  {%- if override_image -%}
+    {%- assign media = override_image -%}
+  {%- elsif item.featured_media -%}
+    {%- assign media = item.featured_media -%}
+  {%- elsif item.image -%}
+    {%- assign media = item.image -%}
+  {%- endif -%}
+{%- endif -%}
+
+{%- capture sizes -%}
+  {%- if section.settings.layout == "large-width" or layout == "large-width" -%}
+    (min-width: {{ settings.large_width }}px) calc(({{ settings.large_width }}px - {{ settings.spacing_column }}px) /
+    {{ columns_desktop | default: 4 }}),
+  {%- elsif section.settings.layout == "page-width" or layout == "page-width" -%}
+    (min-width: {{ settings.page_width }}px) calc(({{ settings.page_width }}px - {{ settings.spacing_column }}px) /
+    {{ columns_desktop | default: 4 }}),
+  {%- endif -%}
+  (min-width: 750px) calc((100vw - {{ settings.spacing_column }}px) / {{ columns_desktop | default: 4 }}), calc((100vw -
+  {{ settings.spacing_column_mobile | divided_by: 2 }}px) / {{ columns_mobile | default: 2 }})
+{%- endcapture %}
+
+<card-component class="
+    card
+    {% if small %}card--small{% endif %}
+    {% if horizontal %}card--horizontal{% endif %}
+    {% if color_scheme %}color-{{ color_scheme }}{% endif %}
+  ">
+  {%- capture image -%}
+    <div class="card__image-wrapper">
+      {% if settings.card_badge %}
+        {%- if item.compare_at_price > item.price -%}
+          <span class="badge badge--text special">
+            {%- assign save_percent = item.compare_at_price | minus: item.price | times: 100 | divided_by: item.compare_at_price | round: 0 -%}
+            {{ 'products.product.save_percent' | t: percent: save_percent }}
+          </span>
+        {%- endif -%}
+
+        {%- if item.metafields.custom.text_badge != blank -%}
+          <span class="badge badge--text special">
+            {{ item.metafields.custom.text_badge }}
+          </span>
+        {%- endif -%}
+
+        {%- if item.available == false -%}
+          <span class="badge badge--text special">
+            {{ 'products.product.inventory_out_of_stock' | t }}
+          </span>
+        {%- endif -%}        
+
+        {%- if item.metafields.custom.image_badge != blank -%}
+          <span class="badge badge--image special">
+            {{ item.metafields.custom.image_badge }}
+          </span>
+        {%- endif -%}        
+      {% endif %}
+
+      <div class="card__image-container">
+        {%- if media.size > 1 -%}
+          <ul class="slider grid grid--1-col slider--desktop slider--mobile" aria-label="Product images">
+            {%- for media in item.media -%}
+              <li class="grid__item slider__slide">
+                <div
+                  class="media media--{{ aspect_ratio | default: settings.card_aspect_ratio }}"
+                  {% if settings.card_aspect_ratio == "adapt" %}
+                    style="padding-bottom: {{ 1 | divided_by: media.aspect_ratio | times: 100 }}%;"
+                  {% endif %}
+                >
+                  {%- if media.media_type == 'video' -%}
+                  {%- else -%}
+                    <img
+                      srcset="
+                        {%- if media.width >= 180 -%}{{ media | image_url: width: 180 }} 180w,{%- endif -%}
+                        {%- if media.width >= 360 -%}{{ media | image_url: width: 360 }} 360w,{%- endif -%}
+                        {%- if media.width >= 540 -%}{{ media | image_url: width: 540 }} 540w,{%- endif -%}
+                        {%- if media.width >= 720 -%}{{ media | image_url: width: 720 }} 720w,{%- endif -%}
+                        {%- if media.width >= 900 -%}{{ media | image_url: width: 900 }} 900w,{%- endif -%}
+                        {%- if media.width >= 1080 -%}{{ media | image_url: width: 1080 }} 1080w,{%- endif -%}
+                        {{ media | image_url }} {{ media.width }}w
+                      "
+                      src="{{ media | image_url: width: 540 }}"
+                      sizes="{{ sizes }}"
+                      alt="{{ media.alt | escape }}"
+                      class="motion-reduce"
+                      loading="lazy"
+                      width="{{ media.width }}"
+                      height="{{ media.height }}"
+                    >
+                  {% endif %}
+                </div>
+              </li>
+            {% endfor %}
+          </ul>
+        {%- else -%}
+          <div
+            class="media media--{{ aspect_ratio | default: settings.card_aspect_ratio }}"
+            {% if settings.card_aspect_ratio == "adapt" %}
+              style="padding-bottom: {{ 1 | divided_by: media.aspect_ratio | times: 100 }}%;"
+            {% endif %}
+          >
+            {% if media %}
+              <img
+                srcset="
+                  {%- if media.width >= 180 -%}{{ media | image_url: width: 180 }} 180w,{%- endif -%}
+                  {%- if media.width >= 360 -%}{{ media | image_url: width: 360 }} 360w,{%- endif -%}
+                  {%- if media.width >= 540 -%}{{ media | image_url: width: 540 }} 540w,{%- endif -%}
+                  {%- if media.width >= 720 -%}{{ media | image_url: width: 720 }} 720w,{%- endif -%}
+                  {%- if media.width >= 900 -%}{{ media | image_url: width: 900 }} 900w,{%- endif -%}
+                  {%- if media.width >= 1080 -%}{{ media | image_url: width: 1080 }} 1080w,{%- endif -%}
+                  {{ media | image_url }} {{ media.width }}w
+                "
+                src="{{ media | image_url: width: 540 }}"
+                sizes="{{ sizes }}"
+                alt="{{ media.alt | escape }}"
+                class="motion-reduce"
+                loading="lazy"
+                width="{{ media.width }}"
+                height="{{ media.height }}"
+              >
+            {% endif %}
+          </div>
+        {%- endif %}
+      </div>
+
+      {%- if type == 'product' and settings.enable_quickview %}
+        {%- unless hide_quickview -%}
+          <quickview-trigger
+            data-product-handle="{{ item.handle }}"
+            data-product-url="{{ item.url }}"
+            class="card__quickview"
+          >
+            <button class="button button--secondary button--small">
+              {{ 'quickview.trigger' | t }}
+            </button>
+          </quickview-trigger>
+        {%- endunless -%}
+      {%- endif -%}
+    </div>
+  {%- endcapture -%}
+
+  <a class="card__link link--unstyled" href="{{ item.url | within: collection }}">
+    {{ image }}
+  </a>
+
+  <div class="card__details">
+    {%- unless hide_swatches -%}
+      {%- if item.variants.size > 0 -%}
+        {%- assign group_id = false -%}
+
+        {%- for tag in item.tags -%}
+          {%- if tag contains '#.Group:' -%}
+            {%- assign group_id = tag | remove: '#.Group:' -%}
+            {%- break -%}
+          {%- endif -%}
+        {%- endfor -%}
+
+        {%- if group_id -%}
+          <card-group
+            class="card__swatches"
+            {% if group_id %}
+              data-group-id="{{ group_id }}"
+            {% endif %}
+            data-product-handle="{{ item.handle }}"
+            data-product-url="{{ item.url }}"
+            data-limit-swatches="true"
+            data-reorder-swatches="true"
+          >
+            <div class="skeleton"></div>
+            <div class="skeleton"></div>
+          </card-group>
+        {%- endif -%}
+      {%- endif -%}
+    {%- endunless -%}
+
+    <div class="card__title">
+      <span class="card__title-title {{ settings.card_heading_size }}">
+        {%- if override_title != blank -%}
+          {{ override_title }}
+        {%- else -%}
+          {{- item.title -}}
+        {%- endif -%}
+      </span>
+    </div>
+
+    {%- if item.selected_or_first_available_variant -%}
+      {%- if settings.card_sku or settings.card_vendor -%}
+        <div class="card__text">
+          {%- if settings.card_sku -%}
+            <span class="card__sku {% if settings.card_vendor %}card__sku--with-vendor{% endif %}">
+              SKU: <strong>{{ item.selected_or_first_available_variant.sku }}</strong>
+            </span>
+          {%- endif -%}
+          {%- if settings.card_vendor -%}
+            <span class="card__vendor">
+              <a href="/collections/{{ item.vendor | handleize }}" class="link">
+                {{ item.vendor }}
+              </a>
+            </span>
+          {%- endif -%}
+        </div>
+      {%- endif -%}
+    {%- endif -%}
+
+    {%- if settings.settings.card_short_description and item.metafields.custom.short_description != blank -%}
+      <div class="card__description-container">
+        <div class="card__description body body--small">
+          {{ item.metafields.custom.short_description }}
+        </div>
+      </div>
+    {%- endif -%}
+
+    {% if settings.card_price and item.price != blank %}
+      {%- unless hide_price -%}
+        {%- render 'price', product: item, class: 'card__price body' -%}
+      {%- endunless -%}
+    {% endif %}
+
+    {% if item.excerpt %}
+      <div class="card__description-container">
+        <div class="card__description body body--small">
+          {{ item.excerpt | strip_html }}
+        </div>
+      </div>
+    {% endif %}
+
+    {%- if show_date or show_author -%}
+      <div class="card__author body--xsmall">
+        {%- if show_author -%}
+          {{ item.author }}
+        {%- endif -%}
+
+        {% if show_date and show_author %}
+          -
+        {% endif %}
+
+        {%- if show_date -%}
+          {{ item.published_at | date: '%B %d, %Y' }}
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+  </div>
+
+  {%- if type == 'product' and settings.card_add_to_cart -%}
+    <div class="card__actions">
+      <div class="card__buy-buttons">
+        {% render 'buy-buttons', block: block, product: item, product_form_id: unique_id, section_id: section.id %}
+      </div>
+      {% if settings.card_stock %}
+        <div class="card__text card__text--spaced">
+          <span class="card__stock {% if item.available %}success--text{% else %}error--text{% endif %}">
+            {%- if item.available -%}
+              {% render 'icon-success' %}
+              {{ 'products.product.inventory_in_stock' | t }}
+            {%- else -%}
+              {% render 'icon-error' %}
+              {{ 'products.product.inventory_out_of_stock' | t }}
+            {%- endif -%}
+          </span>
+        </div>
+      {% endif %}
+    </div>
+  {%- endif -%}
+</card-component>

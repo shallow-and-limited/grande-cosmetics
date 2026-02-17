@@ -1,0 +1,34 @@
+{% liquid
+  assign product = block.settings.product | default: closest.product | default: product
+-%}
+
+<li
+  id="{{ block.id }}"
+  class="grid__item"
+>
+  {% 
+    render 'card',
+      block: block, 
+      item: product,
+      type: "product",
+  %}
+</li>
+
+{% schema %}
+{
+  "name": "Product Card",
+  "tag": null,
+  "settings": [
+    {
+      "type": "product",
+      "id": "product",
+      "label": "Product",
+    } 
+  ],
+  "presets": [
+    {
+      "name": "Product Card"
+    }
+  ]
+}
+{% endschema %}

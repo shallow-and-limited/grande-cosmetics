@@ -1,0 +1,123 @@
+{% comment %}
+  Renders cart drawer
+
+  Usage:
+  {% render 'cart-drawer' %}
+{% endcomment %}
+
+{%- if settings.cart_drawer_collection_1 -%}
+  <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
+{%- endif -%}
+
+<cart-drawer class="drawer {% if cart == empty %} is-empty{% endif %}">
+  <div id="CartDrawer" class="cart-drawer">
+    <div id="CartDrawer-Overlay" class="drawer__overlay"></div>
+
+    <div
+      class="drawer__container drawer__container--footer gradient color-{{ settings.dialog_color_scheme }}"
+      role="dialog"
+      aria-modal="true"
+      aria-label="{{ 'sections.cart.title' | t }}"
+      tabindex="-1"
+    >
+      <div class="drawer__header">
+        <h2 class="drawer__heading h4">{{ 'sections.cart.title' | t }}</h2>
+        <button
+          class="drawer__close link link--unstyled"
+          type="button"
+          onclick="this.closest('.drawer').close()"
+          aria-label="{{ 'accessibility.close' | t }}"
+        >
+          {% render 'icon-close' %}
+        </button>
+      </div>
+
+      <div class="drawer__content">
+        {%- if settings.shipping_calculator_threshold != blank -%}
+          {%- render 'cart_shipping-bar' %}
+        {%- endif %}
+
+        <cart-drawer-items id="Cart-CartItems" class="cart__contents">
+          {%- if cart == empty -%}
+            <div class="cart__warnings">
+              <h3 class="cart__empty-text h4">{{ 'sections.cart.empty' | t }}</h3>
+              <a href="{{ routes.all_products_collection_url }}" class="button">
+                {{ 'general.continue_shopping' | t }}
+              </a>
+            </div>
+          {%- else -%}
+            <form
+              action="{{ routes.cart_url }}"
+              id="CartDrawer-Form"
+              class="cart__items cart-drawer__form"
+              method="post"
+            >
+              {%- for item in cart.items -%}
+                {%-
+                  render 'cart_item' with
+                  type: "sidecart",
+                  item: item,
+                  index: forloop.index
+                %}
+              {%- endfor -%}
+            </form>
+          {% endif %}
+
+          <p id="Cart-LiveRegionText" class="visually-hidden" role="status"></p>
+          <p id="Cart-LineItemStatus" class="visually-hidden" aria-hidden="true" role="status">
+            {{ 'accessibility.loading' | t }}
+          </p>
+        </cart-drawer-items>
+      </div>
+
+      <div class="drawer__footer cart-footer color-{{ settings.cart_footer_scheme }}">
+        <h3 class="drawer__footer-title">{{ 'sections.cart.purchase_summary' | t | upcase }}</h3>
+
+        <hr>
+
+        <div class="cart__footer-label body body--small">
+          <span>
+            {{- 'sections.cart.subtotal' | t }} ({{ cart.item_count }}
+            {{ 'sections.cart.items' | t | downcase }})</span
+          >
+          <span>{{ cart.total_price | money }}</span>
+        </div>
+
+        <div class="cart__footer-label body body--small">
+          <span>{{ 'sections.cart.estimated_shipping' | t }}</span>
+          <span>{{ 'sections.cart.calculated_at_checkout' | t }}</span>
+        </div>
+
+        <div class="cart__footer-label body body--small">
+          <span>{{ 'sections.cart.tax' | t }}</span>
+          <span>{{ 'sections.cart.tbd' | t }}</span>
+        </div>
+
+        <hr class="thick">
+
+        <div class="cart__footer-label body body--small">
+          <b>{{ 'sections.cart.total' | t | upcase }}</b>
+          <b>{{ cart.total_price | money }}</b>
+        </div>
+
+        <div class="cart__ctas cart-drawer__footer">
+          <div id="CartErrors"></div>
+
+          <button
+            type="submit"
+            id="CartDrawer-Checkout"
+            class="cart__checkout-button button"
+            name="checkout"
+            form="CartDrawer-Form"
+            {% if cart == empty %}
+              disabled
+            {% endif %}
+          >
+            {{ 'sections.cart.checkout' | t -}}
+            {% comment %}<span class="spacer">-</span>{{ cart.total_price | money_with_currency %} {% endcomment %}
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</cart-drawer>

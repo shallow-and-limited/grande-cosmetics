@@ -1,0 +1,159 @@
+<div
+  id="ProductGridContainer"
+  class="
+    listing__container
+    {% if settings.animations_reveal_on_scroll %}scroll-trigger animate--slide-in{% endif %}
+  "
+  {% if settings.animations_reveal_on_scroll %}
+    data-cascade
+  {% endif %}
+>
+  <div class="loading-overlay gradient"></div>
+
+  {%- if items.size == 0 -%}
+    <div class="listing__empty center">
+      <h2>
+        {{ 'sections.collection_template.empty' | t -}}
+        <br>
+        {{
+          'sections.collection_template.use_fewer_filters_html'
+          | t: link: collection.url, class: 'underlined-link link'
+        }}
+      </h2>
+    </div>
+  {%- else -%}
+    <ul
+      id="ProductGrid"
+      data-id="{{ section.id }}"
+      class="
+        listing-grid
+        grid
+        grid--{{ section.settings.columns_mobile }}-col
+        grid--{{ section.settings.columns_desktop }}-col-desktop
+      "
+    >
+      {%- assign animation_index = 1 -%}
+
+      {%- for item in items -%}
+        {%- assign product_index = forloop.index | plus: paginate.current_offset -%}
+
+        {%- if animation_index > section.settings.products_per_page -%}
+          {%- continue -%}
+        {%- endif -%}
+
+        {%- for block in section.blocks -%}
+          {%- if block.settings.position == product_index -%}
+            <li
+              class="grid__item{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+              {% if settings.animations_reveal_on_scroll %}
+                data-cascade
+                style="--animation-order: {{ animation_index }};"
+              {% endif %}
+            >
+              <div class="media media--collection">
+                {%- capture banners -%}
+                  <img
+                    srcset="
+                      {%- if block.settings.image.width >= 165 -%}{{ block.settings.image | image_url: width: 165 }} 165w,{%- endif -%}
+                      {%- if block.settings.image.width >= 360 -%}{{ block.settings.image | image_url: width: 360 }} 360w,{%- endif -%}
+                      {%- if block.settings.image.width >= 533 -%}{{ block.settings.image | image_url: width: 533 }} 533w,{%- endif -%}
+                      {%- if block.settings.image.width >= 720 -%}{{ block.settings.image | image_url: width: 720 }} 720w,{%- endif -%}
+                      {%- if block.settings.image.width >= 940 -%}{{ block.settings.image | image_url: width: 940 }} 940w,{%- endif -%}
+                      {%- if block.settings.image.width >= 1066 -%}{{ block.settings.image | image_url: width: 1066 }} 1066w,{%- endif -%}
+                      {{ block.settings.image | image_url }} {{ block.settings.image.width }}w
+                    "
+                    src="{{ block.settings.image | image_url: width: 533 }}"
+                    sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 130 | divided_by: 4 }}px, (min-width: 990px) calc((100vw - 130px) / 4), (min-width: 750px) calc((100vw - 120px) / 3), calc((100vw - 35px) / 2)"
+                    alt="{{ block.settings.image.alt | escape }}"
+                    class="motion-reduce {% if block.settings.image_mobile != blank %}hidden--mobile{% endif %}"
+                    loading="lazy"
+                    width="{{ block.settings.image.width }}"
+                    height="{{ block.settings.image.height }}"
+                  >
+
+                  {% if block.settings.image_mobile != blank %}
+                    <img
+                      srcset="
+                        {%- if block.settings.image_mobile.width >= 165 -%}{{ block.settings.image_mobile | image_url: width: 165 }} 165w,{%- endif -%}
+                        {%- if block.settings.image_mobile.width >= 360 -%}{{ block.settings.image_mobile | image_url: width: 360 }} 360w,{%- endif -%}
+                        {%- if block.settings.image_mobile.width >= 533 -%}{{ block.settings.image_mobile | image_url: width: 533 }} 533w,{%- endif -%}
+                        {%- if block.settings.image_mobile.width >= 720 -%}{{ block.settings.image_mobile | image_url: width: 720 }} 720w,{%- endif -%}
+                        {%- if block.settings.image_mobile.width >= 940 -%}{{ block.settings.image_mobile | image_url: width: 940 }} 940w,{%- endif -%}
+                        {%- if block.settings.image_mobile.width >= 1066 -%}{{ block.settings.image_mobile | image_url: width: 1066 }} 1066w,{%- endif -%}
+                        {{ block.settings.image_mobile | image_url }} {{ block.settings.image_mobile.width }}w
+                      "
+                      src="{{ block.settings.image_mobile | image_url: width: 533 }}"
+                      sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 130 | divided_by: 4 }}px, (min-width: 990px) calc((100vw - 130px) / 4), (min-width: 750px) calc((100vw - 120px) / 3), calc((100vw - 35px) / 2)"
+                      alt="{{ block.settings.image_mobile.alt | escape }}"
+                      class="motion-reduce hidden--desktop"
+                      loading="lazy"
+                      width="{{ block.settings.image_mobile.width }}"
+                      height="{{ block.settings.image_mobile.height }}"
+                    >
+                  {% endif %}
+                {%- endcapture -%}
+
+                {%- if block.settings.link != blank -%}
+                  <a
+                    href="{{ block.settings.link }}"
+                    class="media media--collection"
+                    aria-label="{{ promo_banner.image.alt | escape }}"
+                  >
+                    {{ banners }}
+                  </a>
+                {% else %}
+                  {{ banners }}
+                {%- endif -%}
+              </div>
+            </li>
+
+            {%- assign animation_index = animation_index | plus: 1 -%}
+          {%- endif %}
+        {%- endfor -%}
+
+        <li
+          class="grid__item{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+          {% if settings.animations_reveal_on_scroll %}
+            data-cascade
+            style="--animation-order: {{ animation_index }};"
+          {% endif %}
+        >
+          {%- case item.object_type -%}
+            {%- when 'article' -%}
+              {%-
+                render 'card',
+                item: item,
+                type: "article",
+                show_date: section.settings.article_show_date,
+                show_author: section.settings.article_show_author,
+                columns_desktop: section.settings.columns_desktop,
+                columns_mobile: 2
+              -%}
+            {%- when 'page' -%}
+              {%-
+                render 'card',
+                item: item,
+                type: "page",
+                columns_desktop: section.settings.columns_desktop,
+                columns_mobile: 2
+              -%}
+            {%- else -%}
+              {%-
+                render 'card',
+                item: item,
+                type: "product",
+                columns_desktop: section.settings.columns_desktop,
+                columns_mobile: section.settings.columns_mobile
+              -%}
+          {%- endcase -%}
+        </li>
+
+        {%- assign animation_index = animation_index | plus: 1 -%}
+      {%- endfor -%}
+    </ul>
+
+    {%- if paginate.pages > 1 -%}
+      {% render 'pagination', paginate: paginate, show_more: section.settings.show_more, anchor: '' %}
+    {%- endif -%}
+  {%- endif -%}
+</div>

@@ -1,0 +1,14 @@
+<div class="header__search header__search--inline hidden--mobile">
+  {%- if settings.predictive_search_enabled -%}
+    <predictive-search
+      class="search-modal__form"
+      data-loading-text="{{ 'accessibility.loading' | t }}"
+    >
+      {% render "header_search-form" %}
+    </predictive-search>
+  {%- else -%}
+    <search-form class="search-modal__form">
+      {% render "header_search-form" %}
+    </search-form>
+  {%- endif -%}
+</div>

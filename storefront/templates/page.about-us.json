@@ -1,0 +1,464 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "custom_css": [],
+      "settings": {
+        "color_scheme": "",
+        "layout": "page-width",
+        "title": "",
+        "header_is_h1": false,
+        "visually_hide_header": false,
+        "heading_size": "h2",
+        "description": "",
+        "text_style": "body",
+        "mobile_text_style": "body--mobile",
+        "heading_alignment": "left",
+        "padding_top": 2,
+        "padding_bottom": 2,
+        "margin_bottom": 0
+      }
+    },
+    "banner_4NPgk9": {
+      "type": "banner",
+      "blocks": {
+        "media_44ckFi": {
+          "type": "media",
+          "settings": {
+            "color_scheme_box": "scheme-4247188e-8e70-41d8-bb40-e2b57d3cf69b",
+            "transparent_box_desktop": true,
+            "transparent_box_mobile": true,
+            "image": "shopify://shop_images/Samad_About_Banners_1.png",
+            "image_mobile": "shopify://shop_images/Samad_About_Banners_1.png",
+            "image_link": "",
+            "image_overlay_opacity": 0,
+            "video_description": "",
+            "enable_video_autoplay": true,
+            "desktop_content_position": "top-left",
+            "desktop_content_alignment": "left",
+            "mobile_content_position": "middle",
+            "mobile_content_alignment": "left",
+            "heading": "About Samad Rugs",
+            "heading_size": "h2--desktop",
+            "heading_size_mobile": "h2--mobile",
+            "heading_letter_spacing": "",
+            "heading_shadow": "#2a2a2a",
+            "heading_italic": false,
+            "is_h1": false,
+            "visually_hidden": false,
+            "text": "<p>We are a leading boutique wholesaler of handmade decorative rugs proudly serving<br/>rug dealers and the interior design trade since 1985.</p>",
+            "text_style": "body--large-desktop",
+            "mobile_text_style": "body--mobile",
+            "button_label_1": "",
+            "button_link_1": "",
+            "button_bold_1": false,
+            "button_style_1": "button",
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_bold_2": false,
+            "button_style_2": "button"
+          }
+        }
+      },
+      "block_order": [
+        "media_44ckFi"
+      ],
+      "name": "Media Banners",
+      "settings": {
+        "color_scheme": "",
+        "layout": "screen-width",
+        "layout_mobile": "screen-width",
+        "title": "",
+        "header_is_h1": false,
+        "visually_hide_header": false,
+        "heading_size": "h2",
+        "description": "",
+        "text_style": "body",
+        "mobile_text_style": "body--mobile",
+        "heading_alignment": "left",
+        "aspect_ratio": "adapt",
+        "aspect_ratio_mobile": "adapt",
+        "stack_images_on_mobile": true,
+        "slider_show_dots": false,
+        "slider_show_arrows": false,
+        "accessibility_info": "",
+        "auto_rotate": false,
+        "change_slides_speed": 5,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "margin_bottom": 0
+      }
+    },
+    "media_with_text_yJpQJV": {
+      "type": "media-with-text",
+      "blocks": {
+        "content_QC4qGQ": {
+          "type": "content",
+          "settings": {
+            "image": "shopify://shop_images/Samad_Educational_square_3.png",
+            "video_url": "",
+            "image_first": true,
+            "heading": "Timeless Design, Handcrafted with Purpose",
+            "heading_size": "h2",
+            "text": "<p>At SAMAD Rugs, our story is one of artistry, heritage, and the beauty of everyday living. Each hand-knotted rug reflects generations of craftsmanship, transforming natural fibers into works of timeless design. Beyond creating rugs, we celebrate the spaces they complete—where texture, color, and light come together to tell a story. Our collections continue to evolve with a modern sensibility while honoring the traditions and techniques that define true handmade excellence.</p>",
+            "text_style": "body--large",
+            "mobile_text_style": "body--mobile",
+            "button_label": "",
+            "button_link": "",
+            "button_style_secondary": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false,
+            "desktop_content_position": "middle",
+            "desktop_content_alignment": "left",
+            "content_layout": "no-overlap",
+            "box_color_scheme": "",
+            "mobile_content_alignment": "left"
+          }
+        }
+      },
+      "block_order": [
+        "content_QC4qGQ"
+      ],
+      "name": "t:sections.image-with-text.name",
+      "settings": {
+        "color_scheme": "scheme-1",
+        "layout": "page-width",
+        "aspect_ratio": "square",
+        "desktop_image_width": "medium",
+        "slider_show_dots": false,
+        "slider_show_arrows": false,
+        "padding_top": 2,
+        "padding_bottom": 2,
+        "margin_bottom": 0
+      }
+    },
+    "rich_text_itkQPJ": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_teCeNd": {
+          "type": "heading",
+          "settings": {
+            "heading": "\"Like his father before him, my grandfather, Eric Samad, was a rug merchant in Mashhad, Iran and we are truly proud celebrate his legacy\"",
+            "heading_size": "h2"
+          }
+        },
+        "text_TWUPWM": {
+          "type": "text",
+          "settings": {
+            "text": "<p>- Jennifer Samad</p>",
+            "text_style": "body--large",
+            "mobile_text_style": "body--large-mobile"
+          }
+        }
+      },
+      "block_order": [
+        "heading_teCeNd",
+        "text_TWUPWM"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "color_scheme": "scheme-2",
+        "layout": "page-width",
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "padding_top": 2,
+        "padding_bottom": 2,
+        "margin_bottom": 0
+      }
+    },
+    "banner_c3FcVN": {
+      "type": "banner",
+      "blocks": {
+        "media_PcckVg": {
+          "type": "media",
+          "settings": {
+            "color_scheme_box": "scheme-1",
+            "transparent_box_desktop": true,
+            "transparent_box_mobile": true,
+            "image": "shopify://shop_images/Samad_About_Banners_2.png",
+            "image_mobile": "shopify://shop_images/Samad_About_Banners_2.png",
+            "image_link": "",
+            "image_overlay_opacity": 0,
+            "video_description": "",
+            "enable_video_autoplay": true,
+            "desktop_content_position": "middle-center",
+            "desktop_content_alignment": "center",
+            "mobile_content_position": "middle",
+            "mobile_content_alignment": "center",
+            "heading": "",
+            "heading_size": "h2--desktop",
+            "heading_size_mobile": "h2--mobile",
+            "heading_letter_spacing": "",
+            "heading_shadow": "",
+            "heading_italic": false,
+            "is_h1": false,
+            "visually_hidden": false,
+            "text": "",
+            "text_style": "body--desktop",
+            "mobile_text_style": "body--mobile",
+            "button_label_1": "",
+            "button_link_1": "",
+            "button_bold_1": false,
+            "button_style_1": "button",
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_bold_2": false,
+            "button_style_2": "button"
+          }
+        }
+      },
+      "block_order": [
+        "media_PcckVg"
+      ],
+      "name": "Media Banners",
+      "settings": {
+        "color_scheme": "",
+        "layout": "screen-width",
+        "layout_mobile": "screen-width",
+        "title": "",
+        "header_is_h1": false,
+        "visually_hide_header": false,
+        "heading_size": "h2",
+        "description": "",
+        "text_style": "body",
+        "mobile_text_style": "body--mobile",
+        "heading_alignment": "left",
+        "aspect_ratio": "medium",
+        "aspect_ratio_mobile": "adapt",
+        "stack_images_on_mobile": true,
+        "slider_show_dots": true,
+        "slider_show_arrows": false,
+        "accessibility_info": "",
+        "auto_rotate": false,
+        "change_slides_speed": 5,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "margin_bottom": 0
+      }
+    },
+    "media_with_text_BpTH3T": {
+      "type": "media-with-text",
+      "blocks": {
+        "content_AbitiJ": {
+          "type": "content",
+          "settings": {
+            "image": "shopify://shop_images/About_Us_Image_2.png",
+            "video_url": "",
+            "image_first": false,
+            "heading": "Our History",
+            "heading_size": "h2",
+            "text": "<p>Founded in New York City in 1985 by London-born brothers David and Malcolm Samad, our family-owned business is rooted in four generations of rug-making expertise. Inspired by the legacy of their father, Eric Samad, the brothers emigrated to the U.S. with a shared vision: to create the world’s finest handmade rugs. From humble beginnings, they traveled across the country sharing their deep rug knowledge and pushing the boundaries of design. Today, SAMAD is a leading producer and importer of hand-knotted rugs, renowned for exceptional quality, artisanal craftsmanship, and enduring style. A new generation—David and Malcolm’s daughters—Jennifer, Nicole and Melanie—has since joined the business, carrying forward their passion for heritage. With strong global partnerships and a dedicated team, the Samads continue to blend tradition and innovation in every rug they create.</p>",
+            "text_style": "body--large",
+            "mobile_text_style": "body--mobile",
+            "button_label": "",
+            "button_link": "",
+            "button_style_secondary": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false,
+            "desktop_content_position": "top",
+            "desktop_content_alignment": "left",
+            "content_layout": "no-overlap",
+            "box_color_scheme": "",
+            "mobile_content_alignment": "left"
+          }
+        }
+      },
+      "block_order": [
+        "content_AbitiJ"
+      ],
+      "name": "t:sections.image-with-text.name",
+      "settings": {
+        "color_scheme": "",
+        "layout": "page-width",
+        "aspect_ratio": "adapt",
+        "desktop_image_width": "medium",
+        "slider_show_dots": true,
+        "slider_show_arrows": false,
+        "padding_top": 2,
+        "padding_bottom": 2,
+        "margin_bottom": 0
+      }
+    },
+    "multicolumn_jhrkfr": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_YBf8iX": {
+          "type": "column",
+          "settings": {
+            "color_scheme": "",
+            "image": "shopify://shop_images/Community.png",
+            "image_overlay_opacity": 0,
+            "show_overlay_on_hover": false,
+            "title": "Community",
+            "heading_size": "h2",
+            "heading_size_mobile": "h3--mobile",
+            "text": "<p>We proudly serve our trade partners, the interior design and hospitality communities as well as the decerning homeowner, with the utmost care.</p><p>Our team is passionate about working with trade professionals to actualize their creative vision.</p>",
+            "text_style": "body--large",
+            "text_style_mobile": "body--mobile",
+            "link_label": "",
+            "link": "",
+            "show_link_as_button": false,
+            "card_padding": 0.5
+          }
+        },
+        "column_gEq9Hj": {
+          "type": "column",
+          "settings": {
+            "color_scheme": "",
+            "image": "shopify://shop_images/Quality_Sustainability.png",
+            "image_overlay_opacity": 0,
+            "show_overlay_on_hover": false,
+            "title": "Quality & Sustainability",
+            "heading_size": "h2",
+            "heading_size_mobile": "h3--mobile",
+            "text": "<p>We believe that the rug is the foundation of the room. Hence, our heirloom rugs are made using the highest quality natural fibers to withstand the test of time. Through our partnership with the fair-trade organization <a href=\"https://label-step.org/\" target=\"_blank\"><span style=\"text-decoration:underline\">Label STEP</span></a>, we’re committed to sustainability, ethical sourcing, and long-lasting quality.</p><p>Learn more about our fair-trade initiatives and <a href=\"https://label-step.org/\" target=\"_blank\"><span style=\"text-decoration:underline\">Label Step</span></a> partnership.</p>",
+            "text_style": "body--large",
+            "text_style_mobile": "body--mobile",
+            "link_label": "",
+            "link": "",
+            "show_link_as_button": false,
+            "card_padding": 0.5
+          }
+        }
+      },
+      "block_order": [
+        "column_YBf8iX",
+        "column_gEq9Hj"
+      ],
+      "name": "t:sections.multicolumn.presets.name",
+      "settings": {
+        "color_scheme": "",
+        "layout": "page-width",
+        "enable_desktop_slider": false,
+        "full_width": false,
+        "title": "",
+        "header_is_h1": false,
+        "visually_hide_header": false,
+        "heading_size": "h2",
+        "description": "",
+        "text_style": "body",
+        "mobile_text_style": "body--mobile",
+        "heading_alignment": "left",
+        "cta_text": "",
+        "cta_link": "",
+        "override_grid_gap": false,
+        "spacing_grid_horizontal": 16,
+        "spacing_grid_horizontal_mobile": 8,
+        "overlap": false,
+        "aspect_ratio": "adapt",
+        "override_image_size": false,
+        "image_width": 66,
+        "columns_desktop": 2,
+        "column_alignment": "left",
+        "columns_mobile": 1,
+        "swipe_on_mobile": true,
+        "slider_show_dots": false,
+        "slider_show_arrows": false,
+        "padding_top": 3,
+        "padding_bottom": 2,
+        "margin_bottom": 1
+      }
+    },
+    "media_with_text_rbAEqU": {
+      "type": "media-with-text",
+      "blocks": {
+        "content_EnVRL6": {
+          "type": "content",
+          "settings": {
+            "image": "shopify://shop_images/About_Us_Image_3.png",
+            "video_url": "",
+            "image_first": true,
+            "heading": "Artistry",
+            "heading_size": "h2",
+            "text": "<p>Our boutique rugs are hand-crafted by master artisans in India, Afghanistan, and Nepal. In a world of mass production, we celebrate the people, detailed craftsmanship, and time-honored techniques that keep this art form alive.   </p><p>Learn more about our artisans and the rug making process.</p>",
+            "text_style": "body--large",
+            "mobile_text_style": "body--mobile",
+            "button_label": "Learn More",
+            "button_link": "shopify://pages/rugmaking",
+            "button_style_secondary": true,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false,
+            "desktop_content_position": "top",
+            "desktop_content_alignment": "left",
+            "content_layout": "no-overlap",
+            "box_color_scheme": "",
+            "mobile_content_alignment": "left"
+          }
+        }
+      },
+      "block_order": [
+        "content_EnVRL6"
+      ],
+      "name": "t:sections.image-with-text.name",
+      "settings": {
+        "color_scheme": "",
+        "layout": "page-width",
+        "aspect_ratio": "adapt",
+        "desktop_image_width": "medium",
+        "slider_show_dots": true,
+        "slider_show_arrows": false,
+        "padding_top": 2,
+        "padding_bottom": 2,
+        "margin_bottom": 0
+      }
+    },
+    "featured_collection_hUjxWP": {
+      "type": "featured-collection",
+      "name": "t:sections.featured-collection.presets.name",
+      "settings": {
+        "color_scheme": "",
+        "layout": "page-width",
+        "title": "Featured Boutique Rugs",
+        "header_is_h1": false,
+        "visually_hide_header": false,
+        "heading_size": "h2",
+        "description": "<p>New hand-knotted rugs</p>",
+        "text_style": "body",
+        "mobile_text_style": "body--mobile",
+        "heading_alignment": "left",
+        "product_position": "first",
+        "collection": "featured-collection",
+        "enable_featured_banner": true,
+        "products_to_show": 5,
+        "columns_desktop": 5,
+        "show_view_all": true,
+        "view_all_text": "Shop All Featured Rugs",
+        "view_all_style": "solid",
+        "enable_desktop_slider": false,
+        "card_color_scheme": "",
+        "columns_mobile": 1,
+        "swipe_on_mobile": false,
+        "full_width": false,
+        "slider_show_dots": false,
+        "slider_show_arrows": true,
+        "padding_top": 2,
+        "padding_bottom": 2,
+        "margin_bottom": 0
+      }
+    }
+  },
+  "order": [
+    "main",
+    "banner_4NPgk9",
+    "media_with_text_yJpQJV",
+    "rich_text_itkQPJ",
+    "banner_c3FcVN",
+    "media_with_text_BpTH3T",
+    "multicolumn_jhrkfr",
+    "media_with_text_rbAEqU",
+    "featured_collection_hUjxWP"
+  ]
+}

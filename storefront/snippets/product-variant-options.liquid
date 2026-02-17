@@ -1,0 +1,138 @@
+{% comment %}
+  Renders product variant options
+
+  Accepts:
+  - product: {Object} product object.
+  - option: {Object} current product_option object.
+  - block: {Object} block object.
+  - picker_type: {String} type of picker to dispay
+
+
+  Usage:
+  {% render 'product-variant-options',
+    product: product,
+    option: option,
+    block: block
+    picker_type: picker_type
+  %}
+{% endcomment %}
+{%- liquid
+  if product_form_id != blank
+    assign product_form_id = product_form_id
+  else
+    assign product_form_id = 'product-form-' | append: section.id
+  endif
+-%}
+
+{%- for value in option.values -%}
+  {%- liquid
+    assign skip_option = false
+    comment
+      assign price = false
+    endcomment
+
+    for variant in product.variants
+      if variant.title == value
+        comment
+          assign price = variant.price
+        endcomment
+
+        if variant.metafields.custom.disabled
+          assign skip_option = true
+        endif
+      endif
+    endfor
+
+    if skip_option
+      continue
+    endif
+
+    assign display_name = value | split: ' / ' | first
+
+    assign option_disabled = true
+    if value.available
+      assign option_disabled = false
+    endif
+  -%}
+
+  {%- capture input_id -%}
+    {{ section.id }}-{{ option.position }}-{{ forloop.index0 -}}
+  {%- endcapture -%}
+
+  {%- capture input_name -%}
+    {{ option.name }}-{{ option.position }}
+  {%- endcapture -%}
+
+  {%- capture input_dataset -%}
+    data-product-url="{{ value.product_url }}" data-option-value-id="{{ value.id }}"
+  {%- endcapture -%}
+
+  {%- capture label_unavailable -%}
+    <span class="visually-hidden label-unavailable">
+      {{- 'products.product.variant_sold_out_or_unavailable' | t -}}
+    </span>
+  {%- endcapture -%}
+
+  {%- if option.name == 'Color' or option.name == 'Colour' or option.name == 'Shade' -%}
+    {%- for variant in product.variants -%}
+      {%- if variant.option1 == value -%}
+        {%- assign swatch_color = variant.metafields.custom.swatch_color -%}
+        {%- assign swatch_image = variant.metafields.custom.swatch_image.value -%}
+      {%- endif -%}
+    {%- endfor -%}
+  {%- endif -%}
+
+  {%- if block.settings.picker_type == 'dropdown' -%}
+    <option
+      id="{{ input_id }}"
+      value="{{ value | escape }}"
+      {% if value.selected %}
+        selected="selected"
+      {% endif %}
+      {{ input_dataset }}
+    >
+      {% if option_disabled -%}
+        {{- 'products.product.value_unavailable' | t: option_value: value -}}
+      {%- else -%}
+        {{- display_name -}}
+      {%- endif %}
+    </option>
+  {%- else -%}
+    <div
+      class="{% if swatch_color or swatch_image %}product-form__color{% else %}product-form__pill{% endif %}"
+      data-value="{{ value | escape }}"
+    >
+      <input
+        type="radio"
+        id="{{ input_id }}"
+        name="{{ input_name }}"
+        value="{{ value | escape }}"
+        form="{{ product_form_id }}"
+        {% if value.selected %}
+          checked
+        {% endif %}
+        class="visually-hidden"
+        {% if option_disabled %}
+          disabled
+        {% endif %}
+        {{ input_dataset }}
+      >
+      <label
+        class="color-{{ block.settings.picker_scheme }}"
+        for="{{ input_id }}"
+        {% if swatch_image != blank -%}
+          style="background-image: url({{ swatch_image | image_url: width: 60, height: 60 }})"
+        {% elsif swatch_color %}
+          style="background-color: {{ swatch_color }}"
+        {% endif %}
+      >
+        {% if swatch_color or swatch_image %}
+          <span class="visually-hidden">{{ value }}</span>
+        {% else %}
+          <span>{{- value -}}</span>
+        {% endif %}
+        {{ label_unavailable }}
+      </label>
+    </div>
+  {%- endif -%}
+{%- endfor -%}

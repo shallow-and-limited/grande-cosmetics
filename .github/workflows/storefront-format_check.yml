@@ -1,0 +1,70 @@
+name: Run formatting check 
+
+on:
+  pull_request:
+    paths:
+      - 'storefront/**'
+      - '.github/workflows/storefront-format_check.yml'
+      
+defaults:
+  run:
+    working-directory: storefront
+
+# Use concurrency to ensure that only a single job or workflow using the same concurrency group will run at a time
+concurrency:
+  group: '${{ github.workflow }} @ ${{ github.event.pull_request.head.label || github.head_ref || github.ref }}'
+  cancel-in-progress: true  # Cancel previously queued jobs and run the latest
+      
+jobs:
+  self-hosted-status:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    outputs:
+      runner-status: ${{ steps.runnerstatus.outputs.status }}
+    steps:
+      - name: Check runner status
+        id: runnerstatus
+        uses: SatelCreative/satel-gh-runner-check@1.0.3
+        with:       
+          github-runner-token: ${{ secrets.SELF_HOSTED_RUNNER_TOKEN }} # Should have access to manage runner
+          org-name: SatelCreative
+
+  watchdog:
+    needs: [self-hosted-status]
+    timeout-minutes: 5
+    runs-on: ${{ contains(needs.self-hosted-status.outputs.runner-status, 'online') && 'self-hosted' || 'ubuntu-latest' }}
+    permissions:
+      # Give the default GITHUB_TOKEN write permission to commit and push the
+      # added or changed files to the repository.
+      contents: write
+    steps:
+      - name: Generate token 
+        uses: tibdex/github-app-token@v2.1.0
+        id: generate-token
+        with:
+          app_id: ${{ secrets.PR_COMMENTER_BOT_ID }}
+          private_key: ${{ secrets.PR_COMMENTER_BOT_KEY }}  
+
+      - name: Check out repository
+        uses: actions/checkout@v4.2.2
+        with: 
+            repository: ${{ github.event.pull_request.head.repo.full_name }}
+            ref: ${{ github.event.pull_request.head.ref }}
+            token: ${{ steps.generate-token.outputs.token }} 
+
+      - name: Install dependencies
+        run: yarn install
+
+      - name: Run formatting check
+        run: |
+          yarn fmt:check || echo "is_failed=true" >> $GITHUB_ENV
+
+      - name: Reformat and commit changes 
+        if: ${{ env.is_failed == 'true' }}
+        run: |
+          yarn fmt  
+          git add .
+          git config user.name "${{ github.actor }}"
+          git config user.email "${{ github.actor_id }}+${{ github.actor }}@users.noreply.github.com"
+          git commit -m ":art: formatting"     
+          git push

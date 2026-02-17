@@ -1,0 +1,42 @@
+<form action="{{ routes.search_url }}" method="get" role="search" class="header__search-form">
+  <input type="hidden" name="options[prefix]" value="last">
+
+  <label class="visually-hidden" for="HeaderSearch">{{ 'general.search.search' | t }}</label>
+  <input
+    class="field__input"
+    id="HeaderSearch"
+    type="search"
+    name="q"
+    value="{{ search.terms | escape }}"
+    placeholder="{{ 'general.search.search' | t }}"
+    {%- if settings.predictive_search_enabled -%}
+      role="combobox"
+      aria-expanded="false"
+      aria-owns="predictive-search-results"
+      aria-controls="predictive-search-results"
+      aria-haspopup="listbox"
+      aria-autocomplete="list"
+      autocorrect="off"
+      autocomplete="off"
+      autocapitalize="off"
+      spellcheck="false"
+    {%- endif -%}
+  >
+
+  {%- if settings.search_inline -%}
+    <button class="button">
+      {%- if section.settings.icons_image -%}
+        <span class="header__icon">
+          {% render 'icon-search' %}
+        </span>
+      {%- endif -%}
+
+      <span class="visually-hidden">{{ 'general.search.search' | t }}</span>
+    </button>
+  {%- endif -%}
+
+  {%- if settings.predictive_search_enabled -%}
+    <div class="predictive-search predictive-search--header" tabindex="-1" data-predictive-search></div>
+    <span class="predictive-search-status visually-hidden" role="status" aria-hidden="true"></span>
+  {%- endif -%}
+</form>

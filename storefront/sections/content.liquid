@@ -1,0 +1,255 @@
+{%- render 'section_padding' %}
+
+<div
+  id="{{ section.id }}"
+  class="
+    section
+    color-{{ section.settings.color_scheme }}
+    gradient
+  "
+>
+  <div class="{{ section.settings.layout }}">
+    {% content_for 'block', type: '_section-header', id: 'section-header' %}
+
+    <div class="section-wrapper">
+      {% content_for 'blocks' %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Blank Section",
+  "blocks": [
+    {
+      "type": "_custom-liquid"
+    },
+    {
+      "type": "_slideshow"
+    },
+    {
+      "type": "_grid"
+    },
+    {
+      "type": "_product-list"
+    },
+    {
+      "type": "_tabbed-content"
+    }
+  ],
+  "settings": [
+    {
+      "type": "header",
+      "content": "t:sections.general.section_settings"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.general.color_scheme"
+    },
+    {
+      "type": "select",
+      "id": "layout",
+      "label": "t:sections.general.layout",
+      "options": [
+        { "value": "page-width", "label": "t:sections.general.default" },
+        { "value": "full-width", "label": "t:sections.general.full_width" },
+        { "value": "screen-width", "label": "t:sections.general.screen_width" },
+        { "value": "narrow-width", "label": "t:sections.general.narrow_width" }
+      ],
+      "default": "page-width"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.general.section_spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 4,
+      "step": 0.1,
+      "unit": "rem",
+      "label": "t:sections.general.padding_top",
+      "default": 2
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 4,
+      "step": 0.1,
+      "unit": "rem",
+      "label": "t:sections.general.padding_bottom",
+      "default": 2
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom",
+      "min": 0,
+      "max": 4,
+      "step": 0.1,
+      "unit": "rem",
+      "label": "t:sections.general.margin_bottom",
+      "default": 0
+    }
+  ],
+  "presets": [
+    {
+      "name": "Blank Section",
+      "category": "Content"
+    },
+    {
+      "name": "Rich Text",
+      "category": "Content",
+      "blocks": [
+        {
+          "type": "_grid",
+          "settings": {
+            "columns_desktop": 1,
+            "columns_mobile": 1,
+            "enable_desktop_slider": false,
+            "enable_mobile_slider": false,
+          },
+          "blocks": [
+            {
+              "name": "Rich Text Block",
+              "type": "_grid-item",
+              "blocks": [
+                {
+                  "name": "Group",
+                  "type": "group",
+                  "settings": {
+                    "text_alignment": "center"
+                  },
+                  "blocks": [
+                    { "name": "Heading", "type": "heading", "settings": { "heading": "Rich text block heading" } },
+                    { "name": "Text", "type": "text", "settings": { "text": "<p>Rich text block text</p>" } }
+                  ]
+                }
+              ]
+            },
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Multiple Columns",
+      "category": "Content",
+      "blocks": [
+        {
+          "type": "_grid",
+          "blocks": [
+            {
+              "name": "Grid Item",
+              "type": "_grid-item",
+              "blocks": [
+                {
+                  "name": "Group",
+                  "type": "group",
+                  "blocks": [
+                    { "name": "Heading", "type": "heading" },
+                    { "name": "Text", "type": "text", "settings": { "text": "<p>Grid item text</p>" } }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "Grid Item",
+              "type": "_grid-item",
+              "blocks": [
+                {
+                  "name": "Group",
+                  "type": "group",
+                  "blocks": [
+                    { "name": "Heading", "type": "heading" },
+                    { "name": "Text", "type": "text", "settings": { "text": "<p>Grid item text</p>" } }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "Grid Item",
+              "type": "_grid-item",
+              "blocks": [
+                {
+                  "name": "Group",
+                  "type": "group",
+                  "blocks": [
+                    { "name": "Heading", "type": "heading" },
+                    { "name": "Text", "type": "text", "settings": { "text": "<p>Grid item text</p>" } }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Featured Collection",
+      "category": "Products",
+      "blocks": [
+        {
+          "type": "_product-list"
+        }
+      ]
+    },
+    {
+      "name": "Tabbed Content",
+      "category": "Content",
+      "blocks": [
+        {
+          "type": "_tabbed-content"
+        }
+      ]
+    },
+    {
+      "name": "Media Banners",
+      "category": "Media",
+      "settings": {
+        "layout": "screen-width",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "margin_bottom": 0
+      },
+      "blocks": [
+        {
+          "type": "_slideshow",
+          "blocks": [
+            {
+              "type": "_banner",
+              "blocks": [
+                {
+                  "name": "Banner content",
+                  "type": "group",
+                  "settings": {
+                    "background_color": "#ffffff"
+                  },
+                  "blocks": [
+                    {
+                      "type": "heading",
+                      "settings": {
+                        "heading": "Banner heading"
+                      }
+                    },
+                    {
+                      "type": "text",
+                      "settings": {
+                        "text": "<p>Banner text</p>"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "disabled_on": {
+    "groups": ["footer", "header"]
+  }
+}
+{% endschema %}

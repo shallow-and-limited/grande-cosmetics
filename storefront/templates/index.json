@@ -1,0 +1,827 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "content_TkBWcD": {
+      "type": "content",
+      "blocks": {
+        "slideshow_j8Jdga": {
+          "type": "_slideshow",
+          "settings": {
+            "accessibility_info": "",
+            "slider_autoplay": false,
+            "slider_speed": 5,
+            "slider_loop": false
+          },
+          "blocks": {
+            "banner_BPTb74": {
+              "type": "_banner",
+              "settings": {
+                "desktop_content_position": "below",
+                "desktop_remove_extra_padding": false,
+                "mobile_content_position": "below"
+              },
+              "blocks": {
+                "group_iVBA37": {
+                  "type": "group",
+                  "name": "Banner Content",
+                  "settings": {
+                    "flex_direction": "column",
+                    "gap": "1",
+                    "text_alignment": "left",
+                    "padding": 1,
+                    "flex_direction_mobile": "column",
+                    "gap_mobile": "1",
+                    "text_alignment_mobile": "left",
+                    "padding_mobile": 1,
+                    "background_color": "#ffffff"
+                  },
+                  "blocks": {
+                    "heading_eg6LKp": {
+                      "type": "heading",
+                      "settings": {
+                        "heading_tag": "h2",
+                        "heading": "Banner heading",
+                        "heading_size": "h2",
+                        "heading_size_mobile": "h2",
+                        "color": ""
+                      },
+                      "blocks": {}
+                    },
+                    "text_YmU76Q": {
+                      "type": "text",
+                      "settings": {
+                        "text": "<p>Banner text</p>",
+                        "text_style": "body--desktop",
+                        "mobile_text_style": "body--mobile",
+                        "text_weight": "normal",
+                        "color": ""
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "heading_eg6LKp",
+                    "text_YmU76Q"
+                  ]
+                },
+                "media": {
+                  "type": "media",
+                  "static": true,
+                  "settings": {
+                    "link": "",
+                    "media_type": "image",
+                    "image": "shopify://shop_images/101623_BYOB_CartThumb_v1.webp",
+                    "enable_video_autoplay": true,
+                    "media_width": "full_width",
+                    "media_max_width": 1200,
+                    "media_max_width_mobile": 480,
+                    "aspect_ratio": "medium",
+                    "aspect_ratio_mobile": "adapt",
+                    "overlay_opacity": 0,
+                    "overlay_color": "#000000"
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "group_iVBA37"
+              ]
+            },
+            "slider-controls": {
+              "type": "_slider-controls",
+              "static": true,
+              "settings": {
+                "hide_desktop": false,
+                "hide_mobile": false,
+                "show_dots": false,
+                "show_arrows": true,
+                "show_pause_button": true
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "banner_BPTb74"
+          ]
+        }
+      },
+      "block_order": [
+        "slideshow_j8Jdga"
+      ],
+      "name": "Media Banners",
+      "settings": {
+        "color_scheme": "",
+        "layout": "screen-width",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "margin_bottom": 0
+      }
+    },
+    "content_7GFbAz": {
+      "type": "content",
+      "blocks": {
+        "grid_iXNNyd": {
+          "type": "_grid",
+          "name": "Grid",
+          "settings": {
+            "enable_desktop_slider": true,
+            "enable_mobile_slider": true,
+            "columns_desktop": 2,
+            "columns_mobile": 1,
+            "accessibility_info": "",
+            "slider_autoplay": true,
+            "slider_speed": 5,
+            "slider_loop": true
+          },
+          "blocks": {
+            "grid_item_WHEH63": {
+              "type": "_grid-item",
+              "name": "Grid Item",
+              "settings": {},
+              "blocks": {
+                "group_9MVkFT": {
+                  "type": "group",
+                  "name": "Group",
+                  "settings": {
+                    "flex_direction": "column",
+                    "gap": "1",
+                    "text_alignment": "left",
+                    "padding": 1,
+                    "flex_direction_mobile": "column",
+                    "gap_mobile": "1",
+                    "text_alignment_mobile": "left",
+                    "padding_mobile": 1,
+                    "background_color": "#e10000"
+                  },
+                  "blocks": {
+                    "heading_gcdpi8": {
+                      "type": "heading",
+                      "name": "Heading",
+                      "settings": {
+                        "heading_tag": "h2",
+                        "heading": "Heading1",
+                        "heading_size": "h2",
+                        "heading_size_mobile": "h2",
+                        "color": ""
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "heading_gcdpi8"
+                  ]
+                }
+              },
+              "block_order": [
+                "group_9MVkFT"
+              ]
+            },
+            "grid_item_FBbMGF": {
+              "type": "_grid-item",
+              "name": "Grid Item",
+              "settings": {},
+              "blocks": {
+                "group_Bd8aEV": {
+                  "type": "group",
+                  "name": "Group",
+                  "settings": {
+                    "flex_direction": "column",
+                    "gap": "1",
+                    "text_alignment": "left",
+                    "padding": 1,
+                    "flex_direction_mobile": "column",
+                    "gap_mobile": "1",
+                    "text_alignment_mobile": "left",
+                    "padding_mobile": 1,
+                    "background_color": "#d9e5ff"
+                  },
+                  "blocks": {
+                    "heading_YtpkkK": {
+                      "type": "heading",
+                      "name": "Heading",
+                      "settings": {
+                        "heading_tag": "h2",
+                        "heading": "Heading",
+                        "heading_size": "h2",
+                        "heading_size_mobile": "h2",
+                        "color": ""
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "heading_YtpkkK"
+                  ]
+                }
+              },
+              "block_order": [
+                "group_Bd8aEV"
+              ]
+            },
+            "grid_item_ynmFBq": {
+              "type": "_grid-item",
+              "name": "Grid Item",
+              "settings": {},
+              "blocks": {
+                "group_6GTxp3": {
+                  "type": "group",
+                  "name": "Group",
+                  "settings": {
+                    "flex_direction": "column",
+                    "gap": "1",
+                    "text_alignment": "left",
+                    "padding": 1,
+                    "flex_direction_mobile": "column",
+                    "gap_mobile": "1",
+                    "text_alignment_mobile": "left",
+                    "padding_mobile": 1,
+                    "background_color": ""
+                  },
+                  "blocks": {
+                    "heading_4a8AKU": {
+                      "type": "heading",
+                      "name": "Heading",
+                      "settings": {
+                        "heading_tag": "h2",
+                        "heading": "Heading",
+                        "heading_size": "h2",
+                        "heading_size_mobile": "h2",
+                        "color": ""
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "heading_4a8AKU"
+                  ]
+                }
+              },
+              "block_order": [
+                "group_6GTxp3"
+              ]
+            },
+            "grid_item_TBMTwC": {
+              "type": "_grid-item",
+              "name": "Grid Item",
+              "settings": {},
+              "blocks": {
+                "group_nJ7HLw": {
+                  "type": "group",
+                  "name": "Group",
+                  "settings": {
+                    "flex_direction": "column",
+                    "gap": "1",
+                    "text_alignment": "left",
+                    "padding": 1,
+                    "flex_direction_mobile": "column",
+                    "gap_mobile": "1",
+                    "text_alignment_mobile": "left",
+                    "padding_mobile": 1,
+                    "background_color": ""
+                  },
+                  "blocks": {
+                    "heading_p6ThDe": {
+                      "type": "heading",
+                      "name": "Heading",
+                      "settings": {
+                        "heading_tag": "h2",
+                        "heading": "Heading4",
+                        "heading_size": "h2",
+                        "heading_size_mobile": "h2",
+                        "color": ""
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "heading_p6ThDe"
+                  ]
+                }
+              },
+              "block_order": [
+                "group_nJ7HLw"
+              ]
+            },
+            "slider-controls": {
+              "type": "_slider-controls",
+              "static": true,
+              "settings": {
+                "hide_desktop": false,
+                "hide_mobile": false,
+                "show_dots": false,
+                "show_arrows": true,
+                "show_pause_button": false
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "grid_item_WHEH63",
+            "grid_item_FBbMGF",
+            "grid_item_ynmFBq",
+            "grid_item_TBMTwC"
+          ]
+        }
+      },
+      "block_order": [
+        "grid_iXNNyd"
+      ],
+      "name": "Section",
+      "settings": {
+        "color_scheme": "scheme-2",
+        "layout": "page-width",
+        "padding_top": 2,
+        "padding_bottom": 2,
+        "margin_bottom": 0
+      }
+    },
+    "media_with_text_yd6CYe": {
+      "type": "media-with-text",
+      "blocks": {
+        "content_hE4Vmb": {
+          "type": "content",
+          "settings": {
+            "image_first": true,
+            "video_url": "",
+            "video_autoplay": false,
+            "heading": "Hand-Knotted Rugs",
+            "heading_size": "h2",
+            "text": "<p>At the Samad rug boutique each hand-knotted rug is entirely unique, with hundreds of skilled artisans involved in the intricate rug making process. Learn more about the craftsmanship behind our rugs.<br/><br/></p><p><a href=\"/pages/rugmaking\" title=\"Rug Making\">Learn More</a></p>",
+            "text_style": "body--large",
+            "mobile_text_style": "body--mobile",
+            "button_label": "",
+            "button_link": "",
+            "button_style_secondary": true,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false,
+            "box_color_scheme": "",
+            "desktop_content_position": "middle",
+            "desktop_content_alignment": "left",
+            "content_layout": "no-overlap",
+            "mobile_content_alignment": "left"
+          }
+        }
+      },
+      "block_order": [
+        "content_hE4Vmb"
+      ],
+      "name": "t:sections.image-with-text.name",
+      "settings": {
+        "color_scheme": "",
+        "layout": "page-width",
+        "aspect_ratio": "square",
+        "desktop_image_width": "medium",
+        "slider_show_dots": true,
+        "slider_show_arrows": false,
+        "padding_top": 2,
+        "padding_bottom": 2,
+        "margin_bottom": 0
+      }
+    },
+    "featured_collection_VKCTNb": {
+      "type": "featured-collection",
+      "custom_css": [
+        ".product-form__buttons {display: none;}",
+        ".price-item {display: none;}"
+      ],
+      "name": "t:sections.featured-collection.presets.name",
+      "settings": {
+        "color_scheme": "scheme-2",
+        "layout": "page-width",
+        "title": "Grounded Greens",
+        "header_is_h1": false,
+        "visually_hide_header": false,
+        "heading_size": "h1",
+        "description": "<p>Bring balance to your space with our bestselling rugs, now refreshed in soothing shades of green.</p>",
+        "text_style": "body--large",
+        "mobile_text_style": "body--mobile",
+        "heading_alignment": "center",
+        "product_position": "first",
+        "collection": "green",
+        "enable_featured_banner": false,
+        "products_to_show": 5,
+        "columns_desktop": 5,
+        "show_view_all": true,
+        "view_all_text": "Shop Green Rugs",
+        "view_all_style": "solid",
+        "enable_desktop_slider": false,
+        "card_color_scheme": "scheme-2",
+        "columns_mobile": 1,
+        "swipe_on_mobile": true,
+        "full_width": false,
+        "slider_show_dots": false,
+        "slider_show_arrows": true,
+        "padding_top": 2,
+        "padding_bottom": 2,
+        "margin_bottom": 0
+      }
+    },
+    "multicolumn_qLqDh9": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_KqraYg": {
+          "type": "column",
+          "settings": {
+            "color_scheme": "",
+            "image_overlay_opacity": 0,
+            "show_overlay_on_hover": false,
+            "title": "Mongolian Cashmere",
+            "heading_size": "h3",
+            "heading_size_mobile": "h3--mobile",
+            "text": "<p>Extremely soft to the touch, these plush cashmere rugs are simply bliss beneath your feet. Made with luxurious cashmere wool, this lustrous collection is available in both solid color shades and a variety of Moroccan lattice patterns.</p>",
+            "text_style": "body",
+            "text_style_mobile": "body--mobile",
+            "link_label": "",
+            "link": "shopify://collections/featured-collection",
+            "show_link_as_button": false,
+            "card_padding": 0.5
+          }
+        },
+        "column_7PmAwR": {
+          "type": "column",
+          "settings": {
+            "color_scheme": "scheme-1",
+            "image_overlay_opacity": 0,
+            "show_overlay_on_hover": false,
+            "title": "Dunes Wool & Silk Rug",
+            "heading_size": "h3",
+            "heading_size_mobile": "h3--mobile",
+            "text": "<p>Made with wool and 50% silk, the rugs in the Dunes Wool & Silk RugCollection has a soft feel and lustrous shimmer. The striations in the rug give it texture and while offering an added level of dynamism within a space.</p>",
+            "text_style": "body",
+            "text_style_mobile": "body--mobile",
+            "link_label": "",
+            "link": "shopify://collections/featured-collection",
+            "show_link_as_button": false,
+            "card_padding": 0.5
+          }
+        },
+        "column_aET3Qw": {
+          "type": "column",
+          "settings": {
+            "color_scheme": "",
+            "image_overlay_opacity": 0,
+            "show_overlay_on_hover": false,
+            "title": "Discovery Flatweaves",
+            "heading_size": "h3",
+            "heading_size_mobile": "h3--mobile",
+            "text": "<p>Discovery Flatweaves offer traditional decorative designs in an ultra-fine kilim weave. Fully reversible, these rugs use production methods dating back to the Mughal dynasty such as 100% vegetable dyes and small batch dying, which give them their vibrant and natural colors.</p>",
+            "text_style": "body",
+            "text_style_mobile": "body--mobile",
+            "link_label": "",
+            "link": "shopify://collections/featured-collection",
+            "show_link_as_button": false,
+            "card_padding": 0.5
+          }
+        }
+      },
+      "block_order": [
+        "column_KqraYg",
+        "column_7PmAwR",
+        "column_aET3Qw"
+      ],
+      "custom_css": [],
+      "name": "t:sections.multicolumn.presets.name",
+      "settings": {
+        "color_scheme": "scheme-1",
+        "layout": "page-width",
+        "enable_desktop_slider": false,
+        "full_width": false,
+        "title": "",
+        "header_is_h1": false,
+        "visually_hide_header": false,
+        "heading_size": "h2",
+        "description": "",
+        "text_style": "body",
+        "mobile_text_style": "body--mobile",
+        "heading_alignment": "left",
+        "cta_text": "",
+        "cta_link": "",
+        "override_grid_gap": false,
+        "spacing_grid_horizontal": 0,
+        "spacing_grid_horizontal_mobile": 8,
+        "overlap": false,
+        "aspect_ratio": "adapt",
+        "override_image_size": false,
+        "image_width": 72,
+        "columns_desktop": 3,
+        "column_alignment": "left",
+        "columns_mobile": 1,
+        "swipe_on_mobile": true,
+        "slider_show_dots": true,
+        "slider_show_arrows": false,
+        "padding_top": 2,
+        "padding_bottom": 2,
+        "margin_bottom": 0
+      }
+    },
+    "multicolumn_7t8pVm": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_6tmAmc": {
+          "type": "column",
+          "settings": {
+            "color_scheme": "",
+            "image_overlay_opacity": 0,
+            "show_overlay_on_hover": false,
+            "title": "",
+            "heading_size": "h3",
+            "heading_size_mobile": "h3--mobile",
+            "text": "",
+            "text_style": "body",
+            "text_style_mobile": "body--mobile",
+            "link_label": "",
+            "link": "shopify://collections/ancient-collection",
+            "show_link_as_button": false,
+            "card_padding": 0.6
+          }
+        },
+        "column_dMpTFj": {
+          "type": "column",
+          "settings": {
+            "color_scheme": "",
+            "image_overlay_opacity": 0,
+            "show_overlay_on_hover": false,
+            "title": "",
+            "heading_size": "h3",
+            "heading_size_mobile": "h3--mobile",
+            "text": "",
+            "text_style": "body",
+            "text_style_mobile": "body--mobile",
+            "link_label": "",
+            "link": "shopify://collections/ancient-collection",
+            "show_link_as_button": false,
+            "card_padding": 0.6
+          }
+        }
+      },
+      "block_order": [
+        "column_6tmAmc",
+        "column_dMpTFj"
+      ],
+      "name": "t:sections.multicolumn.presets.name",
+      "settings": {
+        "color_scheme": "",
+        "layout": "page-width",
+        "enable_desktop_slider": false,
+        "full_width": false,
+        "title": "",
+        "header_is_h1": false,
+        "visually_hide_header": false,
+        "heading_size": "h2",
+        "description": "",
+        "text_style": "body",
+        "mobile_text_style": "body--mobile",
+        "heading_alignment": "left",
+        "cta_text": "",
+        "cta_link": "",
+        "override_grid_gap": true,
+        "spacing_grid_horizontal": 0,
+        "spacing_grid_horizontal_mobile": 0,
+        "overlap": false,
+        "aspect_ratio": "landscape",
+        "override_image_size": false,
+        "image_width": 72,
+        "columns_desktop": 2,
+        "column_alignment": "left",
+        "columns_mobile": 1,
+        "swipe_on_mobile": false,
+        "slider_show_dots": true,
+        "slider_show_arrows": false,
+        "padding_top": 1,
+        "padding_bottom": 1,
+        "margin_bottom": 0
+      }
+    },
+    "featured_collection_cM6NAV": {
+      "type": "featured-collection",
+      "custom_css": [
+        ".product-form__buttons {display: none;}",
+        ".price-item {display: none;}"
+      ],
+      "name": "t:sections.featured-collection.presets.name",
+      "settings": {
+        "color_scheme": "scheme-1",
+        "layout": "page-width",
+        "title": "Featured Boutique Rugs",
+        "header_is_h1": false,
+        "visually_hide_header": false,
+        "heading_size": "h1",
+        "description": "<p>New hand-knotted rugs</p>",
+        "text_style": "body--large",
+        "mobile_text_style": "body--mobile",
+        "heading_alignment": "center",
+        "product_position": "first",
+        "collection": "featured-collection",
+        "enable_featured_banner": false,
+        "products_to_show": 5,
+        "columns_desktop": 5,
+        "show_view_all": true,
+        "view_all_text": "Shop All Featured Rugs",
+        "view_all_style": "solid",
+        "enable_desktop_slider": false,
+        "card_color_scheme": "scheme-1",
+        "columns_mobile": 1,
+        "swipe_on_mobile": true,
+        "full_width": false,
+        "slider_show_dots": false,
+        "slider_show_arrows": true,
+        "padding_top": 2,
+        "padding_bottom": 2,
+        "margin_bottom": 0
+      }
+    },
+    "media_with_text_cRrbcc": {
+      "type": "media-with-text",
+      "blocks": {
+        "content_9DqK4W": {
+          "type": "content",
+          "settings": {
+            "image_first": false,
+            "video_url": "",
+            "video_autoplay": false,
+            "heading": "Our Story",
+            "heading_size": "h2",
+            "text": "<p>Founded in New York City in 1985 by London-born brothers David and Malcolm Samad, our family-owned business is rooted in four generations of rug-making expertise. Inspired by the legacy of their father, Eric Samad, the brothers emigrated to the U.S. with a shared vision: to create the world’s finest handmade rugs.</p>",
+            "text_style": "body",
+            "mobile_text_style": "body--mobile",
+            "button_label": "Learn More",
+            "button_link": "shopify://pages/aboutus",
+            "button_style_secondary": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false,
+            "box_color_scheme": "",
+            "desktop_content_position": "middle",
+            "desktop_content_alignment": "left",
+            "content_layout": "no-overlap",
+            "mobile_content_alignment": "left"
+          }
+        }
+      },
+      "block_order": [
+        "content_9DqK4W"
+      ],
+      "name": "t:sections.image-with-text.name",
+      "settings": {
+        "color_scheme": "",
+        "layout": "page-width",
+        "aspect_ratio": "adapt",
+        "desktop_image_width": "large",
+        "slider_show_dots": true,
+        "slider_show_arrows": false,
+        "padding_top": 2,
+        "padding_bottom": 2,
+        "margin_bottom": 0
+      }
+    },
+    "rich_text_Dm6xir": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_t3FTCw": {
+          "type": "heading",
+          "settings": {
+            "heading": "Our Stories",
+            "heading_size": "h2"
+          }
+        },
+        "text_iNU7gR": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Discover rug trends, décor tips, sustainability practices and collection updates from our wholesale rug boutique.</p>",
+            "text_style": "body--large",
+            "mobile_text_style": "body--mobile"
+          }
+        }
+      },
+      "block_order": [
+        "heading_t3FTCw",
+        "text_iNU7gR"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "color_scheme": "scheme-2",
+        "layout": "screen-width",
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "padding_top": 2,
+        "padding_bottom": 0,
+        "margin_bottom": 0
+      }
+    },
+    "media_with_text_xAAgri": {
+      "type": "media-with-text",
+      "blocks": {
+        "content_wXtnbp": {
+          "type": "content",
+          "settings": {
+            "image_first": true,
+            "video_url": "",
+            "video_autoplay": false,
+            "heading": "25 Years of Timeless Elegance – The Jewel Rug",
+            "heading_size": "h2",
+            "text": "<p>We are proud to celebrate the 25-year anniversary of our iconic <a href=\"https://samad.us9.list-manage.com/track/click?u=eeb16ae0730645685acdaf94e&id=dbaf4ab329&e=1b148ab8b7\" target=\"_blank\"><strong>Jewel rug</strong></a> from the bestselling <a href=\"https://samad.us9.list-manage.com/track/click?u=eeb16ae0730645685acdaf94e&id=bf611d671b&e=1b148ab8b7\" target=\"_blank\"><strong>Golden Age Collection</strong></a>. The first Jewel rug sold was in July 1999, and is still programed 25 years later – an unprecedented achievement in Samad’s 40-year history! </p>",
+            "text_style": "body",
+            "mobile_text_style": "body--mobile",
+            "button_label": "Read More",
+            "button_link": "https://blog.samad.com/jewel-rug/",
+            "button_style_secondary": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false,
+            "box_color_scheme": "scheme-1",
+            "desktop_content_position": "middle",
+            "desktop_content_alignment": "left",
+            "content_layout": "overlap",
+            "mobile_content_alignment": "left"
+          }
+        },
+        "content_8aNz7r": {
+          "type": "content",
+          "settings": {
+            "image_first": true,
+            "video_url": "",
+            "video_autoplay": false,
+            "heading": "Luxury Pink Rugs for Modern Décor",
+            "heading_size": "h2",
+            "text": "<p>Luxury pink rugs are the perfect way to introduce a touch of elegance and playfulness into modern decor. From soft blush to bold fuchsia, pink rugs offer endless design possibilities to enhance any space. Integrating pink into modern decor, can help achieve a look that’s stylish, welcoming and full of life.</p>",
+            "text_style": "body",
+            "mobile_text_style": "body--mobile",
+            "button_label": "Read More",
+            "button_link": "https://blog.samad.com/luxury-pink-rugs/",
+            "button_style_secondary": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false,
+            "box_color_scheme": "",
+            "desktop_content_position": "middle",
+            "desktop_content_alignment": "left",
+            "content_layout": "overlap",
+            "mobile_content_alignment": "left"
+          }
+        },
+        "content_XNz6CY": {
+          "type": "content",
+          "settings": {
+            "image_first": true,
+            "video_url": "",
+            "video_autoplay": false,
+            "heading": "Floral Rug Styles Fit for Spring",
+            "heading_size": "h2",
+            "text": "<p>Come Spring, temperatures are rising, flowers are blooming and the natural world is flourishing yet again. Simply put, the vibrant season synonymous with rebirth, is nothing short of glorious.</p>",
+            "text_style": "body",
+            "mobile_text_style": "body--mobile",
+            "button_label": "Read More",
+            "button_link": "https://blog.samad.com/floral-rug/",
+            "button_style_secondary": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false,
+            "box_color_scheme": "",
+            "desktop_content_position": "middle",
+            "desktop_content_alignment": "left",
+            "content_layout": "overlap",
+            "mobile_content_alignment": "left"
+          }
+        }
+      },
+      "block_order": [
+        "content_wXtnbp",
+        "content_8aNz7r",
+        "content_XNz6CY"
+      ],
+      "name": "t:sections.image-with-text.name",
+      "settings": {
+        "color_scheme": "scheme-2",
+        "layout": "page-width",
+        "aspect_ratio": "square",
+        "desktop_image_width": "small",
+        "slider_show_dots": true,
+        "slider_show_arrows": false,
+        "padding_top": 2,
+        "padding_bottom": 2,
+        "margin_bottom": 0
+      }
+    }
+  },
+  "order": [
+    "content_TkBWcD",
+    "content_7GFbAz",
+    "media_with_text_yd6CYe",
+    "featured_collection_VKCTNb",
+    "multicolumn_qLqDh9",
+    "multicolumn_7t8pVm",
+    "featured_collection_cM6NAV",
+    "media_with_text_cRrbcc",
+    "rich_text_Dm6xir",
+    "media_with_text_xAAgri"
+  ]
+}

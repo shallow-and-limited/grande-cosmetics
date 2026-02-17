@@ -1,0 +1,34 @@
+<li
+  id="{{ block.id }}"
+  class="grid__item"
+>
+  {% content_for 'blocks' %}
+</li>
+
+{% schema %}
+{
+  "name": "Grid Item",
+  "tag": null,
+  "blocks": [
+    {
+      "type": "group"
+    }
+  ],
+  "settings": [
+    {
+      "type": "header",
+      "content": "Desktop settings"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Grid Item",
+      "blocks": [
+        {
+          "type": "group"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

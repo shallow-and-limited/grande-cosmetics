@@ -1,0 +1,264 @@
+{% comment %}
+  Renders a mega menu for the header with bold and italic settings.
+
+  Usage:
+  {% render 'header_mega-menu' %}
+{% endcomment %}
+
+{%- assign display = false -%}
+{%- for block in section.blocks -%}
+  {%- if block.type != 'mega_menu' -%}
+    {%- continue -%}
+  {%- endif -%}
+
+  {%- assign display = true -%}
+  {%- break -%}
+{%- endfor -%}
+
+{% if display %}
+  <nav class="header__menu">
+    <ul class="list-menu list-menu--inline list--unstyled" role="list">
+      {%- for block in section.blocks -%}
+        {%- if block.type != 'mega_menu' -%}
+          {%- continue -%}
+        {%- endif -%}
+
+        {%- capture parent_content -%}
+          {%- if block.settings.parent_link == blank -%}
+            <span
+              class="{{ block.settings.mega_weight }}"
+              {% if block.settings.parent_color != blank and block.settings.parent_color.alpha != 0 %}
+                style="color: {{ block.settings.parent_color }};"
+              {% endif %}
+            >
+              {{ block.settings.title }}
+            </span>
+          {%- else -%}
+            <a
+              href="{{ block.settings.parent_link }}"
+              class="link link--unstyled"
+              {% if link.current %}
+                aria-current="page"
+              {% endif %}
+            >
+              <span
+                class="{{ block.settings.mega_weight }}"
+                {% if block.settings.parent_color != blank and block.settings.parent_color.alpha != 0 %}
+                  style="color: {{ block.settings.parent_color }};"
+                {% endif %}
+              >
+                {{ block.settings.title }}
+              </span>
+            </a>
+          {%- endif -%}
+        {%- endcapture -%}
+
+        <li>
+          {%-
+            if block.settings.menu != blank
+            or block.settings.image_1 != blank
+            or block.settings.video_1 != blank
+            or block.settings.image_2 != blank
+            or block.settings.video_2 != blank
+            or block.settings.image_3 != blank
+            or block.settings.video_3 != blank
+            or block.settings.image_4 != blank
+            or block.settings.video_4 != blank
+          -%}
+            {%- assign column_count = 0 -%}
+
+            <header-menu>
+              <details id="Details-HeaderMenu-{{ block.id }}" class="mega-menu">
+                <summary class="header__menu-item">
+                  {{ parent_content }}
+                </summary>
+                <div
+                  id="MegaMenu-Content-{{ block.id }}"
+                  class="mega-menu__content color-{{ section.settings.menu_color_scheme }} gradient motion-reduce"
+                  tabindex="-1"
+                >
+                  <ul class="mega-menu__list {{ section.settings.layout }}" role="list">
+                    {%- for link in block.settings.menu.links -%}
+                      {%- assign column_count = column_count | plus: 1 %}
+                      {%- assign parent_handle = link.title | handleize -%}
+
+                      <li class="mega-menu__column">
+                        {%- if link.url == '#' -%}
+                          <h3 class="mega-menu__parent {{ block.settings.parent_style }} {% if block.settings.parent_underline %}mega-menu__parent--underline{% endif %} link link--unstyled">
+                            {{ link.title }}
+                          </h3>
+                        {%- else -%}
+                          <a
+                            href="{{ link.url }}"
+                            class="mega-menu__parent {{ block.settings.parent_style }} {% if block.settings.parent_underline %}mega-menu__parent--underline{% endif %} link link--unstyled"
+                            {% if childlink.current %}
+                              aria-current="page"
+                            {% endif %}
+                          >
+                            {{ link.title }}
+                          </a>
+                        {%- endif -%}
+
+                        {%- if link.links != blank -%}
+                          <ul class="mega-menu__children list--unstyled" role="list">
+                            {%- for child_link in link.links -%}
+                              {%- assign child_handle = child_link.title | handleize -%}
+                              <li>
+                                <a
+                                  href="{{ child_link.url }}"
+                                  class="
+                                    mega-menu__child
+                                    {{ block.settings.child_style }}
+                                    link
+                                    link--unstyled
+                                    {% if parent_handle == "color" %}mega-menu__child--color{% endif %}
+                                  "
+                                  {% if grandchildlink.current %}
+                                    aria-current="page"
+                                  {% endif %}
+                                >
+                                  {% if parent_handle == "color" %}
+                                    {%- assign color = shop.metaobjects.shopify--color-pattern[child_handle] -%}
+
+                                    <div 
+                                      class="mega-menu__colorbox"
+                                      style="background-color:{{ color.color }}"
+                                      aria-hidden="true"
+                                    >
+                                    </div>
+                                  {% endif %}
+
+                                  {% assign is_highlighted = false %}
+
+                                  {% if block.settings.highlight_text != blank %}
+                                    {%- assign highlight_text = block.settings.highlight_text | split: ',' -%}
+                                    {%- for highlight in highlight_text -%}
+                                      {%- assign highlight_data = highlight | split: ':' -%}
+                                      {%- assign highlight_text = highlight_data[0] | strip -%}
+                                      {%- assign highlight_color = highlight_data[1] | strip -%}
+
+                                      {% if highlight_text == child_link.title %}
+                                        {% assign is_highlighted = true %}
+
+                                        <span style="color:{{ highlight_color }}">
+                                          {{ child_link.title }}
+                                        </span>
+                                      {% endif %}
+                                    {%- endfor -%}
+                                  {% endif %}
+
+                                  {% if is_highlighted == false %}
+                                    {{ child_link.title }}
+                                  {% endif %}
+                                </a>
+                              </li>
+                            {%- endfor -%}
+                          </ul>
+                        {%- endif -%}
+                      </li>
+                    {%- endfor -%}
+
+                    {%-
+                      if block.settings.image_1 != blank
+                      or block.settings.image_2 != blank
+                      or block.settings.video_1 != blank
+                      or block.settings.video_2 != blank
+                    -%}
+                      <li class="mega-menu__column mega-menu__column--images">
+                        <slider-component>
+                          <ul
+                            id="Slider-MegaMenu-{{ block.id }}"
+                            class="
+                              mega-menu__images
+                              mega-menu__images--{{ block.settings.desktop_format }}
+                              {% if block.settings.desktop_format == 'grid' %}mega-menu__images--grid-{{ block.settings.desktop_grid_columns }}{% endif %}
+                              slider
+                              {% if block.settings.desktop_format == 'slider' %}slider--desktop{% endif %}
+                            "
+                          >
+                            {%- for i in (1..4) -%}
+                              {% assign image = 'image_' | append: i %}
+                              {% assign video = 'video_' | append: i %}
+
+                              {% assign title = 'title_' | append: i %}
+                              {% assign text = 'text_' | append: i %}
+                              {% assign link_text = 'link_text_' | append: i %}
+                              {% assign link_url = 'link_url_' | append: i %}
+
+                              {% if block.settings[image] != blank or block.settings[video] != blank %}
+                                <li
+                                  id="Slide-MegaMenu-{{ block.id }}-{{ forloop.index }}"
+                                  class="grid__item slider__slide mega-menu__image"
+                                >
+                                  <a href="{{ block.settings[link_url] }}" class="link link--unstyled">
+                                    <div
+                                      class="media media--{{ block.settings.image_aspect_ratio }}"
+                                      {% if block.settings.image_aspect_ratio == 'adapt' %}
+                                        style="padding-bottom: {{ 1 | divided_by: block.settings[image].aspect_ratio | times: 100 }}%;"
+                                      {% endif %}
+                                    >
+                                      {%- if block.settings[video] != blank -%}
+                                        {{
+                                          block.settings[video]
+                                          | video_tag:
+                                          image_size: '400x',
+                                          autoplay: true,
+                                          loop: true,
+                                          controls: false,
+                                          muted: true
+                                        }}
+                                      {%- else -%}
+                                        {{
+                                          block.settings[image]
+                                          | image_url: width: 400
+                                          | image_tag:
+                                          height: block.settings[image].height,
+                                          width: block.settings[image].width,
+                                          alt: block.settings[image].alt,
+                                          lazy: true
+                                        }}
+                                      {%- endif -%}
+                                    </div>
+                                  </a>
+
+                                  <div class="mega-menu__image-content">
+                                    {%- if block.settings[title] != blank -%}
+                                      <h3 class="mega-menu__image-title bold body">
+                                        {{ block.settings[title] }}
+                                      </h3>
+                                    {%- endif -%}
+
+                                    {%- if block.settings[text] != blank -%}
+                                      <p class="mega-menu__image-text body body--small">{{ block.settings[text] }}</p>
+                                    {%- endif -%}
+
+                                    {%- if block.settings[link_text] != blank -%}
+                                      <a
+                                        href="{{ block.settings[link_url] }}"
+                                        class="link body body--small link--arrow mega-menu__image-link"
+                                      >
+                                        {{- block.settings[link_text] -}}
+                                      </a>
+                                    {%- endif -%}
+                                  </div>
+                                </li>
+                              {% endif %}
+                            {% endfor %}
+                          </ul>
+                        </slider-component>
+                      </li>
+                    {%- endif -%}
+                  </ul>
+                </div>
+              </details>
+            </header-menu>
+          {%- else -%}
+            <div class="header__menu-item">
+              {{ parent_content }}
+            </div>
+          {%- endif -%}
+        </li>
+      {%- endfor -%}
+    </ul>
+  </nav>
+{% endif %}

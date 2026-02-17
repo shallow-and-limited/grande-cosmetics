@@ -1,0 +1,228 @@
+<slider-component
+  role="region"
+
+  data-loop="{{ block.settings.slider_loop }}"
+  data-autoplay="{{ block.settings.slider_autoplay }}"
+
+  {% if block.settings.slider_autoplay %}
+    data-speed="{{ block.settings.slider_speed | times: 1000 }}"
+  {% endif %}
+
+  {% if block.settings.slider_loop %}
+    aria-roledescription="{{ 'slider.carousel' | t }}"    
+  {% endif %}
+
+  {% if block.settings.accessibility_info != blank %}
+    aria-label="{{ block.settings.accessibility_info | escape }}"
+  {% endif %}
+>
+  <ul
+    id="Slider-{{ block.id }}"
+    class="
+      grid
+      grid--{{ block.settings.columns_desktop | handle }}-col-desktop
+      grid--{{ block.settings.columns_mobile | handle }}-col-mobile
+      slider
+      {% if block.settings.enable_desktop_slider %}slider--desktop{% endif %}
+      {% if block.settings.enable_mobile_slider %}slider--mobile{% endif %}
+    "
+    role="list"
+    aria-label="{{ 'slider.name' | t }}"
+  >
+    {% content_for 'blocks' %}
+
+    {% if block.settings.collection != blank %}
+      {% for product in block.settings.collection.products limit: block.settings.product_limit %}
+        {% content_for 'block',
+          type: '_product-card',
+          id: 'static-product-card',
+          closest.product: product,
+          product: product
+        %}
+      {% endfor %}
+    {% endif %}
+  </ul>
+
+  {% if block.settings.enable_desktop_slider or block.settings.enable_mobile_slider %}
+    {% content_for 'block', type: '_slider-controls', id: 'slider-controls' %}
+  {% endif %}
+</slider-component>
+
+{%- if block.settings.show_view_all and block.settings.collection.products.size > block.settings.product_limit -%}
+  <div class="collection__view-all">
+    <a
+      href="{{ block.settings.collection.url }}"
+      class="{{ block.settings.view_all_style }}"
+    >
+      {%- if block.settings.view_all_text != blank -%}
+        {{ block.settings.view_all_text }}
+      {%- else -%}
+        {{ 'sections.featured_collection.view_all' | t }}
+      {%- endif -%}
+    </a>
+  </div>
+{%- endif -%}
+
+{% stylesheet %}
+  .collection__view-all {
+    margin-top: calc(var(--spacing-row) * 2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .collection__view-all > * {
+    width: auto;
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Product List",
+  "blocks": [
+    {
+      "type": "_product-card"
+    },
+    {
+      "type": "_media-card"
+    }
+  ],
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "Additional products can be added by adding a block of type 'Product Card'. They will appear before the collection products."
+    },
+    {
+      "type": "header",
+      "content": "Collection settings"
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Collection"
+    },
+    {
+      "visible_if": "{{ block.settings.collection != blank }}",
+      "type": "range",
+      "id": "product_limit",
+      "label": "Product Limit",
+      "min": 2,
+      "max": 24,
+      "step": 1,
+      "default": 12
+    },
+    {
+      "type": "checkbox",
+      "id": "show_view_all",
+      "label": "Show 'View all' button",
+      "default": true
+    },
+    {
+      "visible_if": "{{ block.settings.show_view_all }}",
+      "type": "text",
+      "id": "view_all_text",
+      "label": "View all text",
+      "default": "View all"
+    },
+    {
+      "visible_if": "{{ block.settings.show_view_all }}",
+      "type": "select",
+      "id": "view_all_style",
+      "label": "View all style",
+      "options": [
+        {
+          "value": "link",
+          "label": "Link"
+        },
+        {
+          "value": "button",
+          "label": "Button"
+        },
+        {
+          "value": "button button--secondary",
+          "label": "Secondary button"
+        }
+      ],
+      "default": "button"
+    },
+    {
+      "type": "header",
+      "content": "Grid settings"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_desktop_slider",
+      "label": "Enable desktop slider",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_mobile_slider",
+      "label": "Enable mobile slider",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "columns_desktop",
+      "min": 1,
+      "max": 7.5,
+      "step": 0.5,
+      "default": 4,
+      "label": "t:sections.collection-list.settings.columns_desktop.label"
+    },
+    {
+      "type": "range",
+      "id": "columns_mobile",
+      "min": 1,
+      "max": 3.5,
+      "step": 0.5,
+      "default": 1.5,
+      "label": "Number of columns on mobile"
+    },
+    {
+      "type": "header",
+      "content": "Slider settings"
+    },
+    {
+      "type": "text",
+      "id": "accessibility_info",
+      "label": "Accessibility info",
+      "info": "Describe the slider for customers using screen readers"
+    },
+    {
+      "type": "checkbox",
+      "id": "slider_autoplay",
+      "label": "Autoplay",
+      "default": false
+    },
+    {
+      "visible_if": "{{ block.settings.slider_autoplay }}",
+      "type": "range",
+      "id": "slider_speed",
+      "label": "Slideshow speed",
+      "min": 1,
+      "max": 10,
+      "step": 1,
+      "default": 5,
+      "unit": "s"
+    },
+    {
+      "type": "checkbox",
+      "id": "slider_loop",
+      "label": "Loop",
+      "default": false
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product List",
+      "category": "Products",
+      "blocks": [
+        {
+          "type": "_product-card",
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,58 @@
+{% comment %}
+  Renders a header search modal. Should be used with 'header.liquid'
+
+  Accepts:
+  - input_id: {String} Id for the search input element (required)
+
+  Usage:
+  {% render 'header_search', input_id: 'My-Id'%}
+{% endcomment %}
+
+<details-modal class="header__search {% if settings.search_inline %}hidden--desktop{% endif %}">
+  <details>
+    <summary
+      aria-haspopup="dialog"
+      aria-label="{{ 'general.search.search' | t }}"
+      class="
+        {% if section.settings.button_icons %}
+          header__button button
+        {% else %}
+          header__icon link
+        {% endif %}
+      "
+    >
+      {%- if section.settings.icons_image -%}
+        {% render 'icon-search' %}
+      {%- endif -%}
+
+      <span class="{% unless section.settings.button_icons %}body body--small{% endunless %} {% unless section.settings.icons_text %}visually-hidden{% endunless %}">
+        {{ 'general.search.search' | t }}
+      </span>
+    </summary>
+    <div
+      class="search-modal modal__content color-{{ section.settings.menu_color_scheme }} gradient"
+      role="dialog"
+      aria-modal="true"
+      aria-label="{{ 'general.search.search' | t }}"
+    >
+      <div class="modal-overlay"></div>
+      <div
+        class="search-modal__content"
+        tabindex="-1"
+      >
+        {%- if settings.predictive_search_enabled -%}
+          <predictive-search
+            class="search-modal__form page-width"
+            data-loading-text="{{ 'accessibility.loading' | t }}"
+          >
+            {% render 'header_search-form' %}
+          </predictive-search>
+        {%- else -%}
+          <search-form class="search-modal__form page-width">
+            {% render 'header_search-form' %}
+          </search-form>
+        {%- endif -%}
+      </div>
+    </div>
+  </details>
+</details-modal>

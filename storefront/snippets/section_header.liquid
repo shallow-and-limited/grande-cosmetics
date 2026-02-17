@@ -1,0 +1,168 @@
+{% comment %}
+  Legacy section header snippet.
+
+  Delete this snippet once all sections are migrated to the new section header block.
+{% endcomment %}
+
+{%- if section.settings.title != blank or section.settings.description != blank -%}
+  <div class="
+      {{ section.settings.heading_alignment }}
+      section__header
+      section__header--{{ section.settings.header_postion }}
+      {% if section.settings.layout == "screen-width" %}page-width{% endif %}
+      {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}
+    ">
+    {%- if section.settings.title != blank -%}
+      {%- if section.settings.header_is_h1 -%}
+        <h1 class="section__title {% if link %}section__title--link{% endif %} {{ section.settings.heading_size }}">
+          {{ section.settings.title }}
+          {%- if link -%}
+            {{ link }}
+          {%- endif -%}
+        </h1>
+      {%- else -%}
+        <h2 class="section__title {% if link %}section__title--link{% endif %} {{ section.settings.heading_size }}">
+          {{ section.settings.title }}
+          {%- if link -%}
+            {{ link }}
+          {%- endif -%}
+        </h2>
+      {%- endif -%}
+    {%- endif -%}
+
+    {%- if section.settings.description != blank or section.settings.use_collection_description -%}
+      <div class="section__description {{ section.settings.text_style }} {{ section.settings.mobile_text_style }}">
+        {%- if section.settings.use_collection_description -%}
+          {{ section.settings.collection.description }}
+        {%- else -%}
+          {{ section.settings.description }}
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+  </div>
+{%- endif -%}
+
+{%- comment -%}
+  Include these settings to support `section_header`
+
+  {
+    "type": "header",
+    "content": "Section Header"
+  },
+  {
+    "type": "text",
+    "id": "title",
+    "label": "Title"
+  },
+  {
+    "visible_if": "{{ section.settings.title != blank }}",
+    "type": "checkbox",
+    "id": "header_is_h1",
+    "label": "Header is H1",
+    "default": false
+  },
+  {
+    "visible_if": "{{ section.settings.title != blank }}",
+    "type": "checkbox",
+    "id": "visually_hide_header",
+    "label": "Visually hide header",
+    "default": false
+  },
+  {
+    "visible_if": "{{ section.settings.title != blank }}",
+    "type": "select",
+    "id": "heading_size",
+    "options": [
+      {
+        "value": "h5",
+        "label": "X-Small"
+      },
+      {
+        "value": "h4",
+        "label": "Small"
+      },
+      {
+        "value": "h3",
+        "label": "Medium"
+      },
+      {
+        "value": "h2",
+        "label": "Large"
+      },
+      {
+        "value": "h1",
+        "label": "X-Large"
+      }
+    ],
+    "default": "h2",
+    "label": "t:sections.all.heading_size.label"
+  },
+  {
+    "type": "richtext",
+    "id": "description",
+    "label": "Description"
+  },
+  {
+    "visible_if": "{{ section.settings.description != blank }}",
+    "type": "select",
+    "id": "text_style",
+    "options": [
+      {
+        "value": "body--small",
+        "label": "Small"
+      },
+      {
+        "value": "body",
+        "label": "Regular"
+      },
+      {
+        "value": "body--large",
+        "label": "Large"
+      }
+    ],
+    "default": "body",
+    "label": "Text style"
+  },
+  {
+    "visible_if": "{{ section.settings.description != blank }}",
+    "type": "select",
+    "id": "mobile_text_style",
+    "options": [
+      {
+        "value": "body--small-mobile",
+        "label": "Small"
+      },
+      {
+        "value": "body--mobile",
+        "label": "Regular"
+      },
+      {
+        "value": "body--large-mobile",
+        "label": "Large"
+      }
+    ],
+    "default": "body--mobile",
+    "label": "Mobile text style"
+  },
+  {
+    "visible_if": "{{ section.settings.title != blank or section.settings.description != blank }}",
+    "type": "select",
+    "id": "heading_alignment",
+    "label": "Heading Alignment",
+    "options": [
+      {
+        "value": "left",
+        "label": "t:sections.collapsible_content.settings.heading_alignment.options__1.label"
+      },
+      {
+        "value": "center",
+        "label": "t:sections.collapsible_content.settings.heading_alignment.options__2.label"
+      },
+      {
+        "value": "right",
+        "label": "t:sections.collapsible_content.settings.heading_alignment.options__3.label"
+      }
+    ],
+    "default": "left"
+  },
+{%- endcomment -%}

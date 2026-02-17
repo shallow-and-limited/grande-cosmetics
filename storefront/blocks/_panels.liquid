@@ -1,0 +1,38 @@
+<div class='tabbed-panels'>
+  {% content_for "blocks" %}
+</div>
+
+{% schema %}
+{
+  "name": "Tabbed Panels",
+  "settings": [
+    
+  ],
+  "blocks": [
+    {
+      "type": "_panel"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Tabbed Panels",
+      "blocks": [
+        {
+          "name": "Panel",
+          "type": "_panel",
+          "settings": {
+            "index": 0
+          }
+        },
+        {
+          "name": "Panel",
+          "type": "_panel",
+          "settings": {
+            "index": 1
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

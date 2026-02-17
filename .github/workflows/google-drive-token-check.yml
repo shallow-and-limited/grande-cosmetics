@@ -1,0 +1,122 @@
+name: Check Google Drive Token Health
+
+on:
+  # schedule:
+  #   # Check token health weekly (every Monday at 9 AM UTC)
+  #   - cron: "0 9 * * 1"
+  workflow_dispatch:
+
+jobs:
+  check-token:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    if: github.repository == 'SatelCreative/repo-template'
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4.2.2
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          pip install google-api-python-client google-auth-httplib2 google-auth-oauthlib
+
+      - name: Validate token
+        id: validate
+        run: |
+          python google-drive/validate_token.py > validation_result.json
+          cat validation_result.json
+        env:
+          GOOGLE_DRIVE_OAUTH_TOKEN: ${{ secrets.GOOGLE_DRIVE_OAUTH_TOKEN }}
+        continue-on-error: true
+
+      - name: Parse validation result
+        id: parse
+        if: always()
+        run: |
+          if [ -f validation_result.json ]; then
+            # Use Python to parse JSON (more reliable than jq)
+            python3 << 'EOF'
+          import json
+          import os
+          
+          try:
+              with open('validation_result.json', 'r') as f:
+                  data = json.load(f)
+              
+              valid = str(data.get('valid', False)).lower()
+              error = data.get('error', 'unknown')
+              message = data.get('message', 'Unknown error')
+              
+              with open(os.environ['GITHUB_OUTPUT'], 'a') as output:
+                  output.write(f"valid={valid}\n")
+                  output.write(f"error={error}\n")
+                  output.write(f"message<<EOF\n{message}\nEOF\n")
+          except Exception as e:
+              with open(os.environ['GITHUB_OUTPUT'], 'a') as output:
+                  output.write("valid=false\n")
+                  output.write("error=parse_error\n")
+                  output.write(f"message=Failed to parse validation result: {e}\n")
+          EOF
+          else
+            echo "valid=false" >> $GITHUB_OUTPUT
+            echo "error=validation_failed" >> $GITHUB_OUTPUT
+            echo "message=Failed to validate token" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Slack notification - Token expired
+        if: steps.parse.outputs.valid == 'false' && steps.parse.outputs.error == 'refresh_failed'
+        uses: 8398a7/action-slack@v3.18.0
+        with:
+          status: custom
+          custom_payload: |
+            {
+              "text": "🚨 Google Drive OAuth Token Expired",
+              "attachments": [{
+                "color": "danger",
+                "fields": [{
+                  "title": "Action Required",
+                  "value": "The Google Drive OAuth token has expired and needs to be regenerated.",
+                  "short": false
+                }, {
+                  "title": "Steps to Fix",
+                  "value": "1. Run: `python google-drive/generate_oauth_token.py`\n2. Copy the JSON output\n3. Update `GOOGLE_DRIVE_OAUTH_TOKEN` secret in GitHub\n4. The token will work for much longer if you publish the OAuth app (see README)",
+                  "short": false
+                }, {
+                  "title": "Error",
+                  "value": "${{ steps.parse.outputs.message }}",
+                  "short": false
+                }]
+              }]
+            }
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+
+      - name: Slack notification - Token warning
+        if: steps.parse.outputs.valid == 'false' && steps.parse.outputs.error != 'refresh_failed'
+        uses: 8398a7/action-slack@v3.18.0
+        with:
+          status: custom
+          custom_payload: |
+            {
+              "text": "⚠️ Google Drive OAuth Token Issue",
+              "attachments": [{
+                "color": "warning",
+                "fields": [{
+                  "title": "Warning",
+                  "value": "${{ steps.parse.outputs.message }}",
+                  "short": false
+                }]
+              }]
+            }
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+
+      - name: Success message
+        if: steps.parse.outputs.valid == 'true'
+        run: |
+          echo "✅ Token is valid: ${{ steps.parse.outputs.message }}"
+

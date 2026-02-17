@@ -1,0 +1,202 @@
+{%- if settings.cart_drawer_enabled and settings.cart_page_disabled -%}
+  {% layout none %}
+
+  <script>
+    window.location.href = '/?cart=1';
+  </script>
+
+  {% break %}
+{%- endif -%}
+
+{{ 'component-cart.css' | asset_url | stylesheet_tag }}
+{{ 'component-totals.css' | asset_url | stylesheet_tag }}
+
+{%- render "section_padding" %}
+
+<div class="gradient color-{{ section.settings.color_scheme }} isolate{% if cart == empty %} is-empty{% else %} section-{{ section.id }}-padding{% endif %}">
+  <div class="page-width">
+    <cart-items id="MainCart" class="cart">
+      {%- if cart == empty -%}
+        <div class="cart__warnings">
+          <h1 class="cart__empty-text h4">{{ 'sections.cart.empty' | t }}</h1>
+          <a href="{{ routes.all_products_collection_url }}" class="link">
+            {{ 'general.continue_shopping' | t }}
+          </a>
+        </div>
+      {%- else -%}
+        <div class="cart__container">
+          <div class="cart__details" id="Cart-CartItems" data-id="{{ section.id }}">
+            <div class="cart__header">
+              <h1 class="cart__header-heading h2">{{ 'sections.cart.title' | t }}</h1>
+
+              <div class="cart__header-items body body--small">
+                {{ cart.item_count }}
+                {{ 'sections.cart.items' | t | downcase }}: {{ cart.total_price | money }}
+              </div>
+            </div>
+
+            {%- if settings.shipping_calculator_threshold != blank -%}
+              {%- render 'cart_shipping-bar' %}
+            {%- endif %}
+
+            <div id="CartErrors"></div>
+
+            <form
+              action="{{ routes.cart_url }}"
+              id="Cart-Form"
+              class="cart__items"
+              method="post"
+            >
+              {%- for item in cart.items -%}
+                {%-
+                  render 'cart_item' with
+                  type: "cart",
+                  item: item,
+                  index: forloop.index
+                %}
+              {%- endfor -%}
+            </form>
+
+            {%- if settings.cart_upsell_collection != blank -%}
+              <div class="cart__upsell">
+                {%- if settings.cart_upsell_title != blank -%}
+                  <h2 class="cart__upsell-title h5">{{ settings.cart_upsell_title }}</h2>
+                {%- endif -%}
+
+                {%- if settings.cart_upsell_description != blank -%}
+                  <div class="cart__upsell-description body body--small">
+                    {{ settings.cart_upsell_description }}
+                  </div>
+                {%- endif -%}
+
+                <ul class="cart__upsell-products list--unstyled">
+                  <li class="cart__upsell-product">
+                    {%- for product in settings.cart_upsell_collection.products -%}
+                      {%- render 'product_quickbuy', product: product -%}
+                    {%- endfor -%}
+                  </li>
+                </ul>
+              </div>
+            {%- endif -%}
+          </div>
+
+          <div class="cart__totals">
+            <h2 class="cart__totals-heading">{{ 'sections.cart.order_summary' | t }}</h2>
+
+            <div class="cart__totals-rows">
+              <div class="cart__totals-row">
+                <span class="cart__totals-label">{{ 'sections.cart.items' | t }} ({{ cart.item_count }})</span>
+                <span class="cart__totals-value">{{ cart.total_price | money }}</span>
+              </div>
+
+              <div class="cart__totals-row">
+                <span class="cart__totals-label">{{ 'sections.cart.subtotal' | t }}</span>
+                <span class="cart__totals-value">{{ cart.total_price | money }}</span>
+              </div>
+
+              <div class="cart__totals-row bold highlight">
+                <span class="cart__totals-label">{{ 'sections.cart.total' | t }}</span>
+                <span class="cart__totals-value">{{ cart.total_price | money }}</span>
+              </div>
+
+              <div class="cart__totals-row cart__totals-row--border">
+                <button
+                  type="submit"
+                  id="Cart-Checkout"
+                  class="cart__checkout-button button"
+                  name="checkout"
+                  form="Cart-Form"
+                  {% if cart == empty %}
+                    disabled
+                  {% endif %}
+                >
+                  {{ 'sections.cart.checkout' | t -}}
+                </button>
+              </div>
+
+              <div class="cart__totals-row cart__totals-row--gap cart__totals-row--center">
+                <span class="cart__totals-label body--small">
+                  {%- render 'icon-lock' -%}
+                  {{ 'sections.cart.secure' | t }}
+                </span>
+              </div>
+
+              <div class="cart__totals-row cart__totals-row--center">
+                <a href="{{ routes.all_products_collection_url }}" class="link">
+                  {{ 'general.continue_shopping' | t }}
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      {%- endif -%}
+
+      <p id="Cart-LiveRegionText" class="visually-hidden" role="status"></p>
+      <p id="Cart-LineItemStatus" class="visually-hidden" aria-hidden="true" role="status">
+        {{ 'accessibility.loading' | t }}
+      </p>
+    </cart-items>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Cart",
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "background-1"
+    },
+    {
+      "type": "header",
+      "content": "Cart settings"
+    },
+    {
+      "type": "text",
+      "id": "upsell_title",
+      "label": "Upsell title"
+    },
+    {
+      "type": "collection",
+      "id": "upsell_collection",
+      "label": "Upsell collection"
+    },
+    {
+      "type": "header",
+      "content": "Section Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 4,
+      "step": 0.5,
+      "unit": "rem",
+      "label": "Padding top",
+      "default": 2
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 4,
+      "step": 0.5,
+      "unit": "rem",
+      "label": "Padding bottom",
+      "default": 2
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom",
+      "min": 0,
+      "max": 4,
+      "step": 0.5,
+      "unit": "rem",
+      "label": "Section margin",
+      "default": 0
+    }
+  ]
+}
+{% endschema %}

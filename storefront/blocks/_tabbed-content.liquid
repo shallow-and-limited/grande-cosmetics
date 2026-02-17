@@ -1,0 +1,20 @@
+{{ 'tabs.css' | asset_url | stylesheet_tag }}
+
+<script src="{{ 'tabbed-content.js' | asset_url }}" defer="defer"></script>
+
+<tabbed-content class="tabbed-content">
+  {% content_for 'block', type: '_tabs', id: 'tabs' %}
+  {% content_for 'block', type: '_panels', id: 'panels' %}
+</tabbed-content>
+
+{% schema %}
+{
+  "name": "Tabbed Content",
+  "presets": [
+    {
+      "name": "Tabbed Content",
+      "category": "Content"
+    }
+  ]
+}
+{% endschema %}

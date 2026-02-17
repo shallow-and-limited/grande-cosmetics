@@ -1,0 +1,148 @@
+<menu-drawer id="Quickview">
+  <div
+    id="QuickviewDrawer"
+    class="gradient drawer drawer--opened drawer--right"
+  >
+    <div class="drawer__overlay"></div>
+
+    <div
+      class="drawer__container color-{{ settings.dialog_color_scheme }}"
+      role="dialog"
+      aria-modal="true"
+      aria-label=""
+      tabindex="-1"
+    >
+      <div class="drawer__header">
+        <h2 class="drawer__heading h4">
+          {{ 'quickview.title' | t }}
+        </h2>
+        <button
+          class="drawer__close link link--unstyled"
+          type="button"
+          aria-label="{{ 'accessibility.close' | t }}"
+        >
+          {% render 'icon-close' %}
+        </button>
+      </div>
+
+      <quickview-container
+        class="quickview"
+        data-product-url="{{ product.url }}"
+      >
+        <div class="drawer__content drawer__content--footer">
+          <div
+            id="QuickviewProduct"
+            class="quickview__product"
+          >
+            <div class="quickview__image">
+              <div class="media media--square">
+                {{ product.featured_image | image_url: width: 250 | image_tag }}
+              </div>
+            </div>
+
+            <div
+              id="QuickviewDetails"
+              class="quickview__details"
+            >
+              <h2 class="quickview__title body body--large bold">{{ product.title | escape }}</h2>
+              {%- render 'price', product: product, class: 'quickview__price' -%}
+            </div>
+          </div>
+
+          {%- assign group_id = false -%}
+
+          {%- for tag in product.tags -%}
+            {%- if tag contains '#.Group:' -%}
+              {%- assign group_id = tag | remove: '#.Group:' -%}
+              {%- break -%}
+            {%- endif -%}
+          {%- endfor -%}
+
+          {%- if group_id -%}
+            <quickview-group
+              class="quickview__swatches"
+              data-group-id="{{ group_id }}"
+              data-product-handle="{{ product.handle }}"
+              data-product-url="{{ product.url }}"
+              data-limit-swatches="false"
+            >
+              <slider-component>
+                <ul
+                  id="Slider-QuickviewSwatches"
+                  class="grid grid--x-col slider slider--mobile slider--desktop"
+                  role="list"
+                  style="--page-padding: 1rem;"
+                >
+                  {%- for x in (1..2) -%}
+                    <li
+                      id="Slide-QuickviewSwatches-{{ x }}"
+                      class="grid__item slider__slide"
+                    >
+                      <div class="skeleton"></div>
+                    </li>
+                  {%- endfor -%}
+                </ul>
+              </slider-component>
+            </quickview-group>
+
+            <div
+              id="QuickviewSwatchesText"
+              class="quickview__swatches-text body--large"
+            >
+              {{ product.selected_or_first_available_variant.option1 }}
+            </div>
+          {%- endif -%}
+
+          <div
+            id="QuickviewVariants"
+            class="quickview__variants"
+          >
+            {% render 'product-variant-picker', product: product, product_form_id: 'QuickviewForm' %}
+          </div>
+        </div>
+
+        <div
+          id="QuickviewActions"
+          class="drawer__footer quickview__actions"
+        >
+          <product-form
+            data-section-id="Quickview"
+            data-quickview="true"
+          >
+            {%- form 'product', product, id: 'QuickviewForm' -%}
+              <input
+                type="hidden"
+                name="id"
+                value="{{ product.selected_or_first_available_variant.id }}"
+                {%
+                  if product.selected_or_first_available_variant.available == false
+                  or product.selected_or_first_available_variant == null
+                %}
+                  disabled
+                {% endif %}
+                class="product-variant-id"
+              >
+
+              <button type="submit" class="button button--primary button--full-width">
+                <span>
+                  {%- if product.selected_or_first_available_variant == null -%}
+                    {{ 'products.product.unavailable' | t }}
+                  {%- elsif product.selected_or_first_available_variant.available == false -%}
+                    {{ 'products.product.sold_out' | t }}
+                  {%- else -%}
+                    {%- if product.metafields.custom.add_to_cart_text -%}
+                      {{ product.metafields.custom.add_to_cart_text }}
+                    {%- else -%}
+                      {{ 'products.product.add_to_cart' | t }}
+                    {%- endif -%}
+                  {%- endif -%}
+                </span>
+                {%- render 'loading-spinner' -%}
+              </button>
+            {%- endform -%}
+          </product-form>
+        </div>
+      </quickview-container>
+    </div>
+  </div>
+</menu-drawer>

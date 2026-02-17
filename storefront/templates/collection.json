@@ -1,0 +1,32 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "product-grid": {
+      "type": "main-listing",
+      "settings": {
+        "color_scheme": "",
+        "layout": "page-width",
+        "enable_filters": true,
+        "enable_desktop_filters": true,
+        "enable_sorting": true,
+        "show_more": false,
+        "products_per_page": 24,
+        "columns_desktop": 4,
+        "columns_mobile": "2",
+        "padding_top": 2,
+        "padding_bottom": 2
+      }
+    }
+  },
+  "order": [
+    "product-grid"
+  ]
+}

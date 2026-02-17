@@ -1,0 +1,96 @@
+<div 
+  class='panel color-{{ block.settings.color_scheme }}'
+  aria-labelledby="Tab-{{ section.id }}-{{ block.settings.index }}"
+  id="TabPanel-{{ section.id }}-{{ block.settings.index }}" 
+  role="tabpanel"
+  style='
+    --panel-border-radius: {{ block.settings.border_radius }};
+  '
+  {% unless block.settings.index == 0 %} hidden{% endunless %}
+>
+  <div id="TabPanelContent-{{ section.id }}-{{ block.settings.index }}">
+    <div 
+      class='panel-content'
+      style='
+        --panel-content-left-width: {{ block.settings.first_column_width }}%;
+      '
+    >
+      {% content_for "blocks" %}
+    </div>
+  </div>
+</div>
+
+{% stylesheet %}
+  .panel {
+    border-radius: var(--panel-border-radius);
+  }
+
+  .panel-content {
+    display: grid;
+    grid-template-columns: var(--panel-content-left-width) 1fr;
+  }
+
+  @media screen and (max-width: 767px) {
+    .panel-content {
+      grid-template-columns: 1fr;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Panel",
+  "settings": [
+    {
+      "type": "number",
+      "id": "index",
+      "label": "Index",
+      "info": "t:blocks.tabbed-content.index_info",
+      "default": 0
+    },
+    {
+      "type": "header",
+      "content": "Panel settings"
+    },
+    {
+      "type": "range",
+      "id": "first_column_width",
+      "label": "t:sections.panel.first_column_width",
+      "info": "t:sections.panel.first_column_width_info",
+      "default": 50,
+      "min": 30,
+      "max": 70,
+      "step": 1,
+      "unit": "%"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.general.style_settings"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.general.color_scheme",
+    },
+    {
+      "type": "text",
+      "id": "border_radius",
+      "label": "t:sections.general.border_radius",
+      "default": "0",
+    }
+  ],  
+  "blocks": [
+    {
+      "type": "group"
+    },
+    {
+      "type": "media"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Panel",    
+    }
+  ]
+}
+{% endschema %}

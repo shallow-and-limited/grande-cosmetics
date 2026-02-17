@@ -1,0 +1,112 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "name": "t:sections.header.name",
+  "type": "header",
+  "sections": {
+    "announcement-bar": {
+      "type": "announcement-bar",
+      "blocks": {
+        "utility_A7WkY6": {
+          "type": "utility",
+          "settings": {
+            "text": "Contact Us",
+            "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"800px\" height=\"800px\" viewbox=\"0 0 24 24\" fill=\"none\">\n<path d=\"M18 12H15M21 8H3M18 16H15M13 19C12.6218 17.2883 10.9747 16 9 16C7.03262 16 5.39034 17.2788 5.00424 18.9811M9 12H9.01M5.00424 18.9811C5.31776 19 5.70396 19 6.2 19H17.8C18.9201 19 19.4802 19 19.908 18.782C20.2843 18.5903 20.5903 18.2843 20.782 17.908C21 17.4802 21 16.9201 21 15.8V8.2C21 7.0799 21 6.51984 20.782 6.09202C20.5903 5.71569 20.2843 5.40973 19.908 5.21799C19.4802 5 18.9201 5 17.8 5H6.2C5.0799 5 4.51984 5 4.09202 5.21799C3.71569 5.40973 3.40973 5.71569 3.21799 6.09202C3 6.51984 3 7.07989 3 8.2V15.8C3 16.9201 3 17.4802 3.21799 17.908C3.40973 18.2843 3.71569 18.5903 4.09202 18.782C4.33038 18.9035 4.60979 18.9572 5.00424 18.9811ZM10 12C10 12.5523 9.55228 13 9 13C8.44772 13 8 12.5523 8 12C8 11.4477 8.44772 11 9 11C9.55228 11 10 11.4477 10 12Z\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n</svg>",
+            "link": "shopify://pages/contact"
+          }
+        }
+      },
+      "block_order": [
+        "utility_A7WkY6"
+      ],
+      "custom_css": [],
+      "settings": {
+        "color_scheme": "scheme-2",
+        "text": "Display promotional or informational messages here. Configurable via theme settings.",
+        "link": ""
+      }
+    },
+    "header": {
+      "type": "header",
+      "blocks": {
+        "mega_menu_pEtCCd": {
+          "type": "mega_menu",
+          "settings": {
+            "title": "SHOP",
+            "parent_link": "",
+            "mega_weight": "body bold",
+            "parent_color": "rgba(0,0,0,0)",
+            "menu": "main-menu",
+            "parent_style": "h3",
+            "parent_underline": true,
+            "child_style": "body",
+            "highlight_text": "",
+            "desktop_format": "grid",
+            "desktop_grid_columns": 4,
+            "mobile_format": "grid",
+            "image_aspect_ratio": "adapt",
+            "title_1": "Catalogs",
+            "text_1": "",
+            "link_text_1": "",
+            "link_url_1": "https://blog.samad.com/",
+            "title_2": "Blog",
+            "text_2": "",
+            "link_text_2": "",
+            "link_url_2": "#",
+            "title_3": "Ads",
+            "text_3": "",
+            "link_text_3": "",
+            "link_url_3": "#",
+            "title_4": "Interior",
+            "text_4": "",
+            "link_text_4": "",
+            "link_url_4": "#"
+          }
+        }
+      },
+      "block_order": [
+        "mega_menu_pEtCCd"
+      ],
+      "custom_css": [],
+      "settings": {
+        "color_scheme": "scheme-2",
+        "menu_color_scheme": "scheme-2",
+        "layout": "full-width",
+        "hamburger_desktop": false,
+        "header_type": "logo-menu_center-icons",
+        "header_type_mobile": "menu-logo_center-icons",
+        "sticky_header_type": "on-scroll-up",
+        "sticky_header_apply_desktop": false,
+        "sticky_header_apply_mobile": true,
+        "icons_image": true,
+        "icon_size": 24,
+        "icons_text": true,
+        "button_icons": false,
+        "menu_image_stack": false,
+        "menu_image_aspect_ratio": "square",
+        "menu_title_1": "",
+        "menu_text_1": "",
+        "menu_link_text_1": "",
+        "menu_link_url_1": "",
+        "menu_title_2": "",
+        "menu_text_2": "",
+        "menu_link_text_2": "",
+        "menu_link_url_2": "",
+        "show_customer_accounts": false,
+        "padding_top": 0.5,
+        "padding_bottom": 0.5
+      }
+    }
+  },
+  "order": [
+    "announcement-bar",
+    "header"
+  ]
+}

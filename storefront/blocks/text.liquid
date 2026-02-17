@@ -1,0 +1,110 @@
+<div 
+  class="
+    block-text
+    body
+    {{ block.settings.text_style }}
+    {{ block.settings.mobile_text_style }}
+    {{ block.settings.text_weight }}
+  "  
+  style="
+    {% if block.settings.color != blank and block.settings.color.alpha != 0 %}
+      --color-foreground: {{ block.settings.color.red }},{{ block.settings.color.green }},{{ block.settings.color.blue }};
+    {% endif %}
+  " 
+  {{ block.shopify_attributes }}
+>
+  {{- block.settings.text -}}
+</div>
+
+{% schema %}
+{
+  "name": "Text",
+  "settings": [
+    {
+      "id": "text",
+      "type": "richtext",
+      "label": "t:sections.general.text"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.general.style_settings"
+    },
+    {
+      "type": "select",
+      "id": "text_style",
+      "options": [
+        {
+          "value": "body--small-desktop",
+          "label": "t:sections.general.small"
+        },
+        {
+          "value": "body--desktop",
+          "label": "t:sections.general.regular"
+        },
+        {
+          "value": "body--large-desktop",
+          "label": "t:sections.general.large"
+        }
+      ],
+      "default": "body--desktop",
+      "label": "t:sections.general.text_style"
+    },
+    {
+      "type": "select",
+      "id": "mobile_text_style",
+      "options": [
+        {
+          "value": "body--small-mobile",
+          "label": "t:sections.general.small"
+        },
+        {
+          "value": "body--mobile",
+          "label": "t:sections.general.regular"
+        },
+        {
+          "value": "body--large-mobile",
+          "label": "t:sections.general.large"
+        }
+      ],
+      "default": "body--mobile",
+      "label": "t:sections.general.mobile_text_style"
+    },    
+    {
+      "type": "select",
+      "id": "text_weight",
+      "options": [
+        {
+          "value": "bold",
+          "label": "t:sections.general.bold"
+        },
+        {
+          "value": "normal",
+          "label": "t:sections.general.normal"
+        },
+        {
+          "value": "light",
+          "label": "t:sections.general.light"
+        },
+        {
+          "value": "medium",
+          "label": "t:sections.general.medium"
+        }
+      ],
+      "default": "normal",
+      "label": "t:sections.general.text_weight"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.general.style_overrides"
+    },
+    {
+      "type": "color",
+      "id": "color",
+      "label": "t:sections.general.text_color"
+    },
+  ],
+  "presets": [
+    { "name": "Text" }
+  ]
+}
+{% endschema %}

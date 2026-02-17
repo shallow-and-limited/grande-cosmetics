@@ -1,0 +1,42 @@
+.tabs-element {
+  display: block;
+  position: relative;
+  margin-bottom: var(--tabs-margin-bottom);
+}
+
+.tabs:after {
+  content: '';
+  width: 100%;
+  position: absolute;
+  height: 1px;
+  background: rgba(var(--color-foreground), 0.1);
+  bottom: 0;
+}
+
+.tabs {
+  display: flex;
+  gap: 0;
+}
+
+.tab__item {   
+  display: block;
+  background: transparent;
+  border: 0;
+  position: relative;
+  padding: 0 .5rem .5rem;
+  text-transform: uppercase;
+  width: auto;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.tab__item[aria-selected='true']:after {
+  content: '';
+  position: absolute;
+  height: 2px;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  background: rgb(var(--color-foreground));
+  z-index: 9;
+}

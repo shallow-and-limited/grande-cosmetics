@@ -1,0 +1,103 @@
+<div class="
+    header__icons
+    {% if settings.search_inline %}header__icons--relative{% endif %}
+    {% if section.settings.button_icons %}header__icons--half{% endif %}
+  ">
+  {%- for block in section.blocks -%}
+    {%- if block.type == 'header_icon' -%}
+      <a
+        href="{{ block.settings.link }}"
+        class="
+          {% if block.settings.hide_mobile %} small-hide{% endif %}
+          {% if section.settings.button_icons %}
+            header__button button
+          {% else %}
+            header__icon link body body--small
+          {% endif %}
+        "
+      >
+        {%- if section.settings.icons_image and block.settings.icon != blank -%}
+          <img
+            src="{{ block.settings.icon | image_url: width: 50 }}"
+            class="cart-item__image"
+            alt="{{ block.settings.icon | escape }}"
+            loading="lazy"
+            width="24"
+            height="24"
+          >
+        {%- endif -%}
+        <span class="
+          {% unless section.settings.button_icons %}body body--small{% endunless %}
+          {% if block.settings.show_as_text %}
+          {% elsif section.settings.icons_text == false %}
+            visually-hidden
+          {% endif %}
+          ">
+          {{- block.settings.title -}}
+        </span>
+      </a>
+    {%- endif -%}
+  {%- endfor -%}
+
+  {%- if settings.search_inline %}
+    {%- render 'header_search-inline', input_id: 'Search-In-Modal' -%}
+  {% endif %}
+
+  {% render 'header_search', input_id: 'Search-In-Modal' %}
+
+  {%- if shop.customer_accounts_enabled and section.settings.show_customer_accounts -%}
+    <a
+      href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}"
+      class="
+        header__icon--account
+        {% if section.settings.button_icons %}
+          header__button button
+        {% else %}
+          header__icon link
+        {% endif %}
+      "
+    >
+      {%- if section.settings.icons_image -%}
+        {% render 'icon-account' %}
+      {%- endif -%}
+
+      <span class="{% unless section.settings.button_icons %}body body--small{% endunless %} {% unless section.settings.icons_text %}visually-hidden{% endunless %}">
+        {%- liquid
+          if customer
+            echo 'customer.account_fallback' | t
+          else
+            echo 'customer.log_in' | t
+          endif
+        -%}
+      </span>
+    </a>
+  {%- endif -%}
+
+  <a
+    href="{{ routes.cart_url }}"
+    class="
+      header__icon--cart
+      {% if section.settings.button_icons %}
+        header__button button
+      {% else %}
+        header__icon link
+      {% endif %}
+    "
+    id="cart-icon-bubble"
+  >
+    {%- if section.settings.icons_image -%}
+      {%- render 'icon-cart' -%}
+    {%- endif -%}
+    <span class="{% unless section.settings.button_icons %}body body--small{% endunless %} {% unless section.settings.icons_text %}visually-hidden{% endunless %}">
+      {{- 'sections.cart.cart' | t -}}
+    </span>
+    <div class="cart-count-bubble {% if section.settings.icons_text %}body body--small{% endif %}">
+      {% if section.settings.icons_text %}
+        (<span class="cart-count-bubble__count" aria-hidden="true">{{ cart.item_count }}</span>)
+      {%- else -%}
+        <span class="cart-count-bubble__count" aria-hidden="true">{{ cart.item_count }}</span>
+      {%- endif -%}
+      <span class="visually-hidden">{{ 'sections.header.cart_count' | t: count: cart.item_count }}</span>
+    </div>
+  </a>
+</div>

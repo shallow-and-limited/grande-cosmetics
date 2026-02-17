@@ -1,0 +1,5 @@
+# Don't format this
+*.md
+*.yml
+
+# Add files that should not be formatted here

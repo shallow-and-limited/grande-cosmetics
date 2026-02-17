@@ -1,0 +1,44 @@
+name: GitHub actions version updater
+
+on:
+  # can be used to run workflow manually
+  workflow_dispatch:
+  schedule:
+    # Automatically run on every 1st of every 2nd month
+    - cron:  '0 0 1 */2 *'
+
+jobs:
+      self-hosted-status:
+        runs-on: ubuntu-latest
+        timeout-minutes: 5
+        outputs:
+          runner-status: ${{ steps.runnerstatus.outputs.status }}
+        steps:
+          - name: Check runner status
+            id: runnerstatus
+            uses: SatelCreative/satel-gh-runner-check@1.0.3
+            with:       
+              github-runner-token: ${{ secrets.SELF_HOSTED_RUNNER_TOKEN }} #Should have access to manage runner
+              org-name: SatelCreative
+    
+      check-versions:
+        needs: [self-hosted-status]
+        timeout-minutes: 5
+        # saadmk11/github doesn't work on Self hosted runner yet 
+        runs-on: ubuntu-latest #${{ contains(needs.self-hosted-status.outputs.runner-status, 'online') && 'self-hosted' || 'ubuntu-latest' }}
+        steps:
+          - uses: actions/checkout@v4.2.2
+            with:
+              # Classic personal access token with repo and workflow scope
+              token: ${{ secrets.REPO_WORKFLOW_ACCESS_TOKEN }} 
+
+          - name: GitHub Actions Version Updater
+            uses: saadmk11/github-actions-version-updater@v0.8.1
+            with:
+              token: ${{ secrets.REPO_WORKFLOW_ACCESS_TOKEN }}
+              pull_request_title: '👷 Bi Monthly actions version update'
+              pull_request_team_reviewers: 'DevOps'
+              pull_request_branch: 'feature/bi-monthly-actions-update'
+              pull_request_labels: 'Type: DevOps'
+              update_version_with: 'release-tag'
+              release_types: 'major, minor, patch'

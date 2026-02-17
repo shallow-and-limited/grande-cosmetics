@@ -1,0 +1,223 @@
+{{ 'authenticate.css' | asset_url | stylesheet_tag }}
+
+<div
+  id="HalfBanner-{{ section.id }}"
+  class=" color-{{ section.settings.color_scheme }} half-banner banner--content-align-{{ section.settings.desktop_content_alignment }} banner--{{ section.settings.image_height }}{% if section.settings.stack_images_on_mobile and section.settings.image != blank %} banner--stacked{% endif %}{% if section.settings.image_height == 'adapt' and section.settings.image != blank %} banner--adapt{% endif %}{% if section.settings.show_text_below %} banner--mobile-bottom{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}"
+>
+  <div class="half-banner__container {% if section.settings.image == blank %}half-banner__container--no-image{% endif %}">
+    <div class="half-banner__empty-side">
+      <h1 id="recover" tabindex="-1">
+        {{ 'customer.recover_password.title' | t }}
+      </h1>
+
+      <div>
+        <p>
+          {{ 'customer.recover_password.subtext' | t }}
+        </p>
+
+        {%- form 'recover_customer_password' -%}
+          {% assign recover_success = form.posted_successfully? %}
+          <div class="field {%- if form.errors -%}error{% endif %}">
+            <label for="RecoverEmail" class="field__label">
+              {{ 'customer.login_page.email' | t }}
+            </label>
+
+            <input
+              class="field__input"
+              type="email"
+              value=""
+              name="email"
+              id="RecoverEmail"
+              autocorrect="off"
+              autocapitalize="off"
+              autocomplete="email"
+              {% if form.errors %}
+                aria-invalid="true"
+                aria-describedby="RecoverEmail-email-error"
+                autofocus
+              {% endif %}
+              placeholder="{{ 'customer.login_page.email' | t }}"
+            >
+
+            {%- if form.errors -%}
+              <small id="RecoverEmail-email-error" class="field__status">
+                {{ form.errors.messages.form }}
+              </small>
+            {%- endif -%}
+          </div>
+
+          <div class="field">
+            <button class="button full-width field__button">
+              {{ 'customer.login_page.submit' | t }}
+            </button>
+
+            <a class="link customer__forgot" href="#login">
+              {{ 'customer.login_page.cancel' | t }}
+            </a>
+          </div>
+        {%- endform -%}
+      </div>
+
+      <div id="login" class="center">
+        <h1 tabindex="-1" class=" hidden--mobile list--unstyled">
+          {{ 'customer.login_page.title' | t }}
+        </h1>
+        <h5 class="hidden--mobile list--unstyled">
+          {{ 'customer.login_page.subtext' | t }}
+        </h5>
+
+        <div style="margin-top: 1rem;">
+          {%- if recover_success == true -%}
+            <h3 class="form__message" tabindex="-1" autofocus>
+              {{ 'customer.recover_password.success' | t }}
+            </h3>
+          {%- endif -%}
+
+          {%- form 'customer_login', novalidate: 'novalidate' -%}
+            <input type="hidden" name="return_to" value="/account?q=login">
+
+            {%- if form.errors -%}
+              <h2 class="form__message" tabindex="-1" autofocus>
+                <span class="visually-hidden">{{ 'accessibility.error' | t }} </span>
+                {{ 'templates.contact.form.error_heading' | t }}
+              </h2>
+              {{ form.errors | default_errors }}
+
+              <script>
+                document.addEventListener('DOMContentLoaded', function() {
+                  if(window.theme.dynamic_yield_enabled && DynamicYield) {
+                    DynamicYield.triggerCustom("Unsuccessful Login", { value: "{{ form.errors | default_errors }}" });
+                  }
+                });
+              </script>
+            {%- endif -%}
+
+            <div class="field">
+              <label class="field__label" for="CustomerEmail">
+                {{ 'customer.login_page.email' | t }}
+              </label>
+
+              <input
+                class="field__input"
+                type="email"
+                name="customer[email]"
+                id="CustomerEmail"
+                autocomplete="email"
+                autocorrect="off"
+                autocapitalize="off"
+                {% if form.errors contains 'form' %}
+                  aria-invalid="true"
+                {% endif %}
+                placeholder="{{ 'customer.login_page.email' | t }}"
+              >
+            </div>
+
+            {%- if form.password_needed -%}
+              <div class="field">
+                <label class="field__label" for="CustomerPassword">
+                  {{ 'customer.login_page.password' | t }}
+                </label>
+
+                <input
+                  class="field__input"
+                  type="password"
+                  value=""
+                  name="customer[password]"
+                  id="CustomerPassword"
+                  autocomplete="current-password"
+                  {% if form.errors contains 'form' %}
+                    aria-invalid="true"
+                  {% endif %}
+                  placeholder="{{ 'customer.login_page.password' | t }}"
+                >
+
+                <a class="link customer__forgot" href="#recover">
+                  {{ 'customer.login_page.forgot_password' | t }}
+                </a>
+              </div>
+            {%- endif -%}
+
+            <div class="field">
+              <button class="button full-width field__button">
+                {{ 'customer.login_page.sign_in' | t }}
+              </button>
+
+              <a class="link sign-up__link" href="{{ routes.account_register_url }}">
+                {{ 'customer.login_page.create_account' | t }}
+              </a>
+            </div>
+          {%- endform -%}
+        </div>
+
+        {%- if shop.checkout.guest_login -%}
+          <div>
+            <hr>
+            <h2>{{ 'customer.login_page.guest_title' | t }}</h2>
+
+            {%- form 'guest_login' -%}
+              <button class="button field__button">
+                {{ 'customer.login_page.guest_continue' | t }}
+              </button>
+            {%- endform -%}
+          </div>
+        {%- endif -%}
+      </div>
+    </div>
+
+    {% if section.settings.image != blank %}
+      <div class="half-banner__image-side">
+        <div class="half-banner__media {% if section.settings.image_behavior != 'none' %} animate--{{ section.settings.image_behavior }}{% endif %}">
+          {%- liquid
+            assign image_height = section.settings.image.width | divided_by: section.settings.image.aspect_ratio
+            assign sizes = section.settings.image_width | append: 'vw'
+          -%}
+          {{
+            section.settings.image
+            | image_url: width: 2000
+            | image_tag:
+            width: section.settings.image.width,
+            height: image_height,
+            class: 'responsive-image',
+            sizes: sizes,
+            fetchpriority: 'auto'
+          }}
+
+          <div class="half-banner__image-message half-banner__image-message__mobile hidden--desktop deferred-media__poster-button">
+            <h1 id="login" class="list--unstyled">
+              {{ 'customer.login_page.title' | t }}
+            </h1>
+            <h5 class="list--unstyled">
+              {{ 'customer.login_page.subtext' | t }}
+            </h5>
+          </div>
+        </div>
+      </div>
+    {% endif %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "t:sections.main-login.name",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "enable_shop_login_button",
+      "label": "t:sections.main-login.shop_login_button.enable",
+      "default": true
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "info": "t:sections.all.colors.has_cards_info",
+      "default": "scheme-1"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Choose an Image"
+    }
+  ]
+}
+{% endschema %}

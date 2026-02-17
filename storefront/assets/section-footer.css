@@ -1,0 +1,143 @@
+.footer {
+  padding: 3rem 60px 15px;
+}
+
+@media screen and (max-width: 749px) {
+  .footer {
+    padding: 2rem 1rem;
+  }
+}
+
+.footer__blocks-wrapper {
+  display: flex;
+  justify-content: space-between;
+  gap: 120px;
+}
+
+@media screen and (max-width: 749px) {
+  .footer__blocks-wrapper {
+    flex-flow: column;
+    justify-content: initial;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .footer-block__logo {
+    text-align: center;
+    margin: 0 auto;
+  }
+}
+
+.footer-block__newsletter {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+@media screen and (max-width: 749px) {
+  .footer-block__newsletter {
+    max-width: 480px;
+  }
+}
+
+.footer-block__newsletter-subheading {
+  margin: 1rem 0 0px;
+}
+
+.footer__list-social {
+  margin-top: 1rem;
+}
+
+.footer-blocks {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  width: 100%;
+}
+
+@media screen and (max-width: 749px) {
+  .footer-blocks {
+    gap: 1rem;
+  }
+}
+
+.footer-block {
+  display: block;
+  width: 100%;
+  min-width: 120px;
+}
+
+.footer-block__heading {
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+}
+
+.footer__accordion {
+  width: 100%;
+}
+
+.footer__accordion-details {
+  padding: 12px;
+  text-align: center;
+}
+
+.footer__accordion-details + .footer__accordion-details {
+  border-top: 1px solid rgb(var(--color-foreground));
+}
+
+.footer__accordion-list {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.subfooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 50px;
+}
+
+.subfooter .button {
+  padding: 0;
+}
+
+.subfooter__copywrite {
+  margin: 0;
+}
+
+.subfooter__menu {
+  display: flex;
+  gap: 0rem;
+}
+
+.subfooter__menu-item + .subfooter__menu-item:before {
+  content: '·';
+  margin: 0 0.5rem 0 0.6rem;
+}
+
+.footer__content {
+  margin-top: 2rem;
+}
+
+@media screen and (max-width: 749px) {
+  .footer__content {
+    text-align: center;
+  }
+
+  .subfooter {
+    margin-top: 2rem;
+    flex-direction: column;
+  }
+
+  .subfooter__copywrite {
+    text-align: center;
+  }
+
+  .subfooter__menu {
+    flex-flow: wrap;
+    margin-top: 1rem;
+    justify-content: center;
+  }
+}

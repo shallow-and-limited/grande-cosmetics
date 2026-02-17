@@ -1,0 +1,16 @@
+downloadPublishedSettings:
+  password: API_KEY
+  theme_id: THEME_ID # This is not being used while deployment
+  store: STORE
+  ignore_files:
+    - sections/*.liquid
+    - snippets/*
+    - assets/*
+    - config/settings_schema.json
+    - layout/*
+    - locales/*
+
+deployTheme:
+  password: API_KEY
+  theme_id: TARGET_THEME_ID # Theme GitHub is deploying to
+  store: STORE

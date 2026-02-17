@@ -1,0 +1,23 @@
+{
+  "devDependencies": {
+    "@shopify/prettier-plugin-liquid": "0.1.4",
+    "prettier": "2.7.1"
+  },
+  "scripts": {
+    "fmt:check": "prettier --check .",
+    "fmt": "prettier --write ."
+  },
+  "prettier": {
+    "singleQuote": true,
+    "overrides": [
+      {
+        "files": [
+          "*.liquid"
+        ],
+        "options": {
+          "singleQuote": false
+        }
+      }
+    ]
+  }
+}

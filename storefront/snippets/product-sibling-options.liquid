@@ -1,0 +1,78 @@
+{% comment %}
+  Renders product variant options
+
+  Accepts:
+  - product: {Object} product object.
+  - option: {Object} current product_option object.
+  - block: {Object} block object.
+  - picker_type: {String} type of picker to dispay
+
+
+  Usage:
+  {% render 'product-variant-options',
+    product: product,
+    option: option,
+    block: block
+    picker_type: picker_type
+  %}
+{% endcomment %}
+{%- liquid
+  if product_form_id != blank
+    assign product_form_id = product_form_id
+  else
+    assign product_form_id = 'product-form-' | append: section.id
+  endif
+-%}
+
+{%- for sibling in product.metafields.custom.siblings.value -%}
+  {%- capture input_id -%}
+    {{ section.id }}-sibling-{{ forloop.index0 -}}
+  {%- endcapture -%}
+
+  {%- capture input_name -%}
+    sibling-sibling
+  {%- endcapture -%}
+
+  {%- capture input_dataset -%}
+    data-product-url="{{ sibling.url }}" data-option-value-id=""
+  {%- endcapture -%}
+
+  <div
+    class="{%- if block.settings.siblings_swatches -%}product-form__color{% else %}product-form__image{% endif %}"
+    data-value="{{ sibling.title | escape }}"
+  >
+    <input
+      type="radio"
+      id="{{ input_id }}"
+      name="{{ input_name }}"
+      value="{{ sibling.title | escape }}"
+      form="{{ product_form_id }}"
+      {% if product.id == sibling.id %}
+        checked
+      {% endif %}
+      class="visually-hidden"
+      {{ input_dataset }}
+    >
+    <label
+      class="color-{{ block.settings.picker_scheme }}"
+      for="{{ input_id }}"
+      {% if block.settings.siblings_swatches %}
+        style="background-color: {{ sibling.metafields.custom.swatch_color }}"
+      {% endif %}
+    >
+      {% unless block.settings.siblings_swatches %}
+        <div class="product-form__image-container">
+          <div
+            class="media media--{{ settings.card_aspect_ratio }}"
+            {% if settings.card_aspect_ratio == 'adapt' %}
+              style="padding-bottom: {{ 1 | divided_by: sibling.featured_image.aspect_ratio | times: 100 }}%;"
+            {% endif %}
+          >
+            {{ sibling.featured_image | image_url: width: 100 | image_tag: loading: 'lazy' }}
+          </div>
+        </div>
+      {% endunless %}
+      <span class="visually-hidden">{{ sibling.title }}</span>
+    </label>
+  </div>
+{%- endfor -%}

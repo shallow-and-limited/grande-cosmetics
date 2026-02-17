@@ -1,0 +1,39 @@
+.testimonial {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.testimonial-image {
+  width: 100%;
+}
+
+.testimonial-image img {
+  border-top-right-radius: 0%;
+  border-bottom-right-radius: 0%;
+}
+
+.testimonial-info {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+  gap: 2rem;
+}
+
+@media screen and (max-width: 749px) {
+  .testimonial-info {
+    padding: 1rem;
+  }
+}
+
+.testimonial-info * {
+  margin: 0;
+}
+
+.testimonial-description {
+  font-style: italic;
+  line-height: 1.5;
+}

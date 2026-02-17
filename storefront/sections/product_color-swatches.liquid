@@ -1,0 +1,100 @@
+<script id="StyleData">
+  {
+    {
+      collection.products | json;
+    }
+  }
+</script>
+
+{%- for product in collection.products -%}
+  {%- assign image = product.featured_media -%}
+
+  <div
+    class="swatch {% if product.compare_at_price > product.price %}swatch--sale{% endif %}"
+    data-id="{{ product.id }}"
+    data-product-handle="{{ product.handle }}"
+    data-product-url="{{ product.url }}"
+    data-group="{{ product.metafields.custom.swatch_group }}"
+    data-featured-image="{{ image | image_url: width: 540 }}"
+    data-swatch-total="{{ collection.products.size }}"
+  >
+    <div class="swatch__image">
+      <div class="media media--{{ settings.card_aspect_ratio }}">
+        {{ image | image_url: width: 100 | image_tag }}
+      </div>
+    </div>
+
+    <input
+      class="swatch__input visually-hidden"
+      type="radio"
+      data-product-id="{{ product.id }}"
+      data-color="{{ product.metafields.custom.swatch_color }}"
+      data-style="{{ product.handle }}"
+      id="StyleSwatch-{{ forloop.index0 }}"
+      name="style"
+      value="{{ product.handle }}"
+    >
+    <label class="swatch__label" for="StyleSwatch-{{ forloop.index0 }}">
+      <span class="visually-hidden">{{ product.metafields.custom.swatch_color }}</span>
+    </label>
+
+    <link
+      rel="preload"
+      as="image"
+      href="{{ image | image_url: width: 540 }}"
+      imagesrcset="
+        {%- if image.width >= 180 -%}{{ image | image_url: width: 180 }} 180w,{%- endif -%}
+        {%- if image.width >= 360 -%}{{ image | image_url: width: 360 }} 360w,{%- endif -%}
+        {%- if image.width >= 540 -%}{{ image | image_url: width: 540 }} 540w,{%- endif -%}
+        {%- if image.width >= 720 -%}{{ image | image_url: width: 720 }} 720w,{%- endif -%}
+        {%- if image.width >= 900 -%}{{ image | image_url: width: 900 }} 900w,{%- endif -%}
+        {%- if image.width >= 1080 -%}{{ image | image_url: width: 1080 }} 1080w,{%- endif -%}
+        {{ image | image_url }} {{ image.width }}w
+      "
+      imagesizes="(min-width: 750px) 25vw, 100vw"
+    >
+
+    <template data-media="image">
+      <slider-component role="region">
+        <ul
+          id="Slider-Card"
+          class="slider grid grid--1-col slider--desktop slider--mobile"
+          role="list"
+          aria-label="{{ 'general.slider.name' | t }}"
+        >
+          {%- for media in product.media -%}
+            <li
+              id="Slide-Card-{{ forloop.index }}"
+              class="grid__item slider__slide"
+            >
+              <div class="media media--{{ settings.card_aspect_ratio }}">
+                {%- if media.media_type == 'video' -%}
+                {%- else -%}
+                  <img
+                    srcset="
+                      {%- if image.width >= 180 -%}{{ image | image_url: width: 180 }} 180w,{%- endif -%}
+                      {%- if image.width >= 360 -%}{{ image | image_url: width: 360 }} 360w,{%- endif -%}
+                      {%- if image.width >= 540 -%}{{ image | image_url: width: 540 }} 540w,{%- endif -%}
+                      {%- if image.width >= 720 -%}{{ image | image_url: width: 720 }} 720w,{%- endif -%}
+                      {%- if image.width >= 900 -%}{{ image | image_url: width: 900 }} 900w,{%- endif -%}
+                      {%- if image.width >= 1080 -%}{{ image | image_url: width: 1080 }} 1080w,{%- endif -%}
+                      {{ image | image_url }} {{ image.width }}w
+                    "
+                    src="{{ image | image_url: width: 540 }}"
+                    sizes="(min-width: 750px) 25vw, 100vw"
+                    alt="{{ image.alt | escape }}"
+                    class="motion-reduce"
+                    width="{{ image.width }}"
+                    height="{{ image.height }}"
+                  >
+                {%- endif -%}
+              </div>
+            </li>
+          {%- endfor -%}
+        </ul>
+      </slider-component>
+    </template>
+
+    {% render 'price', product: product, class: "card__price hidden" %}
+  </div>
+{%- endfor -%}

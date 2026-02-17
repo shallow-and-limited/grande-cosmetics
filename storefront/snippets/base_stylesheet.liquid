@@ -1,0 +1,238 @@
+{%- liquid
+  assign body_font_bold = settings.type_body_font | font_modify: 'weight', 'bold'
+  assign body_font_italic = settings.type_body_font | font_modify: 'style', 'italic'
+  assign body_font_bold_italic = body_font_bold | font_modify: 'style', 'italic'
+%}
+
+{{ settings.custom_fonts_preload }}
+
+{% style %}
+  {{ settings.custom_fonts }}
+
+  {{ settings.type_header_font | font_face: font_display: 'swap' }}
+  {{ settings.type_body_font | font_face: font_display: 'swap' }}
+  {{ settings.type_special_font | font_face: font_display: 'swap' }}
+
+  {{ body_font_bold | font_face: font_display: 'swap' }}
+  {{ body_font_italic | font_face: font_display: 'swap' }}
+  {{ body_font_bold_italic | font_face: font_display: 'swap' }}
+
+  {% for scheme in settings.color_schemes -%}
+    {% assign scheme_classes = scheme_classes | append: ', .color-' | append: scheme.id %}
+    {% if forloop.index == 1 -%}
+      :root,
+    {%- endif %}
+
+    .color-{{ scheme.id }} {
+      --color-foreground: {{ scheme.settings.text.red }},{{ scheme.settings.text.green }},{{ scheme.settings.text.blue }};
+      --color-background: {{ scheme.settings.background.red }},{{ scheme.settings.background.green }},{{ scheme.settings.background.blue }};
+
+      --color-button: {{ scheme.settings.button.red }},{{ scheme.settings.button.green }},{{ scheme.settings.button.blue }};
+      --color-button-opacity: {{ scheme.settings.button.alpha }};
+      --color-button-hover: {{ scheme.settings.button_hover.red }},{{ scheme.settings.button_hover.green }},{{ scheme.settings.button_hover.blue }};
+      --color-button-hover-opacity: {{ scheme.settings.button_hover.alpha }};
+      --color-button-text: {{ scheme.settings.button_label.red }},{{ scheme.settings.button_label.green }},{{ scheme.settings.button_label.blue }};
+      --color-button-text-hover: {{ scheme.settings.button_label_hover.red }},{{ scheme.settings.button_label_hover.green }},{{ scheme.settings.button_label_hover.blue }};
+      --color-button-border: {{ scheme.settings.button_border.red }},{{ scheme.settings.button_border.green }},{{ scheme.settings.button_border.blue }};
+      --color-button-border-hover: {{ scheme.settings.button_border_hover.red }},{{ scheme.settings.button_border_hover.green }},{{ scheme.settings.button_border_hover.blue }};
+
+      --color-secondary-button: {{ scheme.settings.button_secondary.red }},{{ scheme.settings.button_secondary.green }},{{ scheme.settings.button_secondary.blue }};
+      --color-secondary-button-opacity: {{ scheme.settings.button_secondary.alpha }};
+      --color-secondary-button-hover: {{ scheme.settings.button_secondary_hover.red }},{{ scheme.settings.button_secondary_hover.green }},{{ scheme.settings.button_secondary_hover.blue }};
+      --color-secondary-button-hover-opacity: {{ scheme.settings.button_secondary_hover.alpha }};
+      --color-secondary-button-text: {{ scheme.settings.button_secondary_label.red }},{{ scheme.settings.button_secondary_label.green }},{{ scheme.settings.button_secondary_label.blue }};
+      --color-secondary-button-text-hover: {{ scheme.settings.button_secondary_label_hover.red }},{{ scheme.settings.button_secondary_label_hover.green }},{{ scheme.settings.button_secondary_label_hover.blue }};
+      --color-secondary-button-border: {{ scheme.settings.button_secondary_border.red }},{{ scheme.settings.button_secondary_border.green }},{{ scheme.settings.button_secondary_border.blue }};
+      --color-secondary-button-border-hover: {{ scheme.settings.button_secondary_border_hover.red }},{{ scheme.settings.button_secondary_border_hover.green }},{{ scheme.settings.button_secondary_border_hover.blue }};
+
+      --color-link: {{ scheme.settings.links.red }},{{ scheme.settings.links.green }},{{ scheme.settings.links.blue }};
+      --color-link-hover: {{ scheme.settings.links_hover.red }},{{ scheme.settings.links_hover.green }},{{ scheme.settings.links_hover.blue }};
+
+      color: rgb(var(--color-foreground));
+      background-color: rgb(var(--color-background));      
+
+      {% if scheme.settings.background_gradient != empty %}
+        background: {{ scheme.settings.background_gradient }};
+      {% else %}
+        box-shadow: rgb(var(--color-background)) 0px -1px 0px 0px inset;
+      {% endif %}
+    }
+
+    .color-{{ scheme.id }}-text {
+      --color-foreground: {{ scheme.settings.text.red }},{{ scheme.settings.text.green }},{{ scheme.settings.text.blue }};
+    }
+
+    .color-{{ scheme.id }}-background {
+      --color-background: {{ scheme.settings.background.red }},{{ scheme.settings.background.green }},{{ scheme.settings.background.blue }};
+    }
+  {% endfor %}
+
+  {{ scheme_classes | prepend: 'body' }} {
+    color: rgb(var(--color-foreground));
+    background-color: rgb(var(--color-background));
+  }
+
+  :root {
+    --color-shadow: 33, 33, 33;
+
+    --color-highlight: {{ settings.color_highlight.red }},{{ settings.color_highlight.green }},{{ settings.color_highlight.blue }};
+
+    --color-success: {{ settings.color_success.red }}, {{ settings.color_success.green }}, {{ settings.color_success.blue }};
+    --color-warning: {{ settings.color_warning.red }}, {{ settings.color_warning.green }}, {{ settings.color_warning.blue }};
+    --color-error: {{ settings.color_error.red }}, {{ settings.color_error.green }}, {{ settings.color_error.blue }};
+
+    --color-badge-background: {{ settings.badge_background.red }}, {{ settings.badge_background.green }}, {{ settings.badge_background.blue }};
+    --color-badge-foreground: {{ settings.badge_text.red }}, {{ settings.badge_text.green }}, {{ settings.badge_text.blue }};
+
+    --color-sale: {{ settings.color_sale.red }}, {{ settings.color_sale.green }}, {{ settings.color_sale.blue }};
+
+    --narrow-width: {{ settings.narrow_width }}px;
+    --page-width: {{ settings.page_width }}px;
+    --large-width: {{ settings.large_width }}px;
+
+    --font-heading-family: {%- if settings.type_header_font_custom != blank -%}{{ settings.type_header_font_custom }},{%- endif -%} {{ settings.type_header_font.family }}, {{ settings.type_header_font.fallback_families }};
+    --font-special-family: {%- if settings.type_special_font_custom != blank -%}{{ settings.type_special_font_custom }},{%- endif -%} {{ settings.type_special_font.family }}, {{ settings.type_special_font.fallback_families }};
+
+    --font-heading-style: {{ settings.heading_style }};
+    --font-heading-weight: {{ settings.heading_weight }};
+    --font-heading-height: {{ settings.heading_line_height }};
+    --font-heading-spacing: {{ settings.heading_letter_spacing }};
+    --font-heading-transform: {{ settings.heading_transform }};
+
+    --font-body-family: {%- if settings.type_body_font_custom != blank -%}{{ settings.type_body_font_custom }},{%- endif -%} {{ settings.type_body_font.family }}, {{ settings.type_body_font.fallback_families }};
+
+    --font-body-xsmall: {{ settings.body_extra_small }};
+    --font-body-xlarge: {{ settings.body_extra_large }};
+
+    --font-body-style: normal;
+    --font-body-weight: {{ settings.body_weight }};
+    --font-body-height: {{ settings.body_line_height }};
+    --font-body-spacing: {{ settings.body_letter_spacing }};
+
+    --font-button-family: {%- if settings.type_body_font_custom != blank -%}{{ settings.type_body_font_custom }},{%- endif -%} {{ settings.type_body_font.family }}, {{ settings.type_body_font.fallback_families }};
+    --font-button: {{ settings.button_size }};
+    --font-button-style: {{ settings.button_style }};
+    --font-button-weight: {{ settings.button_weight }};
+    --font-button-height: normal;
+    --font-button-spacing: {{ settings.button_letter_spacing }};
+    --font-button-transform: {{ settings.button_transform }};
+
+    --link-decoration: {{ settings.link_decoration }};
+    --link-decoration-hover: {{ settings.link_decoration_hover }};
+
+    --inputs-height: {{ settings.inputs_height }}px;
+    --inputs-height-small: {{ settings.inputs_height | minus: 10 }}px;
+    --inputs-height-large: {{ settings.inputs_height | plus: 10 }}px;
+
+    --inputs-padding-vertical: {{ settings.inputs_padding_vertical }}rem;
+    --inputs-padding-horizontal: {{ settings.inputs_padding }}rem;
+    --inputs-padding: {{ settings.inputs_padding_vertical }}rem {{ settings.inputs_padding }}rem;
+    --inputs-radius: {{ settings.inputs_radius }}px;
+    --inputs-border-width: {{ settings.inputs_border_thickness }}px;
+    --inputs-border-opacity: {{ settings.inputs_border_opacity | divided_by: 100.0 }};
+    --inputs-shadow: {% if settings.inputs_shadow %}0 6px 12px rgba(var(--color-shadow),0.14), 0 3px 6px rgba(var(--color-shadow),0.07){% else %}none{% endif %};
+
+    --card-border-width: {{ settings.card_border_width }}px;
+    --card-border-radius: {{ settings.card_border_radius }}px;
+    --card-shadow: {% if settings.card_shadow %}0 6px 12px rgba(var(--color-shadow),0.14), 0 3px 6px rgba(var(--color-shadow),0.07){% else %}none{% endif %};
+
+    --media-border-opacity: {{ settings.media_border_opacity | divided_by: 100.0 }};
+    --media-border-width: {{ settings.media_border_thickness }}px;
+    --media-radius: {{ settings.media_radius }}px;
+    --media-shadow: {% if settings.media_shadow %}0 6px 12px rgba(var(--color-shadow),0.14), 0 3px 6px rgba(var(--color-shadow),0.07){% else %}none{% endif %};
+
+    --dialog-border-width: {{ settings.dialog_border_thickness }}px;
+    --dialog-border-opacity: {{ settings.dialog_border_opacity | divided_by: 100.0 }};
+    --dialog-corner-radius: {{ settings.dialog_corner_radius }}px;
+    --dialog-shadow: {% if settings.media_shadow %}0 6px 12px rgba(var(--color-shadow),0.14), 0 3px 6px rgba(var(--color-shadow),0.07){% else %}none{% endif %};
+
+    --header-height: 0px;
+    --announcement-height: 0px;
+
+    --payment-terms-background-color: rgb(var(--color-button));
+  }
+
+  @media screen and (min-width: 750px) {
+    :root {
+      --page-padding: {{ settings.page_padding }};
+
+      --font-heading-h0: {{ settings.desktop_h0 }};
+      --font-heading-h1: {{ settings.desktop_h1 }};
+      --font-heading-h2: {{ settings.desktop_h2 }};
+      --font-heading-h3: {{ settings.desktop_h3 }};
+      --font-heading-h4: {{ settings.desktop_h4 }};
+      --font-heading-h5: {{ settings.desktop_h5 }};
+      --font-heading-h6: {{ settings.desktop_h6 }};
+
+      --font-body: {{ settings.desktop_body }};
+      --font-body-large: {{ settings.desktop_body_large }};
+      --font-body-small: {{ settings.desktop_body_small }};
+
+      --card-padding: {{ settings.card_padding }}rem;
+      --card-details-padding: {{ settings.card_details_padding }};
+
+
+      --column-spacing: {{ settings.spacing_column }};
+      --row-spacing: {{ settings.spacing_row }};
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    :root {
+      --page-padding: {{ settings.page_padding_mobile }};
+
+      --font-heading-h0: {{ settings.mobile_h0 }};
+      --font-heading-h1: {{ settings.mobile_h1 }};
+      --font-heading-h2: {{ settings.mobile_h2 }};
+      --font-heading-h3: {{ settings.mobile_h3 }};
+      --font-heading-h4: {{ settings.mobile_h4 }};
+      --font-heading-h5: {{ settings.mobile_h5 }};
+      --font-heading-h6: {{ settings.mobile_h6 }};
+
+      --font-body: {{ settings.mobile_body }};
+      --font-body-large: {{ settings.mobile_body_large }};
+      --font-body-small: {{ settings.mobile_body_small }};
+
+      --card-padding: {{ settings.card_padding_mobile }}rem;
+      --card-details-padding: {{ settings.card_details_padding_mobile }};
+
+      --column-spacing: {{ settings.spacing_column_mobile }};
+      --row-spacing: {{ settings.spacing_row_mobile }};
+    }
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: inherit;
+  }
+
+  html {
+    box-sizing: border-box;
+    font-size: var(--font-body);
+    height: 100%;
+  }
+
+  body {
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+
+    display: grid;
+    grid-template-rows: auto auto auto 1fr auto;
+    grid-template-columns: 100%;
+    min-height: 100%;
+    max-width: 100%;
+    margin: 0;
+    font-size: var(--font-body);
+    font-family: var(--font-body-family);
+    font-style: var(--font-body-style);
+    font-weight: var(--font-body-weight);
+    line-height: var(--font-body-height);
+    letter-spacing: var(--font-body-spacing);
+  }
+
+  .shopify-payment-button__button--hidden,
+  .shopify-payment-button__button[disabled] {
+    display: none;
+  }
+{% endstyle %}

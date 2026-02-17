@@ -1,0 +1,417 @@
+{{ 'section-contact-form.css' | asset_url | stylesheet_tag }}
+
+{%- render 'section_padding' %}
+
+<div
+  id="{{ section.id }}"
+  class="color-{{ section.settings.color_scheme }} section-{{ section.id }}-padding  gradient"
+>
+  <div class="contact {{ section.settings.layout }} ">
+    {%- if section.settings.title != blank -%}
+      {%- render 'section_header' -%}
+    {%- else -%}
+      <h2 class="visually-hidden">{{ 'templates.contact.form.title' | t }}</h2>
+    {%- endif -%}
+
+    {%- liquid
+      assign contact_form_class = 'isolate'
+      if settings.animations_reveal_on_scroll
+        assign contact_form_class = 'isolate scroll-trigger animate--slide-in'
+      endif
+    -%}
+
+    {%- form 'contact', id: 'ContactForm', class: contact_form_class -%}
+      {%- if form.posted_successfully? -%}
+        <h2 class="field__message field__message--success" tabindex="-1" autofocus>
+          {% render 'icon-success' %}
+          {{ 'templates.contact.form.post_success' | t }}
+        </h2>
+      {%- elsif form.errors -%}
+        <h2 class="field__message field__message--error" role="alert" tabindex="-1" autofocus>
+          {% render 'icon-error' %}
+          {{ 'templates.contact.form.error_heading' | t }}
+        </h2>
+      {%- endif -%}
+
+      <div class="field__container field__container--center">
+        <div class="field__label">
+          {{ 'templates.contact.form.iama' | t }}
+        </div>
+
+        <div class='field field--checkbox'>
+          <input type="checkbox" id="ContactForm-iama-retailer" name="contact[iama]" value="retailer">
+          <label class="field__label" for="ContactForm-iama-retailer">
+            {{ 'templates.contact.form.retailer' | t }}
+          </label>
+        </div>
+
+        <div class='field field--checkbox'>
+          <input type="checkbox" id="ContactForm-iama-designer" name="contact[iama]" value="designer">
+          <label class="field__label" for="ContactForm-iama-designer">
+            {{ 'templates.contact.form.designer' | t }}
+          </label>
+        </div>
+
+        <div class='field field--checkbox'>
+          <input type="checkbox" id="ContactForm-iama-consumer" name="contact[iama]" value="consumer">
+          <label class="field__label" for="ContactForm-iama-consumer">
+            {{ 'templates.contact.form.consumer' | t }}
+          </label>
+        </div>
+
+      </div>
+
+      <div class="field__container">
+        <div class="field">
+          <label class="field__label" for="ContactForm-name">
+            {{ 'templates.contact.form.name' | t }}
+            <span aria-hidden="true">*</span>
+          </label>
+          <input
+            class="field__input"
+            autocomplete="name"
+            required="required"
+            type="text"
+            id="ContactForm-name"
+            name="contact[{{ 'templates.contact.form.name' | t }}]"
+            value="{% if form.name %}{{ form.name }}{% elsif customer %}{{ customer.name }}{% endif %}"
+            placeholder="{{ 'templates.contact.form.name' | t }}"
+          >
+        </div>
+
+        <div class="field">
+          <div class="field">
+            <label class="field__label" for="ContactForm-phone">
+              {{- 'templates.contact.form.phone' | t }}
+              <span aria-hidden="true">*</span>
+            </label>
+            <input
+              autocomplete="tel"
+              required="required"
+              type="tel"
+              pattern="^(\+91[\-\s]?)?[0]?(91)?[6789]\d{9}$"
+              id="ContactForm-phone"
+              class="field__input"
+              name="contact[phone]"
+              spellcheck="false"
+              autocapitalize="off"
+              value="{% if form.phone %}{{ form.phone }}{% elsif customer %}{{ customer.phone }}{% endif %}"
+              aria-required="true"
+              placeholder="{{ 'templates.contact.form.phone' | t }}"
+            >
+          </div>
+        </div>
+      </div>
+
+      <div class='field__container'>
+        <div class="field field--with-error">
+          <label class="field__label" for="ContactForm-email">
+            {{- 'templates.contact.form.email' | t }}
+            <span aria-hidden="true">*</span></label
+          >
+          <input
+            autocomplete="email"
+            required="required"
+            type="email"
+            id="ContactForm-email"
+            class="field__input"
+            name="contact[email]"
+            spellcheck="false"
+            autocapitalize="off"
+            value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}"
+            aria-required="true"
+            {% if form.errors contains 'email' %}
+              aria-invalid="true"
+              aria-describedby="ContactForm-email-error"
+            {% endif %}
+            placeholder="{{ 'templates.contact.form.email' | t }}"
+          >
+
+          {%- if form.errors contains 'email' -%}
+            <small class="field__status" id="ContactForm-email-error">
+              <span class="visually-hidden">{{ 'accessibility.error' | t }}</span>
+              {%- render 'icon-error' -%}
+              {{- form.errors.translated_fields.email | capitalize }}
+              {{ form.errors.messages.email -}}
+            </small>
+          {%- endif -%}
+        </div>
+
+        <div class="field">
+          <label class="field__label" for="ContactForm-location">
+            {{- 'templates.contact.form.location' | t }}
+            <span aria-hidden="true">*</span></label
+          >
+          <input
+            autocomplete="location"
+            required="required"
+            type="text"
+            id="ContactForm-location"
+            class="field__input"
+            name="contact[location]"
+            spellcheck="false"
+            autocapitalize="off"
+            value="{% if form.location %}{{ form.location }}{% elsif customer %}{{ customer.location }}{% endif %}"
+            aria-required="true"
+            placeholder="{{ 'templates.contact.form.location' | t }}"
+          >
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="field__label" for="ContactForm-body">
+          {{- 'templates.contact.form.comment' | t -}}
+        </label>
+        <textarea
+          rows="10"
+          id="ContactForm-body"
+          class="field__textarea"
+          name="contact[{{ 'templates.contact.form.comment' | t }}]"
+          placeholder="{{ 'templates.contact.form.comment' | t }}"
+        >
+          {{- form.body -}}
+        </textarea>
+      </div>
+
+      <div class="field">
+        <button type="submit" class="button full-width field__button">
+          {{ 'templates.contact.form.send' | t }}
+        </button>
+      </div>
+    {%- endform -%}
+  </div>
+  {%- liquid
+    assign has_social_icons = true
+    if settings.social_facebook_link == blank and settings.social_instagram_link == blank and settings.social_youtube_link == blank and settings.social_tiktok_link == blank and settings.social_twitter_link == blank and settings.social_pinterest_link == blank and settings.social_snapchat_link == blank and settings.social_tumblr_link == blank and settings.social_vimeo_link == blank
+      assign has_social_icons = false
+    endif
+  -%}
+
+  {%- if section.settings.show_social and has_social_icons -%}
+    <div class="page-width contact__list-social">
+      <div class="body--small center">
+        {{ section.settings.social_title }}
+      </div>
+      {%- render 'social-icons', class: 'contact__list-social' -%}
+    </div>
+  {%- endif -%}
+</div>
+
+{% schema %}
+{
+  "name": "t:sections.contact-form.name",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "info": "t:sections.all.colors.has_cards_info",
+      "default": "scheme-1"
+    },
+    {
+      "type": "select",
+      "id": "layout",
+      "label": "Layout",
+      "options": [
+        {
+          "value": "screen-width",
+          "label": "Screen width"
+        },
+        {
+          "value": "page-width",
+          "label": "Page width"
+        },
+        {
+          "value": "large-width",
+          "label": "Large width"
+        },
+        {
+          "value": "full-width",
+          "label": "Full width"
+        }
+      ],
+      "default": "page-width"
+    },
+    {
+      "type": "header",
+      "content": "Section Header"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "visible_if": "{{ section.settings.title != blank }}",
+      "type": "checkbox",
+      "id": "header_is_h1",
+      "label": "Header is H1",
+      "default": false
+    },
+    {
+      "visible_if": "{{ section.settings.title != blank }}",
+      "type": "checkbox",
+      "id": "visually_hide_header",
+      "label": "Visually hide header",
+      "default": false
+    },
+    {
+      "visible_if": "{{ section.settings.title != blank }}",
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        {
+          "value": "h5",
+          "label": "X-Small"
+        },
+        {
+          "value": "h4",
+          "label": "Small"
+        },
+        {
+          "value": "h3",
+          "label": "Medium"
+        },
+        {
+          "value": "h2",
+          "label": "Large"
+        },
+        {
+          "value": "h1",
+          "label": "X-Large"
+        }
+      ],
+      "default": "h2",
+      "label": "t:sections.all.heading_size.label"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description"
+    },
+    {
+      "visible_if": "{{ section.settings.description != blank }}",
+      "type": "select",
+      "id": "text_style",
+      "options": [
+        {
+          "value": "body--small",
+          "label": "Small"
+        },
+        {
+          "value": "body",
+          "label": "Regular"
+        },
+        {
+          "value": "body--large",
+          "label": "Large"
+        }
+      ],
+      "default": "body",
+      "label": "Text style"
+    },
+    {
+      "visible_if": "{{ section.settings.description != blank }}",
+      "type": "select",
+      "id": "mobile_text_style",
+      "options": [
+        {
+          "value": "body--small-mobile",
+          "label": "Small"
+        },
+        {
+          "value": "body--mobile",
+          "label": "Regular"
+        },
+        {
+          "value": "body--large-mobile",
+          "label": "Large"
+        }
+      ],
+      "default": "body--mobile",
+      "label": "Mobile text style"
+    },
+    {
+      "visible_if": "{{ section.settings.title != blank or section.settings.description != blank }}",
+      "type": "select",
+      "id": "heading_alignment",
+      "label": "Heading Alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "t:sections.collapsible_content.settings.heading_alignment.options__1.label"
+        },
+        {
+          "value": "center",
+          "label": "t:sections.collapsible_content.settings.heading_alignment.options__2.label"
+        },
+        {
+          "value": "right",
+          "label": "t:sections.collapsible_content.settings.heading_alignment.options__3.label"
+        }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "header",
+      "content": "Social"
+    },
+    {
+      "type": "text",
+      "id": "social_title",
+      "default": "Stay in the know",
+      "label": "Social title"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_social",
+      "default": true,
+      "label": "t:sections.footer.settings.show_social.label"
+    },
+    {
+      "type": "header",
+      "content": "Section Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 4,
+      "step": 0.5,
+      "unit": "rem",
+      "label": "Padding top",
+      "default": 2
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 4,
+      "step": 0.5,
+      "unit": "rem",
+      "label": "Padding bottom",
+      "default": 2
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom",
+      "min": 0,
+      "max": 4,
+      "step": 0.5,
+      "unit": "rem",
+      "label": "Section margin",
+      "default": 0
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.contact-form.presets.name"
+    }
+  ]
+}
+{% endschema %}

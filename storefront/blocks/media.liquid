@@ -1,0 +1,489 @@
+{%- if block.settings.image_width == 'custom' -%}
+  {%- capture sizes -%}(max-width: 749px) min({{ block.settings.image_max_width_mobile }}px, 100vw), min({{ block.settings.image_max_width }}px, 100vw){%- endcapture -%}
+  {%- capture widths -%}{{ block.settings.image_max_width_mobile }},{{ block.settings.image_max_width }}{%- endcapture -%}
+  {%- capture widths_mobile -%}{{ block.settings.image_max_width_mobile }}{%- endcapture -%}
+{%- else -%}
+  {%- assign sizes = 'min(100vw, var(--page-width))' -%}
+  {%- assign widths = '400, 800, 1200, 1600, 2000, 2400, 2800, 3200, 3840' -%}
+  {%- assign widths_mobile = '200, 400, 600, 800, 1000, 1200' -%}
+{%- endif -%}
+
+{%- if block.settings.media_type == 'image' -%}
+  {%- assign mobile_image = block.settings.image_mobile | default: block.settings.image -%}
+
+  {%- assign aspect_ratio = block.settings.image.aspect_ratio | default: '1.66' -%}
+  {%- assign aspect_ratio_mobile = mobile_image.aspect_ratio | default: aspect_ratio -%}
+
+  {%- capture media -%}
+    <figure 
+      class="
+        media 
+        media--{{ block.settings.aspect_ratio }}
+        hidden--mobile
+      "
+      {% if block.settings.aspect_ratio == 'adapt' %}
+        style="padding-bottom: {{ 1 | times: 100 | divided_by: aspect_ratio }}%;"
+      {% endif %}
+    >
+      {% if block.settings.image != blank %}
+        {{-
+          block.settings.image
+          | image_url: width: block.settings.image.width
+          | image_tag: loading: 'lazy', sizes: sizes, widths: widths, is: 'lazy-image'
+        -}}
+      {% else %}
+        {{ 'hero-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
+      {% endif %}
+    </figure>
+
+    <figure 
+      class="
+        media 
+        media--{{ block.settings.aspect_ratio_mobile }}
+        hidden--desktop
+      "
+      {% if block.settings.aspect_ratio_mobile == 'adapt' %}
+        style="padding-bottom: {{ 1 | divided_by: aspect_ratio_mobile | times: 100 }}%;"
+      {% endif %}
+    >
+      {% if mobile_image != blank %}
+        {{-
+          mobile_image
+          | image_url: width: block.settings.image_mobile.width
+          | image_tag: loading: 'lazy', sizes: sizes, widths: widths_mobile, is: 'lazy-image'
+        -}}
+      {% else %}
+        {{ 'hero-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
+      {% endif %}
+    </figure>
+  {%- endcapture -%}
+
+{%- elsif block.settings.media_type == 'video' -%}
+  {%- capture media -%}
+    {%- assign video = block.settings.video %}
+    {%- assign video_mobile = block.settings.video_mobile | default: block.settings.video %}
+
+    {%- assign video_id = video.id -%}
+    {%- assign video_alt = video.alt -%}
+    
+    {%- assign alt = 'sections.video.load_video' | t: description: video_alt | escape -%}
+                  
+    <deferred-media
+      class="media media--{{ block.settings.aspect_ratio }} media--{{ block.settings.aspect_ratio_mobile }}-mobile"
+      style="
+        {% if block.settings.aspect_ratio == 'adapt' %}
+          --padding-bottom-desktop: {{ 1 | divided_by: video.aspect_ratio | times: 100 }}%;
+        {% endif %}
+        {% if block.settings.aspect_ratio_mobile == 'adapt' %}
+          --padding-bottom-mobile: {{ 1 | divided_by: video_mobile.aspect_ratio | times: 100 }}%;
+        {% endif %}
+      "
+      data-media-id="{{ video_id }}"
+      data-autoplay="{{ block.settings.enable_video_autoplay }}"
+    >
+      {%- unless block.settings.enable_video_autoplay %}
+        <div 
+          class="media media--{{ block.settings.aspect_ratio }} hidden--mobile"
+          {% if block.settings.aspect_ratio == 'adapt' %}
+            style="padding-bottom: {{ 1 | divided_by: video.aspect_ratio | times: 100 }}%;"
+          {% endif %}
+        >
+          {%- assign video_height = video.width | divided_by: video.aspect_ratio -%}
+          {{
+            video
+            | image_url: width: 3840
+            | image_tag:
+            width: video.width,
+            height: video_height,
+            sizes: sizes,
+            widths: widths,
+            is: 'lazy-image'
+          }}
+        </div>
+
+        <div 
+          class="media media--{{ block.settings.aspect_ratio_mobile }} hidden--desktop"
+          {% if block.settings.aspect_ratio_mobile == 'adapt' %}
+            style="padding-bottom: {{ 1 | divided_by: video_mobile.aspect_ratio | times: 100 }}%;"
+          {% endif %}
+        >
+          {%- liquid
+            assign video_mobile_height = video_mobile.width | divided_by: video_mobile.aspect_ratio
+          -%}
+
+          {{
+            video_mobile
+            | image_url: width: 3840
+            | image_tag:
+            width: video_mobile.width,
+            height: video_mobile_height,
+            sizes: sizes,
+            widths: widths_mobile,
+            is: 'lazy-image'
+          }}
+        </div>
+
+        <button
+          id="DeferredPoster-{{ video_id }}"
+          class="media__poster"
+          type="button"
+          aria-label="{{ alt }}"
+        >
+          <span class="media__poster-text">
+            {%- render 'icon-play' -%}
+          </span>
+        </button>
+      {%- endunless %}
+
+      <template>
+        <div>
+          {%- if block.settings.enable_video_autoplay %}
+            {{
+              video
+              | video_tag:
+              image_size: '3840x',
+              autoplay: true,
+              loop: true,
+              controls: false,
+              muted: true,
+              class: 'hidden--mobile'
+            }}
+            {{
+              video_mobile
+              | video_tag:
+              image_size: '1200x',
+              autoplay: true,
+              loop: true,
+              controls: false,
+              muted: true,
+              class: 'hidden--desktop'
+            }}
+          {%- else -%}
+            {{
+              video
+              | video_tag:
+              image_size: '3840x',
+              autoplay: true,
+              loop: true,
+              controls: true,
+              muted: false,
+              class: 'hidden--mobile'
+            }}
+            {{
+              video_mobile
+              | video_tag:
+              image_size: '1200x',
+              autoplay: true,
+              loop: true,
+              controls: true,
+              muted: false,
+              class: 'hidden--desktop'
+            }}
+          {%- endif -%}
+        </div>
+      </template>
+    </deferred-media>
+  {%- endcapture -%}
+
+{%- elsif block.settings.media_type == 'external' -%}
+  {%- capture media -%}
+
+    {%- if block.settings.video_url != null -%}
+      {%- assign loop = '&loop=1&playlist=' | append: block.settings.video_url.id -%}
+      {%- assign loop = loop | append: '&autoplay=1&mute=1' -%}
+
+      <div class="media media--landscape">
+        {%- if block.settings.video_url.type == 'youtube' -%}
+          <iframe
+            src="https://www.youtube.com/embed/{{ block.settings.video_url.id }}?enablejsapi=1&{{ loop }}"
+            class="js-youtube"
+            allow="autoplay; encrypted-media"
+            allowfullscreen
+            title="{{ block.settings.title | escape }}"
+          ></iframe>
+        {%- else -%}
+          <iframe
+            src="https://player.vimeo.com/video/{{ block.settings.video_url.id }}?{{ loop }}"
+            class="js-vimeo"
+            allow="autoplay; encrypted-media"
+            allowfullscreen
+            title="{{ block.settings.title | escape }}"
+          ></iframe>
+        {%- endif -%}
+      </div>
+    {% endif %}
+  {%- endcapture -%}
+{%- endif -%}
+
+<div
+  class="block-media"
+  {{ block.shopify_attributes }}
+>
+  {%- if block.settings.link != blank -%}
+    <a href="{{ block.settings.link }}" class="link link--unstyled">
+      {{ media }}
+    </a>
+  {%- else -%}
+    {{ media }}
+  {%- endif -%}
+</div>
+
+{% stylesheet %}
+  .block-media {
+    height: 100%;
+  }
+  
+  .block-media a {
+    width: 100%;
+  }
+
+  .block-media .media::after {
+    content: "";
+
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgb(var(--overlay-color));
+    opacity: var(--media-overlay-opacity);
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+  }
+
+  .block-media deferred-media {
+    padding-bottom: var(--padding-bottom-desktop);
+  }
+
+  @media (max-width: 749px) {
+    .block-media deferred-media,
+    .block-media iframe {
+      padding-bottom: var(--padding-bottom-mobile);
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Media",
+  "settings": [
+    {
+      "type": "url",
+      "id": "link",
+      "label": "Link"
+    },
+    {
+      "type": "select",
+      "id": "media_type",
+      "label": "Media type",
+      "options": [
+        {
+          "value": "image",
+          "label": "Image"
+        },
+        {
+          "value": "video",
+          "label": "Video"
+        },
+        {
+          "value": "external",
+          "label": "External video"
+        }
+      ],
+      "default": "image"
+    },
+    {
+      "visible_if": "{{ block.settings.media_type == 'image' }}",
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "visible_if": "{{ block.settings.media_type == 'image' }}",
+      "type": "image_picker",
+      "id": "image_mobile",
+      "label": "Image (mobile)"
+    },
+    {
+      "visible_if": "{{ block.settings.media_type == 'video' }}",
+      "type": "video",
+      "id": "video",
+      "label": "Video"
+    },
+    {
+      "visible_if": "{{ block.settings.media_type == 'video' }}",
+      "type": "video",
+      "id": "video_mobile",
+      "label": "Video (mobile)"
+    },
+    {
+      "visible_if": "{{ block.settings.media_type == 'external' }}",
+      "type": "video_url",
+      "id": "video_url",
+      "label": "External video URL",
+      "accept": ["youtube", "vimeo"],
+      "info": "External videos will always autoplay and use 16:9 aspect ratio"
+    },
+    {
+      "visible_if": "{{ block.settings.media_type == 'video' }}",
+      "type": "checkbox",
+      "id": "enable_video_autoplay",
+      "label": "Autoplay",
+      "default": true
+    },
+    {
+      "type": "radio",
+      "id": "media_width",
+      "options": [
+        {
+          "value": "full_width",
+          "label": "Max width"
+        },
+        {
+          "value": "custom",
+          "label": "Custom"
+        }
+      ],
+      "default": "full_width",
+      "label": "Media width"
+    },
+    {
+      "visible_if": "{{ block.settings.media_width == 'custom' }}",
+      "type": "range",
+      "id": "media_max_width",
+      "label": "Media max width",
+      "default": 1200,
+      "min": 20,
+      "max": 1200,
+      "step": 20,
+      "unit": "px"
+    },
+    {
+      "visible_if": "{{ block.settings.media_width == 'custom' }}",
+      "type": "range",
+      "id": "media_max_width_mobile",
+      "label": "Media max width (mobile)",
+      "default": 480,
+      "min": 20,
+      "max": 600,
+      "step": 10,
+      "unit": "px"
+    },
+    {
+      "visible_if": "{{ block.settings.media_type == 'image' or block.settings.media_type == 'video' }}",
+      "type": "select",
+      "id": "aspect_ratio",
+      "options": [
+        {
+          "value": "adapt",
+          "label": "Adapt"
+        },
+        {
+          "value": "ribbon",
+          "label": "Ribbon"
+        },
+        {
+          "value": "xsmall",
+          "label": "X-Small"
+        },
+        {
+          "value": "small",
+          "label": "Small"
+        },
+        {
+          "value": "medium",
+          "label": "Medium"
+        },
+        {
+          "value": "large",
+          "label": "Large"
+        },
+        {
+          "value": "square",
+          "label": "Square"
+        },
+        {
+          "value": "portrait",
+          "label": "Portrait"
+        },
+        {
+          "value": "landscape",
+          "label": "Landscape"
+        },
+        {
+          "value": "full",
+          "label": "Full Height"
+        }
+      ],
+      "default": "adapt",
+      "label": "Aspect ratio"
+    },
+    {
+      "visible_if": "{{ block.settings.media_type == 'image' or block.settings.media_type == 'video' }}",
+      "type": "select",
+      "id": "aspect_ratio_mobile",
+      "options": [
+        {
+          "value": "adapt",
+          "label": "Adapt"
+        },
+        {
+          "value": "ribbon",
+          "label": "Ribbon"
+        },
+        {
+          "value": "xsmall",
+          "label": "X-Small"
+        },
+        {
+          "value": "small",
+          "label": "Small"
+        },
+        {
+          "value": "medium",
+          "label": "Medium"
+        },
+        {
+          "value": "large",
+          "label": "Large"
+        },
+        {
+          "value": "square",
+          "label": "Square"
+        },
+        {
+          "value": "portrait",
+          "label": "Portrait"
+        },
+        {
+          "value": "landscape",
+          "label": "Landscape"
+        },
+        {
+          "value": "full",
+          "label": "Full Height"
+        }
+      ],
+      "default": "adapt",
+      "label": "Aspect ratio (mobile)"
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "label": "Overlay opacity",
+      "default": 0,
+      "min": 0,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "visible_if": "{{ block.settings.overlay_opacity != 0 }}",
+      "type": "color",
+      "id": "overlay_color",
+      "label": "Overlay color",
+      "default": "#000000"
+    }    
+  ],
+  "presets": [{ "name": "Media" }]
+}
+{% endschema %}

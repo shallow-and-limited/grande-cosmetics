@@ -1,0 +1,38 @@
+<menu-drawer>
+  <details id="{{ id }}" class="disclosure-has-popup">
+    <summary class="link">
+      {{ trigger }}
+    </summary>
+    <div
+      id="{{ id }}-Drawer"
+      class="gradient drawer drawer--left motion-reduce"
+    >
+      <div id="{{ id }}-Overlay" class="drawer__overlay"></div>
+
+      <div
+        class="drawer__container drawer__container--no-corners {{ settings.dialog_color_scheme }}"
+        role="dialog"
+        aria-modal="true"
+        aria-label=""
+        tabindex="-1"
+      >
+        <div class="drawer__header drawer__header--no-padding">
+          <h2 class="drawer__heading h4">
+            {{ title }}
+          </h2>
+          <button
+            class="drawer__close link link--unstyled"
+            type="button"
+            aria-label="{{ 'accessibility.close' | t }}"
+          >
+            {% render 'icon-close' %}
+          </button>
+        </div>
+
+        <div class="drawer__content color-scheme-1">
+          {{ content }}
+        </div>
+      </div>
+    </div>
+  </details>
+</menu-drawer>

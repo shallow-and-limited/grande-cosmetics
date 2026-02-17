@@ -1,0 +1,50 @@
+.ticker {
+  overflow-x: hidden;
+  display: flex;
+}
+
+.ticker__inner {
+  --direction: normal;
+  --delay: 0s;
+  --iteration-count: infinite;
+
+  overflow: hidden;
+  display: flex;
+  gap: 1rem;
+  flex: 0 0 auto;
+  margin-right: 1rem;
+  min-width: 100%;
+  align-items: center;
+  justify-content: space-around;
+  animation: ticker var(--duration) linear var(--delay) var(--iteration-count);
+  animation-play-state: var(--play);
+  animation-delay: var(--delay);
+  animation-direction: var(--direction);
+}
+
+.ticker__item {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.ticker__item * {
+  margin: 0;
+  line-height: 1;
+}
+
+.ticker__item-image {
+  width: 100%;
+}
+
+@keyframes ticker {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}

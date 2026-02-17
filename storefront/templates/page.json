@@ -1,0 +1,37 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "contact_form_zfnTji": {
+      "type": "contact-form",
+      "name": "t:sections.contact-form.presets.name",
+      "settings": {
+        "color_scheme": "",
+        "layout": "page-width",
+        "title": "Contact Us",
+        "header_is_h1": true,
+        "visually_hide_header": false,
+        "heading_size": "h2",
+        "description": "",
+        "text_style": "body",
+        "mobile_text_style": "body--mobile",
+        "heading_alignment": "center",
+        "social_title": "Stay in the know",
+        "show_social": false,
+        "padding_top": 2,
+        "padding_bottom": 2,
+        "margin_bottom": 0
+      }
+    }
+  },
+  "order": [
+    "contact_form_zfnTji"
+  ]
+}

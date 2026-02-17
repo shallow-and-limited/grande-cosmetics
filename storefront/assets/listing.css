@@ -1,0 +1,38 @@
+.listing {
+  display: flex;
+  position: relative;
+  gap: 3rem;
+}
+
+.listing .loading-overlay {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: none;
+  width: 100%;
+  opacity: 0.666;
+}
+
+.listing.loading .loading-overlay {
+  display: block;
+}
+
+.listing__wrapper {
+  width: 100%;
+}
+
+.listing__container {
+  position: relative;
+}
+
+.listing__empty {
+  margin-top: 10rem;
+  margin-bottom: 15rem;
+}
+
+.listing-grid {
+  margin-top: 1rem;
+}

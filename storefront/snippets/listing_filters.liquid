@@ -1,0 +1,200 @@
+{%- capture content -%}
+  <form id="{% if type == "drawer" %}FiltersFormDrawer{% else %}FiltersForm{% endif %}">
+    <details
+      id="Filter-SortBy-{{ section.id }}"
+      class="filter__details border border--light hidden--desktop"
+      data-index="mobile-SortBy"
+      open
+    >
+      <summary class="filter__summary body body--large">
+        <span>{{ 'products.filters.sort_by_label' | t | remove: ":" }}</span>
+        <span class="filters__plus">
+          {%- render 'icon-plus' -%}
+        </span>
+
+        <span class="filters__minus">
+          {%- render 'icon-minus' -%}
+        </span>
+      </summary>
+      <div
+        id="FacetMobile-SortBy-{{ section.id }}"
+        class="mobile-facets__submenu"
+      >
+        <ul class="filters__list list--unstyled" role="list">
+          {%- assign sort_by = results.sort_by | default: results.default_sort_by -%}
+
+          {%- for option in results.sort_options -%}
+            <li class="mobile-facets__item">
+              <label
+                for="Filter-SortBy-{{ forloop.index }}"
+                class="
+                  filter__label
+                  {%- if option.value == sort_by %}active{% endif %}
+                "
+              >
+                <input
+                  class="mobile-facets__checkbox"
+                  type="radio"
+                  name="sort_by"
+                  value="{{ option.value }}"
+                  id="Filter-SortBy-{{ forloop.index }}"
+                  {% if option.value == sort_by %}
+                    checked
+                  {% endif %}
+                >
+
+                {{ option.name }}
+              </label>
+            </li>
+          {%- endfor -%}
+        </ul>
+      </div>
+    </details>
+
+    {%- for filter in results.filters -%}
+      {% if filter.values.size == 1 %}
+        {% continue %}
+      {% endif %}
+
+      <details
+        id="Filter-{{ filter.param_name | handle }}-{{ section.id }}"
+        class="filter__details border border--light"
+        data-index="mobile-{{ forloop.index }}"
+        open
+      >
+        <summary class="filter__summary body body--large">
+          <span>{{ filter.label | escape }}</span>
+          <span class="filters__plus">
+            {%- render 'icon-plus' -%}
+          </span>
+
+          <span class="filters__minus">
+            {%- render 'icon-minus' -%}
+          </span>
+        </summary>
+        <div
+          id="FacetMobile-{{ forloop.index }}-{{ section.id }}"
+          class="mobile-facets__submenu"
+        >
+          <ul class="filters__list list--unstyled" role="list">
+            {%- if filter.type == 'list' or filter.type == 'boolean' -%}
+              {%- liquid
+                assign sorted_values = filter.values
+                # Keep the selected values grouped together when operator is AND
+                if filter.operator == 'AND'
+                  assign active_filter_values = filter.values | where: 'active', true
+                  assign inactive_filter_values = filter.values | where: 'active', false
+                  assign sorted_values = active_filter_values | concat: inactive_filter_values
+                endif
+              -%}
+
+              {%- for value in sorted_values -%}
+                {% liquid
+                  assign input_id = filter.param_name | append: value.label | handle
+                  assign is_disabled = false
+                  if value.count == 0 and value.active == false
+                    assign is_disabled = true
+                  endif
+                %}
+
+                <li class="mobile-facets__item">
+                  <label
+                    for="Filter-{{ input_id }}"
+                    class="filter__label {% if value.param_name == "filter.p.m.custom.availability" %}bold{% endif %}"
+                  >
+                    <input
+                      class="mobile-facets__checkbox"
+                      type="checkbox"
+                      name="{{ value.param_name }}"
+                      value="{{ value.value }}"
+                      id="Filter-{{ input_id }}"
+                      {% if value.active %}
+                        checked
+                      {% endif %}
+                      {% if is_disabled %}
+                        disabled
+                      {% endif %}
+                    >
+                    {{- value.label | escape }} (
+                    {%- if value.count == '1' -%}
+                      {{- 'products.filters.product_count_simple.one' | t: count: value.count -}}
+                    {%- else -%}
+                      {{- 'products.filters.product_count_simple.other' | t: count: value.count -}}
+                    {%- endif -%}
+                    )
+                  </label>
+                </li>
+              {%- endfor -%}
+            {%- endif -%}
+          </ul>
+        </div>
+      </details>
+    {%- endfor -%}
+
+    {% if results.current_vendor or results.current_type %}
+      <input type="hidden" name="q" value="{{ results.current_vendor }}{{ results.current_type }}">
+    {% endif %}
+
+    {%- if results.terms -%}
+      <input type="hidden" name="q" value="{{ results.terms | escape }}">
+      <input name="options[prefix]" type="hidden" value="last">
+    {%- endif -%}
+  </form>
+{%- endcapture -%}
+
+<div
+  class="filters__container {{ class }}"
+>
+  {%- if type == 'drawer' -%}
+    <menu-drawer
+      class="
+        filters__drawer
+        {% if section.settings.enable_desktop_filters and false %}hidden--desktop{% endif %}
+      "
+    >
+      <details id="FacetsDetails" class="filters__details">
+        <summary class="filters__toggle">
+          <span class="hidden--mobile">{{ 'products.filters.filter_button' | t }}</span>
+          <span class="hidden--desktop">{{ 'products.filters.filter_sort_button' | t }}</span>
+
+          {%- render 'icon-filter' -%}
+        </summary>
+        <listing-form
+          id="Facets-Drawer"
+          class="gradient drawer drawer--left motion-reduce"
+        >
+          <div id="Facets-Overlay" class="drawer__overlay"></div>
+
+          <div
+            class="drawer__container drawer__container--no-corners color-scheme-1"
+            role="dialog"
+            aria-modal="true"
+            aria-label=""
+            tabindex="-1"
+          >
+            <div class="drawer__header drawer__header--no-padding color-scheme-1">
+              <h2 class="drawer__heading h4">
+                {{ 'products.filters.filter_button' | t }}
+              </h2>
+              <button
+                class="drawer__close link link--unstyled"
+                type="button"
+                aria-label="{{ 'accessibility.close' | t }}"
+              >
+                {% render 'icon-close' %}
+              </button>
+            </div>
+
+            <div class="drawer__content color-scheme-1">
+              {{ content }}
+            </div>
+          </div>
+        </listing-form>
+      </details>
+    </menu-drawer>
+  {%- else -%}
+    <listing-form>
+      {{ content }}
+    </listing-form>
+  {%- endif -%}
+</div>

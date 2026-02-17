@@ -1,0 +1,18 @@
+.breadcrumb-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  gap: 2rem;
+}
+
+.breadcrumb {
+  position: relative;
+}
+
+.breadcrumb + .breadcrumb:before {
+  content: '/';
+  position: absolute;
+  left: -1rem;
+  transform: translateX(-50%);
+  pointer-events: none;
+}

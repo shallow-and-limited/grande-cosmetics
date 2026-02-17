@@ -1,0 +1,102 @@
+<div
+  class="block-icon"
+  style="
+    --icon-width: {{ block.settings.icon_width }};
+
+    {% if block.settings.color != blank and block.settings.color.alpha != 0 %}
+      --color-foreground: {{ block.settings.color.red }},{{ block.settings.color.green }},{{ block.settings.color.blue }};
+    {% endif %}
+    {% if block.settings.background_color != blank and block.settings.background_color.alpha != 0 %}
+      --color-background: {{ block.settings.background_color.red }},{{ block.settings.background_color.green }},{{ block.settings.background_color.blue }};
+    {% endif %}
+  "
+>
+  {%- if block.settings.icon != 'custom' -%}
+    {{ block.settings.icon | inline_asset_content }}
+  {%- elsif block.settings.icon_image != blank -%}
+    {{
+      block.settings.icon_image
+      | image_url: width: block.settings.icon_width
+      | image_tag: width: block.settings.icon_width, height: block.settings.icon_width
+    }}
+  {%- endif -%}
+</div>
+
+{% stylesheet %}
+  .block-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+  }
+
+  .block-icon svg,
+  .block-icon img {
+    width: calc(var(--icon-width) * 1px);
+    height: calc(var(--icon-width) * 1px);
+
+    background-color: rgb(var(--color-background));
+    color: rgb(var(--color-foreground));
+  }
+
+  .block-icon svg,
+  .block-icon svg path {
+    color: rgb(var(--color-foreground));
+    stroke: rgb(var(--color-foreground));
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Icon",
+  "settings": [
+    {
+      "type": "select",
+      "id": "icon",
+      "label": "t:sections.general.icon",
+      "options": [
+        {
+          "value": "custom",
+          "label": "Custom"
+        }
+      ],
+      "default": "custom"
+    },
+    {
+      "type": "image_picker",
+      "id": "icon_image",
+      "label": "t:sections.general.icon_image"
+    },
+    {
+      "type": "range",
+      "id": "icon_width",
+      "label": "t:sections.general.icon_width",
+      "default": 24,
+      "min": 8,
+      "max": 120,
+      "step": 2,
+      "unit": "px"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.general.style_overrides"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "t:sections.general.background_color"
+    },
+    {
+      "type": "color",
+      "id": "color",
+      "label": "t:sections.general.text_color"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Icon"
+    }
+  ]
+}
+{% endschema %}

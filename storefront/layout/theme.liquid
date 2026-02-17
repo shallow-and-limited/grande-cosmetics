@@ -1,0 +1,145 @@
+<!doctype html>
+<html class="js" lang="{{ request.locale.iso_code }}">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    <meta name="theme-color" content="">
+
+    <!-- ===================== ! -->
+    <!-- Verification       ! -->
+    <!-- ===================== ! -->
+
+    <!-- ===================== ! -->
+    <!-- App Head Code       ! -->
+    <!-- ===================== ! -->
+
+    <!-- ===================== ! -->
+    <!-- Settings       ! -->
+    <!-- ===================== ! -->
+    {%- render 'base_seo' -%}
+    {%- render 'base_settings' -%}
+
+    <!-- ===================== ! -->
+    <!-- Meta Tags       ! -->
+    <!-- ===================== ! -->
+    {% render 'base_meta-tags' %}
+
+    <link rel="preconnect" href="https://cdn.shopify.com" crossorigin>
+
+    {%- unless settings.type_header_font.system? and settings.type_special_font.system? and settings.type_body_font.system? -%}
+      <link rel="preconnect" href="https://fonts.shopifycdn.com" crossorigin>
+    {%- endunless -%}
+
+    {%- unless settings.type_body_font.system? -%}
+      {{ settings.type_body_font | font_url |preload_tag: as: 'font', type: 'font/woff2' }}
+    {%- endunless -%}
+
+    {%- unless settings.type_header_font.system? -%}
+      {{ settings.type_header_font | font_url | preload_tag: as: 'font', type: 'font/woff2' }}
+    {%- endunless -%}
+
+    {%- unless settings.type_special_font.system? -%}
+      {{ settings.type_special_font | font_url | preload_tag: as: 'font', type: 'font/woff2' }}
+    {%- endunless -%}
+
+    <link rel="dns-prefetch" href="https://productreviews.shopifycdn.com">
+    <link rel="dns-prefetch" href="https://ajax.googleapis.com">
+    <link rel="dns-prefetch" href="https://maps.googleapis.com">
+    <link rel="dns-prefetch" href="https://maps.gstatic.com">
+
+    <!-- ===================== ! -->
+    <!-- CSS          ! -->
+    <!-- ===================== ! -->
+    {%- render 'base_stylesheet' -%}
+
+    {{ 'base.css' | asset_url | stylesheet_tag }}
+
+    <link rel="stylesheet" href="{{ 'component-card.css' | asset_url }}" media="print" onload="this.media='all'">
+
+    {%- if settings.cart_drawer_enabled -%}
+      <link rel="stylesheet" href="{{ 'component-cart.css' | asset_url }}" media="print" onload="this.media='all'">
+      <link rel="stylesheet" href="{{ 'component-totals.css' | asset_url }}" media="print" onload="this.media='all'">
+    {%- endif -%}
+
+    {%- if settings.predictive_search_enabled -%}
+      <link
+        rel="stylesheet"
+        href="{{ 'component-predictive-search.css' | asset_url }}"
+        media="print"
+        onload="this.media='all'"
+      >
+    {%- endif -%}
+
+    <!-- ===================== ! -->
+    <!-- Head JavaScript       ! -->
+    <!-- ===================== ! -->
+    <script src="{{ 'constants.js' | asset_url }}" defer="defer"></script>
+    <script src="{{ 'pubsub.js' | asset_url }}" defer="defer"></script>
+
+    <script src="{{ 'global.js' | asset_url }}" defer="defer"></script>
+
+    <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
+    <script src="{{ 'cart.js' | asset_url }}" defer="defer"></script>
+
+    <script src="{{ 'header_menu.js' | asset_url }}" defer="defer"></script>
+    <script src="{{ 'header_search.js' | asset_url }}" defer="defer"></script>
+    <script src="{{ 'search-form.js' | asset_url }}" defer="defer"></script>
+
+    {%- if settings.predictive_search_enabled -%}
+      <script src="{{ 'predictive-search.js' | asset_url }}" defer="defer"></script>
+    {%- endif -%}
+
+    {%- if settings.cart_drawer_enabled -%}
+      <script src="{{ 'cart-drawer.js' | asset_url }}" defer="defer"></script>
+    {%- endif -%}
+
+    {%- if settings.animations_reveal_on_scroll -%}
+      <script src="{{ 'animations.js' | asset_url }}" defer="defer"></script>
+    {%- endif -%}
+
+    <!-- ===================== ! -->
+    <!-- Shopify        ! -->
+    <!-- ===================== ! -->
+    <script>
+      window.addEventListener('DOMContentLoaded', () => {
+        if (Shopify.designMode) {
+          document.documentElement.classList.add('shopify-design-mode');
+        }
+      });
+    </script>
+
+    {{ content_for_header }}
+  </head>
+
+  <body class="gradient">
+    <a class="skip-to-content-link button visually-hidden" href="#MainContent">
+      {{ 'accessibility.skip_to_text' | t }}
+    </a>
+
+    {% sections 'header-group' %}
+
+    <main id="MainContent" class="content-for-layout focus-none" role="main" tabindex="-1">
+      {{ content_for_layout }}
+    </main>
+
+    {% sections 'footer-group' %}
+
+    {%- if settings.cart_drawer_enabled -%}
+      {%- render 'cart-drawer' -%}
+    {%- endif -%}
+
+    <ul hidden>
+      <li id="a11y-refresh-page-message">{{ 'accessibility.refresh_page' | t }}</li>
+      <li id="a11y-new-window-message">{{ 'accessibility.link_messages.new_window' | t }}</li>
+    </ul>
+
+    <!-- ===================== ! -->
+    <!-- Body JavaScript       ! -->
+    <!-- ===================== ! -->
+
+    <!-- ===================== ! -->
+    <!-- App Body Code       ! -->
+    <!-- ===================== ! -->
+  </body>
+</html>
