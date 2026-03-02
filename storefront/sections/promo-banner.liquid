@@ -11,7 +11,13 @@
           <div class="promo-banner__carousel-wrapper swiper-wrapper">
             {% for block in _blocks %}
               {% if block.settings.message != blank %}
-                <div class="promo-banner__slide swiper-slide">
+                <div 
+                  class="promo-banner__slide swiper-slide"
+                  style="promo-banner__text
+                    --font-size-desktop: {{ section.settings.font_size_desktop }};
+                    --font-size-mobile: {{ section.settings.font_size_mobile }};
+                  "
+                >
                   {{ block.settings.message | replace: "<p>", "<p class='promo-banner__text p-4'>" }}
                 </div>
               {% endif %}
@@ -40,6 +46,18 @@
 {
   "name": "Promo Banner",
   "settings": [
+    {
+      "type": "text",
+      "label": "Font Size (Desktop)",
+      "id": "font_size_desktop",
+      "default": "12px"
+    },
+    {
+      "type": "text",
+      "label": "Font Size (Mobile)",
+      "id": "font_size_mobile",
+      "default": "11px"
+    },
     {
       "type": "richtext",
       "label": "Custom Links",
