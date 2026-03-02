@@ -29,7 +29,14 @@
 
         <div class="media-slider__slides swiper-wrapper" data-swiper-class="swiper-wrapper">
           {% for media in product.media %}
-            <div class="media-slider__slide swiper-slide" data-variant-title="{{ media.alt }}" data-index="{{ forloop.index }}" data-swiper-class="swiper-slide" data-swiper-slide>
+            <div 
+              class="media-slider__slide swiper-slide"
+              data-variant-title="{{ media.alt }}"
+              data-index="{{ forloop.index }}"
+              data-swiper-class="swiper-slide"
+              data-swiper-slide
+              data-media-id="{{ media.id }}"
+            >
               {% if media.media_type == 'image' %}
                 {% render 'image', image: media %}
               {% else %}

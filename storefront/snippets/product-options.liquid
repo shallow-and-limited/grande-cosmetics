@@ -178,6 +178,7 @@
               data-supply="{{ option.name }}"
               name="{{ product.title }}"
               data-variant-title="{{ value }}"
+              data-variant-image="{{ variant.featured_media.id }}"
               {% if product.selected_or_first_available_variant.id == variant.id %}checked{% endif %}
               role="option"
             />

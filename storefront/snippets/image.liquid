@@ -96,6 +96,7 @@
       {%- endcapture %}
 
       <img
+        data-media-id="{{ img.id }}"
         alt="{{ alt | default: img.alt }}"
         srcset="{{ src }}"
         {% if image_slide == true %}
