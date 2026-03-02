@@ -1,0 +1,34 @@
+<script src="{{ 'landing-animation.min.js' | asset_url }}" defer></script>
+{{ 'landing-animation.min.css' | asset_url | stylesheet_tag }}
+
+<landing-animation class="landing-animation load-once"></landing-animation>
+
+<div class="landing-elements load-once">
+  <div class="landing-rows">
+    <div class="landing-row">
+      {% render 'icons', icon_name: 'logo-loading-desktop' %}
+      <p class="p-4"><span class="landing-percent">0</span>%</p>
+    </div>
+    <div class="landing-row">
+      <p class="p-4">Leaders in Lash</p>
+      <p class="p-4">Loading</p>
+    </div>
+  </div>
+  <div class="landing-stripe"></div>
+  <div class="landing-portal upper"></div>
+  <div class="landing-portal lower"></div>
+</div>
+
+  {% schema %}
+{
+  "name": "Landing Animation",
+  "tag": "section",
+
+  "settings": [],
+  "presets": [
+    {
+      "name": "Landing Animation"
+    }
+  ]
+}
+{% endschema %}

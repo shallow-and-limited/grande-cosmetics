@@ -1,29 +1,31 @@
-{{ 'authenticate.css' | asset_url | stylesheet_tag }}
+{{ 'customer.min.css' | asset_url | stylesheet_tag }}
 
-<div
-  id="HalfBanner-{{ section.id }}"
-  class=" color-{{ section.settings.color_scheme }} half-banner banner--content-align-{{ section.settings.desktop_content_alignment }} banner--{{ section.settings.image_height }}{% if section.settings.stack_images_on_mobile and section.settings.image != blank %} banner--stacked{% endif %}{% if section.settings.image_height == 'adapt' and section.settings.image != blank %} banner--adapt{% endif %}{% if section.settings.show_text_below %} banner--mobile-bottom{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}"
->
-  <div class="half-banner__container {% if section.settings.image == blank %}half-banner__container--no-image{% endif %}">
-    <div class="half-banner__empty-side">
-      <h1 id="recover" tabindex="-1">
+{% assign _settings = section.settings %}
+{% assign _blocks = section.blocks %}
+
+<section>
+  <div id="login_section">
+    {% if _settings.bg_dsk != blank %}
+      <img class="customer__bg-dsk hide-mobile" src="{{ _settings.bg_dsk | image_url }}" alt="Account Background Image" />
+    {% endif %}
+    {% if _settings.bg_mob != blank %}
+      <img class="customer__bg-mob hide-desktop" src="{{ _settings.bg_mob | image_url }}" alt="Account Background Image" />
+    {% endif %}
+
+    <div class="customer login">
+      <h1 id="recover" class="p-1" tabindex="-1">
         {{ 'customer.recover_password.title' | t }}
       </h1>
-
       <div>
-        <p>
+        <p class="p-3">
           {{ 'customer.recover_password.subtext' | t }}
         </p>
 
         {%- form 'recover_customer_password' -%}
           {% assign recover_success = form.posted_successfully? %}
-          <div class="field {%- if form.errors -%}error{% endif %}">
-            <label for="RecoverEmail" class="field__label">
-              {{ 'customer.login_page.email' | t }}
-            </label>
-
+          <div class="field">
             <input
-              class="field__input"
+              class="p-3"
               type="email"
               value=""
               name="email"
@@ -34,189 +36,185 @@
               {% if form.errors %}
                 aria-invalid="true"
                 aria-describedby="RecoverEmail-email-error"
-                autofocus
               {% endif %}
               placeholder="{{ 'customer.login_page.email' | t }}"
             >
-
-            {%- if form.errors -%}
-              <small id="RecoverEmail-email-error" class="field__status">
-                {{ form.errors.messages.form }}
-              </small>
-            {%- endif -%}
+            <label hidden for="RecoverEmail">
+              {{ 'customer.login_page.email' | t }}
+            </label>
           </div>
+          {%- if form.errors -%}
+            <small id="RecoverEmail-email-error" class="form__message p-4">
+              {% render 'icons', icon_name: 'error' %}
+              {{ form.errors.messages.form }}
+            </small>
+          {%- endif -%}
 
-          <div class="field">
-            <button class="button full-width field__button">
-              {{ 'customer.login_page.submit' | t }}
-            </button>
+          <button class="btn btn--primary">
+            {{ 'customer.login_page.submit' | t }}
+          </button>
 
-            <a class="link customer__forgot" href="#login">
-              {{ 'customer.login_page.cancel' | t }}
-            </a>
-          </div>
+          <a class="btn btn--secondary" href="#login">
+            {{ 'customer.login_page.cancel' | t }}
+          </a>
         {%- endform -%}
       </div>
 
-      <div id="login" class="center">
-        <h1 tabindex="-1" class=" hidden--mobile list--unstyled">
-          {{ 'customer.login_page.title' | t }}
-        </h1>
-        <h5 class="hidden--mobile list--unstyled">
-          {{ 'customer.login_page.subtext' | t }}
-        </h5>
-
-        <div style="margin-top: 1rem;">
-          {%- if recover_success == true -%}
-            <h3 class="form__message" tabindex="-1" autofocus>
-              {{ 'customer.recover_password.success' | t }}
-            </h3>
+      <h1 id="login" class="p-1" tabindex="-1">
+        {{ 'customer.login_page.title' | t }}
+      </h1>
+      <div>
+        {%- if recover_success == true -%}
+          <h3 class="form__message p-3" tabindex="-1" >
+            {% render 'icons', icon_name: 'success' %}
+            {{ 'customer.recover_password.success' | t }}
+          </h3>
+        {%- endif -%}
+        {%- form 'customer_login', novalidate: 'novalidate' -%}
+          {%- if form.errors -%}
+            <h2 class="form__message p-3" tabindex="-1" >
+              <span class="visually-hidden">{{ 'accessibility.error' | t }} </span>
+              {% render 'icons', icon_name: 'error' %}
+              {{ 'templates.contact.form.error_heading' | t }}
+            </h2>
+            <span class="p-4">{{ form.errors | default_errors }}</span>
           {%- endif -%}
 
-          {%- form 'customer_login', novalidate: 'novalidate' -%}
-            <input type="hidden" name="return_to" value="/account?q=login">
+          <div class="field">
+            <input
+              class="p-3"
+              type="email"
+              name="customer[email]"
+              id="CustomerEmail"
+              autocomplete="email"
+              autocorrect="off"
+              autocapitalize="off"
+              {% if form.errors contains 'form' %}
+                aria-invalid="true"
+              {% endif %}
+              placeholder="{{ 'customer.login_page.email' | t }}"
+            >
+            <label hidden for="CustomerEmail">
+              {{ 'customer.login_page.email' | t }}
+            </label>
+          </div>
 
-            {%- if form.errors -%}
-              <h2 class="form__message" tabindex="-1" autofocus>
-                <span class="visually-hidden">{{ 'accessibility.error' | t }} </span>
-                {{ 'templates.contact.form.error_heading' | t }}
-              </h2>
-              {{ form.errors | default_errors }}
-
-              <script>
-                document.addEventListener('DOMContentLoaded', function() {
-                  if(window.theme.dynamic_yield_enabled && DynamicYield) {
-                    DynamicYield.triggerCustom("Unsuccessful Login", { value: "{{ form.errors | default_errors }}" });
-                  }
-                });
-              </script>
-            {%- endif -%}
-
+          {%- if form.password_needed -%}
             <div class="field">
-              <label class="field__label" for="CustomerEmail">
-                {{ 'customer.login_page.email' | t }}
-              </label>
-
               <input
-                class="field__input"
-                type="email"
-                name="customer[email]"
-                id="CustomerEmail"
-                autocomplete="email"
-                autocorrect="off"
-                autocapitalize="off"
+                class="p-3"
+                type="password"
+                value=""
+                name="customer[password]"
+                id="CustomerPassword"
+                autocomplete="current-password"
                 {% if form.errors contains 'form' %}
                   aria-invalid="true"
                 {% endif %}
-                placeholder="{{ 'customer.login_page.email' | t }}"
+                placeholder="{{ 'customer.login_page.password' | t }}"
               >
+              <label hidden for="CustomerPassword">
+                {{ 'customer.login_page.password' | t }}
+              </label>
             </div>
 
-            {%- if form.password_needed -%}
-              <div class="field">
-                <label class="field__label" for="CustomerPassword">
-                  {{ 'customer.login_page.password' | t }}
-                </label>
+            <a class="login__recover p-3" href="#recover">
+              {{ 'customer.login_page.forgot_password' | t }}
+            </a>
+          {%- endif -%}
 
-                <input
-                  class="field__input"
-                  type="password"
-                  value=""
-                  name="customer[password]"
-                  id="CustomerPassword"
-                  autocomplete="current-password"
-                  {% if form.errors contains 'form' %}
-                    aria-invalid="true"
-                  {% endif %}
-                  placeholder="{{ 'customer.login_page.password' | t }}"
-                >
+          <button class="btn btn--small">
+            {{ 'customer.login_page.sign_in' | t }}
+          </button>
+        {%- endform -%}
+      </div>
 
-                <a class="link customer__forgot" href="#recover">
-                  {{ 'customer.login_page.forgot_password' | t }}
-                </a>
-              </div>
-            {%- endif -%}
+      {%- if shop.checkout.guest_login -%}
+        <div>
+          <hr>
+          <h2>{{ 'customer.login_page.guest_title' | t }}</h2>
 
-            <div class="field">
-              <button class="button full-width field__button">
-                {{ 'customer.login_page.sign_in' | t }}
-              </button>
-
-              <a class="link sign-up__link" href="{{ routes.account_register_url }}">
-                {{ 'customer.login_page.create_account' | t }}
-              </a>
-            </div>
+          {%- form 'guest_login' -%}
+            <button>
+              {{ 'customer.login_page.guest_continue' | t }}
+            </button>
           {%- endform -%}
         </div>
-
-        {%- if shop.checkout.guest_login -%}
-          <div>
-            <hr>
-            <h2>{{ 'customer.login_page.guest_title' | t }}</h2>
-
-            {%- form 'guest_login' -%}
-              <button class="button field__button">
-                {{ 'customer.login_page.guest_continue' | t }}
-              </button>
-            {%- endform -%}
-          </div>
-        {%- endif -%}
-      </div>
+      {%- endif -%}
     </div>
 
-    {% if section.settings.image != blank %}
-      <div class="half-banner__image-side">
-        <div class="half-banner__media {% if section.settings.image_behavior != 'none' %} animate--{{ section.settings.image_behavior }}{% endif %}">
-          {%- liquid
-            assign image_height = section.settings.image.width | divided_by: section.settings.image.aspect_ratio
-            assign sizes = section.settings.image_width | append: 'vw'
-          -%}
-          {{
-            section.settings.image
-            | image_url: width: 2000
-            | image_tag:
-            width: section.settings.image.width,
-            height: image_height,
-            class: 'responsive-image',
-            sizes: sizes,
-            fetchpriority: 'auto'
-          }}
-
-          <div class="half-banner__image-message half-banner__image-message__mobile hidden--desktop deferred-media__poster-button">
-            <h1 id="login" class="list--unstyled">
-              {{ 'customer.login_page.title' | t }}
-            </h1>
-            <h5 class="list--unstyled">
-              {{ 'customer.login_page.subtext' | t }}
-            </h5>
-          </div>
-        </div>
-      </div>
-    {% endif %}
+    <div class="login__content">
+      <h4 class="login__content-heading s-3 uppercase">{{ _settings.content_heading }}</h4>
+      <p class="login__pre-text p-3">{{ _settings.content_pre_text }}</p>
+      <ul class="login__bullets">
+        {% for block in _blocks %}
+        <li class="login__bullet">
+          {% if block.settings.icon != blank %}
+            <img src="{{ block.settings.icon | image_url | width: 24 }}" />
+          {% endif %}
+          <span class="p-4">{{ block.settings.bullet_text }}</span>
+        </li>
+        {% endfor %}
+      </ul>
+      <a class="login__content-link" href="{{ routes.account_register_url }}">
+        <span class="p-4">{{ 'customer.login_page.create_account' | t }}</span>
+        {% render 'icons', icon_name: 'arrow-right' %}
+      </a>
+    </div>
   </div>
-</div>
+</section>
 
 {% schema %}
 {
   "name": "t:sections.main-login.name",
   "settings": [
     {
-      "type": "checkbox",
-      "id": "enable_shop_login_button",
-      "label": "t:sections.main-login.shop_login_button.enable",
-      "default": true
-    },
-    {
-      "type": "color_scheme",
-      "id": "color_scheme",
-      "label": "t:sections.all.colors.label",
-      "info": "t:sections.all.colors.has_cards_info",
-      "default": "scheme-1"
+      "type": "header",
+      "content": "Background Images"
     },
     {
       "type": "image_picker",
-      "id": "image",
-      "label": "Choose an Image"
+      "id": "bg_dsk",
+      "label": "Desktop Background"
+    },
+    {
+      "type": "image_picker",
+      "id": "bg_mob",
+      "label": "Mobile Background"
+    },
+    {
+      "type": "header",
+      "content": "Login Content Block"
+    },
+    {
+      "type": "text",
+      "id": "content_heading",
+      "label": "Block Heading",
+      "default": "Not Signed Up Yet?"
+    },
+    {
+      "type": "text",
+      "id": "content_pre_text",
+      "label": "List Pre-Text",
+      "default": "Create an account to receive these benefits:"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "bullet_point",
+      "name": "Login Bullet Point",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon"
+        },
+        {
+          "type": "text",
+          "id": "bullet_text",
+          "label": "Text"
+        }
+      ]
     }
   ]
 }

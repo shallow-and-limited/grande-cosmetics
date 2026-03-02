@@ -1,0 +1,286 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "shogun-helper": {
+      "type": "shogun-helper",
+      "settings": {}
+    },
+    "shogun-above": {
+      "type": "shogun-above",
+      "settings": {}
+    },
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "title_qVm9wT": {
+          "type": "title",
+          "settings": {}
+        },
+        "subtitle_RFcddk": {
+          "type": "subtitle",
+          "settings": {
+            "subtitle": "{{ product.metafields.details.subtitle.value }}"
+          }
+        },
+        "promo_text_7g9cCK": {
+          "type": "promo-text",
+          "disabled": true,
+          "settings": {}
+        },
+        "price_UdhhDU": {
+          "type": "price",
+          "settings": {}
+        },
+        "short_desc_7AaVCy": {
+          "type": "short_desc",
+          "settings": {}
+        },
+        "bundled_products_XC6XQ8": {
+          "type": "bundled_products",
+          "settings": {}
+        },
+        "promo_carousel_73KPU4": {
+          "type": "promo_carousel",
+          "settings": {}
+        },
+        "variant_picker_8iFKwU": {
+          "type": "variant_picker",
+          "disabled": true,
+          "settings": {
+            "show_dynamic_checkout": false,
+            "subscription_tooltip_text": "<p>Subscribe to save 15% + free shipping and never worry about running out. We’ll refill your item at your desired shipping frequency, and send a reminder a few days in advance.</p><p>*Promo codes cannot be applied to auto-replenish items. No obligation, to modify or cancel your subscription, <a href=\"/account/register\" target=\"_blank\" title=\"/account/register\">create an account</a>.</p><p>GrandeREWARDS are not able to be combined with subscription purchases. </p>"
+          }
+        },
+        "recharge_subscriptions_subscription_widget_v2_H6wF6V": {
+          "type": "shopify://apps/recharge-subscriptions/blocks/subscription-widget-v2/371eed76-0b44-4869-9813-730372ea378e",
+          "settings": {}
+        },
+        "try_with_mirra_try_with_mirra_product_button_wLwpnU": {
+          "type": "shopify://apps/try-with-mirra/blocks/try-with-mirra-product-button/17eab015-3219-4f1b-8ced-c0ffd59b7b46",
+          "settings": {
+            "buttonBackgroundColor": "#e6006b",
+            "buttonTextColor": "#ffffff",
+            "buttonTextOption": "try-before-you-buy",
+            "maxWidth": 100,
+            "height": 2.5,
+            "marginTop": 0.5,
+            "margin": "auto",
+            "mobileWidth": "100",
+            "width": "100",
+            "mobileBreakpoint": 768,
+            "verticalAlignLogo": "middle",
+            "enable_loading_state": true,
+            "custom_css": ".mirra-button::after {\n  content: \" • $0\";\n}\n\n.mirra-button {\n  background-color: #E6006B !important;\n  transition: background-color .25s ease-in-out,color .25s ease-in-out,border .25s ease-in-out,box-shadow .25s ease-in-out,transform .25s ease-in-out;\n  width: 100% !important;\n}\n\n.mirra-button:hover {\n  background-color: #D60064 !important;\n}\n\n@media (min-width: 1920px) {\n  .mirra-button {\n    max-width: 17.5rem;\n  }\n}",
+            "mirra_button_classes": ""
+          }
+        },
+        "klarna_on_site_messaging_app_block_VjrYQa": {
+          "type": "shopify://apps/klarna-on-site-messaging/blocks/app-block/b95936a9-74b6-4a95-8103-6a1b6459c25e",
+          "settings": {
+            "data_key": "credit-promotion-auto-size",
+            "theme": "default",
+            "topPadding": "0",
+            "bottomPadding": "0",
+            "messagePrefix": "or"
+          }
+        },
+        "rewards_E4PMJJ": {
+          "type": "rewards",
+          "settings": {}
+        },
+        "product_features_m4nhVy": {
+          "type": "product_features",
+          "settings": {}
+        },
+        "accordions_pepGdh": {
+          "type": "accordions",
+          "settings": {}
+        },
+        "faqs_YtqnhH": {
+          "type": "faqs",
+          "settings": {
+            "label": "Have a question? Read our FAQs",
+            "link-text": "Expand"
+          }
+        },
+        "report_gi3ajb": {
+          "type": "report",
+          "settings": {
+            "icon": "shopify://shop_images/Group_3265_1_3687f35f-1c68-46c1-a8dd-1fa82ce4abc9.png",
+            "copy": "Committed to using safe & clinically–tested ingredients.",
+            "link-text": "See the Report",
+            "link-url": "https://grandecosmetics.com/pages/grandelash-md-safety-testing"
+          }
+        }
+      },
+      "block_order": [
+        "title_qVm9wT",
+        "subtitle_RFcddk",
+        "promo_text_7g9cCK",
+        "price_UdhhDU",
+        "short_desc_7AaVCy",
+        "bundled_products_XC6XQ8",
+        "promo_carousel_73KPU4",
+        "variant_picker_8iFKwU",
+        "recharge_subscriptions_subscription_widget_v2_H6wF6V",
+        "try_with_mirra_try_with_mirra_product_button_wLwpnU",
+        "klarna_on_site_messaging_app_block_VjrYQa",
+        "rewards_E4PMJJ",
+        "product_features_m4nhVy",
+        "accordions_pepGdh",
+        "faqs_YtqnhH",
+        "report_gi3ajb"
+      ],
+      "custom_css": [],
+      "settings": {}
+    },
+    "fw_html_embed_PFnERL": {
+      "type": "fw-html-embed",
+      "disabled": true,
+      "settings": {
+        "title": "Trending On TikTok",
+        "embed_code": "<script async type=\"text/javascript\" src=\"//asset.fwcdn3.com/js/embed-feed.js\"></script>\n\n    <fw-embed-feed channel=\"grandecosmetics\" playlist=\"5RJWb5\" mode=\"row\" open_in=\"default\" max_videos=\"0\" placement=\"middle\" player_placement=\"bottom-right\" branding=\"false\"></fw-embed-feed>"
+      }
+    },
+    "benefits": {
+      "type": "benefits",
+      "settings": {
+        "list_icon": "shopify://shop_images/star_45e1b5e0-3c02-42c2-9743-5655dcab4ee5.svg"
+      }
+    },
+    "testimonials_kWzRwm": {
+      "type": "testimonials",
+      "disabled": true,
+      "settings": {
+        "slide_type": "image_bg",
+        "background_color": "beige"
+      }
+    },
+    "banner_RPYMcQ": {
+      "type": "banner",
+      "name": "Banner",
+      "settings": {
+        "color": "dark",
+        "background": "beige",
+        "alignment": "left",
+        "eyebrow": "",
+        "heading": "",
+        "heading_size": "h2",
+        "copy": "",
+        "cta_url": "",
+        "cta_copy": "",
+        "cta_url_alt": "",
+        "cta_copy_alt": "",
+        "overlay": 0
+      }
+    },
+    "ticker_jXx7gz": {
+      "type": "ticker",
+      "settings": {
+        "optional_text": "",
+        "optional_url": "",
+        "speed": 1,
+        "color_scheme": "coral"
+      }
+    },
+    "categories_WVnWcQ": {
+      "type": "categories",
+      "settings": {
+        "eyebrow": "",
+        "heading": "",
+        "cta_copy": "",
+        "cta_url": ""
+      }
+    },
+    "before_after_gQDGbq": {
+      "type": "before-after",
+      "settings": {
+        "switch_sides": false,
+        "metaobject_handle": ""
+      }
+    },
+    "product_education_V69cBA": {
+      "type": "product-education",
+      "settings": {}
+    },
+    "product_carousel_VKNiJC": {
+      "type": "product-carousel",
+      "settings": {
+        "heading": "",
+        "categories": false,
+        "cta_copy": "",
+        "cta_url": ""
+      }
+    },
+    "1716494706cc8d339a": {
+      "type": "apps",
+      "blocks": {
+        "yotpo_product_reviews_ugc_reviews_9UdWPi": {
+          "type": "shopify://apps/yotpo-product-reviews/blocks/reviews/eb7dfd7d-db44-4334-bc49-c893b51b36cf",
+          "disabled": true,
+          "settings": {
+            "product": ""
+          }
+        }
+      },
+      "block_order": [
+        "yotpo_product_reviews_ugc_reviews_9UdWPi"
+      ],
+      "settings": {}
+    },
+    "3cbc6a3c1622afaae685": {
+      "type": "apps",
+      "blocks": {
+        "e167ceea-358f-422b-b853-e1eff466bb04": {
+          "type": "shopify://apps/yotpo-product-reviews/blocks/reviews/eb7dfd7d-db44-4334-bc49-c893b51b36cf",
+          "settings": {
+            "product": "{{product}}"
+          }
+        }
+      },
+      "block_order": [
+        "e167ceea-358f-422b-b853-e1eff466bb04"
+      ],
+      "settings": {}
+    },
+    "shogun-below": {
+      "type": "shogun-below",
+      "settings": {}
+    },
+    "shogun-optimizer": {
+      "type": "shogun-optimizer",
+      "settings": {}
+    },
+    "176945629858b278ad": {
+      "type": "apps",
+      "settings": {}
+    }
+  },
+  "order": [
+    "shogun-helper",
+    "shogun-above",
+    "main",
+    "fw_html_embed_PFnERL",
+    "benefits",
+    "testimonials_kWzRwm",
+    "banner_RPYMcQ",
+    "ticker_jXx7gz",
+    "categories_WVnWcQ",
+    "before_after_gQDGbq",
+    "product_education_V69cBA",
+    "product_carousel_VKNiJC",
+    "1716494706cc8d339a",
+    "3cbc6a3c1622afaae685",
+    "shogun-below",
+    "shogun-optimizer",
+    "176945629858b278ad"
+  ]
+}

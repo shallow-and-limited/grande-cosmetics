@@ -1,0 +1,253 @@
+{%- liquid 
+	assign id = section.id 
+	assign _s = section.settings 
+	assign _blocks = section.blocks 
+
+	# are we going to do a carousel? 
+	assign load_carousel = false
+	assign swiper = ""
+	assign swiper_wrapper = ""
+	assign swiper_slide = ""
+	if _blocks.size > 1
+		assign load_carousel = true
+		assign swiper = ' data-swiper-class="swiper" '
+		assign swiper_wrapper = ' data-swiper-class="swiper-wrapper" '
+		assign swiper_slide = ' data-swiper-class="swiper-slide" '
+	endif
+
+
+-%}
+
+{{ 'birthday-promo.min.css' | asset_url | stylesheet_tag }}
+
+
+
+
+<birthday-carousel 
+	id="{{ id }}"
+	class="birthday-promo__container" >
+
+	<div class="birthday-promo__heading-wrapper">
+		{% comment %}  heading  {% endcomment %}
+		<div class="birthday-promo__heading">
+	    {% if _s.heading != blank %}
+	      <h2 class="h4">{{ _s.heading }}</h2>
+	    {% endif %}
+	  </div>
+
+	  {% comment %}  carousel buttons  {% endcomment %}
+	  {% if load_carousel %}
+			<div class="carousel__pager">
+			  <button class="pager-prev" data-previous aria-label="Previous Carousel Slide">
+			    {% render 'icons', icon_name: 'arrow-left' %}
+			  </button>
+			  <button class="pager-next" data-next aria-label="Next Carousel Slide">
+			    {% render 'icons', icon_name: 'arrow-right' %}
+			  </button>
+			</div>
+		{% endif %}
+	</div>
+
+  {% comment %}  carouel  {% endcomment %}
+ 	<div {{ swiper }} >
+ 		<div {{ swiper_wrapper }}
+ 			class="birthday-promo__cards" >
+ 			{% comment %}  slides  {% endcomment %}
+		 	{% for block in _blocks %}
+			 	{% render 'birthday-promo-card', 
+			 		block: block,
+			 		swiper_slide: swiper_slide %}
+		 	{% endfor %}
+		 </div>
+ 	</div>
+
+ 	{% comment %}  scrollbar  {% endcomment %}
+	{% if load_carousel %}
+		<div class="carousel__scrollbar swiper-scrollbar"></div>
+	{% endif %}
+
+</birthday-carousel>
+
+
+<script src="{{ 'birthday-promo.min.js' | asset_url }}" defer="defer"></script>
+
+
+{% schema %}
+{
+  "name": "Birthday promo",
+  "tag": "section",
+  "class": "birthday-promo",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Birthday Promotions"
+    }
+  ],
+  "blocks":[
+     {
+      "type": "promo-card",
+      "name": "Promo card",
+      "settings": [
+        {
+          "type": "select",
+          "id": "status",
+          "label": "Card Status",
+          "options": [
+            {
+              "value": "disabled",
+              "label": "Disabled"
+            },
+            {
+              "value": "active",
+              "label": "Active"
+            },
+            {
+              "value": "upcoming",
+              "label": "Upcoming"
+            }
+          ],
+          "default": "upcoming"
+        },
+
+        {
+        	"type": "header",
+        	"content": "Diabled state"
+        },
+        {
+          "type": "image_picker",
+          "id": "disabled_image",
+          "label": "Image",
+          "info": "Optional - Will default to active image."
+        },
+
+        {
+        	"type": "header",
+        	"content": "Active state"
+        },
+        {
+          "type": "image_picker",
+          "id": "active_image",
+          "label": "Image",
+        },
+        {
+          "type": "image_picker",
+          "id": "active_hover_image",
+          "label": "Hover Image"
+        },
+
+        {
+        	"type": "header",
+        	"content": "Upcoming state"
+        },
+        {
+          "type": "image_picker",
+          "id": "upcoming_image",
+          "label": "Image",
+          "info": "Optional - Will default to active image."
+        },
+        {
+          "type": "checkbox",
+          "id": "apply_effect",
+          "label": "Apply color and blur effect",
+     			"default": true
+        },
+        {
+          "type": "color",
+          "id": "upcoming_image_color",
+          "label": "Image color",
+          "default": "#FF76B8"
+        },
+        {
+				    "type": "range",
+				    "id": "upcoming_image_opacity",
+				    "label": "Image opacity",
+				    "min": 40,
+				    "max": 90,
+				    "step": 10,
+				    "unit": "%",
+				    "default": 70
+				},
+
+        {
+        	"type": "header",
+        	"content": "Copy"
+        },
+        {
+          "type": "text",
+          "id": "eyebrow",
+          "label": "Eyebrow Text",
+          "default": "Eyebrow"
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Card Heading",
+          "default": "Birthday Offer"
+        },
+        {
+          "type": "textarea",
+          "id": "copy",
+          "label": "Card Copy",
+          "default": "Available in 1 week"
+        },
+
+        {
+        	"type": "header",
+        	"content": "Button"
+        },
+        {
+          "type": "text",
+          "id": "cta",
+          "label": "Call to Action Text",
+          "default": "Shop Now"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        }
+      ]
+     }
+   ],
+  "presets": [
+	  {
+	    "name": "Birthday promo",
+	    "blocks": [
+	      { 
+	        "type": "promo-card",
+	        "settings": {
+	          "status": "active",
+	          "eyebrow": "Week 1"
+	        }
+	      },
+	      { 
+	        "type": "promo-card",
+	        "settings": {
+	          "status": "upcoming",
+	          "eyebrow": "Week 2"
+	        }
+	      },
+	      { 
+	        "type": "promo-card",
+	        "settings": {
+	          "status": "upcoming",
+	          "eyebrow": "Week 3"
+	        }
+	      },
+	      { 
+	        "type": "promo-card",
+	        "settings": {
+	          "status": "upcoming",
+	          "eyebrow": "Week 4"
+	        }
+	      }
+	    ]
+	  }
+	],
+  "disabled_on": {
+    "groups": ["header", "aside"]
+  }
+}
+{% endschema %}

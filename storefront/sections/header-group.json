@@ -8,105 +8,192 @@
  * ------------------------------------------------------------
  */
 {
-  "name": "t:sections.header.name",
   "type": "header",
+  "name": "Header Group",
   "sections": {
-    "announcement-bar": {
-      "type": "announcement-bar",
+    "promo_banner_WaT9qK": {
+      "type": "promo-banner",
       "blocks": {
-        "utility_A7WkY6": {
-          "type": "utility",
+        "text_9fDHkT": {
+          "type": "text",
           "settings": {
-            "text": "Contact Us",
-            "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"800px\" height=\"800px\" viewbox=\"0 0 24 24\" fill=\"none\">\n<path d=\"M18 12H15M21 8H3M18 16H15M13 19C12.6218 17.2883 10.9747 16 9 16C7.03262 16 5.39034 17.2788 5.00424 18.9811M9 12H9.01M5.00424 18.9811C5.31776 19 5.70396 19 6.2 19H17.8C18.9201 19 19.4802 19 19.908 18.782C20.2843 18.5903 20.5903 18.2843 20.782 17.908C21 17.4802 21 16.9201 21 15.8V8.2C21 7.0799 21 6.51984 20.782 6.09202C20.5903 5.71569 20.2843 5.40973 19.908 5.21799C19.4802 5 18.9201 5 17.8 5H6.2C5.0799 5 4.51984 5 4.09202 5.21799C3.71569 5.40973 3.40973 5.71569 3.21799 6.09202C3 6.51984 3 7.07989 3 8.2V15.8C3 16.9201 3 17.4802 3.21799 17.908C3.40973 18.2843 3.71569 18.5903 4.09202 18.782C4.33038 18.9035 4.60979 18.9572 5.00424 18.9811ZM10 12C10 12.5523 9.55228 13 9 13C8.44772 13 8 12.5523 8 12C8 11.4477 8.44772 11 9 11C9.55228 11 10 11.4477 10 12Z\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n</svg>",
-            "link": "shopify://pages/contact"
+            "message": "<p><a href=\"/collections/new-arrivals\" title=\"New Arrivals\"><strong>FREE GIFT ON ORDERS $65+</strong></a></p>"
+          }
+        },
+        "text_bfL8A4": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "message": "<p>25% OFF SITE-WIDE</p>"
+          }
+        },
+        "text_xb4K68": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "message": "<p><a href=\"/collections/sets\" title=\"SETS\"><strong>CYBER MONDAY: 40% OFF ALL SETS! (no code needed)*</strong></a></p>"
+          }
+        },
+        "text_YcxaT6": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "message": "<p><a href=\"/collections/best-sellers\" title=\"Best Sellers\"><strong>CYBER SAVINGS END TONIGHT: 30% OFF SITEWIDE (no code needed)*</strong></a></p>"
+          }
+        },
+        "text_9KgXih": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "message": "<p><a href=\"/collections/best-sellers\" title=\"Best Sellers\"><strong>FRIENDS & FAMILY: 20% OFF SITEWIDE (discount applied at cart)</strong></a></p>"
+          }
+        },
+        "text_6EVabp": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "message": "<p><a href=\"/collections/sale\" title=\"Sale\"><strong>Labor Day Sale: Up to 60% Off Select Items*</strong></a></p>"
+          }
+        },
+        "text_RnDDY6": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "message": "<p>❄️<strong> </strong><a href=\"/pages/shipping-returns\" title=\"Shipping & Returns\"><strong>Winter weather may cause shipping delays. Thanks for your patience!</strong></a></p>"
+          }
+        },
+        "text_7YEcCT": {
+          "type": "text",
+          "settings": {
+            "message": "<p><a href=\"https://grandecosmetics.com/pages/grande-offers\" title=\"https://grandecosmetics.com/pages/grande-offers\"><strong>FREE GROUND SHIPPING WITH ORDERS $50+*</strong></a></p>"
           }
         }
       },
       "block_order": [
-        "utility_A7WkY6"
+        "text_9fDHkT",
+        "text_bfL8A4",
+        "text_xb4K68",
+        "text_YcxaT6",
+        "text_9KgXih",
+        "text_6EVabp",
+        "text_RnDDY6",
+        "text_7YEcCT"
       ],
-      "custom_css": [],
       "settings": {
-        "color_scheme": "scheme-2",
-        "text": "Display promotional or informational messages here. Configurable via theme settings.",
-        "link": ""
+        "custom_links": "<p><a href=\"/pages/loyalty\" title=\"Loyalty\">Rewards</a>   |   <a href=\"/pages/loyalty\" title=\"Loyalty\">Refer a Friend</a></p>"
       }
     },
     "header": {
       "type": "header",
       "blocks": {
-        "mega_menu_pEtCCd": {
+        "mega_menu_rkCr3h": {
           "type": "mega_menu",
           "settings": {
-            "title": "SHOP",
-            "parent_link": "",
-            "mega_weight": "body bold",
-            "parent_color": "rgba(0,0,0,0)",
-            "menu": "main-menu",
-            "parent_style": "h3",
-            "parent_underline": true,
-            "child_style": "body",
-            "highlight_text": "",
-            "desktop_format": "grid",
-            "desktop_grid_columns": 4,
-            "mobile_format": "grid",
-            "image_aspect_ratio": "adapt",
-            "title_1": "Catalogs",
-            "text_1": "",
-            "link_text_1": "",
-            "link_url_1": "https://blog.samad.com/",
-            "title_2": "Blog",
+            "product_list": [
+              "grandelash-md",
+              "2-step-lash-system-1",
+              "the-cult-faves"
+            ],
+            "link_text": "Shop All Lash",
+            "link_url": "shopify://collections/lashes",
+            "image_1": "shopify://shop_images/GrandeLASH-MD_53e4717f-fbb4-49d9-92b0-3dcc24057983.jpg",
+            "text_1": "Meet GrandeLASH-MD",
+            "url_1": "shopify://products/grandelash-md",
             "text_2": "",
-            "link_text_2": "",
-            "link_url_2": "#",
-            "title_3": "Ads",
+            "url_2": "",
             "text_3": "",
-            "link_text_3": "",
-            "link_url_3": "#",
-            "title_4": "Interior",
-            "text_4": "",
-            "link_text_4": "",
-            "link_url_4": "#"
+            "url_3": "",
+            "child_accordions": false
+          }
+        },
+        "mega_menu_iChda4": {
+          "type": "mega_menu",
+          "settings": {
+            "product_list": [],
+            "link_text": "",
+            "link_url": "",
+            "image_1": "shopify://shop_images/Sensitive-Launch-MegaMenu_71f7e0ce-569c-4932-b6cb-025ccfbfe085.jpg",
+            "text_1": "Try Something New",
+            "url_1": "shopify://products/grandelash-sensitive",
+            "text_2": "",
+            "url_2": "",
+            "text_3": "",
+            "url_3": "",
+            "child_accordions": false
+          }
+        },
+        "mega_menu_qizYEm": {
+          "type": "mega_menu",
+          "settings": {
+            "product_list": [],
+            "link_text": "",
+            "link_url": "",
+            "image_1": "shopify://shop_images/HolidaySets-MegaMenu.jpg",
+            "text_1": "Shop Holiday 2025 Collection",
+            "url_1": "shopify://collections/holiday-2025",
+            "text_2": "",
+            "url_2": "",
+            "text_3": "",
+            "url_3": "",
+            "child_accordions": true
+          }
+        },
+        "mega_menu_8wigna": {
+          "type": "mega_menu",
+          "settings": {
+            "product_list": [],
+            "link_text": "",
+            "link_url": "",
+            "image_1": "shopify://shop_images/Press_Block_8c680134-2500-4f25-8376-0edd16de7145.jpg",
+            "text_1": "Press",
+            "url_1": "https://grandecosmetics.com/pages/press",
+            "image_2": "shopify://shop_images/Blog_Block_65eddbc2-a3a6-4d79-ab57-87f18bcc2d4b.jpg",
+            "text_2": "Blog",
+            "url_2": "https://grandecosmetics.com/blogs/news",
+            "text_3": "",
+            "url_3": "",
+            "child_accordions": false
+          }
+        },
+        "mega_menu_eqGTwB": {
+          "type": "mega_menu",
+          "settings": {
+            "product_list": [],
+            "link_text": "",
+            "link_url": "",
+            "text_1": "Grande Gives Back",
+            "url_1": "shopify://pages/contact-old",
+            "image_2": "shopify://shop_images/Press_Block_0bc26064-190b-4107-8da4-e3dc3bf69aad.jpg",
+            "text_2": "Press",
+            "url_2": "shopify://blogs/news",
+            "image_3": "shopify://shop_images/Blog_Block_edf5b1cd-01cc-4fa9-b8f2-04f331b0288b.jpg",
+            "text_3": "Blog",
+            "url_3": "shopify://blogs/news",
+            "child_accordions": false
           }
         }
       },
       "block_order": [
-        "mega_menu_pEtCCd"
+        "mega_menu_rkCr3h",
+        "mega_menu_iChda4",
+        "mega_menu_qizYEm",
+        "mega_menu_8wigna",
+        "mega_menu_eqGTwB"
       ],
-      "custom_css": [],
       "settings": {
-        "color_scheme": "scheme-2",
-        "menu_color_scheme": "scheme-2",
-        "layout": "full-width",
-        "hamburger_desktop": false,
-        "header_type": "logo-menu_center-icons",
-        "header_type_mobile": "menu-logo_center-icons",
-        "sticky_header_type": "on-scroll-up",
-        "sticky_header_apply_desktop": false,
-        "sticky_header_apply_mobile": true,
-        "icons_image": true,
-        "icon_size": 24,
-        "icons_text": true,
-        "button_icons": false,
-        "menu_image_stack": false,
-        "menu_image_aspect_ratio": "square",
-        "menu_title_1": "",
-        "menu_text_1": "",
-        "menu_link_text_1": "",
-        "menu_link_url_1": "",
-        "menu_title_2": "",
-        "menu_text_2": "",
-        "menu_link_text_2": "",
-        "menu_link_url_2": "",
-        "show_customer_accounts": false,
-        "padding_top": 0.5,
-        "padding_bottom": 0.5
+        "menu": "main-menu",
+        "reward_link": "https://grandecosmetics.com/pages/loyalty",
+        "refer_link": "https://grandecosmetics.com/pages/loyalty"
       }
+    },
+    "landing_animation_3KbHwC": {
+      "type": "landing-animation",
+      "settings": {}
     }
   },
   "order": [
-    "announcement-bar",
-    "header"
+    "promo_banner_WaT9qK",
+    "header",
+    "landing_animation_3KbHwC"
   ]
 }

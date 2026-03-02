@@ -1,0 +1,311 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "shogun-helper": {
+      "type": "shogun-helper",
+      "settings": {}
+    },
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {}
+    },
+    "shogun-optimizer": {
+      "type": "shogun-optimizer",
+      "settings": {}
+    },
+    "banner_HjctWi": {
+      "type": "banner",
+      "settings": {
+        "color": "light",
+        "background": "beige",
+        "image_d": "shopify:\/\/shop_images\/Category_Bar-blank.jpg",
+        "image_m": "shopify:\/\/shop_images\/Category_Bar-blank-mobile.jpg",
+        "alignment": "center",
+        "eyebrow": "The #1 Lash & Brow Serum Brand in the U.S.*",
+        "heading": "Get To Know Our <em>Best Sellers<\/em>",
+        "heading_size": "h2",
+        "copy": "",
+        "cta_url": "",
+        "cta_copy": "",
+        "cta_url_alt": "",
+        "cta_copy_alt": "",
+        "overlay": 0
+      }
+    },
+    "ticker_WqLd44": {
+      "type": "ticker",
+      "settings": {
+        "optional_text": "",
+        "optional_url": "",
+        "speed": 3,
+        "color_scheme": "beige"
+      }
+    },
+    "banner_zEmMbp": {
+      "type": "banner",
+      "disabled": true,
+      "settings": {
+        "color": "light",
+        "background": "beige",
+        "image_d": "shopify:\/\/shop_images\/Value_Props_Assurances_ebfb3212-53b6-4086-bd47-0c7b311dac11.jpg",
+        "alignment": "left",
+        "eyebrow": "",
+        "heading": "",
+        "heading_size": "h2",
+        "copy": "",
+        "cta_url": "",
+        "cta_copy": "",
+        "cta_url_alt": "",
+        "cta_copy_alt": "",
+        "overlay": 0
+      }
+    },
+    "split_banner_dhBtVf": {
+      "type": "split-banner",
+      "blocks": {
+        "body_copy_GTxtrJ": {
+          "type": "body-copy",
+          "settings": {
+            "copy": "<h2>GrandeLASH-MD<\/h2><p><strong> <\/strong><\/p><h6>Lash Enhancing Serum<\/h6><p><strong> <\/strong><\/p><h6><\/h6><h6><\/h6>"
+          }
+        },
+        "line_item_9DCpib": {
+          "type": "line-item",
+          "settings": {
+            "line_item_icon_rotation": true,
+            "line_item_text": "longer, thicker looking lashes in 4-6 weeks"
+          }
+        },
+        "line_item_TFiwDG": {
+          "type": "line-item",
+          "settings": {
+            "line_item_icon_rotation": true,
+            "line_item_text": "apply 1x daily only"
+          }
+        },
+        "line_item_MTDxWn": {
+          "type": "line-item",
+          "settings": {
+            "line_item_icon_rotation": true,
+            "line_item_text": "suitable for contacts + lash extensions"
+          }
+        },
+        "line_item_BpXTUa": {
+          "type": "line-item",
+          "settings": {
+            "line_item_icon_rotation": true,
+            "line_item_text": "11 safety + performance studies"
+          }
+        }
+      },
+      "block_order": [
+        "body_copy_GTxtrJ",
+        "line_item_9DCpib",
+        "line_item_TFiwDG",
+        "line_item_MTDxWn",
+        "line_item_BpXTUa"
+      ],
+      "settings": {
+        "style": "beige",
+        "padding": "inset",
+        "arrangement": "left_asset_right_content",
+        "header": "h2",
+        "alignment": "left",
+        "vertical_alignment": "middle",
+        "module_height": "image-height",
+        "image_d": "shopify:\/\/shop_images\/Lifestyle_Image.jpg",
+        "video_poster_d": true,
+        "video_poster_m": true,
+        "video_autoplay": true,
+        "eyebrow": "OUR #1 BEST SELLER",
+        "heading": "",
+        "cta_url": "shopify:\/\/products\/grandelash-md",
+        "cta_copy": "Shop Now"
+      }
+    },
+    "split_banner_cgGefw": {
+      "type": "split-banner",
+      "blocks": {
+        "body_copy_LDcAxa": {
+          "type": "body-copy",
+          "settings": {
+            "copy": "<p><\/p><h6>Brow Enhancing Serum<\/h6><p><strong> <\/strong><\/p><h2><\/h2>"
+          }
+        },
+        "line_item_YbYQgP": {
+          "type": "line-item",
+          "settings": {
+            "line_item_icon_rotation": true,
+            "line_item_text": "see thicker, fuller looking brows in 6-8 weeks"
+          }
+        },
+        "line_item_NVkjXj": {
+          "type": "line-item",
+          "settings": {
+            "line_item_icon_rotation": true,
+            "line_item_text": "conditioners brows for a healthier looking appearance"
+          }
+        },
+        "line_item_GXfphb": {
+          "type": "line-item",
+          "settings": {
+            "line_item_icon_rotation": true,
+            "line_item_text": "11 safety + performance studies"
+          }
+        }
+      },
+      "block_order": [
+        "body_copy_LDcAxa",
+        "line_item_YbYQgP",
+        "line_item_NVkjXj",
+        "line_item_GXfphb"
+      ],
+      "settings": {
+        "style": "coral",
+        "padding": "inset",
+        "arrangement": "left_asset_right_content",
+        "header": "h2",
+        "alignment": "left",
+        "vertical_alignment": "middle",
+        "module_height": "image-height",
+        "image_d": "shopify:\/\/shop_images\/brow-Lifestyle_Image.jpg",
+        "video_poster_d": true,
+        "video_poster_m": true,
+        "video_autoplay": true,
+        "eyebrow": "6x award winner",
+        "heading": "GrandeBROW",
+        "cta_url": "shopify:\/\/products\/grandebrow",
+        "cta_copy": "Shop Now"
+      }
+    },
+    "split_banner_Gk4PrP": {
+      "type": "split-banner",
+      "blocks": {
+        "body_copy_LGrbhN": {
+          "type": "body-copy",
+          "settings": {
+            "copy": "<h6>Heated Lash Curler<\/h6><h6> <\/h6>"
+          }
+        },
+        "line_item_bchqEC": {
+          "type": "line-item",
+          "settings": {
+            "line_item_icon_rotation": true,
+            "line_item_text": "see a long-lasting curl - up to 8 hours"
+          }
+        },
+        "line_item_NbHMWj": {
+          "type": "line-item",
+          "settings": {
+            "line_item_icon_rotation": true,
+            "line_item_text": "sleek, compact, portable design is perfect for a lash pick-me-up"
+          }
+        },
+        "line_item_EWiK9P": {
+          "type": "line-item",
+          "settings": {
+            "line_item_icon_rotation": true,
+            "line_item_text": "low and high temperature curl settings to best suit your lashes"
+          }
+        }
+      },
+      "block_order": [
+        "body_copy_LGrbhN",
+        "line_item_bchqEC",
+        "line_item_NbHMWj",
+        "line_item_EWiK9P"
+      ],
+      "settings": {
+        "style": "beige",
+        "padding": "inset",
+        "arrangement": "left_asset_right_content",
+        "header": "h2",
+        "alignment": "left",
+        "vertical_alignment": "top",
+        "module_height": "content-based",
+        "video_poster_d": true,
+        "video_poster_m": true,
+        "video_autoplay": true,
+        "eyebrow": "TIKTOK VIRAL",
+        "heading": "GrandeLASH-LIFT",
+        "cta_url": "shopify:\/\/products\/grandelash-lift-heated-lash-curler",
+        "cta_copy": "Shop Now"
+      }
+    },
+    "split_banner_wYwc9E": {
+      "type": "split-banner",
+      "blocks": {
+        "body_copy_yHiVhH": {
+          "type": "body-copy",
+          "settings": {
+            "copy": "<h6>Conditioning Peptide Mascara<\/h6><p>&nbsp;<\/p>"
+          }
+        },
+        "line_item_qPYxEB": {
+          "type": "line-item",
+          "settings": {
+            "line_item_icon_rotation": true,
+            "line_item_text": "natural effect + buildable length"
+          }
+        },
+        "line_item_AEcJDG": {
+          "type": "line-item",
+          "settings": {
+            "line_item_icon_rotation": true,
+            "line_item_text": "clump-free formula"
+          }
+        },
+        "line_item_Ja8XAG": {
+          "type": "line-item",
+          "settings": {
+            "line_item_icon_rotation": true,
+            "line_item_text": "healthier looking lashes with peptide infused formula"
+          }
+        }
+      },
+      "block_order": [
+        "body_copy_yHiVhH",
+        "line_item_qPYxEB",
+        "line_item_AEcJDG",
+        "line_item_Ja8XAG"
+      ],
+      "settings": {
+        "style": "rose",
+        "padding": "inset",
+        "arrangement": "left_asset_right_content",
+        "header": "h2",
+        "alignment": "left",
+        "vertical_alignment": "top",
+        "module_height": "content-based",
+        "video_poster_d": true,
+        "video_poster_m": true,
+        "video_autoplay": true,
+        "eyebrow": "available in black, brown & waterproof",
+        "heading": "GrandeMASCARA",
+        "cta_url": "shopify:\/\/products\/grandemascara",
+        "cta_copy": "Shop Now"
+      }
+    }
+  },
+  "order": [
+    "shogun-helper",
+    "main",
+    "shogun-optimizer",
+    "banner_HjctWi",
+    "ticker_WqLd44",
+    "banner_zEmMbp",
+    "split_banner_dhBtVf",
+    "split_banner_cgGefw",
+    "split_banner_Gk4PrP",
+    "split_banner_wYwc9E"
+  ]
+}

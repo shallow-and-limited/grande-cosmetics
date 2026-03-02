@@ -1,201 +1,182 @@
-{%- if settings.cart_drawer_enabled and settings.cart_page_disabled -%}
-  {% layout none %}
+{{ 'main-cart.min.css' | asset_url | stylesheet_tag }}
 
-  <script>
-    window.location.href = '/?cart=1';
-  </script>
+{% liquid
+  assign _s = section.settings
+  assign freeShippingThreshold = _s.free_shipping_threshold | divided_by: 1.00
+  assign percentToFreeShipping = cart.total_price | divided_by: freeShippingThreshold | times: 100.00
+  assign priceToFreeShipping = freeShippingThreshold | minus: cart.total_price | money
+  if percentToFreeShipping >= 100
+    assign qualifiesFreeShipping = true
+  endif
 
-  {% break %}
-{%- endif -%}
+  assign subtitles = ''
+  for item in cart.items
+    assign subtitles = subtitles | append: item.product.metafields.details.subtitle | append: ','
+  endfor
+%}
 
-{{ 'component-cart.css' | asset_url | stylesheet_tag }}
-{{ 'component-totals.css' | asset_url | stylesheet_tag }}
-
-{%- render "section_padding" %}
-
-<div class="gradient color-{{ section.settings.color_scheme }} isolate{% if cart == empty %} is-empty{% else %} section-{{ section.id }}-padding{% endif %}">
-  <div class="page-width">
-    <cart-items id="MainCart" class="cart">
-      {%- if cart == empty -%}
-        <div class="cart__warnings">
-          <h1 class="cart__empty-text h4">{{ 'sections.cart.empty' | t }}</h1>
-          <a href="{{ routes.all_products_collection_url }}" class="link">
-            {{ 'general.continue_shopping' | t }}
+<div class="main-cart container" data-items="{{ subtitles }}">
+  {% unless cart.empty? %}
+    <div class="main-cart__inner">
+      <div class="main-cart__header">
+        <h4 class="main-cart__heading h5">
+          Your Bag (<span data-cart-count>{{ cart.item_count }}</span>)
+        </h4>
+        {% if _s.cart_promo_message != blank %}
+          <div class="main-cart__promo p-4">
+            {{ _s.cart_promo_message }}
+          </div>
+        {% endif %}
+      </div>
+      <div data-main-cart class="mini-cart__items"></div>
+      <div class="main-cart__sticky hide-desktop">
+        <div class="main-cart__line space-between">
+          <span class="p-4">Subtotal:</span>
+          <span class="p-3" data-cart-total>{{ cart.total_price | money }}</span>
+        </div>
+        <div class="main-cart__cta">
+          <a href="/checkout" class="btn btn--primary">
+            Checkout
           </a>
         </div>
-      {%- else -%}
-        <div class="cart__container">
-          <div class="cart__details" id="Cart-CartItems" data-id="{{ section.id }}">
-            <div class="cart__header">
-              <h1 class="cart__header-heading h2">{{ 'sections.cart.title' | t }}</h1>
+      </div>
+    </div>
+    <div class="main-cart__summary">
+      <div class="main-cart__order-summary p-2 hide-mobile">Order Summary</div>
 
-              <div class="cart__header-items body body--small">
-                {{ cart.item_count }}
-                {{ 'sections.cart.items' | t | downcase }}: {{ cart.total_price | money }}
-              </div>
-            </div>
-
-            {%- if settings.shipping_calculator_threshold != blank -%}
-              {%- render 'cart_shipping-bar' %}
-            {%- endif %}
-
-            <div id="CartErrors"></div>
-
-            <form
-              action="{{ routes.cart_url }}"
-              id="Cart-Form"
-              class="cart__items"
-              method="post"
-            >
-              {%- for item in cart.items -%}
-                {%-
-                  render 'cart_item' with
-                  type: "cart",
-                  item: item,
-                  index: forloop.index
-                %}
-              {%- endfor -%}
-            </form>
-
-            {%- if settings.cart_upsell_collection != blank -%}
-              <div class="cart__upsell">
-                {%- if settings.cart_upsell_title != blank -%}
-                  <h2 class="cart__upsell-title h5">{{ settings.cart_upsell_title }}</h2>
-                {%- endif -%}
-
-                {%- if settings.cart_upsell_description != blank -%}
-                  <div class="cart__upsell-description body body--small">
-                    {{ settings.cart_upsell_description }}
-                  </div>
-                {%- endif -%}
-
-                <ul class="cart__upsell-products list--unstyled">
-                  <li class="cart__upsell-product">
-                    {%- for product in settings.cart_upsell_collection.products -%}
-                      {%- render 'product_quickbuy', product: product -%}
-                    {%- endfor -%}
-                  </li>
-                </ul>
-              </div>
-            {%- endif -%}
+      {% if _s.free_shipping_threshold != blank %}
+        <div class="text-block text-block__progress p-4" data-shipping-threshold="{{ freeShippingThreshold }}" data-shipping-message="{{ _s.free_shipping_message }}">
+          <div class="progress-text-wrapper space-between">
+            {% liquid
+              if qualifiesFreeShipping
+                assign leftText =  _s.free_shipping_message
+              else
+                assign leftText = 'You are ' | append: priceToFreeShipping | append: ' away from'
+              endif
+            %}
+            <span>
+              <span class="{% unless qualifiesFreeShipping %}d-none{% endunless %}" data-shipping-icon>
+                {% render 'icons', icon_name: 'sparkle-large' %}
+              </span>
+              <span class="w-light" data-shipping-text>{{ leftText }}</span>
+            </span>
+            <span>Free Shipping</span>
           </div>
-
-          <div class="cart__totals">
-            <h2 class="cart__totals-heading">{{ 'sections.cart.order_summary' | t }}</h2>
-
-            <div class="cart__totals-rows">
-              <div class="cart__totals-row">
-                <span class="cart__totals-label">{{ 'sections.cart.items' | t }} ({{ cart.item_count }})</span>
-                <span class="cart__totals-value">{{ cart.total_price | money }}</span>
-              </div>
-
-              <div class="cart__totals-row">
-                <span class="cart__totals-label">{{ 'sections.cart.subtotal' | t }}</span>
-                <span class="cart__totals-value">{{ cart.total_price | money }}</span>
-              </div>
-
-              <div class="cart__totals-row bold highlight">
-                <span class="cart__totals-label">{{ 'sections.cart.total' | t }}</span>
-                <span class="cart__totals-value">{{ cart.total_price | money }}</span>
-              </div>
-
-              <div class="cart__totals-row cart__totals-row--border">
-                <button
-                  type="submit"
-                  id="Cart-Checkout"
-                  class="cart__checkout-button button"
-                  name="checkout"
-                  form="Cart-Form"
-                  {% if cart == empty %}
-                    disabled
-                  {% endif %}
-                >
-                  {{ 'sections.cart.checkout' | t -}}
-                </button>
-              </div>
-
-              <div class="cart__totals-row cart__totals-row--gap cart__totals-row--center">
-                <span class="cart__totals-label body--small">
-                  {%- render 'icon-lock' -%}
-                  {{ 'sections.cart.secure' | t }}
-                </span>
-              </div>
-
-              <div class="cart__totals-row cart__totals-row--center">
-                <a href="{{ routes.all_products_collection_url }}" class="link">
-                  {{ 'general.continue_shopping' | t }}
-                </a>
-              </div>
-            </div>
+          <div class="text-block__progress progress-bar">
+            <div class="progress-bar__progress" data-progress-bar style="width: {{ percentToFreeShipping }}%"></div>
           </div>
         </div>
-      {%- endif -%}
+      {% endif %}
+      
+      <cart-data class="main-cart__lineWrapper">
+        <div class="main-cart__line space-between p-4">
+          <div id="shipping-tooltip" class="tooltip-icon" data-shipping-tooltip data-text="{{ _s.shipping_tooltip | escape }}">
+            Shipping
+            {% render 'icons', icon_name: 'help' %}
+          </div>
+          <span>Calculated at Checkout</span>
+        </div>
+        <div class="main-cart__line space-between p-4">
+          <div id="tax-tooltip" class="tooltip-icon" data-tax-tooltip data-text="{{ _s.tax_tooltip | escape }}">
+            Estimated Tax
+            {% render 'icons', icon_name: 'help' %}
+          </div>
+          <span>Calculated at Checkout</span>
+        </div>
 
-      <p id="Cart-LiveRegionText" class="visually-hidden" role="status"></p>
-      <p id="Cart-LineItemStatus" class="visually-hidden" aria-hidden="true" role="status">
-        {{ 'accessibility.loading' | t }}
-      </p>
-    </cart-items>
-  </div>
+        <hr class="line hide-mobile" />
+
+        <div class="main-cart__line-total p-4 hide-desktop">
+          <div>Subtotal</div>
+          <div data-cart-total>{{ cart.total_price | money }}</div>
+        </div>
+
+        <div class="main-cart__line main-cart__rewards p-4">
+          You have
+          <span class="points-text">
+            <span data-lion-points-for="{{ cart.total_price }}"></span> points 
+          </span>
+          {% render 'icons', icon_name: 'sparkle' %}
+          Redeem at checkout!
+        </div>
+
+        <div class="main-cart__line-total p-4 hide-mobile">
+          <div>Subtotal</div>
+          <div data-cart-total>{{ cart.total_price | money }}</div>
+        </div>
+      </cart-data>
+
+      <hr class="line hide-desktop" />
+
+      <div class="main-cart__cta hide-mobile">
+        <a href="/checkout" class="btn btn--primary">
+          Checkout
+        </a>
+      </div>
+      <div class="main-cart__messages">
+        {% if _s.shipping_text != blank %}
+          <div class="p-4">
+            {{ _s.shipping_text }}
+            {% render 'icons', icon_name: 'sun' %}
+          </div>
+        {% endif %}
+        {% if _s.guarantee_text != blank %}
+          <div class="p-4">{{ _s.guarantee_text }}</div>
+        {% endif %}
+      </div>
+
+      <hr class="line hide-desktop" />
+    </div>
+  {% else %}
+    <div class="main-cart__empty">
+      <p class="main-cart__message h2">Your Bag is empty</p>
+    </div>
+  {% endunless %}
 </div>
+
+<script src="{{ 'main-cart.min.js' | asset_url }}" defer="defer"></script>
+<script src="{{ 'cart-data.min.js' | asset_url }}" defer="defer"></script>
 
 {% schema %}
 {
-  "name": "Cart",
+  "name": "Cart Page",
   "settings": [
     {
-      "type": "color_scheme",
-      "id": "color_scheme",
-      "label": "t:sections.all.colors.label",
-      "default": "background-1"
-    },
-    {
-      "type": "header",
-      "content": "Cart settings"
+      "type": "text",
+      "id": "cart_promo_message",
+      "label": "Promotional Message"
     },
     {
       "type": "text",
-      "id": "upsell_title",
-      "label": "Upsell title"
+      "id": "free_shipping_threshold",
+      "label": "Free Shipping Threshold",
+      "info": "Enter value in cents"
     },
     {
-      "type": "collection",
-      "id": "upsell_collection",
-      "label": "Upsell collection"
+      "type": "text",
+      "id": "free_shipping_message",
+      "label": "Free Shipping Message"
     },
     {
-      "type": "header",
-      "content": "Section Spacing"
+      "type": "richtext",
+      "label": "Shipping Tooltip Text",
+      "id": "shipping_tooltip"
     },
     {
-      "type": "range",
-      "id": "padding_top",
-      "min": 0,
-      "max": 4,
-      "step": 0.5,
-      "unit": "rem",
-      "label": "Padding top",
-      "default": 2
+      "type": "richtext",
+      "label": "Tax Tooltip Text",
+      "id": "tax_tooltip"
     },
     {
-      "type": "range",
-      "id": "padding_bottom",
-      "min": 0,
-      "max": 4,
-      "step": 0.5,
-      "unit": "rem",
-      "label": "Padding bottom",
-      "default": 2
+      "type": "richtext",
+      "label": "Shipping Text",
+      "id": "shipping_text"
     },
     {
-      "type": "range",
-      "id": "margin_bottom",
-      "min": 0,
-      "max": 4,
-      "step": 0.5,
-      "unit": "rem",
-      "label": "Section margin",
-      "default": 0
+      "type": "text",
+      "label": "Guarantee Text",
+      "id": "guarantee_text",
+      "default": "90 Money Back Guarantee Lipsum"
     }
   ]
 }

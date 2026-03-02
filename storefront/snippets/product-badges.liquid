@@ -1,0 +1,11 @@
+<div class="badge-wrapper">
+  {%- for tag in product.tags -%}
+    {% if tag contains 'badge:' %}
+      {% assign badge = tag | split: ':' | last | replace: '-', ' ' %}
+      <span class="badge badge--{{ badge | handleize }} p-5 w-regular">{{ badge }}</span>
+    {% endif %}
+  {%- endfor -%}
+  {% if product.price < product.compare_at_price %}
+    <span class="badge badge--sale p-5 w-regular">Sale</span>
+  {% endif %}
+</div>

@@ -1,0 +1,114 @@
+{% comment %}
+  Image component
+  image : Object
+  image_m : Object
+  class: string
+  attr: string
+  loading: string
+{% endcomment %}
+
+{% liquid
+  assign attr = attr | default: ''
+  assign loading = loading | default: 'lazy'
+  assign break_class = 'image--default'
+  assign class = class | default: false
+  assign image_slide = image_slide | default: false
+  assign overlay = overlay | default: false
+  assign image = image | default: false
+  assign image_m = image_m | default: image
+  assign break_m = break_m | default: 992
+  assign max_width = max_width | default: image.width
+  assign aspect_ratio_mobile = aspect_ratio_mobile | default: aspect_ratio | default: image_m.aspect_ratio | default: image.aspect_ratio
+  assign aspect_ratio_desktop = aspect_ratio | default: image.aspect_ratio
+
+  if break_m < 992
+    assign break_class = 'image--tablet'
+  endif
+%}
+
+<div
+  class="image {{ break_class }} {{ class }}"
+  style="
+    --aspect-ratio-desktop: {{ aspect_ratio_desktop | round: 2 }};
+    --aspect-ratio-mobile: {{ aspect_ratio_mobile | round: 2 }};
+    --object-position-desktop: {{ image.presentation.focal_point | default: 'center' }};
+    --object-position-mobile: {{ image_m.presentation.focal_point | default: 'center' }};
+  " {{ data-attributes }}
+>
+  {% if image %}
+    {% liquid
+      assign base_sizes = '2560|1920|1440|1280|992|768|500|320' | split: '|'
+      assign sizes = ''
+      assign found = false
+      for size in base_sizes
+        assign int_size = size | times: 1
+        if found == false and int_size < break_m
+          assign sizes = sizes | append: break_m | append: '|'
+          assign found = true
+        endif
+        assign sizes = sizes | append: int_size | append: '|'
+      endfor
+      assign sizes = sizes | remove_last: '|' | split: '|'
+    %}
+    {% assign prev_size = false %}
+
+    <picture>
+      {% for size in sizes %}
+        {% if prev_size %}
+          {% liquid
+            assign image_w_max = prev_size
+
+            if prev_size > max_width
+              assign image_w_max = max_width
+            endif
+
+            assign image_w = image_w_max | append: 'x'
+            assign image_w_2 = image_w_max | times: 2 | append: 'x'
+
+            assign img = image
+            if prev_size <= break_m and image_m
+              assign img = image_m
+            endif
+          -%}
+
+          {% capture srcset -%}
+            {{ img | image_url: width: image_w }}, {{ img | image_url: width: image_w_2 }} 2x
+          {%- endcapture %}
+
+          <source
+            media="(min-width: {{ size }}px)"
+            srcset="{{ srcset }}"
+          >
+        {% endif %}
+
+        {% assign prev_size = size | times: 1 %}
+      {% endfor %}
+
+      {% liquid
+        assign img = image
+        if image_m
+          assign img = image_m
+        endif
+      -%}
+
+      {% capture src -%}
+        {{ img | image_url: width: 320 }}, {{ img | image_url: width: 750 }} 2x
+      {%- endcapture %}
+
+      <img
+        alt="{{ alt | default: img.alt }}"
+        srcset="{{ src }}"
+        {% if image_slide == true %}
+          data-media-slide
+        {% endif %}
+        {{ attr }}
+        loading="{{ loading }}"
+        height="{{ max_width | divided_by: aspect_ratio_desktop | round: 0 }}"
+        width="{{ max_width }}"
+      >
+      {% if overlay %}
+        <span data-media-slide class="image__overlay image__overlay--{{ overlay }}"></span>
+      {% endif %}
+    </picture>
+  {% endif %}
+</div>

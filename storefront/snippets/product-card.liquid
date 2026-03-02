@@ -1,0 +1,82 @@
+{% comment %}
+  @param product {Product}
+  @param class {String}
+  @param attr {String}
+{% endcomment %}
+{%- liquid
+  assign _metafields = product.metafields.details
+-%}
+
+{{ 'product-card.min.css' | asset_url | stylesheet_tag }}
+
+<product-card class="product-card {{ class }}" {{ attr }} 
+    data-product="{{ product.id }}" 
+  >
+  <div class="product-card__images">
+    {% render 'product-badges', product: product %}
+
+    {%- if _metafields.award_image != blank -%}
+      <span class="product-card__award">
+        {% render 'image', image: _metafields.award_image %}
+      </span>
+    {%- endif -%}
+    <a href="{{ product.url }}" class="product-card__link" aria-label="{{ product.title }}" data-card-link>
+      {%
+        render 'image',
+        image: product.featured_media.preview_image,
+        class: 'product-card__image product-card__image--primary',
+        attr: 'primary',
+      %}
+      {%- if product.media[1].preview_image != blank -%}
+        {%
+          render 'image',
+          image: product.media[1].preview_image,
+          class: 'product-card__image  product-card__image--secondary',
+          attr: 'secondary',
+        %}
+      {%- endif -%}
+    </a>
+  </div>
+  <div class="product-card__content">
+    <div class="product-card__text">
+      <p class="product-card__title p-3 color-dark-gray">{{ product.title | split: ' - ' | first }}</p>
+      <p class="product-card__subtitle p-2">{{ product.metafields.details.subtitle }}</p>
+      {% unless isCarousel %}
+        <div class="hide-desktop p-3">
+          {% render 'price', target: product.selected_or_first_available_variant, show_trailing_zeros: true %}
+        </div>
+      {% endunless %}
+    </div>
+
+    {% if product.selected_or_first_available_variant.available == false or template == 'search' or template == 'collection' and product.variants > 1 %}
+      {% render 'product-card-product-options', product: product, id: formId %}
+      {% render 'product-card-buy-button', product: product %}
+
+    {% else %}
+      <form method="post" action="/cart/add" data-add-to-cart-form>
+        <input
+          type="hidden"
+          name="id"
+          value="{{ product.selected_or_first_available_variant.id }}"
+          data-selected-variant-id
+        >
+        <input
+          type="hidden"
+          name="quantity"
+          id="quantity"
+          value="1"
+          data-quantity
+        >
+        <button data-add-to-cart-btn class="product-card__atb btn btn--secondary p-3">
+          Add to Bag
+          <span class="{% unless isCarousel %}hide-mobile{% endunless %}">
+            •
+            {% render 'price', target: product.selected_or_first_available_variant, show_trailing_zeros: true, product_card: true %}
+          </span>
+        </button>
+      </form>
+    {% endif %}
+  </div>
+</product-card>
+
+<script src="{{ 'product-card.min.js' | asset_url }}" defer="defer"></script>

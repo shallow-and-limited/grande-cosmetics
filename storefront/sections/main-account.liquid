@@ -1,304 +1,265 @@
-{{ 'customer.css' | asset_url | stylesheet_tag }}
-{{ 'component-pagination.css' | asset_url | stylesheet_tag }}
+{{ 'customer.min.css' | asset_url | stylesheet_tag }}
 
-{%- render 'section_padding' %}
+{% assign _settings = section.settings %}
+{% assign _blocks = section.blocks %}
 
-<section
-  id="{{ section.id }}"
-  class="color-{{ section.settings.color_scheme }} section-{{ section.id }}-padding isolate gradient"
->
-  <div
-    class="customer {{ section.settings.layout }}"
-    data-id="{{ section.id }}"
-  >
-    {%- capture link -%}
-      <a class="link link--icon body body--small" href="{{ routes.account_logout_url }}">
-        <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" fill="none" viewBox="0 0 18 19">
-          <path fill-rule="evenodd" clip-rule="evenodd" d="M6 4.5a3 3 0 116 0 3 3 0 01-6 0zm3-4a4 4 0 100 8 4 4 0 000-8zm5.58 12.15c1.12.82 1.83 2.24 1.91 4.85H1.51c.08-2.6.79-4.03 1.9-4.85C4.66 11.75 6.5 11.5 9 11.5s4.35.26 5.58 1.15zM9 10.5c-2.5 0-4.65.24-6.17 1.35C1.27 12.98.5 14.93.5 18v.5h17V18c0-3.07-.77-5.02-2.33-6.15-1.52-1.1-3.67-1.35-6.17-1.35z" fill="currentColor">
-        </svg>
-        {{ 'customer.log_out' | t }}
-      </a>
-    {%- endcapture -%}
-
-    {%- render 'section_header', link: link -%}
-
-    <div class="customer__account">
-      <div class="customer__order-history">
-        <h2 class="h3">{{ 'customer.orders.title' | t }}</h2>
-
-        {% paginate customer.orders by 20 %}
-          {%- if customer.orders.size > 0 -%}
-            <table role="table" class="order-history">
-              <caption class="visually-hidden">
-                {{ 'customer.orders.title' | t }}
-              </caption>
-              <thead role="rowgroup">
-                <tr role="row">
-                  <th id="ColumnOrder" scope="col" role="columnheader">{{ 'customer.orders.order_number' | t }}</th>
-                  <th id="ColumnDate" scope="col" role="columnheader">{{ 'customer.orders.date' | t }}</th>
-                  <th id="ColumnPayment" scope="col" role="columnheader">{{ 'customer.orders.payment_status' | t }}</th>
-                  <th id="ColumnFulfillment" scope="col" role="columnheader">
-                    {{ 'customer.orders.fulfillment_status' | t }}
-                  </th>
-                  <th id="ColumnTotal" scope="col" role="columnheader">{{ 'customer.orders.total' | t }}</th>
-                </tr>
-              </thead>
-              <tbody role="rowgroup">
-                {%- for order in customer.orders -%}
-                  <tr role="row">
-                    <td
-                      id="RowOrder"
-                      role="cell"
-                      headers="ColumnOrder"
-                      data-label="{{ 'customer.orders.order_number' | t }}"
-                    >
-                      <a
-                        class="link"
-                        href="{{ order.customer_url }}"
-                        aria-label="{{ 'customer.orders.order_number_link' | t: number: order.name }}"
-                      >
-                        {{ order.name }}
-                      </a>
-                    </td>
-                    <td headers="RowOrder ColumnDate" role="cell" data-label="{{ 'customer.orders.date' | t }}">
-                      {{ order.created_at | time_tag: format: 'date' }}
-                    </td>
-                    <td
-                      headers="RowOrder ColumnPayment"
-                      role="cell"
-                      data-label="{{ 'customer.orders.payment_status' | t }}"
-                    >
-                      {{ order.financial_status_label }}
-                    </td>
-                    <td
-                      headers="RowOrder ColumnFulfillment"
-                      role="cell"
-                      data-label="{{ 'customer.orders.fulfillment_status' | t }}"
-                    >
-                      {{ order.fulfillment_status_label }}
-                    </td>
-                    <td headers="RowOrder ColumnTotal" role="cell" data-label="{{ 'customer.orders.total' | t }}">
-                      {{ order.total_net_amount | money_with_currency }}
-                    </td>
-                  </tr>
-                {%- endfor -%}
-              </tbody>
-            </table>
-          {%- else -%}
-            <p>{{ 'customer.orders.none' | t }}</p>
-          {%- endif -%}
-
-          {%- if paginate.pages > 1 or true -%}
-            {% render 'pagination', paginate: paginate %}
-          {%- endif -%}
-        {% endpaginate %}
+<section>
+  <div id="account_section">
+    {% if _settings.bg_dsk != blank %}
+      <img class="customer__bg-dsk hide-mobile" src="{{ _settings.bg_dsk | image_url }}" alt="Account Background Image" />
+    {% endif %}
+    {% if _settings.bg_mob != blank %}
+      <img class="customer__bg-mob hide-desktop" src="{{ _settings.bg_mob | image_url }}" alt="Account Background Image" />
+    {% endif %}
+    <div>
+      <div class="account__welcome">
+        <div>
+          {% render 'icons', icon_name: 'glint-filled' %}
+        </div>
+        {% if customer.first_name %}
+          <h1 class="h3 color-white">Hi, {{ customer.first_name }}</h1>
+        {% else %}
+          <h1 class="h3 color-white">Hello!</h1>
+        {% endif %}
+        <a href="/pages/loyalty" class="account__welcome-btn"><span class="p-3">Redeem My Rewards</span></a> 
+        
+        <a href="/account/logout/" class="account__logout-btn"><span class="p-3">Log Out</span></a> 
       </div>
 
-      <div class="customer__account-details">
-        <h2 class="h3">{{ 'customer.account.details' | t }}</h2>
+      <div class="account__blocks">
+        <div class="customer account account__block">
+          <a class="account__rc-link p-1 color-black flex-arrow" href="/tools/recurring/get-subscription-access">
+            Manage Subscriptions
+            {% render 'icons', icon_name: 'arrow-right' %}
+          </a>
+        </div>
+        <div class="customer account account__block ">
+          <h2 class="p-1 account__block-title">{{ 'customer.orders.title' | t }}</h2>
 
-        {{ customer.default_address | format_address }}
+          <div class="order-history">
+            {% paginate customer.orders by 5 %}
+              {%- if customer.orders.size > 0 -%}
+                {%- for order in customer.orders -%}
+                  <div class="order-history__order account-block-border">
+                    <order-carousel>
+                      <div class="order-carousel swiper" {% if order.line_items.size > 1 %}data-order-carousel{% endif %}>
+                        <div class="swiper-wrapper">                          
+                          {% for item in order.line_items %}
+                            <div class="swiper-slide">
+                              <img class="swiper-slide__img" width="90" height="90" src="{{ item.image | image_url: width: 90, height: 90 }}">
+                            </div>
+                          {% endfor %}
+                        </div>
+                        {% if order.line_items.size > 1 %}
+                          <button class="order-carousel__prev" data-previous aria-label="Previous Carousel Slide">
+                            {% render 'icons', icon_name: 'caret-left' %}
+                          </button>
+                          <button class="order-carousel__next" data-next aria-label="Next Carousel Slide">
+                            {% render 'icons', icon_name: 'caret-right' %}
+                          </button>
+                        {% endif %}
+                      </div>
+                    </order-carousel>
+                    <div class="order-history__wrapper">
+                      <div class="order-history__info">
+                        <div class="order-history__info-title p-4 bold">{{ order.item_count }} Item{% if order.item_count > 1 %}s{% endif %} </div>
+                        <div class="order-history__info-money p-4">{{ order.total_net_amount | money }}</div>  
+                        <div class="order-history__info-date p-4">{{ order.created_at | date: '%B %d, %Y' }}</div>
+                        <div class="order-history__info-num p-4">Order {{ order.name }}</div>
+                      </div>
+                      <div class="order-history__status">
+                        {%- if order.fulfillment_status == 'fulfilled' -%}
+                          <div class="order-history__status-label fulfilled p-4">{{ order.fulfillment_status_label }}</div>
+                        {%- else -%}
+                          <div class="order-history__status-label p-4">{{ order.fulfillment_status_label }}</div>
+                        {%- endif -%}
+                        <div class="order-history__status-details">
+                          <a href="{{ order.customer_url }}" class="color-black p-4">Order Details</a>
+                          {% render 'icons', icon_name: 'arrow-right' %}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                {%- endfor -%}
+              {%- else -%}
+                <p class="p-4">{{ 'customer.orders.none' | t }}</p>
+              {%- endif -%}
+              
+              <div class="order-history__bottom">
+                <div class="order-history__totals">
+                </div>
+                <div class="p-4 order-history__pagination">
+                  {%- if paginate.pages > 1 -%}
+                    {%- if paginate.parts.size > 0 -%}
+                      <nav class="pagination" role="navigation" aria-label="{{ 'general.pagination.label' | t }}">
+                        <ul role="list">
+                          {%- if paginate.previous -%}
+                            <li>
+                              <a href="{{ paginate.previous.url }}" aria-label="{{ 'general.pagination.previous' | t }}">
+                                <svg aria-hidden="true" focusable="false" viewBox="0 0 10 6">
+                                  <path fill-rule="evenodd" clip-rule="evenodd" d="M9.354.646a.5.5 0 00-.708 0L5 4.293 1.354.646a.5.5 0 00-.708.708l4 4a.5.5 0 00.708 0l4-4a.5.5 0 000-.708z" fill="currentColor">
+                                </svg>
+                              </a>
+                            </li>
+                          {%- endif -%}
+      
+                          {%- for part in paginate.parts -%}
+                            <li>
+                              {%- if part.is_link -%}
+                                <a href="{{ part.url }}" aria-label="{{ 'general.pagination.page' | t: number: part.title }}">
+                                  {{- part.title -}}
+                                </a>
+                              {%- else -%}
+                                {%- if part.title == paginate.current_page -%}
+                                  <span aria-current="page" aria-label="{{ 'general.pagination.page' | t: number: part.title }}">
+                                    {{- part.title -}}
+                                  </span>
+                                {%- else -%}
+                                  <span>{{ part.title }}</span>
+                                {%- endif -%}
+                              {%- endif -%}
+                            </li>
+                          {%- endfor -%}
+      
+                          {%- if paginate.next -%}
+                            <li>
+                              <a href="{{ paginate.next.url }}" aria-label="{{ 'general.pagination.next' | t }}">
+                                <svg aria-hidden="true" focusable="false" viewBox="0 0 10 6">
+                                  <path fill-rule="evenodd" clip-rule="evenodd" d="M9.354.646a.5.5 0 00-.708 0L5 4.293 1.354.646a.5.5 0 00-.708.708l4 4a.5.5 0 00.708 0l4-4a.5.5 0 000-.708z" fill="currentColor">
+                                </svg>
+                              </a>
+                            </li>
+                          {%- endif -%}
+                        </ul>
+                      </nav>
+                    {%- endif -%}
+                  {%- endif -%}
+                </div>
+              </div>
+            {% endpaginate %}
+          </div>
+        </div>
+        <div class="customer account account__block">
+          <div class="account-block-border">
+            <h2 class="p-1 account__block-title">Refer a Friend</h2>
+            <div class="p-4">{{ section.settings.refer_text }}</div>
+          </div>
+          <a class="customer-link p-4 flex-arrow" href="{{ section.settings.refer_btn_url }}">
+            {{ section.settings.refer_btn_text }}
+            {% render 'icons', icon_name: 'arrow-right' %}
+          </a>
+        </div>
+        <div class="customer account account__block">
+          <div class="account-block-border">
+            <h2 class="p-1 account__block-title">{{ 'customer.account.addresses' | t }}</h2>
+            <span class="p-4">
+              {{ customer.default_address | format_address }}
+            </span>
+          </div>
 
-        <a href="{{ routes.account_addresses_url }}">
-          {{ 'customer.account.view_addresses' | t }} ({{ customer.addresses_count }})
-        </a>
+          <a class="customer-link p-4 flex-arrow" href="{{ routes.account_addresses_url }}">
+            Address Book
+            {% render 'icons', icon_name: 'arrow-right' %}
+          </a>
+        </div>
+        {% render 'account-help' %}
       </div>
     </div>
   </div>
 </section>
 
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    if (window.theme.dynamic_yield_enabled && DynamicYield) {
-      const queryString = new URLSearchParams(window.location.search);
-
-      if (queryString.get('q')) {
-        if (queryString.get('q') == 'login') {
-          DynamicYield.login(window.theme.customer.id, window.theme.customer.email);
-        } else if (queryString.get('q') == 'register') {
-          DynamicYield.signUp(window.theme.customer.email);
-        }
-      }
-    }
-  });
-</script>
+<script src="{{ 'customer.min.js' | asset_url }}" defer="defer"></script>
 
 {% schema %}
 {
-  "name": "Main account",
-  "tag": "section",
-  "class": "section",
+  "name": "t:sections.main-account.name",
   "settings": [
     {
       "type": "header",
-      "content": "Section settings"
+      "content": "Background Images"
     },
     {
-      "type": "color_scheme",
-      "id": "color_scheme",
-      "label": "t:sections.all.colors.label",
-      "info": "t:sections.all.colors.has_cards_info",
-      "default": "scheme-1"
+      "type": "image_picker",
+      "id": "bg_dsk",
+      "label": "Desktop Background"
     },
     {
-      "type": "select",
-      "id": "layout",
-      "label": "Layout",
-      "options": [
-        {
-          "value": "screen-width",
-          "label": "Screen width"
-        },
-        {
-          "value": "page-width",
-          "label": "Page width"
-        },
-        {
-          "value": "large-width",
-          "label": "Large width"
-        },
-        {
-          "value": "full-width",
-          "label": "Full width"
-        }
-      ],
-      "default": "page-width"
+      "type": "image_picker",
+      "id": "bg_mob",
+      "label": "Mobile Background"
     },
     {
       "type": "header",
-      "content": "Header"
+      "content": "Refer a Friend Block"
+    },
+    {
+      "type": "textarea",
+      "id": "refer_text",
+      "label": "Refer a Friend text"
     },
     {
       "type": "text",
-      "id": "title",
-      "label": "Title"
+      "id": "refer_btn_text",
+      "label": "Refer Button Text",
+      "default": "Learn More"
+    },
+    {
+      "type": "url",
+      "id": "refer_btn_url",
+      "label": "Refer Button Link"
     },
     {
       "type": "select",
-      "id": "heading_alignment",
-      "label": "Heading Alignment",
+      "label": "Help Section Text Color",
+      "id": "color",
+      "default": "dark",
       "options": [
         {
-          "value": "left",
-          "label": "t:sections.collapsible_content.settings.heading_alignment.options__1.label"
+          "label": "Light",
+          "value": "light"
         },
         {
-          "value": "center",
-          "label": "t:sections.collapsible_content.settings.heading_alignment.options__2.label"
-        },
-        {
-          "value": "right",
-          "label": "t:sections.collapsible_content.settings.heading_alignment.options__3.label"
+          "label": "Dark",
+          "value": "dark"
         }
-      ],
-      "default": "left"
-    },
+      ]
+    }
+  ],
+  "blocks": [
     {
-      "type": "select",
-      "id": "heading_size",
-      "options": [
+      "type": "account_help_block",
+      "name": "Help Section Block",
+      "settings": [
         {
-          "value": "h5",
-          "label": "X-Small"
+          "type": "select",
+          "label": "Icon",
+          "id": "icon",
+          "options": [
+            {
+              "label": "Chat",
+              "value": "chat"
+            },
+            {
+              "label": "Email",
+              "value": "email"
+            },
+            {
+              "label": "Phone",
+              "value": "phone"
+            }
+          ]
         },
         {
-          "value": "h4",
-          "label": "Small"
+          "type": "text",
+          "id": "title",
+          "label": "Block text"
         },
         {
-          "value": "h3",
-          "label": "Medium"
-        },
-        {
-          "value": "h2",
-          "label": "Large"
-        },
-        {
-          "value": "h1",
-          "label": "X-Large"
+          "type": "url",
+          "id": "link",
+          "label": "Block Link"
         }
-      ],
-      "default": "h2",
-      "label": "t:sections.all.heading_size.label"
-    },
-    {
-      "type": "richtext",
-      "id": "description",
-      "label": "Description"
-    },
-    {
-      "type": "select",
-      "id": "text_style",
-      "options": [
-        {
-          "value": "body--small",
-          "label": "Small"
-        },
-        {
-          "value": "body",
-          "label": "Regular"
-        },
-        {
-          "value": "body--large",
-          "label": "Large"
-        }
-      ],
-      "default": "body",
-      "label": "Text style"
-    },
-    {
-      "type": "select",
-      "id": "mobile_text_style",
-      "options": [
-        {
-          "value": "body--small-mobile",
-          "label": "Small"
-        },
-        {
-          "value": "body--mobile",
-          "label": "Regular"
-        },
-        {
-          "value": "body--large-mobile",
-          "label": "Large"
-        }
-      ],
-      "default": "body--mobile",
-      "label": "Mobile text style"
-    },
-    {
-      "type": "header",
-      "content": "t:sections.all.padding.section_padding_heading"
-    },
-    {
-      "type": "range",
-      "id": "padding_top",
-      "min": 0,
-      "max": 4,
-      "step": 0.5,
-      "unit": "rem",
-      "label": "t:sections.all.padding.padding_top",
-      "default": 2
-    },
-    {
-      "type": "range",
-      "id": "padding_bottom",
-      "min": 0,
-      "max": 4,
-      "step": 0.5,
-      "unit": "rem",
-      "label": "t:sections.all.padding.padding_bottom",
-      "default": 2
-    },
-    {
-      "type": "range",
-      "id": "margin_bottom",
-      "min": 0,
-      "max": 4,
-      "step": 0.5,
-      "unit": "rem",
-      "label": "Section margin",
-      "default": 0
+      ]
     }
   ]
 }

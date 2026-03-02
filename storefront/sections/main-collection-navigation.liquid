@@ -1,0 +1,36 @@
+{% assign _collections = collection.metafields.details.collection_navigation.value.collections.value %}
+
+{% if _collections != blank %}
+  <section class="collection-nav">
+    <tabs-element class="tabs" data-carousel="true">
+      <div class="swiper" data-tabs-carousel>
+        <div class="swiper-wrapper">
+          {% for _collection in _collections %}
+            <div class="swiper-slide">
+              <a href="{{ _collection.url }}">
+                <button class="p-2 tab {% if collection.url == _collection.url %}tab--selected{% endif %}" data-tab>
+                  {% if _collection.title contains 'All' %}
+                    All
+                  {% else %}
+                    {{ _collection.title }}
+                  {% endif %}
+                </button>
+              </a>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </tabs-element>
+    <script src="{{ 'tabs-element.min.js' | asset_url }}" defer="defer"></script>
+  </section>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Collection Navigation",
+  "settings": [
+
+  ]
+}
+{% endschema %}
+

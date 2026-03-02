@@ -1,0 +1,35 @@
+{% assign cards = metaData %}
+  <div class="content-cards content-cards__container">
+    <div class="content-cards__heading">
+      <h3 class="content-cards__title">More from Coola</h3>
+    </div>    
+    <content-cards class="content-cards__slider swiper" data-class="swiper">
+      <div class="content-cards__slides swiper-wrapper" data-swiper-class="swiper-wrapper">
+        {% for card in cards %}
+          <div class="content-cards__slide swiper-slide" data-swiper-class="swiper-slide">
+            <div class="content-cards__slide-image">
+              {% render 'image', image: card.image.value %}            
+            </div>
+            <div class="content-cards__slide-content">
+              <p class="content-cards__eyebrow s-1">{{ card.eyebrow.value }}</p>
+              <h5 class="content-cards__title">{{ card.title.value }}</h5>
+              <p class="content-cards__description">{{ card.description.value }}</p>
+              <a href="{{ card.url.cta_url }}" class="content-cards__cta color-black">{{ card.cta_text.value }}</a>            
+            </div>
+          </div>
+        {% endfor %}        
+      </div>
+    </content-cards>
+    <div class="content-cards__nav featured-items__nav">
+      <div class="featured-items__pagination" data-pagination-ccards></div>
+      <div class="featured-items__nav-arrows">
+        <button class="featured-items-carousel__prev hide-mobile" data-slide-previous-ccards aria-label="Previous Carousel Slide">
+          {% render 'icons', icon_name: 'arrow-left' %}
+        </button>
+        <button class="featured-items-carousel__next hide-mobile" data-slide-next-ccards aria-label="Next Carousel Slide">
+          {% render 'icons', icon_name: 'arrow-right' %}
+        </button>                    
+      </div>
+    </div>    
+  </div>
+  

@@ -1,205 +1,216 @@
-{{ 'ticker.css' | asset_url | stylesheet_tag }}
+{{ 'ticker.min.css' | asset_url | stylesheet_tag: preload: true }}
 
-{%- style -%}
-  .section-{{ section.id }}-padding {
-    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
-    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
-  }
+{% assign pagetype = request.page_type %}
+{% case pagetype %}
+{% when 'product' %}
+  {% assign _s = product.metafields.details.product_ticker.value %}
+  {% assign _blocks = _s.ticker_items.value %}
+  {% assign _blocks_size = _blocks.count %}
+{% when 'collection' %}
+  {% assign _s = collection.metafields.details.collection_ticker.value %}
+  {% assign _blocks = _s.ticker_items.value %}
+  {% assign _blocks_size = _blocks.count %}  
+{% else %}
+  {%- assign _s = section.settings -%}
+  {% assign _blocks = section.blocks %}
+  {% assign _blocks_size = _blocks.size %}
+{% endcase %}
 
-  @media screen and (min-width: 750px) {
-    .section-{{ section.id }}-padding {
-      padding-top: {{ section.settings.padding_top }}px;
-      padding-bottom: {{ section.settings.padding_bottom }}px;
-    }
-  }
-{%- endstyle -%}
+{% if _s %}
 
-<div
-  id="{{ section.id }}"
-  class="color-{{ section.settings.color_scheme }} section-{{ section.id }}-padding isolate"
->
-  <div class="{{ section.settings.layout }}">
-    <div class="ticker">
-      {%- for x in (1..2) -%}
-        <div
-          class="ticker__inner {{ section.settings.text_style }} {{ section.settings.mobile_text_style }}"
-          aria-hidden="{{ forloop.last }}"
-          style="            --duration: {{ section.settings.duration }}s;"
-        >
-          {%- for block in section.blocks -%}
-            <div class="ticker__item">
-              {%- if block.settings.image != blank -%}
-                <div
-                  class="ticker__item-image"
-                  style="width: {{ block.settings.image_width }}"
-                >
-                  <div
-                    class="media media--adapt"
-                    style="padding-bottom: {{ 1 | divided_by: block.settings.image.aspect_ratio | times: 100 }}%;"
-                  >
-                    {{
-                      block.settings.image
-                      | image_url: width: 1500
-                      | image_tag: alt: block.settings.image.alt
-                    }}
-                  </div>
-                </div>
-              {%- endif -%}
-              {%- if block.settings.text != blank -%}
-                <div class="ticker__item-text">
-                  {{ block.settings.text }}
-                </div>
-              {%- endif -%}
-            </div>
-          {%- endfor -%}
-        </div>
-      {%- endfor -%}
+  {% case _blocks_size %}
+    {% when 1 %}
+      {% assign iterations = _blocks_size | times: 18 %}
+    {% when 2 %}
+      {% assign iterations = _blocks_size | times: 9 %}
+    {% when 3 %}
+      {% assign iterations = _blocks_size | times: 6 %}
+    {% when 4 %}
+      {% assign iterations = _blocks_size | times: 5 %}
+    {% when 5 %}
+      {% assign iterations = _blocks_size | times: 4 %}
+    {% else %}
+      {% assign iterations = _blocks_size | times: 3 %}
+  {% endcase %}
+
+
+  <section-ticker class="ticker__container">
+    {% if _s.color_scheme == "Dark Red" %}
+      {% assign color_var = "red" %}
+    {% elsif _s.color_scheme == "Coral Charm" %}
+      {% assign color_var = "coral" %}
+    {% else %}
+      {% assign color_var = _s.color_scheme | downcase | replace: ' ', '-' %}
+    {% endif %}  
+    <div class="ticker ticker--{{ color_var }}" data-ticker-speed="{{ _s.speed }}">
+      {% for i in (1..iterations) %}
+        {% for block in _blocks %}
+          {% if pagetype == 'product' or pagetype == 'collection' %}
+            {% assign _settings = block %}
+          {% else %}
+            {% assign _settings = block.settings %}
+          {% endif %}
+          <div class="ticker__item bg-{{ color_var }}">
+            {% assign icon_name = _settings.svg_icon %}
+            {% if _settings.svg_icon != blank %}
+              {% render 'icons', icon_name: icon_name, class: 'ticker__item-icon' %}
+            {% endif %}
+            {% if _settings.url != blank %}<a href="{{ _settings.url }}">{% endif %}
+              {% if _settings.text != blank %}
+                <span class="h5">{{ _settings.text }}</span>
+              {% endif %}
+            {% if _settings.url != blank %}</a>{% endif %}
+          </div>
+        {% endfor %}
+      {% endfor %}
     </div>
-  </div>
-</div>
+    {% if _s.optional_text != blank %}
+      {% if pagetype == 'product' or pagetype == 'collection' %}
+        {% if _s.color_scheme == "Dark Red" %}
+          {% assign color_var = "red" %}
+        {% elsif _s.color_scheme == "Coral Charm" %}
+          {% assign color_var = "coral" %}
+        {% else %}
+          {% assign color_var = _s.color_scheme | downcase | replace: ' ', '-' %}
+        {% endif %}  
+      {% elsif _s.color_scheme == "dark-red" %}
+        {% assign color_var = "red" %}
+      {% else %}
+        {% assign color_var = _s.color_scheme %}  
+      {% endif %}
+      <div class="ticker__link ticker--{{ color_var | downcase | replace: ' ', '-' }}" style="background: linear-gradient(to left, var(--color-{{ color_var | downcase | replace: ' ', '-' }}) 90%, transparent 100%);">
+        {% if pagetype == 'product' or pagetype == 'collection' %}
+          {% assign href = _s.optional_url %}
+          {% assign linktext = _s.optional_text %}
+        {% else %}
+          {% assign href = section.settings.optional_url %}
+          {% assign linktext = section.settings.optional_text %}
+        {% endif %}
+        <a href="{{ href }}" class="p-2">
+          <span class="hide-mobile">{{ linktext }}</span>
+          {% render 'icons', icon_name: 'arrow-diagonal-top-right', class: 'hide-desktop' %}
+        </a>
+      </div>
+    {% endif %}
+  </section-ticker>
+
+  <script src="{{ 'ticker.min.js' | asset_url }}" defer="defer"></script>
+{% endif %}
 
 {% schema %}
 {
   "name": "Ticker",
   "tag": "section",
-  "class": "section",
-  "disabled_on": {
-    "groups": [
-      "header",
-      "footer"
-    ]
-  },
+  "max_blocks": 8,
   "settings": [
     {
-      "type": "color_scheme",
-      "id": "color_scheme",
-      "label": "t:sections.all.colors.label",
-      "info": "t:sections.all.colors.has_cards_info",
-      "default": "scheme-1"
-    },
-    {
-      "type": "select",
-      "id": "layout",
-      "label": "Layout",
-      "options": [
-        {
-          "value": "screen-width",
-          "label": "Screen width"
-        },
-        {
-          "value": "page-width",
-          "label": "Page width"
-        },
-        {
-          "value": "full-width",
-          "label": "Full width"
-        }
-      ],
-      "default": "page-width"
-    },
-    {
-      "type": "select",
-      "id": "text_style",
-      "options": [
-        {
-          "value": "body--xsmall",
-          "label": "X-Small"
-        },
-        {
-          "value": "body--small",
-          "label": "Small"
-        },
-        {
-          "value": "body",
-          "label": "Regular"
-        },
-        {
-          "value": "body--large",
-          "label": "Large"
-        }
-      ],
-      "default": "body",
-      "label": "Text style"
-    },
-    {
-      "type": "select",
-      "id": "mobile_text_style",
-      "options": [
-        {
-          "value": "body--xsmall-mobile",
-          "label": "X-Small"
-        },
-        {
-          "value": "body--small-mobile",
-          "label": "Small"
-        },
-        {
-          "value": "body-mobile",
-          "label": "Regular"
-        },
-        {
-          "value": "body--large-mobile",
-          "label": "Large"
-        }
-      ],
-      "default": "body-mobile",
-      "label": "Mobile text style"
-    },
-    {
-      "type": "range",
-      "id": "duration",
-      "min": 20,
-      "max": 60,
-      "step": 5,
-      "unit": "s",
-      "label": "Duration",
-      "default": 30
-    },
-    {
       "type": "header",
-      "content": "Section Spacing"
+      "content": "Section Settings",
+      "info": "Note: if this section is placed on a product or collection page, it will take its settings and items from the product or collection metafields."
+    },
+    {
+      "type": "text",
+      "label": "Optional Link Text",
+      "id": "optional_text"
+    },
+    {
+      "type": "url",
+      "label": "Optional Link URL",
+      "id": "optional_url"
     },
     {
       "type": "range",
-      "id": "padding_top",
-      "min": 0,
-      "max": 200,
-      "step": 4,
-      "unit": "px",
-      "label": "Padding top",
-      "default": 36
+      "id": "speed",
+      "min": 0.5,
+      "max": 5,
+      "step": 0.5,
+      "label": "Ticker Speed",
+      "default": 3
     },
     {
-      "type": "range",
-      "id": "padding_bottom",
-      "min": 0,
-      "max": 100,
-      "step": 4,
-      "unit": "px",
-      "label": "Padding bottom",
-      "default": 36
+      "type": "select",
+      "id": "color_scheme",
+      "label": "Color Scheme",
+      "options": [
+        {
+          "value": "dark-red",
+          "label": "Dark Red"
+        },
+        {
+          "value": "light-red",
+          "label": "Light Red"
+        },
+        {
+          "value": "coral",
+          "label": "Coral Charm"
+        },
+        {
+          "value": "daisy",
+          "label": "Daisy"
+        },
+        {
+          "value": "beige",
+          "label": "Beige"
+        },
+        {
+          "value": "blush",
+          "label": "Blush"
+        },
+        {
+          "value": "bloom",
+          "label": "Bloom"
+        },        
+        {
+          "value": "dark-pink",
+          "label": "Dark Pink"
+        }
+      ],
+      "default": "dark-pink"
     }
   ],
   "blocks": [
     {
-      "type": "ticker",
-      "name": "Ticker",
+      "type": "text",
+      "name": "Ticker Item",
       "settings": [
         {
           "type": "image_picker",
-          "id": "image",
-          "label": "Image"
+          "label": "Icon",
+          "id": "icon"
+        },
+        {
+          "type": "select",
+          "id": "svg_icon",
+          "label": "SVG Icon",
+          "options": [
+            {
+              "value": "cruelty-free",
+              "label": "Cruelty Free"
+            },
+            {
+              "value": "star-with-check",
+              "label": "Star with Check"
+            },
+            {
+              "value": "ophthalmologist-tested",
+              "label": "Ophthalmologist Tested"
+            },
+            {
+              "value": "flower",
+              "label": "Flower"
+            }
+          ],
+          "default": "flower"
         },
         {
           "type": "text",
-          "id": "image_width",
-          "label": "Image width",
-          "default": "120px"
+          "label": "Text",
+          "id": "text"
         },
         {
-          "type": "richtext",
-          "id": "text",
-          "label": "Text"
+          "type": "url",
+          "label": "Option to Link Text",
+          "id": "url"
         }
       ]
     }

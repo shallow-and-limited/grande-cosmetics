@@ -1,0 +1,417 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "shogun-helper": {
+      "type": "shogun-helper",
+      "settings": {}
+    },
+    "ticker_6LVUjg": {
+      "type": "ticker",
+      "blocks": {
+        "text_UNhzJm": {
+          "type": "text",
+          "settings": {
+            "svg_icon": "flower",
+            "text": "Introductory Offer",
+            "url": ""
+          }
+        },
+        "text_eDkCJE": {
+          "type": "text",
+          "settings": {
+            "svg_icon": "flower",
+            "text": "20% off with code: LASHENVY",
+            "url": ""
+          }
+        },
+        "text_tgUmmj": {
+          "type": "text",
+          "settings": {
+            "svg_icon": "flower",
+            "text": "Get it For $54.40",
+            "url": ""
+          }
+        }
+      },
+      "block_order": [
+        "text_UNhzJm",
+        "text_eDkCJE",
+        "text_tgUmmj"
+      ],
+      "settings": {
+        "optional_text": "",
+        "optional_url": "https:\/\/grandecosmetics.com\/cart\/15772016836674:1?discount=lashenvy",
+        "speed": 1.5,
+        "color_scheme": "blush"
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {}
+    },
+    "shogun-optimizer": {
+      "type": "shogun-optimizer",
+      "settings": {}
+    },
+    "split_banner_hHWqU4": {
+      "type": "split-banner",
+      "blocks": {
+        "body_copy_gLetnV": {
+          "type": "body-copy",
+          "settings": {
+            "copy": "<p>For less than a $1 a day you can get longer, thicker looking lashes. Get the convenience of an at-home treatment that naturally enhances your lashes without frequent salon trips. It’s the perfect way to get the lashes of your dreams without breaking the bank!<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "body_copy_gLetnV"
+      ],
+      "settings": {
+        "style": "rose",
+        "padding": "full-width",
+        "arrangement": "left_asset_right_content",
+        "header": "h2",
+        "alignment": "left",
+        "vertical_alignment": "middle",
+        "module_height": "image-height",
+        "image_d": "shopify:\/\/shop_images\/ingredientsforsuccess-_1.jpg",
+        "video_poster_d": true,
+        "video_poster_m": true,
+        "video_autoplay": true,
+        "eyebrow": "#1 Lash & Brow Serum Brand in the U.S.*",
+        "heading": "Tiktok Viral Lash Serum",
+        "cta_url": "https:\/\/grandecosmetics.com\/cart\/15772016836674:1?discount=lashenvy",
+        "cta_copy": "Shop Now"
+      }
+    },
+    "before_after_VP7B7W": {
+      "type": "before-after",
+      "settings": {
+        "switch_sides": false,
+        "metaobject_handle": "before-and-after-cmbok8mt"
+      }
+    },
+    "fw_html_embed_8DJ3yP": {
+      "type": "fw-html-embed",
+      "custom_css": [
+        "h5 {font-size: 45px; text-align: center;}"
+      ],
+      "settings": {
+        "title": "TikTok Made Me Buy It",
+        "embed_code": "<script async type=\"text\/javascript\" src=\"\/\/asset.fwcdn3.com\/js\/embed-feed.js\"><\/script>\n\n    <fw-embed-feed channel=\"grandecosmetics\" playlist=\"5LwELv\" mode=\"row\" open_in=\"default\" max_videos=\"0\" placement=\"middle\" player_placement=\"bottom-right\" branding=\"false\"><\/fw-embed-feed>"
+      }
+    },
+    "ticker_fGHDxK": {
+      "type": "ticker",
+      "blocks": {
+        "text_ng6aGW": {
+          "type": "text",
+          "settings": {
+            "svg_icon": "flower",
+            "text": "Introductory Offer",
+            "url": ""
+          }
+        },
+        "text_XmWJtT": {
+          "type": "text",
+          "settings": {
+            "svg_icon": "flower",
+            "text": "20% off with code: LASHENVY",
+            "url": ""
+          }
+        },
+        "text_XdKxCD": {
+          "type": "text",
+          "settings": {
+            "svg_icon": "flower",
+            "text": "Get it For $54.40",
+            "url": ""
+          }
+        }
+      },
+      "block_order": [
+        "text_ng6aGW",
+        "text_XmWJtT",
+        "text_XdKxCD"
+      ],
+      "settings": {
+        "optional_text": "",
+        "optional_url": "https:\/\/grandecosmetics.com\/cart\/15772016836674:1?discount=lashenvy",
+        "speed": 1.5,
+        "color_scheme": "blush"
+      }
+    },
+    "split_banner_CrjfPy": {
+      "type": "split-banner",
+      "blocks": {
+        "body_copy_RWeqME": {
+          "type": "body-copy",
+          "settings": {
+            "copy": "<h5>✅  Clinically Proven Results<\/h5><p><br\/>Longer-looking lashes in just 4-6 weeks, with full results in 3 months.<strong><br\/><\/strong><\/p>"
+          }
+        },
+        "body_copy_NVGgGR": {
+          "type": "body-copy",
+          "settings": {
+            "copy": "<h5>✅  <strong>Ophthalmologist<\/strong> Tested + 11 Safety & Performance Studies<\/h5><p><br\/>All Grande products are extensively tested in world-class, third-party research facilities. <\/p>"
+          }
+        },
+        "body_copy_D6c9Uz": {
+          "type": "body-copy",
+          "settings": {
+            "copy": "<h5>✅  Credible-Science Backed Ingredients<\/h5><p><br\/>GrandeLASH-MD is packed with lash-loving ingredients like hyaluronic acid, amino acids, honey, aloe vera, and grape seed extract. <\/p>"
+          }
+        },
+        "body_copy_zyrmWf": {
+          "type": "body-copy",
+          "settings": {
+            "copy": "<h5>✅  Compatible with Lash Extensions, Lash-Lifts, Falsies, & Contacts<\/h5>"
+          }
+        }
+      },
+      "block_order": [
+        "body_copy_RWeqME",
+        "body_copy_NVGgGR",
+        "body_copy_D6c9Uz",
+        "body_copy_zyrmWf"
+      ],
+      "settings": {
+        "style": "beige",
+        "padding": "inset",
+        "arrangement": "left_asset_right_content",
+        "header": "h3",
+        "alignment": "left",
+        "vertical_alignment": "middle",
+        "module_height": "image-height",
+        "video_poster_d": true,
+        "video_poster_m": true,
+        "video_d": "shopify:\/\/files\/videos\/Nat-application.mp4",
+        "video_autoplay": true,
+        "eyebrow": "",
+        "heading": "<em>Say Goodbye<\/em> to Short Lashes",
+        "cta_url": "https:\/\/grandecosmetics.com\/cart\/15772016836674:1?discount=lashenvy",
+        "cta_copy": "Try the TikTok Viral Serum"
+      }
+    },
+    "split_banner_RXag9R": {
+      "type": "split-banner",
+      "blocks": {
+        "body_copy_9i9CqY": {
+          "type": "body-copy",
+          "settings": {
+            "copy": "<p>As the original lash serum innovators, we are often imitated but never duplicated. We started the lash serum revolution & set the industry's bar for safety & performance testing with our cult favorite: GrandeLASH-MD lash enhancing serum. <\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "body_copy_9i9CqY"
+      ],
+      "settings": {
+        "style": "beige",
+        "padding": "inset",
+        "arrangement": "right_asset_left_content",
+        "header": "h2",
+        "alignment": "centered",
+        "vertical_alignment": "middle",
+        "module_height": "image-height",
+        "image_d": "shopify:\/\/shop_images\/GrandeLash_Vs_Dupes-pink.png",
+        "video_poster_d": true,
+        "video_poster_m": true,
+        "video_autoplay": true,
+        "eyebrow": "Goodbye Dupes",
+        "heading": "Hello<br> <em>Lash Goals<\/em>",
+        "cta_url": "https:\/\/grandecosmetics.com\/cart\/15772016836674:1?discount=lashenvy",
+        "cta_copy": "Shop the OG"
+      }
+    },
+    "press_XYJzha": {
+      "type": "press",
+      "blocks": {
+        "slide_ztWzzd": {
+          "type": "slide",
+          "settings": {
+            "quote": "\"After testing a number of eyelash serums, this one from Grande Cosmetics blew us away in the volume department.\"",
+            "logo": "shopify:\/\/shop_images\/byrdie-logo_699e1858-06f1-4b11-b39a-741a99112b95.png"
+          }
+        },
+        "slide_NFTjWg": {
+          "type": "slide",
+          "settings": {
+            "quote": "GrandeLASH-MD is \"A <em>Real Simple<\/em> reader-favorite.\"",
+            "logo": "shopify:\/\/shop_images\/realsimplepink_1e9e42d7-8fb8-4b0a-b628-5c3f28065b78.png"
+          }
+        },
+        "slide_7NqHBh": {
+          "type": "slide",
+          "settings": {
+            "quote": "\"Grande Cosmetics founder Alicia Grande cracked the eyelash-enhancing code with this little gold tube of magic. Ophthalmologist-tested and clinically proven, it transforms short, weak lashes by making them appear longer and thicker.\"",
+            "logo": "shopify:\/\/shop_images\/NewBeauty-1-q0aalw3k4p51an8zfmtpl6kt24uksdudr5b581kg7k_b703bce9-90cb-42fc-9dce-aca326d9287d.png"
+          }
+        }
+      },
+      "block_order": [
+        "slide_ztWzzd",
+        "slide_NFTjWg",
+        "slide_7NqHBh"
+      ],
+      "custom_css": [
+        "h3 {font-size: 35px !important;}"
+      ],
+      "settings": {}
+    },
+    "split_banner_KnQiPj": {
+      "type": "split-banner",
+      "blocks": {
+        "body_copy_eJkjwF": {
+          "type": "body-copy",
+          "settings": {
+            "copy": "<p>Trust the process! Like most good things, GrandeLASH-MD results take time. And just like reaching any other goal: consistency is key. But not to worry: some GrandeLASH-MD users begin to notice longer-looking lashes in as little as 4-6 weeks.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "body_copy_eJkjwF"
+      ],
+      "settings": {
+        "style": "rose",
+        "padding": "inset",
+        "arrangement": "left_asset_right_content",
+        "header": "h3",
+        "alignment": "centered",
+        "vertical_alignment": "middle",
+        "module_height": "image-height",
+        "image_d": "shopify:\/\/shop_images\/4StagesTimeline.png",
+        "video_poster_d": true,
+        "video_poster_m": true,
+        "video_autoplay": true,
+        "eyebrow": "Results Timeline",
+        "heading": "The Four Stages of <em>Lash Serum<\/em>",
+        "cta_url": "https:\/\/grandecosmetics.com\/cart\/15772016836674:1?discount=lashenvy",
+        "cta_copy": "Start Your Lash Journey For $54.40"
+      }
+    },
+    "split_banner_ht6yqB": {
+      "type": "split-banner",
+      "blocks": {
+        "body_copy_QCUabg": {
+          "type": "body-copy",
+          "settings": {
+            "copy": "<h5><strong>Hyaluronic Acid<\/strong><\/h5><p>💧 Aids lash hydration & can hold up to 1000x its weight in water<\/p>"
+          }
+        },
+        "body_copy_aF6rqM": {
+          "type": "body-copy",
+          "settings": {
+            "copy": "<h5>Radish Root Ferment<\/h5><p>🌸 Peptide-packed for conditioning properties<\/p>"
+          }
+        },
+        "body_copy_pPPDaE": {
+          "type": "body-copy",
+          "settings": {
+            "copy": "<h5>Grape Seed Extract<\/h5><p>🍇 An antioxidant, rich in vitamin E essential for lash health<\/p>"
+          }
+        },
+        "body_copy_mYRc8G": {
+          "type": "body-copy",
+          "settings": {
+            "copy": "<h5>Amino Acids<\/h5><p>👩‍🔬 The building blocks of collagen & essential to healthy, fortified lashes<\/p>"
+          }
+        },
+        "body_copy_XTbpKE": {
+          "type": "body-copy",
+          "settings": {
+            "copy": "<h5>Honey & Aloe Vera<\/h5><p>🍯 A nourishing extract blend to soothe lashes & skin<\/p>"
+          }
+        },
+        "body_copy_TP7zUb": {
+          "type": "body-copy",
+          "settings": {
+            "copy": "<h5><strong>Isopropyl Cloprostenate (I.C)<\/strong><\/h5><p>🧬 A prostaglandin analogue that helps to enhance the appearance of eyelashes<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "body_copy_QCUabg",
+        "body_copy_aF6rqM",
+        "body_copy_pPPDaE",
+        "body_copy_mYRc8G",
+        "body_copy_XTbpKE",
+        "body_copy_TP7zUb"
+      ],
+      "settings": {
+        "style": "beige",
+        "padding": "inset",
+        "arrangement": "right_asset_left_content",
+        "header": "h2",
+        "alignment": "left",
+        "vertical_alignment": "top",
+        "module_height": "image-height",
+        "image_d": "shopify:\/\/shop_images\/lash-ingredientstan-nolabels.jpg",
+        "video_poster_d": true,
+        "video_poster_m": true,
+        "video_autoplay": true,
+        "eyebrow": "Packed with Credible, performance-based",
+        "heading": "Lash-Loving Ingredients",
+        "cta_url": "https:\/\/grandecosmetics.com\/cart\/15772016836674:1?discount=lashenvy",
+        "cta_copy": "Try It For Yourself"
+      }
+    },
+    "split_banner_VJPBTg": {
+      "type": "split-banner",
+      "blocks": {
+        "body_copy_qHPYkQ": {
+          "type": "body-copy",
+          "settings": {
+            "copy": "<h4>The Product That S<em>tarted It All <\/em><\/h4><p><br\/>Grande Cosmetics’ very first product was GrandeLASH-MD—a revolutionary lash enhancing serum that gave people longer, thicker looking lashes. From there, the serum caught on like wildfire and garnered a cult-following. Since 2008, we’ve transformed millions of lashes & are proud to say that we are America's #1 Lash & Brow Serum Brand* today.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "body_copy_qHPYkQ"
+      ],
+      "disabled": true,
+      "settings": {
+        "style": "beige",
+        "padding": "inset",
+        "arrangement": "left_asset_right_content",
+        "header": "h2",
+        "alignment": "centered",
+        "vertical_alignment": "middle",
+        "module_height": "image-height",
+        "image_d": "shopify:\/\/shop_images\/Alicia_858e10b5-e26c-48df-8e12-752856fd37da.jpg",
+        "video_poster_d": true,
+        "video_poster_m": true,
+        "video_autoplay": true,
+        "eyebrow": "",
+        "heading": "",
+        "cta_url": "shopify:\/\/products\/grandelash-md",
+        "cta_copy": "Shop the Award-Winning Serum"
+      }
+    }
+  },
+  "order": [
+    "shogun-helper",
+    "ticker_6LVUjg",
+    "main",
+    "shogun-optimizer",
+    "split_banner_hHWqU4",
+    "before_after_VP7B7W",
+    "fw_html_embed_8DJ3yP",
+    "ticker_fGHDxK",
+    "split_banner_CrjfPy",
+    "split_banner_RXag9R",
+    "press_XYJzha",
+    "split_banner_KnQiPj",
+    "split_banner_ht6yqB",
+    "split_banner_VJPBTg"
+  ]
+}

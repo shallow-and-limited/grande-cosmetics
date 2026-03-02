@@ -9,819 +9,1139 @@
  */
 {
   "sections": {
-    "content_TkBWcD": {
-      "type": "content",
-      "blocks": {
-        "slideshow_j8Jdga": {
-          "type": "_slideshow",
-          "settings": {
-            "accessibility_info": "",
-            "slider_autoplay": false,
-            "slider_speed": 5,
-            "slider_loop": false
-          },
-          "blocks": {
-            "banner_BPTb74": {
-              "type": "_banner",
-              "settings": {
-                "desktop_content_position": "below",
-                "desktop_remove_extra_padding": false,
-                "mobile_content_position": "below"
-              },
-              "blocks": {
-                "group_iVBA37": {
-                  "type": "group",
-                  "name": "Banner Content",
-                  "settings": {
-                    "flex_direction": "column",
-                    "gap": "1",
-                    "text_alignment": "left",
-                    "padding": 1,
-                    "flex_direction_mobile": "column",
-                    "gap_mobile": "1",
-                    "text_alignment_mobile": "left",
-                    "padding_mobile": 1,
-                    "background_color": "#ffffff"
-                  },
-                  "blocks": {
-                    "heading_eg6LKp": {
-                      "type": "heading",
-                      "settings": {
-                        "heading_tag": "h2",
-                        "heading": "Banner heading",
-                        "heading_size": "h2",
-                        "heading_size_mobile": "h2",
-                        "color": ""
-                      },
-                      "blocks": {}
-                    },
-                    "text_YmU76Q": {
-                      "type": "text",
-                      "settings": {
-                        "text": "<p>Banner text</p>",
-                        "text_style": "body--desktop",
-                        "mobile_text_style": "body--mobile",
-                        "text_weight": "normal",
-                        "color": ""
-                      },
-                      "blocks": {}
-                    }
-                  },
-                  "block_order": [
-                    "heading_eg6LKp",
-                    "text_YmU76Q"
-                  ]
-                },
-                "media": {
-                  "type": "media",
-                  "static": true,
-                  "settings": {
-                    "link": "",
-                    "media_type": "image",
-                    "image": "shopify://shop_images/101623_BYOB_CartThumb_v1.webp",
-                    "enable_video_autoplay": true,
-                    "media_width": "full_width",
-                    "media_max_width": 1200,
-                    "media_max_width_mobile": 480,
-                    "aspect_ratio": "medium",
-                    "aspect_ratio_mobile": "adapt",
-                    "overlay_opacity": 0,
-                    "overlay_color": "#000000"
-                  },
-                  "blocks": {}
-                }
-              },
-              "block_order": [
-                "group_iVBA37"
-              ]
-            },
-            "slider-controls": {
-              "type": "_slider-controls",
-              "static": true,
-              "settings": {
-                "hide_desktop": false,
-                "hide_mobile": false,
-                "show_dots": false,
-                "show_arrows": true,
-                "show_pause_button": true
-              },
-              "blocks": {}
-            }
-          },
-          "block_order": [
-            "banner_BPTb74"
-          ]
-        }
-      },
-      "block_order": [
-        "slideshow_j8Jdga"
-      ],
-      "name": "Media Banners",
+    "ticker_k3iEyA": {
+      "type": "ticker",
+      "disabled": true,
+      "name": "Ticker",
       "settings": {
-        "color_scheme": "",
-        "layout": "screen-width",
-        "padding_top": 0,
-        "padding_bottom": 0,
-        "margin_bottom": 0
+        "optional_text": "",
+        "optional_url": "",
+        "speed": 3,
+        "color_scheme": "beige"
       }
     },
-    "content_7GFbAz": {
-      "type": "content",
+    "hero_carousel_f9TTYr": {
+      "type": "hero-carousel",
       "blocks": {
-        "grid_iXNNyd": {
-          "type": "_grid",
-          "name": "Grid",
+        "hero_slide_Up8Chg": {
+          "type": "hero_slide",
+          "disabled": true,
           "settings": {
-            "enable_desktop_slider": true,
-            "enable_mobile_slider": true,
-            "columns_desktop": 2,
-            "columns_mobile": 1,
-            "accessibility_info": "",
-            "slider_autoplay": true,
-            "slider_speed": 5,
-            "slider_loop": true
-          },
-          "blocks": {
-            "grid_item_WHEH63": {
-              "type": "_grid-item",
-              "name": "Grid Item",
-              "settings": {},
-              "blocks": {
-                "group_9MVkFT": {
-                  "type": "group",
-                  "name": "Group",
-                  "settings": {
-                    "flex_direction": "column",
-                    "gap": "1",
-                    "text_alignment": "left",
-                    "padding": 1,
-                    "flex_direction_mobile": "column",
-                    "gap_mobile": "1",
-                    "text_alignment_mobile": "left",
-                    "padding_mobile": 1,
-                    "background_color": "#e10000"
-                  },
-                  "blocks": {
-                    "heading_gcdpi8": {
-                      "type": "heading",
-                      "name": "Heading",
-                      "settings": {
-                        "heading_tag": "h2",
-                        "heading": "Heading1",
-                        "heading_size": "h2",
-                        "heading_size_mobile": "h2",
-                        "color": ""
-                      },
-                      "blocks": {}
-                    }
-                  },
-                  "block_order": [
-                    "heading_gcdpi8"
-                  ]
-                }
-              },
-              "block_order": [
-                "group_9MVkFT"
-              ]
-            },
-            "grid_item_FBbMGF": {
-              "type": "_grid-item",
-              "name": "Grid Item",
-              "settings": {},
-              "blocks": {
-                "group_Bd8aEV": {
-                  "type": "group",
-                  "name": "Group",
-                  "settings": {
-                    "flex_direction": "column",
-                    "gap": "1",
-                    "text_alignment": "left",
-                    "padding": 1,
-                    "flex_direction_mobile": "column",
-                    "gap_mobile": "1",
-                    "text_alignment_mobile": "left",
-                    "padding_mobile": 1,
-                    "background_color": "#d9e5ff"
-                  },
-                  "blocks": {
-                    "heading_YtpkkK": {
-                      "type": "heading",
-                      "name": "Heading",
-                      "settings": {
-                        "heading_tag": "h2",
-                        "heading": "Heading",
-                        "heading_size": "h2",
-                        "heading_size_mobile": "h2",
-                        "color": ""
-                      },
-                      "blocks": {}
-                    }
-                  },
-                  "block_order": [
-                    "heading_YtpkkK"
-                  ]
-                }
-              },
-              "block_order": [
-                "group_Bd8aEV"
-              ]
-            },
-            "grid_item_ynmFBq": {
-              "type": "_grid-item",
-              "name": "Grid Item",
-              "settings": {},
-              "blocks": {
-                "group_6GTxp3": {
-                  "type": "group",
-                  "name": "Group",
-                  "settings": {
-                    "flex_direction": "column",
-                    "gap": "1",
-                    "text_alignment": "left",
-                    "padding": 1,
-                    "flex_direction_mobile": "column",
-                    "gap_mobile": "1",
-                    "text_alignment_mobile": "left",
-                    "padding_mobile": 1,
-                    "background_color": ""
-                  },
-                  "blocks": {
-                    "heading_4a8AKU": {
-                      "type": "heading",
-                      "name": "Heading",
-                      "settings": {
-                        "heading_tag": "h2",
-                        "heading": "Heading",
-                        "heading_size": "h2",
-                        "heading_size_mobile": "h2",
-                        "color": ""
-                      },
-                      "blocks": {}
-                    }
-                  },
-                  "block_order": [
-                    "heading_4a8AKU"
-                  ]
-                }
-              },
-              "block_order": [
-                "group_6GTxp3"
-              ]
-            },
-            "grid_item_TBMTwC": {
-              "type": "_grid-item",
-              "name": "Grid Item",
-              "settings": {},
-              "blocks": {
-                "group_nJ7HLw": {
-                  "type": "group",
-                  "name": "Group",
-                  "settings": {
-                    "flex_direction": "column",
-                    "gap": "1",
-                    "text_alignment": "left",
-                    "padding": 1,
-                    "flex_direction_mobile": "column",
-                    "gap_mobile": "1",
-                    "text_alignment_mobile": "left",
-                    "padding_mobile": 1,
-                    "background_color": ""
-                  },
-                  "blocks": {
-                    "heading_p6ThDe": {
-                      "type": "heading",
-                      "name": "Heading",
-                      "settings": {
-                        "heading_tag": "h2",
-                        "heading": "Heading4",
-                        "heading_size": "h2",
-                        "heading_size_mobile": "h2",
-                        "color": ""
-                      },
-                      "blocks": {}
-                    }
-                  },
-                  "block_order": [
-                    "heading_p6ThDe"
-                  ]
-                }
-              },
-              "block_order": [
-                "group_nJ7HLw"
-              ]
-            },
-            "slider-controls": {
-              "type": "_slider-controls",
-              "static": true,
-              "settings": {
-                "hide_desktop": false,
-                "hide_mobile": false,
-                "show_dots": false,
-                "show_arrows": true,
-                "show_pause_button": false
-              },
-              "blocks": {}
-            }
-          },
-          "block_order": [
-            "grid_item_WHEH63",
-            "grid_item_FBbMGF",
-            "grid_item_ynmFBq",
-            "grid_item_TBMTwC"
-          ]
-        }
-      },
-      "block_order": [
-        "grid_iXNNyd"
-      ],
-      "name": "Section",
-      "settings": {
-        "color_scheme": "scheme-2",
-        "layout": "page-width",
-        "padding_top": 2,
-        "padding_bottom": 2,
-        "margin_bottom": 0
-      }
-    },
-    "media_with_text_yd6CYe": {
-      "type": "media-with-text",
-      "blocks": {
-        "content_hE4Vmb": {
-          "type": "content",
-          "settings": {
-            "image_first": true,
-            "video_url": "",
-            "video_autoplay": false,
-            "heading": "Hand-Knotted Rugs",
+            "color": "dark",
+            "alignment_v": "middle",
+            "alignment_h": "center",
+            "alignment_v_m": "middle_m",
+            "alignment_h_m": "center_m",
+            "image_d": "shopify://shop_images/NationalLashMonth-HomepageBanner_Desktop_002ae29f-69d3-470a-a0e7-fd8bdffc1883.jpg",
+            "video_poster_d": true,
+            "image_m": "shopify://shop_images/NationalLashMonth-HomepageBanner_Mobile_6befb56b-2ead-4159-8637-29537d6e6dee.jpg",
+            "video_poster_m": true,
+            "video_autoplay": true,
+            "eyebrow": "IT'S TIME TO CELEBRATE",
+            "heading": "National Lash Month",
             "heading_size": "h2",
-            "text": "<p>At the Samad rug boutique each hand-knotted rug is entirely unique, with hundreds of skilled artisans involved in the intricate rug making process. Learn more about the craftsmanship behind our rugs.<br/><br/></p><p><a href=\"/pages/rugmaking\" title=\"Rug Making\">Learn More</a></p>",
-            "text_style": "body--large",
-            "mobile_text_style": "body--mobile",
-            "button_label": "",
-            "button_link": "",
-            "button_style_secondary": true,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false,
-            "box_color_scheme": "",
-            "desktop_content_position": "middle",
-            "desktop_content_alignment": "left",
-            "content_layout": "no-overlap",
-            "mobile_content_alignment": "left"
-          }
-        }
-      },
-      "block_order": [
-        "content_hE4Vmb"
-      ],
-      "name": "t:sections.image-with-text.name",
-      "settings": {
-        "color_scheme": "",
-        "layout": "page-width",
-        "aspect_ratio": "square",
-        "desktop_image_width": "medium",
-        "slider_show_dots": true,
-        "slider_show_arrows": false,
-        "padding_top": 2,
-        "padding_bottom": 2,
-        "margin_bottom": 0
-      }
-    },
-    "featured_collection_VKCTNb": {
-      "type": "featured-collection",
-      "custom_css": [
-        ".product-form__buttons {display: none;}",
-        ".price-item {display: none;}"
-      ],
-      "name": "t:sections.featured-collection.presets.name",
-      "settings": {
-        "color_scheme": "scheme-2",
-        "layout": "page-width",
-        "title": "Grounded Greens",
-        "header_is_h1": false,
-        "visually_hide_header": false,
-        "heading_size": "h1",
-        "description": "<p>Bring balance to your space with our bestselling rugs, now refreshed in soothing shades of green.</p>",
-        "text_style": "body--large",
-        "mobile_text_style": "body--mobile",
-        "heading_alignment": "center",
-        "product_position": "first",
-        "collection": "green",
-        "enable_featured_banner": false,
-        "products_to_show": 5,
-        "columns_desktop": 5,
-        "show_view_all": true,
-        "view_all_text": "Shop Green Rugs",
-        "view_all_style": "solid",
-        "enable_desktop_slider": false,
-        "card_color_scheme": "scheme-2",
-        "columns_mobile": 1,
-        "swipe_on_mobile": true,
-        "full_width": false,
-        "slider_show_dots": false,
-        "slider_show_arrows": true,
-        "padding_top": 2,
-        "padding_bottom": 2,
-        "margin_bottom": 0
-      }
-    },
-    "multicolumn_qLqDh9": {
-      "type": "multicolumn",
-      "blocks": {
-        "column_KqraYg": {
-          "type": "column",
-          "settings": {
-            "color_scheme": "",
-            "image_overlay_opacity": 0,
-            "show_overlay_on_hover": false,
-            "title": "Mongolian Cashmere",
-            "heading_size": "h3",
-            "heading_size_mobile": "h3--mobile",
-            "text": "<p>Extremely soft to the touch, these plush cashmere rugs are simply bliss beneath your feet. Made with luxurious cashmere wool, this lustrous collection is available in both solid color shades and a variety of Moroccan lattice patterns.</p>",
-            "text_style": "body",
-            "text_style_mobile": "body--mobile",
-            "link_label": "",
-            "link": "shopify://collections/featured-collection",
-            "show_link_as_button": false,
-            "card_padding": 0.5
+            "copy": "30% Off Lash Serums + 50% Off Mascaras",
+            "cta_url": "shopify://collections/best-sellers",
+            "cta_copy": "Start Shopping",
+            "cta_url_alt": "",
+            "cta_copy_alt": "",
+            "overlay": 0
           }
         },
-        "column_7PmAwR": {
-          "type": "column",
+        "hero_slide_UqApiR": {
+          "type": "hero_slide",
           "settings": {
-            "color_scheme": "scheme-1",
-            "image_overlay_opacity": 0,
-            "show_overlay_on_hover": false,
-            "title": "Dunes Wool & Silk Rug",
-            "heading_size": "h3",
-            "heading_size_mobile": "h3--mobile",
-            "text": "<p>Made with wool and 50% silk, the rugs in the Dunes Wool & Silk RugCollection has a soft feel and lustrous shimmer. The striations in the rug give it texture and while offering an added level of dynamism within a space.</p>",
-            "text_style": "body",
-            "text_style_mobile": "body--mobile",
-            "link_label": "",
-            "link": "shopify://collections/featured-collection",
-            "show_link_as_button": false,
-            "card_padding": 0.5
-          }
-        },
-        "column_aET3Qw": {
-          "type": "column",
-          "settings": {
-            "color_scheme": "",
-            "image_overlay_opacity": 0,
-            "show_overlay_on_hover": false,
-            "title": "Discovery Flatweaves",
-            "heading_size": "h3",
-            "heading_size_mobile": "h3--mobile",
-            "text": "<p>Discovery Flatweaves offer traditional decorative designs in an ultra-fine kilim weave. Fully reversible, these rugs use production methods dating back to the Mughal dynasty such as 100% vegetable dyes and small batch dying, which give them their vibrant and natural colors.</p>",
-            "text_style": "body",
-            "text_style_mobile": "body--mobile",
-            "link_label": "",
-            "link": "shopify://collections/featured-collection",
-            "show_link_as_button": false,
-            "card_padding": 0.5
-          }
-        }
-      },
-      "block_order": [
-        "column_KqraYg",
-        "column_7PmAwR",
-        "column_aET3Qw"
-      ],
-      "custom_css": [],
-      "name": "t:sections.multicolumn.presets.name",
-      "settings": {
-        "color_scheme": "scheme-1",
-        "layout": "page-width",
-        "enable_desktop_slider": false,
-        "full_width": false,
-        "title": "",
-        "header_is_h1": false,
-        "visually_hide_header": false,
-        "heading_size": "h2",
-        "description": "",
-        "text_style": "body",
-        "mobile_text_style": "body--mobile",
-        "heading_alignment": "left",
-        "cta_text": "",
-        "cta_link": "",
-        "override_grid_gap": false,
-        "spacing_grid_horizontal": 0,
-        "spacing_grid_horizontal_mobile": 8,
-        "overlap": false,
-        "aspect_ratio": "adapt",
-        "override_image_size": false,
-        "image_width": 72,
-        "columns_desktop": 3,
-        "column_alignment": "left",
-        "columns_mobile": 1,
-        "swipe_on_mobile": true,
-        "slider_show_dots": true,
-        "slider_show_arrows": false,
-        "padding_top": 2,
-        "padding_bottom": 2,
-        "margin_bottom": 0
-      }
-    },
-    "multicolumn_7t8pVm": {
-      "type": "multicolumn",
-      "blocks": {
-        "column_6tmAmc": {
-          "type": "column",
-          "settings": {
-            "color_scheme": "",
-            "image_overlay_opacity": 0,
-            "show_overlay_on_hover": false,
-            "title": "",
-            "heading_size": "h3",
-            "heading_size_mobile": "h3--mobile",
-            "text": "",
-            "text_style": "body",
-            "text_style_mobile": "body--mobile",
-            "link_label": "",
-            "link": "shopify://collections/ancient-collection",
-            "show_link_as_button": false,
-            "card_padding": 0.6
-          }
-        },
-        "column_dMpTFj": {
-          "type": "column",
-          "settings": {
-            "color_scheme": "",
-            "image_overlay_opacity": 0,
-            "show_overlay_on_hover": false,
-            "title": "",
-            "heading_size": "h3",
-            "heading_size_mobile": "h3--mobile",
-            "text": "",
-            "text_style": "body",
-            "text_style_mobile": "body--mobile",
-            "link_label": "",
-            "link": "shopify://collections/ancient-collection",
-            "show_link_as_button": false,
-            "card_padding": 0.6
-          }
-        }
-      },
-      "block_order": [
-        "column_6tmAmc",
-        "column_dMpTFj"
-      ],
-      "name": "t:sections.multicolumn.presets.name",
-      "settings": {
-        "color_scheme": "",
-        "layout": "page-width",
-        "enable_desktop_slider": false,
-        "full_width": false,
-        "title": "",
-        "header_is_h1": false,
-        "visually_hide_header": false,
-        "heading_size": "h2",
-        "description": "",
-        "text_style": "body",
-        "mobile_text_style": "body--mobile",
-        "heading_alignment": "left",
-        "cta_text": "",
-        "cta_link": "",
-        "override_grid_gap": true,
-        "spacing_grid_horizontal": 0,
-        "spacing_grid_horizontal_mobile": 0,
-        "overlap": false,
-        "aspect_ratio": "landscape",
-        "override_image_size": false,
-        "image_width": 72,
-        "columns_desktop": 2,
-        "column_alignment": "left",
-        "columns_mobile": 1,
-        "swipe_on_mobile": false,
-        "slider_show_dots": true,
-        "slider_show_arrows": false,
-        "padding_top": 1,
-        "padding_bottom": 1,
-        "margin_bottom": 0
-      }
-    },
-    "featured_collection_cM6NAV": {
-      "type": "featured-collection",
-      "custom_css": [
-        ".product-form__buttons {display: none;}",
-        ".price-item {display: none;}"
-      ],
-      "name": "t:sections.featured-collection.presets.name",
-      "settings": {
-        "color_scheme": "scheme-1",
-        "layout": "page-width",
-        "title": "Featured Boutique Rugs",
-        "header_is_h1": false,
-        "visually_hide_header": false,
-        "heading_size": "h1",
-        "description": "<p>New hand-knotted rugs</p>",
-        "text_style": "body--large",
-        "mobile_text_style": "body--mobile",
-        "heading_alignment": "center",
-        "product_position": "first",
-        "collection": "featured-collection",
-        "enable_featured_banner": false,
-        "products_to_show": 5,
-        "columns_desktop": 5,
-        "show_view_all": true,
-        "view_all_text": "Shop All Featured Rugs",
-        "view_all_style": "solid",
-        "enable_desktop_slider": false,
-        "card_color_scheme": "scheme-1",
-        "columns_mobile": 1,
-        "swipe_on_mobile": true,
-        "full_width": false,
-        "slider_show_dots": false,
-        "slider_show_arrows": true,
-        "padding_top": 2,
-        "padding_bottom": 2,
-        "margin_bottom": 0
-      }
-    },
-    "media_with_text_cRrbcc": {
-      "type": "media-with-text",
-      "blocks": {
-        "content_9DqK4W": {
-          "type": "content",
-          "settings": {
-            "image_first": false,
-            "video_url": "",
-            "video_autoplay": false,
-            "heading": "Our Story",
+            "color": "dark",
+            "alignment_v": "middle",
+            "alignment_h": "right",
+            "alignment_v_m": "top_m",
+            "alignment_h_m": "left_m",
+            "image_d": "shopify://shop_images/ConfidenceAtYourCore_DesktopBanner.jpg",
+            "video_poster_d": true,
+            "image_m": "shopify://shop_images/ConfidenceAtYourCore_MobileBanner.jpg",
+            "video_poster_m": true,
+            "video_autoplay": true,
+            "eyebrow": "it's time for",
+            "heading": "Confidence At Your Core",
             "heading_size": "h2",
-            "text": "<p>Founded in New York City in 1985 by London-born brothers David and Malcolm Samad, our family-owned business is rooted in four generations of rug-making expertise. Inspired by the legacy of their father, Eric Samad, the brothers emigrated to the U.S. with a shared vision: to create the world’s finest handmade rugs.</p>",
-            "text_style": "body",
-            "mobile_text_style": "body--mobile",
-            "button_label": "Learn More",
-            "button_link": "shopify://pages/aboutus",
-            "button_style_secondary": false,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false,
-            "box_color_scheme": "",
-            "desktop_content_position": "middle",
-            "desktop_content_alignment": "left",
-            "content_layout": "no-overlap",
-            "mobile_content_alignment": "left"
+            "copy": "(because when you look good, you feel good!)",
+            "cta_url": "shopify://collections/best-sellers",
+            "cta_copy": "Shop Enhancing Serums",
+            "cta_url_alt": "",
+            "cta_copy_alt": "",
+            "overlay": 0
+          }
+        },
+        "hero_slide_fBThgq": {
+          "type": "hero_slide",
+          "disabled": true,
+          "settings": {
+            "color": "light",
+            "alignment_v": "middle",
+            "alignment_h": "center",
+            "alignment_v_m": "middle_m",
+            "alignment_h_m": "center_m",
+            "image_d": "shopify://shop_images/BuildABundle-DesktopBanner.jpg",
+            "video_poster_d": true,
+            "image_m": "shopify://shop_images/BuildABundle-MobileBanner.jpg",
+            "video_poster_m": true,
+            "video_autoplay": true,
+            "eyebrow": "WE'RE BETTER TOGETHER 🤝",
+            "heading": "Build-A-Bundle",
+            "heading_size": "h2",
+            "copy": "",
+            "cta_url": "shopify://pages/bundle-builder-tiered-discount",
+            "cta_copy": "Start Building",
+            "cta_url_alt": "",
+            "cta_copy_alt": "",
+            "overlay": 0
           }
         }
       },
       "block_order": [
-        "content_9DqK4W"
+        "hero_slide_Up8Chg",
+        "hero_slide_UqApiR",
+        "hero_slide_fBThgq"
       ],
-      "name": "t:sections.image-with-text.name",
       "settings": {
-        "color_scheme": "",
-        "layout": "page-width",
-        "aspect_ratio": "adapt",
-        "desktop_image_width": "large",
-        "slider_show_dots": true,
-        "slider_show_arrows": false,
-        "padding_top": 2,
-        "padding_bottom": 2,
-        "margin_bottom": 0
+        "display": "full-bleed"
       }
     },
-    "rich_text_Dm6xir": {
-      "type": "rich-text",
+    "ticker_EfRyde": {
+      "type": "ticker",
       "blocks": {
-        "heading_t3FTCw": {
-          "type": "heading",
-          "settings": {
-            "heading": "Our Stories",
-            "heading_size": "h2"
-          }
-        },
-        "text_iNU7gR": {
+        "text_NkzUy9": {
           "type": "text",
           "settings": {
-            "text": "<p>Discover rug trends, décor tips, sustainability practices and collection updates from our wholesale rug boutique.</p>",
-            "text_style": "body--large",
-            "mobile_text_style": "body--mobile"
+            "icon": "shopify://shop_images/Mask_group.png",
+            "svg_icon": "flower",
+            "text": "#1 Lash & Brow Serum Brand in the U.S.*",
+            "url": "shopify://blogs/news"
+          }
+        },
+        "text_aFJGkj": {
+          "type": "text",
+          "settings": {
+            "icon": "shopify://shop_images/Mask_group.png",
+            "svg_icon": "flower",
+            "text": "11+ Safety & Performance Studies",
+            "url": ""
+          }
+        },
+        "text_9JPXte": {
+          "type": "text",
+          "settings": {
+            "icon": "shopify://shop_images/Mask_group.png",
+            "svg_icon": "flower",
+            "text": "90-Day Money Back Guarantee",
+            "url": ""
+          }
+        },
+        "text_CcVhmb": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "svg_icon": "flower",
+            "text": "Ticker Item #4",
+            "url": ""
+          }
+        },
+        "text_GxJPpf": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "svg_icon": "flower",
+            "text": "<p>Ticker Item #5</p>",
+            "url": ""
+          }
+        },
+        "text_n6wTcy": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "svg_icon": "flower",
+            "text": "<p>Ticker Item #6</p>",
+            "url": ""
+          }
+        },
+        "text_VqX3ww": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "svg_icon": "flower",
+            "text": "<p>Ticker Item #7</p>",
+            "url": ""
+          }
+        },
+        "text_UtbDDt": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "svg_icon": "flower",
+            "text": "<p>Ticker Item #8</p>",
+            "url": ""
           }
         }
       },
       "block_order": [
-        "heading_t3FTCw",
-        "text_iNU7gR"
+        "text_NkzUy9",
+        "text_aFJGkj",
+        "text_9JPXte",
+        "text_CcVhmb",
+        "text_GxJPpf",
+        "text_n6wTcy",
+        "text_VqX3ww",
+        "text_UtbDDt"
       ],
-      "name": "t:sections.rich-text.presets.name",
       "settings": {
-        "color_scheme": "scheme-2",
-        "layout": "screen-width",
-        "desktop_content_position": "center",
-        "content_alignment": "center",
-        "padding_top": 2,
-        "padding_bottom": 0,
-        "margin_bottom": 0
+        "optional_text": "Learn More",
+        "optional_url": "#",
+        "speed": 1,
+        "color_scheme": "dark-pink"
       }
     },
-    "media_with_text_xAAgri": {
-      "type": "media-with-text",
+    "hero_carousel_UfHHkP": {
+      "type": "hero-carousel",
       "blocks": {
-        "content_wXtnbp": {
-          "type": "content",
+        "hero_slide_ArDKkA": {
+          "type": "hero_slide",
+          "disabled": true,
           "settings": {
-            "image_first": true,
-            "video_url": "",
-            "video_autoplay": false,
-            "heading": "25 Years of Timeless Elegance – The Jewel Rug",
-            "heading_size": "h2",
-            "text": "<p>We are proud to celebrate the 25-year anniversary of our iconic <a href=\"https://samad.us9.list-manage.com/track/click?u=eeb16ae0730645685acdaf94e&id=dbaf4ab329&e=1b148ab8b7\" target=\"_blank\"><strong>Jewel rug</strong></a> from the bestselling <a href=\"https://samad.us9.list-manage.com/track/click?u=eeb16ae0730645685acdaf94e&id=bf611d671b&e=1b148ab8b7\" target=\"_blank\"><strong>Golden Age Collection</strong></a>. The first Jewel rug sold was in July 1999, and is still programed 25 years later – an unprecedented achievement in Samad’s 40-year history! </p>",
-            "text_style": "body",
-            "mobile_text_style": "body--mobile",
-            "button_label": "Read More",
-            "button_link": "https://blog.samad.com/jewel-rug/",
-            "button_style_secondary": false,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false,
-            "box_color_scheme": "scheme-1",
-            "desktop_content_position": "middle",
-            "desktop_content_alignment": "left",
-            "content_layout": "overlap",
-            "mobile_content_alignment": "left"
+            "color": "light",
+            "alignment_v": "middle",
+            "alignment_h": "center",
+            "alignment_v_m": "middle_m",
+            "alignment_h_m": "center_m",
+            "image_d": "shopify://shop_images/11DollarSteals_DesktopBanner_35a09aeb-9713-4e12-aaba-5be387eec2fb.jpg",
+            "video_poster_d": true,
+            "image_m": "shopify://shop_images/11DollarSteals_MobileBanner_01e076ca-1696-4a25-bda7-dd961ac3aa05.jpg",
+            "video_poster_m": true,
+            "video_autoplay": true,
+            "eyebrow": "RUN, DON'T WALK 🏃‍♀️💨",
+            "heading": "$11 Steals",
+            "heading_size": "h1",
+            "copy": "you don't want to miss this 👀",
+            "cta_url": "https://grandecosmetics.com/collections/singles-day-11-steals",
+            "cta_copy": "Fill Your Cart",
+            "cta_url_alt": "",
+            "cta_copy_alt": "",
+            "overlay": 0
           }
         },
-        "content_8aNz7r": {
-          "type": "content",
+        "hero_slide_ywwB7w": {
+          "type": "hero_slide",
+          "disabled": true,
           "settings": {
-            "image_first": true,
-            "video_url": "",
-            "video_autoplay": false,
-            "heading": "Luxury Pink Rugs for Modern Décor",
-            "heading_size": "h2",
-            "text": "<p>Luxury pink rugs are the perfect way to introduce a touch of elegance and playfulness into modern decor. From soft blush to bold fuchsia, pink rugs offer endless design possibilities to enhance any space. Integrating pink into modern decor, can help achieve a look that’s stylish, welcoming and full of life.</p>",
-            "text_style": "body",
-            "mobile_text_style": "body--mobile",
-            "button_label": "Read More",
-            "button_link": "https://blog.samad.com/luxury-pink-rugs/",
-            "button_style_secondary": false,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false,
-            "box_color_scheme": "",
-            "desktop_content_position": "middle",
-            "desktop_content_alignment": "left",
-            "content_layout": "overlap",
-            "mobile_content_alignment": "left"
+            "color": "dark",
+            "alignment_v": "middle",
+            "alignment_h": "center",
+            "alignment_v_m": "middle_m",
+            "alignment_h_m": "center_m",
+            "image_d": "shopify://shop_images/DaysOfGifting-Sets_DesktopBanner-WithBubble.jpg",
+            "video_poster_d": true,
+            "image_m": "shopify://shop_images/DaysOfGifting-Sets_MobileBanner-WithBubble.jpg",
+            "video_poster_m": true,
+            "video_autoplay": true,
+            "eyebrow": "Days of Gifting",
+            "heading": "40% Off Sets",
+            "heading_size": "h1",
+            "copy": "Discount reflected in cart",
+            "cta_url": "https://grandecosmetics.com/collections/days-of-gifting",
+            "cta_copy": "Shop The Sale",
+            "cta_url_alt": "",
+            "cta_copy_alt": "",
+            "overlay": 0
           }
         },
-        "content_XNz6CY": {
-          "type": "content",
+        "hero_slide_CerbWC": {
+          "type": "hero_slide",
           "settings": {
-            "image_first": true,
-            "video_url": "",
-            "video_autoplay": false,
-            "heading": "Floral Rug Styles Fit for Spring",
+            "color": "dark",
+            "alignment_v": "middle",
+            "alignment_h": "center",
+            "alignment_v_m": "middle_m",
+            "alignment_h_m": "center_m",
+            "image_d": "shopify://shop_images/FreeFullSizeLips_DesktopBanner-3.jpg",
+            "video_poster_d": true,
+            "image_m": "shopify://shop_images/FreeFullSizeLips_MobileBanner-3.jpg",
+            "video_poster_m": true,
+            "video_autoplay": true,
+            "eyebrow": "DID SOMEONE SAY FREE? 👀",
+            "heading": "Free GrandeLIPS With Purchase",
             "heading_size": "h2",
-            "text": "<p>Come Spring, temperatures are rising, flowers are blooming and the natural world is flourishing yet again. Simply put, the vibrant season synonymous with rebirth, is nothing short of glorious.</p>",
-            "text_style": "body",
-            "mobile_text_style": "body--mobile",
-            "button_label": "Read More",
-            "button_link": "https://blog.samad.com/floral-rug/",
-            "button_style_secondary": false,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false,
-            "box_color_scheme": "",
-            "desktop_content_position": "middle",
-            "desktop_content_alignment": "left",
-            "content_layout": "overlap",
-            "mobile_content_alignment": "left"
+            "copy": "<p>1 FREE Clear GrandeLIPS on all orders $50+</p>\n<p>4 FREE GrandeLIPS in shades Clear, Barely There, Pale Rose, + Spicy Mauve on all orders $75+</p>",
+            "cta_url": "shopify://collections/best-sellers",
+            "cta_copy": "Fill Your Cart",
+            "cta_url_alt": "",
+            "cta_copy_alt": "",
+            "overlay": 0
           }
         }
       },
       "block_order": [
-        "content_wXtnbp",
-        "content_8aNz7r",
-        "content_XNz6CY"
+        "hero_slide_ArDKkA",
+        "hero_slide_ywwB7w",
+        "hero_slide_CerbWC"
       ],
-      "name": "t:sections.image-with-text.name",
+      "disabled": true,
       "settings": {
-        "color_scheme": "scheme-2",
-        "layout": "page-width",
-        "aspect_ratio": "square",
-        "desktop_image_width": "small",
-        "slider_show_dots": true,
-        "slider_show_arrows": false,
-        "padding_top": 2,
-        "padding_bottom": 2,
-        "margin_bottom": 0
+        "display": "full-bleed"
       }
+    },
+    "ticker_4Q8FUW": {
+      "type": "ticker",
+      "disabled": true,
+      "settings": {
+        "optional_text": "",
+        "optional_url": "#",
+        "speed": 0.5,
+        "color_scheme": "beige"
+      }
+    },
+    "ticker_Ce4M4p": {
+      "type": "ticker",
+      "settings": {
+        "optional_text": "",
+        "optional_url": "#",
+        "speed": 0.5,
+        "color_scheme": "beige"
+      }
+    },
+    "birthday_promo_pTmGcn": {
+      "type": "birthday-promo",
+      "blocks": {
+        "promo_card_GV8PeE": {
+          "type": "promo-card",
+          "settings": {
+            "status": "active",
+            "active_image": "shopify://shop_images/Promo-Block-Free2in1-GWP-WithValue.jpg",
+            "apply_effect": true,
+            "upcoming_image_color": "#ff76b8",
+            "upcoming_image_opacity": 70,
+            "eyebrow": "Free Gift",
+            "heading": "Free Sample of GrandeBROW 2-In-1",
+            "copy": "<br>\nOn all orders. Pick your shade in checkout!",
+            "cta": "Shop Now",
+            "link": "shopify://collections/best-sellers"
+          }
+        },
+        "promo_card_nQYzb8": {
+          "type": "promo-card",
+          "settings": {
+            "status": "active",
+            "active_image": "shopify://shop_images/Promo-Block-FreeSingleLip-GWP-WithValue.jpg",
+            "apply_effect": true,
+            "upcoming_image_color": "#ff76b8",
+            "upcoming_image_opacity": 70,
+            "eyebrow": "Free Gift",
+            "heading": "Free Clear GrandeLIPS",
+            "copy": "<br>\nWhen you spend $50+",
+            "cta": "Shop Now",
+            "link": "shopify://collections/best-sellers"
+          }
+        },
+        "promo_card_jjF4bQ": {
+          "type": "promo-card",
+          "disabled": true,
+          "settings": {
+            "status": "active",
+            "active_image": "shopify://shop_images/Promo-Block-FreeLip-AllShades-GWP-2.jpg",
+            "apply_effect": true,
+            "upcoming_image_color": "#ff76b8",
+            "upcoming_image_opacity": 70,
+            "eyebrow": "Free Gift",
+            "heading": "4 FREE GrandeLIPS",
+            "copy": "<br>When you spend $75+",
+            "cta": "Shop Now",
+            "link": "shopify://collections/best-sellers"
+          }
+        }
+      },
+      "block_order": [
+        "promo_card_GV8PeE",
+        "promo_card_nQYzb8",
+        "promo_card_jjF4bQ"
+      ],
+      "disabled": true,
+      "name": "Birthday promo",
+      "settings": {
+        "heading": "Current Free Gifts With Purchase:"
+      }
+    },
+    "birthday_promo_K3PkxL": {
+      "type": "birthday-promo",
+      "blocks": {
+        "promo_card_dCHkzB": {
+          "type": "promo-card",
+          "settings": {
+            "status": "active",
+            "active_image": "shopify://shop_images/Feb2026_Promo_FreeGWPs_Primer_3922fbec-4ffc-4232-9423-8384296ddae9.jpg",
+            "apply_effect": true,
+            "upcoming_image_color": "#ff76b8",
+            "upcoming_image_opacity": 70,
+            "eyebrow": "Free Gift",
+            "heading": "Free GrandePRIMER",
+            "copy": "",
+            "cta": "Shop Now",
+            "link": "shopify://collections/best-sellers"
+          }
+        },
+        "promo_card_zk7pGH": {
+          "type": "promo-card",
+          "settings": {
+            "status": "active",
+            "active_image": "shopify://shop_images/Feb2026_Promo_FreeGWPs-Repair_007d0790-4e3f-4062-a1c5-0435ae1abf42.jpg",
+            "apply_effect": true,
+            "upcoming_image_color": "#ff76b8",
+            "upcoming_image_opacity": 70,
+            "eyebrow": "Free Gift",
+            "heading": "Free GrandeREPAIR",
+            "copy": "",
+            "cta": "Shop Now",
+            "link": "shopify://collections/best-sellers"
+          }
+        },
+        "promo_card_byjrqT": {
+          "type": "promo-card",
+          "settings": {
+            "status": "active",
+            "active_image": "shopify://shop_images/Feb2026_Promo_FreeGWPs-MiniMagic_21951974-c087-4a72-a436-bee75472f9f3.jpg",
+            "apply_effect": true,
+            "upcoming_image_color": "#ff76b8",
+            "upcoming_image_opacity": 70,
+            "eyebrow": "Free Gift",
+            "heading": "Free Mini Magic Set",
+            "copy": "",
+            "cta": "Shop Now",
+            "link": "shopify://collections/best-sellers"
+          }
+        }
+      },
+      "block_order": [
+        "promo_card_dCHkzB",
+        "promo_card_zk7pGH",
+        "promo_card_byjrqT"
+      ],
+      "disabled": true,
+      "name": "Birthday promo",
+      "settings": {
+        "heading": "Pick Your Free Gift With Orders $65+:"
+      }
+    },
+    "banner_ByqeGc": {
+      "type": "banner",
+      "name": "Banner",
+      "settings": {
+        "color": "light",
+        "background": "rose",
+        "image_d": "shopify://shop_images/GrandeLASH-BannerImage-BottlesOnPink-Desktop.jpg",
+        "image_m": "shopify://shop_images/GrandeLASH-BannerImage-BottlesOnPink-Mobile.jpg",
+        "alignment": "center",
+        "eyebrow": "Over 10 Million Bottles Sold",
+        "heading": "1 Lash Serum Sold Every 14 Seconds",
+        "heading_size": "h1",
+        "copy": "(we're not the #1 Lash & Brow Serum Brand in the U.S.* for no reason, you know 😉)",
+        "cta_url": "shopify://products/grandelash-md",
+        "cta_copy": "Shop The Serum",
+        "cta_url_alt": "",
+        "cta_copy_alt": "",
+        "overlay": 40
+      }
+    },
+    "before_after_KxU3G6": {
+      "type": "before-after",
+      "settings": {
+        "switch_sides": false,
+        "metaobject_handle": "before-and-after-irxkry5r"
+      }
+    },
+    "banner_q7mkhT": {
+      "type": "banner",
+      "disabled": true,
+      "name": "Banner",
+      "settings": {
+        "color": "light",
+        "background": "rose",
+        "image_d": "shopify://shop_images/GrandeLASH-BannerImage-BottlesOnPink-Desktop.jpg",
+        "image_m": "shopify://shop_images/GrandeLASH-BannerImage-BottlesOnPink-Mobile.jpg",
+        "alignment": "center",
+        "eyebrow": "In a world of dupes,  the original reigns supreme.",
+        "heading": "The Creators of GrandeLASH-MD",
+        "heading_size": "h1",
+        "copy": "the #1 Lash Serum Brand In The U.S.*",
+        "cta_url": "shopify://products/grandelash-md",
+        "cta_copy": "Shop The Serum",
+        "cta_url_alt": "",
+        "cta_copy_alt": "",
+        "overlay": 40
+      }
+    },
+    "categories_tDjQ97": {
+      "type": "categories",
+      "blocks": {
+        "content_gwPAar": {
+          "type": "content",
+          "settings": {
+            "image": "shopify://shop_images/LashMD-Model-HomepageImage.jpg",
+            "heading_image": "",
+            "eyebrow": "",
+            "heading": "<br>Shop Our #1",
+            "copy": "get to know the product that started it all",
+            "cta_url": "shopify://products/grandelash-md",
+            "cta_copy": "Shop GrandeLASH-MD",
+            "cta_url_alt": "",
+            "cta_copy_alt": ""
+          }
+        },
+        "content_eCJxdn": {
+          "type": "content",
+          "settings": {
+            "image": "shopify://shop_images/LashMD-HomepageImage.jpg",
+            "heading_image": "",
+            "eyebrow": "",
+            "heading": "<br>Get 15% Off",
+            "copy": "when you sign up for SMS alerts",
+            "cta_url": "https://grandecosmetics.attn.tv/p/2nC/landing-page",
+            "cta_copy": "Sign Up Now",
+            "cta_url_alt": "/",
+            "cta_copy_alt": ""
+          }
+        },
+        "content_eCJxdm": {
+          "type": "content",
+          "settings": {
+            "image": "shopify://shop_images/Alicia-HomepageImage.jpg",
+            "heading_image": "",
+            "eyebrow": "",
+            "heading": "<br>Who We Are",
+            "copy": "founded in 2008 with a mission to enhance your natural beauty",
+            "cta_url": "shopify://pages/about-us",
+            "cta_copy": "Learn More",
+            "cta_url_alt": "/",
+            "cta_copy_alt": ""
+          }
+        }
+      },
+      "block_order": [
+        "content_gwPAar",
+        "content_eCJxdn",
+        "content_eCJxdm"
+      ],
+      "settings": {
+        "eyebrow": "",
+        "heading": "",
+        "cta_copy": "",
+        "cta_url": "/"
+      }
+    },
+    "5127abd9-2eed-4d32-9a9c-834bd04785e2": {
+      "type": "product-carousel",
+      "blocks": {
+        "content_3JJP6h": {
+          "type": "content",
+          "settings": {
+            "product": "grandebrow",
+            "category": "Best Sellers"
+          }
+        },
+        "content_hJ3r3T": {
+          "type": "content",
+          "settings": {
+            "product": "grandelash-md",
+            "category": "Best Sellers"
+          }
+        },
+        "content_DbfkKF": {
+          "type": "content",
+          "settings": {
+            "product": "grandelash-sensitive",
+            "category": "New"
+          }
+        },
+        "content_EegVdG": {
+          "type": "content",
+          "settings": {
+            "product": "grandebrow-2-in-1",
+            "category": "Best Sellers"
+          }
+        },
+        "content_6HbNhW": {
+          "type": "content",
+          "settings": {
+            "product": "grandelips-gloss",
+            "category": "Best Sellers"
+          }
+        },
+        "content_GQ7haD": {
+          "type": "content",
+          "settings": {
+            "product": "grandelash-md",
+            "category": "TikTok Viral"
+          }
+        },
+        "content_kcFzzg": {
+          "type": "content",
+          "settings": {
+            "product": "grandebrow-2-in-1",
+            "category": "TikTok Viral"
+          }
+        },
+        "content_xECwxm": {
+          "type": "content",
+          "settings": {
+            "product": "grandemascara",
+            "category": "TikTok Viral"
+          }
+        }
+      },
+      "block_order": [
+        "content_3JJP6h",
+        "content_hJ3r3T",
+        "content_DbfkKF",
+        "content_EegVdG",
+        "content_6HbNhW",
+        "content_GQ7haD",
+        "content_kcFzzg",
+        "content_xECwxm"
+      ],
+      "disabled": true,
+      "settings": {
+        "heading": "",
+        "categories": true,
+        "cta_copy": "",
+        "cta_url": "/"
+      }
+    },
+    "banner_EbLkcJ": {
+      "type": "banner",
+      "settings": {
+        "color": "light",
+        "background": "rose",
+        "alignment": "center",
+        "eyebrow": "",
+        "heading": "Revealing, <em>Not Concealing</em>",
+        "heading_size": "h2",
+        "copy": "While the rest tell you to cover up & conceal; we’re all about accentuating what’s real. Clinically-proven formulas. Obvious results. Discover enhancing serums & serum-infused makeup for longer looking lashes, bolder looking brows & beyond.",
+        "cta_url": "https://grandecosmetics.com/pages/about-us",
+        "cta_copy": "Discover",
+        "cta_url_alt": "/",
+        "cta_copy_alt": "",
+        "overlay": 0
+      }
+    },
+    "categories_BYn98Q": {
+      "type": "categories",
+      "blocks": {
+        "content_gWHEdT": {
+          "type": "content",
+          "settings": {
+            "image": "shopify://shop_images/LongLashes-CategoryImage.jpg",
+            "heading_image": "Long Lashes",
+            "eyebrow": "",
+            "heading": "",
+            "copy": "",
+            "cta_url": "shopify://collections/lashes",
+            "cta_copy": "",
+            "cta_url_alt": "/",
+            "cta_copy_alt": ""
+          }
+        },
+        "content_G8HNE7": {
+          "type": "content",
+          "settings": {
+            "image": "shopify://shop_images/BoldBrows-CategoryImage.jpg",
+            "heading_image": "Bold Brows",
+            "eyebrow": "",
+            "heading": "",
+            "copy": "",
+            "cta_url": "shopify://collections/brows",
+            "cta_copy": "",
+            "cta_url_alt": "/",
+            "cta_copy_alt": ""
+          }
+        },
+        "content_yfHPJB": {
+          "type": "content",
+          "settings": {
+            "image": "shopify://shop_images/ThickHair-CategoryImage.jpg",
+            "heading_image": "Thick Hair",
+            "eyebrow": "",
+            "heading": "",
+            "copy": "",
+            "cta_url": "shopify://collections/hair",
+            "cta_copy": "",
+            "cta_url_alt": "",
+            "cta_copy_alt": ""
+          }
+        },
+        "content_EQtN8q": {
+          "type": "content",
+          "settings": {
+            "image": "shopify://shop_images/FullLips-CategoryImage.jpg",
+            "heading_image": "Full Lips",
+            "eyebrow": "",
+            "heading": "",
+            "copy": "",
+            "cta_url": "shopify://collections/lips",
+            "cta_copy": "",
+            "cta_url_alt": "",
+            "cta_copy_alt": ""
+          }
+        }
+      },
+      "block_order": [
+        "content_gWHEdT",
+        "content_G8HNE7",
+        "content_yfHPJB",
+        "content_EQtN8q"
+      ],
+      "settings": {
+        "eyebrow": "",
+        "heading": "What Are You Looking For?",
+        "cta_copy": "",
+        "cta_url": "/"
+      }
+    },
+    "product_carousel_hbgrnV": {
+      "type": "product-carousel",
+      "blocks": {
+        "content_miWDb4": {
+          "type": "content",
+          "settings": {
+            "product": "grandelash-md",
+            "category": ""
+          }
+        },
+        "content_nAdAr7": {
+          "type": "content",
+          "settings": {
+            "product": "grandebrow",
+            "category": ""
+          }
+        },
+        "content_kT86fm": {
+          "type": "content",
+          "settings": {
+            "product": "grandebrow-2-in-1",
+            "category": ""
+          }
+        },
+        "content_phkyWR": {
+          "type": "content",
+          "settings": {
+            "product": "grandelash-sensitive",
+            "category": ""
+          }
+        }
+      },
+      "block_order": [
+        "content_miWDb4",
+        "content_nAdAr7",
+        "content_kT86fm",
+        "content_phkyWR"
+      ],
+      "name": "Product Carousel",
+      "settings": {
+        "heading": "Shop Best Sellers",
+        "categories": false,
+        "cta_copy": "",
+        "cta_url": ""
+      }
+    },
+    "banner_e6TQgD": {
+      "type": "banner",
+      "disabled": true,
+      "name": "Banner",
+      "settings": {
+        "color": "dark",
+        "background": "beige",
+        "alignment": "center",
+        "eyebrow": "",
+        "heading": "Be The First To Know 👀",
+        "heading_size": "h4",
+        "copy": "sign up for email + SMS alerts to be the first to know about the best deals and new product launches!",
+        "cta_url": "",
+        "cta_copy": "",
+        "cta_url_alt": "",
+        "cta_copy_alt": "",
+        "overlay": 0
+      }
+    },
+    "ss_shoppable_video_Y74Bja": {
+      "type": "ss-shoppable-video",
+      "blocks": {
+        "item_erxytW": {
+          "type": "item",
+          "settings": {
+            "video": "shopify://files/videos/Yvette Social Spot.mp4",
+            "video_url": "",
+            "autoplay": true,
+            "product": "grandelash-md",
+            "use_variants": true,
+            "modal_heading": "<h4>Meet Yvette</h4>",
+            "modal_text": ""
+          }
+        },
+        "item_apVWgX": {
+          "type": "item",
+          "settings": {
+            "video": "shopify://files/videos/Jan Social Spot.mp4",
+            "video_url": "",
+            "autoplay": true,
+            "product": "grandebrow",
+            "use_variants": true,
+            "modal_heading": "<h4>Meet Jan</h4>",
+            "modal_text": ""
+          }
+        },
+        "item_nE447D": {
+          "type": "item",
+          "settings": {
+            "video": "shopify://files/videos/Angela Social Spot.mp4",
+            "video_url": "",
+            "autoplay": true,
+            "product": "grandelips-gloss",
+            "use_variants": true,
+            "modal_heading": "<h4>Meet Angela</h4>",
+            "modal_text": ""
+          }
+        },
+        "item_3DUXrW": {
+          "type": "item",
+          "settings": {
+            "video": "shopify://files/videos/Inger Social Spot.mp4",
+            "video_url": "",
+            "autoplay": true,
+            "product": "grandehair-rejuvenation-serum",
+            "use_variants": true,
+            "modal_heading": "<h4>Meet Inger</h4>",
+            "modal_text": ""
+          }
+        },
+        "item_aDPg8w": {
+          "type": "item",
+          "disabled": true,
+          "settings": {
+            "video_url": "",
+            "autoplay": true,
+            "product": "",
+            "use_variants": true,
+            "modal_heading": "<h4>Modal heading</h4>",
+            "modal_text": "<p>Modal text</p>"
+          }
+        }
+      },
+      "block_order": [
+        "item_erxytW",
+        "item_apVWgX",
+        "item_nE447D",
+        "item_3DUXrW",
+        "item_aDPg8w"
+      ],
+      "name": "SS - Shoppable video",
+      "settings": {
+        "heading": "<h1>Take Your <em>Own Your Natural </em>Journey</h1>",
+        "heading_custom": false,
+        "heading_font": "josefin_sans_n4",
+        "heading_size": 40,
+        "heading_size_mobile": 28,
+        "heading_height": 130,
+        "heading_align": "left",
+        "heading_align_mobile": "center",
+        "slider_view": 4,
+        "slider_view_mobile": 1.3,
+        "slider_gap": 16,
+        "slider_gap_mobile": 16,
+        "slider_mt": 28,
+        "card_radius": 6,
+        "card_border_thickness": 0,
+        "card_shadow": false,
+        "video_ratio": "portrait",
+        "video_ratio_mobile": "portrait",
+        "video_overlay": 0,
+        "image_width": 44,
+        "image_width_mobile": 44,
+        "image_radius": 6,
+        "image_border_thickness": 0,
+        "title_custom": false,
+        "title_font": "josefin_sans_n4",
+        "title_size": 14,
+        "title_size_mobile": 14,
+        "title_height": 130,
+        "title_uppercase": false,
+        "price_custom": false,
+        "price_font": "josefin_sans_n4",
+        "price_size": 14,
+        "price_size_mobile": 14,
+        "price_height": 130,
+        "button": "Add To Cart",
+        "button_soldout": "Sold Out",
+        "button_custom": false,
+        "button_font": "josefin_sans_n4",
+        "button_size": 16,
+        "button_size_mobile": 16,
+        "button_padding_vertical": 10,
+        "button_padding_vertical_mobile": 10,
+        "button_padding_horizontal": 10,
+        "button_padding_horizontal_mobile": 10,
+        "reload_after_adding": false,
+        "redirect_after_adding": false,
+        "option_custom": false,
+        "option_font": "josefin_sans_n4",
+        "option_size": 12,
+        "option_size_mobile": 12,
+        "option_height": 100,
+        "option_mt": 24,
+        "variants_price_custom": false,
+        "variants_price_font": "josefin_sans_n4",
+        "variants_price_size": 14,
+        "variants_price_size_mobile": 14,
+        "variants_price_height": 130,
+        "variants_price_mt": 10,
+        "variants_price_align": "center",
+        "variants_price_align_mobile": "center",
+        "modal_width": 740,
+        "modal_width_mobile": 100,
+        "modal_radius": 16,
+        "modal_border_thickness": 0,
+        "modal_overlay": 50,
+        "close_size": 42,
+        "close_size_mobile": 42,
+        "close_radius": 8,
+        "close_border_thickness": 0,
+        "buttons_size": 48,
+        "buttons_size_mobile": 48,
+        "buttons_radius": 8,
+        "buttons_border_thickness": 0,
+        "modal_video_radius": 0,
+        "modal_video_border_thickness": 0,
+        "modal_video_ratio": "portrait",
+        "modal_video_ratio_mobile": "portrait",
+        "modal_heading_custom": false,
+        "modal_heading_font": "josefin_sans_n4",
+        "modal_heading_size": 28,
+        "modal_heading_size_mobile": 28,
+        "modal_heading_height": 130,
+        "modal_heading_align": "center",
+        "modal_heading_align_mobile": "center",
+        "modal_text_custom": false,
+        "modal_text_font": "josefin_sans_n4",
+        "modal_text_size": 16,
+        "modal_text_size_mobile": 16,
+        "modal_text_height": 150,
+        "modal_text_align": "center",
+        "modal_text_align_mobile": "center",
+        "modal_text_mt": 16,
+        "use_modal_product": true,
+        "modal_image_width": 70,
+        "modal_image_width_mobile": 66,
+        "modal_image_radius": 12,
+        "modal_image_border_thickness": 0,
+        "modal_title_custom": false,
+        "modal_title_font": "josefin_sans_n4",
+        "modal_title_size": 16,
+        "modal_title_size_mobile": 16,
+        "modal_title_height": 130,
+        "modal_title_uppercase": false,
+        "modal_price_custom": false,
+        "modal_price_font": "josefin_sans_n4",
+        "modal_price_size": 14,
+        "modal_price_size_mobile": 14,
+        "modal_price_height": 130,
+        "modal_button": "Add To Cart",
+        "modal_button_soldout": "Sold Out",
+        "modal_button_custom": false,
+        "modal_button_font": "josefin_sans_n4",
+        "modal_button_size": 16,
+        "modal_button_size_mobile": 16,
+        "modal_button_radius": 8,
+        "modal_button_border_thickness": 1,
+        "modal_button_mt": 16,
+        "modal_button_align": "center",
+        "modal_button_align_mobile": "center",
+        "card_bg_color": "#ffffff",
+        "card_border_color": "#121212",
+        "video_overlay_color": "#121212",
+        "card_shadow_color": "#121212",
+        "title_color": "#ffffff",
+        "price_color": "#ffffff",
+        "image_border_color": "#121212",
+        "button_color": "#fdf1e4",
+        "button_hover_color": "#ffffff",
+        "button_bg_color": "#fc2d76",
+        "button_bg_hover_color": "#ffc1c1",
+        "arrow_icon_color": "#fdf1e4",
+        "arrow_bg_color": "#fc2d76",
+        "arrow_border_color": "#fdf1e4",
+        "option_color": "#121212",
+        "variants_price_color": "#121212",
+        "modal_heading_color": "#121212",
+        "modal_text_color": "#121212",
+        "modal_video_border_color": "#121212",
+        "modal_content_bg_color": "#ffffff",
+        "modal_border_color": "#121212",
+        "close_icon_color": "#ffffff",
+        "close_bg_color": "#ffffff",
+        "close_border_color": "#121212",
+        "buttons_icon_color": "#ffffff",
+        "buttons_bg_color": "#ffffff",
+        "buttons_border_color": "#121212",
+        "modal_title_color": "#121212",
+        "modal_price_color": "#121212",
+        "modal_image_border_color": "#121212",
+        "modal_button_color": "#ffffff",
+        "modal_button_hover_color": "#121212",
+        "modal_button_bg_color": "#121212",
+        "modal_button_bg_hover_color": "#ffffff",
+        "modal_button_border_color": "#121212",
+        "modal_button_border_hover_color": "#121212",
+        "heading_color": "#121212",
+        "background_color": "#fdf1e4",
+        "background_gradient": "",
+        "border_color": "#121212",
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "padding_top": 32,
+        "padding_bottom": 36,
+        "padding_horizontal": 1,
+        "padding_horizontal_mobile": 1.5,
+        "full_width": false,
+        "content_width": 1400,
+        "border_thickness": 0,
+        "lazy": true
+      }
+    },
+    "press_db6zc7": {
+      "type": "press",
+      "blocks": {
+        "slide_iwiMfm": {
+          "type": "slide",
+          "settings": {
+            "quote": "\"Grande Cosmetics founder Alicia Grande <em>cracked the eyelash-enhancing code with this little gold tube of magic.\"</em>",
+            "logo": "shopify://shop_images/NewBeauty-1-q0aalw3k4p51an8zfmtpl6kt24uksdudr5b581kg7k_b703bce9-90cb-42fc-9dce-aca326d9287d.png"
+          }
+        },
+        "slide_PcFcUf": {
+          "type": "slide",
+          "settings": {
+            "quote": "\"After testing a number of eyelash serums, this one from Grande Cosmetics <em>blew us away in the volume department.\"</em>",
+            "logo": "shopify://shop_images/byrdie-logo_699e1858-06f1-4b11-b39a-741a99112b95.png"
+          }
+        },
+        "slide_kRniyB": {
+          "type": "slide",
+          "settings": {
+            "quote": "\"I discovered a <em>holy grail serum </em>from a brand that changed the hair game.\"",
+            "logo": "shopify://shop_images/in-style-logo_093f28de-3b51-4f5c-88b9-9b2e4bb340e9.png"
+          }
+        },
+        "slide_L9qVLm": {
+          "type": "slide",
+          "settings": {
+            "quote": "\"I never thought a brow gel would\nreally \"wow\" me, <em>but Grande Cosmetics' new Brow Styling Gel has done that.\"</em>",
+            "logo": "shopify://shop_images/byrdie-logo_699e1858-06f1-4b11-b39a-741a99112b95.png"
+          }
+        },
+        "slide_Hq7kg4": {
+          "type": "slide",
+          "settings": {
+            "quote": "<em>\"This product does double duty: </em>Not only is it a brow gel but it’s also an enhancing serum that helps thicken hair with consistent use.\"",
+            "logo": "shopify://shop_images/forbes-logo-pink_a49fc2ed-950b-4a23-99c8-1497759bc652.png"
+          }
+        }
+      },
+      "block_order": [
+        "slide_iwiMfm",
+        "slide_PcFcUf",
+        "slide_kRniyB",
+        "slide_L9qVLm",
+        "slide_Hq7kg4"
+      ],
+      "disabled": true,
+      "settings": {}
+    },
+    "17145921696844db17": {
+      "type": "apps",
+      "blocks": {
+        "firework_virtual_store_firework_embed_UxUNWr": {
+          "type": "shopify://apps/firework-shoppable-video-ugc/blocks/firework-embed/347a2e4c-f5cb-410d-8354-490d1e80558c",
+          "settings": {
+            "channel": "grandecosmetics",
+            "playlist": "5RJWb5",
+            "layout": "carousel",
+            "embedtitle": "Trending On TikTok",
+            "titlealignment": "left",
+            "embedtitlesize": 30,
+            "size": "large",
+            "player_placement": "bottom-right",
+            "hashtag": "",
+            "pip": true
+          }
+        },
+        "rebuy_personalization_engine_rebuy_widget_fDFp4B": {
+          "type": "shopify://apps/rebuy-personalization-engine/blocks/rebuy-widget/a26ae9b9-933b-40bf-bbc6-bf1220bbc4dc",
+          "settings": {
+            "enabled": true,
+            "id": "240568",
+            "product_id_enabled": true,
+            "collection_id_enabled": false
+          }
+        }
+      },
+      "block_order": [
+        "firework_virtual_store_firework_embed_UxUNWr",
+        "rebuy_personalization_engine_rebuy_widget_fDFp4B"
+      ],
+      "disabled": true,
+      "settings": {}
+    },
+    "fw_html_embed_ePNXM8": {
+      "type": "fw-html-embed",
+      "disabled": true,
+      "settings": {
+        "title": "Trending On TikTok",
+        "embed_code": "<script async type=\"text/javascript\" src=\"//asset.fwcdn3.com/js/embed-feed.js\"></script>\n\n    <fw-embed-feed channel=\"grandecosmetics\" playlist=\"5RJWb5\" mode=\"row\" open_in=\"default\" max_videos=\"0\" placement=\"middle\" player_placement=\"bottom-right\" branding=\"false\"></fw-embed-feed>"
+      }
+    },
+    "1768396840b4082a47": {
+      "type": "apps",
+      "blocks": {
+        "klaviyo_email_marketing_sms_form_embed_block_txfUHN": {
+          "type": "shopify://apps/klaviyo-email-marketing-sms/blocks/form-embed-block/2632fe16-c075-4321-a88b-50b567f42507",
+          "settings": {
+            "formId": "YzAKjS"
+          }
+        }
+      },
+      "block_order": [
+        "klaviyo_email_marketing_sms_form_embed_block_txfUHN"
+      ],
+      "disabled": true,
+      "settings": {}
     }
   },
   "order": [
-    "content_TkBWcD",
-    "content_7GFbAz",
-    "media_with_text_yd6CYe",
-    "featured_collection_VKCTNb",
-    "multicolumn_qLqDh9",
-    "multicolumn_7t8pVm",
-    "featured_collection_cM6NAV",
-    "media_with_text_cRrbcc",
-    "rich_text_Dm6xir",
-    "media_with_text_xAAgri"
+    "ticker_k3iEyA",
+    "hero_carousel_f9TTYr",
+    "ticker_EfRyde",
+    "hero_carousel_UfHHkP",
+    "ticker_4Q8FUW",
+    "ticker_Ce4M4p",
+    "birthday_promo_pTmGcn",
+    "birthday_promo_K3PkxL",
+    "banner_ByqeGc",
+    "before_after_KxU3G6",
+    "banner_q7mkhT",
+    "categories_tDjQ97",
+    "5127abd9-2eed-4d32-9a9c-834bd04785e2",
+    "banner_EbLkcJ",
+    "categories_BYn98Q",
+    "product_carousel_hbgrnV",
+    "banner_e6TQgD",
+    "ss_shoppable_video_Y74Bja",
+    "press_db6zc7",
+    "17145921696844db17",
+    "fw_html_embed_ePNXM8",
+    "1768396840b4082a47"
   ]
 }

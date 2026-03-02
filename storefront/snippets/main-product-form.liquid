@@ -1,0 +1,176 @@
+
+{%- liquid
+  for tag in product.tags
+    if tag contains 'style:'
+      assign product_style = tag
+      break
+    endif
+  endfor
+-%}
+
+<main-product-form class="main-product__form"
+  data-product="{{ product.id }}" 
+  {% if product_style != blank %}
+    data-style="{{ product_style }}"
+  {% endif %}>
+  {%- for block in section.blocks -%}
+    {%- case block.type -%}
+      {%- when 'title' -%}
+        <div>
+          {% render 'breadcrumbs' %}
+        </div>
+        <div class="main-product__title">
+          <h1 class="main-product__title-text h3">{{ product.title | split: ' - ' | first }}</h1>
+        </div>
+        <div class="main-product__subtitle">
+          <h1 class="main-product__title-text p-3">SPF 30 • Organic • Lotion</h1>
+        </div>
+        {%- when 'price' -%}
+          <div class="main-product__price p-1" data-product-prices>
+            {% render 'price', target: product.selected_or_first_available_variant %}
+            {% if product.selected_or_first_available_variant.compare_at_price
+              > product.selected_or_first_available_variant.price
+            %}
+              <p class="main-product__price--save p-1" data-price-percent>
+                {% assign actualprice = product.selected_or_first_available_variant.price %}
+                {% assign compareprice = product.selected_or_first_available_variant.compare_at_price %}
+                {% assign discountprice = compareprice | minus: actualprice %}
+                {% assign discountvalue = discountprice | times: 100 | divided_by: compareprice %}
+                {{ discountvalue | round: 2 }}% off
+              </p>
+            {% endif %}
+          </div>
+        
+        {%- when 'variant_picker' -%}
+          {% if product_style != blank %}
+            <div class="main-product__swatches" data-swatches></div>
+          {% endif %}
+
+          {% unless product.selected_or_first_available_variant.title == 'Default Title' %}
+            <div class="main-product__variants {% if product.variants.size > 1%} main-product__variants--toggle {% endif %}" {% if product.variants.size > 1%} data-variant-select{% endif %}>
+              {% for variant in product.variants %}
+                  <label class="product-card__variant">
+                    <input 
+                      type="radio" 
+                      class="visually-hidden"
+                      id="{{ variant.id }}"
+                      name="variant_size"
+                      {% if variant.available == false %}
+                        data-disabled
+                      {% endif %}
+                      {%- if variant.inventory_quantity < 10 -%}
+                        data-inventory="{{ variant.inventory_quantity }}"
+                      {% endif %}
+                      {% if forloop.index == 1 %}checked{% endif %}
+                      value="{{ variant.id }}"
+                      {% if product.price_varies %}
+                        data-variant-price="{{ variant.price | money_without_trailing_zeros }}"
+                        {% if variant.compare_at_price >= variant.price %}
+                          data-variant-price-compare="{{ variant.compare_at_price | money_without_trailing_zeros }}"
+                        {% endif %}
+                      {% endif %}
+                    />
+                    <span>{{ variant.title }}</span>
+                  </label>
+              {% endfor %}
+            </div>
+          {% endunless %}
+        
+        {%- when 'buy_button' -%}
+          {%- form 'product',
+            product,
+            id: product_form_id,
+            class: 'main-product__add-to-cart',
+            novalidate: 'novalidate',
+            data-type: 'add-to-cart',
+            method: 'post',
+            action: '/cart/add',
+            data-add-to-cart-form: 'true'
+          -%}
+            <input
+              type="hidden"
+              name="id"
+              value="{{ product.selected_or_first_available_variant.id }}"
+              data-selected-variant-id
+            >
+            <input min="1" type="hidden" id="quantity" name="quantity" value="1" style="display: none;">
+            <button
+              type="submit"
+              data-add-to-cart-btn
+              class="add-to-cart__submit-btn btn btn--primary"
+              {% if product.selected_or_first_available_variant.available == false %}
+                disabled
+              {% endif %}
+            >
+              {%- if product.selected_or_first_available_variant.available == false -%}
+                Out of Stock
+              {%- else -%}
+                Add to Bag
+              {%- endif -%}
+            </button>
+            {% if product.tags contains 'BIS' %}
+              <button id="BIS_trigger" data-bis-trigger class="main-product__form-bis btn btn--secondary" {%unless product.selected_or_first_available_variant.available == false %}style="display:none"{% endunless %}>Notify When Back In Stock</button>
+            {% endif %}
+            <div class="product-form__error-wrapper" role="alert" hidden data-cart-error-wrapper>
+              <span class="product-form__error"></span>
+            </div>
+            {%- if product.selected_or_first_available_variant.inventory_quantity < 10 -%}
+              <p class="add-to-cart__inventory p-4" data-inventory-wrapper>
+                Only <span data-inventory-count>{{ product.selected_or_first_available_variant.inventory_quantity }}</span> available
+              </p>
+            {%- endif -%}
+            {%- if show_dynamic_checkout -%}
+              {{ form | payment_button }}
+            {%- endif -%}
+          {%- endform -%}
+        {%- when 'description' -%}
+          <accordion-item>
+            <div class="accordion__item active">
+              <div class="accordion__heading p-3" data-accordion-heading> 
+                Description
+
+                <button class="button__close" aria-label="collapse" >
+                  {% render 'icons', icon_name: 'filled-arrow-up' class: 'close-icon' %}
+                </button>
+                <button class="button__open" aria-label="expand">
+                  {% render 'icons', icon_name: 'filled-arrow-down' class: 'open-icon' %}
+                </button>
+              </div>
+              <div class="accordion__answer p3" data-accordion-content>
+                {%- assign short_description = product.description | split: '</p>' | first -%}
+                {%- assign long_description = product.description | split: '</p>' -%}
+                {{ short_description }}
+                {%- if long_description.size > 1 -%}
+                  <a href="#" class="read-more cta cta--small">Read More</a>
+                  <div class="read-more__content">
+                    {%- for item in long_description -%}
+                      {%- if forloop.index != 1 -%}
+                        {{ item }}
+                      {%- endif -%}
+                    {%- endfor -%}
+                  </div>
+                {%- endif -%}
+              </div>
+            </div>
+        </accordion-item>
+      {%- when 'content' -%}
+        <accordion-item>
+          <div class="accordion__item">
+            <div class="accordion__heading p-3" data-accordion-heading> 
+              {{ block.settings.heading }}
+
+              <button class="button__close" aria-label="collapse" >
+                {% render 'icons', icon_name: 'filled-arrow-up' class: 'close-icon' %}
+              </button>
+              <button class="button__open" aria-label="expand">
+                {% render 'icons', icon_name: 'filled-arrow-down' class: 'open-icon' %}
+              </button>
+            </div>
+            <div class="accordion__answer p3" data-accordion-content>
+              {{ block.settings.copy }}
+            </div>
+          </div>
+      </accordion-item>
+    {% endcase %}
+  {% endfor %}
+</main-product-form>

@@ -1,0 +1,1195 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {}
+    },
+    "banner_qdEWKE": {
+      "type": "banner",
+      "settings": {
+        "color": "light",
+        "background": "rose",
+        "image_d": "shopify://shop_images/PressPage-BannerImage.jpg",
+        "alignment": "center",
+        "eyebrow": "EXTRA, EXTRA, READ ALL ABOUT IT",
+        "heading": "Grande In The Press",
+        "heading_size": "h2",
+        "copy": "people can't stop talking about us 👀",
+        "cta_url": "",
+        "cta_copy": "",
+        "cta_url_alt": "",
+        "cta_copy_alt": "",
+        "overlay": 40
+      }
+    },
+    "press_cards_ihhe3M": {
+      "type": "press-cards",
+      "blocks": {
+        "content_TYQXz8": {
+          "type": "content",
+          "settings": {
+            "image": "shopify://shop_images/DigitalAd-Vanish-Bottle-Shaking-Square-GIF_a0220e86-98ac-4958-a613-6df87d50ce12.gif",
+            "eyebrow": "AS SEEN IN SHEKNOWS",
+            "heading": "This Brooke Shields-Approved Brand Has A New Product That Lets You Remove Waterproof Mascara Without Losing Eyelashes",
+            "copy": "",
+            "cta_copy": "read more",
+            "cta_url": "https://www.sheknows.com/living/articles/2815357/grande-cosmetics-grandevanish/"
+          }
+        },
+        "content_kimKHY": {
+          "type": "content",
+          "settings": {
+            "image": "shopify://shop_images/TikTok_Viral_db7c2e6b-376c-4380-b237-36c6699035b3.jpg",
+            "eyebrow": "AS SEEN IN ELITE DAILY",
+            "heading": "Award winning brow products that are loved by celebs and makeup artists alike.",
+            "copy": "",
+            "cta_copy": "read more",
+            "cta_url": "https://www.elitedaily.com/beauty/grande-cosmetics-national-brow-day-sale"
+          }
+        },
+        "content_37N7pc": {
+          "type": "content",
+          "settings": {
+            "image": "shopify://shop_images/Grande-Lip-18797_9d7cd936-386e-42ce-82f1-f552abd83b42.jpg",
+            "eyebrow": "AS SEEN IN HARPER'S BAZAAR",
+            "heading": "The 8 Best Lip Plumpers For Maximum Volume",
+            "copy": "",
+            "cta_copy": "read more",
+            "cta_url": "https://www.harpersbazaar.com/beauty/makeup/g8053/best-lip-plumper/#product-c3d1148d-422c-4d86-8624-c6f3fb6b4442"
+          }
+        },
+        "content_qDMzwC": {
+          "type": "content",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/GrandeLASH-MD-UGCBlock.jpg",
+            "eyebrow": "AS SEEN IN BUZZ FEED",
+            "heading": "27 Products From Sephora That’ll Earn *And* Keep Their Place In Your Routine",
+            "copy": "",
+            "cta_copy": "read more",
+            "cta_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "content_TYQXz8",
+        "content_kimKHY",
+        "content_37N7pc",
+        "content_qDMzwC"
+      ],
+      "settings": {
+        "title": "",
+        "link_text": "View All",
+        "blog": ""
+      }
+    },
+    "press_cards_cAHTnz": {
+      "type": "press-cards",
+      "blocks": {
+        "content_DNPkFf": {
+          "type": "content",
+          "settings": {
+            "image": "shopify://shop_images/Alicia_Grande_Photos-presspage.jpg",
+            "eyebrow": "AS SEEN IN NEWYOU",
+            "heading": "Alicia Grande CEO GrandeLASH-MD Inspiring Entrepreneurial Journey",
+            "copy": "",
+            "cta_copy": "read more",
+            "cta_url": "https://www.newyou.com/magazine/from-lash-loss-to-lash-leader-alicia-grandes-inspiring-entrepreneurial-journey/"
+          }
+        },
+        "content_ep686Y": {
+          "type": "content",
+          "settings": {
+            "image": "shopify://shop_images/GrandeLASH-MD-BLOCKIMAGE_9c9e6498-797c-46ec-b835-15beac88a250.jpg",
+            "eyebrow": "AS SEEN IN COSMOPOLITAN",
+            "heading": "I’ve Used Every Popular Lash Serum Out There, and GrandeLash Is Honestly Better Than Them All",
+            "copy": "",
+            "cta_copy": "read more",
+            "cta_url": ""
+          }
+        },
+        "content_EBDGXq": {
+          "type": "content",
+          "settings": {
+            "image": "shopify://shop_images/GrandeLASH-MD-MODEL.jpg",
+            "eyebrow": "AS SEEN IN WHOWHATWEAR",
+            "heading": "It's Only January, But These 9 Makeup Trends Are Already Taking Over 2025",
+            "copy": "",
+            "cta_copy": "read more",
+            "cta_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "content_DNPkFf",
+        "content_ep686Y",
+        "content_EBDGXq"
+      ],
+      "settings": {
+        "title": "",
+        "link_text": "View All",
+        "blog": ""
+      }
+    },
+    "press_cards_Hr3aJ6": {
+      "type": "press-cards",
+      "blocks": {
+        "content_zERJ8D": {
+          "type": "content",
+          "settings": {
+            "image": "shopify://shop_images/2-in-1_CEW.jpg",
+            "eyebrow": "AS SEEN IN CEW",
+            "heading": "2023 CEW Product Finalists GrandeBROW 2-in-1",
+            "copy": "",
+            "cta_copy": "shop the finalist",
+            "cta_url": "https://grandecosmetics.com/products/grandebrow-2-in-1"
+          }
+        },
+        "content_EVtM3f": {
+          "type": "content",
+          "settings": {
+            "image": "shopify://shop_images/Gummies_press.jpg",
+            "eyebrow": "AS SEEN IN VOGUE",
+            "heading": "11 Best Vitamins for Hair Growth That Actually Work",
+            "copy": "",
+            "cta_copy": "read more",
+            "cta_url": "https://www.vogue.com/article/best-vitamins-for-hair-growth"
+          }
+        },
+        "content_8kqNdx": {
+          "type": "content",
+          "settings": {
+            "image": "shopify://shop_images/brow_newbeauty.jpg",
+            "eyebrow": "AS SEEN IN NEWBEAUTY",
+            "heading": "GrandeBROW won NewBeauty’s Reader’s Choice Awards for Favorite Eyebrow Serum",
+            "copy": "",
+            "cta_copy": "read more",
+            "cta_url": "https://www.newbeauty.com/readers-choice-awards-makeup/1/"
+          }
+        },
+        "content_QJwdrq": {
+          "type": "content",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/lash_whowhatwear.jpg",
+            "eyebrow": "AS SEEN IN WHOWHATWEAR",
+            "heading": "I'm A Beauty Editor - Here Are 30 Under $50 Items I'll Never Stop Using",
+            "copy": "\"Grande Cosmetics' legendary lash serum...\"",
+            "cta_copy": "read more",
+            "cta_url": "https://www.whowhatwear.com/beauty-editor-most-wanted-products-summer-2023"
+          }
+        }
+      },
+      "block_order": [
+        "content_zERJ8D",
+        "content_EVtM3f",
+        "content_8kqNdx",
+        "content_QJwdrq"
+      ],
+      "settings": {
+        "title": "",
+        "link_text": "View All",
+        "blog": ""
+      }
+    },
+    "press_cards_GNbe98": {
+      "type": "press-cards",
+      "blocks": {
+        "content_GAFQzB": {
+          "type": "content",
+          "settings": {
+            "image": "shopify://shop_images/GrandeLASH-MD-UGCBlock.jpg",
+            "eyebrow": "AS SEEN IN BUZZFEED",
+            "heading": "27 Products From Sephora That’ll Earn *And* Keep Their Place In Your Routine",
+            "copy": "",
+            "cta_copy": "read more",
+            "cta_url": "https://www.buzzfeed.com/yiyang/sephora-products-earn-place-your-routine"
+          }
+        },
+        "content_U3n3Ri": {
+          "type": "content",
+          "settings": {
+            "image": "shopify://shop_images/bushybrows_womandotcom.jpg",
+            "eyebrow": "AS SEEN IN WOMEN",
+            "heading": "5 Celebs Who Embrace The Bushy Brow Trend & Look Chic Doing It",
+            "copy": "",
+            "cta_copy": "read more",
+            "cta_url": "https://www.women.com/1831749/celebs-embrace-bushy-brow-trend-look-chic/"
+          }
+        },
+        "content_D8AzNH": {
+          "type": "content",
+          "settings": {
+            "image": "shopify://shop_images/Alicia-HomepageImage.png",
+            "eyebrow": "AS SEEN IN FORBES",
+            "heading": "Alicia Grande Shares The Secrets Behind Grande Cosmetics'  15 Years Of Success",
+            "copy": "",
+            "cta_copy": "read more",
+            "cta_url": "https://www.forbes.com/sites/celiashatzman/2023/06/27/alicia-grande-shares-the-secrets-behind-grande-cosmetics-15-years-of-success/?sh=7d69d31b6d1a"
+          }
+        },
+        "content_9cxhTy": {
+          "type": "content",
+          "disabled": true,
+          "settings": {
+            "eyebrow": "AS SEEN IN INSIDER",
+            "heading": "The 6 Best Eyebrow Gels of 2023, Tested and Approved by Beauty Editor",
+            "copy": "",
+            "cta_copy": "read more",
+            "cta_url": "https://www.businessinsider.com/guides/beauty/best-eyebrow-gel"
+          }
+        },
+        "content_nyFaMG": {
+          "type": "content",
+          "disabled": true,
+          "settings": {
+            "eyebrow": "AS SEEN IN CEW",
+            "heading": "Alicia Grande CEO/Founder of Grande Cosmetics: CEW Female Founder 2023",
+            "copy": "",
+            "cta_copy": "read more",
+            "cta_url": "https://cew.org/people/alicia-grande/"
+          }
+        }
+      },
+      "block_order": [
+        "content_GAFQzB",
+        "content_U3n3Ri",
+        "content_D8AzNH",
+        "content_9cxhTy",
+        "content_nyFaMG"
+      ],
+      "settings": {
+        "title": "",
+        "link_text": "View All",
+        "blog": ""
+      }
+    },
+    "press_cards_4EhwpA": {
+      "type": "press-cards",
+      "blocks": {
+        "content_hDzJC8": {
+          "type": "content",
+          "settings": {
+            "image": "shopify://shop_images/Screenshot_2026-01-29_at_3.19.26_PM.png",
+            "eyebrow": "AS SEEN IN SHEKNOWS",
+            "heading": "Hilary Duff's Busy Mom Makeup Routine Includes This 'Intense' Thickening Mascara",
+            "copy": "",
+            "cta_copy": "read more",
+            "cta_url": "https://www.sheknows.com/living/articles/2727205/grande-cosmetics-grandedrama-mascara/"
+          }
+        },
+        "content_whU3ya": {
+          "type": "content",
+          "settings": {
+            "image": "shopify://shop_images/LashMD-Model-HomepageImage.png",
+            "eyebrow": "AS SEEN IN SWEETY HIGH",
+            "heading": "2022's Top Skincare Trends",
+            "copy": "",
+            "cta_copy": "read more",
+            "cta_url": "https://www.sweetyhigh.com/read/2022-top-skincare-trends-122922"
+          }
+        },
+        "content_nBdj4G": {
+          "type": "content",
+          "settings": {
+            "image": "shopify://shop_images/Grande-Pop-GroupGIF-18888_b5be88f1-81e5-4d96-bd98-c1bf9920d082.gif",
+            "eyebrow": "AS SEEN IN ALLURE",
+            "heading": "Hailey Bieber Basically Wore The Lingerie Version of Makeup",
+            "copy": "",
+            "cta_copy": "read more",
+            "cta_url": "https://www.allure.com/story/hailey-bieber-valentines-day-makeup"
+          }
+        }
+      },
+      "block_order": [
+        "content_hDzJC8",
+        "content_whU3ya",
+        "content_nBdj4G"
+      ],
+      "settings": {
+        "title": "",
+        "link_text": "View All",
+        "blog": ""
+      }
+    },
+    "press_cards_gnV9kc": {
+      "type": "press-cards",
+      "blocks": {
+        "content_tpxTfm": {
+          "type": "content",
+          "settings": {
+            "image": "shopify://shop_images/ReadySetJetBlockEdu_740c8693-6c56-4947-81e0-216adc7eb112.png",
+            "eyebrow": "AS SEEN IN NEWBEAUTY",
+            "heading": "27 Beauty and Wellness Gifts Editors Are Buying This Year",
+            "copy": "",
+            "cta_copy": "read more",
+            "cta_url": "https://www.newbeauty.com/editor-approved-beauty-gifts/3"
+          }
+        },
+        "content_EUXPp8": {
+          "type": "content",
+          "settings": {
+            "image": "shopify://shop_images/Waterproofcontentblocks.gif",
+            "eyebrow": "AS SEEN IN REALSIMPLE",
+            "heading": "I Put Sweatproof Makeup to the Test—These Were the Ones That Actually Worked",
+            "copy": "",
+            "cta_copy": "read more",
+            "cta_url": "https://www.realsimple.com/beauty-fashion/makeup/sweat-proof-makeup"
+          }
+        },
+        "content_6JRt8P": {
+          "type": "content",
+          "settings": {
+            "image": "shopify://shop_images/Linerblock.png",
+            "eyebrow": "AS SEEN IN NEWBEAUTY",
+            "heading": "This Smudge-Free Liquid Eyeliner Also Contains Lash-Enhancing Serum",
+            "copy": "",
+            "cta_copy": "read more",
+            "cta_url": "https://www.newbeauty.com/grande-cosmetics-eyeliner-review/"
+          }
+        }
+      },
+      "block_order": [
+        "content_tpxTfm",
+        "content_EUXPp8",
+        "content_6JRt8P"
+      ],
+      "settings": {
+        "title": "",
+        "link_text": "View All",
+        "blog": ""
+      }
+    },
+    "press_cards_Pcncfh": {
+      "type": "press-cards",
+      "blocks": {
+        "content_BADqLA": {
+          "type": "content",
+          "settings": {
+            "image": "shopify://shop_images/Pop_After.png",
+            "eyebrow": "AS SEEN IN TODAY",
+            "heading": "Cream blush is the viral multitasking beauty product you need",
+            "copy": "",
+            "cta_copy": "read more",
+            "cta_url": "https://www.today.com/shop/best-cream-liquid-blushes-t217305?utm_campaign=Shop%20TODAY%20-%20Best%20Cream%20Liquid%20Blush%20-%202022&utm_medium=email&_hsmi=222423076&_hsenc=p2ANqtz-_CEVChRBcUwCyIaP1L7ZOdGGOpsK3A3O_XioclCC-ZTA9zT__7ldVYD0YPOn76smPqdr36GeBFw7scNTDPO-6Tm0RN7VJqWVY19zTjSR8czVf6Y0E&utm_content=222423076&utm_source=hs_email"
+          }
+        },
+        "content_mCCpjx": {
+          "type": "content",
+          "settings": {
+            "image": "shopify://shop_images/lips.png",
+            "eyebrow": "AS SEEN IN USWEEKLY",
+            "heading": "The Lip Plumper in Jennifer Aniston’s ‘The Morning Show’ Routine",
+            "copy": "",
+            "cta_copy": "read more",
+            "cta_url": "https://www.usmagazine.com/shop-with-us/news/prime-day-jennifer-aniston-morning-show-lip-plumper-gloss/"
+          }
+        },
+        "content_rA9khT": {
+          "type": "content",
+          "settings": {
+            "image": "shopify://shop_images/GN4007_GrandeLIPS_Gloss_ToastedApricot_03_4d474dbb-43f1-4c4e-a16e-1e2e9ac7590c.jpg",
+            "eyebrow": "AS SEEN IN VOGUE",
+            "heading": "Plump it up With These Lip-Accentuating Glosses",
+            "copy": "",
+            "cta_copy": "read more",
+            "cta_url": "https://www.vogue.com/article/best-lip-plumper"
+          }
+        }
+      },
+      "block_order": [
+        "content_BADqLA",
+        "content_mCCpjx",
+        "content_rA9khT"
+      ],
+      "settings": {
+        "title": "",
+        "link_text": "View All",
+        "blog": ""
+      }
+    },
+    "press_cards_U8xKkA": {
+      "type": "press-cards",
+      "blocks": {
+        "content_GBnFEF": {
+          "type": "content",
+          "settings": {
+            "image": "shopify://shop_images/Grande-Gummies-Sleep-18861_aa92588d-00fa-4a3b-8720-3119da37da50.jpg",
+            "eyebrow": "AS SEEN IN NEWBEAUTY",
+            "heading": "14 Supplements for More Restful Sleep",
+            "copy": "",
+            "cta_copy": "read more",
+            "cta_url": "https://www.newbeauty.com/best-sleep-supplements-for-restful-sleep/"
+          }
+        },
+        "content_K7xBJW": {
+          "type": "content",
+          "settings": {
+            "image": "shopify://shop_images/Grande-Gummies-Hair-18858_ab761d84-cedb-4f1a-8729-1efb37c44b52.jpg",
+            "eyebrow": "AS SEEN IN ELLE",
+            "heading": "The 20 Best Hair Growth Vitamins For Longer, Fuller Hair",
+            "copy": "",
+            "cta_copy": "read more",
+            "cta_url": "https://www.elle.com/beauty/g31099887/best-hair-growth-vitamins/"
+          }
+        },
+        "content_tAHfjQ": {
+          "type": "content",
+          "settings": {
+            "image": "shopify://shop_images/brow_newbeauty.jpg",
+            "eyebrow": "AS SEEN IN ALLURE",
+            "heading": "23 of the Best Eyebrow Products Allure Editors Swear By",
+            "copy": "",
+            "cta_copy": "read more",
+            "cta_url": "https://www.allure.com/gallery/best-eyebrow-products"
+          }
+        }
+      },
+      "block_order": [
+        "content_GBnFEF",
+        "content_K7xBJW",
+        "content_tAHfjQ"
+      ],
+      "settings": {
+        "title": "",
+        "link_text": "View All",
+        "blog": ""
+      }
+    },
+    "press_cards_BFad3P": {
+      "type": "press-cards",
+      "blocks": {
+        "content_gc7j39": {
+          "type": "content",
+          "settings": {
+            "image": "shopify://shop_images/lash_whowhatwear.jpg",
+            "eyebrow": "AS SEEN IN ALLURE",
+            "heading": "Why Grande Cosmetics GrandeLASH-MD Lash Enhancing Serum Is Worth the Hype, According to Experts",
+            "copy": "",
+            "cta_copy": "read more",
+            "cta_url": "https://www.allure.com/sponsored/story/grande-cosmetics-grandelash-md-lash-enhancing-serum"
+          }
+        },
+        "content_GwCf8i": {
+          "type": "content",
+          "settings": {
+            "image": "shopify://shop_images/National_Lash_Day_Split_Banner_Block.jpg",
+            "eyebrow": "AS SEEN IN EONLINE",
+            "heading": "Beauty must-haves inspired byReal Housewives of Beverly Hills OGs Lisa Vanderpump and Kyle Richards",
+            "copy": "",
+            "cta_copy": "read more",
+            "cta_url": "https://www.eonline.com/news/1335014/vanderpump-rules-lala-kent-beauty-essentials"
+          }
+        },
+        "content_483mfi": {
+          "type": "content",
+          "settings": {
+            "image": "shopify://shop_images/GrandeBROW-FILLBlock.gif",
+            "eyebrow": "AS SEEN IN NEWBEAUTY",
+            "heading": "This Sweat-Proof Brow Gel Will Be Your Best Friend This Summer",
+            "copy": "",
+            "cta_copy": "read more",
+            "cta_url": "https://www.newbeauty.com/free-gift-friday-grande-cosmetics-grande-brow-fill/"
+          }
+        }
+      },
+      "block_order": [
+        "content_gc7j39",
+        "content_GwCf8i",
+        "content_483mfi"
+      ],
+      "settings": {
+        "title": "",
+        "link_text": "View All",
+        "blog": ""
+      }
+    },
+    "press_cards_jjW7gj": {
+      "type": "press-cards",
+      "blocks": {
+        "content_TbakJk": {
+          "type": "content",
+          "settings": {
+            "image": "shopify://shop_images/lashliftblock_670d65ae-65ca-41f5-8730-dc539b261da7.gif",
+            "eyebrow": "AS SEEN IN HARPER'S BAZAAR",
+            "heading": "The 11 Best Eyelash Curlers for Sky-High Lashes",
+            "copy": "",
+            "cta_copy": "read more",
+            "cta_url": "https://www.cosmopolitan.com/style-beauty/beauty/g39881759/eyelash-curler1/"
+          }
+        },
+        "content_fLF6Jt": {
+          "type": "content",
+          "settings": {
+            "image": "shopify://shop_images/banner-glow_2cc366d6-88bd-4f86-b2b4-1bae127915c5.jpg",
+            "eyebrow": "AS SEEN IN USWEEKLY",
+            "heading": "The Plumping Highlighter Brooke Shields Uses Is Back In Stock On Amazon",
+            "copy": "",
+            "cta_copy": "read more",
+            "cta_url": "https://www.usmagazine.com/shop-with-us/news/brooke-shields-grande-cosmetics-plumping-highlighter-amazon-beauty/"
+          }
+        },
+        "content_inEDrp": {
+          "type": "content",
+          "settings": {
+            "image": "shopify://shop_images/LashLiftRealSimple.jpg",
+            "eyebrow": "AS SEEN IN REALSIMPLE",
+            "heading": "How To Use A Heated Eyelash Curler—And The 4 Best To Try",
+            "copy": "",
+            "cta_copy": "read more",
+            "cta_url": "https://www.realsimple.com/beauty-fashion/makeup/eyes/heated-eyelash-curler"
+          }
+        }
+      },
+      "block_order": [
+        "content_TbakJk",
+        "content_fLF6Jt",
+        "content_inEDrp"
+      ],
+      "settings": {
+        "title": "",
+        "link_text": "View All",
+        "blog": ""
+      }
+    },
+    "press_cards_BXQVq3": {
+      "type": "press-cards",
+      "blocks": {
+        "content_Rf3Gbr": {
+          "type": "content",
+          "settings": {
+            "image": "shopify://shop_images/LinerBlock_d034649b-4abd-4372-8410-6f3fda13114c.png",
+            "eyebrow": "AS SEEN IN NEWBEAUTY",
+            "heading": "Launch List: The Best Makeup Launching In May",
+            "copy": "",
+            "cta_copy": "read more",
+            "cta_url": "https://www.newbeauty.com/best-makeup-launching-in-may/3"
+          }
+        },
+        "content_M8DDDG": {
+          "type": "content",
+          "settings": {
+            "image": "shopify://shop_images/BuffSheFinds.gif",
+            "eyebrow": "AS SEEN IN SHEFINDS",
+            "heading": "Best New Beauty Skincare Award 2022",
+            "copy": "",
+            "cta_copy": "read more",
+            "cta_url": "https://www.shefinds.com/best-new-beauty-awards-2022/"
+          }
+        },
+        "content_qLV8TE": {
+          "type": "content",
+          "settings": {
+            "image": "shopify://shop_images/GN1010_GrandeMASCARAWaterproof_10_0e038796-e4fe-4af1-82fc-652c2b59a953.jpg",
+            "eyebrow": "AS SEEN IN SHAPE",
+            "heading": "The Best Waterproof Mascaras That Will Last Through Your Sweatiest Workouts",
+            "copy": "",
+            "cta_copy": "read more",
+            "cta_url": "https://www.shape.com/lifestyle/beauty-style/best-waterproof-mascaras"
+          }
+        }
+      },
+      "block_order": [
+        "content_Rf3Gbr",
+        "content_M8DDDG",
+        "content_qLV8TE"
+      ],
+      "settings": {
+        "title": "",
+        "link_text": "View All",
+        "blog": ""
+      }
+    },
+    "press_cards_RFF8nA": {
+      "type": "press-cards",
+      "blocks": {
+        "content_HB67dX": {
+          "type": "content",
+          "settings": {
+            "image": "shopify://shop_images/EliteDailyDrama2022.gif",
+            "eyebrow": "AS SEEN IN ELITEDAILY",
+            "heading": "The Best Mascaras For Naturally Long Lashes",
+            "copy": "",
+            "cta_copy": "read more",
+            "cta_url": "https://www.elitedaily.com/style/best-mascaras-for-naturally-long-lashes"
+          }
+        },
+        "content_3TJBgA": {
+          "type": "content",
+          "settings": {
+            "image": "shopify://shop_images/GrandeLIPS_Gloss_LipSwatches_02_360x1_78a063cd-f6eb-4057-9a2c-bf9b2d2db940.gif",
+            "eyebrow": "AS SEEN IN WWD",
+            "heading": "8 Best Lip Plumpers For A Naturally Plump Pout",
+            "copy": "",
+            "cta_copy": "read more",
+            "cta_url": "https://wwd.com/shop/shop-beauty/best-lip-plumping-gloss-1234705853/"
+          }
+        },
+        "content_QqaDJ9": {
+          "type": "content",
+          "disabled": true,
+          "settings": {
+            "eyebrow": "AS SEEN IN PUREWOW",
+            "heading": "Top Picks To Ensure Your Beauty Routine Is Poppin' This Spring.",
+            "copy": "",
+            "cta_copy": "read more",
+            "cta_url": "https://www.purewow.com/beauty/sephora-spring-saving-event"
+          }
+        }
+      },
+      "block_order": [
+        "content_HB67dX",
+        "content_3TJBgA",
+        "content_QqaDJ9"
+      ],
+      "settings": {
+        "title": "",
+        "link_text": "View All",
+        "blog": ""
+      }
+    },
+    "press_cards_DWi3iN": {
+      "type": "press-cards",
+      "blocks": {
+        "content_6TQNXm": {
+          "type": "content",
+          "settings": {
+            "eyebrow": "AS SEEN IN NEWBEAUTY",
+            "heading": "Best Brow Serum <br>\"It's A One-And-Done Solution That Never Fails Which Is Why It Keeps Getting Our Vote.\"",
+            "copy": "",
+            "cta_copy": "read more",
+            "cta_url": "https://www.newbeauty.com/awards/grandebrow-brow-enhancing-serum/"
+          }
+        },
+        "content_yjA9x3": {
+          "type": "content",
+          "settings": {
+            "eyebrow": "AS SEEN IN P.O.W.E.R.",
+            "heading": "Alicia Grande, President/CEO Of Grande Cosmetics Featured In The P.O.W.E.R. Magazine Winter 2022",
+            "copy": "",
+            "cta_copy": "read more",
+            "cta_url": "https://www.powerwoe.com/power-magazine-winter-2022/"
+          }
+        },
+        "content_L3mCFE": {
+          "type": "content",
+          "settings": {
+            "eyebrow": "AS SEEN IN HOLLYWOODLIFE",
+            "heading": "If You Want Voluminous Lashes Like Selena Gomez, Follow These Easy Steps From Celeb Makeup Artists",
+            "copy": "",
+            "cta_copy": "read more",
+            "cta_url": "https://hollywoodlife.com/shop/how-to-get-voluminous-lashes-lash-growth-serum-4676198/"
+          }
+        }
+      },
+      "block_order": [
+        "content_6TQNXm",
+        "content_yjA9x3",
+        "content_L3mCFE"
+      ],
+      "disabled": true,
+      "settings": {
+        "title": "",
+        "link_text": "View All",
+        "blog": ""
+      }
+    },
+    "press_cards_XtmLgc": {
+      "type": "press-cards",
+      "blocks": {
+        "content_7ph9Cx": {
+          "type": "content",
+          "settings": {
+            "eyebrow": "AS SEEN IN COSMOPOLITAN",
+            "heading": "Best Strengthening Mascara: \"Delivers A Clump Free Application That Will Leave Your Lashes Looking Amazingly Thick And Glossy.\"",
+            "copy": "",
+            "cta_copy": "read more",
+            "cta_url": "https://www.cosmopolitan.com/style-beauty/beauty/advice/g3359/best-mascaras/"
+          }
+        },
+        "content_748bJk": {
+          "type": "content",
+          "settings": {
+            "eyebrow": "AS SEEN IN NEWBEAUTY",
+            "heading": "The 8 Beauty Products Artist Paula Crown Is Never Without",
+            "copy": "",
+            "cta_copy": "read more",
+            "cta_url": "https://www.newbeauty.com/aartist-paula-crown-interview/"
+          }
+        },
+        "content_HrKt7J": {
+          "type": "content",
+          "settings": {
+            "eyebrow": "AS SEEN IN PEOPLE",
+            "heading": "Here's How Fashion And Beauty Brands Are Helping Ukraine",
+            "copy": "",
+            "cta_copy": "read more",
+            "cta_url": "https://people.com/style/how-fashion-and-beauty-brands-are-helping-ukraine/"
+          }
+        }
+      },
+      "block_order": [
+        "content_7ph9Cx",
+        "content_748bJk",
+        "content_HrKt7J"
+      ],
+      "disabled": true,
+      "settings": {
+        "title": "",
+        "link_text": "View All",
+        "blog": ""
+      }
+    },
+    "press_cards_CDpmgr": {
+      "type": "press-cards",
+      "blocks": {
+        "content_bhGhYk": {
+          "type": "content",
+          "settings": {
+            "eyebrow": "AS SEEN IN THE LIST",
+            "heading": "Christine Quinn Reveals Her Must-Have Beauty Products",
+            "copy": "",
+            "cta_copy": "read more",
+            "cta_url": ""
+          }
+        },
+        "content_afM86r": {
+          "type": "content",
+          "settings": {
+            "eyebrow": "AS SEEN IN WHO WHAT WEAR",
+            "heading": "Forget Extensions—This Tool Took My Sparse, Thin Lashes To The Next Level",
+            "copy": "",
+            "cta_copy": "read more",
+            "cta_url": "https://www.whowhatwear.com/heated-eyelash-curlers"
+          }
+        },
+        "content_J8mmyN": {
+          "type": "content",
+          "settings": {
+            "eyebrow": "AS SEEN IN BEST PRODUCTS",
+            "heading": "Get Fuller Lips In An Instant With These Must-Have Lip Plumping Glosses",
+            "copy": "",
+            "cta_copy": "read more",
+            "cta_url": "https://www.bestproducts.com/beauty/g242/enhancing-lip-plumpers-perfect-lips/"
+          }
+        }
+      },
+      "block_order": [
+        "content_bhGhYk",
+        "content_afM86r",
+        "content_J8mmyN"
+      ],
+      "disabled": true,
+      "settings": {
+        "title": "",
+        "link_text": "View All",
+        "blog": ""
+      }
+    },
+    "press_cards_BqarMp": {
+      "type": "press-cards",
+      "blocks": {
+        "content_rwjfzB": {
+          "type": "content",
+          "settings": {
+            "eyebrow": "AS SEEN IN REALSIMPLE",
+            "heading": "It's Official: These Are Amazon's Best-Selling Beauty Products Of All Time",
+            "copy": "",
+            "cta_copy": "read more",
+            "cta_url": "https://www.realsimple.com/beauty-fashion/skincare/best-beauty-hair-makeup-skincare-amazon"
+          }
+        },
+        "content_wyTHRY": {
+          "type": "content",
+          "settings": {
+            "eyebrow": "AS SEEN IN ELLE",
+            "heading": "Elle's 2021 Future Of Beauty Awards",
+            "copy": "",
+            "cta_copy": "read more",
+            "cta_url": "https://www.elle.com/beauty/a38266606/elles-2021-future-of-beauty-awards/#skincare"
+          }
+        },
+        "content_FxfFdy": {
+          "type": "content",
+          "settings": {
+            "eyebrow": "AS SEEN IN INSTYLE",
+            "heading": "This Mascara Is \"Life-Changing,\" According To Both Shoppers And Editors",
+            "copy": "",
+            "cta_copy": "read more",
+            "cta_url": "https://www.instyle.com/beauty/grandelash-drama-intense-thickening-mascara-amazon"
+          }
+        }
+      },
+      "block_order": [
+        "content_rwjfzB",
+        "content_wyTHRY",
+        "content_FxfFdy"
+      ],
+      "disabled": true,
+      "settings": {
+        "title": "",
+        "link_text": "View All",
+        "blog": ""
+      }
+    },
+    "press_cards_rW6xTY": {
+      "type": "press-cards",
+      "blocks": {
+        "content_NDDMHn": {
+          "type": "content",
+          "settings": {
+            "eyebrow": "AS SEEN IN BETTER HOMES & GARDENS",
+            "heading": "Ready, Set, Curl: Get Your Most Voluminous Lashes With A Heated Eyelash Curler",
+            "copy": "",
+            "cta_copy": "read more",
+            "cta_url": "https://www.bhg.com/beauty-fashion/heated-eyelash-curler/"
+          }
+        },
+        "content_NdDrDr": {
+          "type": "content",
+          "settings": {
+            "eyebrow": "AS SEEN ON EONLINE",
+            "heading": "Winter HouseStar Paige DeSorbo's Amazon Beauty Picks",
+            "copy": "",
+            "cta_copy": "read more",
+            "cta_url": "https://www.eonline.com/news/1306669/winter-house-star-paige-desorbos-amazon-beauty-picks-are-perfect-for-the-girl-on-the-go"
+          }
+        },
+        "content_3HxiqK": {
+          "type": "content",
+          "settings": {
+            "eyebrow": "AS SEEN IN INSTYLE",
+            "heading": "Blow Drying Your Lashes Is Not A Good Idea — So Please Don't Listen To TikTok",
+            "copy": "",
+            "cta_copy": "read more",
+            "cta_url": "https://www.instyle.com/beauty/makeup/blowdry-lashes-tiktok-trend"
+          }
+        }
+      },
+      "block_order": [
+        "content_NDDMHn",
+        "content_NdDrDr",
+        "content_3HxiqK"
+      ],
+      "disabled": true,
+      "settings": {
+        "title": "",
+        "link_text": "View All",
+        "blog": ""
+      }
+    },
+    "press_cards_VLi3mN": {
+      "type": "press-cards",
+      "blocks": {
+        "content_ryYihd": {
+          "type": "content",
+          "settings": {
+            "eyebrow": "AS SEEN IN WELL DEFINED",
+            "heading": "16 Luxe Lipcare Options That Nourish, Protect, And Create More Kissable Lips",
+            "copy": "",
+            "cta_copy": "read more",
+            "cta_url": "https://welldefined.com/16-luxe-lipcare-options-that-nourish-protect-and-create-more-kissable-lips/"
+          }
+        },
+        "content_f3DbiT": {
+          "type": "content",
+          "settings": {
+            "eyebrow": "AS SEEN IN TODAY",
+            "heading": "The Best Fall Beauty Essentials",
+            "copy": "",
+            "cta_copy": "read more",
+            "cta_url": "https://www.today.com/video/the-best-fall-beauty-essentials-121502277745"
+          }
+        },
+        "content_7Lxj79": {
+          "type": "content",
+          "settings": {
+            "eyebrow": "AS SEEN IN TODAY",
+            "heading": "How To Get The Bold, Beautiful Eyebrows",
+            "copy": "",
+            "cta_copy": "read more",
+            "cta_url": "https://www.today.com/video/how-to-get-the-bold-beautiful-eyebrows-120578117975"
+          }
+        }
+      },
+      "block_order": [
+        "content_ryYihd",
+        "content_f3DbiT",
+        "content_7Lxj79"
+      ],
+      "disabled": true,
+      "settings": {
+        "title": "",
+        "link_text": "View All",
+        "blog": ""
+      }
+    },
+    "press_cards_ftkyUd": {
+      "type": "press-cards",
+      "blocks": {
+        "content_GgkBbW": {
+          "type": "content",
+          "settings": {
+            "eyebrow": "AS SEEN IN NEWBEAUTY",
+            "heading": "Under-Eye Hero",
+            "copy": "",
+            "cta_copy": "read more",
+            "cta_url": "https://grandecosmetics.com/collections/eye-cream/products/granderevive-brightening-eye-cream-with-wrinkle-defense"
+          }
+        },
+        "content_xaDdyH": {
+          "type": "content",
+          "settings": {
+            "eyebrow": "AS SEEN IN HARPER'S BAZAAR",
+            "heading": "Double Duty: Easy Eyes",
+            "copy": "",
+            "cta_copy": "read more",
+            "cta_url": "https://grandecosmetics.com/collections/mascara/products/grandefanatic-fanning-curling-mascara"
+          }
+        },
+        "content_hnV33K": {
+          "type": "content",
+          "settings": {
+            "eyebrow": "AS SEEN IN NEWBEAUTY",
+            "heading": "Jennifer Aniston Reveals Every Beauty Product Used On Set Of 'The Morning Show'",
+            "copy": "",
+            "cta_copy": "read more",
+            "cta_url": "https://www.newbeauty.com/jennifer-aniston-morning-show-beauty-products/"
+          }
+        }
+      },
+      "block_order": [
+        "content_GgkBbW",
+        "content_xaDdyH",
+        "content_hnV33K"
+      ],
+      "disabled": true,
+      "settings": {
+        "title": "",
+        "link_text": "View All",
+        "blog": ""
+      }
+    },
+    "press_cards_dbqKVP": {
+      "type": "press-cards",
+      "blocks": {
+        "content_e4jNHp": {
+          "type": "content",
+          "settings": {
+            "eyebrow": "AS SEEN IN HARPER'S BAZAAR",
+            "heading": "The Return of Lipstick",
+            "copy": "",
+            "cta_copy": "read more",
+            "cta_url": "https://grandecosmetics.com/collections/plumping-lipstick/products/grandelipstick-plumping-lipstick-satin-finish"
+          }
+        },
+        "content_dhenTH": {
+          "type": "content",
+          "settings": {
+            "eyebrow": "AS SEEN IN TODAY",
+            "heading": "14 Best Cream And Liquid Blush Of 2021",
+            "copy": "",
+            "cta_copy": "read more",
+            "cta_url": "https://www.today.com/shop/best-cream-liquid-blushes-t217305"
+          }
+        },
+        "content_xF66pi": {
+          "type": "content",
+          "settings": {
+            "eyebrow": "AS SEEN IN PUREWOW",
+            "heading": "The 16 Best-Selling Items At Sephora (That Always Get Restocked, Thank Goodness)",
+            "copy": "",
+            "cta_copy": "read more",
+            "cta_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "content_e4jNHp",
+        "content_dhenTH",
+        "content_xF66pi"
+      ],
+      "disabled": true,
+      "settings": {
+        "title": "",
+        "link_text": "View All",
+        "blog": ""
+      }
+    },
+    "press_cards_j7R367": {
+      "type": "press-cards",
+      "blocks": {
+        "content_mQTrLF": {
+          "type": "content",
+          "settings": {
+            "eyebrow": "AS SEEN IN BUSTLE",
+            "heading": "13 Spring Skin Care Products That'll Level Up Your Spring Routine",
+            "copy": "",
+            "cta_copy": "read more",
+            "cta_url": "https://www.bustle.com/style/spring-skin-care-products-2021"
+          }
+        },
+        "content_kKXLTx": {
+          "type": "content",
+          "settings": {
+            "eyebrow": "AS SEEN IN NEWBEAUTY",
+            "heading": "Best Brow Serum: \"The Clear, Amino Acid–Infused Formula Gives Sparse Brows New Life In Just Six To Eight Weeks.\"",
+            "copy": "",
+            "cta_copy": "read more",
+            "cta_url": ""
+          }
+        },
+        "content_WGJNXk": {
+          "type": "content",
+          "settings": {
+            "eyebrow": "AS SEEN IN HYBERBAE",
+            "heading": "Celebrity Hairstylist Josh Liu Talks Pro Hair Tips And His New Brand, Útiles",
+            "copy": "",
+            "cta_copy": "read more",
+            "cta_url": "https://hypebae.com/2021/3/josh-liu-utiles-beauty-founder-celebrity-hair-stylist-interview-career-ariana-grande-ponytail"
+          }
+        }
+      },
+      "block_order": [
+        "content_mQTrLF",
+        "content_kKXLTx",
+        "content_WGJNXk"
+      ],
+      "disabled": true,
+      "settings": {
+        "title": "",
+        "link_text": "View All",
+        "blog": ""
+      }
+    },
+    "press_cards_4cnqEk": {
+      "type": "press-cards",
+      "blocks": {
+        "content_mcMfEC": {
+          "type": "content",
+          "settings": {
+            "eyebrow": "AS SEEN IN STYLECRAZE",
+            "heading": "15 Best Mascara Primers For Full Coverage Of 2020",
+            "copy": "",
+            "cta_copy": "read more",
+            "cta_url": "https://www.stylecraze.com/articles/best-mascara-primers/"
+          }
+        },
+        "content_Gz8LgF": {
+          "type": "content",
+          "settings": {
+            "eyebrow": "AS SEEN IN HARPER'S BAZAAR",
+            "heading": "Hair Awards: The Best Products Of The Year",
+            "copy": "",
+            "cta_copy": "read more",
+            "cta_url": "https://www.harpersbazaar.com/beauty/hair/a29191358/hair-awards-winners/"
+          }
+        },
+        "content_9NdnYk": {
+          "type": "content",
+          "settings": {
+            "eyebrow": "AS SEEN IN VOGUE",
+            "heading": "The 8 Things Keeping Brooke Shields Sane At Home",
+            "copy": "",
+            "cta_copy": "read more",
+            "cta_url": "https://www.vogue.com/article/brooke-shields-sanity-saver-list"
+          }
+        }
+      },
+      "block_order": [
+        "content_mcMfEC",
+        "content_Gz8LgF",
+        "content_9NdnYk"
+      ],
+      "disabled": true,
+      "settings": {
+        "title": "",
+        "link_text": "View All",
+        "blog": ""
+      }
+    },
+    "press_cards_GpFdYJ": {
+      "type": "press-cards",
+      "blocks": {
+        "content_VDkYWE": {
+          "type": "content",
+          "settings": {
+            "eyebrow": "AS SEEN IN NEWBEAUTY",
+            "heading": "The January TestTube Is Filled With 8 Perfect Products For Winter-Induced Dry Skin",
+            "copy": "",
+            "cta_copy": "read more",
+            "cta_url": "https://www.newbeauty.com/january-testtube-review/"
+          }
+        },
+        "content_89JCCN": {
+          "type": "content",
+          "settings": {
+            "eyebrow": "AS SEEN IN PUREWOW",
+            "heading": "“I Get Asked If My Lashes Are Real *At Least* Twice A Day Thanks To This Eyelash Serum”",
+            "copy": "",
+            "cta_copy": "read more",
+            "cta_url": "https://www.purewow.com/beauty/grandelash-md-eyelash-serum-review"
+          }
+        },
+        "content_4qcnhn": {
+          "type": "content",
+          "settings": {
+            "eyebrow": "AS SEEN IN MARTHA STEWART",
+            "heading": "13 Moisturizing Lipsticks We Love",
+            "copy": "",
+            "cta_copy": "read more",
+            "cta_url": "https://www.marthastewart.com/7987669/best-moisturizing-lipsticks"
+          }
+        }
+      },
+      "block_order": [
+        "content_VDkYWE",
+        "content_89JCCN",
+        "content_4qcnhn"
+      ],
+      "disabled": true,
+      "settings": {
+        "title": "",
+        "link_text": "View All",
+        "blog": ""
+      }
+    }
+  },
+  "order": [
+    "main",
+    "banner_qdEWKE",
+    "press_cards_ihhe3M",
+    "press_cards_cAHTnz",
+    "press_cards_Hr3aJ6",
+    "press_cards_GNbe98",
+    "press_cards_4EhwpA",
+    "press_cards_gnV9kc",
+    "press_cards_Pcncfh",
+    "press_cards_U8xKkA",
+    "press_cards_BFad3P",
+    "press_cards_jjW7gj",
+    "press_cards_BXQVq3",
+    "press_cards_RFF8nA",
+    "press_cards_DWi3iN",
+    "press_cards_XtmLgc",
+    "press_cards_CDpmgr",
+    "press_cards_BqarMp",
+    "press_cards_rW6xTY",
+    "press_cards_VLi3mN",
+    "press_cards_ftkyUd",
+    "press_cards_dbqKVP",
+    "press_cards_j7R367",
+    "press_cards_4cnqEk",
+    "press_cards_GpFdYJ"
+  ]
+}

@@ -1,0 +1,86 @@
+{{ 'page-content.min.css' | asset_url | stylesheet_tag }}
+
+<section class="page-content">
+  <div class="page-content__container">
+    {% comment %}
+    <h2 class="page-content__title">{{ page.title }}</h2>
+    {% endcomment %}
+
+      {% if section.settings.show_carousel %}
+        <div class="page-content__carousel">
+          <page-carousel data-swiper-class="swiper" class="page-content__carousel-container">
+            <div class="page-content__carousel-navigation">
+              <div class="page-carousel__nav-arrows">
+                <button class="page-carousel__prev" data-slide-previous-image aria-label="Previous Carousel Slide">
+                  {% render 'icons', icon_name: 'arrow-left-filled-light' %}
+                </button>
+                <button class="page-carousel__next" data-slide-next-image aria-label="Next Carousel Slide">
+                  {% render 'icons', icon_name: 'arrow-right-filled-light' %}
+                </button>
+              </div>
+            </div>
+            <div class="page-carousel page-carousel__wrapper" data-swiper-class="swiper-wrapper">
+              {% for block in section.blocks %}
+                <div class="page-carousel page-carousel__slide" data-swiper-class="swiper-slide">
+                  <div class="page-carousel__slide-wrapper">
+                    <div class="page-carousel__slide-image page-carousel__slide-fadeElement">
+                      {% render 'image', image: block.settings.image_d, class: 'hide-mobile' %}
+                      {% render 'image', image: block.settings.image_m, class: 'hide-desktop' %}                    
+                    </div>
+                  </div>
+                </div>
+              {% endfor %}
+            </div>
+          </page-carousel>
+        </div>
+      {% endif %}
+      <page-content class="page-content__text{% if section.settings.show_carousel %} desk-fifty{% endif %}">
+        {{ page.content }}
+      </page-content>
+  </div>
+</section>
+
+<script src="{{ 'page-content.min.js' | asset_url }}" defer></script>
+
+{% schema %}
+{
+  "name": "Page Content",
+  "class": "page-content",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_carousel",
+      "label": "Show Carousel?",
+      "default": true
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image_slide",
+      "name": "Image Slide",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image_d",
+          "label": "Image (Desktop)"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_m",
+          "label": "Image (Mobile)"
+        }        
+      ]
+    }
+  ],
+  "enabled_on": {
+    "templates": ["page"]
+  },
+  "presets": [
+    {
+      "name": "Page Content"
+    }
+  ]
+}
+{% endschema %}
+

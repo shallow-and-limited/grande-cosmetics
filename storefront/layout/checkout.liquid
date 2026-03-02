@@ -1,0 +1,357 @@
+{% include 'shogun-content-handler' %}
+{% assign cart_properties = cart.items | map: "properties" | map: "product_type" %}
+{% assign cart_properties_uniq = cart_properties | uniq %}
+{% if cart_properties contains "Sample" and cart_properties_uniq.size == 1 %}
+	{% layout 'none' %}
+    <meta content="0; url=/cart/clear" http-equiv="refresh" />
+	{% break %}{% continue %}
+{% endif %}
+
+<!DOCTYPE html>
+<html lang="{{ locale }}" dir="{{ direction }}" class="{{ checkout_html_classes }}">
+  <head>
+    <script>(function () { function asyncLoad() { var s = document.createElement('script'); s.type = 'text/javascript'; s.async = true; s.src = 'https://s3.eu-west-1.amazonaws.com/production-klarna-il-shopify-osm/06813f2bbb40bf097c85cc33982be5da59692f3f/grande-cosmetics.myshopify.com-1679931342381.js'; var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(s, x); }; if (window.attachEvent) { window.attachEvent('onload', asyncLoad); } else { window.addEventListener('load', asyncLoad, false); } })(); </script>
+<!-- Start WKND tag. Deploy at the beginning of document head. -->
+<script>
+	(function(d) {
+		var e = d.createElement('script');
+		e.src = d.location.protocol + '//tag.wknd.ai/4261/i.js';
+		e.async = true;
+		d.getElementsByTagName("head")[0].appendChild(e);
+	}(document));
+</script>
+<!-- End WKND tag -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, height=device-height, minimum-scale=1.0, user-scalable=0">
+    <meta name="referrer" content="origin">
+
+    <title>{{ page_title }}</title>
+
+    {{ content_for_header }}
+
+    {{ checkout_stylesheets }}
+    {{ checkout_scripts }}
+  
+  
+  <script src="https://cdn-widgetsrepository.yotpo.com/v1/loader/JH2qbh2P4IIoGnKQxzy8bw" async></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+  {% render 'shogun-head' %}
+      
+  <!-- ADDRESS VALIDATOR -->
+  <script async src="https://d3ox8tdk614ykk.cloudfront.net/pobox_checker.js"></script>
+
+  <script src="https://js.adsrvr.org/up_loader.1.1.0.js" type="text/javascript"></script>
+  <script type="text/javascript">
+      ttd_dom_ready( function() {
+          if (typeof TTDUniversalPixelApi === 'function') {
+              var universalPixelApi = new TTDUniversalPixelApi();
+              universalPixelApi.init("vp8y0pg", ["y96p1n3"], "https://insight.adsrvr.org/track/up");
+          }
+      });
+  </script>
+
+  <script src="//action.dstillery.com/orbserv/nsjs?adv=cl168243922649999&ns=7932&nc=Grande-Cosmetics-Site-Visitor&ncv=63" type="text/javascript"></script><noscript><img width="1" height="1" src="//action.dstillery.com/orbserv/nspix?adv=cl168243922649999&ns=7932&nc=Grande-Cosmetics-Site-Visitor&ncv=63" /></noscript>
+</head>
+  <body>
+    <!--   Impact identity function script start  -->
+    
+    <!--   Impact identity function script end  -->
+    
+    {{ skip_to_content_link }}
+
+    <header class="banner" data-header role="banner">
+      <div class="wrap">
+        {{ content_for_logo }}
+      </div>
+    </header>
+
+    {{ order_summary_toggle }}
+    <div class="content" data-content>
+      <div class="wrap">
+        <div class="main">
+          <header class="main__header" role="banner">
+            {{ content_for_logo }}
+            {{ breadcrumb }}
+            {{ alternative_payment_methods }}
+          </header>
+          <main class="main__content" role="main">
+            {{ content_for_layout }}
+          </main>
+          <footer class="main__footer" role="contentinfo">
+            {{ content_for_footer }}
+          </footer>
+        </div>
+        <aside class="sidebar" role="complementary">
+          <div class="sidebar__header">
+            {{ content_for_logo }}
+          </div>
+          <div class="sidebar__content">
+            <limespot></limespot>
+{{ content_for_order_summary }}
+          </div>
+        </aside>
+      </div>
+    </div>
+    <script>
+      // output the order id to the console
+      console.log(`Order price: ${Shopify.Checkout.totalPrice}`);
+    </script>
+    {{ tracking_code }}
+    <!--START Pepperjam CODE--> <noscript> <iframe src="//nojscontainer.pepperjam.com/3253044620.html" width="1" height="1" frameborder="0"></iframe> </noscript> <script> (function(){ var a=document.createElement("script"); a.type="text/javascript", a.async=!0, a.src="//container.pepperjam.com/3253044620.js"; var b=document.getElementsByTagName("head")[0]; if(b) b.appendChild(a,b); else { var b=document.getElementsByTagName("script")[0];b.parentNode.insertBefore(a,b) } })(); </script> <!--END Pepperjam CODE-->
+    {% comment %}
+    {% include 'elevar-checkout-end' %}
+    {% endcomment %}
+    
+    <div class="popup-overlay-privacy" id="popup-overlay-privacy">
+      <div class="popup-content-privacy">
+        <span class="deleteMeetingClose">&times;</span>
+         {{settings.html_privacy_policy}}
+     </div>
+    </div>
+
+    <div class="popup-overlay-terms" id="popup-overlay-terms">
+      <div class="popup-content-terms">
+        <span class="deleteMeetingClose">&times;</span>
+         {{settings.html_terms_of_use}}
+     </div>
+    </div>
+
+  </body>
+</html>
+
+<script>
+
+(function($) {
+  $(document).on("page:load page:change", function() {
+
+    if (Shopify.Checkout.step === "payment_method") {
+      var section = $('.step__sections .section').first();
+      section.append('<div class="privacy-policy-box"><label class="privacy-policy-box-container">{{ settings.checkout_privacy_policy_message }}<input type="checkbox" class="privacy-policy-box-input" id="privacy-policy" name="privacy-policy"><span class="privacy-policy-box-checkmark"></span></label></div>');
+      
+      $('#continue_button').on('click', function(){
+        if(!($('#privacy-policy').is(":checked"))){
+          alert('{{settings.checkout_privacy_alert_message}}');
+          return false;
+        }
+      });
+    }
+
+    if(Shopify.Checkout.page === "thank_you") {
+      console.log('Order ID: ' + Shopify.Checkout.order.id);
+      console.log('Order Total: ' + Shopify.Checkout.order.totalPrice);
+      console.log('Order Currency: ' + Shopify.Checkout.order.currencyCode);
+      USI_orderID = `${Shopify.Checkout.order.id}`;
+      USI_orderAmt = `${Shopify.Checkout.order.totalPrice}`;
+      USI_currency = `${Shopify.Checkout.order.currencyCode}`;
+      var USI_headID = document.getElementsByTagName("head")[0];
+      var USI_dynScript = document.createElement("script");
+      USI_dynScript.setAttribute('type','text/javascript');
+      USI_dynScript.src = 'https://www.upsellit.com/active/grandecosmetics_pixel.jsp';
+      USI_headID.appendChild(USI_dynScript);
+    }
+
+  $('.privacy-policy-popup').on('click', function(){
+    $(".popup-overlay-privacy, .popup-content-privacy").addClass("active");
+  });
+
+  $('.privacy-policy-terms').on('click', function(){
+    $(".popup-overlay-terms, .popup-content-terms").addClass("active");
+  });
+
+  $('.deleteMeetingClose').on('click', function(){
+    $(".popup-overlay-privacy, .popup-content-privacy, .popup-overlay-terms, .popup-content-terms").removeClass("active");
+  });
+
+  $(document).click(function(event) {
+    var modal = document.getElementById("popup-overlay-privacy");
+    if (event.target == modal) {
+        $(".popup-overlay-privacy, .popup-content-privacy").removeClass("active");
+    }else{
+      modal = document.getElementById("popup-overlay-terms");
+      if (event.target == modal) {
+        $(".popup-overlay-terms, .popup-content-terms").removeClass("active");
+      }
+    }
+  });
+  });
+})(Checkout.$);
+</script>
+
+<style>
+  .logo__text {
+    color: #010101;
+    text-shadow: 2px 1px 2px #eb3688;
+  }
+  .product-thumbnail__quantity{
+    background-color: #eb3688;
+  }
+  .js .sidebar .btn--disabled {
+    background: #da1884;
+  }
+  .section--payment-method .visually-hidden, .content-box__small-text{
+    display: none;
+  }
+
+  .privacy-policy-box {
+    margin-top: 10px;
+    margin-bottom: -10px;
+    background-color: #f3f3f3;
+    padding: 22px;
+    border: 1px solid #e1e1e1;
+    border-radius: 4px;
+  }
+
+  .privacy-policy-box-container {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
+  input[type="checkbox"], input[type="radio"] {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 0;
+  }
+
+
+  .privacy-policy-box-input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+
+  .privacy-policy-box-container input:checked~.privacy-policy-box-checkmark {
+    background-color: #eb3688;
+    border-color: #eb3688;
+  }
+
+  .privacy-policy-box-checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 18px;
+    width: 18px;
+    background-color: #fff;
+    border: solid 1px #d9d9d9;
+    border-radius: 4px;
+  }
+
+  .privacy-policy-box-container input:checked~.privacy-policy-box-checkmark:after {
+    display: block;
+  }
+
+  .privacy-policy-box-container .privacy-policy-box-checkmark:after {
+    left: 6px;
+    top: 2px;
+    width: 4px;
+    height: 9px;
+    border: solid #fff;
+    border-width: 0 2px 2px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+
+  .privacy-policy-box-checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+
+  
+</style>
+<style>
+  .popup-overlay-privacy, .popup-overlay-terms{
+      display:none;
+      position: fixed; /* Stay in place */
+      z-index: 9; /* Sit on top */
+      padding-top: 50px; /* Location of the box */
+      left: 0;
+      top: 0;
+      width: 100%; /* Full width */
+      height: 100%; /* Full height */
+      background-color: rgb(0,0,0);  /*Fallback color */
+      background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+
+  .popup-overlay-privacy p , .popup-overlay-terms p{
+    margin: 0.7em 0;
+    font-family: "Century Gothic",sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 1.5;
+    color: #333;
+  }
+
+  .popup-overlay-privacy strong , .popup-overlay-terms strong{
+    font-weight: 700;
+  }
+
+  .popup-overlay-privacy a , .popup-overlay-terms a{
+    text-decoration: underline;
+    transition: .2s opacity;
+    color: #333;
+    text-shadow: 1px 1px 1px rgb(0 0 0 / 0%);
+  }
+
+  .popup-overlay-privacy ul, .popup-overlay-privacy ol , .popup-overlay-terms ul, .popup-overlay-terms ol{
+    list-style: disc inside;
+    margin: 0 0 1em 25px;
+    padding: 0;
+    text-align: left!important;
+  }
+
+  .popup-overlay-privacy ol, .popup-overlay-terms ol{
+    list-style: decimal inside;
+  }
+
+
+  .popup-content-privacy, .popup-content-terms {
+      display: none;
+      padding: 30px;
+      margin: auto;
+      width: 50%;
+      overflow-y: scroll;
+      height: 75%;
+      background-color: #f3f3f3;
+  } 
+  
+  .popup-overlay-privacy.active, .popup-overlay-terms.active{
+      display: block;
+  }
+
+  .popup-content-privacy.active, .popup-content-terms.active {
+      display: block;
+  }
+
+  .deleteMeetingClose {
+    font-size: 1.5em;
+    cursor: pointer;
+    position: relative;
+    left: 100%;
+}
+</style>
+
+<script>
+  
+  jQuery('document').ready(function(){
+    jQuery('.order-summary__scroll-indicator').attr('role','button');
+    jQuery('.total-line__name a').attr('role','link');
+    jQuery('.total-line__name a').attr('tabindex','0');
+    jQuery('.total-line__name a').removeAttr("aria-haspopup");
+    jQuery('.modal-backdrop .modal.default-background').attr('aria-modal','true');
+  });
+
+</script>
+{{ 'idme-checkout-style.css' | asset_url | stylesheet_tag }}
+{{ 'idme-checkout-template.js' | asset_url | script_tag }}

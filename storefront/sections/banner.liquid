@@ -1,0 +1,212 @@
+{% assign pagetype = request.page_type %}
+{% case pagetype %}
+{% when 'product' %}
+  {% assign _s = product.metafields.details.product_banner.value %}    
+{% when 'collection' %}
+    {% assign _s = collection.metafields.custom.collection_banner.value %}      
+{% else %}
+  {%- assign _s = section.settings -%}
+{% endcase %}
+
+{% assign show_section = true %} 
+{% if pagetype == 'product' and product.metafields.details.product_banner == blank %}
+  {% assign show_section = false %} 
+{% endif %}
+
+{% if pagetype == 'collection' and collection.metafields.custom.collection_banner == blank %}
+  {% assign show_section = false %} 
+{% endif %}
+
+{% if _s %}
+
+  {{ 'banner.min.css' | asset_url | stylesheet_tag }}
+
+  {% assign overlayOpacity = _s.overlay | divided_by: 100.0 %}
+  {% style %}
+    .banner--{{ section.id }} .banner__background::before {
+      background:  rgba(0, 0, 0, {{ overlayOpacity }});
+    }
+  {% endstyle %}
+
+  {% assign color_lower = _s.color | downcase %}
+  {% assign background_lower = _s.background | downcase %}
+  {% assign alignment_lower = _s.alignment | downcase %}
+  {% if show_section %}  
+  <section class="banner banner--{{ section.id }} bg-{{ background_lower }} banner--{{ color_lower }} banner--{{ alignment_lower }}">
+    
+    <div class="banner__background">
+      {%- if _s.image_d != blank -%}
+        {% render 'image',
+          image: _s.image_d,
+          image_m: _s.image_m,
+          loading: loading,
+          max_width: 1440
+        %}
+      {%- endif -%}
+    </div>
+    <div class="banner__content">
+      {% if _s.eyebrow != blank %}
+        <div class="banner__eyebrow s-3">
+          {{ _s.eyebrow }}
+        </div>
+      {% endif %}
+      {% if _s.heading != blank %}
+        {% if is_first_module %}
+          <h1 class="banner__heading {{  _s.heading_size }}">{{ _s.heading }}</h1>
+        {% else %}
+          <h2 class="banner__heading {{  _s.heading_size }}">{{ _s.heading }}</h2>
+        {% endif %}
+      {% endif %}
+      {% if _s.copy != blank %}
+        <div class="banner__copy p-3{% if pagetype == 'product' or pagetype == 'collection' %} metafield-copy{% endif %}">
+          {% unless pagetype == 'product' or pagetype == 'collection' %}{{ _s.copy | newline_to_br }}{% else %}{{ _s.copy | metafield_tag | newline_to_br }}{% endunless %%}
+        </div>
+      {% endif %}
+      {% if _s.cta_copy != blank and _s.cta_url != blank %}
+        <div class="banner__ctas">
+          <a
+            class="btn{% if color_lower == 'light' %} btn--primary-dark{% else %} btn--primary{% endif %}"
+            href="{{ _s.cta_url }}"
+          >
+            {{- _s.cta_copy -}}
+          </a>
+          {% if _s.cta_copy_alt != blank and _s.cta_url_alt != blank %}
+            <a
+              class="banner__cta btn--link"
+              href="{{ _s.cta_url_alt }}"
+            >
+              {{- _s.cta_copy_alt -}}
+            </a>
+          {% endif %}
+        </div>
+      {% endif %}
+    </div>
+  </section>
+  {% endif %}
+{% endif %}
+
+{% schema %}
+{
+  "name": "Banner",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section Settings",
+      "info": "Note: if this section is placed on a product or collection page, it will take its settings and items from the product or collection's metafields."
+    },    
+    {
+      "id": "color",
+      "type": "select",
+      "label": "Color Style",
+      "options": [
+        { "value": "light", "label": "Light" },
+        { "value": "dark", "label": "Dark" }
+      ]
+    },
+    {
+      "id": "background",
+      "type": "select",
+      "label": "Background Color",
+      "default": "beige",
+      "options": [
+        { "value": "beige", "label": "Beige" },
+        { "value": "rose", "label": "Rose" }
+      ]
+    },
+    {
+      "id": "image_d",
+      "type": "image_picker",
+      "label": "Background Image - Desktop"
+    },
+    {
+      "id": "image_m",
+      "type": "image_picker",
+      "label": "Background Image - Mobile"
+    },
+    {
+      "id": "alignment",
+      "type": "select",
+      "label": "Alignment",
+      "default": "left",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "center", "label": "Center" }
+      ]
+    },
+    {
+      "id": "eyebrow",
+      "type": "text",
+      "label": "Eyebrow"
+    },
+    {
+      "id": "heading",
+      "type": "text",
+      "label": "Heading"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "label": "Heading Size",
+      "options": [
+        {
+          "value": "h1",
+          "label": "H1"
+        },
+        {
+          "value": "h2",
+          "label": "H2"
+        },
+        {
+          "value": "h3",
+          "label": "H3"
+        },
+        {
+          "value": "h4",
+          "label": "H4"
+        }
+      ],
+      "default": "h2"
+    },
+    {
+      "id": "copy",
+      "type": "textarea",
+      "label": "Copy"
+    },
+    {
+      "id": "cta_url",
+      "type": "url",
+      "label": "CTA Url"
+    },
+    {
+      "id": "cta_copy",
+      "type": "text",
+      "label": "CTA Text"
+    },
+    {
+      "id": "cta_url_alt",
+      "type": "url",
+      "label": "Secondary CTA Url"
+    },
+    {
+      "id": "cta_copy_alt",
+      "type": "text",
+      "label": "Secondary CTA Text"
+    },
+    {
+      "type": "range",
+      "id": "overlay",
+      "min": 0,
+      "max": 100,
+      "step": 10,
+      "unit": "%",
+      "label": "Overlay",
+      "default": 0
+    }
+  ],
+  "presets": [
+    {
+      "name": "Banner"
+    }
+  ]
+}
+{% endschema %}

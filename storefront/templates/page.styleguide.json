@@ -1,0 +1,25 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "22bd4aca-0f4f-414f-8807-60c82db654f5": {
+      "type": "styleguide",
+      "settings": {}
+    },
+    "faq_4kzkpP": {
+      "type": "faq",
+      "settings": {}
+    }
+  },
+  "order": [
+    "22bd4aca-0f4f-414f-8807-60c82db654f5",
+    "faq_4kzkpP"
+  ]
+}

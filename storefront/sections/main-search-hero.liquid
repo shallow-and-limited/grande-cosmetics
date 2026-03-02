@@ -1,0 +1,101 @@
+
+{%- liquid
+  assign _s = section.settings
+
+  assign has_products = false
+  assign has_articles = false
+  assign product_result_count = 0
+  assign article_result_count = 0
+
+  paginate search.results by limit
+    if paginate.page_size > paginate.items
+      assign current_size = paginate.items | times: 1.0
+    else
+      assign current_size = paginate.page_size | times: 1.0
+    endif
+  endpaginate
+
+  for item in search.results
+    if item.object_type == 'product'
+      assign has_products = true
+      assign product_result_count = product_result_count | plus: 1
+    elsif item.object_type == 'article'
+      assign has_articles = true
+      assign article_result_count = article_result_count | plus: 1
+    endif
+  endfor
+
+
+-%}
+
+
+{%- capture contentForQuerystring -%}{{ content_for_header }}{%- endcapture -%}
+{%- assign pageUrl = contentForQuerystring
+  | split: '"pageurl":"'
+  | last
+  | split: '"'
+  | first
+  | split: '.myshopify.com'
+  | last
+  | replace: '\/', '/'
+  | replace: '%20', ' '
+  | replace: '\u0026', '&'
+-%}
+
+{% capture finalurl %}https://{{ pageUrl }}{% endcapture %}
+
+{% if finalurl contains 'product' %}
+  {% assign search.results_count = product_result_count %}
+  {% assign search_type = 'product' %}
+  {% assign search_other = 'article' %}
+{% elsif finalurl contains 'article' %}
+  {% assign search.results_count = article_result_count %}
+  {% assign search_type = 'article' %}
+  {% assign search_other = 'product' %}
+{% endif %}
+
+<section class="main-search-hero {% unless _s.image != blank %}main-search-hero--simple{% endunless %}" data-search-terms="{{ search.terms }}" data-search-other="{{ search_other }}">
+  <div class="main-search-hero__wrapper">
+    <div class="main-search-hero__content">
+      <p class="main-search-hero__eyebrow s-3 color-dark-gray">
+        Search Results For
+      </p>
+      <h2 class="main-search-hero__heading h2">
+        "{{ search.terms }}"
+      </h2>
+      {%- if search.results_count > 0 -%}
+        <div class="main-search-hero__spread">
+          <a href="/search?q={{ search.terms }}&type=product" class="main-search-hero__spread-cta p-2 {% if finalurl contains 'product' %} active{% endif %}">Products <div class="product-count">(<span data-product-count-master>{{ search.results_count }}</span>)</div></a>
+          <a href="/search?q={{ search.terms }}&type=article" class="main-search-hero__spread-cta p-2 {% if finalurl contains 'article' %} active{% endif %}">Stories <div class="article-count">(<span data-article-count-master>{% if finalurl contains 'article' %}{{ search.results_count }}{% endif %}</span>)</div></a>
+        </div>
+      {%- else -%}
+        <p class="main-search-hero__copy">
+          There were no results for your search. 
+        </p>
+        <form
+          action="{{ routes.search_url }}"
+          method="get"
+          role="search"
+          class="search"
+        >
+          <input
+            class="search-input"
+            type="search"
+            name="q"
+            value=""
+            placeholder="Search Again"
+          >
+          <button
+            type="submit"
+            class="search-button"
+            aria-label="Search for products or categories"
+          >
+            {% render 'icons', icon_name: 'search' %}
+          </button>
+        </form>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+<script src="{{ 'main-search.min.js' | asset_url }}" defer="defer"></script>

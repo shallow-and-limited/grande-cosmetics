@@ -1,0 +1,65 @@
+
+<selectable-bundle {{ block.shopify_attributes }} 
+  data-variants="{{ product.variants | json | escape }}">
+  <div class="product-form">
+    {%- render 'selectable-bundle-options', 
+    	product: product, 
+    	_metafields: _metafields -%}
+
+    {%- render 'buy-buttons',
+      product: product,
+      show_dynamic_checkout: _b.show_dynamic_checkout -%}
+  </div>
+</selectable-bundle>
+
+<script src="{{ 'selectable-bundle.min.js' | asset_url }}" defer="defer"></script>
+
+
+<notify-form>
+  {%- form 'product',
+    product,
+    id: 'back-in-stock-form',
+    novalidate: 'novalidate',
+    class: 'main-product__notify-form',
+    data-type: 'notify-form',
+    method: 'post',
+    action: '/',
+    data-back-in-stock: 'true'
+  -%}
+    {% if isBackInStock %}
+      <div
+        class="main-product__back-in-stock{% if product.selected_or_first_available_variant.available == true %} hide{% endif %}"
+        data-notify-form
+      >
+        <div class="main-product__back-in-stock-copy">
+          <span class="main-product__back-in-stock-copy-text p-3">
+            {{- 'products.product.back_in_stock_text' | t -}}
+          </span>
+          <span class="main-product__back-in-stock-copy-success p-3">
+            {{- 'products.product.back_in_stock_thanks' | t -}}
+          </span>
+          <span class="main-product__back-in-stock-copy-error color-red p-3">
+            {{- 'products.product.back_in_stock_error' | t -}}
+          </span>
+        </div>
+        <div class="main-product__back-in-stock-form">
+          <input
+            type="email"
+            placeholder="Email Address"
+            id="pdp_bis_email"
+            data-notify-email
+            class="main-product__back-in-stock-form-email main"
+          >
+          <button
+            type="submit"
+            class="btn btn--primary main-product__back-in-stock-form-button"
+            data-notify-submit-btn
+            data-submit-button
+          >
+            {{ 'products.product.back_in_stock_button' | t }}
+          </button>
+        </div>
+      </div>
+    {% endif %}
+  {% endform %}
+</notify-form>

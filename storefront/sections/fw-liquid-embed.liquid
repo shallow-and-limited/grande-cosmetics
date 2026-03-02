@@ -1,0 +1,42 @@
+{{ 'fw-html-embed.min.css' | asset_url | stylesheet_tag }}
+<script async type="text/javascript" src="//asset.fwcdn3.com/js/embed-feed.js"></script>
+
+<section class="html-embed">
+  <div class="html-embed__container">
+      {% if section.settings.title != blank %}
+          <div class="html-embed__heading">
+              <h5>{{  section.settings.title }}</h5>
+          </div>
+      {% endif %}
+      <fw-embed-feed channel="grandecosmetics" 
+        skus="{{ product.id }}"
+        mode="row" 
+        open_in="default" 
+        max_videos="0" 
+        placement="middle" 
+        player_placement="bottom-right" 
+        branding="false">
+      </fw-embed-feed>
+  </div>
+</section>
+
+
+{% schema %}
+{
+  "name": "Firework Liquid Embed",
+  "settings": [
+    {
+      "type": "text",
+      "label": "Title",
+      "id": "title",
+      "info": "optional"
+    },
+   ],
+  "presets": [
+    {
+      "category": "firework-html-embed",
+      "name": "Firework Liquid Embed"
+    }
+  ]
+}
+{% endschema %}

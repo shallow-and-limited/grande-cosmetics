@@ -1,0 +1,132 @@
+{{ 'product-feature.min.css' | asset_url | stylesheet_tag }}
+
+{% comment %} <script src="{{ 'product-feature.min.js' | asset_url }}" defer></script> {% endcomment %}
+
+
+<product-feature class="product-feature">
+    <div class="product-feature__background-slide" a-background-shift>
+        <img class="hide-mobile" height="1000" width="2500" src="{{ section.settings.image_bg_slide | image_url }}" />
+        <img class="hide-desktop" height="1000" width="2500" src="{{ section.settings.image_bg_slide_m | image_url }}" />
+    </div>
+    <div class="product-feature__wrapper">
+        <div class="footer__wave">
+            {% render 'icons', icon_name: 'wave' %}
+            {% render 'icons', icon_name: 'wave', class: 'icon--flip' %}
+        </div>
+        {% if section.settings.image_bg != blank %}
+            <img class="product-feature__bg-image" height="1000" width="1000" src="{{ section.settings.image_bg | image_url }}" />
+        {% endif %}
+        <div class="product-feature__container" {% if section.settings.image_bg == blank %}style="background-color: {{ section.settings.color_bg }}"{% endif %} data-slide-up-container>
+            <h2 class="product-feature__heading mobile-only" data-slide-up>{{  section.settings.heading }}</h2>
+            <div class="product-feature__image">
+                {% if section.settings.image_accent != blank %}
+                    <img class="product-feature__accent-image" height="1000" width="1000" src="{{ section.settings.image_accent | image_url }}" />
+                {% endif %}
+                {% if section.settings.image_product != blank %}
+                    <img class="product-feature__product-image" a-image-shift height="1000" width="1000" src="{{ section.settings.image_product | image_url }}" />
+                {% endif %}
+            </div>
+            <div class="product-feature__text">
+                <h2 class="product-feature__heading" data-slide-up>{{  section.settings.heading }}</h2>
+                {% assign selectedProduct = all_products[section.settings.product] %}
+                <p class="product-feature__title" data-slide-up>{{  selectedProduct.title }}</p>
+                <p class="p-1" data-slide-up>{{  selectedProduct.description }}</p>
+
+                <form method="post" action="/cart/add" class="hide-mobile">
+                    {% if selectedProduct.variants.size > 1 %}
+                        <div class="product-feature__variants">
+                            {% for variant in selectedProduct.variants %}
+                                {% if variant.available == true %}
+                                    <input class="product-feature__input" type="radio" id="{{ variant.id }}" name="id" value="{{ variant.id }}" {% if forloop.first %}checked{% endif%}/>
+                                    <label class="p-3 product-feature__input-text" for="{{ variant.id }}" data-slide-up>{{ variant.title }}</label>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                    {%  else %}
+                        <input class="product-feature__input" type="radio" id="variantId" name="id" value="{{ selectedProduct.first_available_variant.id }}" checked data-slide-up />
+                    {% endif %}
+                    <span>
+                        <button name="add" class="product-feature__btn btn btn--primary-dark" type="submit" data-slide-up>{{ 'products.product.add_to_cart' | t }}</button>
+                        <a class="product-feature__product-link btn btn--text" href="{{ selectedProduct.url }}" data-slide-up>{{ 'products.product.learn_more' | t }}</a>
+                    </span>
+                </form>
+
+                <form method="post" action="/cart/add" class="hide-desktop">
+                    {% if selectedProduct.variants.size > 1 %}                    
+                        <select class="product-feature__select" name="id" data-slide-up>
+                            {% for variant in selectedProduct.variants %}
+                                {% if variant.available == true %}
+                                    <option value="{{ variant.id }}">{{ variant.title }}</option>
+                                {% endif %}
+                            {% endfor %}
+                        </select>
+                    {%  else %}
+                        <input class="product-feature__input" type="radio" id="variantId" name="id" value="{{ selectedProduct.first_available_variant.id }}" checked data-slide-up />
+                    {% endif %}
+                    <span>
+                        <button name="add" class="product-feature__btn btn btn--primary-dark" type="submit" data-slide-up>{{ 'products.product.add_to_cart' | t }}</button>
+                        <a class="product-feature__product-link btn btn--text" href="{{ selectedProduct.url }}" data-slide-up>{{ 'products.product.learn_more' | t }}</a>
+                    </span>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</product-feature>
+
+<script src="{{ 'product-feature.min.js' | asset_url }}" defer="defer"></script>
+
+{% schema %}
+{
+  "name": "Product Feature",
+  "settings": [
+    {
+        "type": "text",
+        "label": "Heading",
+        "id": "heading",
+        "default": "H2 Heading 50 Characters Max"
+    },
+    {
+        "type": "image_picker",
+        "label": "Animated Slide Image",
+        "id": "image_bg_slide"
+    },
+    {
+        "type": "image_picker",
+        "label": "Mobile Animated Slide Image",
+        "id": "image_bg_slide_m"
+    },
+    {
+        "type": "image_picker",
+        "label": "Background Image",
+        "id": "image_bg"
+    },
+    {
+        "type": "color",
+        "label": "Background Color",
+        "id": "color_bg",
+        "default": "#FDF1E4"
+    },
+    {
+        "type": "image_picker",
+        "label": "Accent Image",
+        "id": "image_accent"
+    },
+    {
+        "type": "image_picker",
+        "label": "Product Image",
+        "id": "image_product"
+    },
+    {
+        "type": "product",
+        "label": "Product",
+        "id": "product"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product Feature"
+    }
+  ]
+}
+{% endschema %}

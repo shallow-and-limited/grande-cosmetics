@@ -1,0 +1,66 @@
+<div class="mega-menu {% if _block.product_list != blank %}mega-menu--products{% endif %}" data-mega-menu="{{ index }}">
+  <nav class="mega-menu__nav">
+    {% if _block.product_list != blank %}
+      <div class="mega-menu__products">
+        {% for _product in _block.product_list %}
+          <a href="{{ _product.url }}" class="mega-menu__product">
+            <img class="mega-menu__product-img" src="{{ _product.featured_image | image_url: width: 196 }}" />
+            <span class="mega-menu__product-category p-5">{{ _product.metafields.details.subtitle }}</span>
+            <span class="mega-menu__product-title p-2">{{ _product.title }}</span>
+          </a>
+        {% endfor %}
+      </div>
+    {% endif %}
+    {% for child_link in child_links %}
+      <div class="mega-menu__list-container">
+        <div class="mega-menu__category s-3">{{ child_link.title }}</div>
+        <ul class="mega-menu__list">
+          {% for link in child_link.links %}
+            <li><a class="p-2" href="{{ link.url }}" data-category="{{ child_link.title }}">{{ link.title }}</a></li>
+          {% endfor %}
+        </ul>
+        {% if  _block.link_text %}
+        <div class="mega-menu__bottom-link"><a class="p-3" href="{{ _block.link_url }}">{{ _block.link_text }}</a></div>
+        {% endif %}
+      </div>
+    {% endfor %}
+    <div class="mega-menu__ctas">
+      {% if _block.image_1 != blank %}
+        <a href="{{ _block.url_1 }}" class="mega-menu__cta">
+          <img class="mega-menu__cta-img" src="{{ _block.image_1 | image_url }}" />
+            {% if _block.text_1 != blank %}
+            <span class="mega-menu__cta-title p-2 strong">{{ _block.text_1 }}</span>
+            {% render 'icons', 
+              icon_name: 'arrow-right', 
+              class: 'mega-menu__cta-arrow' 
+            %}
+          {% endif %}
+        </a>
+      {% endif %}
+      {% if _block.image_2 != blank %}
+        <a href="{{ _block.url_2 }}" class="mega-menu__cta">
+          <img class="mega-menu__cta-img" src="{{ _block.image_2 | image_url }}" />
+            {% if _block.text_2 != blank %}
+            <span class="mega-menu__cta-title p-2 strong">{{ _block.text_2 }}</span>
+            {% render 'icons', 
+              icon_name: 'arrow-right', 
+              class: 'mega-menu__cta-arrow' 
+            %}
+          {% endif %}
+        </a>
+      {% endif %}
+      {% if _block.image_3 != blank %}
+        <a href="{{ _block.url_3 }}" class="mega-menu__cta">
+          <img class="mega-menu__cta-img" src="{{ _block.image_3 | image_url }}" />
+            {% if _block.text_3 != blank %}
+            <span class="mega-menu__cta-title p-2 strong">{{ _block.text_3 }}</span>
+            {% render 'icons', 
+              icon_name: 'arrow-right'
+              class: 'mega-menu__cta-arrow' 
+            %}
+          {% endif %}
+        </a>
+      {% endif %}
+    </div>
+  </nav>
+</div>

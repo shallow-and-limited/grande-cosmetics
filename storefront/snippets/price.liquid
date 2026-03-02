@@ -1,57 +1,68 @@
 {% comment %}
   Renders a list of product's price (regular, sale)
 
-  Accepts:
-  - product: {Object} Product Liquid object (optional)
-  - use_variant: {Boolean} Renders selected or first variant price instead of overall product pricing (optional)
-  - custom_price: {Number} Custom price to render (optional)
-  - class: {String} Adds a price class to the price element (optional)
+  @param target {Product|Variant}
+  @param price {number}
+  @param class {String}
+  @param attr {String}
+  @param show_trailing_zeros {Boolean} [false]
 
   Usage:
-  {% render 'price', product: product %}
+  {% render 'price', target: target %}
 {% endcomment %}
 
 {%- liquid
-  if use_variant
-    assign target = product.selected_or_first_available_variant
-  else
-    assign target = product
-  endif
-
+  assign target = target | default: ''
   assign compare_at_price = target.compare_at_price
-  assign price = target.price | default: 1999
 
-  if custom_price
-    assign price = custom_price | times: 1
+  if discount == blank
+    assign discount = 1
+  endif
+  assign price = price | default: target.price | times: discount | default: 1999
+  assign money_price = price | money_without_trailing_zeros
+  if show_trailing_zeros
+    assign money_price = price | money
   endif
 
-  assign money_price = price | money
-
-  if target == product and product.price_varies
-    assign money_price = 'products.product.price.from_price_html' | t: price: money_price
+  assign on_sale = false
+  if compare_at_price != blank and compare_at_price > price
+    assign on_sale = true
   endif
 -%}
 
-{%- unless target == null -%}
-  <div class="
-      price
-      {%- if class %} {{ class }}{% endif -%}
-      {%- if compare_at_price > price  %} price--on-sale{% endif -%}
-    ">
-    <div class="price__sale">
-      <span class="visually-hidden visually-hidden--inline">{{ 'products.product.price.sale_price' | t }}</span>
-      <span class="price-item">
-        {{ money_price | replace: '.00', '' }}
-      </span>
-    </div>
-
-    {%- if compare_at_price > price %}
-      <div class="price__regular gray">
-        <span class="visually-hidden visually-hidden--inline">{{ 'products.product.price.regular_price' | t }}</span>
-        <s class="price-item">
-          {{ compare_at_price | money | replace: '.00', '' }}
-        </s>
-      </div>
-    {%- endif -%}
-  </div>
-{% endunless %}
+<span class="price {{ class }}" {{ attr }}>
+  <span>
+    {% if on_sale %}
+      <span class="visually-hidden">Sale Price</span>
+    {% else %}
+      <span class="visually-hidden">Regular Price</span>
+    {% endif %}
+    {% liquid
+      if sub_toggle
+        if class contains 'price--sub'
+          assign data_attr = 'data-price-sub-toggle-subscription'
+        else
+          assign data_attr = 'data-price-sub-toggle'
+        endif
+      elsif product_card
+        assign data_attr = ''
+      else
+        assign data_attr = 'data-price'
+      endif
+    %}
+    <span id="ProductPrice" {{ data_attr }} data-lion-price-for-product-id="{{ product.id }}">
+      {{ money_price }}
+    </span>
+    <span>
+      <s class="price__item price__item--compare" data-compare-price>
+        {% if compare_at_price > price %}
+          {% if show_trailing_zeros %}
+            {{ compare_at_price | times: discount | money }}
+          {% else %}
+            {{ compare_at_price | money_without_trailing_zeros }}
+          {% endif %}
+        {% endif %}
+      </s>
+    </span>
+  </span>
+</span>

@@ -9,19 +9,23 @@
  */
 {
   "sections": {
+    "hero": {
+      "type": "main-search-hero",
+      "settings": {}
+    },
     "main": {
       "type": "main-search",
       "settings": {
-        "color_scheme": "",
         "products_per_page": 24,
-        "columns_desktop": 4,
-        "columns_mobile": "2",
-        "enable_filters": true,
+        "enable_filtering": true,
         "enable_sorting": true,
-        "padding_top": 2,
-        "padding_bottom": 2
+        "enable_quick_buy": true,
+        "columns_mobile": "2"
       }
     }
   },
-  "order": ["main"]
+  "order": [
+    "hero",
+    "main"
+  ]
 }

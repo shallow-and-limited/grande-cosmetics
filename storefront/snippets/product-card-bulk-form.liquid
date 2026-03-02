@@ -1,0 +1,68 @@
+{% comment %}
+  @param product {Product}
+  @param class {String}
+  @param attr {String}
+{% endcomment %}
+
+{% liquid
+  assign variant = product.selected_or_first_available_variant
+%}
+
+<product-card-bulk-form class="product-card-bulk-form {{ class }}" {{ attr }} data-variant-id="{{ variant.id }}">
+  <div class="product-card-bulk-form__container" data-card-link>
+    <div class="product-card-bulk-form__info">
+      <div class="product-card-bulk-form__info-wrapper">
+        <a href="{{ product.url }}">
+          {%
+            render 'image',
+            image: product.featured_media.preview_image,
+            class: 'product-card-bulk-form__image product-card-bulk-form__image--primary',
+            aspect_ratio: 1,
+            attr: 'data-card-image-primary',
+            max_width: 500,
+          %}
+        </a>
+        <div class="product-card-bulk-form__info-inner">
+          <div class="product-card-bulk-form__info-content">
+            <a href="{{ product.url }}" class="product-card-bulk-form__title p-2">{{ product.title }}</a>
+            {% if product.variants.first.title != 'Default Title' %}
+              <div href="{{ product.url }}" class="product-card-bulk-form__option p-2">{{ product.variants.first.title }}</div>
+            {% endif %}
+            <p class="product-card-bulk-form__sku">{{ variant.sku }}</p>
+          </div>
+          <div class="product-card-bulk-form__content">
+            <span class="product-card-bulk-form__price p-2">{{ product.price | money_without_trailing_zeros }}</span>
+            <span class="product-card-bulk-form__msrp p-2">MSRP</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="product-card-bulk-form__cta"
+      {% unless product.available %}
+        hidden
+      {% endunless %}
+    >
+      <div>
+        <div class="product-card-bulk-form__quantity">
+          <a class="product-card-bulk-form__quantity-btn" href="javascript:void(0);" data-quantity-decrease>
+            {% render 'icons', icon_name: 'minus' %}
+          </a>
+          <input class="product-card-bulk-form-count" type="number" value="3" min="3" data-quantity-count>
+          <a class="product-card-bulk-form__quantity-btn" href="javascript:void(0);" data-quantity-increase>
+            {% render 'icons', icon_name: 'plus' %}
+          </a>
+        </div>
+        <p class="p-3">{{ product.metafields.details.bulk_order_form_quantity_messaging }}</p>
+      </div>
+      <div class="product-card-bulk-form-atc-wrapper">
+        <a href="javascript:void(0);" class="btn btn--primary" data-add-to-cart>Add To Bag</a>
+        <p class="product-card-bulk-form-toast p-3" data-toast-text>
+          <span data-toast-count>1</span> <span>Added To Bag</span>
+        </p>
+      </div>
+    </div>
+  </div>
+  <script src="{{ 'product-card-bulk-form.min.js' | asset_url }}" defer="defer"></script>
+</product-card-bulk-form>
+

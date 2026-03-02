@@ -1,439 +1,136 @@
-{{ 'article.css' | asset_url | stylesheet_tag }}
+{% comment %} {{ 'image-carousel.min.css' | asset_url | stylesheet_tag }} {% endcomment %}
+{{ 'main-article.min.css' | asset_url | stylesheet_tag }}
 
-{%- style -%}
-  {%- if section.settings.aspect_ratio == 'adapt' -%}
-    @media screen and (min-width: 750px) {
-      #{{ section.id }} .media--adapt {
-        {% if article.image != blank %}
-          padding-bottom: {{ 1 | divided_by: article.image.aspect_ratio | times: 100 }}%;
-        {% else %}
-          padding-bottom: 66%;
-        {% endif %}
-      }
-    }
-  {%- endif -%}
 
-  {%- if section.settings.aspect_ratio_mobile == 'adapt' -%}
-    @media screen and (max-width: 749px) {
-      #{{ section.id }} .media--adapt {
-        {% if article.image != blank %}
-          padding-bottom: {{ 1 | divided_by: article.image.aspect_ratio | times: 100 }}%;
-        {% else %}
-          padding-bottom: 66%;
-        {% endif %}
-      }
-    }
-  {%- endif -%}
-{%- endstyle -%}
 
-{%- render 'section_padding' %}
-
-{%- assign widths = '400, 800, 1200, 1600, 2000, 2400, 2800, 3200, 3840' -%}
-
-{%- capture sizes -%}
-  {%- if section.settings.layout == "large-width" -%}
-    (min-width: {{ settings.large_width }}px) {{ settings.large_width }}px,
-  {%- elsif section.settings.layout == "page-width" -%}
-    (min-width: {{ settings.page_width }}px) {{ settings.page_width }}px,
-  {%- endif -%}
-  100vw
-{%- endcapture %}
-
-<div
-  id="{{ section.id }}"
-  class="color-{{ section.settings.color_scheme }} section-{{ section.id }}-padding"
->
-  <div class="article__header">
-    <div class="article__header-image">
-      <div class="media media--{{ section.settings.aspect_ratio }} media--{{ section.settings.aspect_ratio_mobile }}-mobile">
-        {%- if article.image != blank -%}
-          {%- assign image_height = article.image.width | divided_by: image.aspect_ratio -%}
-          {{
-            article.image
-            | image_url: width: 3840
-            | image_tag:
-            width: article.image.width,
-            height: image_height,
-            sizes: sizes,
-            widths: widths,
-            fetchpriority: 'high',
-            lazy: true
-          }}
-        {%- endif -%}
+<main-article class="article-template" itemscope itemtype="http://schema.org/BlogPosting">
+  <div class="article-template__heading">
+    <h1 class="article-template__heading-copy h3">{{ article.title }}</h1>
+    <div class="article-template__heading-date-social">
+      <div class="article-template__heading-date">
+        <time class="p-3" datetime="{{ article.published_at | date: "%Y-%m-%d" }}" itemprop="datePublished">{{ article.published_at | date: "%B %d, %Y" }}</time>
       </div>
-    </div>
-
-    <div class="article__header-content">
-      <div class="
-          {{ section.settings.heading_alignment }}
-          section__header
-          {{ section.settings.layout }}
-        ">
-        <h1 class="section__title">
-          {{ section.settings.title | default: article.title }}
-        </h1>
-
-        {%- if section.settings.description != blank -%}
-          <div class="section__description {{ section.settings.text_style }} {{ section.settings.mobile_text_style }}">
-            {{ section.settings.description }}
-          </div>
-        {%- endif -%}
+      <div class="article-template__heading-tags-social">
+        <div class="article-template__heading-tags">
+          {% for tag in article.tags %}
+            <a href="{{ blog.url }}/tagged/{{ tag }}" class="p-4 color-dark-gray" aria-label="Articles tagged with {{ tag }}"># {{ tag }}</a>
+          {% endfor %}
+        </div>
+        <div class="article-template__heading-social">
+          <span class="p-4">Share:</span>
+          <a href="#" aria-label="Instagram">{% render 'icons', icon_name: 'x' %}</a>
+          <a href="#" aria-label="Facebook">{% render 'icons', icon_name: 'facebook' %}</a>
+          <a href="#" aria-label="Pinterest">{% render 'icons', icon_name: 'pinterest' %}</a>
+        </div>            
       </div>
     </div>
   </div>
-
-  <div
-    class="{{ section.settings.layout }} isolate {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
-    {% if settings.animations_reveal_on_scroll %}
-      data-cascade
-    {% endif %}
-  >
-    <div class="article__content">
-      {%- for block in section.blocks -%}
-        {%- case block.type -%}
-          {%- when '@app' -%}
-            <div
-              class="article__block article__block--app"
-              {{ block.shopify_attributes }}
-            >
-              {% render block %}
-            </div>
-          {%- when 'content' -%}
-            <div
-              class="article__block article__block--content"
-              {{ block.shopify_attributes }}
-            >
-              {{ article.content }}
-            </div>
-          {%- when 'social' -%}
-            <div class="article__block article__block--social">
-              <div class="article__social-title body body--large">
-                {{ block.settings.title }}
-              </div>
-
-              <ul class="article__social-icons list--unstyled">
-                <li class="article__social-icon">
-                  <a
-                    target="_blank"
-                    class="link"
-                    href="http://twitter.com/share?text={{ article.title }}&url={{ shop.url | append: page.url | append: article.url }}"
-                  >
-                    <span class="visually-hidden">Share on Twitter</span>
-                    {%- render 'icon-twitter' -%}
-                  </a>
-                </li>
-                <li class="article__social-icon">
-                  <a
-                    target="_blank"
-                    class="link"
-                    href="http://www.facebook.com/sharer.php?u={{ shop.url }}{{ article.url }}"
-                  >
-                    <span class="visually-hidden">Share on Facebook</span>
-                    {%- render 'icon-facebook' -%}
-                  </a>
-                </li>
-              </ul>
-            </div>
-        {%- endcase -%}
-      {%- endfor -%}
-    </div>
+  <div class="article-template__image">
+    {% render 'image', image: article.image %}
   </div>
-</div>
+  <div class="article-template__content">
+    {{ article.content }}
+  </div>
+  <div class="article-template__footer-tags-social">
+    <div class="article-template__footer-tags">
+      {% for tag in article.tags %}
+        <a href="{{ blog.url }}/tagged/{{ tag }}" class="p-4 color-dark-gray" aria-label="Articles tagged with {{ tag }}"># {{ tag }}</a>
+      {% endfor %}
+    </div>
+    <div class="article-template__footer-social">
+      <span class="p-4">Share:</span>
+      <a href="#" aria-label="Instagram">{% render 'icons', icon_name: 'x' %}</a>
+      <a href="#" aria-label="Facebook">{% render 'icons', icon_name: 'facebook' %}</a>
+      <a href="#" aria-label="Pinterest">{% render 'icons', icon_name: 'pinterest' %}</a>
+    </div>
+    <a href="{{ blog.url }}" class="p-4 color-black article-template__footer-return">Back to Beauty News</a>
+  </div>  
+  {% render 'metaobject-section', object: article %}
+</main-article>
 
-<script type="application/ld+json">
-  {{ article | structured_data }}
-</script>
+<script src="{{ 'main-article.min.js' | asset_url }}" defer></script>
 
 {% schema %}
 {
-  "name": "Article",
+  "name": "t:sections.main-article.name",
   "tag": "section",
   "class": "section",
-  "enabled_on": {
-    "templates": [
-      "article"
-    ]
-  },
-  "settings": [
-    {
-      "type": "color_scheme",
-      "id": "color_scheme",
-      "label": "t:sections.all.colors.label",
-      "info": "t:sections.all.colors.has_cards_info",
-      "default": "scheme-1"
-    },
-    {
-      "type": "header",
-      "content": "Media settings"
-    },
-    {
-      "type": "select",
-      "id": "aspect_ratio",
-      "options": [
-        {
-          "value": "adapt",
-          "label": "Adapt"
-        },
-        {
-          "value": "ribbon",
-          "label": "Ribbon"
-        },
-        {
-          "value": "xsmall",
-          "label": "X-Small"
-        },
-        {
-          "value": "small",
-          "label": "Small"
-        },
-        {
-          "value": "medium",
-          "label": "Medium"
-        },
-        {
-          "value": "large",
-          "label": "Large"
-        },
-        {
-          "value": "square",
-          "label": "Square"
-        },
-        {
-          "value": "portrait",
-          "label": "Portrait"
-        },
-        {
-          "value": "landscape",
-          "label": "Landscape"
-        }
-      ],
-      "default": "medium",
-      "label": "Aspect ratio"
-    },
-    {
-      "type": "select",
-      "id": "aspect_ratio_mobile",
-      "options": [
-        {
-          "value": "adapt",
-          "label": "Adapt"
-        },
-        {
-          "value": "ribbon",
-          "label": "Ribbon"
-        },
-        {
-          "value": "xsmall",
-          "label": "X-Small"
-        },
-        {
-          "value": "small",
-          "label": "Small"
-        },
-        {
-          "value": "medium",
-          "label": "Medium"
-        },
-        {
-          "value": "large",
-          "label": "Large"
-        },
-        {
-          "value": "square",
-          "label": "Square"
-        },
-        {
-          "value": "portrait",
-          "label": "Portrait"
-        },
-        {
-          "value": "landscape",
-          "label": "Landscape"
-        }
-      ],
-      "default": "medium",
-      "label": "Aspect ratio (mobile)"
-    },
-    {
-      "type": "select",
-      "id": "layout",
-      "label": "Layout",
-      "options": [
-        {
-          "value": "screen-width",
-          "label": "Screen width"
-        },
-        {
-          "value": "page-width",
-          "label": "Page width"
-        },
-        {
-          "value": "large-width",
-          "label": "Large width"
-        },
-        {
-          "value": "full-width",
-          "label": "Full width"
-        }
-      ],
-      "default": "page-width"
-    },
-    {
-      "type": "header",
-      "content": "Header"
-    },
-    {
-      "type": "text",
-      "id": "title",
-      "label": "Title",
-      "default": "{{ article.title }}"
-    },
-    {
-      "type": "richtext",
-      "id": "description",
-      "label": "Subheading"
-    },
-    {
-      "type": "select",
-      "id": "text_style",
-      "options": [
-        {
-          "value": "body--small",
-          "label": "Small"
-        },
-        {
-          "value": "body",
-          "label": "Regular"
-        },
-        {
-          "value": "body--large",
-          "label": "Large"
-        }
-      ],
-      "default": "body",
-      "label": "Text style"
-    },
-    {
-      "type": "select",
-      "id": "mobile_text_style",
-      "options": [
-        {
-          "value": "body--small-mobile",
-          "label": "Small"
-        },
-        {
-          "value": "body--mobile",
-          "label": "Regular"
-        },
-        {
-          "value": "body--large-mobile",
-          "label": "Large"
-        }
-      ],
-      "default": "body--mobile",
-      "label": "Mobile text style"
-    },
-    {
-      "type": "select",
-      "id": "heading_alignment",
-      "label": "Heading Alignment",
-      "options": [
-        {
-          "value": "left",
-          "label": "t:sections.collapsible_content.settings.heading_alignment.options__1.label"
-        },
-        {
-          "value": "center",
-          "label": "t:sections.collapsible_content.settings.heading_alignment.options__2.label"
-        },
-        {
-          "value": "right",
-          "label": "t:sections.collapsible_content.settings.heading_alignment.options__3.label"
-        }
-      ],
-      "default": "left"
-    },
-    {
-      "type": "header",
-      "content": "Article Settings"
-    },
-    {
-      "type": "checkbox",
-      "id": "show_date",
-      "default": true,
-      "label": "t:sections.main-blog.settings.show_date.label"
-    },
-    {
-      "type": "checkbox",
-      "id": "show_author",
-      "default": false,
-      "label": "t:sections.main-blog.settings.show_author.label"
-    },
-    {
-      "type": "paragraph",
-      "content": "t:sections.main-blog.settings.paragraph.content"
-    },
-    {
-      "type": "header",
-      "content": "t:sections.all.padding.section_padding_heading"
-    },
-    {
-      "type": "range",
-      "id": "padding_top",
-      "min": 0,
-      "max": 4,
-      "step": 0.5,
-      "unit": "rem",
-      "label": "t:sections.all.padding.padding_top",
-      "default": 2
-    },
-    {
-      "type": "range",
-      "id": "padding_bottom",
-      "min": 0,
-      "max": 4,
-      "step": 0.5,
-      "unit": "rem",
-      "label": "t:sections.all.padding.padding_bottom",
-      "default": 2
-    },
-    {
-      "type": "range",
-      "id": "margin_bottom",
-      "min": 0,
-      "max": 4,
-      "step": 0.5,
-      "unit": "rem",
-      "label": "Section margin",
-      "default": 0
-    }
-  ],
   "blocks": [
     {
       "type": "@app"
     },
     {
-      "type": "content",
-      "name": "t:sections.main-article.blocks.content.name",
-      "limit": 1
-    },
-    {
-      "type": "social",
-      "name": "Social",
+      "type": "featured_image",
+      "name": "t:sections.main-article.blocks.featured_image.name",
       "limit": 1,
       "settings": [
         {
-          "type": "text",
-          "id": "title",
-          "label": "Title",
-          "default": "Share"
+          "type": "header",
+          "content": "t:sections.main-article.blocks.featured_image.settings.text.title"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_title",
+          "label": "t:sections.main-article.blocks.featured_image.settings.text.show_title",
+          "default": true
+        },
+        {
+          "type": "checkbox",
+          "id": "show_author",
+          "label": "t:sections.main-article.blocks.featured_image.settings.text.show_author",
+          "default": true
         }
       ]
-    }
-  ],
-  "presets": [
+    },
     {
-      "name": "Article"
+      "type": "title",
+      "name": "t:sections.main-article.blocks.title.name",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "blog_show_date",
+          "default": true,
+          "label": "t:sections.main-article.blocks.title.settings.blog_show_date.label"
+        },
+        {
+          "type": "checkbox",
+          "id": "blog_show_author",
+          "default": false,
+          "label": "t:sections.main-article.blocks.title.settings.blog_show_author.label"
+        }
+      ]
+    },
+    {
+      "type": "content",
+      "name": "t:sections.main-article.blocks.content.name",
+      "limit": 3
+    },
+    {
+      "type": "share",
+      "name": "t:sections.main-article.blocks.share.name",
+      "limit": 2,
+      "settings": [
+        {
+          "type": "text",
+          "id": "share_label",
+          "label": "t:sections.main-article.blocks.share.settings.text.label",
+          "default": "Share"
+        },
+        {
+          "type": "paragraph",
+          "content": "t:sections.main-article.blocks.share.settings.featured_image_info.content"
+        },
+        {
+          "type": "paragraph",
+          "content": "t:sections.main-article.blocks.share.settings.title_info.content"
+        }
+      ]
+    },
+    {
+      "type": "slider",
+      "name": "t:sections.main-article.blocks.slider.name",
+      "limit": 2
     }
   ]
 }

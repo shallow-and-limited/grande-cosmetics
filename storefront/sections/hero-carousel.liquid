@@ -1,0 +1,243 @@
+{% liquid
+  assign _s = section.settings
+  assign is_first_module = false
+  assign overlayOpacity = 0
+  assign loading = 'lazy'
+  if section.index == 1
+    assign is_first_module = true
+    assign loading = 'eager'
+  endif
+%}
+
+{% for block in section.blocks %}
+  {% assign overlayOpacity = block.settings.overlay | divided_by: 100.0 %}
+  {% style %}
+    .hero-carousel__slide--{{ forloop.index }} .hero-carousel__background::before {
+      background:  rgba(0, 0, 0, {{ overlayOpacity }});
+    }
+  {% endstyle %}
+{% endfor %}
+
+{{ 'hero-carousel.min.css' | asset_url | stylesheet_tag }}
+
+<section class="hero-carousel hero-carousel--{{ section.id }} hero-carousel--{{ section.settings.display }}">
+  <div class="hero-carousel__container" {% if is_first_module %}data-slide-up-container{% endif %}>
+    <hero-carousel class="hero-carousel__slider" data-swiper-class="swiper">
+      <div
+        class="hero-carousel__slides"
+        data-swiper-class="swiper-wrapper"
+      >
+        {% for block in section.blocks %}
+          {% render 'hero-carousel-slide', _s: block.settings, position: forloop.index, in_first: is_first_module, autoplay: block.settings.video_autoplay, video_poster_d: block.settings.video_poster_d, video_poster_m: block.settings.video_poster_m  %}
+        {% endfor %}
+      </div>
+    </hero-carousel>
+  </div>
+</section>
+<script src="{{ 'hero-carousel.min.js' | asset_url }}" defer></script>
+
+{% schema %}
+{
+  "name": "Hero Carousel",
+  "settings": [
+    {
+      "id": "display",
+      "type": "select",
+      "label": "Display",
+      "options": [
+        { "value": "full-bleed", "label": "Full Bleed" },
+        { "value": "stacked", "label": "Stacked" }
+      ],
+      "default": "full-bleed"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "hero_slide",
+      "name": "Hero Slide",
+      "limit": 3,
+      "settings": [
+        {
+          "id": "color",
+          "type": "select",
+          "label": "Color Style",
+          "options": [
+            { "value": "light", "label": "Light" },
+            { "value": "dark", "label": "Dark" }
+          ]
+        },
+        {
+        	"type": "header",
+        	"content": "Desktop Alignment"
+        },
+        {
+          "id": "alignment_v",
+          "type": "select",
+          "label": "Vertical Alignment",
+          "default": "middle",
+          "options": [
+            { "value": "top", "label": "Top" },
+            { "value": "middle", "label": "Middle" },
+            { "value": "bottom", "label": "Bottom" },
+          ]
+        },
+        {
+          "id": "alignment_h",
+          "type": "select",
+          "label": "Horizontal Alignment",
+          "default": "center",
+          "options": [
+            { "value": "left", "label": "Left" },
+            { "value": "center", "label": "Center" },
+            { "value": "right", "label": "Right" },
+          ]
+        },
+        {
+        	"type": "header",
+        	"content": "Mobile Alignment"
+        },
+        {
+          "id": "alignment_v_m",
+          "type": "select",
+          "label": "Vertical Alignment - Mobile",
+          "default": "middle_m",
+          "options": [
+            { "value": "top_m", "label": "Top" },
+            { "value": "middle_m", "label": "Middle" },
+            { "value": "bottom_m", "label": "Bottom" },
+          ]
+        },
+        {
+          "id": "alignment_h_m",
+          "type": "select",
+          "label": "Horizontal Alignment - Mobile",
+          "default": "center_m",
+          "options": [
+            { "value": "left_m", "label": "Left" },
+            { "value": "center_m", "label": "Center" },
+            { "value": "right_m", "label": "Right" },
+          ]
+        },
+        {
+        	"type": "header",
+        	"content": "Content Settings"
+        },
+        {
+          "id": "image_d",
+          "type": "image_picker",
+          "label": "Image - Desktop"
+        },
+        {
+          "type": "checkbox",
+          "id": "video_poster_d",
+          "label": "Use as poster for desktop video?",
+          "default": true,
+          "info": "If selected, this image will be used as a poster for the video on desktop when autoplay is disabled. If no image is chosen, the poster will be the first frame of the video."
+        },
+        {
+          "id": "image_m",
+          "type": "image_picker",
+          "label": "Image - Mobile"
+        },
+        {
+          "type": "checkbox",
+          "id": "video_poster_m",
+          "label": "Use as poster for mobile video?",
+          "default": true,
+          "info": "If selected, this image will be used as a poster for the video on mobile when autoplay is disabled. If no image is chosen, the poster will be the first frame of the video."          
+        },        
+        {
+          "id": "video_d",
+          "type": "video",
+          "label": "Video - Desktop"
+        },
+        {
+          "id": "video_m",
+          "type": "video",
+          "label": "Video - Mobile"
+        },
+        {
+          "type": "checkbox",
+          "id": "video_autoplay",
+          "label": "Autoplay Video?",
+          "default": true
+        },
+        {
+          "id": "eyebrow",
+          "type": "text",
+          "label": "Eyebrow"
+        },
+        {
+          "id": "heading",
+          "type": "text",
+          "label": "Heading"
+        },
+        {
+          "type": "select",
+          "id": "heading_size",
+          "label": "Heading Size",
+          "options": [
+            {
+              "value": "h1",
+              "label": "H1"
+            },
+            {
+              "value": "h2",
+              "label": "H2"
+            },
+            {
+              "value": "h3",
+              "label": "H3"
+            },
+            {
+              "value": "h4",
+              "label": "H4"
+            }
+          ],
+          "default": "h2"
+        },
+        {
+          "id": "copy",
+          "type": "textarea",
+          "label": "Copy"
+        },
+        {
+          "id": "cta_url",
+          "type": "url",
+          "label": "CTA Url"
+        },
+        {
+          "id": "cta_copy",
+          "type": "text",
+          "label": "CTA Text"
+        },
+        {
+          "id": "cta_url_alt",
+          "type": "url",
+          "label": "Alt CTA Url"
+        },
+        {
+          "id": "cta_copy_alt",
+          "type": "text",
+          "label": "Alt CTA Text"
+        },
+        {
+          "type": "range",
+          "id": "overlay",
+          "min": 0,
+          "max": 100,
+          "step": 10,
+          "unit": "%",
+          "label": "Overlay",
+          "default": 0
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero Carousel"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,39 @@
+{{ 'fw-html-embed.min.css' | asset_url | stylesheet_tag }}
+
+<section class="html-embed">
+    <div class="html-embed__container">
+        {% if section.settings.title != blank %}
+            <div class="html-embed__heading">
+                <h5>{{  section.settings.title }}</h5>
+            </div>
+        {% endif %}
+        {{ section.settings.embed_code }}
+    </div>
+</section>
+
+
+
+{% schema %}
+{
+  "name": "Firework HTML Embed",
+  "settings": [
+    {
+        "type": "text",
+        "label": "Title",
+        "id": "title",
+        "info": "optional"
+    },
+    {
+      "type": "textarea",
+      "label": "Playlist Embed Code",
+      "id": "embed_code"
+    } 
+  ],
+  "presets": [
+    {
+      "category": "firework-html-embed",
+      "name": "Firework HTML Embed"
+    }
+  ]
+}
+{% endschema %}

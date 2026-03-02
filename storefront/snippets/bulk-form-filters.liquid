@@ -1,0 +1,113 @@
+{% comment %}
+  Renders Filter Sidebar
+  Accepts:
+  - results: {Object} Collection or Search object
+  Usage:
+  {% render 'filters', results: collection %}
+{% endcomment %}
+
+{%- liquid
+  assign results = results
+  assign total_active_values = 0
+  assign terms = results.terms | escape
+-%}
+
+<filter-drawer class="bulk-form__filter-drawer">
+  <section
+    class="filter__drawer"
+  >
+    <div class="filter__drawer-heading filter__drawer-heading--mob">
+      <h4 class="filter__drawer-heading-main">Filters</h4>
+      <div class="filter__close" data-filter-close>
+        {% render 'icons', icon_name: 'modal-close' %}
+      </div>
+    </div>
+    <div class="filter__drawer-heading filter__drawer-heading--desk">
+      <h4 class="filter__drawer-heading-main">Filters</h4>
+      <a href="{{ collection.url }}" class="filter__drawer-clear-all" data-clear-filters>
+        <span>{{ 'products.facets.clear_all' | t }}</span>
+      </a>
+    </div>
+    {%- if results.filters != empty -%}
+      <div class="filter__drawer-content">
+        <div class="filter__drawer-content-inner">
+          {%- for filter in results.filters -%}
+            {%- liquid
+              case filter.presentation
+                when 'swatch'
+                  assign has_visual_display = true
+                  assign visual_layout_class = 'facets-layout-grid facets-layout-grid--' | append: filter.presentation
+                else
+                  assign has_visual_display = false
+                  assign visual_layout_class = 'facets-layout-list'
+              endcase
+            -%}
+            <article class="filter">
+              <filter-accordion class="{% if forloop.index <= 3 %}filter--expanded {% endif %}">
+                <details
+                  class="js-filter"
+                  data-index="{{ forloop.index }}"
+                  {% if forloop.index <= 3 %}
+                    open
+                  {% endif %}
+                >
+                  <summary class="filter__heading">
+                    <h4>{{ filter.label | escape }}</h4>
+                    <span></span>
+                  </summary>
+                  <div class="filter__content">
+                    <ol class="filter__content-inner">
+                      {%- for value in filter.values -%}
+                        <li>
+                          <label class="filter__checkbox">
+                            <div class="filter__checkbox-left">
+                              <input
+                                type="checkbox"
+                                class="main-filter__input visually-hidden"
+                                name="{{ value.param_name }}"
+                                value="{{ value.value }}"
+                                {% if value.active %}
+                                  checked
+                                {% endif %}
+                                {% if value.count == 0 and value.active == false %}
+                                  disabled
+                                {% endif %}
+                              >
+                              <span class="filter__checkbox-icon"></span>
+                              <span class="filter__checkbox-label">
+                                {{- value.label | escape -}}
+                                ({{ value.count }})
+                              </span>
+                            </div>
+
+                            {% if value.display.type == 'colors' %}
+                              <span
+                                {% if has_visual_display %}
+                                  style="background: {{ value.display.value }};"
+                                {% endif %}
+                              ></span>
+                            {% elsif value.display.type == 'image' %}
+                              <img src="{{ value.display.value | image_url: width: 250 }}" alt="{{ value.label }}">
+                            {% endif %}
+                          </label>
+                        </li>
+                      {%- endfor -%}
+                    </ol>
+                  </div>
+                </details>
+              </filter-accordion>
+            </article>
+          {%- endfor -%}
+        </div>
+      </div>
+      <div class="filter__drawer-cta">
+        <div class="btn btn--primary-light filter__drawer-cta-apply" data-filter-close>
+          View All Results (<span data-product-count>{{ results.products.size | floor }}</span>)
+        </div>
+        <a href="{{ collection.url }}" class="filter__drawer-clear-all" data-clear-filters>
+          <p>{{ 'products.facets.clear_all' | t }}</p>
+        </a>
+      </div>
+    {%- endif -%}
+  </section>
+</filter-drawer>

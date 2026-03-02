@@ -1,0 +1,28 @@
+{%- liquid
+  assign resource = product
+
+  if collection 
+    assign resource = collection
+  endif
+
+  assign breadcrumbs = resource.metafields.details.parent_collections.value
+-%}
+
+
+{%- if breadcrumbs != blank -%}
+  {{ 'breadcrumbs.min.css' | asset_url | stylesheet_tag }}
+  <nav class="breadcrumbs" aria-label="breadcrumbs">
+    <ol>
+      
+      <li class="breadcrumb breadcrumb">
+        <a href="{{ routes.root_url }}">Home</a>
+      </li>
+
+      {%- for c in breadcrumbs -%}
+        <li class="breadcrumb">{{ c.title | link_to: c.url }}</li>
+      {%- endfor -%}
+    </ol>
+  </nav>
+{%- endif -%}
+
+

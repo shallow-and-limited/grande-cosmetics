@@ -1,0 +1,342 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {}
+    },
+    "split_banner_GgxUGD": {
+      "type": "split-banner",
+      "blocks": {
+        "body_copy_Y6BE6a": {
+          "type": "body-copy",
+          "settings": {
+            "copy": "<p>With a rise in the popularity of lash serums, there's been an influx of new information on the subject. But sorting out what’s true from what’s not? Now, that can be tricky. As a trusted leader in beauty, we care that our community has accurate information regarding our best-selling GrandeLASH-MD Lash Enhancing Serum so that you can make an informed decision when it comes to investing in your Grande journey.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "body_copy_Y6BE6a"
+      ],
+      "settings": {
+        "style": "rose",
+        "padding": "full-width",
+        "arrangement": "right_asset_left_content",
+        "header": "h2",
+        "alignment": "left",
+        "vertical_alignment": "top",
+        "module_height": "content-based",
+        "image_d": "shopify:\/\/shop_images\/Lash-bottles.jpg",
+        "video_poster_d": true,
+        "video_poster_m": true,
+        "video_autoplay": true,
+        "eyebrow": "",
+        "heading": "The Truth About Isopropyl Cloprostenate",
+        "cta_url": "",
+        "cta_copy": ""
+      }
+    },
+    "banner_aD8C96": {
+      "type": "banner",
+      "settings": {
+        "color": "dark",
+        "background": "beige",
+        "alignment": "center",
+        "eyebrow": "From Our Founder",
+        "heading": "Your Most Commonly Asked <em>Questions:<\/em>",
+        "heading_size": "h2",
+        "copy": "",
+        "cta_url": "",
+        "cta_copy": "",
+        "cta_url_alt": "",
+        "cta_copy_alt": "",
+        "overlay": 0
+      }
+    },
+    "split_banner_p9XJMT": {
+      "type": "split-banner",
+      "blocks": {
+        "body_copy_nMTn9T": {
+          "type": "body-copy",
+          "settings": {
+            "copy": "<p>Isopropyl Cloprostenate or \"IC\" is one of our key ingredients featured in our enhancing serums. It is a type of prostaglandin analogue that is known for hair conditioning, as defined by INCI.<br\/><br\/><strong>Did you know?<\/strong> INCI is a cosmetic ingredient dictionary & the beauty industry’s standard for recognizing and classifying cosmetic ingredients worldwide.<br\/><br\/>Why does GrandeLASH-MD utilize IC?\u2028Not all lash serums are created equally. We never settle for lackluster results & Isopropyl Cloprostenate, in conjunction with other synergistic ingredients found within our formulas, is the gold standard for the real, undeniable results you know & love.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "body_copy_nMTn9T"
+      ],
+      "settings": {
+        "style": "beige",
+        "padding": "inset",
+        "arrangement": "right_asset_left_content",
+        "header": "h3",
+        "alignment": "centered",
+        "vertical_alignment": "bottom",
+        "module_height": "image-height",
+        "video_poster_d": true,
+        "image_m": "shopify:\/\/shop_images\/frame_7172.jpg",
+        "video_poster_m": true,
+        "video_d": "shopify:\/\/files\/videos\/What Is Isopropyl Cloprostenate_RESIZE.mp4",
+        "video_m": "shopify:\/\/files\/videos\/What Is Isopropyl Cloprostenate_RESIZE.mp4",
+        "video_autoplay": false,
+        "eyebrow": "",
+        "heading": "What is Isopropyl Cloprostenate?",
+        "cta_url": "",
+        "cta_copy": ""
+      }
+    },
+    "split_banner_3mx3U4": {
+      "type": "split-banner",
+      "blocks": {
+        "body_copy_QYHNjb": {
+          "type": "body-copy",
+          "settings": {
+            "copy": "<p>Isopropyl Cloprostenate, is <strong>NOT<\/strong> a hormone.<br\/><br\/>Hormones are chemical messengers produced within the human body - whereas Isopropyl Cloprostenate is a safe, synthetic cosmetic ingredient listed in the cosmetic ingredient dictionary, INCI, as a hair conditioner.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "body_copy_QYHNjb"
+      ],
+      "settings": {
+        "style": "beige",
+        "padding": "inset",
+        "arrangement": "left_asset_right_content",
+        "header": "h3",
+        "alignment": "centered",
+        "vertical_alignment": "middle",
+        "module_height": "image-height",
+        "image_d": "shopify:\/\/shop_images\/frame_6799.jpg",
+        "video_poster_d": true,
+        "video_poster_m": true,
+        "video_d": "shopify:\/\/files\/videos\/Is Isopropyl Cloprostenate a hormone.mp4",
+        "video_autoplay": false,
+        "eyebrow": "",
+        "heading": "Is Isopropyl Cloprostenate a Hormone?",
+        "cta_url": "",
+        "cta_copy": ""
+      }
+    },
+    "split_banner_3BYWac": {
+      "type": "split-banner",
+      "blocks": {
+        "body_copy_R7cgj3": {
+          "type": "body-copy",
+          "settings": {
+            "copy": "<p>This is a common misconception. Synthetic simply means that the ingredient has been created in a lab.<br\/><br\/>In fact, synthetic forms can even be superior because there is greater control over their formulation.<br\/><br\/>Many ingredients you know and love are synthetic. For example, retinol is a form of vitamin A that is also synthetic, or lab-derived.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "body_copy_R7cgj3"
+      ],
+      "settings": {
+        "style": "beige",
+        "padding": "inset",
+        "arrangement": "right_asset_left_content",
+        "header": "h3",
+        "alignment": "centered",
+        "vertical_alignment": "middle",
+        "module_height": "image-height",
+        "image_d": "shopify:\/\/shop_images\/frame_307.jpg",
+        "video_poster_d": true,
+        "video_poster_m": true,
+        "video_d": "shopify:\/\/files\/videos\/Is synthetic a bad thing.mp4",
+        "video_autoplay": false,
+        "eyebrow": "",
+        "heading": "Is Synthetic Bad?",
+        "cta_url": "",
+        "cta_copy": ""
+      }
+    },
+    "split_banner_jf7f9G": {
+      "type": "split-banner",
+      "blocks": {
+        "body_copy_Km3tdi": {
+          "type": "body-copy",
+          "settings": {
+            "copy": "<p>GrandeLASH-MD is safe and does not cause iris color change or orbital fat loss.<br\/><br\/>This has been scientifically substantiated by an 8 month long, third-party clinical study that followed 120 users of GrandeLASH-MD (a study that few cosmetic brands bother to invest in).\u2028<br\/><br\/>In fact, GrandeLASH-MD is amongst the most studied cosmetic lash serums on the market.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "body_copy_Km3tdi"
+      ],
+      "settings": {
+        "style": "beige",
+        "padding": "inset",
+        "arrangement": "left_asset_right_content",
+        "header": "h3",
+        "alignment": "centered",
+        "vertical_alignment": "middle",
+        "module_height": "image-height",
+        "image_d": "shopify:\/\/shop_images\/frame_4604.jpg",
+        "video_poster_d": true,
+        "video_poster_m": true,
+        "video_d": "shopify:\/\/files\/videos\/Periorbital fat loss.mp4",
+        "video_autoplay": false,
+        "eyebrow": "",
+        "heading": "Does IC Cause Periorbital Fat Loss or Iris Color Change?",
+        "cta_url": "",
+        "cta_copy": ""
+      }
+    },
+    "banner_NaDx9A": {
+      "type": "banner",
+      "settings": {
+        "color": "light",
+        "background": "rose",
+        "alignment": "center",
+        "eyebrow": "",
+        "heading": "Can IC <em>Cause Sensitivities?<\/em>",
+        "heading_size": "h2",
+        "copy": "GrandeLASH-MD is a Skincare Product:\n\nEveryone’s skin is unique and there is always a possibility of sensitivity when introducing a new skincare product into your routine. There can often be an acclimation period as your skin gets used to a new formula.\n\nAlways listen to your skin! If sensitivity continues, discontinue use. Not all ingredients are right for everyone.",
+        "cta_url": "",
+        "cta_copy": "",
+        "cta_url_alt": "",
+        "cta_copy_alt": "",
+        "overlay": 0
+      }
+    },
+    "split_banner_7wEajx": {
+      "type": "split-banner",
+      "blocks": {
+        "body_copy_hC4bVG": {
+          "type": "body-copy",
+          "settings": {
+            "copy": "<h5><strong>Isopropyl Cloprostenate (I.C)<\/strong><\/h5>"
+          }
+        },
+        "line_item_9VfdH6": {
+          "type": "line-item",
+          "settings": {
+            "line_item_icon_rotation": true,
+            "line_item_text": "A prostaglandin analogue that helps to enhance the appearance of eyelashes"
+          }
+        },
+        "body_copy_NanEiH": {
+          "type": "body-copy",
+          "settings": {
+            "copy": "<h5>Radish Root Ferment<\/h5>"
+          }
+        },
+        "line_item_b6zCEq": {
+          "type": "line-item",
+          "settings": {
+            "line_item_icon_rotation": true,
+            "line_item_text": "Peptide-packed for conditioning properties"
+          }
+        },
+        "body_copy_EGJMnH": {
+          "type": "body-copy",
+          "settings": {
+            "copy": "<h5><strong>Hyaluronic Acid<\/strong><\/h5>"
+          }
+        },
+        "line_item_i8HHVa": {
+          "type": "line-item",
+          "settings": {
+            "line_item_icon_rotation": true,
+            "line_item_text": "Aids lash hydration & can hold up to 1000x its weight in water"
+          }
+        },
+        "body_copy_EVpGHm": {
+          "type": "body-copy",
+          "settings": {
+            "copy": "<h5>Grape Seed Extract<\/h5>"
+          }
+        },
+        "line_item_qkTGAn": {
+          "type": "line-item",
+          "settings": {
+            "line_item_icon_rotation": true,
+            "line_item_text": "An antioxidant, rich in vitamin E essential for lash health"
+          }
+        },
+        "body_copy_7tCVAr": {
+          "type": "body-copy",
+          "settings": {
+            "copy": "<h5>Amino Acids<\/h5>"
+          }
+        },
+        "line_item_yYhkX8": {
+          "type": "line-item",
+          "settings": {
+            "line_item_icon_rotation": true,
+            "line_item_text": "The building blocks of collagen & essential to healthy, fortified lashes"
+          }
+        },
+        "body_copy_EJ7wPU": {
+          "type": "body-copy",
+          "settings": {
+            "copy": "<h5>Honey & Aloe Vera<\/h5>"
+          }
+        },
+        "line_item_ThLT7g": {
+          "type": "line-item",
+          "settings": {
+            "line_item_icon_rotation": true,
+            "line_item_text": "A nourishing extract blend to soothe lashes & skin"
+          }
+        }
+      },
+      "block_order": [
+        "body_copy_hC4bVG",
+        "line_item_9VfdH6",
+        "body_copy_NanEiH",
+        "line_item_b6zCEq",
+        "body_copy_EGJMnH",
+        "line_item_i8HHVa",
+        "body_copy_EVpGHm",
+        "line_item_qkTGAn",
+        "body_copy_7tCVAr",
+        "line_item_yYhkX8",
+        "body_copy_EJ7wPU",
+        "line_item_ThLT7g"
+      ],
+      "settings": {
+        "style": "beige",
+        "padding": "inset",
+        "arrangement": "left_asset_right_content",
+        "header": "h3",
+        "alignment": "left",
+        "vertical_alignment": "middle",
+        "module_height": "image-height",
+        "image_d": "shopify:\/\/shop_images\/Lash-Ingredient-Image.jpg",
+        "video_poster_d": true,
+        "video_poster_m": true,
+        "video_autoplay": true,
+        "eyebrow": "",
+        "heading": "GrandeLASH-MD's Key Ingredients",
+        "cta_url": "",
+        "cta_copy": ""
+      }
+    },
+    "faq_bw9hLq": {
+      "type": "faq",
+      "settings": {}
+    }
+  },
+  "order": [
+    "main",
+    "split_banner_GgxUGD",
+    "banner_aD8C96",
+    "split_banner_p9XJMT",
+    "split_banner_3mx3U4",
+    "split_banner_3BYWac",
+    "split_banner_jf7f9G",
+    "banner_NaDx9A",
+    "split_banner_7wEajx",
+    "faq_bw9hLq"
+  ]
+}

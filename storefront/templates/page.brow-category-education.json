@@ -1,0 +1,111 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "shogun-helper": {
+      "type": "shogun-helper",
+      "settings": {}
+    },
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {}
+    },
+    "shogun-optimizer": {
+      "type": "shogun-optimizer",
+      "settings": {}
+    },
+    "banner_HjctWi": {
+      "type": "banner",
+      "settings": {
+        "color": "light",
+        "background": "beige",
+        "image_d": "shopify:\/\/shop_images\/brow-Category_Bar.jpg",
+        "alignment": "left",
+        "eyebrow": "",
+        "heading": "",
+        "heading_size": "h2",
+        "copy": "",
+        "cta_url": "",
+        "cta_copy": "",
+        "cta_url_alt": "",
+        "cta_copy_alt": "",
+        "overlay": 0
+      }
+    },
+    "ticker_XiC7UG": {
+      "type": "ticker",
+      "settings": {
+        "optional_text": "",
+        "optional_url": "",
+        "speed": 3,
+        "color_scheme": "beige"
+      }
+    },
+    "banner_XUNEmT": {
+      "type": "banner",
+      "settings": {
+        "color": "light",
+        "background": "beige",
+        "image_d": "shopify:\/\/shop_images\/brow-Value_Props_Assurances.jpg",
+        "alignment": "left",
+        "eyebrow": "",
+        "heading": "",
+        "heading_size": "h2",
+        "copy": "",
+        "cta_url": "",
+        "cta_copy": "",
+        "cta_url_alt": "",
+        "cta_copy_alt": "",
+        "overlay": 0
+      }
+    },
+    "split_banner_UYHyLJ": {
+      "type": "split-banner",
+      "blocks": {
+        "body_copy_xEyNFX": {
+          "type": "body-copy",
+          "settings": {
+            "copy": "<h6>Brow Enhancing Serum<\/h6>"
+          }
+        }
+      },
+      "block_order": [
+        "body_copy_xEyNFX"
+      ],
+      "settings": {
+        "style": "coral",
+        "padding": "inset",
+        "arrangement": "left_asset_right_content",
+        "header": "h2",
+        "alignment": "left",
+        "vertical_alignment": "middle",
+        "module_height": "image-height",
+        "image_d": "shopify:\/\/shop_images\/brow-Lifestyle_Image.jpg",
+        "video_poster_d": true,
+        "video_poster_m": true,
+        "video_autoplay": true,
+        "eyebrow": "",
+        "heading": "GrandeBROW",
+        "cta_url": "shopify:\/\/products\/grandebrow",
+        "cta_copy": "Shop Now"
+      }
+    }
+  },
+  "order": [
+    "shogun-helper",
+    "main",
+    "shogun-optimizer",
+    "banner_HjctWi",
+    "ticker_XiC7UG",
+    "banner_XUNEmT",
+    "split_banner_UYHyLJ"
+  ]
+}

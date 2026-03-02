@@ -1,0 +1,139 @@
+{{ 'predictive-search.min.css' | asset_url | stylesheet_tag }}
+
+{% comment %} <predictive-search class="search-modal__form" data-loading-text="{{ 'accessibility.loading' | t }}"> {% endcomment %}
+<predictive-search class="search-modal__form" data-loading-text="Loading . . .">
+  <form
+    action="{{ routes.search_url }}"
+    method="get"
+    role="search"
+    id="search-form"
+    data-search-form
+  >
+    <div class="header__search-wrapper">
+      <button class="tap-area header__search-button"
+        aria-label="Search for products or categories"
+        type="submit">
+      </button>
+      {% render 'icons': icon_name: 'close', class: 'predictive-clear' %}
+      
+      <div class="header__search-border-b"></div>
+      <input type="hidden" name="type" value="product">
+      <button
+        type="reset"
+        class="reset__button field__button{% if search.terms == blank %} hidden{% endif %}"
+        aria-label="Reset"
+        style="display: none;"
+      >
+        <svg class="icon icon-close" aria-hidden="true" focusable="false">
+          <use xlink:href="#icon-reset">
+        </svg>
+      </button>
+      <button
+        style="display: none;"
+        class="search__button field__button"
+        aria-label="Search"
+      >
+        <svg class="icon icon-search" aria-hidden="true" focusable="false">
+          <use href="#icon-search">
+        </svg>
+      </button>
+    </div> 
+
+    <div class="header__search-mobile hide-desktop">
+      <span class="header__search-close back active" data-search-close-mobile>
+        {% render 'icons': icon_name: 'arrow-left', class: 'predictive-close' %}
+      </span>
+      <div class="header__search">
+        <span class="header__icon" data-search-button>{% render 'icons', icon_name: 'search-filled' %}</span>
+        <input
+          class="header__search-input active field__input header__search-title"
+          value="{{ search.terms | escape }}"
+          placeholder="Search"
+          role="combobox"
+          aria-expanded="false"
+          aria-owns="predictive-search-results"
+          aria-controls="predictive-search-results"
+          aria-haspopup="listbox"
+          aria-autocomplete="list"
+          autocorrect="off"
+          autocomplete="off"
+          autocapitalize="off"
+          spellcheck="false"
+          data-p-search-input-mobile
+        >
+      </div>
+      <span class="header__search-close active" data-search-close-mobile>
+        {% render 'icons': icon_name: 'close', class: 'predictive-close' %}
+      </span>
+    </div>
+
+    <div class="predictive-search predictive-search--header" tabindex="-1" data-predictive-search>
+      <div class="predictive-search__loading-state">
+        <svg
+          aria-hidden="true"
+          focusable="false"
+          class="spinner"
+          viewBox="0 0 66 66"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <circle class="path" fill="none" stroke-width="6" cx="33" cy="33" r="30"></circle>
+        </svg>
+      </div>
+    </div>
+
+    <span class="predictive-search-status visually-hidden" role="status" aria-hidden="true"></span>
+  </form>
+</predictive-search>
+
+<div class="popular-searches active">
+  <div class="popular-searches__wrapper">
+    {% assign searchSuggestions = shop.metaobjects.search_suggestions.values %}
+    {% assign searchProducts = shop.metaobjects.search_products.values %}
+    {% comment %} Trending Searches {% endcomment %}
+    {% for data in searchSuggestions %}
+      {% if data.trending != blank %}
+        <div class="popular-searches__suggestions">
+          <h2 id="predictive-search-queries" class="s-3 predictive-search__heading">Trending</h2>
+          <ul>
+            {% for searchTerm in data.trending.value %}
+              <li>
+                <a
+                  href="{{ routes.search_url }}?q={{ searchTerm }}&type=product"
+                  class="p-2 color-black"
+                >
+                  {{- searchTerm -}}
+                </a>
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+      {% endif %}
+    {% endfor %}
+    {% comment %} Trending Products {% endcomment %}
+    {% for data in searchProducts %}
+      {% if data.product != blank %}
+        <div class="popular-searches__product-cntr">
+          <h2 id="predictive-search-queries" class="s-3 predictive-search__heading-2">Trending Products</h2>
+          <div class="popular-searches__products">
+            {% for _product in data.product.value %}
+              <div class="popular-searches__product">
+                <a href="{{ _product.url }}" class="mega-menu__product">
+                  <img class="mega-menu__product-img" src="{{ _product.featured_image | image_url: width: 265, height: 332 }}" />
+                  <span class="mega-menu__product-category p-5">{{ _product.title }}</span>
+                  <span class="mega-menu__product-title p-2">{{ _product.metafields.details.subtitle }}</span>
+                </a>
+              </div>
+            {% endfor %}
+          </ul>
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+</div>
+
+<script>
+  window.routes = {
+    predictive_search_url: '{{ routes.predictive_search_url }}',
+  };
+</script>
+<script src="{{ 'predictive-search.min.js' | asset_url }}" defer="defer"></script>

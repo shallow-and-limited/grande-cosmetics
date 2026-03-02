@@ -1,0 +1,58 @@
+
+<div class="media-slider {{ classes }}" data-media-slider-wrapper {{ attribute }}>  
+  {{ 'media-carousel.min.css' | asset_url | stylesheet_tag }}
+  {% liquid
+    assign icon = product.metafields.details.accolades_icon | image_url
+    if icon != blank
+      render 'image', image: icon, class: 'main-product__accolades'
+    endif
+  %}
+  <media-carousel class="media-slider__swipper-wrapper">
+    <div class="grid grid--media">
+      <div class="media-slider__scrollbar swiper-scrollbar"></div>
+        <div class="media-slider__pager">
+          <div class="swiper-container swiper-thumbnails" data-thumbs-swiper>
+          <div class="media-slider__thumbnails swiper-wrapper" data-swiper-class="swiper-wrapper">
+            {% for media in product.media %}
+              <div class="media-slider__thumbnail swiper-slide product-thumbnail" data-swiper-class="swiper-slide" data-swiper-slide>
+                {% render 'image', image: media %}
+                {% if media.media_type != 'image' %}
+                  {% render 'icons', icon_name: 'play' %}
+                {% endif %}
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+      <div class="swiper-container swiper-gallery" data-gallery-swiper>
+        {% render 'product-badges', product: product %}
+
+        <div class="media-slider__slides swiper-wrapper" data-swiper-class="swiper-wrapper">
+          {% for media in product.media %}
+            <div class="media-slider__slide swiper-slide" data-variant-title="{{ media.alt }}" data-index="{{ forloop.index }}" data-swiper-class="swiper-slide" data-swiper-slide>
+              {% if media.media_type == 'image' %}
+                {% render 'image', image: media %}
+              {% else %}
+                <div class="video-wrapper">
+                  {{ media | media_tag }}
+                </div>
+              {% endif %}
+            </div>
+          {% endfor %}
+        </div>
+        {% if product.media.size > 1 %}
+          <div class="media-slider__controls hide-mobile">
+            <button class="pager-prev" data-previous aria-label="Previous Carousel Slide">
+              {% render 'icons', icon_name: 'arrow-left' %}
+            </button>
+            <button class="pager-next" data-next aria-label="Next Carousel Slide">
+              {% render 'icons', icon_name: 'arrow-right' %}
+            </button>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </media-carousel>
+  <script src="{{ 'media-carousel.min.js' | asset_url }}" defer="defer"></script>
+</div>
+

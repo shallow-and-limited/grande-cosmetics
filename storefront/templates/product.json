@@ -9,317 +9,272 @@
  */
 {
   "sections": {
-    "product_breadcrumbs_9xPfwD": {
-      "type": "product_breadcrumbs",
-      "settings": {
-        "color_scheme": "scheme-2",
-        "padding_top": 2,
-        "padding_bottom": 2,
-        "margin_bottom": 0
-      }
+    "shogun-helper": {
+      "type": "shogun-helper",
+      "settings": {}
+    },
+    "shogun-above": {
+      "type": "shogun-above",
+      "settings": {}
     },
     "main": {
       "type": "main-product",
       "blocks": {
-        "title": {
+        "title_qVm9wT": {
           "type": "title",
+          "settings": {}
+        },
+        "subtitle_RFcddk": {
+          "type": "subtitle",
           "settings": {
-            "title_size": "h2",
-            "title_size_mobile": "h2--mobile"
+            "subtitle": "{{ product.metafields.details.subtitle.value }}"
           }
         },
-        "text_qBQ9Dz": {
-          "type": "text",
-          "settings": {
-            "color_scheme": "",
-            "accordion": false,
-            "border": false,
-            "text_alignment": "left",
-            "title": "",
-            "header_style": "body",
-            "mobile_header_style": "body--mobile",
-            "text": "<p><em>{{ product.vendor }}</em></p>",
-            "text_weight": "",
-            "text_style": "body--small",
-            "mobile_text_style": "body--mobile",
-            "video_aspect_ratio": "square",
-            "padding": ""
-          }
+        "promo_text_7g9cCK": {
+          "type": "promo-text",
+          "disabled": true,
+          "settings": {}
         },
-        "text_4BQpzW": {
-          "type": "text",
-          "settings": {
-            "color_scheme": "",
-            "accordion": false,
-            "border": false,
-            "text_alignment": "left",
-            "title": "",
-            "header_style": "body",
-            "mobile_header_style": "body--mobile",
-            "text": "{{ product.description }}",
-            "text_weight": "",
-            "text_style": "body",
-            "mobile_text_style": "body--mobile",
-            "video_aspect_ratio": "square",
-            "padding": ""
-          }
-        },
-        "price_ymGdEt": {
+        "price_UdhhDU": {
           "type": "price",
-          "settings": {
-            "show_installments": false
-          }
+          "settings": {}
         },
-        "variant_picker": {
+        "short_desc_7AaVCy": {
+          "type": "short_desc",
+          "settings": {}
+        },
+        "bundled_products_XC6XQ8": {
+          "type": "bundled_products",
+          "settings": {}
+        },
+        "promo_carousel_73KPU4": {
+          "type": "promo_carousel",
+          "settings": {}
+        },
+        "variant_picker_8iFKwU": {
           "type": "variant_picker",
           "settings": {
-            "picker_scheme": "",
-            "picker_type": "button",
-            "siblings_title": "Colours",
-            "siblings_swatches": true
-          }
-        },
-        "buy_buttons": {
-          "type": "buy_buttons",
-          "settings": {
             "show_dynamic_checkout": false,
-            "show_quantity_selector": true,
-            "show_gift_card_recipient": true
+            "subscription_tooltip_text": "<p>Subscribe to save 15% + free shipping and never worry about running out. We’ll refill your item at your desired shipping frequency, and send a reminder a few days in advance.</p><p>*Promo codes cannot be applied to auto-replenish items. No obligation, to modify or cancel your subscription, <a href=\"/account/register\" target=\"_blank\" title=\"/account/register\">create an account</a>.</p><p>GrandeREWARDS are not able to be combined with subscription purchases. </p>"
           }
         },
-        "text_YmTDnc": {
-          "type": "text",
+        "try_with_mirra_try_with_mirra_product_button_wLwpnU": {
+          "type": "shopify://apps/try-with-mirra/blocks/try-with-mirra-product-button/17eab015-3219-4f1b-8ced-c0ffd59b7b46",
           "settings": {
-            "color_scheme": "",
-            "accordion": true,
-            "border": false,
-            "text_alignment": "left",
-            "title": "Product Features",
-            "header_style": "body",
-            "mobile_header_style": "body--mobile",
-            "text": "{{ product.description }}",
-            "text_weight": "",
-            "text_style": "body",
-            "mobile_text_style": "body--mobile",
-            "video_aspect_ratio": "square",
-            "padding": ""
+            "buttonBackgroundColor": "#e6006b",
+            "buttonTextColor": "#ffffff",
+            "buttonTextOption": "try-before-you-buy",
+            "maxWidth": 100,
+            "height": 2.5,
+            "marginTop": 0.5,
+            "margin": "auto",
+            "mobileWidth": "100",
+            "width": "100",
+            "mobileBreakpoint": 768,
+            "verticalAlignLogo": "middle",
+            "enable_loading_state": true,
+            "custom_css": ".mirra-button::after {\n  content: \" • $0\";\n}\n\n.mirra-button {\n  background-color: #E6006B !important;\n  transition: background-color .25s ease-in-out,color .25s ease-in-out,border .25s ease-in-out,box-shadow .25s ease-in-out,transform .25s ease-in-out;\n  width: 100% !important;\n}\n\n.mirra-button:hover {\n  background-color: #D60064 !important;\n}\n\n@media (min-width: 1920px) {\n  .mirra-button {\n    max-width: 17.5rem;\n  }\n}",
+            "mirra_button_classes": ""
           }
         },
-        "text_wada6P": {
-          "type": "text",
+        "klarna_on_site_messaging_app_block_VjrYQa": {
+          "type": "shopify://apps/klarna-on-site-messaging/blocks/app-block/b95936a9-74b6-4a95-8103-6a1b6459c25e",
           "settings": {
-            "color_scheme": "",
-            "accordion": true,
-            "border": false,
-            "text_alignment": "left",
-            "title": "Materials & Care",
-            "header_style": "body",
-            "mobile_header_style": "body--mobile",
-            "text": "<p>-</p>",
-            "text_weight": "",
-            "text_style": "body",
-            "mobile_text_style": "body--mobile",
-            "video_aspect_ratio": "square",
-            "padding": ""
+            "data_key": "credit-promotion-auto-size",
+            "theme": "default",
+            "topPadding": "0",
+            "bottomPadding": "0",
+            "messagePrefix": "or"
           }
         },
-        "text_dbFTHD": {
-          "type": "text",
+        "rewards_E4PMJJ": {
+          "type": "rewards",
+          "settings": {}
+        },
+        "product_features_m4nhVy": {
+          "type": "product_features",
+          "settings": {}
+        },
+        "accordions_pepGdh": {
+          "type": "accordions",
+          "settings": {}
+        },
+        "faqs_YtqnhH": {
+          "type": "faqs",
           "settings": {
-            "color_scheme": "",
-            "accordion": true,
-            "border": false,
-            "text_alignment": "left",
-            "title": "Shipping & Delivery",
-            "header_style": "body",
-            "mobile_header_style": "body--mobile",
-            "text": "<p>-</p>",
-            "text_weight": "",
-            "text_style": "body",
-            "mobile_text_style": "body--mobile",
-            "video_aspect_ratio": "square",
-            "padding": ""
+            "label": "Have a question? Read our FAQs",
+            "link-text": "Expand"
           }
         },
-        "recommended_maxHLM": {
-          "type": "recommended",
+        "report_gi3ajb": {
+          "type": "report",
           "settings": {
-            "intent": "related",
-            "block_heading": "Pairs well with",
-            "product_list_limit": 10,
-            "columns_desktop": 3,
-            "columns_mobile": 3,
-            "slider_show_dots": true,
-            "slider_show_arrows": false
+            "icon": "shopify://shop_images/Group_3265_1_3687f35f-1c68-46c1-a8dd-1fa82ce4abc9.png",
+            "copy": "Committed to using safe & clinically–tested ingredients.",
+            "link-text": "See the Report",
+            "link-url": "https://grandecosmetics.com/pages/grandelash-md-safety-testing"
           }
         }
       },
       "block_order": [
-        "title",
-        "text_qBQ9Dz",
-        "text_4BQpzW",
-        "price_ymGdEt",
-        "variant_picker",
-        "buy_buttons",
-        "text_YmTDnc",
-        "text_wada6P",
-        "text_dbFTHD",
-        "recommended_maxHLM"
+        "title_qVm9wT",
+        "subtitle_RFcddk",
+        "promo_text_7g9cCK",
+        "price_UdhhDU",
+        "short_desc_7AaVCy",
+        "bundled_products_XC6XQ8",
+        "promo_carousel_73KPU4",
+        "variant_picker_8iFKwU",
+        "try_with_mirra_try_with_mirra_product_button_wLwpnU",
+        "klarna_on_site_messaging_app_block_VjrYQa",
+        "rewards_E4PMJJ",
+        "product_features_m4nhVy",
+        "accordions_pepGdh",
+        "faqs_YtqnhH",
+        "report_gi3ajb"
       ],
+      "custom_css": [],
+      "settings": {}
+    },
+    "fw_html_embed_PFnERL": {
+      "type": "fw-html-embed",
+      "disabled": true,
       "settings": {
-        "color_scheme": "",
-        "layout": "page-width",
-        "layout_mobile": "full-width",
-        "gallery_width": 50,
-        "aspect_ratio": "portrait",
-        "gallery_type_desktop": "carousel",
-        "gallery_type_mobile": "carousel",
-        "only_variants_gallery": false,
-        "always_others_gallery": false,
-        "enable_video_looping": false,
-        "image_zoom": "none",
-        "gallery_grid_columns_desktop": 2,
-        "gallery_grid_columns_mobile": 2,
-        "display_thumbnails_desktop": false,
-        "display_thumbnails_mobile": false,
-        "display_thumbnails_as_dots": true,
-        "thumbnail_position": "below",
-        "product_info_spacing": 1,
-        "enable_sticky_info": false,
-        "enable_sticky_add": false,
-        "header_is_sticky": false,
-        "sticky_color": "",
-        "padding_top": 2,
-        "padding_bottom": 2,
-        "margin_bottom": 0
+        "title": "Trending On TikTok",
+        "embed_code": "<script async type=\"text/javascript\" src=\"//asset.fwcdn3.com/js/embed-feed.js\"></script>\n\n    <fw-embed-feed channel=\"grandecosmetics\" playlist=\"5RJWb5\" mode=\"row\" open_in=\"default\" max_videos=\"0\" placement=\"middle\" player_placement=\"bottom-right\" branding=\"false\"></fw-embed-feed>"
       }
     },
-    "multicolumn_riEUL9": {
-      "type": "multicolumn",
+    "benefits": {
+      "type": "benefits",
+      "settings": {
+        "list_icon": "shopify://shop_images/star_45e1b5e0-3c02-42c2-9743-5655dcab4ee5.svg"
+      }
+    },
+    "testimonials_kWzRwm": {
+      "type": "testimonials",
+      "disabled": true,
+      "settings": {
+        "slide_type": "image_bg",
+        "background_color": "beige"
+      }
+    },
+    "banner_RPYMcQ": {
+      "type": "banner",
+      "name": "Banner",
+      "settings": {
+        "color": "dark",
+        "background": "beige",
+        "alignment": "left",
+        "eyebrow": "",
+        "heading": "",
+        "heading_size": "h2",
+        "copy": "",
+        "cta_url": "",
+        "cta_copy": "",
+        "cta_url_alt": "",
+        "cta_copy_alt": "",
+        "overlay": 0
+      }
+    },
+    "ticker_jXx7gz": {
+      "type": "ticker",
+      "settings": {
+        "optional_text": "",
+        "optional_url": "",
+        "speed": 1,
+        "color_scheme": "coral"
+      }
+    },
+    "categories_WVnWcQ": {
+      "type": "categories",
+      "settings": {
+        "eyebrow": "",
+        "heading": "",
+        "cta_copy": "",
+        "cta_url": ""
+      }
+    },
+    "before_after_gQDGbq": {
+      "type": "before-after",
+      "settings": {
+        "switch_sides": false,
+        "metaobject_handle": ""
+      }
+    },
+    "product_education_V69cBA": {
+      "type": "product-education",
+      "settings": {}
+    },
+    "product_carousel_VKNiJC": {
+      "type": "product-carousel",
+      "settings": {
+        "heading": "",
+        "categories": false,
+        "cta_copy": "",
+        "cta_url": ""
+      }
+    },
+    "1716494706cc8d339a": {
+      "type": "apps",
       "blocks": {
-        "column_UPMhAV": {
-          "type": "column",
+        "yotpo_product_reviews_ugc_reviews_9UdWPi": {
+          "type": "shopify://apps/yotpo-product-reviews/blocks/reviews/eb7dfd7d-db44-4334-bc49-c893b51b36cf",
+          "disabled": true,
           "settings": {
-            "color_scheme": "scheme-2",
-            "image_overlay_opacity": 0,
-            "show_overlay_on_hover": false,
-            "title": "",
-            "heading_size": "h3",
-            "heading_size_mobile": "h3--mobile",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
-            "text_style": "body",
-            "text_style_mobile": "body--mobile",
-            "link_label": "",
-            "link": "",
-            "show_link_as_button": false,
-            "card_padding": 0.5
-          }
-        },
-        "column_YU7q6w": {
-          "type": "column",
-          "settings": {
-            "color_scheme": "scheme-2",
-            "image_overlay_opacity": 0,
-            "show_overlay_on_hover": false,
-            "title": "",
-            "heading_size": "h3",
-            "heading_size_mobile": "h3--mobile",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
-            "text_style": "body",
-            "text_style_mobile": "body--mobile",
-            "link_label": "",
-            "link": "",
-            "show_link_as_button": false,
-            "card_padding": 0.5
-          }
-        },
-        "column_YVeGRB": {
-          "type": "column",
-          "settings": {
-            "color_scheme": "scheme-2",
-            "image_overlay_opacity": 0,
-            "show_overlay_on_hover": false,
-            "title": "",
-            "heading_size": "h3",
-            "heading_size_mobile": "h3--mobile",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
-            "text_style": "body",
-            "text_style_mobile": "body--mobile",
-            "link_label": "",
-            "link": "",
-            "show_link_as_button": false,
-            "card_padding": 0.5
+            "product": ""
           }
         }
       },
       "block_order": [
-        "column_UPMhAV",
-        "column_YU7q6w",
-        "column_YVeGRB"
+        "yotpo_product_reviews_ugc_reviews_9UdWPi"
       ],
-      "name": "t:sections.multicolumn.presets.name",
-      "settings": {
-        "color_scheme": "scheme-2",
-        "layout": "page-width",
-        "enable_desktop_slider": false,
-        "full_width": false,
-        "title": "",
-        "header_is_h1": false,
-        "visually_hide_header": false,
-        "heading_size": "h2",
-        "description": "",
-        "text_style": "body",
-        "mobile_text_style": "body--mobile",
-        "heading_alignment": "left",
-        "cta_text": "",
-        "cta_link": "",
-        "override_grid_gap": false,
-        "spacing_grid_horizontal": 8,
-        "spacing_grid_horizontal_mobile": 8,
-        "overlap": false,
-        "aspect_ratio": "landscape",
-        "override_image_size": false,
-        "image_width": 72,
-        "columns_desktop": 3,
-        "column_alignment": "left",
-        "columns_mobile": 1,
-        "swipe_on_mobile": false,
-        "slider_show_dots": true,
-        "slider_show_arrows": false,
-        "padding_top": 2,
-        "padding_bottom": 2,
-        "margin_bottom": 0
-      }
+      "settings": {}
     },
-    "related_products_acXrrg": {
-      "type": "related-products",
-      "name": "t:sections.related-products.name",
-      "settings": {
-        "color_scheme": "",
-        "layout": "page-width",
-        "title": "You May Also Like",
-        "header_is_h1": false,
-        "visually_hide_header": false,
-        "heading_size": "h2",
-        "description": "",
-        "text_style": "body",
-        "mobile_text_style": "body--mobile",
-        "heading_alignment": "center",
-        "products_to_show": 4,
-        "columns_desktop": 4,
-        "enable_desktop_slider": true,
-        "columns_mobile": "2",
-        "swipe_on_mobile": false,
-        "padding_top": 2,
-        "padding_bottom": 2,
-        "margin_bottom": 0
-      }
+    "3cbc6a3c1622afaae685": {
+      "type": "apps",
+      "blocks": {
+        "e167ceea-358f-422b-b853-e1eff466bb04": {
+          "type": "shopify://apps/yotpo-product-reviews/blocks/reviews/eb7dfd7d-db44-4334-bc49-c893b51b36cf",
+          "settings": {
+            "product": "{{product}}"
+          }
+        }
+      },
+      "block_order": [
+        "e167ceea-358f-422b-b853-e1eff466bb04"
+      ],
+      "settings": {}
+    },
+    "shogun-below": {
+      "type": "shogun-below",
+      "settings": {}
+    },
+    "shogun-optimizer": {
+      "type": "shogun-optimizer",
+      "settings": {}
+    },
+    "176945629858b278ad": {
+      "type": "apps",
+      "settings": {}
     }
   },
   "order": [
-    "product_breadcrumbs_9xPfwD",
+    "shogun-helper",
+    "shogun-above",
     "main",
-    "multicolumn_riEUL9",
-    "related_products_acXrrg"
+    "fw_html_embed_PFnERL",
+    "benefits",
+    "testimonials_kWzRwm",
+    "banner_RPYMcQ",
+    "ticker_jXx7gz",
+    "categories_WVnWcQ",
+    "before_after_gQDGbq",
+    "product_education_V69cBA",
+    "product_carousel_VKNiJC",
+    "1716494706cc8d339a",
+    "3cbc6a3c1622afaae685",
+    "shogun-below",
+    "shogun-optimizer",
+    "176945629858b278ad"
   ]
 }

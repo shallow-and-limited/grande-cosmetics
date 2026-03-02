@@ -1,0 +1,11 @@
+<product-modal class="product-modal product-modal--{{ id }}" data-product-modal="{{ id }}">
+  <div class="product-modal__heading">
+    <h4 class="p-1">{{ title }}</h4>
+    <button class="product-modal__close" data-modal-close>
+      {% render 'icons', icon_name: 'close' %}
+    </button>
+  </div>
+  <div class="product-modal__content">
+    {{ content }}  
+  </div>
+</product-modal>

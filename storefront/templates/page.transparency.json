@@ -1,0 +1,178 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {}
+    },
+    "ticker_bG6bAR": {
+      "type": "ticker",
+      "blocks": {
+        "text_LWjGLK": {
+          "type": "text",
+          "settings": {
+            "svg_icon": "flower",
+            "text": "#1 Lash & Brow Serum Brand in the U.S.*",
+            "url": ""
+          }
+        }
+      },
+      "block_order": [
+        "text_LWjGLK"
+      ],
+      "settings": {
+        "optional_text": "",
+        "optional_url": "",
+        "speed": 1,
+        "color_scheme": "blush"
+      }
+    },
+    "banner_KycjnM": {
+      "type": "banner",
+      "settings": {
+        "color": "light",
+        "background": "rose",
+        "alignment": "center",
+        "eyebrow": "",
+        "heading": "Beauty in <em>Transparency<\/em>",
+        "heading_size": "h2",
+        "copy": "Beauty isn't just looking good, but also feeling good about the products you use. While there are endless sources of intel & opinions to be found, we work hard to give you the information and transparency you need to make choices based on scientific, factual information.",
+        "cta_url": "",
+        "cta_copy": "",
+        "cta_url_alt": "",
+        "cta_copy_alt": "",
+        "overlay": 0
+      }
+    },
+    "split_banner_rxCQXW": {
+      "type": "split-banner",
+      "blocks": {
+        "body_copy_ybV3Qp": {
+          "type": "body-copy",
+          "settings": {
+            "copy": "<p>We not only test for safety and efficacy, we get the seal of approval from a host of nationally recognized experts (dermatologists, trichologists, cosmetic surgeons), and trusted industry professionals who use, recommend -- and love -- GrandeLASH-MD.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "body_copy_ybV3Qp"
+      ],
+      "settings": {
+        "style": "beige",
+        "padding": "inset",
+        "arrangement": "right_asset_left_content",
+        "header": "h3",
+        "alignment": "centered",
+        "vertical_alignment": "middle",
+        "module_height": "image-height",
+        "image_d": "shopify:\/\/shop_images\/DR.jpg",
+        "eyebrow": "",
+        "heading": "Backed by the Pros",
+        "cta_url": "https:\/\/grandecosmetics.com\/pages\/backed-by-the-pros",
+        "cta_copy": "Learn More"
+      }
+    },
+    "split_banner_W6CJ77": {
+      "type": "split-banner",
+      "blocks": {
+        "body_copy_bFLYU3": {
+          "type": "body-copy",
+          "settings": {
+            "copy": "<p>We carefully select high-performance ingredients (hello, peptides and so much more) for our formulas, and GrandeLASH-MD is no exception. It's all about choosing the right ingredients, and combining them in the right way to get the results you want and love. <\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "body_copy_bFLYU3"
+      ],
+      "settings": {
+        "style": "beige",
+        "padding": "inset",
+        "arrangement": "left_asset_right_content",
+        "header": "h3",
+        "alignment": "centered",
+        "vertical_alignment": "middle",
+        "module_height": "image-height",
+        "image_d": "shopify:\/\/shop_images\/Science_641bc01e-1b4e-4501-80c7-b1c2a4da6c62.jpg",
+        "eyebrow": "",
+        "heading": "The Ingredients for Success",
+        "cta_url": "https:\/\/grandecosmetics.com\/pages\/grandelashmd-key-ingredients",
+        "cta_copy": "Learn More"
+      }
+    },
+    "split_banner_efhWa3": {
+      "type": "split-banner",
+      "blocks": {
+        "body_copy_zmgrnf": {
+          "type": "body-copy",
+          "settings": {
+            "copy": "<p>When it comes to product performance, we never settle for mediocre. Just like our other proven formulas, GrandeLASH-MD really works - and is the gold standard of lash enhancers for a reason.Like all skincare products, proper application is the first step to your best results!<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "body_copy_zmgrnf"
+      ],
+      "settings": {
+        "style": "beige",
+        "padding": "inset",
+        "arrangement": "right_asset_left_content",
+        "header": "h3",
+        "alignment": "centered",
+        "vertical_alignment": "middle",
+        "module_height": "image-height",
+        "image_d": "shopify:\/\/shop_images\/Application.jpg",
+        "eyebrow": "",
+        "heading": "Proper Application is 🔑",
+        "cta_url": "https:\/\/grandecosmetics.com\/pages\/how-to-apply-grandelash-md",
+        "cta_copy": "Learn More"
+      }
+    },
+    "split_banner_FYQr44": {
+      "type": "split-banner",
+      "blocks": {
+        "body_copy_cQPiHk": {
+          "type": "body-copy",
+          "settings": {
+            "copy": "<p>Take a peek into Grande's ISO 22716 GMP certified lab. From formulation, to filling, to testing: there's so much that goes into bringing you the best DIY beauty solutions on the market.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "body_copy_cQPiHk"
+      ],
+      "settings": {
+        "style": "beige",
+        "padding": "inset",
+        "arrangement": "left_asset_right_content",
+        "header": "h3",
+        "alignment": "centered",
+        "vertical_alignment": "middle",
+        "module_height": "image-height",
+        "image_d": "shopify:\/\/shop_images\/BTS.jpg",
+        "eyebrow": "",
+        "heading": "Behind the Scenes",
+        "cta_url": "https:\/\/grandecosmetics.com\/pages\/grandelash-md-manufacturer",
+        "cta_copy": "Learn More"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "ticker_bG6bAR",
+    "banner_KycjnM",
+    "split_banner_rxCQXW",
+    "split_banner_W6CJ77",
+    "split_banner_efhWa3",
+    "split_banner_FYQr44"
+  ]
+}

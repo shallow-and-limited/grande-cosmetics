@@ -1,0 +1,56 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main-collection-hero": {
+      "type": "main-collection-hero",
+      "settings": {}
+    },
+    "main_collection_navigation_ppdk83": {
+      "type": "main-collection-navigation",
+      "settings": {}
+    },
+    "main-collection": {
+      "type": "main-collection",
+      "blocks": {
+        "content_card_EGhy8R": {
+          "type": "content_card",
+          "settings": {
+            "row": 1,
+            "column": 4,
+            "display": "1",
+            "alignment": "center",
+            "image_desktop": "shopify:\/\/shop_images\/brow-min.jpg",
+            "image_mobile": "shopify:\/\/shop_images\/brow-xs-min.jpg",
+            "eyebrow": "Clinical Results",
+            "heading": "H3 60 Characters Max",
+            "cta_url": "\/",
+            "cta_copy": "Learn More"
+          }
+        }
+      },
+      "block_order": [
+        "content_card_EGhy8R"
+      ],
+      "settings": {
+        "products_per_page": 6,
+        "enable_filtering": true,
+        "enable_sorting": true,
+        "columns_desktop": "3",
+        "columns_mobile": "1"
+      }
+    }
+  },
+  "order": [
+    "main-collection-hero",
+    "main_collection_navigation_ppdk83",
+    "main-collection"
+  ]
+}

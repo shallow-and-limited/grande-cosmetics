@@ -1,206 +1,207 @@
-{% comment %}theme-check-disable UndefinedObject{% endcomment %}
-{{ 'section-footer.css' | asset_url | stylesheet_tag }}
-{{ 'component-newsletter.css' | asset_url | stylesheet_tag }}
-{{ 'component-list-payment.css' | asset_url | stylesheet_tag }}
-{{ 'component-accordion.css' | asset_url | stylesheet_tag }}
-{{ 'collapsible-content.css' | asset_url | stylesheet_tag }}
+{{ 'footer.min.css' | asset_url | stylesheet_tag }}
+{{ 'accordion-tab.min.css' | asset_url | stylesheet_tag }}
 
-<footer
-  id="{{ section.id }}"
-  class="footer color-{{ section.settings.color_scheme }} gradient"
->
-  <div
-    class="footer__blocks-wrapper {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
-    {% if settings.animations_reveal_on_scroll %}
-      data-cascade
-    {% endif %}
-  >
-    <div class="footer-blocks hidden--mobile">
-      {%- for block in section.blocks -%}
-        <div
-          class="footer-block"
-          {{ block.shopify_attributes }}
-        >
-          {%- if block.settings.heading != blank -%}
-            <h2 class="footer-block__heading h3">{{- block.settings.heading -}}</h2>
-          {%- endif -%}
+{% liquid
+  assign _settings = section.settings
+  assign _blocks = section.blocks
+%}
 
-          {%- case block.type -%}
-            {%- when '@app' -%}
-              {% render block %}
-            {%- when 'link_list' -%}
-              {%- if block.settings.show_social -%}
-                <div class="footer__social">
-                  {% render 'social-icons' %}
-                </div>
-              {%- endif -%}
+<style>
+  .footer__content {
+    background-color: {{ _settings.background_color }};
+  }
+</style>
 
-              {%- if block.settings.menu != blank -%}
-                <ul class="footer-block__details-content footer__accordion-list list--unstyled">
-                  {%- for link in block.settings.menu.links -%}
-                    <li>
-                      <a href="{{ link.url }}" class="link link--hover">
-                        {{ link.title | escape }}
-                      </a>
-                    </li>
-                  {%- endfor -%}
-                </ul>
-              {%- endif -%}
-          {%- endcase -%}
-        </div>
-      {%- endfor -%}
+<section {% if template contains 'account' or template contains 'login' or template contains 'register' or template contains 'reset' %}class="footer__wrapper"{% endif %}>
+  <div class="footer{% if template contains 'account' or template contains 'login' or template contains 'register' or template contains 'reset' %} account-page{% endif %}">
+    <div class="footer__wave">
+      {% render 'icons', icon_name: 'wave' %}
+      {% render 'icons', icon_name: 'wave', class: 'icon--flip' %}
     </div>
-
-    <div class="hidden--desktop footer__accordion">
-      {%- for block in section.blocks -%}
-        {%- case block.type -%}
-          {%- when 'link_list' -%}
-            <details class="footer__accordion-details" id="Details-{{ block.id }}-{{ section.id }}">
-              <summary id="Summary-{{ block.id }}-{{ section.id }}">
-                <h3 class="accordion__title h6">
-                  {{- block.settings.heading | escape -}}
-                </h3>
-                {% render 'icon-plus' %}
-              </summary>
-              <div
-                id="CollapsibleAccordion-{{ block.id }}-{{ section.id }}"
-                role="region"
-                aria-labelledby="Summary-{{ block.id }}-{{ section.id }}"
-              >
-                {%- if block.settings.show_social -%}
-                  <div class="footer__social">
-                    {% render 'social-icons' %}
-                  </div>
-                {%- endif -%}
-
-                {%- if block.settings.menu != blank -%}
-                  <ul class="footer__accordion-list list--unstyled">
-                    {%- for link in block.settings.menu.links -%}
-                      <li>
-                        <a href="{{ link.url }}" class="link full-unstyled-link">
-                          {{ link.title | escape }}
-                        </a>
-                      </li>
-                    {%- endfor -%}
-                  </ul>
-                {%- endif -%}
-              </div>
-            </details>
-        {%- endcase -%}
-      {%- endfor -%}
+    <div class="footer__content">
+      <div class="footer__logo-mobile hide-desktop">
+        {% render 'icons', icon_name: 'footer-logo-mobile' %}
+      </div>
+      <div class="footer__content-main">
+        <div class="footer__newsletter">
+          <div class="footer__newsletter-heading p-1">{{ _settings.newsletter_heading }}</div>
+          {% if _settings.klaviyo_form == blank %}
+            <div class="footer__newsletter-input-wrapper">
+              <input class="footer__newsletter-input p-2" name="newsletter" type="email" placeholder="Email Address" />
+              <button class="footer__newsletter-submit" type="submit" for="newsletter" aria-label="Submit Email">
+                {% render 'icons', icon_name: 'arrow-left-filled' %}
+              </button>
+            </div>
+          {% else %}
+            {{ _settings.klaviyo_form }}
+          {% endif %}
+          <div class="footer__socials">
+            <a href="{{ _settings.tiktok }}" target="_blank" data-social="tiktok"><span class="footer__social-icon">{% render 'icons', icon_name: 'tiktok' %}</span></a>
+            <a href="{{ _settings.instagram }}" target="_blank" data-social="instagram"><span class="footer__social-icon">{% render 'icons', icon_name: 'instagram' %}</span></a>
+            <a href="{{ _settings.facebook }}" target="_blank" data-social="facebook"><span class="footer__social-icon">{% render 'icons', icon_name: 'facebook' %}</span></a>
+            <a href="{{ _settings.twitter }}" target="_blank" data-social="twitter"><span class="footer__social-icon">{% render 'icons', icon_name: 'x' %}</span></a>
+            <a href="{{ _settings.youtube }}" target="_blank" data-social="youtube"><span class="footer__social-icon">{% render 'icons', icon_name: 'youtube' %}</span></a>
+          </div>
+        </div>
+        <nav class="footer__nav">
+          {% if _settings.menu != blank %}
+            <div class="footer__nav-desktop hide-mobile">
+              {% for link in _settings.menu.links %}
+                <div class="footer__nav-list">
+                  <div class="footer__link p-1">{{ link.title }}</div>
+                  {% if link.links != blank %}
+                    <ul>
+                      {% for childlink in link.links %}
+                        <li><a href="{{ childlink.url }}" class="footer__childlink p-3" data-parent="{{ link.title }}">{{ childlink.title }}</a></li>
+                      {% endfor %}
+                    </ul>
+                  {% endif %}
+                </div>
+              {% endfor %}
+            </div>
+            <div class="footer__nav-mobile hide-desktop">
+              {% for link in _settings.menu.links %}
+                <div class="footer__nav-list">
+                  <accordion-tab class="accordion-tab" data-accordion>
+                    <div class="accordion-tab__title p-2" data-accordion-opener>{{ link.title }}</div>
+                    {% render 'icons', icon_name: 'plus' %}
+                    {% render 'icons', icon_name: 'minus' %}
+                      {% if link.links != blank %}
+                      <ul class="accordion-tab__content">
+                        {% for childlink in link.links %}
+                          <li><a href="{{ childlink.url }}" class="footer__childlink p-3" data-parent="{{ link.title }}">{{ childlink.title }}</a></li>
+                        {% endfor %}
+                      </ul> 
+                    {% endif %}
+                  </accordion-tab>
+                </div>
+              {% endfor %}
+            </div>
+          {% endif %}
+        </nav>
+      </div>
+      <div class="footer__logo-desktop hide-mobile">
+        {% render 'icons', icon_name: 'footer-logo-desktop' %}
+      </div>
+    </div>
+    <div class="footer__legal-menu">
+      <div class="footer__legal-links">
+        {% for link in _settings.menu_legal.links %}
+          <a href="{{ link.url }}" class="footer__legal-link p-4">{{ link.title }}</a>
+        {% endfor %}
+      </div>
+      <div class="footer__copyright p-4 hide-mobile">{{ _settings.copyright }}&nbsp;{{ 'now' | date: '%Y' }}</div>
+    </div>
+    <div class="footer__copyright-mobile hide-desktop">
+      <span class="p-4">{{ _settings.copyright }}&nbsp;{{ 'now' | date: '%Y' }}</span>
+      <a href="#top">{% render 'icons', icon_name: 'tapered-arrow' %}</a>
     </div>
   </div>
+  <script type="text/javascript">
+    usi_installed = 0; USI_installCode = function() { if (usi_installed == 0) { usi_installed = 1; var USI_headID = document.getElementsByTagName("head")[0]; var USI_installID = document.createElement('script'); USI_installID.type = 'text/javascript'; USI_installID.src = 'https://www.upsellit.com/active/grandecosmetics.jsp'; USI_headID.appendChild(USI_installID); } }; if (typeof(document.readyState) != "undefined" && document.readyState === "complete") { USI_installCode(); } else if (window.addEventListener){ window.addEventListener('load', USI_installCode, true); } else if (window.attachEvent) { window.attachEvent('onload', USI_installCode); } else { USI_installCode(); } setTimeout("USI_installCode()", 10000);
+    </script>
+</section>
 
-  {%- if section.settings.content != blank -%}
-    <div class="footer__content body body--small">
-      {{ section.settings.content }}
-    </div>
-  {%- endif -%}
-
-  {%- if section.settings.copywrite != blank or section.settings.subfooter_menu != blank -%}
-    <div
-      class="subfooter body body--small"
-      {% if settings.animations_reveal_on_scroll %}
-        data-cascade
-      {% endif %}
-    >
-      <p class="subfooter__copywrite">
-        {{ section.settings.copywrite }}
-      </p>
-
-      {%- if section.settings.subfooter_menu != blank -%}
-        <ul class="subfooter__menu list--unstyled">
-          {%- for link in section.settings.subfooter_menu.links -%}
-            <li class="subfooter__menu-item">
-              <a href="{{ link.url }}" class="link full-unstyled-link">
-                {{ link.title | escape }}
-              </a>
-            </li>
-          {%- endfor -%}
-        </ul>
-      {%- endif -%}
-    </div>
-  {%- endif -%}
-</footer>
+<script src="{{ 'accordion-tab.min.js' | asset_url }}" defer="defer"></script>
 
 {% schema %}
 {
-  "name": "t:sections.footer.name",
-  "blocks": [
+  "name": "Footer",
+  "tag": "section",
+  "settings": [
     {
-      "type": "@app"
+      "type": "color",
+      "label": "Background Color",
+      "id": "background_color",
+      "default": "#E6006B"
+    },
+    {
+      "type": "select",
+      "label": "Copy Color",
+      "id": "color_copy",
+      "default": "light",
+      "options": [
+        {
+          "label": "light",
+          "value": "light"
+        },
+        {
+          "label": "dark",
+          "value": "dark"
+        }
+      ]
     },
     {
       "type": "link_list",
-      "name": "t:sections.footer.blocks.link_list.name",
-      "settings": [
-        {
-          "type": "text",
-          "id": "heading",
-          "label": "t:sections.footer.blocks.link_list.settings.heading.label"
-        },
-        {
-          "type": "checkbox",
-          "id": "show_social",
-          "default": false,
-          "label": "t:sections.footer.settings.show_social.label"
-        },
-        {
-          "type": "link_list",
-          "id": "menu",
-          "default": "footer",
-          "label": "t:sections.footer.blocks.link_list.settings.menu.label",
-          "info": "t:sections.footer.blocks.link_list.settings.menu.info"
-        }
-      ]
-    }
-  ],
-  "settings": [
-    {
-      "type": "color_scheme",
-      "id": "color_scheme",
-      "label": "t:sections.all.colors.label",
-      "default": "scheme-1"
+      "label": "Main Menu",
+      "id": "menu"
     },
     {
       "type": "header",
-      "content": "t:sections.footer.settings.header__1.content",
-      "info": "t:sections.footer.settings.header__1.info"
-    },
-    {
-      "type": "header",
-      "content": "t:sections.footer.settings.header__9.content",
-      "info": "t:sections.footer.settings.header__9.info"
-    },
-    {
-      "type": "header",
-      "content": "Subfooter settings"
-    },
-    {
-      "type": "richtext",
-      "id": "content",
-      "label": "Content"
+      "content": "Newsletter"
     },
     {
       "type": "text",
-      "id": "copywrite",
-      "label": "Copywrite"
+      "label": "Newsletter Heading",
+      "id": "newsletter_heading",
+      "default": "Want to stay in the Know?"
+    },
+    {
+      "type": "text",
+      "label": "Klaviyo Embed Code",
+      "id": "klaviyo_form",
+      "default": "<div class='klaviyo-form-KGfVda'></div>"
+    },
+    {
+      "type": "header",
+      "content": "Legal"
     },
     {
       "type": "link_list",
-      "id": "subfooter_menu",
-      "label": "Subfooter menu"
+      "label": "Legal Menu",
+      "id": "menu_legal"
+    },
+    {
+      "type": "text",
+      "label": "Copyright",
+      "id": "copyright",
+      "info": "Date Automatically Generated"
+    },
+    {
+      "type": "header",
+      "content": "Socials"
+    },
+    {
+      "type": "url",
+      "label": "Facebook",
+      "id": "facebook"
+    },
+    {
+      "type": "url",
+      "label": "Twitter",
+      "id": "twitter"
+    },
+    {
+      "type": "url",
+      "label": "Youtube",
+      "id": "youtube"
+    },
+    {
+      "type": "url",
+      "label": "TikTok",
+      "id": "tiktok"
+    },
+    {
+      "type": "url",
+      "label": "Instagram",
+      "id": "instagram"
     }
   ],
-  "default": {
-    "blocks": [
-      {
-        "type": "link_list"
-      },
-      {
-        "type": "link_list"
-      }
-    ]
-  }
+  "blocks": [],
+  "presets": [
+    {
+      "name": "Footer"
+    }
+  ]
 }
 {% endschema %}

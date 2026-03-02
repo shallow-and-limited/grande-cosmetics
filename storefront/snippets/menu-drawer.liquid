@@ -1,0 +1,59 @@
+{{ 'accordion-tab.min.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'accordion-tab.min.js' | asset_url }}" defer="defer"></script>
+
+<div class="menu-drawer" data-menu-drawer>
+  <nav class="menu-drawer__nav">
+    <div class="menu-drawer__header">
+      <a href="/" class="menu-drawer__logo">{% render 'icons', icon_name: 'logo-on-light' %}</a>
+      <span class="menu-drawer__close" data-close-menu>
+        {% render 'icons', icon_name: 'close' %}
+      </span>
+    </div>
+    <ul>
+      {% assign menu_count = 0 %}
+      {% for link in _links %}
+
+        {% if link.links != blank %}
+
+          {% if forloop.index0 != 0 %}
+            {% assign menu_count = menu_count | plus: 1 %}
+          {% endif %}
+
+          {% assign menu_block = _blocks[menu_count].settings %}
+
+          {% if menu_block.child_accordions == true %}
+            {% for child_link in link.links %}
+              <accordion-tab class="accordion-tab" data-accordion>
+                <div class="accordion-tab__title p-2" data-accordion-opener>{{ child_link.title }}</div>
+                {% render 'icons', icon_name: 'plus' %}
+                <ul class="accordion-tab__content">
+                  {% for grandchild_link in child_link.links %}
+                    <a href="{{ grandchild_link.url }}" class="menu-drawer__link"><li class="p-3">{{ grandchild_link.title }}</li></a>
+                  {% endfor %}
+                </ul> 
+              </accordion-tab>
+            {% endfor %}
+          {% else %}
+            <li class="p-2 menu-drawer__link" data-open-submenu>{{ link.title }}{% render 'icons', icon_name: 'arrow-right' %}</li>
+            {% render 'mobile-submenu', menu_block: menu_block, title: link.title, _links: link.links %}
+          {% endif %}
+        {% else %}
+          <a href="{{ link.url }}" class="menu-drawer__link"><li class="p-2">{{ link.title }}</li></a>
+        {% endif %}
+      {% endfor %}
+      <div class="menu-drawer__search">
+        <input class="menu-drawer__search-bar a-1" type="button" value="Search" data-search-button>
+        <button class="menu-drawer__search-btn" aria-label="Search Button">
+          {% render 'icons', icon_name: 'search-filled' %}
+        </button>
+      </div>
+      {% if section.settings.reward_link != blank %}
+        <a href="{{ section.settings.reward_link }}" class="menu-drawer__link"><li class="p-3">{% render 'icons', icon_name: 'glint' %}Rewards</li></a>
+      {% endif %}
+      {% if section.settings.refer_link != blank %}
+        <a href="{{ section.settings.refer_link }}" class="menu-drawer__link"><li class="p-3">{% render 'icons', icon_name: 'user-group' %}Refer a Friend</li></a>
+      {% endif %}
+      <a href="/pages/contact" class="menu-drawer__link menu-drawer__link-contact"><li class="p-2">Contact Us</li></a>
+    </ul> 
+  </nav>
+</div>

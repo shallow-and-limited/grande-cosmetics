@@ -1,0 +1,68 @@
+{{ 'promo-banner.min.css' | asset_url | stylesheet_tag: preload: true }}
+
+{% assign _settings = section.settings %}
+{% assign _blocks = section.blocks %}
+
+<promo-carousel>
+  <section>
+    <div class="promo-banner" data-promo-banner>
+      {% if _blocks.size > 0 %}
+        <div class="promo-banner__carousel swiper" data-promo-banner-slider>
+          <div class="promo-banner__carousel-wrapper swiper-wrapper">
+            {% for block in _blocks %}
+              {% if block.settings.message != blank %}
+                <div class="promo-banner__slide swiper-slide">
+                  {{ block.settings.message | replace: "<p>", "<p class='promo-banner__text p-4'>" }}
+                </div>
+              {% endif %}
+            {% endfor %}
+          </div>
+          {% if _blocks.size > 1 %}
+            <button class="promo-banner__prev" data-previous aria-label="Previous Carousel Slide">
+              {% render 'icons', icon_name: 'caret-left' %}
+            </button>
+            <button class="promo-banner__next" data-next aria-label="Next Carousel Slide">
+              {% render 'icons', icon_name: 'caret-right' %}
+            </button>
+          {% endif %} 
+        </div>
+      {% endif %}
+      <div class="promo-banner__custom-links hide-mobile">
+        {{ _settings.custom_links | replace: "<p>", "<p class='promo-banner__text p-4'>" }}
+      </div>
+    </div>
+  </section>
+</promo-carousel>
+
+<script src="{{ 'promo-banner.min.js' | asset_url }}" defer="defer"></script>
+
+{% schema %}
+{
+  "name": "Promo Banner",
+  "settings": [
+    {
+      "type": "richtext",
+      "label": "Custom Links",
+      "id": "custom_links"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "text",
+      "name": "Promo Text",
+      "settings": [
+        {
+          "type": "richtext",
+          "label": "Promo Text",
+          "id": "message"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Promo Banner"
+    }
+  ]
+}
+{% endschema %}

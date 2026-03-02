@@ -1,0 +1,131 @@
+{% comment %}
+  USAGE: 
+  {% render 'birthday-promo-card', 
+  	block: block,
+  	swiper_slide: swiper_slide %}
+{% endcomment %}
+{%- liquid 
+	assign shopify_attributes = block.shopify_attributes
+	assign block = block.settings
+	assign status = block.status
+	assign state_class = " birthday-card--is-" | append: status | append: " "
+
+	capture heading_star
+		if status == "active"
+			render 'icons', icon_name: 'star-pink'
+		endif 
+	endcapture
+
+	assign open_tag = "<div"
+	assign close_tag = "</div>"
+	if status == 'active' and block.link != blank
+		assign link =  block.link | url_escape
+		assign open_tag = '<a href="' | append: link | append: '"'
+		assign close_tag = "</a>"
+	endif
+
+	assign eyebrow_state = "Current"
+	if status == "disabled"
+		assign eyebrow_state = "Sale Over"
+	elsif status == "upcoming"
+		assign eyebrow_state = "Upcoming"
+	endif
+-%}
+
+
+{{- open_tag }} 
+	{{ shopify_attributes }}
+	{{ swiper_slide }}
+	class="birthday-card {{ state_class }}" >
+
+	<div 
+		class="birthday-card__image-wrapper" 
+		{% if block.apply_effect == true %}
+			style="
+				--birthday-disabled-bg: {{ block.upcoming_image_color }};
+				--birthday-disabled-opacity: {{ block.upcoming_image_opacity | divided_by: 100.0 }};
+				--birthday-disabled-blend-mode: luminosity; 
+				--birthday-disabled-blur: 5px;"
+		{% endif %}>
+		{% case status %}
+
+			{% when 'disabled' %}
+				{% if block.disabled_image != blank %}
+					{% render 'image', 
+						image: block.disabled_image,
+						class: 'birthday-card__image',
+						aspect_ratio: 1 %}
+				{% elsif block.active_image != blank %}
+					{% comment %} default to active image {% endcomment %}
+					{% render 'image', 
+						image: block.active_image, 
+						class: 'birthday-card__image',
+						aspect_ratio: 1  %}
+				{% endif %}
+
+			{% when 'active' %} 
+				{% if block.active_image != blank %}
+					{% render 'image', 
+						image: block.active_image, 
+						class: 'birthday-card__image',
+						aspect_ratio: 1  %}
+				{% endif %}
+				{% if block.active_hover_image != blank %}
+					{% render 'image', 
+						image: block.active_hover_image, 
+						class: 'birthday-card__image birthday-card__image--hover', 
+						aspect_ratio: 1  %}
+				{% endif %}
+
+			{% when 'upcoming' %} 
+				{% if block.upcoming_image != blank %}
+					{% render 'image', 
+						image: block.upcoming_image,
+						class: 'birthday-card__image',
+						aspect_ratio: 1  %}
+				{% elsif block.active_image != blank %}
+					{% comment %} default to active image {% endcomment %}
+					{% render 'image', 
+						image: block.active_image, 
+						class: 'birthday-card__image',
+						aspect_ratio: 1  %}
+				{% endif %}
+
+		{% endcase %}
+	</div>
+
+	<div class="birthday-card__copy">
+		{% if block.eyebrow != blank %}
+			<div>
+				<span class="badge badge--birthday-{{ status }} p-5 w-regular">
+					{{ block.eyebrow }} - {{ eyebrow_state }}
+				</span>
+			</div>
+		{% endif %}
+		
+		{% if block.heading != blank %}
+			<div>
+				<h3 class="h5 birthday-card__heading">
+					{{ heading_star }}
+					{{ block.heading }}
+					{{ heading_star }}
+				</h3>
+				
+				{% if block.copy != blank and status != "disabled" %}
+					<div class="p-3 birthday-card__subheader">{{ block.copy }}</div>
+				{% endif %}
+			</div>
+		{% endif %}
+		
+		
+		
+		{% if status == 'active' and block.cta != blank %}
+			<div class="birthday-card__cta-wrapper">
+				<span class="btn btn--primary">{{ block.cta }}</span>
+			</div>
+		{% endif %}
+	</div>
+{{- close_tag -}}
+
+
+

@@ -1,0 +1,66 @@
+{{ 'press.min.css' | asset_url | stylesheet_tag }}
+
+<press-module class="press">
+  <div class="swiper" data-press-carousel>
+    <div class="press__pagination p-3 color-rose">
+      <span data-current-index>1</span>
+      /
+      {{ section.blocks.size }}
+    </div>
+    <div class="swiper-wrapper">
+      {% for block in section.blocks %}
+        {% liquid
+          assign _b = block.settings
+        %}
+        <div class="swiper-slide">
+          <div class="press__slide">
+            <h3 class="h3">{{ _b.quote }}</h3>
+            {% if _b.logo != blank %}
+              {% render 'image', image: _b.logo, class: 'press__logo' %}
+            {% endif %}
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+    <div class="press__controls">
+      <button class="pager pager-prev" data-previous aria-label="Previous Carousel Slide">
+        {% render 'icons', icon_name: 'arrow-left' %}
+      </button>
+      <button class="pager pager-next" data-next aria-label="Next Carousel Slide">
+        {% render 'icons', icon_name: 'arrow-right' %}
+      </button>
+    </div>
+  </div>
+</press-module>
+
+<script src="{{ 'press.min.js' | asset_url }}" defer="defer"></script>
+
+{% schema %}
+{
+  "name": "Press (Banner)",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "slide",
+      "name": "Slide",
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "quote",
+          "label": "Quote"
+        },
+        {
+          "type": "image_picker",
+          "id": "logo",
+          "label": "Logo"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Press (Banner)"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,14 @@
+<div class="account account__help {{ section.settings.color }}">
+    <p class="p-1">{{ 'customer.account.help' | t }}</p>
+    <div class="account__help-wrapper">
+        {%  for block in section.blocks %}
+            {% if block.type == 'account_help_block' %}
+                <div class="account__help-block">
+                    {% assign icon = block.settings.icon | append: '-filled' %}
+                    {% render 'icons', icon_name: icon %}
+                    <a class="btn btn-text" href="{{ block.settings.url }}">{{ block.settings.title }}</a>
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+</div>

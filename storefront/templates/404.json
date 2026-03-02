@@ -11,8 +11,16 @@
   "sections": {
     "main": {
       "type": "main-404",
-      "settings": {}
+      "settings": {
+        "eyebrow": "",
+        "heading": "Page not found",
+        "copy": "The page you requested does not exist. Click here to continue shopping.",
+        "cta_copy": "Continue Shopping",
+        "cta_url": "shopify:\/\/collections"
+      }
     }
   },
-  "order": ["main"]
+  "order": [
+    "main"
+  ]
 }

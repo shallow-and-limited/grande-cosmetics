@@ -1,0 +1,288 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {}
+    },
+    "split_banner_jgahGW": {
+      "type": "split-banner",
+      "blocks": {
+        "body_copy_PRTxD4": {
+          "type": "body-copy",
+          "settings": {
+            "copy": "<p>Subscribe today and get 25% off your first order and 15% off every order after (for life!) + enjoy exclusive access to promotions and new product launches!<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "body_copy_PRTxD4"
+      ],
+      "settings": {
+        "style": "beige",
+        "padding": "full-width",
+        "arrangement": "left_asset_right_content",
+        "header": "h3",
+        "alignment": "left",
+        "vertical_alignment": "top",
+        "module_height": "content-based",
+        "image_d": "shopify:\/\/shop_images\/download_1.jpg",
+        "video_poster_d": true,
+        "video_poster_m": true,
+        "video_autoplay": true,
+        "eyebrow": "Unlock Naturally Enhanced Beauty with",
+        "heading": "Subscribe & Save",
+        "cta_url": "https:\/\/grandecosmetics.com\/collections\/subscribe-save",
+        "cta_copy": "Subscribe Now"
+      }
+    },
+    "split_banner_R4rpik": {
+      "type": "split-banner",
+      "blocks": {
+        "body_copy_DX9iVp": {
+          "type": "body-copy",
+          "settings": {
+            "copy": "<h5><em>Exclusive<\/em> Discount<br\/><\/h5><p><br\/>Save 25% off your first order and get 15% on every subscribe & save order after that for life<\/p>"
+          }
+        },
+        "body_copy_8whDbU": {
+          "type": "body-copy",
+          "settings": {
+            "copy": "<h5><em>Free<\/em> Shipping<\/h5><p><br\/>Free shipping on every subscribe & save order. No minimum purchase required.<\/p>"
+          }
+        },
+        "body_copy_HrLhqK": {
+          "type": "body-copy",
+          "settings": {
+            "copy": "<h5>Get It When <em>You Want It<\/em><br\/><\/h5><p><br\/>Select a delivery frequency that works for you. To modify or cancel your subscription, create a Grande account.<\/p>"
+          }
+        },
+        "body_copy_6yaTJE": {
+          "type": "body-copy",
+          "settings": {
+            "copy": "<h5><em>Early<\/em> Access<\/h5><p><br\/>Get early access to new product launches, sales & more!<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "body_copy_DX9iVp",
+        "body_copy_8whDbU",
+        "body_copy_HrLhqK",
+        "body_copy_6yaTJE"
+      ],
+      "settings": {
+        "style": "beige",
+        "padding": "inset",
+        "arrangement": "right_asset_left_content",
+        "header": "h3",
+        "alignment": "left",
+        "vertical_alignment": "top",
+        "module_height": "content-based",
+        "image_d": "shopify:\/\/shop_images\/SerumGroup-Lash-Brow-Hair-FS-Product-StraightOn-BeigeBG-Pattern-OpenBottles.jpg",
+        "video_poster_d": true,
+        "video_poster_m": true,
+        "video_autoplay": true,
+        "eyebrow": "",
+        "heading": "Why Subscribe & Save?",
+        "cta_url": "https:\/\/grandecosmetics.com\/collections\/subscribe-save",
+        "cta_copy": "Subscribe Now"
+      }
+    },
+    "split_banner_qxFDwB": {
+      "type": "split-banner",
+      "blocks": {
+        "body_copy_qUETkX": {
+          "type": "body-copy",
+          "settings": {
+            "copy": "<h5>Step 1<\/h5><p><br\/>Select the product of your choice & pick “subscribe & save” with your desired frequency on the product page, then head to checkout.<\/p>"
+          }
+        },
+        "body_copy_bAUGVf": {
+          "type": "body-copy",
+          "settings": {
+            "copy": "<h5>Step 2<\/h5><p><br\/>Create an account or log in to manage your frequency, delivery, quantity or product swap at anytime.<\/p>"
+          }
+        },
+        "body_copy_GDAjqD": {
+          "type": "body-copy",
+          "settings": {
+            "copy": "<h5>Step 3<\/h5><p><br\/>Enjoy your favorite products shipped to you free!<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "body_copy_qUETkX",
+        "body_copy_bAUGVf",
+        "body_copy_GDAjqD"
+      ],
+      "settings": {
+        "style": "beige",
+        "padding": "inset",
+        "arrangement": "left_asset_right_content",
+        "header": "h3",
+        "alignment": "left",
+        "vertical_alignment": "top",
+        "module_height": "content-based",
+        "image_d": "shopify:\/\/shop_images\/GrandeLASH-Homepage-Block.jpg",
+        "video_poster_d": true,
+        "video_poster_m": true,
+        "video_autoplay": true,
+        "eyebrow": "",
+        "heading": "How Does It <em>Work?<\/em>",
+        "cta_url": "https:\/\/grandecosmetics.com\/collections\/subscribe-save",
+        "cta_copy": "Subscribe Now"
+      }
+    },
+    "banner_ggQHk7": {
+      "type": "banner",
+      "settings": {
+        "color": "light",
+        "background": "rose",
+        "alignment": "center",
+        "eyebrow": "Sign in or create an account to",
+        "heading": "Enjoy All The <em>Perks<\/em>",
+        "heading_size": "h3",
+        "copy": "If you are an active subscriber, you must be logged into your account to make adjustments to your subscribe & save orders.",
+        "cta_url": "https:\/\/grandecosmetics.com\/account\/login",
+        "cta_copy": "Sign In",
+        "cta_url_alt": "https:\/\/grandecosmetics.com\/account\/register",
+        "cta_copy_alt": "Create An Account",
+        "overlay": 0
+      }
+    },
+    "product_carousel_YhD4PE": {
+      "type": "product-carousel",
+      "blocks": {
+        "content_94xmAP": {
+          "type": "content",
+          "settings": {
+            "product": "grandelash-md",
+            "category": ""
+          }
+        },
+        "content_pWaLex": {
+          "type": "content",
+          "settings": {
+            "product": "grandebrow",
+            "category": ""
+          }
+        },
+        "content_4BDT6A": {
+          "type": "content",
+          "settings": {
+            "product": "grandehair-enhancing-serum",
+            "category": ""
+          }
+        },
+        "content_fApgce": {
+          "type": "content",
+          "settings": {
+            "product": "grandegummies",
+            "category": ""
+          }
+        }
+      },
+      "block_order": [
+        "content_94xmAP",
+        "content_pWaLex",
+        "content_4BDT6A",
+        "content_fApgce"
+      ],
+      "settings": {
+        "heading": "Subscribe to Our Cult Faves",
+        "categories": false,
+        "cta_copy": "Subscribe & Save",
+        "cta_url": "https:\/\/grandecosmetics.com\/collections\/subscribe-save"
+      }
+    },
+    "banner_UFJHJT": {
+      "type": "banner",
+      "settings": {
+        "color": "dark",
+        "background": "beige",
+        "alignment": "left",
+        "eyebrow": "",
+        "heading": "The Reviews <em>Speak<\/em> for Themselves",
+        "heading_size": "h2",
+        "copy": "",
+        "cta_url": "",
+        "cta_copy": "",
+        "cta_url_alt": "",
+        "cta_copy_alt": "",
+        "overlay": 0
+      }
+    },
+    "testimonials_NDaqaR": {
+      "type": "testimonials",
+      "blocks": {
+        "testimonial_slide_color_MqDgVg": {
+          "type": "testimonial_slide_color",
+          "settings": {
+            "text_placement": "top",
+            "text_color": "noir",
+            "eyebrow": "Christina",
+            "quote_size": "h3",
+            "quote": "Best kept secret!",
+            "text": "Much cheaper than lash extensions & easier than falsies. BUY IT!",
+            "cta_url": "",
+            "cta_copy": ""
+          }
+        },
+        "testimonial_slide_color_EL8aAU": {
+          "type": "testimonial_slide_color",
+          "settings": {
+            "text_placement": "top",
+            "text_color": "noir",
+            "eyebrow": "Kyleen",
+            "quote_size": "h3",
+            "quote": "Love love love!",
+            "text": "This product is the real deal! My sparse eyebrows have become fuller. I am very pleased. Terrific brow enhancing serum and so easy to use!",
+            "cta_url": "",
+            "cta_copy": ""
+          }
+        },
+        "testimonial_slide_color_D76tai": {
+          "type": "testimonial_slide_color",
+          "settings": {
+            "text_placement": "top",
+            "text_color": "noir",
+            "eyebrow": "Babette",
+            "quote_size": "h3",
+            "quote": "It’s the best!",
+            "text": "I’ve been using this mascara for years. It’s the best! It makes my lashes look fuller and longer while at that same time making them healthy and stronger with the added peptides.",
+            "cta_url": "",
+            "cta_copy": ""
+          }
+        }
+      },
+      "block_order": [
+        "testimonial_slide_color_MqDgVg",
+        "testimonial_slide_color_EL8aAU",
+        "testimonial_slide_color_D76tai"
+      ],
+      "settings": {
+        "slide_type": "color_bg",
+        "background_color": "beige"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "split_banner_jgahGW",
+    "split_banner_R4rpik",
+    "split_banner_qxFDwB",
+    "banner_ggQHk7",
+    "product_carousel_YhD4PE",
+    "banner_UFJHJT",
+    "testimonials_NDaqaR"
+  ]
+}

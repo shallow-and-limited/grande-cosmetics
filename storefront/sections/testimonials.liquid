@@ -1,369 +1,326 @@
-{{ 'testimonials.css' | asset_url | stylesheet_tag }}
+{% assign pagetype = request.page_type %}
+{% case pagetype %}
+{% when 'product' %}
+  {% assign _settings = product.metafields.details.product_testimonials.value %}
+  {% if _settings.carousel_type == "Image Backgrounds" %}
+    {% assign _blocks = _settings.image_testimonial_slides.value %}
+    {% assign _slide_type = "image_bg" %}
+  {% else %}
+    {% assign _blocks = _settings.color_testimonial_slides.value %}
+    {% assign _slide_type = "color_bg" %}
+  {% endif %}
+  {% assign _blocks_size = _blocks.count %}
+{% when 'collection' %}
+  {% assign _settings = collection.metafields.details.collection_testimonials.value %}
+  {% if _settings.carousel_type == "Image Backgrounds" %}
+    {% assign _blocks = _settings.image_testimonial_slides.value %}
+    {% assign _slide_type = "image_bg" %}
+  {% else %}
+    {% assign _blocks = _settings.color_testimonial_slides.value %}
+    {% assign _slide_type = "color_bg" %}
+  {% endif %}
+  {% assign _blocks_size = _blocks.count %}  
+{% else %}
+  {%- assign _settings = section.settings -%}
+  {% assign _blocks = section.blocks %}
+  {% assign _blocks_size = _blocks.size %}
+  {% assign _slide_type = _settings.slide_type %}
+{% endcase %}
 
-{%- render "section_padding" %}
+{% if _settings %}
 
-<div
-  id="{{ section.id }}"
-  class="color-{{ section.settings.color_scheme }} section-{{ section.id }}-padding isolate  gradient"
->
-  <div class="testimonials-container {{ section.settings.layout }}">
-    {%- render 'section_header' -%}
+  {{ 'testimonials.min.css' | asset_url | stylesheet_tag }}
 
-    <slider-component class="{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
-      <ul
-        id="Slider-{{ section.id }}"
-        data-id="{{ section.id }}"
-        class="grid grid--{{ section.settings.columns_desktop }}-col-desktop grid--1-col slider slider--desktop slider--mobile"
-        role="list"
-        aria-label="{{ 'general.slider.name' | t }}"
-      >
-        {%- for block in section.blocks -%}
-          <li
-            id="Slide-{{ section.id }}-{{ forloop.index }}"
-            class="grid__item slider__slide{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
-            {% if settings.animations_reveal_on_scroll %}
-              data-cascade
-              style="--animation-order: {{ forloop.index }};"
+  <testimonials>
+    <section class="testimonials testimonials__container {{ _slide_type | downcase }} bg-{{ _settings.background_color | downcase }}">
+      <testimonials-carousel class="testimonials__slider" data-swiper-class="swiper">
+        <div class="testimonials-carousel__slides" data-swiper-class="swiper-wrapper">
+          {% for block in _blocks %}
+            {% if pagetype == "product" or pagetype == "collection" %}
+              {%  assign _b = block %}
+              {% if _b.text_color == "Light" %}
+                {% assign _text_color = "white" %}
+              {% else %}
+                {% assign _text_color = "noir" %}
+              {% endif %}
+            {% else %}
+              {%  assign _b = block.settings %}
+              {%  assign _text_color = _b.text_color %}
             {% endif %}
-          >
-            <div class="testimonial">
-              <div class="testimonial-image">
-                <div class="media media--{{ block.settings.aspect_ratio }}">
-                  <img
-                    srcset="
-                      {%- if block.settings.image.width >= 165 -%}{{ block.settings.image | image_url: width: 165 }} 165w,{%- endif -%}
-                      {%- if block.settings.image.width >= 360 -%}{{ block.settings.image | image_url: width: 360 }} 360w,{%- endif -%}
-                      {%- if block.settings.image.width >= 533 -%}{{ block.settings.image | image_url: width: 533 }} 533w,{%- endif -%}
-                      {%- if block.settings.image.width >= 720 -%}{{ block.settings.image | image_url: width: 720 }} 720w,{%- endif -%}
-                      {%- if block.settings.image.width >= 940 -%}{{ block.settings.image | image_url: width: 940 }} 940w,{%- endif -%}
-                      {%- if block.settings.image.width >= 1066 -%}{{ block.settings.image | image_url: width: 1066 }} 1066w,{%- endif -%}
-                      {{ block.settings.image | image_url }} {{ block.settings.image.width }}w
-                    "
-                    src="{{ block.settings.image | image_url: width: 533 }}"
-                    sizes="(min-width: 990px) calc((100vw - 130px) / 4), (min-width: 750px) calc((100vw - 120px) / 3), calc((100vw - 35px) / 2)"
-                    alt="{{ block.settings.image.alt | escape }}"
-                    class="motion-reduce"
-                    loading="lazy"
-                    width="{{ block.settings.image.width }}"
-                    height="{{ block.settings.image.height }}"
-                  >
+            <div class="testimonials__slide text-{{ _text_color }}" data-swiper-class="swiper-slide">
+              <div class="testimonials__slide-content">
+                {% if _slide_type == "image_bg" %}
+                  <div class="testimonials__slide-image">
+                    {% if pagetype == "product" or pagetype == "collection" %}
+                      {% assign _image_d = _b.image_d.value %}
+                      {% assign _image_m = _b.image_m.value %}
+                    {% else %}
+                      {% assign _image_d = _b.image_d %}
+                      {% assign _image_m = _b.image_m %}
+                    {% endif %}
+                    {% render 'image', image: _image_d, class: 'hide-mobile' %}
+                    {% render 'image', image: _image_m, class: 'hide-desktop' %}
+                    </div>
+                {% endif %}
+                <div class="testimonials__slide-text {{ _b.text_placement | downcase }}">
+                  <div class="testimonials__slide-quote color-{{ _text_color }}">
+                      <div class="testimonials__slide-eyebrow s-3">
+                          {{ _b.eyebrow }}
+                      </div>
+                    {% assign quote_size = _b.quote_size | downcase %}
+                    {% unless quote_size == 'p1' %}
+                      <{{ quote_size }}>{{ _b.quote }}</{{ quote_size }}>
+                      {% if _b.image_logo == blank %}
+                        <p class="testimonials__slide-body p-3 color-{{ _text_color }}">{{ _b.text }}</p>
+                      {% endif %}
+                    {% else %}
+                      <div class="p-1">{{ _b.quote }}
+                        {% if _b.image_logo == blank %}
+                          <p class="testimonials__slide-body p-3 color-{{ _text_color }}">{{ _b.text }}</p>
+                        {% endif %}
+                      </div>
+                    {% endunless %}
+                  </div>
+                  {% if _b.image_logo %}
+                    <div class="testimonials__slide-logo {{ _b.text_placement | downcase }}">
+                      <div class="testimonials__slide-logo__dash bg-{{ _text_color }}"></div>
+                      {% if pagetype == "product" or pagetype == "collection" %}
+                        {% render 'image', image: _b.image_logo.value %}
+                      {% else %}
+                        {% render 'image', image: _b.image_logo %}
+                      {% endif %}
+                      {% if _b.text %}
+                        <p class="testimonials__slide-body p-3 color-{{ _text_color }}">{{ _b.text }}</p>
+                      {% endif %}
+                    </div>
+                  {% endif %}
                 </div>
               </div>
-
-              <div class="testimonial-info">
-                <h3 class="body body--small bold">{{ block.settings.title }}</h3>
-                <div class="testimonial-description body">
-                  {{ block.settings.description }}
-                </div>
-                <div class="testimonial-reviewer body">- {{ block.settings.reviewer }}</div>
-              </div>
+              {% if _b.cta_url %}
+                <a href="{{ _b.cta_url }}" class="visually-hidden testimonials__slide-cta p-3 color-{{ _b.text_color }} hide-mobile">{{ _b.cta_copy }}</a>
+              {% endif %}
             </div>
-          </li>
-        {%- endfor -%}
-      </ul>
+          {% endfor %}
+        </div>
+        {% if pagetype == 'product' or pagetype == 'collection' %}
+          {% assign blocks_array = _blocks | compact %}
+          {% assign nav_color_initial = blocks_array[0].text_color %}
+          {% if nav_color_initial == "Light" %}
+            {% assign nav_color_initial = "white" %}
+          {% else %}
+            {% assign nav_color_initial = "noir" %}
+          {% endif %}
+          {% assign cta_url_initial = blocks_array[0].cta_url %}
+          {% assign cta_copy_initial = blocks_array[0].cta_copy %}
+        {% else %}
+          {% assign nav_color_initial = _blocks[0].settings.text_color %}
+          {% assign cta_url_initial = blocks[0].settings.cta_url %}
+          {% assign cta_copy_initial = blocks[0].settings.cta_copy %}
+        {% endif %}
+        <div class="testimonials__nav-controls text-{{ nav_color_initial | downcase }}">
+          {% if _blocks_size > 1 %}
+            <div class="carousel__pager">
+              <button class="pager-prev" data-previous-testimonial aria-label="Previous Carousel Slide">
+                {% render 'icons', icon_name: 'arrow-left' %}
+              </button>
+              <button class="pager-next" data-next-testimonial aria-label="Next Carousel Slide">
+                {% render 'icons', icon_name: 'arrow-right' %}
+              </button>
+            </div>
+          {% endif %}
+          <a href="{{ cta_url_initial }}" class="testimonials__slide__desktop-cta p-3 color-{{ nav_color_initial | downcase }} {% unless cta_url_initial %}ghost{% endunless %}">{{ cta_copy_initial }}</a>
+        </div>
+      </testimonials-carousel>
+    </section>
+  </testimonials>
 
-      {%- render 'slider_controls', section: section -%}
-    </slider-component>
-  </div>
-</div>
+  <script src="{{ 'testimonials.min.js' | asset_url }}" defer="defer"></script>
+{% endif %}
 
 {% schema %}
 {
   "name": "Testimonials",
-  "tag": "section",
-  "class": "section",
-  "disabled_on": {
-    "groups": [
-      "header",
-      "footer"
-    ]
-  },
   "settings": [
     {
-      "type": "color_scheme",
-      "id": "color_scheme",
-      "label": "t:sections.all.colors.label",
-      "info": "t:sections.all.colors.has_cards_info",
-      "default": "scheme-1"
-    },
-    {
-      "type": "select",
-      "id": "layout",
-      "label": "Layout",
-      "options": [
-        {
-          "value": "screen-width",
-          "label": "Screen width"
-        },
-        {
-          "value": "page-width",
-          "label": "Page width"
-        },
-        {
-          "value": "large-width",
-          "label": "Large width"
-        },
-        {
-          "value": "full-width",
-          "label": "Full width"
-        }
-      ],
-      "default": "page-width"
-    },
-    {
       "type": "header",
-      "content": "Section Header"
+      "content": "Section Settings",
+      "info": "Note: if this section is placed on a product or collection page, it will take its settings and items from the product or collection metafields."
     },
     {
-      "type": "text",
-      "id": "title",
-      "label": "Title"
-    },
-    {
-      "visible_if": "{{ section.settings.title != blank }}",
-      "type": "checkbox",
-      "id": "header_is_h1",
-      "label": "Header is H1",
-      "default": false
-    },
-    {
-      "visible_if": "{{ section.settings.title != blank }}",
-      "type": "checkbox",
-      "id": "visually_hide_header",
-      "label": "Visually hide header",
-      "default": false
-    },
-    {
-      "visible_if": "{{ section.settings.title != blank }}",
       "type": "select",
-      "id": "heading_size",
+      "id": "slide_type",
+      "label": "Carousel Type",
       "options": [
         {
-          "value": "h5",
-          "label": "X-Small"
+          "value": "image_bg",
+          "label": "Image Backgrounds"
         },
         {
-          "value": "h4",
-          "label": "Small"
-        },
-        {
-          "value": "h3",
-          "label": "Medium"
-        },
-        {
-          "value": "h2",
-          "label": "Large"
-        },
-        {
-          "value": "h1",
-          "label": "X-Large"
+          "value": "color_bg",
+          "label": "Color Backgrounds"
         }
       ],
-      "default": "h2",
-      "label": "t:sections.all.heading_size.label"
+      "default": "image_bg"
     },
     {
-      "type": "richtext",
-      "id": "description",
-      "label": "Description"
-    },
-    {
-      "visible_if": "{{ section.settings.description != blank }}",
       "type": "select",
-      "id": "text_style",
+      "id": "background_color",
+      "label": "Background Color",
       "options": [
-        {
-          "value": "body--small",
-          "label": "Small"
-        },
-        {
-          "value": "body",
-          "label": "Regular"
-        },
-        {
-          "value": "body--large",
-          "label": "Large"
-        }
+        { "value": "beige", "label": "Beige" },
+        { "value": "rose", "label": "Rose" }
       ],
-      "default": "body",
-      "label": "Text style"
-    },
-    {
-      "visible_if": "{{ section.settings.description != blank }}",
-      "type": "select",
-      "id": "mobile_text_style",
-      "options": [
-        {
-          "value": "body--small-mobile",
-          "label": "Small"
-        },
-        {
-          "value": "body--mobile",
-          "label": "Regular"
-        },
-        {
-          "value": "body--large-mobile",
-          "label": "Large"
-        }
-      ],
-      "default": "body--mobile",
-      "label": "Mobile text style"
-    },
-    {
-      "visible_if": "{{ section.settings.title != blank or section.settings.description != blank }}",
-      "type": "select",
-      "id": "heading_alignment",
-      "label": "Heading Alignment",
-      "options": [
-        {
-          "value": "left",
-          "label": "t:sections.collapsible_content.settings.heading_alignment.options__1.label"
-        },
-        {
-          "value": "center",
-          "label": "t:sections.collapsible_content.settings.heading_alignment.options__2.label"
-        },
-        {
-          "value": "right",
-          "label": "t:sections.collapsible_content.settings.heading_alignment.options__3.label"
-        }
-      ],
-      "default": "left"
-    },
-    {
-      "type": "header",
-      "content": "Slider settings"
-    },
-    {
-      "type": "range",
-      "id": "columns_desktop",
-      "min": 1,
-      "max": 4,
-      "step": 1,
-      "default": 2,
-      "label": "t:sections.featured-collection.settings.columns_desktop.label"
-    },
-    {
-      "type": "checkbox",
-      "id": "slider_show_dots",
-      "label": "Show dots",
-      "default": true
-    },
-    {
-      "type": "checkbox",
-      "id": "slider_show_arrows",
-      "label": "Show arrows"
-    },
-    {
-      "type": "header",
-      "content": "Section Spacing"
-    },
-    {
-      "type": "range",
-      "id": "padding_top",
-      "min": 0,
-      "max": 4,
-      "step": 0.5,
-      "unit": "rem",
-      "label": "Padding top",
-      "default": 2
-    },
-    {
-      "type": "range",
-      "id": "padding_bottom",
-      "min": 0,
-      "max": 4,
-      "step": 0.5,
-      "unit": "rem",
-      "label": "Padding bottom",
-      "default": 2
-    },
-    {
-      "type": "range",
-      "id": "margin_bottom",
-      "min": 0,
-      "max": 4,
-      "step": 0.5,
-      "unit": "rem",
-      "label": "Section margin",
-      "default": 0
+      "info": "Select the background color for the carousel (does not apply to image carousels)"
     }
   ],
   "blocks": [
     {
-      "type": "testimonial",
-      "name": "Testimonial",
+      "type": "testimonial_slide_image",
+      "name": "Image Slide",
       "settings": [
         {
           "type": "image_picker",
-          "id": "image",
-          "label": "Image"
+          "id": "image_d",
+          "label": "Image - Desktop"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_m",
+          "label": "Image - Mobile"
         },
         {
           "type": "select",
-          "id": "aspect_ratio",
+          "id": "text_placement",
+          "label": "Text Placement",
           "options": [
-            {
-              "value": "adapt",
-              "label": "Adapt"
-            },
-            {
-              "value": "ribbon",
-              "label": "Ribbon"
-            },
-            {
-              "value": "xsmall",
-              "label": "X-Small"
-            },
-            {
-              "value": "small",
-              "label": "Small"
-            },
-            {
-              "value": "medium",
-              "label": "Medium"
-            },
-            {
-              "value": "large",
-              "label": "Large"
-            },
-            {
-              "value": "square",
-              "label": "Square"
-            },
-            {
-              "value": "portrait",
-              "label": "Portrait"
-            },
-            {
-              "value": "landscape",
-              "label": "Landscape"
-            }
-          ],
-          "default": "portrait",
-          "label": "Aspect Ratio"
+            { "value": "top", "label": "Top" },
+            { "value": "bottom", "label": "Bottom" }
+          ]
+        },
+        {
+          "type": "select",
+          "id": "text_color",
+          "label": "Text Color",
+          "options": [
+            { "value": "white", "label": "Light" },
+            { "value": "noir", "label": "Dark" }
+          ]
         },
         {
           "type": "text",
-          "id": "title",
-          "label": "Title"
+          "id": "eyebrow",
+          "label": "Eyebrow (optional)"
         },
         {
-          "type": "richtext",
-          "id": "description",
-          "label": "Description"
+          "type": "select",
+          "id": "quote_size",
+          "label": "Quote Font Styling",
+          "options": [
+            { "value": "h1", "label": "H1" },
+            { "value": "h2", "label": "H2" },
+            { "value": "h3", "label": "H3" },
+            { "value": "h4", "label": "H4" },
+            { "value": "p1", "label": "P1" }
+          ]
         },
         {
           "type": "text",
-          "id": "reviewer",
-          "label": "Reviewer"
+          "id": "quote",
+          "label": "Quote Text"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_logo",
+          "label": "Press Logo"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Optional P3 Body Copy"
+        },
+        {
+          "type": "url",
+          "id": "cta_url",
+          "label": "Optional CTA Url"
+        },
+        {
+          "type": "text",
+          "id": "cta_copy",
+          "label": "Optional CTA Text"
+        }
+      ]
+    },
+    {
+      "type": "testimonial_slide_color",
+      "name": "Color Slide",
+      "settings": [
+        {
+          "type": "select",
+          "id": "text_placement",
+          "label": "Text Placement",
+          "options": [
+            { "value": "top", "label": "Top" },
+            { "value": "bottom", "label": "Bottom" }
+          ]
+        },
+        {
+          "type": "select",
+          "id": "text_color",
+          "label": "Text Color",
+          "options": [
+            { "value": "white", "label": "Light" },
+            { "value": "noir", "label": "Dark" }
+          ]
+        },
+        {
+          "type": "text",
+          "id": "eyebrow",
+          "label": "Eyebrow (optional)"
+        },
+        {
+          "type": "select",
+          "id": "quote_size",
+          "label": "Quote Font Styling",
+          "options": [
+            { "value": "h1", "label": "H1" },
+            { "value": "h2", "label": "H2" },
+            { "value": "h3", "label": "H3" },
+            { "value": "h4", "label": "H4" },
+            { "value": "p1", "label": "P1" }
+          ]
+        },
+        {
+          "type": "text",
+          "id": "quote",
+          "label": "Quote Text"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_logo",
+          "label": "Press Logo"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Optional P3 Body Copy"
+        },
+        {
+          "type": "url",
+          "id": "cta_url",
+          "label": "Optional CTA Url"
+        },
+        {
+          "type": "text",
+          "id": "cta_copy",
+          "label": "Optional CTA Text"
         }
       ]
     }
   ],
   "presets": [
     {
-      "name": "Testimonials"
+      "name": "Testimonials",
+      "category": "Testimonial"
     }
   ]
 }

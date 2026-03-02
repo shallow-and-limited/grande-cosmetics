@@ -1,0 +1,253 @@
+{{ 'main-collection.min.css' | asset_url | stylesheet_tag }}
+{{ 'product-card.min.css' | asset_url | stylesheet_tag }}
+{% liquid
+  assign _s = section.settings
+  assign size = collection.products_count | times: 1
+  assign limit = _s.products_per_page
+%}
+
+<main-collection id="product-grid-section" data-id="{{ section.id }}" class="main-collection">
+  {% paginate collection.products by limit %}
+    {%- if paginate.page_size > paginate.items -%}
+      {% assign current_size = paginate.items | times: 1.0 %}
+    {%- else -%}
+      {% assign current_size = paginate.page_size | times: 1.0 %}
+    {%- endif -%}
+    
+    <div class="main-collection__wrapper">
+      <div class="main-collection__product-grid">
+        <div class="grid grid--collection" data-collection-grid="{{ size }}">
+          <div class="filters" data-filters>
+            <form>
+              {% render 'main-collection-filters', results: collection, pager: paginate, current_size: current_size, size: size %}
+            </form>
+          </div>
+          <div>
+            <div class="product-grid {% if _s.columns_desktop == '4' %}product-grid--fourths{% endif %} {% if _s.columns_mobile == '1' %}product-grid--single-mobile{% endif %}" data-product-grid data-media-slide-container>
+              {%- unless filtered == true or current_tags -%}
+                {% for block in section.blocks %}
+                  {%- liquid 
+                    assign _b = block.settings
+                    assign span = 1
+                    assign offset = 1
+      
+                    if _b.display == 'horizontal'
+                      assign span = 2
+                      assign offset = 2
+                    endif
+                  -%}
+                  
+                  <div class="editorial-card editorial-card--{{ _b.display }}" data-id="{{ block.id }}"-container>
+                    <style>
+                      .editorial-card[data-id="{{ block.id }}"] {
+                        --card-row:  {{ _b.row }};
+                        --card-span:  {{ _b.display }};
+                        --card-column: {{ _b.column }};
+                      }
+                    </style>
+                    {% render 'image'
+                      image: _b.image_desktop,
+                      class: 'editorial-card__image',
+                      image_m: _b.image_mobile
+                    %}
+                    {%- if _b.eyebrow != blank -%}
+                      <h4 class="editorial-card__eyebrow p-3 color-white">{{ _b.eyebrow }}</h4>
+                    {%- endif -%}
+                    {%- if _b.heading != blank -%}
+                      <h4 class="editorial-card__heading {% if _b.display == '2' %}h3{% else %}h4{% endif %} color-white">{{ _b.heading }}</h4>
+                    {%- endif -%}
+                    {% if _b.cta_copy != blank and _b.cta_url != blank %}
+                      <a class="editorial-card__cta btn btn--primary-dark" href="{{ _b.cta_url }}">
+                        {{ _b.cta_copy }}
+                      </a>
+                    {% endif %}
+                  </div>
+                {% endfor %}
+              {%- endunless -%}
+              {% for product in collection.products %}
+                {% render 'product-card', product: product, collection: collection, attr: 'data-product-card', card_index: forloop.index %}
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="main-collection__pagination">
+        {% if paginate.next != blank %}
+          <div class="main-collection__load-more">
+            <a
+              href="{{ paginate.next.url }}"
+              class="btn btn--primary"
+              data-load-more
+              >Show More</a
+            >
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  {% endpaginate %}
+</main-collection>
+
+<script src="{{ 'main-collection.min.js' | asset_url }}" defer="defer"></script>
+
+{% schema %}
+{
+  "name": "Main Collection",
+  "class": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Display Settings"
+    },
+    {
+      "type": "range",
+      "id": "products_per_page",
+      "min": 6,
+      "max": 24,
+      "step": 3,
+      "default": 24,
+      "label": "Products Per Page"
+    },
+    {
+      "type": "header",
+      "content": "Filter / Sort Settings"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_filtering",
+      "default": true,
+      "label": "Enable Filtering"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_sorting",
+      "default": true,
+      "label": "Enable Sorting"
+    },
+    {
+      "type": "select",
+      "id": "columns_desktop",
+      "default": "3",
+      "label": "Desktop Columns",
+      "options": [
+        {
+          "value": "3",
+          "label": "3 Columns"
+        },
+        {
+          "value": "4",
+          "label": "4 Columns"
+        }
+      ]
+    },
+    {
+      "type": "header",
+      "content": "Mobile Settings"
+    },
+    {
+      "type": "select",
+      "id": "columns_mobile",
+      "default": "2",
+      "label": "Mobile Columns",
+      "options": [
+        {
+          "value": "1",
+          "label": "1 Column"
+        },
+        {
+          "value": "2",
+          "label": "2 Column"
+        }
+      ]
+    }
+  ],
+  "blocks": [
+    {
+      "type": "content_card",
+      "name": "Content Card",
+      "settings": [
+        {
+          "type": "range",
+          "id": "row",
+          "min": 1,
+          "max": 4,
+          "step": 1,
+          "label": "Row Display",
+          "default": 1
+        },
+        {
+          "type": "range",
+          "id": "column",
+          "min": 1,
+          "max": 4,
+          "step": 1,
+          "label": "Column Display",
+          "default": 1
+        },
+        {
+          "type": "select",
+          "id": "display",
+          "default": "1",
+          "label": "Card Display",
+          "options": [
+            {
+              "value": "1",
+              "label": "1 Column"
+            },
+            {
+              "value": "2",
+              "label": "2 Column"
+            }
+          ]
+        },
+        {
+          "type": "select",
+          "id": "alignment",
+          "default": "center",
+          "label": "Content Alignment",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            }
+          ]
+        },
+        {
+          "type": "image_picker",
+          "id": "image_desktop",
+          "label": "Image - Desktop"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_mobile",
+          "label": "Image - Mobile"
+        },
+        {
+          "type": "text",
+          "id": "eyebrow",
+          "label": "Eyebrow"
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "placeholder": "Content Card Heading"
+        },
+        {
+          "type": "url",
+          "label": "CTA Url",
+          "id": "cta_url"
+        },
+        {
+          "type": "text",
+          "label": "CTA Copy",
+          "id": "cta_copy"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

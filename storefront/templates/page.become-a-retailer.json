@@ -1,0 +1,100 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {}
+    },
+    "banner_yNrK6P": {
+      "type": "banner",
+      "settings": {
+        "color": "light",
+        "background": "rose",
+        "alignment": "center",
+        "eyebrow": "",
+        "heading": "Carry Us",
+        "heading_size": "h2",
+        "copy": "Grande is a prestige beauty brand based out of New York.\n \nWe make trendy, result-driven products that compliment your salon or spa's services, so you can give your clients the absolute best possible results.",
+        "cta_url": "https:\/\/wholesale.grandecosmetics.com\/",
+        "cta_copy": "Apply Now",
+        "cta_url_alt": "",
+        "cta_copy_alt": "",
+        "overlay": 0
+      }
+    },
+    "split_banner_ELfRic": {
+      "type": "split-banner",
+      "blocks": {
+        "body_copy_m8cVRg": {
+          "type": "body-copy",
+          "settings": {
+            "copy": "<h5>Low Minimums\/90 Day Money-Back Guarantee<br\/><\/h5><p><br\/>As a general rule, our minimums are only 3 units! We also stand behind our products with a 90 day money-back guarantee to ensure you are satisfied.<\/p>"
+          }
+        },
+        "body_copy_83UE7T": {
+          "type": "body-copy",
+          "settings": {
+            "copy": "<h5>Salon & Spa Exclusive Promos<br\/><\/h5><p><br\/>Our retailers enjoy frequent sales & promotions. We also offer competitively priced start-up display kits designed to get you up and running, so you can start earning extra income right away.<\/p>"
+          }
+        },
+        "body_copy_xHVGWC": {
+          "type": "body-copy",
+          "settings": {
+            "copy": "<h5>Free Marketing Materials<\/h5><p><br\/>We are passionate about providing your salon or spa with free merchandising materials to help you educate your clients & sell through your stock.<\/p>"
+          }
+        },
+        "body_copy_eht3Wy": {
+          "type": "body-copy",
+          "settings": {
+            "copy": "<h5>Cult-Following<\/h5><p><br\/>Our eye-catching line is as beautiful as it is effective. We have loyal fans that have formed a cult-following for our serums and cosmetics with benefits.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "body_copy_m8cVRg",
+        "body_copy_83UE7T",
+        "body_copy_xHVGWC",
+        "body_copy_eht3Wy"
+      ],
+      "settings": {
+        "style": "beige",
+        "padding": "full-width",
+        "arrangement": "right_asset_left_content",
+        "header": "h3",
+        "alignment": "left",
+        "vertical_alignment": "top",
+        "module_height": "content-based",
+        "image_d": "shopify:\/\/shop_images\/DisplaySpa-Lashes.jpg",
+        "video_poster_d": true,
+        "video_poster_m": true,
+        "video_autoplay": true,
+        "eyebrow": "",
+        "heading": "Why Retail Grande?",
+        "cta_url": "",
+        "cta_copy": ""
+      }
+    },
+    "page_content_UHeRLm": {
+      "type": "page-content",
+      "disabled": true,
+      "settings": {
+        "show_carousel": false
+      }
+    }
+  },
+  "order": [
+    "main",
+    "banner_yNrK6P",
+    "split_banner_ELfRic",
+    "page_content_UHeRLm"
+  ]
+}

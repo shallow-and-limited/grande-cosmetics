@@ -1,0 +1,255 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "shogun-helper": {
+      "type": "shogun-helper",
+      "settings": {}
+    },
+    "1758298147e1426f2e": {
+      "type": "apps",
+      "blocks": {
+        "rebuy_personalization_engine_rebuy_widget_K7bHL4": {
+          "type": "shopify:\/\/apps\/rebuy-personalization-engine\/blocks\/rebuy-widget\/a26ae9b9-933b-40bf-bbc6-bf1220bbc4dc",
+          "settings": {
+            "enabled": true,
+            "id": "240568",
+            "product_id_enabled": true,
+            "collection_id_enabled": false
+          }
+        }
+      },
+      "block_order": [
+        "rebuy_personalization_engine_rebuy_widget_K7bHL4"
+      ],
+      "settings": {}
+    },
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {}
+    },
+    "shogun-optimizer": {
+      "type": "shogun-optimizer",
+      "disabled": true,
+      "settings": {}
+    },
+    "banner_HjctWi": {
+      "type": "banner",
+      "disabled": true,
+      "settings": {
+        "color": "light",
+        "background": "beige",
+        "image_d": "shopify:\/\/shop_images\/KaleeRogers-CollectionPage-Banner-8.jpg",
+        "alignment": "left",
+        "eyebrow": "",
+        "heading": "",
+        "heading_size": "h2",
+        "copy": "",
+        "cta_url": "",
+        "cta_copy": "",
+        "cta_url_alt": "",
+        "cta_copy_alt": "",
+        "overlay": 0
+      }
+    },
+    "ticker_Wk94Jh": {
+      "type": "ticker",
+      "blocks": {
+        "text_kYMPx8": {
+          "type": "text",
+          "settings": {
+            "svg_icon": "flower",
+            "text": "Use Code: KALEEROGERS",
+            "url": ""
+          }
+        },
+        "text_i3ER67": {
+          "type": "text",
+          "settings": {
+            "svg_icon": "flower",
+            "text": "Get 15% Off",
+            "url": ""
+          }
+        }
+      },
+      "block_order": [
+        "text_kYMPx8",
+        "text_i3ER67"
+      ],
+      "disabled": true,
+      "settings": {
+        "optional_text": "",
+        "optional_url": "",
+        "speed": 3,
+        "color_scheme": "dark-pink"
+      }
+    },
+    "product_carousel_HkKyCt": {
+      "type": "product-carousel",
+      "blocks": {
+        "content_Vhm3CP": {
+          "type": "content",
+          "settings": {
+            "product": "grandelash-md",
+            "category": ""
+          }
+        },
+        "content_KWmFy7": {
+          "type": "content",
+          "settings": {
+            "product": "kaylee-bundle",
+            "category": "Shop The Bundle"
+          }
+        },
+        "content_8Xgxj9": {
+          "type": "content",
+          "settings": {
+            "product": "grandedrama",
+            "category": ""
+          }
+        }
+      },
+      "block_order": [
+        "content_Vhm3CP",
+        "content_KWmFy7",
+        "content_8Xgxj9"
+      ],
+      "disabled": true,
+      "custom_css": [],
+      "settings": {
+        "heading": "",
+        "categories": true,
+        "cta_copy": "",
+        "cta_url": ""
+      }
+    },
+    "split_banner_RpcCep": {
+      "type": "split-banner",
+      "blocks": {
+        "body_copy_9mddpK": {
+          "type": "body-copy",
+          "settings": {
+            "copy": "<p>BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "body_copy_9mddpK"
+      ],
+      "disabled": true,
+      "settings": {
+        "style": "blush",
+        "padding": "full-width",
+        "arrangement": "right_asset_left_content",
+        "header": "h4",
+        "alignment": "left",
+        "vertical_alignment": "middle",
+        "module_height": "image-height",
+        "video_poster_d": true,
+        "video_poster_m": true,
+        "video_d": "shopify:\/\/files\/videos\/Lash_Defense_Alicia_DO_AND_DONT__CC_Logo_V13.mp4",
+        "video_autoplay": true,
+        "eyebrow": "",
+        "heading": "Why You Need This Bundle",
+        "cta_url": "shopify:\/\/products\/kaylee-bundle",
+        "cta_copy": "Shop Now"
+      }
+    },
+    "product_carousel_UTdhw3": {
+      "type": "product-carousel",
+      "blocks": {
+        "content_TXRGgU": {
+          "type": "content",
+          "settings": {
+            "product": "mini-magic-set-1",
+            "category": ""
+          }
+        },
+        "content_giTGtA": {
+          "type": "content",
+          "settings": {
+            "product": "grandelips-gloss",
+            "category": ""
+          }
+        },
+        "content_T9EHpk": {
+          "type": "content",
+          "settings": {
+            "product": "grandeprimer",
+            "category": ""
+          }
+        }
+      },
+      "block_order": [
+        "content_TXRGgU",
+        "content_giTGtA",
+        "content_T9EHpk"
+      ],
+      "disabled": true,
+      "settings": {
+        "heading": "Add Kalee's Faves To Your Routine",
+        "categories": false,
+        "cta_copy": "",
+        "cta_url": ""
+      }
+    },
+    "product_carousel_M9gpFi": {
+      "type": "product-carousel",
+      "blocks": {
+        "content_AxnWCw": {
+          "type": "content",
+          "settings": {
+            "product": "grandelash-separator-lash-separating-comb",
+            "category": ""
+          }
+        },
+        "content_URbxkN": {
+          "type": "content",
+          "settings": {
+            "product": "grandefanatic-fanning-curling-mascara",
+            "category": ""
+          }
+        },
+        "content_fP7WCM": {
+          "type": "content",
+          "settings": {
+            "product": "mighty-minis-set",
+            "category": ""
+          }
+        }
+      },
+      "block_order": [
+        "content_AxnWCw",
+        "content_URbxkN",
+        "content_fP7WCM"
+      ],
+      "disabled": true,
+      "settings": {
+        "heading": "",
+        "categories": false,
+        "cta_copy": "",
+        "cta_url": ""
+      }
+    }
+  },
+  "order": [
+    "shogun-helper",
+    "1758298147e1426f2e",
+    "main",
+    "shogun-optimizer",
+    "banner_HjctWi",
+    "ticker_Wk94Jh",
+    "product_carousel_HkKyCt",
+    "split_banner_RpcCep",
+    "product_carousel_UTdhw3",
+    "product_carousel_M9gpFi"
+  ]
+}

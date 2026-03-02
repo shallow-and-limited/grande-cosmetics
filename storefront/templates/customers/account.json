@@ -9,19 +9,41 @@
  */
 {
   "sections": {
-    "1737734620c2628fec": {
-      "type": "apps",
-      "settings": {
-        "include_margins": true
-      }
-    },
     "main": {
       "type": "main-account",
+      "blocks": {
+        "account_help_block_hVC3NY": {
+          "type": "account_help_block",
+          "settings": {
+            "icon": "email",
+            "title": "customerservice@grandecosmetics.com",
+            "link": "mailto:customerservice@grandecosmetics.com"
+          }
+        },
+        "account_help_block_WidPN9": {
+          "type": "account_help_block",
+          "settings": {
+            "icon": "phone",
+            "title": "877-835-3010",
+            "link": "tel:877-835-3010"
+          }
+        }
+      },
+      "block_order": [
+        "account_help_block_hVC3NY",
+        "account_help_block_WidPN9"
+      ],
       "settings": {
-        "padding_top": 2,
-        "padding_bottom": 2
+        "bg_dsk": "shopify:\/\/shop_images\/1440__Account-Landing_BG.jpg",
+        "bg_mob": "shopify:\/\/shop_images\/320__Account-Landing_BG.jpg",
+        "refer_text": "Give your friends $15 off on their first order of $75+ and get $15 for each successful referral!",
+        "refer_btn_text": "Learn More",
+        "refer_btn_url": "https:\/\/grandecosmetics.com\/pages\/loyalty",
+        "color": "light"
       }
     }
   },
-  "order": ["1737734620c2628fec", "main"]
+  "order": [
+    "main"
+  ]
 }

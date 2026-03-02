@@ -1,125 +1,178 @@
-{{ 'listing.css' | asset_url | stylesheet_tag }}
-{{ 'component-card.css' | asset_url | stylesheet_tag }}
+{{ 'main-collection.min.css' | asset_url | stylesheet_tag }}
+{{ 'main-search.min.css' | asset_url | stylesheet_tag }}
+{%- if search.results_count > 0 -%}
 
-<script src="{{ 'listing.js' | asset_url }}" defer="defer"></script>
-<script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
+  {%- capture contentForQuerystring -%}{{ content_for_header }}{%- endcapture -%}
+  {%- assign pageUrl = contentForQuerystring
+    | split: '"pageurl":"'
+    | last
+    | split: '"'
+    | first
+    | split: '.myshopify.com'
+    | last
+    | replace: '\/', '/'
+    | replace: '%20', ' '
+    | replace: '\u0026', '&'
+  -%}
+  {% capture finalurl %}https://{{ pageUrl }}{% endcapture %}
 
-{%- if section.settings.enable_filters or section.settings.enable_sorting -%}
-  {{ 'listing_filters.css' | asset_url | stylesheet_tag }}
-{%- endif -%}
 
-{%- render 'section_padding' %}
+  <main-collection id="product-grid-section" data-id="{{ section.id }}" class="main-collection main-search__collection {% if finalurl contains 'article' %}main-search__articles main-collection--nofilters{% endif %}">
+    <form>
+      {% paginate search.results by limit %}
 
-<div class="section-{{ section.id }}-padding gradient color-{{ section.settings.color_scheme }}">
-  <listing-component
-    data-section-id="{{ section.id }}"
-    class="listing {{ section.settings.layout }}"
-  >
-    {%- paginate search.results by section.settings.products_per_page -%}
-      {%- liquid
-        assign listing = collection
-        assign items = collection.products
-
-        if template == 'search'
-          assign listing = search
-          assign items = search.results
-        endif
-
-        assign has_filters = false
-
-        for filter in listing.filters
-          if filter.values.size > 1
-            assign has_filters = true
-            break
-          endif
-        endfor
-      -%}
-
-      {%- unless items.size == 0 %}
-        {%- if has_filters and section.settings.enable_filters and section.settings.enable_desktop_filters -%}
-          <aside class="filters__desktop hidden--mobile">
-            {%- render 'listing_filters', results: listing, paginate: paginate -%}
-          </aside>
+      {%- if paginate.page_size > paginate.items -%}
+          {% assign current_size = paginate.items | times: 1.0 %}
+        {%- else -%}
+          {% assign current_size = paginate.page_size | times: 1.0 %}
         {%- endif -%}
-      {%- endunless -%}
+      
+      {% liquid
+        assign product_result_count = 0
+        assign article_result_count = 0
+        assign article_current_size = 0
+        for item in search.results
+          if item.object_type == 'product'
+            assign has_products = true
+            assign product_result_count = product_result_count | plus: 1
+          elsif item.object_type == 'article'
+            assign has_articles = true
+            assign article_result_count = article_result_count | plus: 1
+          endif
+        endfor        
+      %} 
 
-      <div class="listing__wrapper">
-        {%- unless items.size == 0 %}
-          {%- if section.settings.enable_filters or section.settings.enable_sorting -%}
-            <aside class="filters__wrapper">
-              {%- if has_filters and section.settings.enable_filters -%}
-                {%- render 'listing_filters', type: 'drawer', results: listing, paginate: paginate -%}
-              {%- endif -%}
+        <div class="main-collection__wrapper">
+          <div class="main-collection__product-grid{% if finalurl contains 'product' %} products-only{% endif %}">
+            <div class="grid grid--collection" data-collection-grid="{{ size }}">
 
-              {%- if section.settings.enable_sorting -%}
-                {% render 'listing_sort', listing: listing, paginate: paginate %}
-              {%- endif -%}
-            </aside>
-          {%- endif -%}
-        {%- endunless -%}
+                <div class="filters" data-filters>
+                  <form>
+                    {% render 'main-search-filters', results: search, pager: paginate, current_size: current_size, size: size %}
+                  </form>
+                </div>
 
-        {%-
-          render 'listing' with
-          listing: listing,
-          paginate: paginate,
-          items: items,
-        -%}
-      </div>
-    {%- endpaginate -%}
-  </listing-component>
-</div>
+              <div>
+                <div class="product-grid {% if _s.columns_desktop == '4' %}product-grid--fourths{% endif %} {% if _s.columns_mobile == '1' %}product-grid--single-mobile{% endif %}" data-product-grid data-media-slide-container>
+                  {%- unless filtered == true or current_tags -%}
+                    {% for block in section.blocks %}
+                      {%- liquid 
+                        assign _b = block.settings
+                        assign span = 1
+                        assign offset = 1
+          
+                        if _b.display == 'horizontal'
+                          assign span = 2
+                          assign offset = 2
+                        endif
+                      -%}
+                      
+                      <div class="editorial-card editorial-card--{{ _b.display }}" data-id="{{ block.id }}"-container>
+                        <style>
+                          .editorial-card[data-id="{{ block.id }}"] {
+                            --card-row:  {{ _b.row }};
+                            --card-span:  {{ _b.display }};
+                            --card-column: {{ _b.column }};
+                          }
+                        </style>
+                        {% render 'image'
+                          image: _b.image_desktop,
+                          class: 'editorial-card__image',
+                          image_m: _b.image_mobile
+                        %}
+                        {%- if _b.eyebrow != blank -%}
+                          <h4 class="editorial-card__eyebrow p-3 color-white">{{ _b.eyebrow }}</h4>
+                        {%- endif -%}
+                        {%- if _b.heading != blank -%}
+                          <h4 class="editorial-card__heading {% if _b.display == '2' %}h3{% else %}h4{% endif %} color-white">{{ _b.heading }}</h4>
+                        {%- endif -%}
+                        {% if _b.cta_copy != blank and _b.cta_url != blank %}
+                          <a class="editorial-card__cta btn btn--primary-dark" href="{{ _b.cta_url }}">
+                            {{ _b.cta_copy }}
+                          </a>
+                        {% endif %}
+                      </div>
+                    {% endfor %}
+                  {%- endunless -%}
+                  {% for item in search.results %}
+                    {%  if finalurl contains 'product' %}
+                      {% render 'product-card', product: item, collection: search, attr: 'data-product-card', card_index: forloop.index %}
+                    {% else %}
+                      {% render 'blog-card', article: item, card_index: forloop.index %}
+                      {% assign article_current_size = article_current_size | plus: 1 %}
+                    {% endif %}
+                  {% endfor %}
+                </div>
+              </div>
+            </div>
+    
+          </div>
+          <div class="main-collection__pagination">
+            <p class="p-3 color-dark-gray main-collection__pagination-count">Viewing <span data-product-count>{{ current_size | floor }}</span> of <span data-collection-count>{{ search.results_count }}</span> Results</p>
+            {% if paginate.next != blank %}
+              <div class="main-collection__load-more">
+                <a
+                  href="{{ paginate.next.url }}"
+                  class="btn btn--primary"
+                  data-load-more
+                  >Load More</a
+                >
+              </div>
+            {% endif %}
+          </div>
+        </div>
+      {% endpaginate %}
+        <!-- start_search_collection_js_code -->
+        
+        <script>
+          window.pwr = window.pwr || function () {
+            (pwr.q = pwr.q || []).push(arguments); 
+          };
+          pwr('render', [
+            {% for product in search.results %}
+            {
+              api_key: '{{ settings.powerreviews_api_key }}',
+              locale: '{{ settings.powerreviews_locale }}',
+              merchant_group_id: '{{ settings.powerreviews_group_id }}',
+              merchant_id: '{{ settings.powerreviews_merchant_id }}',
+              page_id: '{{ product.id }}',
+              components: {
+                CategorySnippet: 'snippet-{{ product.id }}'
+              }
+              } {% if forloop.last == false %}, {% endif %}
+            {% endfor %}
+          ]);
+        </script>
+        <!-- end_search_collection_js_code -->      
+    </form>
+  </main-collection>
+
+  <script src="{{ 'main-collection.min.js' | asset_url }}" defer="defer"></script>
+{%- endif -%}
 
 {% schema %}
 {
-  "name": "Main listing",
+  "name": "Main Search",
   "class": "section",
   "settings": [
     {
-      "type": "color_scheme",
-      "id": "color_scheme",
-      "label": "t:sections.all.colors.label",
-      "info": "t:sections.all.colors.has_cards_info",
-      "default": "scheme-1"
-    },
-    {
-      "type": "select",
-      "id": "layout",
-      "label": "Layout",
-      "options": [
-        {
-          "value": "screen-width",
-          "label": "Screen width"
-        },
-        {
-          "value": "page-width",
-          "label": "Page width"
-        },
-        {
-          "value": "large-width",
-          "label": "Large width"
-        },
-        {
-          "value": "full-width",
-          "label": "Full width"
-        }
-      ],
-      "default": "page-width"
+      "type": "range",
+      "id": "products_per_page",
+      "min": 9,
+      "max": 48,
+      "step": 3,
+      "default": 24,
+      "label": "Products per page"
     },
     {
       "type": "header",
-      "content": "Filter Settings"
+      "content": "Header 1 - Search"
     },
     {
       "type": "checkbox",
-      "id": "enable_filters",
+      "id": "enable_filtering",
       "default": true,
-      "label": "Enable filters"
-    },
-    {
-      "type": "checkbox",
-      "id": "enable_desktop_filters",
-      "default": true,
-      "label": "Always show desktop filters"
+      "label": "Enable Filtering"
     },
     {
       "type": "checkbox",
@@ -128,36 +181,20 @@
       "label": "Enable Sorting"
     },
     {
-      "type": "checkbox",
-      "id": "show_more",
-      "label": "Display show more instead of pagination"
-    },
-    {
       "type": "header",
-      "content": "Content Settings"
+      "content": "Header 2 - Search"
     },
     {
-      "type": "range",
-      "id": "products_per_page",
-      "min": 8,
-      "max": 36,
-      "step": 4,
-      "default": 16,
-      "label": "Items per page"
-    },
-    {
-      "type": "range",
-      "id": "columns_desktop",
-      "min": 1,
-      "max": 6,
-      "step": 1,
-      "default": 4,
-      "label": "Columns desktop"
+      "type": "checkbox",
+      "id": "enable_quick_buy",
+      "default": true,
+      "label": "Enable Quick Buy"
     },
     {
       "type": "select",
       "id": "columns_mobile",
       "default": "2",
+      "label": "Columns Mobile",
       "options": [
         {
           "value": "1",
@@ -167,58 +204,111 @@
           "value": "2",
           "label": "2"
         }
-      ],
-      "label": "Number of columns on mobile"
-    },
-    {
-      "type": "header",
-      "content": "Section Spacing"
-    },
-    {
-      "type": "range",
-      "id": "padding_top",
-      "min": 0,
-      "max": 4,
-      "step": 0.5,
-      "unit": "rem",
-      "label": "Padding top",
-      "default": 0
-    },
-    {
-      "type": "range",
-      "id": "padding_bottom",
-      "min": 0,
-      "max": 4,
-      "step": 0.5,
-      "unit": "rem",
-      "label": "Padding bottom",
-      "default": 0
+      ]
     }
   ],
   "blocks": [
     {
-      "type": "promo",
-      "name": "Promotion Banner",
+      "type": "content_card",
+      "name": "Content Card",
       "settings": [
         {
-          "type": "number",
-          "id": "position",
-          "label": "Position"
+          "type": "range",
+          "id": "row",
+          "min": 1,
+          "max": 6,
+          "step": 1,
+          "label": "Content Card Row",
+          "default": 1
+        },
+        {
+          "type": "range",
+          "id": "column",
+          "min": 1,
+          "max": 3,
+          "step": 1,
+          "label": "Content Card Column",
+          "default": 1
+        },
+        {
+          "type": "select",
+          "label": "Card Display",
+          "id": "display",
+          "options": [
+            {
+              "label": "Horizontal",
+              "value": "horizontal"
+            },
+            {
+              "label": "Vertical",
+              "value": "vertical"
+            }
+          ],
+          "default": "horizontal"
         },
         {
           "type": "image_picker",
-          "id": "image",
-          "label": "Image"
+          "id": "image_desktop",
+          "label": "Image - Desktop"
         },
         {
           "type": "image_picker",
           "id": "image_mobile",
-          "label": "Image (mobile)"
+          "label": "Image - Mobile"
+        },
+        {
+          "type": "select",
+          "label": "Content Color",
+          "id": "color",
+          "options": [
+            {
+              "label": "Light",
+              "value": "white"
+            },
+            {
+              "label": "Dark",
+              "value": "black"
+            }
+          ],
+          "default": "white"
+        },
+        {
+          "type": "text",
+          "id": "eyebrow",
+          "label": "Eyebrow",
+          "placeholder": "Content Card Eyebrow"
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "placeholder": "Content Card Heading"
+        },
+        {
+          "type": "select",
+          "label": "CTA Type",
+          "id": "cta_type",
+          "options": [
+            {
+              "label": "Primary",
+              "value": "primary-light"
+            },
+            {
+              "label": "Secondary",
+              "value": "secondary"
+            }
+          ],
+          "default": "primary-light"
         },
         {
           "type": "url",
-          "id": "link",
-          "label": "Link"
+          "label": "CTA Url",
+          "id": "cta_url"
+        },
+        {
+          "type": "text",
+          "label": "CTA Copy",
+          "id": "cta_copy"
         }
       ]
     }

@@ -11,11 +11,45 @@
   "sections": {
     "main": {
       "type": "main-addresses",
+      "blocks": {
+        "account_help_block_H6bfLm": {
+          "type": "account_help_block",
+          "settings": {
+            "icon": "chat",
+            "title": "Live Chat",
+            "link": ""
+          }
+        },
+        "account_help_block_6tMydF": {
+          "type": "account_help_block",
+          "settings": {
+            "icon": "email",
+            "title": "customerservice@grandecosmetics.com",
+            "link": "mailto:customerservice@grandecosmetics.com"
+          }
+        },
+        "account_help_block_DG6UVa": {
+          "type": "account_help_block",
+          "settings": {
+            "icon": "phone",
+            "title": "877-835-3010",
+            "link": "tel:877-835-3010"
+          }
+        }
+      },
+      "block_order": [
+        "account_help_block_H6bfLm",
+        "account_help_block_6tMydF",
+        "account_help_block_DG6UVa"
+      ],
       "settings": {
-        "padding_top": 2,
-        "padding_bottom": 2
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "color": "dark"
       }
     }
   },
-  "order": ["main"]
+  "order": [
+    "main"
+  ]
 }

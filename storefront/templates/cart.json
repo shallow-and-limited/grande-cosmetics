@@ -9,16 +9,39 @@
  */
 {
   "sections": {
-    "cart-items": {
+    "main": {
       "type": "main-cart",
       "settings": {
-        "color_scheme": "scheme-1",
-        "upsell_title": "More items to explore",
-        "upsell_collection": "tom-ford",
-        "padding_top": 2,
-        "padding_bottom": 2
+        "cart_promo_message": "",
+        "free_shipping_threshold": "",
+        "free_shipping_message": "Congrats! You’ve unlocked",
+        "shipping_tooltip": "",
+        "tax_tooltip": "",
+        "shipping_text": "<p><strong>Free<\/strong> Standard Shipping & Returns<\/p>",
+        "guarantee_text": "90 Day Money Back Guarantee"
       }
+    },
+    "1714775404e8e353a9": {
+      "type": "apps",
+      "blocks": {
+        "rebuy_personalization_engine_rebuy_widget_3GTw4j": {
+          "type": "shopify:\/\/apps\/rebuy-personalization-engine\/blocks\/rebuy-widget\/a26ae9b9-933b-40bf-bbc6-bf1220bbc4dc",
+          "settings": {
+            "enabled": true,
+            "id": "147269",
+            "product_id_enabled": true,
+            "collection_id_enabled": false
+          }
+        }
+      },
+      "block_order": [
+        "rebuy_personalization_engine_rebuy_widget_3GTw4j"
+      ],
+      "settings": {}
     }
   },
-  "order": ["cart-items"]
+  "order": [
+    "main",
+    "1714775404e8e353a9"
+  ]
 }

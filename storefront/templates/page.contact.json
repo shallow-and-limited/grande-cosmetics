@@ -1,0 +1,57 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-contact",
+      "settings": {
+        "email": "customerservice@grandecosmetic.com",
+        "bg_color": "#fdf1e4",
+        "intro": "Email is always the fastest way to reach us. \nPlease email us at <a class=\"color-black\" href=\"mailto:customerservice@grandecosmetics.com\">customerservice@grandecosmetics.com<\/a>, or fill out the form below and we will respond back via email as soon as possible.",
+        "secondary_text": "For more information about orders, shipping, and promotions, please visit our <a class=\"color-black\" href=\"\/pages\/frequently-asked-questions\">FAQs page<\/a>."
+      }
+    },
+    "split_banner_mLhAYt": {
+      "type": "split-banner",
+      "blocks": {
+        "body_copy_tdzmYM": {
+          "type": "body-copy",
+          "settings": {
+            "copy": "<p><strong>General Customer Service<br\/><br\/><\/strong>Hours<\/p><p><strong>Mon-Fri <\/strong>| 9am-5pm EST<br\/><strong>Weekends & Holidays <\/strong>| Closed<\/p><p><br\/>Phone: 877-835-3010<strong><br\/><\/strong><\/p><p>Email: customerservice@grandecosmetics.com<\/p><p>______________________________<br\/><br\/><strong>Press Inquiries<\/strong><\/p><p>press@grandecosmetics.com<\/p><p>______________________________<br\/><br\/><strong>Wholesale Inquiries & Orders:<\/strong><\/p><p>customerservice@grandecosmetics.com<\/p><p><br\/>______________________________<\/p><p><strong>Social Inquiries <\/strong><\/p><p>Please DM us @grandecosmetics on Instagram<br\/><\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "body_copy_tdzmYM"
+      ],
+      "settings": {
+        "style": "beige",
+        "padding": "inset",
+        "arrangement": "right_asset_left_content",
+        "header": "h2",
+        "alignment": "left",
+        "vertical_alignment": "top",
+        "module_height": "image-height",
+        "image_d": "shopify:\/\/shop_images\/Safety.jpg",
+        "video_poster_d": true,
+        "video_poster_m": true,
+        "video_autoplay": true,
+        "eyebrow": "",
+        "heading": "",
+        "cta_url": "",
+        "cta_copy": ""
+      }
+    }
+  },
+  "order": [
+    "main",
+    "split_banner_mLhAYt"
+  ]
+}

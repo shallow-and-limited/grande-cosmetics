@@ -1,0 +1,22 @@
+{{ 'main-page.min.css' | asset_url | stylesheet_tag }}
+{{ 'main-loyalty.min.css' | asset_url | stylesheet_tag }}
+
+<div class="main-page main-loyalty">
+  <h1 class="h2">
+    {{ page.title | escape }}
+  </h1>
+  <div class="rte">
+    {{ page.content }}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "t:sections.main-page.name",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+  
+  ]
+}
+{% endschema %}

@@ -1,0 +1,29 @@
+{{ 'highlight-products.min.css' | asset_url | stylesheet_tag }}
+
+<highlight-products>
+  <section class="highlight-products highlight-products__container">
+    {% for product in article.metafields.details.highlight_products.value %}
+      <div class="highlight-products__item">
+          {% render 'image', image: product.featured_image, class: 'highlight-products__image' %}
+          <div class="highlight-products__content">
+            <span class="p-5 highlight-products__eyebrow color-dark-gray">{{ product.title }}</span>
+            <h3 class="p-3 highlight-products__title">{{ product.metafields.details.subtitle }}</h3>
+            <a class="p-4 color-noir" href="{{ product.url }}">Shop</a>          
+          </div>
+      </div>
+    {% endfor %}
+  </section>
+  </highlight-products>
+
+  {% schema %}
+{
+  "name": "Highlight Products",
+  "tag": "section",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Highlight Products"
+    }
+  ]
+}
+{% endschema %}

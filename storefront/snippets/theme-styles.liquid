@@ -1,0 +1,13 @@
+<link rel="preconnect" href="https://cdn.shopify.com" crossorigin>
+<link rel="preconnect" href="https://fonts.shopify.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+
+{% render 'fonts' %}
+
+<link
+  rel="preload"
+  href="{{ 'global.min.css' | asset_url }}"
+  as="style"
+  onload="this.onload=null;this.rel='stylesheet'"
+>
+<noscript><link rel="stylesheet" href="{{ 'global.min.css' | asset_url }}"></noscript>

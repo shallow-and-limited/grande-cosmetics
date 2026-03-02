@@ -1,0 +1,160 @@
+{% assign pagetype = request.page_type %}
+{% case pagetype %}
+{% when 'product' %}
+  {% assign _s = product.metafields.details.product_carousel.value %}
+  {% assign _blocks = _s.product_carousel_items.value %}
+  {% assign _blocks_size = _blocks.count %}
+  {% assign _show_cats = _s.show_categories %}
+{% when 'collection' %}
+  {% assign _s = collection.metafields.details.collection_carousel.value %}
+  {% assign _blocks = _s.product_carousel_items.value %}
+  {% assign _blocks_size = _blocks.count %}
+  {% assign _show_cats = _s.show_categories %}  
+{% else %}
+  {%- assign _s = section.settings -%}
+  {% assign _blocks = section.blocks %}
+  {% assign _blocks_size = _blocks.size %}
+  {% assign _show_cats = _s.categories %}
+{% endcase %}
+
+
+{% if _s %}
+
+  {{ 'product-carousel.min.css' | asset_url | stylesheet_tag }}
+
+  {%- liquid
+    assign _c = blank
+    for block in _blocks
+      if pagetype == 'product' or pagetype == 'collection'
+        assign _block_settings = block
+      else
+        assign _block_settings = block.settings
+      endif
+
+      if _block_settings.category != blank
+        unless _c contains _block_settings.category
+          assign _c = _c | append: _block_settings.category | append: ','
+        endunless
+      endif
+    endfor
+
+    assign _c = _c | remove_last: ',' | split: ','
+    -%}
+  <div class="product-carousel {{ _s.alignment }}" data-slide-up-container>
+    <div class="product-carousel__heading">
+      {%- if _c.size > 1 and _show_cats == true -%}
+        <ul class="product-carousel__filters">
+          <li>
+            <button class="btn product-carousel__filter btn--primary" data-carousel-filter><span>All</span></button>
+          </li>
+          {%- for category in _c -%}
+            <li>
+              <button class="btn product-carousel__filter" data-carousel-filter="{{ category | downcase | replace: ' ', '-' }}"><span>{{ category }}</span></button>
+            </li>
+          {%- endfor -%}
+        </ul>
+      {%- else -%}
+        <h2 class="h4">
+          {{ _s.heading }}
+        </h2>
+      {%- endif -%}
+    </div>
+    <div class="product-carousel__cta">
+      {% if _s.cta_copy != blank and _s.cta_url != blank %}
+        <a href="{{ _s.cta_url }}" class="btn--link">{{ _s.cta_copy }}</a>
+        {% if _blocks_size > 3 %}
+          <div class="carousel__pager">
+            <button class="pager-prev" data-previous aria-label="Previous Carousel Slide">
+              {% render 'icons', icon_name: 'arrow-left' %}
+            </button>
+            <button class="pager-next" data-next aria-label="Next Carousel Slide">
+              {% render 'icons', icon_name: 'arrow-right' %}
+            </button>
+          </div>
+        {% endif %}
+      {% endif %}
+    </div>
+    <product-carousel class="product-carousel__wrapper" data-swiper-class="swiper">
+      <div
+        class="product-carousel__cards"
+        data-swiper-class="swiper-wrapper"
+      >
+        {% for block in _blocks %}
+          {%- liquid
+            if pagetype == 'product' or pagetype == 'collection'
+              assign _bs = block
+              assign _bs_product = block.product.value
+            else
+              assign _bs = block.settings
+              assign _bs_product = block.settings.product
+            endif
+          -%}
+          <div class="product-carousel__card" data-swiper-class="swiper-slide" data-category="{{ _bs.category | downcase | replace: ' ', '-' }}" data-slide-up>
+            {% render 'product-card', product: _bs_product, isCarousel: true, card_index: forloop.index %}
+          </div>
+        {% endfor %}
+      </div>
+    </product-carousel>
+  </div>
+  <script src="{{ 'product-carousel.min.js' | asset_url }}" defer="defer"></script>
+
+{% endif %}
+
+{% schema %}
+{
+  "name": "Product Carousel",
+  "tag": "section",
+  "max_blocks": 12,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section Settings",
+      "info": "Note: if this section is placed on a product page, it will take its settings and items from the product's metafields."
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading"
+    },
+    {
+      "type": "checkbox",
+      "id": "categories",
+      "label": "Show Categories",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "cta_copy",
+      "label": "CTA Copy"
+    },
+    {
+      "type": "url",
+      "id": "cta_url",
+      "label": "CTA Url"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "content",
+      "name": "Product",
+      "settings": [
+        {
+          "type": "product",
+          "id": "product",
+          "label": "Product"
+        },
+        {
+          "type": "text",
+          "id": "category",
+          "label": "Collection Category"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product Carousel"
+    }
+  ]
+}
+{% endschema %}

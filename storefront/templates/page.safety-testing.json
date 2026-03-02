@@ -1,0 +1,145 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {}
+    },
+    "banner_7GXzEN": {
+      "type": "banner",
+      "settings": {
+        "color": "dark",
+        "background": "beige",
+        "alignment": "center",
+        "eyebrow": "",
+        "heading": "Grande Cosmetics Extensively Tests for Safety",
+        "heading_size": "h2",
+        "copy": "As a trusted leader in beauty, we are committed to upholding the highest safety, quality & performance standards for our products.\u2028\u2028Along with the entire collection, GrandeLASH-MD, GrandeBROW & GrandeHAIR Enhancing Serums have been thoroughly tested by world-class, third-party research facilities.\u2028",
+        "cta_url": "https:\/\/grandecosmetics.com\/pages\/click-here-for-a-summary-of-reports-results",
+        "cta_copy": "Summary of Reports + Results",
+        "cta_url_alt": "",
+        "cta_copy_alt": "",
+        "overlay": 0
+      }
+    },
+    "split_banner_ECnMga": {
+      "type": "split-banner",
+      "blocks": {
+        "body_copy_36azPD": {
+          "type": "body-copy",
+          "settings": {
+            "copy": "<p>GrandeLASH-MD is one of the most-studied cosmetic lash serums, including a third-party 8-month clinical study & a toxicological review of its formula & individual ingredients.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "body_copy_36azPD"
+      ],
+      "settings": {
+        "style": "rose",
+        "padding": "inset",
+        "arrangement": "right_asset_left_content",
+        "header": "h3",
+        "alignment": "left",
+        "vertical_alignment": "middle",
+        "module_height": "image-height",
+        "image_d": "shopify:\/\/shop_images\/Screenshot_2024-07-24_at_8.28.10_AM.png",
+        "video_poster_d": true,
+        "video_poster_m": false,
+        "video_d": "shopify:\/\/files\/videos\/LashLab_Craig_5 (1).mp4",
+        "video_autoplay": false,
+        "eyebrow": "",
+        "heading": "Take A Dive Into Our Large Scale Clinical Study",
+        "cta_url": "",
+        "cta_copy": ""
+      }
+    },
+    "split_banner_hqjDAN": {
+      "type": "split-banner",
+      "blocks": {
+        "body_copy_Cdegh6": {
+          "type": "body-copy",
+          "settings": {
+            "copy": "<p><strong>Individual reports* can be viewed below:<\/strong><\/p><p>*Please note, the redactions found within these reports are unrelated to execution or results of the studies, and are simply to conceal certain personal & proprietary information.<\/p><p><strong>GrandeLASH-MD:<\/strong><\/p><p><strong>1.<\/strong> <a href=\"https:\/\/grandecosmetics.com\/pages\/toxicological-risk-assessment\" target=\"_blank\">Toxicological Risk Assessment<\/a><\/p><p><strong>2. <\/strong><a href=\"https:\/\/grandecosmetics.com\/pages\/in-use-eye-assessment\" target=\"_blank\">In-Use Eye Assessment<\/a><\/p><p><strong>3.<\/strong> <a href=\"https:\/\/grandecosmetics.com\/pages\/ript-1\" target=\"_blank\">RIPT #1<\/a><\/p><p><strong>4.<\/strong> <a href=\"https:\/\/grandecosmetics.com\/pages\/ript-2\" target=\"_blank\">RIPT #2<\/a><\/p><p><strong>5.<\/strong> <a href=\"https:\/\/grandecosmetics.com\/pages\/ript-3\" target=\"_blank\">RIPT #3<\/a><\/p><p><strong>6. <\/strong><a href=\"https:\/\/grandecosmetics.com\/pages\/het-cam-1\" target=\"_blank\">HET-CAM #1<\/a><\/p><p><strong>7.<\/strong> <a href=\"https:\/\/grandecosmetics.com\/pages\/het-cam-2\" target=\"_blank\">HET-CAM #2<\/a><\/p><p><strong>8. <\/strong><a href=\"https:\/\/grandecosmetics.com\/pages\/het-cam-3\" target=\"_blank\">HET-CAM #3<\/a><\/p><p><strong>9.<\/strong> <a href=\"https:\/\/grandecosmetics.com\/pages\/in-use-home-study-1\" target=\"_blank\">In-Use Home Study #1<\/a> <\/p><p><strong>10. <\/strong><a href=\"https:\/\/grandecosmetics.com\/pages\/in-use-home-study-2\">In-Use Home Study #2<\/a> <\/p><p><strong>11. <\/strong><a href=\"https:\/\/grandecosmetics.com\/pages\/8-month-in-use-clinical-study\">8-Month In-Use Clinical Study<\/a><\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "body_copy_Cdegh6"
+      ],
+      "settings": {
+        "style": "beige",
+        "padding": "inset",
+        "arrangement": "left_asset_right_content",
+        "header": "h2",
+        "alignment": "left",
+        "vertical_alignment": "middle",
+        "module_height": "image-height",
+        "image_d": "shopify:\/\/shop_images\/SafetyStudyInfographic.png",
+        "video_poster_d": true,
+        "video_poster_m": true,
+        "video_autoplay": true,
+        "eyebrow": "",
+        "heading": "",
+        "cta_url": "",
+        "cta_copy": ""
+      }
+    },
+    "banner_Bj4k9z": {
+      "type": "banner",
+      "disabled": true,
+      "settings": {
+        "color": "dark",
+        "background": "beige",
+        "alignment": "left",
+        "eyebrow": "",
+        "heading": "Individual reports* can be viewed below:",
+        "heading_size": "h4",
+        "copy": "*Please note, the redactions found within these reports are unrelated to execution or results of the studies, and are simply to conceal certain personal & proprietary information.\nGrandeLASH-MD:\n<br>\n1. Toxicological Risk Assessment\n\n2. In-Use Eye Assessment\n<br>\n3. RIPT #1\n4. RIPT #2\n5. RIPT #3\n6. HET-CAM #1\n7. HET-CAM #2\n8. HET-CAM #3\n9. In-Use Home Study #1 \n10. In-Use Home Study #2 \n11. 8-Month In-Use Clinical Study",
+        "cta_url": "",
+        "cta_copy": "",
+        "cta_url_alt": "",
+        "cta_copy_alt": "",
+        "overlay": 0
+      }
+    },
+    "split_banner_wjq67x": {
+      "type": "split-banner",
+      "disabled": true,
+      "settings": {
+        "style": "beige",
+        "padding": "inset",
+        "arrangement": "left_asset_right_content",
+        "header": "h2",
+        "alignment": "left",
+        "vertical_alignment": "top",
+        "module_height": "image-height",
+        "image_d": "shopify:\/\/shop_images\/SafetyStudyInfographic.png",
+        "video_poster_d": true,
+        "video_poster_m": true,
+        "video_autoplay": true,
+        "eyebrow": "",
+        "heading": "",
+        "cta_url": "",
+        "cta_copy": ""
+      }
+    }
+  },
+  "order": [
+    "main",
+    "banner_7GXzEN",
+    "split_banner_ECnMga",
+    "split_banner_hqjDAN",
+    "banner_Bj4k9z",
+    "split_banner_wjq67x"
+  ]
+}

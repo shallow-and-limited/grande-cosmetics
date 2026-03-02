@@ -1,0 +1,73 @@
+<div class="mobile-submenu" data-mobile-submenu>
+  <div class="mobile-submenu__header">
+    <span class="mobile-submenu__back" data-close-submenu>{% render 'icons', icon_name: 'arrow-left' %}</span>
+    <div class="mobile-submenu__title p-2">{{ title }}</div>
+    <span class="mobile-submenu__close" data-close-menu>{% render 'icons', icon_name: 'close' %}</span>
+  </div>
+  <div class="mobile-submenu__content">
+    {% if menu_block.product_list != blank %}
+      <div class="mobile-submenu__products">
+        {% for _product in menu_block.product_list %}
+          <a href="{{ _product.url }}" class="mobile-submenu__product">
+            <img class="mobile-submenu__product-img" src="{{ _product.featured_image | image_url: width: 60 }}" />
+            <div>
+              <span class="mobile-submenu__product-category p-5">{{ _product.metafields.details.subtitle }}</span>
+              <span class="mobile-submenu__product-title p-2">{{ _product.title }}</span>
+            </div>
+          </a>
+        {% endfor %}
+      </div>
+    {% endif %}
+    {% for _link in _links %}
+      <div class="mobile-submenu__heading s-3">{{ _link.title }}</div>
+      {% if _link.links %}
+        <ul class="mobile-submenu__nav">
+          {% for grandchild_link in _link.links %}
+            <a href="{{ grandchild_link.url }}"><li class="mobile-submenu__link p-2">{{ grandchild_link.title }}</li></a>
+          {% endfor %}
+          <a href="{{ menu_block.link_url }}"><li class="mobile-submenu__link-bottom p-3">{{ menu_block.link_text }}</li></a>
+        </ul>
+      {% endif %}
+    {% endfor %}
+    <div class="mobile-submenu__ctas">
+      {% if menu_block.image_1 != blank %}
+        <a href="{{ menu_block.url_1 }}" class="mobile-submenu__cta">
+          <img class="mobile-submenu__cta-img" src="{{ menu_block.image_1 | image_url }}" />
+            {% if menu_block.text_1 != blank %}
+            <span class="mobile-submenu__cta-title p-2 strong">{{ menu_block.text_1 }}</span>
+            {% render 'icons', 
+              icon_name: 'arrow-right', 
+              class: 'mobile-submenu__cta-arrow' 
+            %}
+          {% endif %}
+        </a>
+      {% endif %}
+      <div class="mobile-submenu__flex-img">
+        {% if menu_block.image_2 != blank %}
+          <a href="{{ menu_block.url_2 }}" class="mobile-submenu__cta">
+            <img class="mobile-submenu__cta-img" src="{{ menu_block.image_2 | image_url }}" />
+              {% if menu_block.text_2 != blank %}
+              <span class="mobile-submenu__cta-title p-2 strong">{{ menu_block.text_2 }}</span>
+              {% render 'icons', 
+                icon_name: 'arrow-right', 
+                class: 'mobile-submenu__cta-arrow' 
+              %}
+            {% endif %}
+          </a>
+        {% endif %}
+        {% if menu_block.image_3 != blank %}
+          <a href="{{ menu_block.url_3 }}" class="mobile-submenu__cta">
+            <img class="mobile-submenu__cta-img" src="{{ menu_block.image_3 | image_url }}" />
+              {% if menu_block.text_3 != blank %}
+              <span class="mobile-submenu__cta-title p-2 strong">{{ menu_block.text_3 }}</span>
+              {% render 'icons', 
+                icon_name: 'arrow-right'
+                class: 'mobile-submenu__cta-arrow' 
+              %}
+            {% endif %}
+          </a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>

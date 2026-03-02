@@ -1,0 +1,184 @@
+{% comment %}
+  Renders facets (active filters and sorting)
+  Accepts:
+  - results: {Object} Collection or Search object
+  - enable_sorting: {Boolean} Show sorting when true
+  Usage:
+  {% render 'facets', results: collection, pager: paginate, enable_sorting: true %}
+{% endcomment %}
+
+{%- liquid
+  assign pager = pager
+  assign results = results
+  assign sort_by = results.sort_by | default: results.default_sort_by
+  assign total_active_values = 0
+  assign size = results.products.size
+  if results.url
+    assign results_url = results.url
+  else
+    assign terms = results.terms | escape
+    assign results_url = '?q=' | append: terms | append: '&options%5Bprefix%5D=last&sort_by=' | append: sort_by
+  endif
+
+  if pager.page_size > pager.items
+    assign current_size = pager.items | times: 1.0
+  else
+    assign current_size = pager.page_size | times: 1.0
+  endif
+-%}
+
+{% capture filter_dropdown %}
+  <div class="filter__dropdown">
+  {%- if results.filters != empty -%}
+    <div class="filter__dropdown-content">
+      <div class="filter__dropdown-content-inner">
+        {%- for filter in results.filters -%}
+          {%- liquid
+            case filter.presentation
+              when 'swatch'
+                assign has_visual_display = true
+                assign visual_layout_class = 'facets-layout-grid facets-layout-grid--' | append: filter.presentation
+              else
+                assign has_visual_display = false
+                assign visual_layout_class = 'facets-layout-list'
+            endcase
+          -%}
+          <article class="filter-bulk-form">
+            <filter-dropdown class="filter__dropdown-item">
+              <details
+                class="js-filter-dropdown"
+                data-index="{{ forloop.index }}"
+              >
+                <summary class="filter__heading-bulk-form">
+                  <span>{{ filter.label | escape }}</span>
+                  {% render 'icons', icon_name: 'caret-down' %}
+                  <span></span>
+                </summary>
+                <div class="filter__content-bulk-form">
+                  <ol class="filter__content-inner">
+                    {%- for value in filter.values -%}
+                      <li>
+                        <label class="filter__checkbox">
+                          <div class="filter__checkbox-left">
+                            <input
+                              type="checkbox"
+                              class="main-filter__input visually-hidden"
+                              name="{{ value.param_name }}"
+                              value="{{ value.value }}"
+                              {% if value.active %}
+                                checked
+                              {% endif %}
+                              {% if value.count == 0 and value.active == false %}
+                                disabled
+                              {% endif %}
+                            >
+                            <span class="filter__checkbox-icon"></span>
+                            <span class="filter__checkbox-label">
+                              {{- value.label | escape -}}
+                              ({{ value.count }})
+                            </span>
+                          </div>
+
+                          {% if value.display.type == 'colors' %}
+                            <span
+                              {% if has_visual_display %}
+                                style="background: {{ value.display.value }};"
+                              {% endif %}
+                            ></span>
+                          {% elsif value.display.type == 'image' %}
+                            <img src="{{ value.display.value | image_url: width: 250 }}" alt="{{ value.label }}">
+                          {% endif %}
+                        </label>
+                      </li>
+                    {%- endfor -%}
+                  </ol>
+                </div>
+              </details>
+            </filter-dropdown>
+          </article>
+        {%- endfor -%}
+      </div>
+    </div>
+  {%- endif -%}
+  </div>
+{% endcapture %}
+
+{% capture sort_content %}
+  {%- assign sort_by = results.sort_by | default: results.default_sort_by -%}
+  {% assign allowed_sort_options = 'created-descending,best-selling,price-ascending,price-descending' | split: ',' %}
+  <label for="sort_by" class="visually-hidden">{{ 'products.facets.sort_by_label' | t }}</label>
+  <select id="sort_by" class="sort__options" name="sort_by">
+  {%- for option_value in allowed_sort_options -%}
+    {% assign option_name = 'products.facets.sort_order.' | append: option_value | t %}
+      <option
+        value="{{ option_value | escape }}"
+        {% if option_value == sort_by %}
+          selected
+          {% assign current_sort_by = option_name %}
+        {% endif %}
+        aria-describedby="a11y-refresh-page-message"
+      >
+        {{ option_name | escape }}
+      </option>
+    {%- endfor -%}
+  </select>
+{% endcapture %}
+
+<facet-sort-form class="bulk-form__facets-container">
+  <section class="bulk-form__facets-wrapper">
+    <div
+      class="bulk-form__sort"
+      {% if section.settings.enable_filters == false %}
+        style="justify-content: flex-end;"
+      {% endif %}
+    >
+      {% if section.settings.enable_filters == true %}
+        <div class="bulk-form__filter hide-desktop" data-filter-open>
+          {% render 'icons', icon_name: 'filter' %}
+        </div>
+        <div class="bulk-form__sort-filters">
+          {{ filter_dropdown }}
+          <span class="bulk-form__products-count ">
+            <span data-product-count>{{ current_size | floor }}</span>
+            {{ current_size | floor | pluralize: 'RESULT', 'RESULTS' }}
+          </span>
+        </div>
+        
+        <div class="sort__wrapper">
+          <span class="hide-mobile p-3">Sort by</span>
+          <span class="sort__wrapper-divder hide-mobile">|</span>
+          {{ sort_content }}
+        </div>
+      {% endif %}
+    </div>
+
+    {% if section.settings.enable_filters == true %}
+      <div class="bulk-form__facets" data-active-filters>
+        {% if results.filters.size > 0 %}
+          {%- for filter in results.filters -%}
+            {%- assign total_active_values = total_active_values | plus: filter.active_values.size -%}
+            {%- for value in filter.active_values -%}
+              <a href="{{ value.url_to_remove }}" class="bulk-form__facets-btn-remove">
+                {% render 'icons', icon_name: 'filter-close' %}
+                <span>{{ value.label | escape }}</span>
+                <span class="visually-hidden">{{ 'products.facets.clear_filter' | t }}</span>
+              </a>
+            {%- endfor -%}
+          {%- endfor -%}
+          {% comment %}
+            {% if total_active_values > 0 %}
+              <a href="{{ results_url }}" class="p-4 clear">
+                <span>{{ 'products.facets.clear_all' | t }}</span>
+              </a>
+            {% endif %}
+          {% endcomment %}
+          {% if total_active_values > 0 %}
+            <a href="{{ collection.url }}" class="filter__drawer-clear-all" data-clear-filters>
+              <span>{{ 'products.facets.clear_all' | t }}</span>
+            </a>
+          {% endif %}
+        {% endif %}
+      </div>
+    {% endif %}
+  </section>
+</facet-sort-form>

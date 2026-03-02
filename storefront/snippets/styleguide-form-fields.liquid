@@ -1,0 +1,220 @@
+<div class="styleguide__inner styleguide__inner--forms py-4">
+  <p class="p-2-regular">Input Fields</p>
+  <div class="styleguide__input--fields">
+    <div class="field__container">
+      <div class="input--field__container">
+        <input class="input--field" placeholder="Enter Text Here">
+        <label class="input--field__label"> Field Label</label>
+        <div class="input--field__icon">
+          <i>{% render 'icons', icon_name: 'attention' %}</i>
+        </div>
+      </div>
+      <p class="helper-text p-5-regular">Optional helper text</p>
+      <p class="p-3-regular">Default</p>
+    </div>
+    <div class="field__container">
+      <div class="input--field__container">
+        <input class="input--field input--hover" placeholder="Enter Text Here">
+        <label class="input--field__label"> Field Label</label>
+        <div class="input--field__icon">
+          <i>{% render 'icons', icon_name: 'attention' %}</i>
+        </div>
+      </div>
+      <p class="helper-text p-5-regular">Optional helper text</p>
+      <p class="p-3-regular">Hover</p>
+    </div>
+    <div class="field__container">
+      <div class="input--field__container">
+        <input class="input--field input--focus" placeholder="Enter Text Here">
+        <label class="input--field__label"> Field Label</label>
+        <div class="input--field__icon">
+          <i>{% render 'icons', icon_name: 'attention' %}</i>
+        </div>
+      </div>
+      <p class="helper-text p-5-regular">Optional helper text</p>
+      <p class="p-3-regular">Active</p>
+    </div>
+    <div class="field__container">
+      <div class="input--field__container">
+        <input class="input--field input--filled" placeholder="Enter Text Here" value="User Input">
+        <label class="input--field__label"> Field Label</label>
+        <div class="input--field__icon">
+          <i>{% render 'icons', icon_name: 'attention' %}</i>
+        </div>
+      </div>
+      <p class="helper-text p-5-regular">Optional helper text</p>
+      <p class="p-3-regular">Filled</p>
+    </div>
+    <div class="field__container">
+      <div class="input--field__container">
+        <input type="email" required class="input--field" placeholder="Field Label" value="User Input">
+        <label class="input--field__label"> Field Label</label>
+        <div class="input--field__icon">
+          <i>{% render 'icons', icon_name: 'attention' %}</i>
+        </div>
+      </div>
+      <p class="helper-text p-5-regular">Optional helper text</p>
+      <p class="p-3-regular">Error</p>
+    </div>
+    <div class="field__container">
+      <div class="input--field__container">
+        <input disabled class="input--field" placeholder="Field Label">
+        <label class="input--field__label"> Field Label</label>
+        <div class="input--field__icon">
+          <i>{% render 'icons', icon_name: 'attention' %}</i>
+        </div>
+      </div>
+      <p class="helper-text p-5-regular">Optional helper text</p>
+      <p class="p-3-regular">Deactivated</p>
+    </div>
+  </div>
+  <hr>
+  <p class="p-2-regular">Dropdowns</p>
+  <div class="styleguide__form-select">
+    <div class="container">
+      <p class="p-3-regular">Default</p>
+      <select-element>
+        <div class="custom-select">
+          <button
+            role="combobox"
+            data-button="select"
+            value="Select"
+            aria-controls="listbox"
+            aria-haspopup="listbox"
+            tabindex="0"
+            aria-expanded="false"
+          >
+            <span data-text="buttonText">Select</span>
+            {% render 'icons', icon_name: 'caret-down-small', class: 'icon-select' %}
+          </button>
+          <ul role="listbox" data-listbox>
+            <li role="option">Option 1</li>
+            <li role="option">Option 2</li>
+            <li role="option">Option 3</li>
+          </ul>
+        </div>
+      </select-element>
+    </div>
+    <div class="container">
+      <select-element>
+        <div class="custom-select">
+          <p class="p-3-regular">Hover</p>
+          <button
+            class="select-hover"
+            role="combobox"
+            data-button="select"
+            value="Select"
+            aria-controls="listbox"
+            aria-haspopup="listbox"
+            tabindex="0"
+            aria-expanded="false"
+          >
+            <span data-text="buttonText">Select</span>
+            {% render 'icons', icon_name: 'caret-down-small', class: 'icon-select' %}
+          </button>
+          <ul role="listbox" data-listbox>
+            <li role="option">Option 1</li>
+            <li role="option">Option 2</li>
+            <li role="option">Option 3</li>
+          </ul>
+        </div>
+      </select-element>
+    </div>
+    <div class="container">
+      <div class="custom-select">
+        <p class="p-3-regular">Active</p>
+        <button
+          role="combobox"
+          class="active"
+          data-button="select"
+          value="Select"
+          aria-controls="listbox"
+          aria-haspopup="listbox"
+          tabindex="0"
+          aria-expanded="false"
+        >
+          <span data-text="buttonText">Select</span>
+          {% render ', icon_name: 'caret-down-small', class: 'icon-select' %}
+        </button>
+        <ul class="select-active" role="listbox" data-listbox>
+          <li class="select-active" role="option">Option 1</li>
+          <li role="option">Option 2</li>
+          <li role="option">Option 3</li>
+        </ul>
+      </div>
+    </div>
+    <div class="container">
+      <div class="custom-select">
+        <p class="p-3-regular">Filled</p>
+        <button
+          class="selected"
+          role="combobox"
+          data-button="select"
+          value="Select"
+          aria-controls="listbox"
+          aria-haspopup="listbox"
+          tabindex="0"
+          aria-expanded="false"
+        >
+          <span data-text="buttonText">Option 1</span>
+          {% render 'icons', icon_name: 'caret-down-small', class: 'icon-select' %}
+        </button>
+        <ul role="listbox" data-listbox>
+          <li role="option">Option 1</li>
+          <li role="option">Option 2</li>
+          <li role="option">Option 3</li>
+        </ul>
+      </div>
+    </div>
+    <div class="container">
+      <select-element data-required>
+        <div class="custom-select">
+          <p class="p-3-regular">Error</p>
+          <button
+            class="select-hover"
+            role="combobox"
+            data-button="select"
+            value="Select"
+            aria-controls="listbox"
+            aria-haspopup="listbox"
+            tabindex="0"
+            aria-expanded="false"
+          >
+            <span data-text="buttonText">Select</span>
+            {% render 'icons', icon_name: 'caret-down-small', class: 'icon-select' %}
+          </button>
+          <ul role="listbox" data-listbox>
+            <li role="option">Option 1</li>
+            <li role="option">Option 2</li>
+            <li role="option">Option 3</li>
+          </ul>
+        </div>
+      </select-element>
+    </div>
+    <div class="container">
+      <select-element data-deactivated>
+        <div class="custom-select">
+          <p class="p-3-regular">Deactivated</p>
+          <button
+            class="select-hover"
+            role="combobox"
+            data-button="select"
+            value="Select"
+            aria-controls="listbox"
+            aria-haspopup="listbox"
+            tabindex="0"
+            aria-expanded="false"
+          >
+            <span data-text="buttonText">Select</span>
+            {% render 'icons', icon_name: 'caret-down-small', class: 'icon-select' %}
+          </button>
+          <ul role="listbox" data-listbox>
+            <li role="option">Option 1</li>
+            <li role="option">Option 2</li>
+            <li role="option">Option 3</li>
+          </ul>
+        </div>
+      </select-element>
+    </div>
+  </div>
+</div>

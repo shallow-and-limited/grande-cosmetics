@@ -1,0 +1,58 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main-collection-hero": {
+      "type": "main-collection-hero",
+      "settings": {
+        "show_image": false
+      }
+    },
+    "main_collection_navigation_ppdk83": {
+      "type": "main-collection-navigation",
+      "settings": {}
+    },
+    "main-collection": {
+      "type": "main-collection",
+      "blocks": {
+        "content_card_rjAJbM": {
+          "type": "content_card",
+          "settings": {
+            "row": 1,
+            "column": 4,
+            "display": "2",
+            "alignment": "center",
+            "image_desktop": "shopify:\/\/shop_images\/lash-min_902dd94a-f7de-4d47-9193-719ce062edc4.jpg",
+            "image_mobile": "shopify:\/\/shop_images\/lash-xs-min_462b7ee4-bb00-4e26-9438-5cfe6c9619e6.jpg",
+            "eyebrow": "Lash–MD• Lash Enhancing Serum",
+            "heading": "H3 60 Characters Max",
+            "cta_url": "\/",
+            "cta_copy": "Learn More"
+          }
+        }
+      },
+      "block_order": [
+        "content_card_rjAJbM"
+      ],
+      "settings": {
+        "products_per_page": 6,
+        "enable_filtering": true,
+        "enable_sorting": true,
+        "columns_desktop": "3",
+        "columns_mobile": "1"
+      }
+    }
+  },
+  "order": [
+    "main-collection-hero",
+    "main_collection_navigation_ppdk83",
+    "main-collection"
+  ]
+}

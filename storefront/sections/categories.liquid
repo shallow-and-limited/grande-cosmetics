@@ -1,0 +1,222 @@
+{% assign pagetype = request.page_type %}
+{% case pagetype %}
+{% when 'product' %}
+  {% assign _s = product.metafields.details.product_categories.value %}
+  {% assign _blocks = _s.categories_items.value %}
+  {% assign _blocks_size = _blocks.count %}
+{% when 'collection' %}
+  {% assign _s = collection.metafields.details.collection_categories.value %}
+  {% assign _blocks = _s.categories_items.value %}
+  {% assign _blocks_size = _blocks.count %}  
+{% else %}
+  {%- assign _s = section.settings -%}
+  {% assign _blocks = section.blocks %}
+  {% assign _blocks_size = _blocks.size %}
+{% endcase %}
+
+{% if _s %}
+
+  {{ 'categories.min.css' | asset_url | stylesheet_tag }}
+
+  {%- liquid
+    assign heading = 'h4'
+
+    if _blocks_size > 3
+      assign heading = 'h5'
+    endif
+  -%}
+  
+  <div class="categories {{ _s.alignment }}" data-slide-up-container>
+    <div class="categories__heading">
+      {% if _s.eyebrow != blank %}
+        <p class="s-3">{{ _s.eyebrow }}</p>
+      {% endif %}
+      {% if _s.heading != blank %}
+        <h2 class="h4">{{ _s.heading }}</h2>
+      {% endif %}
+    </div>
+    <div class="categories__cta">
+      {% if _s.cta_copy != blank and _s.cta_url != blank %}
+        <a href="{{ _s.cta_url }}" class="btn--link">{{ _s.cta_copy }}</a>
+        {% if _blocks_size > 2 %}
+          <div class="carousel__scrollbar swiper-scrollbar"></div>
+        {% endif %}
+        {% if _blocks_size > 4 %}
+          <div class="carousel__pager">
+            <button class="pager-prev" data-previous aria-label="Previous Carousel Slide">
+              {% render 'icons', icon_name: 'arrow-left' %}
+            </button>
+            <button class="pager-next" data-next aria-label="Next Carousel Slide">
+              {% render 'icons', icon_name: 'arrow-right' %}
+            </button>
+          </div>
+        {% endif %}
+      {% endif %}
+      {% if pagetype == 'product' or pagetype == 'collection' %}
+        {% assign _icon = _s.icon.value %}
+      {% else %}
+        {% assign _icon = _s.icon %}
+      {% endif %}  
+      {% if _icon != blank %}
+        {{ _icon | image_url: width: _icon.width | image_tag: class: 'categories__icon' }}
+      {% endif %}
+    </div>
+    <category-carousel class="categories__wrapper" {% if _blocks_size > 2 %}data-swiper-class="swiper" {% endif %}>
+      <div
+        class="categories__cards"
+        {% if _blocks_size > 2 %}
+          data-swiper-class="swiper-wrapper"
+        {% endif %}
+      >
+        {% for block in _blocks %}
+          {% if pagetype == 'product' or pagetype == 'collection' %}
+            {% assign _settings = block %}
+          {% else %}
+            {% assign _settings = block.settings %}
+          {% endif %}
+          <div class="categories__card" {% if _blocks_size > 2 %} data-swiper-class="swiper-slide"{% endif %} data-category="{{ _settings.category | downcase | replace: ' ', '-' }}" data-slide-up>
+            <div class="categories__card-image">
+              {% if _settings.cta_url %}
+                <a href="{{ _settings.cta_url }}">
+              {% endif %}
+                {% if pagetype == 'product' or pagetype == 'collection' %}
+                  {% assign _image = _settings.image.value%}
+                {% else %}
+                  {% assign _image = _settings.image %}
+                {% endif %}
+                {% render 'image', image: _image %}
+                {% if _settings.heading_image != blank -%}
+                  <p class="h4 categories__card-image__heading">{{ _settings.heading_image }}</p>
+                {%- endif -%}
+              {% if _settings.cta_url %}                
+                </a>
+              {% endif %}
+            </div>
+            <div class="categories__card-content">
+              {% if _settings.eyebrow != blank -%}
+                <p class="s-3">{{ _settings.eyebrow }}</p>
+              {%- endif -%}
+              {% if _settings.heading != blank -%}
+                <h3 class="{{ heading }}">{{ _settings.heading }}</h3>
+              {%- endif -%}
+              {% if pagetype == 'product' or pagetype == 'collection' %}
+                {% assign _copy = _settings.copy | metafield_tag %}
+              {% else %}
+                {% assign _copy = block.settings.copy %}
+              {% endif %}          
+              {% if _settings.copy != blank -%}
+                <p class="p-3">{{ _copy }}</p>
+              {%- endif -%}
+              {% if _settings.cta_copy != blank and _settings.cta_url != blank %}
+                <a href="{{ _settings.cta_url }}" class="categories__card-cta btn btn--primary">{{ _settings.cta_copy }}</a>
+              {%- endif -%}
+              {% if _settings.cta_copy_alt != blank and _settings.cta_url_alt != blank %}
+                <a href="{{ _settings.cta_url_alt }}" class="categories__card-cta btn--link">{{ _settings.cta_copy_alt }}</a>
+              {%- endif -%}
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </category-carousel>
+  </div>
+  <script src="{{ 'categories.min.js' | asset_url }}" defer="defer"></script>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Categories",
+  "tag": "section",
+  "max_blocks": 12,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section Settings",
+      "info": "Note: if this section is placed on a product or collection page, it will take its settings and items from the product or collection's metafields."
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading"
+    },
+    {
+      "type": "text",
+      "id": "cta_copy",
+      "label": "CTA Copy"
+    },
+    {
+      "type": "url",
+      "id": "cta_url",
+      "label": "CTA Url"
+    },
+    {
+      "type": "image_picker",
+      "id": "icon",
+      "label": "Icon"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "content",
+      "name": "Category",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Category Image"
+        },
+        {
+          "type": "text",
+          "id": "heading_image",
+          "label": "Image Heading"
+        },
+        {
+          "type": "text",
+          "id": "eyebrow",
+          "label": "Eyebrow"
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading"
+        },
+        {
+          "type": "textarea",
+          "id": "copy",
+          "label": "Copy"
+        },
+        {
+          "type": "url",
+          "id": "cta_url",
+          "label": "CTA Url"
+        },
+        {
+          "type": "text",
+          "id": "cta_copy",
+          "label": "CTA Copy",
+          "default": "Shop All"
+        },
+        {
+          "type": "url",
+          "id": "cta_url_alt",
+          "label": "Secondary CTA Url"
+        },
+        {
+          "type": "text",
+          "id": "cta_copy_alt",
+          "label": "Secondary CTA Copy"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Categories"
+    }
+  ]
+}
+{% endschema %}

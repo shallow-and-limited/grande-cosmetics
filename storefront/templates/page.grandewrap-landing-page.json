@@ -1,0 +1,104 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "shogun-helper": {
+      "type": "shogun-helper",
+      "disabled": true,
+      "settings": {}
+    },
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {}
+    },
+    "shogun-optimizer": {
+      "type": "shogun-optimizer",
+      "disabled": true,
+      "settings": {}
+    },
+    "hero_carousel_kpcmzw": {
+      "type": "hero-carousel",
+      "blocks": {
+        "hero_slide_nqGbmg": {
+          "type": "hero_slide",
+          "settings": {
+            "color": "light",
+            "image_d": "shopify://shop_images/GrandeWRAP_Teaser_DesktopBanner_b91efc6a-bcaf-4999-bdd4-69bc875a2bf6.gif",
+            "video_poster_d": true,
+            "image_m": "shopify://shop_images/GrandeWRAP_Teaser_MobileBanner_ad7cb3fd-d09f-42e5-a7ba-93804db92977.gif",
+            "video_poster_m": true,
+            "video_autoplay": true,
+            "eyebrow": "FROM AMERICA'S #1 LASH & BROW SERUM BRAND*",
+            "heading": "Coming <em>Soon</em>",
+            "heading_size": "h1",
+            "copy": "be on the lookout for something that's going to have you WRAP-ed around it's finger",
+            "cta_url": "",
+            "cta_copy": "",
+            "cta_url_alt": "",
+            "cta_copy_alt": "",
+            "overlay": 0
+          }
+        }
+      },
+      "block_order": [
+        "hero_slide_nqGbmg"
+      ],
+      "settings": {
+        "display": "full-bleed"
+      }
+    },
+    "ticker_3kTJPp": {
+      "type": "ticker",
+      "blocks": {
+        "text_zAq9J3": {
+          "type": "text",
+          "settings": {
+            "svg_icon": "flower",
+            "text": "Be The First To Know",
+            "url": ""
+          }
+        },
+        "text_pYqDdP": {
+          "type": "text",
+          "settings": {
+            "svg_icon": "flower",
+            "text": "New Launch Coming Soon",
+            "url": ""
+          }
+        }
+      },
+      "block_order": [
+        "text_zAq9J3",
+        "text_pYqDdP"
+      ],
+      "settings": {
+        "optional_text": "",
+        "optional_url": "https://grandecosmetics.com/cart/41147612266633:1?discount=laminate25",
+        "speed": 3,
+        "color_scheme": "bloom"
+      }
+    },
+    "shogun_custom_html_tCMLyV": {
+      "type": "shogun-custom-html",
+      "settings": {
+        "html": "<div class=\"klaviyo-form-YzAKjS\"></div>"
+      }
+    }
+  },
+  "order": [
+    "shogun-helper",
+    "main",
+    "shogun-optimizer",
+    "hero_carousel_kpcmzw",
+    "ticker_3kTJPp",
+    "shogun_custom_html_tCMLyV"
+  ]
+}

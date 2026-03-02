@@ -1,0 +1,279 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "shogun-helper": {
+      "type": "shogun-helper",
+      "settings": {}
+    },
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {}
+    },
+    "shogun-optimizer": {
+      "type": "shogun-optimizer",
+      "settings": {}
+    },
+    "banner_HjctWi": {
+      "type": "banner",
+      "settings": {
+        "color": "light",
+        "background": "beige",
+        "image_d": "shopify:\/\/shop_images\/mascara_Category_Bar_d077610f-e578-4d9e-b656-48f4a7db3ab7.jpg",
+        "alignment": "left",
+        "eyebrow": "",
+        "heading": "",
+        "heading_size": "h2",
+        "copy": "",
+        "cta_url": "",
+        "cta_copy": "",
+        "cta_url_alt": "",
+        "cta_copy_alt": "",
+        "overlay": 0
+      }
+    },
+    "ticker_BWMzJC": {
+      "type": "ticker",
+      "settings": {
+        "optional_text": "",
+        "optional_url": "",
+        "speed": 3,
+        "color_scheme": "beige"
+      }
+    },
+    "banner_zEmMbp": {
+      "type": "banner",
+      "settings": {
+        "color": "light",
+        "background": "beige",
+        "image_d": "shopify:\/\/shop_images\/mascara_Value_Props_Assurances.jpg",
+        "alignment": "left",
+        "eyebrow": "",
+        "heading": "",
+        "heading_size": "h2",
+        "copy": "",
+        "cta_url": "",
+        "cta_copy": "",
+        "cta_url_alt": "",
+        "cta_copy_alt": "",
+        "overlay": 0
+      }
+    },
+    "split_banner_dhBtVf": {
+      "type": "split-banner",
+      "blocks": {
+        "body_copy_GTxtrJ": {
+          "type": "body-copy",
+          "settings": {
+            "copy": "<p><strong> <\/strong><\/p><h6>Conditioning Peptide Mascara<\/h6><p><strong> <\/strong><\/p><h6><\/h6><h6><\/h6>"
+          }
+        },
+        "line_item_rRkdPR": {
+          "type": "line-item",
+          "settings": {
+            "line_item_icon_rotation": false,
+            "line_item_percent": 97,
+            "line_item_text": "saw longer looking lashes*"
+          }
+        },
+        "line_item_AqrYeG": {
+          "type": "line-item",
+          "settings": {
+            "line_item_icon_rotation": false,
+            "line_item_percent": 94,
+            "line_item_text": "saw healthier looking lashes*"
+          }
+        }
+      },
+      "block_order": [
+        "body_copy_GTxtrJ",
+        "line_item_rRkdPR",
+        "line_item_AqrYeG"
+      ],
+      "settings": {
+        "style": "beige",
+        "padding": "inset",
+        "arrangement": "left_asset_right_content",
+        "header": "h2",
+        "alignment": "left",
+        "vertical_alignment": "middle",
+        "module_height": "image-height",
+        "image_d": "shopify:\/\/shop_images\/mascara-Lifestyle_Image.jpg",
+        "video_poster_d": true,
+        "video_poster_m": true,
+        "video_autoplay": true,
+        "eyebrow": "AVAILABLE IN BLACK, BROWN, AND WATERPROOF",
+        "heading": "GrandeMASCARA",
+        "cta_url": "shopify:\/\/products\/grandemascara",
+        "cta_copy": "Shop Now"
+      }
+    },
+    "split_banner_cgGefw": {
+      "type": "split-banner",
+      "blocks": {
+        "body_copy_LDcAxa": {
+          "type": "body-copy",
+          "settings": {
+            "copy": "<h2><\/h2><p><\/p><h6>Intense Thickening Mascara With Castor Oil<\/h6><p><strong> <\/strong><\/p><h2><\/h2>"
+          }
+        },
+        "line_item_p4VeXY": {
+          "type": "line-item",
+          "settings": {
+            "line_item_icon_rotation": false,
+            "line_item_percent": 97,
+            "line_item_text": "saw dramatic lash volume*"
+          }
+        },
+        "line_item_VixLXP": {
+          "type": "line-item",
+          "settings": {
+            "line_item_icon_rotation": false,
+            "line_item_percent": 94,
+            "line_item_text": "saw thicker looking lashes*"
+          }
+        }
+      },
+      "block_order": [
+        "body_copy_LDcAxa",
+        "line_item_p4VeXY",
+        "line_item_VixLXP"
+      ],
+      "settings": {
+        "style": "rose",
+        "padding": "inset",
+        "arrangement": "left_asset_right_content",
+        "header": "h2",
+        "alignment": "left",
+        "vertical_alignment": "middle",
+        "module_height": "image-height",
+        "image_d": "shopify:\/\/shop_images\/drama-Lifestyle_Image.jpg",
+        "video_poster_d": true,
+        "video_poster_m": true,
+        "video_autoplay": true,
+        "eyebrow": "",
+        "heading": "GrandeDRAMA",
+        "cta_url": "shopify:\/\/products\/grandedrama",
+        "cta_copy": "Shop Now"
+      }
+    },
+    "split_banner_RXBXVA": {
+      "type": "split-banner",
+      "blocks": {
+        "body_copy_cz3kUr": {
+          "type": "body-copy",
+          "settings": {
+            "copy": "<h6>Fanning & Curling Mascara<\/h6>"
+          }
+        },
+        "line_item_xqqRNJ": {
+          "type": "line-item",
+          "settings": {
+            "line_item_icon_rotation": false,
+            "line_item_percent": 100,
+            "line_item_text": "saw lifted, longer looking lashes*"
+          }
+        },
+        "line_item_FxcALW": {
+          "type": "line-item",
+          "settings": {
+            "line_item_icon_rotation": false,
+            "line_item_percent": 98,
+            "line_item_text": "saw more voluminous, healthier looking lashes"
+          }
+        }
+      },
+      "block_order": [
+        "body_copy_cz3kUr",
+        "line_item_xqqRNJ",
+        "line_item_FxcALW"
+      ],
+      "settings": {
+        "style": "beige",
+        "padding": "inset",
+        "arrangement": "left_asset_right_content",
+        "header": "h2",
+        "alignment": "left",
+        "vertical_alignment": "middle",
+        "module_height": "image-height",
+        "image_d": "shopify:\/\/shop_images\/fanatic-Lifestyle_Image.jpg",
+        "video_poster_d": true,
+        "video_poster_m": true,
+        "video_autoplay": true,
+        "eyebrow": "",
+        "heading": "GrandeFANATIC",
+        "cta_url": "shopify:\/\/products\/grandefanatic-fanning-curling-mascara",
+        "cta_copy": "Shop Now"
+      }
+    },
+    "split_banner_AJLnAY": {
+      "type": "split-banner",
+      "blocks": {
+        "body_copy_9HxwDi": {
+          "type": "body-copy",
+          "settings": {
+            "copy": "<h6>Pre-Mascara Lengthener + Thickener<\/h6>"
+          }
+        },
+        "line_item_iMCfec": {
+          "type": "line-item",
+          "settings": {
+            "line_item_icon_rotation": false,
+            "line_item_percent": 100,
+            "line_item_text": "saw fuller, longer lashes*"
+          }
+        },
+        "line_item_E9VhmU": {
+          "type": "line-item",
+          "settings": {
+            "line_item_icon_rotation": true,
+            "line_item_percent": 94,
+            "line_item_text": "prefer lashes with primer*"
+          }
+        }
+      },
+      "block_order": [
+        "body_copy_9HxwDi",
+        "line_item_iMCfec",
+        "line_item_E9VhmU"
+      ],
+      "settings": {
+        "style": "rose",
+        "padding": "inset",
+        "arrangement": "left_asset_right_content",
+        "header": "h2",
+        "alignment": "left",
+        "vertical_alignment": "middle",
+        "module_height": "image-height",
+        "image_d": "shopify:\/\/shop_images\/primer-Lifestyle_Image.jpg",
+        "video_poster_d": true,
+        "video_poster_m": true,
+        "video_autoplay": true,
+        "eyebrow": "",
+        "heading": "GrandePRIMER",
+        "cta_url": "shopify:\/\/products\/grandeprimer",
+        "cta_copy": "Shop Now"
+      }
+    }
+  },
+  "order": [
+    "shogun-helper",
+    "main",
+    "shogun-optimizer",
+    "banner_HjctWi",
+    "ticker_BWMzJC",
+    "banner_zEmMbp",
+    "split_banner_dhBtVf",
+    "split_banner_cgGefw",
+    "split_banner_RXBXVA",
+    "split_banner_AJLnAY"
+  ]
+}

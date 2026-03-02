@@ -9,15 +9,50 @@
  */
 {
   "sections": {
+    "blog_carousel_rzLXED": {
+      "type": "blog-carousel",
+      "blocks": {
+        "blog_carousel_block_LGVxwW": {
+          "type": "blog_carousel_block",
+          "settings": {
+            "article": "news\/holiday-2025-better-together",
+            "heading": "Introducing the 2025 Holiday Collection",
+            "cta_copy": "Learn More"
+          }
+        },
+        "blog_carousel_block_tgQcaK": {
+          "type": "blog_carousel_block",
+          "settings": {
+            "article": "news\/17-years-of-grande-the-lash-that-launched-a-movement",
+            "heading": "17 Years of Grande",
+            "cta_copy": "Read More"
+          }
+        },
+        "blog_carousel_block_XCPEDN": {
+          "type": "blog_carousel_block",
+          "settings": {
+            "article": "news\/introducing-grandewrap-tubing-mascara-go-to-great-lengths",
+            "heading": "Introducing GrandeWRAP Tubing Mascara – Go to Great Lengths",
+            "cta_copy": "Learn More"
+          }
+        }
+      },
+      "block_order": [
+        "blog_carousel_block_LGVxwW",
+        "blog_carousel_block_tgQcaK",
+        "blog_carousel_block_XCPEDN"
+      ],
+      "settings": {}
+    },
     "main": {
       "type": "main-blog",
       "settings": {
-        "padding_top": 2,
-        "padding_bottom": 2
+        "paginate_by": 9
       }
     }
   },
   "order": [
+    "blog_carousel_rzLXED",
     "main"
   ]
 }

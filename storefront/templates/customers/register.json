@@ -11,8 +11,59 @@
   "sections": {
     "main": {
       "type": "main-register",
-      "settings": {}
+      "blocks": {
+        "bullet_point_btUWWU": {
+          "type": "bullet_point",
+          "settings": {
+            "icon": "shopify:\/\/shop_images\/Product.png",
+            "bullet_text": "Faster Checkout"
+          }
+        },
+        "bullet_point_BYp9rr": {
+          "type": "bullet_point",
+          "settings": {
+            "bullet_text": ""
+          }
+        },
+        "bullet_point_gnXrce": {
+          "type": "bullet_point",
+          "settings": {
+            "icon": "shopify:\/\/shop_images\/Group_7.png",
+            "bullet_text": "Track Your Orders"
+          }
+        },
+        "bullet_point_dbKw4w": {
+          "type": "bullet_point",
+          "disabled": true,
+          "settings": {
+            "icon": "shopify:\/\/shop_images\/Group_7_1.png",
+            "bullet_text": "Receive 15% off your 1st order"
+          }
+        },
+        "bullet_point_7a8cMr": {
+          "type": "bullet_point",
+          "settings": {
+            "icon": "shopify:\/\/shop_images\/colorful-shape-11.png",
+            "bullet_text": "Become a part of our loyalty program"
+          }
+        }
+      },
+      "block_order": [
+        "bullet_point_btUWWU",
+        "bullet_point_BYp9rr",
+        "bullet_point_gnXrce",
+        "bullet_point_dbKw4w",
+        "bullet_point_7a8cMr"
+      ],
+      "settings": {
+        "bg_dsk": "shopify:\/\/shop_images\/1440__Account-Landing_BG.jpg",
+        "bg_mob": "shopify:\/\/shop_images\/320__Account-Landing_BG.jpg",
+        "content_heading": "Not Signed Up Yet?",
+        "content_pre_text": "Create an account to receive these benefits:"
+      }
     }
   },
-  "order": ["main"]
+  "order": [
+    "main"
+  ]
 }

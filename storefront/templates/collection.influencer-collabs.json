@@ -1,0 +1,94 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main-collection-hero": {
+      "type": "main-collection-hero",
+      "settings": {
+        "show_image": true
+      }
+    },
+    "split_banner_b3Hwrt": {
+      "type": "split-banner",
+      "blocks": {
+        "body_copy_WJnjh4": {
+          "type": "body-copy",
+          "settings": {
+            "copy": "<p>Discover exclusive bundles featuring the beauty essentials loved by your favorite influencers. Shop their go-to picks and get ready for major lash goals! 💖<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "body_copy_WJnjh4"
+      ],
+      "settings": {
+        "style": "beige",
+        "padding": "full-width",
+        "arrangement": "left_asset_right_content",
+        "header": "h3",
+        "alignment": "centered",
+        "vertical_alignment": "middle",
+        "module_height": "image-height",
+        "image_d": "shopify:\/\/shop_images\/NationalLashDay_DesktopBanner.jpg",
+        "video_poster_d": true,
+        "video_poster_m": true,
+        "video_autoplay": true,
+        "eyebrow": "GET YOUR DREAM LASHES",
+        "heading": "✨ Your Fave Influencers’ Must-Haves, All in One Place! ✨",
+        "cta_url": "",
+        "cta_copy": ""
+      }
+    },
+    "main_collection_navigation_ppdk83": {
+      "type": "main-collection-navigation",
+      "settings": {}
+    },
+    "main-collection": {
+      "type": "main-collection",
+      "blocks": {
+        "content_card_EGhy8R": {
+          "type": "content_card",
+          "disabled": true,
+          "settings": {
+            "row": 2,
+            "column": 1,
+            "display": "1",
+            "alignment": "center",
+            "eyebrow": "",
+            "heading": "Plenty of room for copy and the second line lives here",
+            "cta_url": "\/",
+            "cta_copy": "Learn More"
+          }
+        }
+      },
+      "block_order": [
+        "content_card_EGhy8R"
+      ],
+      "settings": {
+        "products_per_page": 6,
+        "enable_filtering": true,
+        "enable_sorting": true,
+        "columns_desktop": "3",
+        "columns_mobile": "2"
+      }
+    },
+    "seo-desc": {
+      "type": "seo-description",
+      "settings": {}
+    }
+  },
+  "order": [
+    "main-collection-hero",
+    "split_banner_b3Hwrt",
+    "main_collection_navigation_ppdk83",
+    "main-collection",
+    "seo-desc"
+  ]
+}

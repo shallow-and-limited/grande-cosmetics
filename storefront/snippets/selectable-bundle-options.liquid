@@ -1,0 +1,161 @@
+{% assign bundle_items = product.metafields.custom.selectable_bundle.value %}
+{% assign option_sets = product.options_with_values %}
+
+
+
+<div class="bundle-list">
+	{% for bundle_item in bundle_items %}
+		{% assign bundle_product = bundle_item.product.value %}
+		{% assign product_base_title = bundle_product.title | split: ' (' | first | strip %}
+
+		{%- comment -%}
+			find the matching option set by comparing titles - before " ("
+		{%- endcomment -%}
+		{% assign matched_options = nil %}
+		{% assign options_found = false %}
+		{% for option_set in option_sets %}
+			{% assign option_base_title = option_set.name | split: ' (' | first | strip %}
+			{% if option_base_title == product_base_title %}
+				{% assign matched_options = option_set %}
+				{% assign options_found = true %}
+				{% comment %}  save index so we can match variants later  {% endcomment %}
+				{% assign option_set_index = forloop.index %}
+				{% break %} 
+			{% endif %}
+		{% endfor %}
+
+		{%- assign selected_variant = bundle_item.only_show_variant_option.value -%}
+
+		<div class="bundle-list__item" >
+			<div class="bundle-list__image">
+				{% if bundle_product.featured_image %}
+					<img
+						data-bundle-image
+						class="bundle-list__img"
+						src="{{ bundle_product.featured_image | img_url: '200x200' }}"
+						alt="{{ bundle_product.title }}" >
+				{% else %}
+					<div class="bundle-list__img-placeholder"></div>
+				{% endif %}
+			</div>
+			<div class="bundle-list__details" style="flex: 1;">
+
+				{% comment %}   product title and subtitle  {% endcomment %}
+				<p class="bundle-list__title p-4">{{ bundle_product.title }}</p>
+				<p class="p-2">{{ bundle_product.metafields.details.subtitle.value  }}</p>
+
+				{% comment %}  if they preselected a variant  {% endcomment %}
+				{%- if selected_variant and options_found and matched_options -%}
+					
+					{% comment %}
+						only show the value option that matches the selected_variant 
+					{% endcomment %}
+					{%- assign selected_value = selected_variant.option1 -%}
+	
+					<input
+						type="radio"
+						id="option-{{ forloop.index0 }}-selected"
+						value="{{ selected_value | escape }}"
+						class="d-none"
+						name="{{ matched_options.name }}"
+						checked
+						role="option">
+			
+					{% comment %} this is the text that will display on the page {% endcomment %}
+					<p class="p-3">{{ selected_value }}</p>
+				{% endif %}
+
+				<div  class="bundle-list__product-link">
+					<a href="{{ bundle_product.url }}" class="p-4 color-black" >
+						Full Details
+					</a>
+				</div>
+
+			</div>
+
+			{% if selected_variant == blank %}
+				<div  class="bundle-list__options-wrapper">
+
+					{% comment %}  render as color swatch  {% endcomment %}
+					{%- if matched_options.name contains '(Color)' or matched_options.name contains '(color)' -%}
+						<div class="product-form__option-label product-form__color-label p-4">
+							{{ 'products.product.product_color' | t }}: 
+							<span class="w-bold" data-selected-color>{{ matched_options.values.first }}</span>
+						</div>
+						<div class="product-form__swatches" data-swatches>
+							{% for val in matched_options.values %}
+								{%- assign _variant = nil -%}
+								{% for v in bundle_product.variants %}
+									{% if v.options contains val %}
+										{% assign _variant = v %}
+										{% break %}
+									{% endif %}
+								{% endfor %}
+								{% assign swatch_image = _variant.metafields.details.swatch_image %}
+								{% assign swatch_code = _variant.metafields.details.swatch_hex_code %}
+								<input
+									type="radio"
+									id="swatch-{{ forloop.parentloop.index0 }}-{{ forloop.index0 }}"
+									name="option-{{ forloop.parentloop.index0 }}"
+									value="{{ val | escape }}"
+									class="product-form__swatch-input"
+									data-option-index="{{ option_set_index }}"
+									data-variant-title="{{ val }}"
+									{% if forloop.first %}checked{% endif %} />
+								<label
+									for="swatch-{{ forloop.parentloop.index0 }}-{{ forloop.index0 }}"
+									class="product-form__swatch swatch"
+									style="cursor: pointer;" >
+									<div class="swatch__inner" {% if swatch_code != blank %} style="background-color: {{ swatch_code }};"{% endif %}>
+										{% if swatch_image != blank %}
+											{{ swatch_image | image_url: width: swatch_image.width | image_tag: class: 'swatch__image' }}
+										{% endif %}
+									</div>
+								</label>
+							{% endfor %}
+						</div>
+					{%- else -%}
+
+						{% comment %}  render as radio buttons  {% endcomment %}
+						<tabs-element class="tabs tabs--pdp" data-carousel="false">
+							{% for val in matched_options.values %}
+								{%- assign _variant = nil -%}
+								{% for v in bundle_product.variants %}
+									{% if v.options contains val %}
+										{% assign _variant = v %}
+										{% break %}
+									{% endif %}
+								{% endfor %}
+								<label
+									for="{{ _variant.id }}"
+									class="p-3 tab{% if forloop.first %} tab--selected{% endif %}"
+									data-tab>
+									{{ val }}
+								</label>
+								<input
+									type="radio"
+									id="{{ _variant.id }}"
+									value="{{ val | escape }}"
+									class=""
+									data-option="{{ matched_options.name }}"
+									data-option-value="{{ matched_options.name }}"
+									data-option-index="{{ option_set_index }}"
+									data-supply="{{ matched_options.name }}"
+									name="{{ bundle_product.title }}"
+									data-variant-title="{{ val }}"
+									{% if forloop.first %}checked{% endif %}
+									role="option" >
+							{% endfor %}
+						</tabs-element>
+					{%- endif -%}
+
+				</div>
+			{% endif %}
+			
+		</div>
+	{% endfor %}
+</div>
+
+
+
+

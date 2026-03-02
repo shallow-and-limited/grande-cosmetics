@@ -1,0 +1,28 @@
+<blog-card class="main-blog-card-content blog-card {{ class }}" data-blog-card>
+  {% if card_index == 1 %}{{ 'blog-card.min.css' | asset_url | stylesheet_tag }}{% endif %}
+  <div class="main-blog-card__image-wrapper">
+    <img
+        class="main-blog-card__image"
+        src="{{ article.image | image_url: width: 500 }}"
+        alt="Image for article - {{ article.title }}"
+        loading="lazy"
+      >
+      {% if article.tags contains "Video" %}
+        {% render 'icons', icon_name: 'video-blog' %}
+      {% endif %}
+    </div>
+    <div class="main-blog-card-inner">
+      <div>
+        <div class="eyebrow main-blog-card-tags p-4">
+          {% for tag in article.tags %}
+            <span class="tag color-dark-gray"># {{ tag }}</span>
+          {% endfor %}
+        </div>
+        <h5 class="p-4 main-blog-card-title">{{ article.title }}</h5>
+        {% if article.excerpt != blank %}
+          <p class="main-blog-card-excerpt p-3">{{ article.excerpt | strip_html }}</p>
+        {% endif %}
+        <a href="{{ article.url }}" aria-label="Link to article '{{ article.title }}'" class="p-3 color-rose">Read More</a>
+      </div>
+    </div>
+  </blog-card>

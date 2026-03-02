@@ -1,0 +1,142 @@
+{{ 'promotions.min.css' | asset_url | stylesheet_tag: preload: true }}
+
+{% comment %} <script src="{{ 'promotions.min.js' | asset_url }}" defer="defer"></script> {% endcomment %}
+
+<promotions-module>
+    <div class="promotions" data-media-scale-promotions-container data-slide-up-promotions-container>
+        {% for block in section.blocks %}
+            {%  if section.blocks.size > 2 and forloop.index == 2%}
+                <div class="promotion__wrapper">
+            {% endif %}
+            <div class="promotion {{ block.settings.color }}">
+                {% if block.settings.image_d != blank %}
+                    <div class="promotion__image hide-mobile" style="background-image: url('{{ block.settings.image_d | image_url }}');'" data-media-scale-promotions></div>
+                {% endif %}
+                {% if block.settings.image_m != blank %}
+                    <div class="promotion__image hide-desktop" style="background-image: url('{{ block.settings.image_m | image_url }}');'" data-media-scale-promotions></div>
+                {% endif %}
+
+                <span class="promotion__overlay" style="opacity: {{ block.settings.overlay }}%;"></span>
+                <div class="promotion__content">
+                    <div class="promotion__content-header">
+                        {% if block.settings.eyebrow != blank %}
+                            <p class="s-3 promotion__content-eyebrow" data-slide-up-promotions>{{ block.settings.eyebrow }}</p>
+                        {% endif %}
+                        <{{ block.settings.header }} data-slide-up-promotions>{{ block.settings.heading }}</{{ block.settings.header }}>
+                        {% if block.settings.copy != blank %}
+                            <p class="p-3 promotion__content-copy" data-slide-up-promotions>{{ block.settings.copy }}</p>
+                        {% endif %}
+                    </div>
+                    <div class="promotion__content-footer">
+                        {% if block.settings.link_copy != blank %}
+                            <a href="{{ block.settings.link_url }}" class="promotions__content-link btn btn--text" data-slide-up-promotions>{{ block.settings.link_copy }}</a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            {%  if section.blocks.size > 2 and forloop.index == 3%}
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+</promotions-module>
+
+
+{% schema %}
+{
+    "name": "Promotions",
+    "max_blocks": 3,
+    "blocks": [
+        {   
+            "type": "text",
+            "name": "Promotion Block",
+            "settings": [
+                {
+                    "type": "header",
+                    "content": "Heading - Display Settings"
+                },
+                {
+                    "id": "color",
+                    "type": "select",
+                    "label": "Color Style",
+                    "options": [
+                        { "value": "light", "label": "Light" },
+                        { "value": "dark", "label": "Dark" }
+                    ],
+                    "default": "dark"
+                },
+                {
+                    "id": "header",
+                    "type": "select",
+                    "label": "Header Font Styling",
+                    "options": [
+                        { "value": "h1", "label": "H1" },
+                        { "value": "h2", "label": "H2" },
+                        { "value": "h3", "label": "H3" },
+                        { "value": "h4", "label": "H4" }
+                    ],
+                    "default": "h2"
+                },
+                {
+                    "type": "range",
+                    "id": "overlay",
+                    "min": 20,
+                    "max": 100,
+                    "step": 10,
+                    "unit": "%",
+                    "label": "Overlay",
+                    "default": 20
+                },
+                {
+                    "type": "header",
+                    "content": "Heading - Content Settings"
+                },
+                {
+                    "id": "image_d",
+                    "type": "image_picker",
+                    "label": "Background Image - Desktop"
+                },    
+                {
+                    "id": "image_m",
+                    "type": "image_picker",
+                    "label": "Background Image - Mobile"
+                },
+                {
+                    "id": "eyebrow",
+                    "type": "text",
+                    "label": "Eyebrow",
+                    "default": "Optional Eyebrow 50 Characters Max"
+                },
+                {
+                    "id": "heading",
+                    "type": "text",
+                    "label": "Heading",
+                    "default": "H1, H2, H3 or H4 Heading 80 Characters Max"
+                },
+                {
+                    "id": "copy",
+                    "type": "textarea",
+                    "label": "Copy",
+                    "default": "Optional P3 Body Copy 300 Characters Max"
+                },
+                {
+                    "id": "link_url",
+                    "type": "url",
+                    "label": "Link URL"
+                },
+                {
+                    "id": "link_copy",
+                    "type": "text", 
+                    "label": "Link Text",
+                    "default": "Optional Link"
+                }
+            ]
+        }
+    ],
+    "presets": [
+        {
+        "name": "Promotions"
+        }
+    ]
+}
+{% endschema %}

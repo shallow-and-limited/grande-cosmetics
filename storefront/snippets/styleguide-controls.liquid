@@ -1,0 +1,166 @@
+<div class="styleguide__inner styleguide__inner--buttons">
+  <div class="styleguide__buttons styleguide__controls">
+    <p class="p-2 uc strong">Attribute Tags</p>
+    <div class="styleguide__control">
+      <span>
+        <div class="p-3 attribute">1 ml</div>
+        <p class="p-3">Default</p>
+      </span>
+      <span>
+        <div class="p-3 attribute attribute--hover">1 ml</div>
+        <p class="p-3">Hover</p>
+      </span>
+      <span>
+        <div class="p-3 attribute attribute--selected">1 ml</div>
+        <p class="p-3">Selected</p>
+      </span>
+      <span>
+        <div class="p-3 attribute attribute--disabled">1 ml</div>
+        <p class="p-3">Disabled</p>
+      </span>
+      <span>
+        <div class="p-3 attribute attribute--selected attribute--disabled">1 ml</div>
+        <p class="p-3">Disabled<br>Selected</p>
+      </span>
+      <span>
+        <div class="p-3 attribute attribute--focused">1 ml</div>
+        <p class="p-3">Focused</p>
+      </span>
+    </div>
+  </div>
+  <div class="styleguide__buttons styleguide__controls styleguide__controls--right">
+    <p class="p-2 uc strong">Filter Tags</p>
+    <div class="styleguide__control">
+      <span>
+        <div class="filter-tag">
+          <p class="p-3">1 ml</p>
+          {% render 'icons', icon_name: 'close' %}
+        </div>
+        <p class="p-3">Default</p>
+      </span>
+      <span>
+        <div class="filter-tag filter-tag--hover">
+          <p class="p-3">1 ml</p>
+          {% render 'icons', icon_name: 'close' %}
+        </div>
+        <p class="p-3">Hover</p>
+      </span>
+    </div>
+  </div>
+  <div class="styleguide__buttons styleguide__controls">
+    <p class="p-2 uc strong">Checkboxes</p>
+    <div class="styleguide__control styleguide__checkbox">
+      <span>
+        <input class="input--checkbox" type="checkbox" value="" checked>
+        <p class="p-3">Selected</p>
+      </span>
+      <span>
+        <input class="input--checkbox" type="checkbox" value="">
+        <p class="p-3">Default</p>
+      </span>
+      <span>
+        <input class="input--checkbox input--checkbox-hover" type="checkbox" value="">
+        <p class="p-3">Hover</p>
+      </span>
+      <span>
+        <input class="input--checkbox input--checkbox-disabled" type="checkbox" value="" disabled>
+        <p class="p-3">Disabled</p>
+      </span>
+    </div>
+  </div>
+  <div class="styleguide__buttons styleguide__controls styleguide__controls--right">
+    <p class="p-2 uc strong">Radio Buttons</p>
+    <div class="styleguide__control">
+      <span>
+        <input class="input--radio" type="radio" name="test-radio" value="" checked>
+        <p class="p-3">Selected</p>
+      </span>
+      <span>
+        <input class="input--radio" type="radio" name="test-radio" value="">
+        <p class="p-3">Default</p>
+      </span>
+      <span>
+        <input class="input--radio input--radio-hover" type="radio" name="test-radio" value="">
+        <p class="p-3">Hover</p>
+      </span>
+      <span>
+        <input class="input--radio input--radio-disabled" type="radio" name="test-radio" value="" disabled>
+        <p class="p-3">Disabled</p>
+      </span>
+    </div>
+  </div>
+</div>
+
+<div class="styleguide__buttons styleguide__controls">
+  <p class="p-2 uc strong">Scrollbar</p>
+  <div class="styleguide__control">
+    <div class="scrollbar">
+      <div class="scrollbar__inner"></div>
+    </div>
+  </div>
+</div>
+<div class="styleguide__buttons styleguide__controls">
+  <p class="p-2 uc strong">Elevation</p>
+  <div class="styleguide__control">
+    <span>
+      <div class="elevation"></div>
+    </span>
+    <span>
+      <div class="elevation elevation--2"></div>
+    </span>
+    <span>
+      <div class="elevation elevation--2"></div>
+    </span>
+  </div>
+</div>
+<div class="styleguide__buttons styleguide__controls">
+  <p class="p-2 uc strong">Quantity Selectors</p>
+  <div class="styleguide__control">
+    <div class="quantity">
+      {% render 'icons', icon_name: 'minus-filled' %}
+      <input class="input--quantity p-2" type="number" value="1">
+      {% render 'icons', icon_name: 'plus-filled' %}
+    </div>
+  </div>
+</div>
+<div class="styleguide__buttons styleguide__controls">
+  <p class="p-2 uc strong">Swatches</p>
+  <div class="styleguide__control">
+    <span>
+      <div class="swatch">
+        <div class="swatch__inner"></div>
+      </div>
+      <p class="p-3">Default</p>
+    </span>
+    <span>
+      <div class="swatch swatch--hover">
+        <div class="swatch__inner"></div>
+      </div>
+      <p class="p-3">Hover</p>
+    </span>
+    <span>
+      <div class="swatch swatch--selected">
+        <div class="swatch__inner"></div>
+      </div>
+      <p class="p-3">Selected</p>
+    </span>
+    <span>
+      <div class="swatch swatch--disabled">
+        <div class="swatch__inner"></div>
+      </div>
+      <p class="p-3">Disabled</p>
+    </span>
+    <span>
+      <div class="swatch swatch--hover swatch--disabled">
+        <div class="swatch__inner"></div>
+      </div>
+      <p class="p-3">Disabled<br>Hover</p>
+    </span>
+    <span>
+      <div class="swatch swatch--selected swatch--disabled">
+        <div class="swatch__inner"></div>
+      </div>
+      <p class="p-3">Disabled<br>Selected</p>
+    </span>
+  </div>
+</div>
