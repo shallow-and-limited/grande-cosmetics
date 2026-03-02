@@ -1,11 +1,26 @@
 {{ 'header.min.css' | asset_url | stylesheet_tag: preload: true }}
 
+{% if section.settings.sticky_header %}
+  <style>
+    #shopify-section-{{ section.id }} {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+  </style>
+{% endif %}
+
 {% assign _settings = section.settings %}
 {% assign _blocks = section.blocks %}
 
 <section-header>
   <div class="header" data-header>
     <div class="mobile-overlay hide-desktop" data-mobile-overlay></div>
+
+    <div class="header__icons header__icons--left hide-desktop">
+      <span class="header__icon header__icon-menu" data-open-menu>{% render 'icons', icon_name: 'menu', class: 'hide-desktop' %}</span>
+    </div>
+
     {% if _settings.logo != blank %}
       <a class="header__logo" href="/"><img src="{{ _settings.logo | image_url }}" alt="Company Logo" /></a>
     {% else %}
@@ -14,7 +29,7 @@
       </a>
     {% endif %}
 
-    <div class="header__nav" data-desktop-nav>
+    <div class="header__nav hide-mobile" data-desktop-nav>
       <nav class="header__nav-container hide-mobile">
         {% if _settings.menu != blank %}
           <ul class="header__nav-list">
@@ -46,6 +61,12 @@
       </nav>
     </div>
     <div class="header__icons">
+      <div class="header__search hide-desktop">
+        <span class="header__icon" data-search-button>{% render 'icons', icon_name: 'search-filled', class: 'hide-desktop' %}</span>
+      </div>
+      <span class="header__search-close hide-mobile" data-search-close>
+        {% render 'icons': icon_name: 'close', class: 'predictive-close' %}
+      </span>
       <div class="header__search hide-mobile">
         <span class="header__icon" data-search-button>{% render 'icons', icon_name: 'search-filled', class: 'hide-mobile' %}</span>
         <input
@@ -89,7 +110,6 @@
           {% render 'icons', icon_name: 'cart' %}
         {% endif %}
       </a>
-      <span class="header__icon header__icon-menu" data-open-menu>{% render 'icons', icon_name: 'menu', class: 'hide-desktop' %}</span>
     </div>
     {% render 'menu-drawer',
       _links: _settings.menu.links
@@ -133,6 +153,15 @@
       "type": "url",
       "label": "Refer a Friend Page Link",
       "id": "refer_link"
+    },
+    {
+      "type": "header",
+      "content": "Sticky Settings",
+    },
+    {
+      "type": "checkbox",
+      "label": "Sticky header?",
+      "id": "sticky_header"
     }
   ],
   "blocks": [

@@ -41,12 +41,16 @@
           <a href="{{ link.url }}" class="menu-drawer__link"><li class="p-2">{{ link.title }}</li></a>
         {% endif %}
       {% endfor %}
+
+      {% comment %}
       <div class="menu-drawer__search">
         <input class="menu-drawer__search-bar a-1" type="button" value="Search" data-search-button>
         <button class="menu-drawer__search-btn" aria-label="Search Button">
           {% render 'icons', icon_name: 'search-filled' %}
         </button>
       </div>
+      {% endcomment %}
+       
       {% if section.settings.reward_link != blank %}
         <a href="{{ section.settings.reward_link }}" class="menu-drawer__link"><li class="p-3">{% render 'icons', icon_name: 'glint' %}Rewards</li></a>
       {% endif %}
