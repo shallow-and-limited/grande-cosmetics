@@ -32,8 +32,24 @@
     <div class="mobile-submenu__ctas">
       {% if menu_block.image_1 != blank %}
         <a href="{{ menu_block.url_1 }}" class="mobile-submenu__cta">
-          <img class="mobile-submenu__cta-img" src="{{ menu_block.image_1 | image_url }}" />
-            {% if menu_block.text_1 != blank %}
+          <img
+            srcset="
+              {%- if menu_block.image_1.width >= 165 -%}{{ menu_block.image_1 | image_url: width: 165 }} 165w,{%- endif -%}
+              {%- if menu_block.image_1.width >= 360 -%}{{ menu_block.image_1 | image_url: width: 360 }} 360w,{%- endif -%}
+              {%- if menu_block.image_1.width >= 533 -%}{{ menu_block.image_1 | image_url: width: 533 }} 533w,{%- endif -%}
+              {%- if menu_block.image_1.width >= 720 -%}{{ menu_block.image_1 | image_url: width: 720 }} 720w,{%- endif -%}
+              {{ menu_block.image_1 | image_url }} {{ menu_block.image_1.width }}w
+            "
+            src="{{ menu_block.image_1 | image_url: width: 533 }}"
+            sizes="(min-width: 750px) calc((100vw - 120px) / 3), calc((100vw - 35px) / 2)"
+            alt="{{ menu_block.image_1.alt | escape }}"
+            class="mobile-submenu__cta-img"
+            loading="lazy"
+            width="{{ menu_block.image_1.width }}"
+            height="{{ menu_block.image_1.height }}"
+          />
+
+          {% if menu_block.text_1 != blank %}
             <span class="mobile-submenu__cta-title p-2 strong">{{ menu_block.text_1 }}</span>
             {% render 'icons', 
               icon_name: 'arrow-right', 
@@ -45,8 +61,24 @@
       <div class="mobile-submenu__flex-img">
         {% if menu_block.image_2 != blank %}
           <a href="{{ menu_block.url_2 }}" class="mobile-submenu__cta">
-            <img class="mobile-submenu__cta-img" src="{{ menu_block.image_2 | image_url }}" />
-              {% if menu_block.text_2 != blank %}
+            <img
+              srcset="
+                {%- if menu_block.image_2.width >= 165 -%}{{ menu_block.image_2 | image_url: width: 165 }} 165w,{%- endif -%}
+                {%- if menu_block.image_2.width >= 360 -%}{{ menu_block.image_2 | image_url: width: 360 }} 360w,{%- endif -%}
+                {%- if menu_block.image_2.width >= 533 -%}{{ menu_block.image_2 | image_url: width: 533 }} 533w,{%- endif -%}
+                {%- if menu_block.image_2.width >= 720 -%}{{ menu_block.image_2 | image_url: width: 720 }} 720w,{%- endif -%}
+                {{ menu_block.image_2 | image_url }} {{ menu_block.image_2.width }}w
+              "
+              src="{{ menu_block.image_2 | image_url: width: 533 }}"
+              sizes="(min-width: 750px) calc((100vw - 120px) / 3), calc((100vw - 35px) / 2)"
+              alt="{{ menu_block.image_2.alt | escape }}"
+              class="mobile-submenu__cta-img"
+              loading="lazy"
+              width="{{ menu_block.image_2.width }}"
+              height="{{ menu_block.image_2.height }}"
+            />
+
+            {% if menu_block.text_2 != blank %}
               <span class="mobile-submenu__cta-title p-2 strong">{{ menu_block.text_2 }}</span>
               {% render 'icons', 
                 icon_name: 'arrow-right', 
@@ -57,8 +89,24 @@
         {% endif %}
         {% if menu_block.image_3 != blank %}
           <a href="{{ menu_block.url_3 }}" class="mobile-submenu__cta">
-            <img class="mobile-submenu__cta-img" src="{{ menu_block.image_3 | image_url }}" />
-              {% if menu_block.text_3 != blank %}
+            <img
+              srcset="
+                {%- if menu_block.image_3.width >= 165 -%}{{ menu_block.image_3 | image_url: width: 165 }} 165w,{%- endif -%}
+                {%- if menu_block.image_3.width >= 360 -%}{{ menu_block.image_3 | image_url: width: 360 }} 360w,{%- endif -%}
+                {%- if menu_block.image_3.width >= 533 -%}{{ menu_block.image_3 | image_url: width: 533 }} 533w,{%- endif -%}
+                {%- if menu_block.image_3.width >= 720 -%}{{ menu_block.image_3 | image_url: width: 720 }} 720w,{%- endif -%}
+                {{ menu_block.image_3 | image_url }} {{ menu_block.image_3.width }}w
+              "
+              src="{{ menu_block.image_3 | image_url: width: 533 }}"
+              sizes="(min-width: 750px) calc((100vw - 120px) / 3), calc((100vw - 35px) / 2)"
+              alt="{{ menu_block.image_3.alt | escape }}"
+              class="mobile-submenu__cta-img"
+              loading="lazy"
+              width="{{ menu_block.image_3.width }}"
+              height="{{ menu_block.image_3.height }}"
+            />
+
+            {% if menu_block.text_3 != blank %}
               <span class="mobile-submenu__cta-title p-2 strong">{{ menu_block.text_3 }}</span>
               {% render 'icons', 
                 icon_name: 'arrow-right'
