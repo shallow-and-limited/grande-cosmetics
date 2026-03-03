@@ -80,6 +80,8 @@
         "text_7YEcCT"
       ],
       "settings": {
+        "font_size_desktop": "12px",
+        "font_size_mobile": "11px",
         "custom_links": "<p><a href=\"/pages/loyalty\" title=\"Loyalty\">Rewards</a>   |   <a href=\"/pages/loyalty\" title=\"Loyalty\">Refer a Friend</a></p>"
       }
     },
@@ -183,7 +185,8 @@
       "settings": {
         "menu": "main-menu",
         "reward_link": "https://grandecosmetics.com/pages/loyalty",
-        "refer_link": "https://grandecosmetics.com/pages/loyalty"
+        "refer_link": "https://grandecosmetics.com/pages/loyalty",
+        "sticky_header": true
       }
     },
     "landing_animation_3KbHwC": {
