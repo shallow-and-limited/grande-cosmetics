@@ -27,7 +27,7 @@
     <div class="mega-menu__ctas">
       {% if _block.image_1 != blank %}
         <a href="{{ _block.url_1 }}" class="mega-menu__cta">
-          <img class="mega-menu__cta-img" src="{{ _block.image_1 | image_url }}" />
+          <img class="mega-menu__cta-img" src="{{ _block.image_1 | image_url: width: 324 }}" />
             {% if _block.text_1 != blank %}
             <span class="mega-menu__cta-title p-2 strong">{{ _block.text_1 }}</span>
             {% render 'icons', 
@@ -39,7 +39,7 @@
       {% endif %}
       {% if _block.image_2 != blank %}
         <a href="{{ _block.url_2 }}" class="mega-menu__cta">
-          <img class="mega-menu__cta-img" src="{{ _block.image_2 | image_url }}" />
+          <img class="mega-menu__cta-img" src="{{ _block.image_2 | image_url: width: 324 }}" />
             {% if _block.text_2 != blank %}
             <span class="mega-menu__cta-title p-2 strong">{{ _block.text_2 }}</span>
             {% render 'icons', 

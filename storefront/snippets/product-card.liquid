@@ -5,6 +5,7 @@
 {% endcomment %}
 {%- liquid
   assign _metafields = product.metafields.details
+  assign featured_media = product.featured_media.preview_image
 -%}
 
 {{ 'product-card.min.css' | asset_url | stylesheet_tag }}
@@ -20,20 +21,41 @@
         {% render 'image', image: _metafields.award_image %}
       </span>
     {%- endif -%}
-    <a href="{{ product.url }}" class="product-card__link" aria-label="{{ product.title }}" data-card-link>
-      {%
-        render 'image',
-        image: product.featured_media.preview_image,
-        class: 'product-card__image product-card__image--primary',
-        attr: 'primary',
-      %}
+    <a href="{{ product.url }}" class="product-card__link" aria-label="{{ product.title }}" data-card-link>     
+      <img
+        srcset="
+          {%- if featured_media.width >= 165 -%}{{ featured_media | image_url: width: 165 }} 165w,{%- endif -%}
+          {%- if featured_media.width >= 360 -%}{{ featured_media | image_url: width: 360 }} 360w,{%- endif -%}
+          {%- if featured_media.width >= 533 -%}{{ featured_media | image_url: width: 533 }} 533w,{%- endif -%}
+          {%- if featured_media.width >= 720 -%}{{ featured_media | image_url: width: 720 }} 720w,{%- endif -%}
+          {%- if featured_media.width >= 940 -%}{{ featured_media | image_url: width: 940 }} 940w,{%- endif -%}
+          {%- if featured_media.width >= 1066 -%}{{ featured_media | image_url: width: 1066 }} 1066w,{%- endif -%}
+          {{ featured_media | image_url }} {{ featured_media.width }}w
+        "
+        src="{{ featured_media | image_url: width: 533 }}"
+        sizes="(min-width: 750px) calc((100vw - 120px) / 3), calc((100vw - 35px) / 2)"
+        alt="{{ featured_media.alt | escape }}"
+        class="product-card__image product-card__image--primary"
+        loading="lazy"
+      />
+
       {%- if product.media[1].preview_image != blank -%}
-        {%
-          render 'image',
-          image: product.media[1].preview_image,
-          class: 'product-card__image  product-card__image--secondary',
-          attr: 'secondary',
-        %}
+        <img
+          srcset="
+            {%- if product.media[1].preview_image.width >= 165 -%}{{ product.media[1].preview_image | image_url: width: 165 }} 165w,{%- endif -%}
+            {%- if product.media[1].preview_image.width >= 360 -%}{{ product.media[1].preview_image | image_url: width: 360 }} 360w,{%- endif -%}
+            {%- if product.media[1].preview_image.width >= 533 -%}{{ product.media[1].preview_image | image_url: width: 533 }} 533w,{%- endif -%}
+            {%- if product.media[1].preview_image.width >= 720 -%}{{ product.media[1].preview_image | image_url: width: 720 }} 720w,{%- endif -%}
+            {%- if product.media[1].preview_image.width >= 940 -%}{{ product.media[1].preview_image | image_url: width: 940 }} 940w,{%- endif -%}
+            {%- if product.media[1].preview_image.width >= 1066 -%}{{ product.media[1].preview_image | image_url: width: 1066 }} 1066w,{%- endif -%}
+            {{ product.media[1].preview_image | image_url }} {{ product.media[1].preview_image.width }}w
+          "
+          src="{{ product.media[1].preview_image | image_url: width: 533 }}"
+          sizes="(min-width: 750px) calc((100vw - 120px) / 3), calc((100vw - 35px) / 2)"
+          alt="{{ product.media[1].preview_image.alt | escape }}"
+          class="product-card__image  product-card__image--secondary"
+          loading="lazy"
+        />
       {%- endif -%}
     </a>
   </div>

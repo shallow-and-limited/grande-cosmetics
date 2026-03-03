@@ -3,11 +3,10 @@
 {% liquid
   assign _s = section.settings
   assign size = collection.products_count | times: 1
-  assign limit = _s.products_per_page
 %}
 
 <main-collection id="product-grid-section" data-id="{{ section.id }}" class="main-collection">
-  {% paginate collection.products by limit %}
+  {% paginate collection.products by 48 %}
     {%- if paginate.page_size > paginate.items -%}
       {% assign current_size = paginate.items | times: 1.0 %}
     {%- else -%}
@@ -94,19 +93,6 @@
   "name": "Main Collection",
   "class": "section",
   "settings": [
-    {
-      "type": "header",
-      "content": "Display Settings"
-    },
-    {
-      "type": "range",
-      "id": "products_per_page",
-      "min": 6,
-      "max": 24,
-      "step": 3,
-      "default": 24,
-      "label": "Products Per Page"
-    },
     {
       "type": "header",
       "content": "Filter / Sort Settings"

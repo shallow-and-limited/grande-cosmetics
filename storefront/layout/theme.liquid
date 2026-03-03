@@ -100,12 +100,14 @@
 
 <script src="https://js.adsrvr.org/up_loader.1.1.0.js" type="text/javascript"></script>
 <script type="text/javascript">
+  if(typeof ttd_dom_ready !== 'undefined') {
     ttd_dom_ready( function() {
         if (typeof TTDUniversalPixelApi === 'function') {
             var universalPixelApi = new TTDUniversalPixelApi();
             universalPixelApi.init("vp8y0pg", ["y96p1n3"], "https://insight.adsrvr.org/track/up");
         }
     });
+  }
 </script>
 
 <script src="//action.dstillery.com/orbserv/nsjs?adv=cl168243922649999&ns=7932&nc=Grande-Cosmetics-Site-Visitor&ncv=63" type="text/javascript"></script>
