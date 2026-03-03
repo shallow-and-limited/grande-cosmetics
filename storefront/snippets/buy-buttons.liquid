@@ -70,8 +70,10 @@
       <span class="text-unavailable">{{ 'products.product.sold_out' | t }}</span>
       <span class="text-available">
         {{ 'products.product.add_to_cart' | t }}
+        {% unless hide_price %} 
         •
         {% render 'price', target: product.variants.first %}
+        {% endunless %}
       </span>
     </button>
     {%- if show_dynamic_checkout -%}

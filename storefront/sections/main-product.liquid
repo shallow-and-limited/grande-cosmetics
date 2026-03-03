@@ -1,4 +1,7 @@
 {{ 'main-product.min.css' | asset_url | stylesheet_tag }}
+
+<script src="{{ 'product-subscriptions.js' | asset_url }}" defer="defer"></script>
+
 {%- liquid
   assign variant = product.selected_or_first_available_variant
   assign _metafields = product.metafields.details
@@ -174,8 +177,10 @@
                         </div>
                       {% endif %}
                     {%- when 'variant_picker' -%}
-                      <product-form {{ block.shopify_attributes }} 
-                        data-variants="{{ product.variants | json | escape }}">
+                      <product-form 
+                        {{ block.shopify_attributes }} 
+                        data-variants="{{ product.variants | json | escape }}"
+                      >
                         <div class="product-form">
                           {% assign randomNumber = 'now' | date: '%N' | modulo: 100 %}
                           {% assign formId = section.id
@@ -184,112 +189,121 @@
                             | append: '-'
                             | append: randomNumber
                           %}
+                          {%- assign product_form_id = 'product-form-' | append: product.id -%}
+
                           {% render 'product-options', product: product, id: formId, _metafields: _metafields %}
 
-                          {% if product.selling_plan_groups.first != blank %}
-                            {% liquid
-                              assign subscription_tooltip_text = block.settings.subscription_tooltip_text
-                              assign discount = product.selling_plan_groups.first.selling_plans.first.price_adjustments.first.value
-                              assign discountPercent = 100 | minus: discount | divided_by: 100.0
-                              assign modalID = 'subscribe'
-                              assign modalTitle = 'Subscription Details'
-                            %}
-                            {% assign modalTitle = 'Subscription Details' %}
-
-                            <subscription-block data-tooltip-text="{{ subscription_tooltip_text | escape }}" data-subscription-discount="{{ discountPercent }}">
-                              <div class="main-product__subscription main-product__block" data-current-selling-plan="{{ product.selling_plan_groups[0].selling_plans[0].id }}">
-                                <div class="space-between">
-                                  <h6 class="p-4">Subscribe:</h6>
-
-                                  <button id="subscribe-tooltip" class="product-form__link">{{ modalTitle }}</button>
-                                </div>
-                                <div class="main-product__subscription-toggle">
-                                  <div class="space-between">
-                                    <div>
-                                      <input class="input--radio" type="radio" name="sub-toggle" value="one-time" data-sub-toggle data-sub-toggle-one checked id="one-time" data-price="{{ variant.price }}">
-                                      <label for="one-time" class="p-4">Buy Once</label>
-                                    </div>
-                                    <span class="p-4">
-                                      {% render 'price', price: product.variants.first.price, class: 'color-noir', sub_toggle: true %}
-                                    </span>
+                          {%- if product.selling_plan_groups != blank %}
+                            <product-subscription
+                              data-product-subscription
+                              id="ProductSubscription-{{ section.id }}"
+                              class="product__subscriptions"
+                              {{ block.shopify_attributes }}
+                            >
+                              <div class="product__subscription active">
+                                <div class="product__subscription-heading">
+                                  <input
+                                    data-subscription-input
+                                    class="product__subscription-input"
+                                    type="radio"
+                                    value="Subscription Purchase"
+                                    name="selling_plan_group"
+                                    id="SubscriptionSubscribe-{{ section.id }}"
+                                    {% if product.selected_or_first_available_variant.selling_plan_allocations != blank %}
+                                      checked
+                                    {% else %}
+                                      disabled
+                                    {% endif %}
+                                  >
+                                  <label
+                                    for="SubscriptionSubscribe-{{ section.id }}"
+                                    class="product__subscription-label body bold"
+                                  >
+                                    {{ block.settings.subscription_label }}
+                                  </label>
+          
+                                  <div class="product__subscription-price">
+                                    {% if product.selected_or_first_available_variant.selling_plan_allocations != blank %}
+                                      <span class="product__subscription-price-label body bold">
+                                        {{ product.selected_or_first_available_selling_plan_allocation.price | money }}
+                                      </span>
+                                      <span class="product__subscription-price-value body body--small strike">
+                                        {{ product.selected_or_first_available_variant.price | money }}
+                                      </span>
+                                    {% else %}
+                                      <span class="product__subscription-price-label body bold">N/A</span>
+                                    {% endif %}
                                   </div>
-                                  <div class="space-between">
-                                    <div>
-                                      <input class="input--radio" type="radio" name="sub-toggle" value="subscription" data-sub-toggle data-sub-toggle-subscription id="subscription" data-price="{{ variant.price | times: discountPercent }}">
-                                      <label for="subscription" class="p-4">Subscribe & Save {{ discount }}% + Ship Free</label>
-                                    </div>
-                                    {% assign sub_price = product.variants.first.price | times: discountPercent | round: 0 %}
-                                    <span class="p-4">
-                                      {% render 'price', price: sub_price, class: 'price--sub', sub_toggle: true %}
-                                    </span>
-                                  </div>
-
-                                  {% if product.selling_plan_groups[0].selling_plans.size > 1 %}
-                                    <select-element data-subscription-toggle>
-                                      <div class="custom-select">
-                                        <button
-                                          role="combobox"
-                                          data-button="select"
-                                          value="Select"
-                                          aria-controls="listbox"
-                                          aria-haspopup="listbox"
-                                          tabindex="0"
-                                          aria-expanded="false"
-                                        >
-                                          <span data-text="buttonText">Select Frequency:</span>
-                                          {% render 'icons', icon_name: 'caret-down-small', class: 'icon-select' %}
-                                        </button>
-                                        <ul role="listbox" data-listbox>
-                                          {% liquid
-                                            assign is3Months = false
-                                            for selling_plan_group in product.selling_plan_groups[0]
-                                              assign label = selling_plan_group.selling_plans.name | remove: ' Ships every '
-                                              if label contains '3 month'
-                                                assign is3Months = true
-                                                break
-                                              endif
-                                            endfor
-                                          %}
-
-                                          {% for selling_plan_group in product.selling_plan_groups[0].selling_plans %}
-                                            {% liquid
-                                              assign label = selling_plan_group.name | remove: 'Ships every'
-
-                                              if forloop.first and is3Months == false
-                                                assign isFirstNoDefault = true
-                                              else
-                                                assign isFirstNoDefault = false
-                                              endif
-                                              if is3Months == true and label contains '3 month'
-                                                assign isDefault = true
-                                              else
-                                                assign isDefault = false
-                                              endif
-                                            %}
-                                            <li role="option" data-selling-plan="{{ selling_plan_group.id }}" {% if isFirstNoDefault or isDefault  %}class="active"{% endif %}>
-                                              Deliver <b>every {{ label }}</b>
-                                              {% if isFirstNoDefault or isDefault  %}
-                                                • recommended
-                                              {% endif %}
-                                            </li>
-                                          {% endfor %}
-                                        </ul>
-                                        <div data-icon>
-                                          {% render 'icons', icon_name: 'arrow-down' %}
-                                        </div>
-                                      </div>
-                                    </select-element>
-                                  {% endif %}
                                 </div>
+          
+                                <div class="field field--select">
+                                  <select
+                                    data-selling-plan
+                                    name="selling_plan"
+                                    class="field__select"
+                                    form="{{ product_form_id }}"
+                                    {% if product.selected_or_first_available_variant.selling_plan_allocations == blank %}
+                                      disabled
+                                    {% endif %}
+                                  >
+                                    {%- for group in product.selling_plan_groups -%}
+                                      <option value="{{ group.selling_plans[0].id }}">
+                                        {{ group.name }}
+                                      </option>
+                                    {%- endfor -%}
+                                  </select>
+                                  {% render 'icon-caret' %}
+                                </div>
+          
+                                {%- if block.settings.subscription_text != blank -%}
+                                  <div class="product__subscription-content body body--small">
+                                    {{ block.settings.subscription_text }}
+                                  </div>
+                                {%- endif -%}
                               </div>
-                            </subscription-block>
+          
+                              <div class="product__subscription-seperator">
+                                <span>{{ block.settings.subscription_or }}</span>
+                              </div>
+          
+                              <div class="product__subscription">
+                                <div class="product__subscription-heading">
+                                  <input
+                                    data-onetime-input
+                                    class="product__subscription-input"
+                                    type="radio"
+                                    value="One-time Purchase"
+                                    name="selling_plan_group"
+                                    id="SubscriptionOnetime-{{ section.id }}"
+                                    {% if product.selected_or_first_available_variant.selling_plan_allocations == blank %}
+                                      checked
+                                    {% endif %}
+                                  >
+                                  <label for="SubscriptionOnetime-{{ section.id }}" class="product__subscription-label body bold">
+                                    {{ block.settings.one_time_label }}
+                                  </label>
+          
+                                  <div class="product__subscription-price">
+                                    <span class="product__subscription-price-value body body--small bold">
+                                      {{ product.selected_or_first_available_variant.price | money }}
+                                    </span>
+                                  </div>
+                                </div>
+          
+                                {%- if block.settings.one_time_text != blank -%}
+                                  <div class="product__subscription-content product__subscription-content--onetime body body--small">
+                                    {{ block.settings.one_time_text }}
+                                  </div>
+                                {%- endif -%}
+                              </div>
+                            </product-subscription>
+                          {%- endif -%}
 
-                            <script src="{{ 'subscription-block.min.js' | asset_url }}" defer></script>
-                          {% endif %}
 
                           {% render 'buy-buttons',
                             product: product,
-                            show_dynamic_checkout: _b.show_dynamic_checkout
+                            show_dynamic_checkout: _b.show_dynamic_checkout,
+                            hide_price: true
                           %}
                         </div>
                       </product-form>
@@ -601,9 +615,40 @@
           "default": true
         },
         {
+          "type": "header",
+          "content": "Subscription Settings"
+        },
+        {
+          "type": "text",
+          "id": "subscription_label",
+          "label": "Subscription Label",
+          "default": "Subscribe & Save"
+        },
+        {
           "type": "richtext",
-          "label": "Subscription Tooltip Text",
-          "id": "subscription_tooltip_text"
+          "id": "subscription_text",
+          "label": "Subscription Text"
+        },
+        {
+          "type": "text",
+          "id": "subscription_or",
+          "label": "Or text",
+          "default": "OR"
+        },
+        {
+          "type": "header",
+          "content": "One-time Settings"
+        },
+        {
+          "type": "text",
+          "id": "one_time_label",
+          "label": "One-time Label",
+          "default": "One-time Purchase"
+        },
+        {
+          "type": "richtext",
+          "id": "one_time_text",
+          "label": "One-time content"
         }
       ]
     },
