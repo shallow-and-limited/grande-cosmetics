@@ -77,7 +77,9 @@
             %}
             <button 
               class="product-form__swatch swatch {% if forloop.first %}swatch--selected{% endif %}" 
+              data-variant
               data-color="true"
+              data-variant-image="{{ _variant.featured_media.id }}"
               data-swatch="{{ value }}"
               data-available="{{ _variant.available }}"
               data-option="{{ option.name }}"
