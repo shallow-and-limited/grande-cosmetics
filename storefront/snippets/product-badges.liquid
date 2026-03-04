@@ -8,4 +8,14 @@
   {% if product.price < product.compare_at_price %}
     <span class="badge badge--sale p-5 w-regular">Sale</span>
   {% endif %}
+
+  <span 
+    class="badge badge--{{ product.metafields.custom.product_badge | handle }} p-5 w-regular"
+    style="
+      background-color: {{ product.metafields.custom.product_badge_background_color }};
+      color: {{ product.metafields.custom.product_badge_text_color }};
+    "
+  >
+    {{ product.metafields.custom.product_badge }}
+  </span>
 </div>
