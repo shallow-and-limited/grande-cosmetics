@@ -21,7 +21,7 @@
         "body_copy_WJnjh4": {
           "type": "body-copy",
           "settings": {
-            "copy": "<p>Discover exclusive bundles featuring the beauty essentials loved by your favorite influencers. Shop their go-to picks and get ready for major lash goals! 💖<\/p>"
+            "copy": "<p>Discover exclusive bundles featuring the beauty essentials loved by your favorite influencers. Shop their go-to picks and get ready for major lash goals! 💖</p>"
           }
         }
       },
@@ -37,7 +37,7 @@
         "alignment": "centered",
         "vertical_alignment": "middle",
         "module_height": "image-height",
-        "image_d": "shopify:\/\/shop_images\/NationalLashDay_DesktopBanner.jpg",
+        "image_d": "shopify://shop_images/NationalLashDay_DesktopBanner.jpg",
         "video_poster_d": true,
         "video_poster_m": true,
         "video_autoplay": true,
@@ -64,7 +64,7 @@
             "alignment": "center",
             "eyebrow": "",
             "heading": "Plenty of room for copy and the second line lives here",
-            "cta_url": "\/",
+            "cta_url": "/",
             "cta_copy": "Learn More"
           }
         }
@@ -73,7 +73,6 @@
         "content_card_EGhy8R"
       ],
       "settings": {
-        "products_per_page": 6,
         "enable_filtering": true,
         "enable_sorting": true,
         "columns_desktop": "3",
