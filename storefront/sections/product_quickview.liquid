@@ -1,4 +1,4 @@
-{%- assign product_form_id = 'product-form-' | append: section.id -%}
+{% assign selected_variant = product.selected_or_first_available_variant %}
 
 <modal-dialog id="QuickviewModal" class="modal">
   <div
@@ -22,14 +22,17 @@
         class="quickview-container"
         data-product-url="{{ product.url }}"
       >
-        {% assign image = product.selected_or_first_available_variant.featured_image %}
+        {% assign image = selected_variant.featured_image %}
 
         {% if image == blank %}
           {% assign image = product.featured_image %}
         {% endif %}
 
         <div class="quickview-container__content">
-          <div class="quickview-container__image">
+          <div
+            id='QuickbuyImage'
+            class="quickview-container__image"
+          >
             <div class="media media--square">
               {{ image | image_url: width: 1000 | image_tag }}
             </div>
@@ -43,38 +46,147 @@
             {%- endif -%}
 
             <div
+              id='QuickbuyTitle'
               class="product__title product__title-wrapper"
             >
-              <h1 class="h3--mobile">{{ product.title | escape }}</h1>
+              <h1 class="h5">{{ product.title | escape }}</h1>
             </div>
 
-            {%- if product.metafields.custom.product_mini_description -%}
-              <div class="product__text body--small body--xsmall-mobile">
-                {{- product.metafields.custom.product_mini_description.value -}}
-              </div>
-            {%- endif -%}
+            <div class="main-product__subtitle p-3">
+              {{ product.metafields.details.subtitle }}
+            </div>
 
             <div
-              id="price-{{ section.id }}"
-              class="product__price h5--mobile"
+              id="QuickbuyPrice"
+              class="product__price p-4"
               role="status"
             >
-              {%- render 'price', product: product, use_variant: true, show_badges: true -%}
-            </div>
-
+              {% render 'price', target: selected_variant %}
+            </div>   
             
+            <div class='product__variant-picker'>
+              <div class="product__variant-options">
+                {%- for option in product.options_with_values -%}
+                  <div class='product__variant-option'>
+                    {% if option.name contains 'Color' or option.name contains 'color' %}
+                      <div class="product__variant-option-label p-4">
+                        {{ option.name }}:
+                        <span class="w-bold">{{ option.selected_value }}</span>
+                      </div>
 
-            <div class="main-product__buttons buy-buttons__container">
-              {%- render 'buy-buttons',
-                quickview: true,
-                main: false,
-                product: product,
-                product_form_id: product_form_id,
-                section_id: section.id
-              -%}
+                      <div class="product__variant-option-values">
+                        {% for value in option.values %}
+                          {% for variant in product.variants %}
+                            {% if variant.options contains value %}
+                              {% assign variant = variant %}
+                              {% break %}
+                            {% endif %}
+                          {% endfor %}
+
+                          {% liquid                                          
+                            assign swatch_image = ''
+                            assign swatch_code = ''
+                            if variant.metafields.details.swatch_image != blank
+                              assign swatch_image = variant.metafields.details.swatch_image
+                            elsif variant.metafields.details.swatch_hex_code != blank
+                              assign swatch_code = variant.metafields.details.swatch_hex_code
+                            endif
+                          %}
+
+                          <input 
+                            class="product-form__variant-swatch-input visually-hidden"
+                            type="radio"
+                            id="Quickview-{{ option.name | handle }}-{{ value | handle }}"
+                            value="{{ value.id }}"                                       
+                            name="{{ option.name }}"
+                            {% if value.available == false %}disabled{% endif %}       
+                            {% if selected_variant.id == variant.id %}checked{% endif %}
+                          />
+
+                          <label
+                            for="Quickview-{{ option.name | handle }}-{{ value | handle }}" 
+                            class="p-3 product-form__variant-swatch product-form__variant-swatch--color"
+                          >
+                            <div 
+                              class="product-form__variant-color"
+                              {% if swatch_code != blank %}style="background-color: {{ swatch_code }};"{% endif %}
+                            >
+                              {% if swatch_image != blank %}
+                                {{ swatch_image | image_url: width: swatch_image.width }}
+                              {% endif %}
+                            </div>
+
+                            <span class="visually-hidden">
+                              {{ value }}
+                            </span>
+                          </label>
+                        {% endfor %}
+                      </div>
+                    {% else %}
+                      <div class="product__variant-option-label p-4">
+                        {{ option.name }}:
+                        <span class="w-bold">{{ option.selected_value }}</span>
+                        {% if product.variants.first.metafields.details.supply != blank %}
+                          is a <span class="w-bold"><span>{{ product.variants.first.metafields.details.supply }}</span> Supply</span>
+                        {% endif %}
+                      </div>
+
+                      <div class='product__variant-option-values'>
+                        {%- for value in option.values -%}                          
+                          {% for variant in product.variants %}
+                            {% if variant.options contains value %}
+                              {% assign variant = variant %}
+                              {% break %}
+                            {% endif %}
+                          {% endfor %}
+
+                          <input 
+                            class="product-form__variant-swatch-input visually-hidden"
+                            type="radio"
+                            id="Quickview-{{ option.name | handle }}-{{ value | handle }}"
+                            value="{{ value.id }}"                                       
+                            name="{{ option.name }}"
+                            {% if value.available == false %}disabled{% endif %}       
+                            {% if selected_variant.id == variant.id %}checked{% endif %}
+                          />
+
+                          <label
+                            for="Quickview-{{ option.name | handle }}-{{ value | handle }}" 
+                            class="p-3 product-form__variant-swatch"
+                          >
+                            {{ value }}
+                          </label>
+                        {%- endfor -%}
+                      </div>
+                    {% endif %}
+                  </div>
+                {%- endfor -%}
+              </div>
             </div>
 
-            <a href="{{ product.url }}" class="quickview__link link">
+            <div class="quickview-actions">       
+              {%- form 'product',
+                product,
+                id: "QuickbuyForm",
+                class: 'quickview-form'
+              -%}
+                <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+
+                <button 
+                  type="submit"
+                  class="btn btn--primary"
+                  {% if product.selected_or_first_available_variant.available == false %}disabled{% endif %}
+                >
+                  {% if product.selected_or_first_available_variant.available == false %}
+                    <span class="text-unavailable">{{ 'products.product.sold_out' | t }}</span>
+                  {% else %}
+                    {{ 'products.product.add_to_cart' | t }}
+                  {% endif %}
+                </button>
+              {%- endform -%}
+            </div>
+
+            <a href="{{ product.url }}" class="btn btn--secondary">
               {{ 'products.product.view_full_details' | t }}
             </a>
           </div>

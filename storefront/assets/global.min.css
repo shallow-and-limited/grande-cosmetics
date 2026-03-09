@@ -63,7 +63,7 @@
   
   margin: 0;
 
-  max-width: calc(100% - 2rem);
+  max-width: 800px;
   max-height: 800px;
   
   background-color: rgb(253, 241, 228);
@@ -73,6 +73,7 @@
 @media screen and (max-width: 749px) {
   .modal__container {
     max-height: 80dvh;
+    max-width: calc(100dvw - 2rem);
   }
 }
 
@@ -98,4 +99,60 @@
 
   overflow: auto;
   scrollbar-width: thin;
+}
+
+
+.quickview-container__content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 30px;
+}
+
+.quickview-container__info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.product__variant-option {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.product__variant-option-values {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.product-form__variant-swatch-input:checked + .product-form__variant-swatch {
+  background-color: var(--color-rose);
+  color: var(--color-white);    
+  border-color: var(--color-rose);
+}
+
+.product-form__variant-swatch-input:disabled + .product-form__variant-swatch {
+  cursor: default;
+}
+
+.product-form__variant-swatch {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 30px;
+  padding: 0px 12px;
+  border: 1px solid;
+  border-radius: 30px;
+  cursor: pointer;
+}
+
+.quickview-actions {
+  margin-top: 1rem;
+}
+
+.quickview-actions .btn {
+  width: 100%;
 }
