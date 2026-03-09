@@ -1,0 +1,85 @@
+{%- assign product_form_id = 'product-form-' | append: section.id -%}
+
+<modal-dialog id="QuickviewModal" class="modal">
+  <div
+    role="dialog"
+    aria-label="{{ 'products.product.choose_product_options' | t: product_name: product.title | escape }}"
+    aria-modal="true"
+    class="modal__container"
+    tabindex="-1"
+  >
+    <button
+      id="ModalClose-{{ section.id }}-{{ product.id }}"
+      type="button"
+      class="link modal__close"
+      aria-label="{{ 'accessibility.close' | t }}"
+    >
+      {% render 'icon-close' %}
+    </button>
+    <div class="modal__content">
+      <quickbuy-container
+        id="QuickbuyContainer"
+        class="quickview-container"
+        data-product-url="{{ product.url }}"
+      >
+        {% assign image = product.selected_or_first_available_variant.featured_image %}
+
+        {% if image == blank %}
+          {% assign image = product.featured_image %}
+        {% endif %}
+
+        <div class="quickview-container__content">
+          <div class="quickview-container__image">
+            <div class="media media--square">
+              {{ image | image_url: width: 1000 | image_tag }}
+            </div>
+          </div>
+
+          <div class="quickview-container__info">
+            {%- if product.metafields.custom.product_category -%}
+              <div class="product__text body body--small-mobile">
+                {{- product.metafields.custom.product_category.value -}}
+              </div>
+            {%- endif -%}
+
+            <div
+              class="product__title product__title-wrapper"
+            >
+              <h1 class="h3--mobile">{{ product.title | escape }}</h1>
+            </div>
+
+            {%- if product.metafields.custom.product_mini_description -%}
+              <div class="product__text body--small body--xsmall-mobile">
+                {{- product.metafields.custom.product_mini_description.value -}}
+              </div>
+            {%- endif -%}
+
+            <div
+              id="price-{{ section.id }}"
+              class="product__price h5--mobile"
+              role="status"
+            >
+              {%- render 'price', product: product, use_variant: true, show_badges: true -%}
+            </div>
+
+            
+
+            <div class="main-product__buttons buy-buttons__container">
+              {%- render 'buy-buttons',
+                quickview: true,
+                main: false,
+                product: product,
+                product_form_id: product_form_id,
+                section_id: section.id
+              -%}
+            </div>
+
+            <a href="{{ product.url }}" class="quickview__link link">
+              {{ 'products.product.view_full_details' | t }}
+            </a>
+          </div>
+        </div>
+      </quickbuy-container>
+    </div>
+  </div>
+</modal-dialog>

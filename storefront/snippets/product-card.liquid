@@ -73,10 +73,13 @@
       {% endunless %}
     </div>
 
-    {% if product.selected_or_first_available_variant.available == false or template == 'search' or template == 'collection' and product.variants > 1 %}
-      {% render 'product-card-product-options', product: product, id: formId %}
-      {% render 'product-card-buy-button', product: product %}
 
+    {% if product.variants.size > 1 and customer.email == "alex@satel.ca" %}
+      <form method="post" action="/cart/add" data-add-to-cart-form>
+        <quickbuy-trigger data-product-url="{{ product.url }}">
+          <button class="product-card__atb btn btn--secondary p-3">Quick Buy</button>
+        </quickbuy-trigger>
+      </form>
     {% else %}
       <form method="post" action="/cart/add" data-add-to-cart-form>
         <input
@@ -92,8 +95,18 @@
           value="1"
           data-quantity
         >
-        <button data-add-to-cart-btn class="product-card__atb btn btn--secondary p-3">
-          Add to Bag
+        <button
+          data-add-to-cart-btn 
+          class="product-card__atb btn btn--secondary p-3"
+          {% unless product.available %}
+            disabled
+          {% endunless %}
+        >
+          {% if product.available %}
+            Add to Bag
+          {% else %}
+            Sold Out
+          {% endif %}
           <span class="{% unless isCarousel %}hide-mobile{% endunless %}">
             •
             {% render 'price', target: product.selected_or_first_available_variant, show_trailing_zeros: true, product_card: true %}
