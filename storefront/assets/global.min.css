@@ -149,6 +149,18 @@
   cursor: pointer;
 }
 
+.product-form__variant-swatch--color {
+  width: 30px;
+  padding: 0;
+
+  overflow: hidden;
+}
+
+.product-form__variant-swatch img {
+  width: 100%;
+  height: 100%;
+}
+
 .quickview-actions {
   margin-top: 1rem;
 }

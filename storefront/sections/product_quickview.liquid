@@ -106,15 +106,11 @@
                           <label
                             for="Quickview-{{ option.name | handle }}-{{ value | handle }}" 
                             class="p-3 product-form__variant-swatch product-form__variant-swatch--color"
+                            {% if swatch_code != blank %}style="background-color: {{ swatch_code }};"{% endif %}
                           >
-                            <div 
-                              class="product-form__variant-color"
-                              {% if swatch_code != blank %}style="background-color: {{ swatch_code }};"{% endif %}
-                            >
-                              {% if swatch_image != blank %}
-                                {{ swatch_image | image_url: width: swatch_image.width }}
-                              {% endif %}
-                            </div>
+                            {% if swatch_image != blank %}
+                              {{ swatch_image | image_url: width: swatch_image.width | image_tag }}
+                            {% endif %}
 
                             <span class="visually-hidden">
                               {{ value }}
