@@ -56,10 +56,10 @@
           "settings": {
             "show_dynamic_checkout": false,
             "subscription_label": "Subscribe & Save",
-            "subscription_text": "<ul><li>FREE adhesive for life</li><li>12th subscription order is FREE</li><li>FREE shipping on recurring orders</li><li>Conveniently manage orders via text</li><li>FREE gift with 1st order & 3rd order</li><li>Easily edit, skip, or cancel anytime</li></ul>",
+            "subscription_text": "<ul><li>15% off your order</li><li>12th subscription order is FREE</li><li>FREE shipping on recurring orders</li><li>Conveniently manage orders via text</li><li>FREE gift with 1st order & 3rd order</li><li>Easily edit, skip, or cancel anytime</li></ul>",
             "subscription_or": "OR",
             "one_time_label": "One-time Purchase",
-            "one_time_text": "<ul><li>No FREE Shipping</li></ul>"
+            "one_time_text": ""
           }
         },
         "try_with_mirra_try_with_mirra_product_button_wLwpnU": {
