@@ -55,11 +55,7 @@
           "type": "variant_picker",
           "settings": {
             "show_dynamic_checkout": false,
-            "subscription_label": "Subscribe & Save",
-            "subscription_text": "<ul><li>15% off your order</li><li>12th subscription order is FREE</li><li>FREE shipping on recurring orders</li><li>Conveniently manage orders via text</li><li>FREE gift with 1st order & 3rd order</li><li>Easily edit, skip, or cancel anytime</li></ul>",
-            "subscription_or": "OR",
-            "one_time_label": "One-time Purchase",
-            "one_time_text": ""
+            "subscription_tooltip_text": "<p>Subscribe to save 15% + free shipping and never worry about running out. We’ll refill your item at your desired shipping frequency, and send a reminder a few days in advance.</p><p>*Promo codes cannot be applied to auto-replenish items. No obligation, to modify or cancel your subscription, <a href=\"/account/register\" target=\"_blank\" title=\"/account/register\">create an account</a>.</p><p>GrandeREWARDS are not able to be combined with subscription purchases. </p>"
           }
         },
         "try_with_mirra_try_with_mirra_product_button_wLwpnU": {

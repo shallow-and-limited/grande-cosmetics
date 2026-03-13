@@ -1,0 +1,434 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "shogun-helper": {
+      "type": "shogun-helper",
+      "settings": {}
+    },
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {}
+    },
+    "shogun-optimizer": {
+      "type": "shogun-optimizer",
+      "settings": {}
+    },
+    "hero_carousel_UNDmGU": {
+      "type": "hero-carousel",
+      "blocks": {
+        "hero_slide_QhqtVL": {
+          "type": "hero_slide",
+          "settings": {
+            "color": "light",
+            "alignment_v": "middle",
+            "alignment_h": "center",
+            "alignment_v_m": "middle_m",
+            "alignment_h_m": "center_m",
+            "image_d": "shopify://shop_images/1_1.jpg",
+            "video_poster_d": true,
+            "video_poster_m": true,
+            "video_autoplay": true,
+            "eyebrow": "",
+            "heading": "",
+            "heading_size": "h2",
+            "copy": "",
+            "cta_url": "",
+            "cta_copy": "",
+            "cta_url_alt": "",
+            "cta_copy_alt": "",
+            "overlay": 0
+          }
+        }
+      },
+      "block_order": [
+        "hero_slide_QhqtVL"
+      ],
+      "name": "Hero Carousel",
+      "settings": {
+        "display": "full-bleed"
+      }
+    },
+    "split_banner_VJY9mm": {
+      "type": "split-banner",
+      "blocks": {
+        "line_item_TiekBY": {
+          "type": "line-item",
+          "settings": {
+            "line_item_icon_rotation": true,
+            "line_item_text": "Longer, thicker-looking lashes in 4-6 weeks"
+          }
+        },
+        "line_item_HjYca6": {
+          "type": "line-item",
+          "settings": {
+            "line_item_icon_rotation": true,
+            "line_item_text": "Credible-science backed ingredients"
+          }
+        },
+        "line_item_BgM3nD": {
+          "type": "line-item",
+          "settings": {
+            "line_item_icon_rotation": true,
+            "line_item_text": "Ophthalmologist tested"
+          }
+        },
+        "line_item_eUrqyG": {
+          "type": "line-item",
+          "settings": {
+            "line_item_icon_rotation": true,
+            "line_item_text": "11 safety + performance studies"
+          }
+        }
+      },
+      "block_order": [
+        "line_item_TiekBY",
+        "line_item_HjYca6",
+        "line_item_BgM3nD",
+        "line_item_eUrqyG"
+      ],
+      "name": "Split Banner",
+      "settings": {
+        "style": "beige",
+        "padding": "inset",
+        "arrangement": "left_asset_right_content",
+        "header": "h3",
+        "alignment": "left",
+        "vertical_alignment": "middle",
+        "module_height": "image-height",
+        "image_d": "shopify://shop_images/Lash-34445_1.png",
+        "video_poster_d": true,
+        "video_poster_m": true,
+        "video_autoplay": true,
+        "eyebrow": "",
+        "heading": "GrandeLASH-MD",
+        "cta_url": "shopify://products/grandelash-md",
+        "cta_copy": "SHOP NOW"
+      }
+    },
+    "banner_nVyLhA": {
+      "type": "banner",
+      "name": "Banner",
+      "settings": {
+        "color": "light",
+        "background": "beige",
+        "image_d": "shopify://shop_images/3_24.png",
+        "alignment": "left",
+        "eyebrow": "",
+        "heading": "",
+        "heading_size": "h2",
+        "copy": "",
+        "cta_url": "",
+        "cta_copy": "",
+        "cta_url_alt": "",
+        "cta_copy_alt": "",
+        "overlay": 0
+      }
+    },
+    "banner_QXt8aG": {
+      "type": "banner",
+      "name": "Banner",
+      "settings": {
+        "color": "light",
+        "background": "beige",
+        "image_d": "shopify://shop_images/4_5.png",
+        "alignment": "left",
+        "eyebrow": "",
+        "heading": "",
+        "heading_size": "h2",
+        "copy": "",
+        "cta_url": "",
+        "cta_copy": "",
+        "cta_url_alt": "",
+        "cta_copy_alt": "",
+        "overlay": 0
+      }
+    },
+    "split_banner_AKe8Gy": {
+      "type": "split-banner",
+      "blocks": {
+        "line_item_tLRXyA": {
+          "type": "line-item",
+          "settings": {
+            "line_item_icon_rotation": true,
+            "line_item_text": "Gentle: designed for sensitive eyes"
+          }
+        },
+        "line_item_LCHNNL": {
+          "type": "line-item",
+          "settings": {
+            "line_item_icon_rotation": true,
+            "line_item_text": "Thicker, longer-looking lashes + less lash fallout"
+          }
+        },
+        "line_item_e9kLRk": {
+          "type": "line-item",
+          "settings": {
+            "line_item_icon_rotation": true,
+            "line_item_text": "Peptide powered & prostaglandin-free"
+          }
+        },
+        "line_item_ViUiRt": {
+          "type": "line-item",
+          "settings": {
+            "line_item_icon_rotation": true,
+            "line_item_text": "Clinically validated & ophthalmologist tested"
+          }
+        }
+      },
+      "block_order": [
+        "line_item_tLRXyA",
+        "line_item_LCHNNL",
+        "line_item_e9kLRk",
+        "line_item_ViUiRt"
+      ],
+      "name": "Split Banner",
+      "settings": {
+        "style": "beige",
+        "padding": "inset",
+        "arrangement": "left_asset_right_content",
+        "header": "h3",
+        "alignment": "left",
+        "vertical_alignment": "middle",
+        "module_height": "image-height",
+        "image_d": "shopify://shop_images/SensitiveLashSerum-FS-Product-FlatLay-AntiqueWhiteBG_2.png",
+        "video_poster_d": true,
+        "video_poster_m": true,
+        "video_autoplay": true,
+        "eyebrow": "",
+        "heading": "GrandeLASH-Sensitive",
+        "cta_url": "shopify://products/grandelash-sensitive",
+        "cta_copy": "SHOP NOW"
+      }
+    },
+    "banner_tUjjhg": {
+      "type": "banner",
+      "name": "Banner",
+      "settings": {
+        "color": "light",
+        "background": "beige",
+        "image_d": "shopify://shop_images/6_1_124f7367-6dbc-4ed3-9454-bef41481e856.png",
+        "alignment": "left",
+        "eyebrow": "",
+        "heading": "",
+        "heading_size": "h2",
+        "copy": "",
+        "cta_url": "",
+        "cta_copy": "",
+        "cta_url_alt": "",
+        "cta_copy_alt": "",
+        "overlay": 0
+      }
+    },
+    "banner_nPfUJB": {
+      "type": "banner",
+      "name": "Banner",
+      "settings": {
+        "color": "light",
+        "background": "beige",
+        "image_d": "shopify://shop_images/7.png",
+        "alignment": "left",
+        "eyebrow": "",
+        "heading": "",
+        "heading_size": "h2",
+        "copy": "",
+        "cta_url": "",
+        "cta_copy": "",
+        "cta_url_alt": "",
+        "cta_copy_alt": "",
+        "overlay": 0
+      }
+    },
+    "hero_carousel_YKfrG6": {
+      "type": "hero-carousel",
+      "blocks": {
+        "hero_slide_QDPJEc": {
+          "type": "hero_slide",
+          "settings": {
+            "color": "light",
+            "alignment_v": "middle",
+            "alignment_h": "center",
+            "alignment_v_m": "middle_m",
+            "alignment_h_m": "center_m",
+            "image_d": "shopify://shop_images/11_1.png",
+            "video_poster_d": true,
+            "video_poster_m": true,
+            "video_autoplay": true,
+            "eyebrow": "",
+            "heading": "",
+            "heading_size": "h2",
+            "copy": "",
+            "cta_url": "",
+            "cta_copy": "",
+            "cta_url_alt": "",
+            "cta_copy_alt": "",
+            "overlay": 0
+          }
+        }
+      },
+      "block_order": [
+        "hero_slide_QDPJEc"
+      ],
+      "name": "Hero Carousel",
+      "settings": {
+        "display": "full-bleed"
+      }
+    },
+    "hero_carousel_LpLDaU": {
+      "type": "hero-carousel",
+      "blocks": {
+        "hero_slide_FfrWyD": {
+          "type": "hero_slide",
+          "settings": {
+            "color": "light",
+            "alignment_v": "middle",
+            "alignment_h": "center",
+            "alignment_v_m": "middle_m",
+            "alignment_h_m": "center_m",
+            "image_d": "shopify://shop_images/12.png",
+            "video_poster_d": false,
+            "image_m": "shopify://shop_images/12.png",
+            "video_poster_m": false,
+            "video_autoplay": false,
+            "eyebrow": "",
+            "heading": "",
+            "heading_size": "h2",
+            "copy": "",
+            "cta_url": "",
+            "cta_copy": "",
+            "cta_url_alt": "",
+            "cta_copy_alt": "",
+            "overlay": 0
+          }
+        }
+      },
+      "block_order": [
+        "hero_slide_FfrWyD"
+      ],
+      "name": "Hero Carousel",
+      "settings": {
+        "display": "full-bleed"
+      }
+    },
+    "split_banner_pchCGp": {
+      "type": "split-banner",
+      "blocks": {
+        "line_item_bUM6hf": {
+          "type": "line-item",
+          "settings": {
+            "line_item_icon_rotation": true,
+            "line_item_text": "Fuller + bolder looking brows in just 6-8 weeks"
+          }
+        },
+        "line_item_pNdxNN": {
+          "type": "line-item",
+          "settings": {
+            "line_item_icon_rotation": true,
+            "line_item_text": "Perfect for sparse, thinning, over-plucked, or tail-less brows"
+          }
+        },
+        "line_item_7VkJ6i": {
+          "type": "line-item",
+          "settings": {
+            "line_item_icon_rotation": true,
+            "line_item_text": "Easy to use - apply only 1x daily"
+          }
+        },
+        "line_item_gtaKzP": {
+          "type": "line-item",
+          "settings": {
+            "line_item_icon_rotation": true,
+            "line_item_text": "Dermatologist tested"
+          }
+        }
+      },
+      "block_order": [
+        "line_item_bUM6hf",
+        "line_item_pNdxNN",
+        "line_item_7VkJ6i",
+        "line_item_gtaKzP"
+      ],
+      "name": "Split Banner",
+      "settings": {
+        "style": "beige",
+        "padding": "inset",
+        "arrangement": "left_asset_right_content",
+        "header": "h3",
+        "alignment": "left",
+        "vertical_alignment": "middle",
+        "module_height": "image-height",
+        "image_d": "shopify://shop_images/Brow-34503_1.png",
+        "video_poster_d": true,
+        "video_poster_m": true,
+        "video_autoplay": true,
+        "eyebrow": "",
+        "heading": "GrandeBROW",
+        "cta_url": "shopify://products/grandebrow",
+        "cta_copy": "SHOP NOW"
+      }
+    },
+    "banner_KCcxzV": {
+      "type": "banner",
+      "name": "Banner",
+      "settings": {
+        "color": "light",
+        "background": "beige",
+        "image_d": "shopify://shop_images/14.png",
+        "alignment": "left",
+        "eyebrow": "",
+        "heading": "",
+        "heading_size": "h2",
+        "copy": "",
+        "cta_url": "",
+        "cta_copy": "",
+        "cta_url_alt": "",
+        "cta_copy_alt": "",
+        "overlay": 0
+      }
+    },
+    "banner_Lted9z": {
+      "type": "banner",
+      "name": "Banner",
+      "settings": {
+        "color": "light",
+        "background": "beige",
+        "image_d": "shopify://shop_images/15.png",
+        "alignment": "left",
+        "eyebrow": "",
+        "heading": "",
+        "heading_size": "h2",
+        "copy": "",
+        "cta_url": "",
+        "cta_copy": "",
+        "cta_url_alt": "",
+        "cta_copy_alt": "",
+        "overlay": 0
+      }
+    }
+  },
+  "order": [
+    "shogun-helper",
+    "main",
+    "shogun-optimizer",
+    "hero_carousel_UNDmGU",
+    "split_banner_VJY9mm",
+    "banner_nVyLhA",
+    "banner_QXt8aG",
+    "split_banner_AKe8Gy",
+    "banner_tUjjhg",
+    "banner_nPfUJB",
+    "hero_carousel_YKfrG6",
+    "hero_carousel_LpLDaU",
+    "split_banner_pchCGp",
+    "banner_KCcxzV",
+    "banner_Lted9z"
+  ]
+}
