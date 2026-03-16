@@ -3,7 +3,14 @@
 <html class="no-js" lang="{{ request.locale.iso_code }}">
   <head>
 {% render 'visually_io_sdk' %}
- 
+{% comment %}
+=== Google Tag Manager (GTM) ===
+Required for marketing.
+Do not remove or modify.
+Removing this will stop active advertising campaigns.
+{% endcomment %}
+{% render 'gtm-head' %}
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -46,6 +53,13 @@
 </head>
 
   <body id="page-{{ page_title | handle }}" class="page-{{ page_title | handle }} template-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }}">
+{% comment %}
+=== Google Tag Manager (GTM) ===
+Required for marketing.
+Do not remove or modify.
+Removing this will stop active advertising campaigns.
+{% endcomment %}
+{% render 'gtm-body' %}
     {% sections 'header-group' %}
     
     <a class="skip-to-content-link button visually-hidden" href="#MainContent">

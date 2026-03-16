@@ -9,7 +9,8 @@
         var alias = store.replace(".myshopify.com", "").replaceAll("-", "_").toUpperCase();
         var jitsuKey =  "js.{{ shop.id }}";
         var themeId = {{ theme.id }};
-        window.loomi_ctx = {...(window.loomi_ctx || {}),storeAlias:alias,jitsuKey,env,themeId};
+        var role = "{{ theme.role }}";
+        window.loomi_ctx = {...(window.loomi_ctx || {}),storeAlias:alias,jitsuKey,env,themeId,role};
         
         
     {% if customer %}
