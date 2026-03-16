@@ -29,7 +29,7 @@
 
   {%- if section.settings.aspect_ratio_mobile == 'adapt' -%}
     @media screen and (max-width: 749px) {
-      #MediaBanner-{{ section.id }} .media--adapt--mobile {
+      #MediaBanner-{{ section.id }} .media--adapt-mobile {
         {%- if video_mobile != null -%}
           padding-bottom: {{ 1 | divided_by: video_mobile.preview_image.aspect_ratio | times: 100 }}%;
         {%- else -%}
