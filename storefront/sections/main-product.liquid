@@ -52,7 +52,23 @@
                       <div {{ block.shopify_attributes }} 
                         class="main-product__price p-4" data-product-prices>
                         <div class="main-product__price-wrapper">
+                          <div class="regios-dopp-generic-price-container">
+                            {% if product.selected_or_first_available_variant.compare_at_price > product.selected_or_first_available_variant.price %}
+                              <div class="regios-dopp-generic-price-item--regular">{{ product.selected_or_first_available_variant.compare_at_price }}</div>
+                              <div class="regios-dopp-generic-price-item--sale">{{ product.selected_or_first_available_variant.price }}</div>
+                            {% else %}
+                              <!-- `regios-dopp-generic-price-item--regular` must be present, even if the item isn't already on sale -->
+                              <div class="regios-dopp-generic-price-item--regular" style="display: none"></div>
+                              <div class="regios-dopp-generic-price-item--sale">{{ product.price }}</div>
+                            {% endif %}
+                          </div>
+
+                          <div class='regios-dopp-description'>
+                          </div>
+
+                          {% comment %}
                             {% render 'price', target: product.variants.first %}
+                          {% endcomment %}
                           <div id="tt-teaser-widget"></div>
                         </div>
                         <div class="yotpo-widget-instance" data-yotpo-instance-id="{{ settings.yotpo_instance_id }}" data-yotpo-product-id="{{product.id}}" data-yotpo-cart-product-id="{{item.product.id}}" data-yotpo-section-id="{{template.name}}"></div>

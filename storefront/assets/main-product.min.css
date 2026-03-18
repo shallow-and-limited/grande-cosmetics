@@ -101,3 +101,17 @@
 .product__subscription-content--onetime ul li:before {
   content: '✘';
 }
+
+
+.main-product__price-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: flex-start;
+} 
+
+.regios-dopp-generic-price-container {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}

@@ -277,6 +277,15 @@
   gap: 10px;
 }
 
+.quickview-container__info .regios-dopp-generic-price-container {
+  display: flex;
+  gap: 4px;
+}
+
+.quickview-container__info .regios-dopp-generic-price-item--regular {
+  text-decoration: line-through;
+}
+
 .product__variant-option {
   display: flex;
   flex-direction: column;

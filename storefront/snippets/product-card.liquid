@@ -10,9 +10,11 @@
 
 {{ 'product-card.min.css' | asset_url | stylesheet_tag }}
 
-<product-card class="product-card {{ class }}" {{ attr }} 
-    data-product="{{ product.id }}" 
-  >
+<product-card 
+  class="product-card {{ class }}" {{ attr }} 
+  data-product="{{ product.id }}"
+  data-regios-dopp-generic-product-id="{{ product.id }}"
+>
   <div class="product-card__images">
     {% render 'product-badges', product: product %}
 
@@ -73,7 +75,6 @@
       {% endunless %}
     </div>
 
-
     {% if product.variants.size > 1 %}
       <form method="post" action="/cart/add" data-add-to-cart-form>
         <quickbuy-trigger data-product-url="{{ product.url }}">
@@ -117,7 +118,20 @@
           {% endif %}
           <span class="{% unless isCarousel %}hide-mobile{% endunless %}">
             •
+            <div class="regios-dopp-generic-price-container">
+              {% if product.compare_at_price > product.price %}
+                <div class="regios-dopp-generic-price-item--regular">{{ product.compare_at_price | money }}</div>
+                <div class="regios-dopp-generic-price-item--sale">{{ product.price | money }}</div>
+              {% else %}
+                <!-- `regios-dopp-generic-price-item--regular` must be present, even if the item isn't already on sale -->
+                <div class="regios-dopp-generic-price-item--regular" style="display: none"></div>
+                <div class="regios-dopp-generic-price-item--sale">{{ product.price | money }}</div>
+              {% endif %}
+            </div>
+
+            {% comment %}
             {% render 'price', target: product.selected_or_first_available_variant, show_trailing_zeros: true, product_card: true %}
+            {% endcomment %}
           </span>
         </button>
       </form>

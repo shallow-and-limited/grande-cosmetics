@@ -42,7 +42,6 @@
         "content_card_rjAJbM"
       ],
       "settings": {
-        "products_per_page": 6,
         "enable_filtering": true,
         "enable_sorting": true,
         "columns_desktop": "3",

@@ -105,6 +105,27 @@
           "shouldReloadAfterAddToCart": false,
           "termsAndConditionsUrl": "https://trywithmirra.com/terms-and-conditions"
         }
+      },
+      "9137299313046473183": {
+        "type": "shopify://apps/regios-discounts/blocks/regios_discounts_embed/dc1514bb-4830-4102-bffa-e8b300bac5bd",
+        "disabled": false,
+        "settings": {
+          "theme_type": "generic",
+          "currency_code_enabled": false,
+          "discount_description": "[discount_message]",
+          "discount_description_css": "",
+          "badge_description": "[discount_percentage] OFF",
+          "badge_css": "",
+          "price_on_sale_class": "",
+          "sale_price_description": "[sale_price]",
+          "regular_price_description": "[regular_price]",
+          "delay": 0,
+          "customer_metafields_to_check": "",
+          "calculate_discount_based_on_quantity": false,
+          "log_level": "error",
+          "feature_flags": "",
+          "disable_auto_config": false
+        }
       }
     }
   },

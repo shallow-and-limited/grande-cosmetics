@@ -21,6 +21,9 @@
         id="QuickbuyContainer"
         class="quickview-container"
         data-product-url="{{ product.url }}"
+        data-product-id="{{ product.id }}"
+        data-variant-id="{{ selected_variant.id }}"
+        data-variant-price="{{ selected_variant.price }}"
       >
         {% assign image = selected_variant.featured_image %}
 
@@ -61,7 +64,20 @@
               class="product__price p-4"
               role="status"
             >
+              <div class="regios-dopp-generic-price-container">
+                {% if selected_variant.compare_at_price > selected_variant.price %}
+                  <div class="regios-dopp-generic-price-item--regular">{{ selected_variant.compare_at_price | money }}</div>
+                  <div class="regios-dopp-generic-price-item--sale">{{ selected_variant.price | money }}</div>
+                {% else %}
+                  <!-- `regios-dopp-generic-price-item--regular` must be present, even if the item isn't already on sale -->
+                  <div class="regios-dopp-generic-price-item--regular" style="display: none"></div>
+                  <div class="regios-dopp-generic-price-item--sale">{{ selected_variant.price | money }}</div>
+                {% endif %}
+              </div>
+
+              {% comment %}
               {% render 'price', target: selected_variant %}
+              {% endcomment %}
             </div>   
             
             <div class='product__variant-picker'>
