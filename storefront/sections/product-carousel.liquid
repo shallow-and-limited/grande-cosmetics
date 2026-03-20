@@ -40,7 +40,11 @@
 
     assign _c = _c | remove_last: ',' | split: ','
     -%}
-  <div class="product-carousel {{ _s.alignment }}" data-slide-up-container>
+  <div 
+    class="product-carousel {{ _s.alignment }}" 
+    data-slide-up-container
+    data-regios-dopp-collection-block-key='{{ section.settings.regios_key }}'
+  >
     <div class="product-carousel__heading">
       {%- if _c.size > 1 and _show_cats == true -%}
         <ul class="product-carousel__filters">
@@ -106,6 +110,12 @@
   "tag": "section",
   "max_blocks": 12,
   "settings": [
+    {
+      "type": "text",
+      "id": "regios_key",
+      "label": "Regios Key",
+      "info": "This is a unique key that will be used to identify the section in the Regios DOPP app."
+    },
     {
       "type": "header",
       "content": "Section Settings",

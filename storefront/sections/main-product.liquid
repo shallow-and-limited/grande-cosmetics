@@ -535,8 +535,22 @@
           <span class="text-unavailable">{{ 'products.product.sold_out' | t }}</span>
           <span class="text-available">
             {{ 'products.product.add_to_cart' | t }}
+            
             •
+            <div class="regios-dopp-generic-price-container">
+              {% if product.selected_or_first_available_variant.compare_at_price > product.selected_or_first_available_variant.price %}
+                <div class="regios-dopp-generic-price-item--regular">{{ product.selected_or_first_available_variant.compare_at_price | money_without_trailing_zeros }}</div>
+                <div class="regios-dopp-generic-price-item--sale">{{ product.selected_or_first_available_variant.price | money_without_trailing_zeros }}</div>
+              {% else %}
+                <!-- `regios-dopp-generic-price-item--regular` must be present, even if the item isn't already on sale -->
+                <div class="regios-dopp-generic-price-item--regular" style="display: none"></div>
+                <div class="regios-dopp-generic-price-item--sale">{{ product.selected_or_first_available_variant.price | money_without_trailing_zeros }}</div>
+              {% endif %}
+            </div>
+
+            {% comment %}
             {% render 'price', target: product.variants.first %}
+            {% endcomment %}
           </span>
         </button>
       </span>

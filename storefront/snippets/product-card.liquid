@@ -70,7 +70,20 @@
       <p class="product-card__subtitle p-2">{{ product.metafields.details.subtitle }}</p>
       {% unless isCarousel %}
         <div class="hide-desktop p-3">
+          <div class="regios-dopp-generic-price-container">
+            {% if product.compare_at_price > product.price %}
+              <div class="regios-dopp-generic-price-item--regular">{{ product.selected_or_first_available_variant.compare_at_price | money_without_trailing_zeros }}</div>
+              <div class="regios-dopp-generic-price-item--sale">{{ product.selected_or_first_available_variant.price | money_without_trailing_zeros }}</div>
+            {% else %}
+              <!-- `regios-dopp-generic-price-item--regular` must be present, even if the item isn't already on sale -->
+              <div class="regios-dopp-generic-price-item--regular" style="display: none"></div>
+              <div class="regios-dopp-generic-price-item--sale">{{ product.selected_or_first_available_variant.price | money_without_trailing_zeros }}</div>
+            {% endif %}
+          </div>
+          
+          {% comment %}
           {% render 'price', target: product.selected_or_first_available_variant, show_trailing_zeros: true %}
+          {% endcomment %}
         </div>
       {% endunless %}
     </div>
@@ -80,12 +93,14 @@
         <quickbuy-trigger data-product-url="{{ product.url }}">
           <button class="product-card__atb btn btn--secondary p-3">
             Quick Buy
-            •
-            {% if product.price_min != product.price_max %}
-              {{ product.price_min | money }} - {{ product.price_max | money }}
-            {% else %}
-              {{ product.price | money }}
-            {% endif %}
+            <span class='{% unless isCarousel %}hide-mobile{% endunless %}'>
+              •
+              {% if product.price_min != product.price_max %}
+                {{ product.price_min | money }} - {{ product.price_max | money }}
+              {% else %}
+                {{ product.price | money }}
+              {% endif %}
+            </span>
           </button>
         </quickbuy-trigger>
       </form>
@@ -116,10 +131,11 @@
           {% else %}
             Sold Out
           {% endif %}
+
           <span class="{% unless isCarousel %}hide-mobile{% endunless %}">
             •
             <div class="regios-dopp-generic-price-container">
-              {% if product.compare_at_price > product.price %}
+              {% if product.selected_or_first_available_variant.compare_at_price > product.selected_or_first_available_variant.price %}
                 <div class="regios-dopp-generic-price-item--regular">{{ product.selected_or_first_available_variant.compare_at_price | money_without_trailing_zeros }}</div>
                 <div class="regios-dopp-generic-price-item--sale">{{ product.selected_or_first_available_variant.price | money_without_trailing_zeros }}</div>
               {% else %}

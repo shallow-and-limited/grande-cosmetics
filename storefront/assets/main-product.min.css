@@ -116,8 +116,9 @@
   align-items: center;
 }
 
+.main-product__sticky-bar .text-available,
 .add-to-cart__submit-btn .text-available {
-  display: flex;
+  display: flex !important;
   align-items: center;
   justify-content: center;
   gap: 4px;
