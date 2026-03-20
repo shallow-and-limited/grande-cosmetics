@@ -20,57 +20,91 @@
         "color_scheme": "beige"
       }
     },
-    "media_banner_qR6y3H": {
-      "type": "media-banner",
+    "hero_carousel_f9TTYr": {
+      "type": "hero-carousel",
       "blocks": {
-        "text_HPdF9e": {
-          "type": "text",
+        "hero_slide_Up8Chg": {
+          "type": "hero_slide",
           "settings": {
-            "text": "IT'S TIME FOR",
-            "text_style": "s-3"
+            "color": "dark",
+            "alignment_v": "middle",
+            "alignment_h": "center",
+            "alignment_v_m": "middle_m",
+            "alignment_h_m": "center_m",
+            "image_d": "shopify://shop_images/Spring_Savings_Homepage_Banners-Desktop.png",
+            "video_poster_d": true,
+            "image_m": "shopify://shop_images/Spring_Savings_Homepage_Banners-Mobile.png",
+            "video_poster_m": true,
+            "video_autoplay": true,
+            "eyebrow": "Friends & Family Sale",
+            "heading": "25% Off Sitewide",
+            "heading_size": "h2",
+            "copy": "",
+            "cta_url": "shopify://collections/best-sellers",
+            "cta_copy": "Start Shopping",
+            "cta_url_alt": "",
+            "cta_copy_alt": "",
+            "overlay": 0
           }
         },
-        "heading_kxUXf8": {
-          "type": "heading",
+        "hero_slide_UqApiR": {
+          "type": "hero_slide",
+          "disabled": true,
           "settings": {
+            "color": "dark",
+            "alignment_v": "middle",
+            "alignment_h": "right",
+            "alignment_v_m": "top_m",
+            "alignment_h_m": "left_m",
+            "image_d": "shopify://shop_images/ConfidenceAtYourCore_DesktopBanner.jpg",
+            "video_poster_d": true,
+            "image_m": "shopify://shop_images/ConfidenceAtYourCore_MobileBanner.jpg",
+            "video_poster_m": true,
+            "video_autoplay": true,
+            "eyebrow": "it's time for",
             "heading": "Confidence At Your Core",
             "heading_size": "h2",
-            "is_h1": false
+            "copy": "(because when you look good, you feel good!)",
+            "cta_url": "shopify://collections/best-sellers",
+            "cta_copy": "Shop Enhancing Serums",
+            "cta_url_alt": "",
+            "cta_copy_alt": "",
+            "overlay": 0
           }
         },
-        "text_WKanfw": {
-          "type": "text",
+        "hero_slide_fBThgq": {
+          "type": "hero_slide",
+          "disabled": true,
           "settings": {
-            "text": "(because when you look good, you feel good!)",
-            "text_style": "p-3"
-          }
-        },
-        "buttons_4Pbxrf": {
-          "type": "buttons",
-          "settings": {
-            "button_label": "Shop Enhancing Serums",
-            "button_link": "shopify://collections/best-sellers"
+            "color": "light",
+            "alignment_v": "middle",
+            "alignment_h": "center",
+            "alignment_v_m": "middle_m",
+            "alignment_h_m": "center_m",
+            "image_d": "shopify://shop_images/BuildABundle-DesktopBanner.jpg",
+            "video_poster_d": true,
+            "image_m": "shopify://shop_images/BuildABundle-MobileBanner.jpg",
+            "video_poster_m": true,
+            "video_autoplay": true,
+            "eyebrow": "WE'RE BETTER TOGETHER 🤝",
+            "heading": "Build-A-Bundle",
+            "heading_size": "h2",
+            "copy": "",
+            "cta_url": "shopify://pages/bundle-builder-tiered-discount",
+            "cta_copy": "Start Building",
+            "cta_url_alt": "",
+            "cta_copy_alt": "",
+            "overlay": 0
           }
         }
       },
       "block_order": [
-        "text_HPdF9e",
-        "heading_kxUXf8",
-        "text_WKanfw",
-        "buttons_4Pbxrf"
+        "hero_slide_Up8Chg",
+        "hero_slide_UqApiR",
+        "hero_slide_fBThgq"
       ],
-      "name": "Media Banner",
       "settings": {
-        "aspect_ratio": "adapt",
-        "aspect_ratio_mobile": "adapt",
-        "desktop_content_position": "middle-right",
-        "desktop_alignment": "right",
-        "mobile_content_position": "top",
-        "mobile_alignment": "left",
-        "image_link": "",
-        "image": "shopify://shop_images/ConfidenceAtYourCore_DesktopBanner.jpg",
-        "image_mobile": "shopify://shop_images/ConfidenceAtYourCore_MobileBanner.jpg",
-        "image_overlay_opacity": 40
+        "display": "full-bleed"
       }
     },
     "ticker_EfRyde": {
@@ -431,7 +465,7 @@
         "image_d": "shopify://shop_images/GrandeLASH-BannerImage-BottlesOnPink-Desktop.jpg",
         "image_m": "shopify://shop_images/GrandeLASH-BannerImage-BottlesOnPink-Mobile.jpg",
         "alignment": "center",
-        "eyebrow": "In a world of dupes, the original reigns supreme.",
+        "eyebrow": "In a world of dupes,  the original reigns supreme.",
         "heading": "The Creators of GrandeLASH-MD",
         "heading_size": "h1",
         "copy": "the #1 Lash Serum Brand In The U.S.*",
@@ -1088,7 +1122,7 @@
   },
   "order": [
     "ticker_k3iEyA",
-    "media_banner_qR6y3H",
+    "hero_carousel_f9TTYr",
     "ticker_EfRyde",
     "hero_carousel_UfHHkP",
     "ticker_4Q8FUW",

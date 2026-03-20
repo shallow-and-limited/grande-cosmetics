@@ -122,8 +122,8 @@
           "delay": 0,
           "customer_metafields_to_check": "",
           "calculate_discount_based_on_quantity": false,
-          "log_level": "error",
-          "feature_flags": "",
+          "log_level": "debug",
+          "feature_flags": "watchForInfiniteScroll",
           "disable_auto_config": false
         }
       }

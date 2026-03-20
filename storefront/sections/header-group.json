@@ -22,9 +22,8 @@
         },
         "text_bfL8A4": {
           "type": "text",
-          "disabled": true,
           "settings": {
-            "message": "<p>25% OFF SITE-WIDE</p>"
+            "message": "<p><strong>25% OFF SITE-WIDE</strong></p>"
           }
         },
         "text_xb4K68": {

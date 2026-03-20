@@ -259,20 +259,20 @@
     },
     "176945629858b278ad": {
       "type": "apps",
+      "settings": {}
+    },
+    "177386287647b8fc41": {
+      "type": "apps",
       "blocks": {
-        "regios_discounts_recommendations_discount_UMgMPE": {
-          "type": "shopify://apps/regios-discounts/blocks/recommendations_discount/dc1514bb-4830-4102-bffa-e8b300bac5bd",
+        "regios_discounts_product_page_discount_armGjg": {
+          "type": "shopify://apps/regios-discounts/blocks/product_page_discount/dc1514bb-4830-4102-bffa-e8b300bac5bd",
           "settings": {
-            "product": "{{product}}",
-            "number_of_products": 10,
-            "intent": "related",
-            "delay": 150,
-            "key": ""
+            "product": "{{product}}"
           }
         }
       },
       "block_order": [
-        "regios_discounts_recommendations_discount_UMgMPE"
+        "regios_discounts_product_page_discount_armGjg"
       ],
       "settings": {}
     }
@@ -294,6 +294,7 @@
     "3cbc6a3c1622afaae685",
     "shogun-below",
     "shogun-optimizer",
-    "176945629858b278ad"
+    "176945629858b278ad",
+    "177386287647b8fc41"
   ]
 }

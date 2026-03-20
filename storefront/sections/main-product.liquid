@@ -54,12 +54,12 @@
                         <div class="main-product__price-wrapper">
                           <div class="regios-dopp-generic-price-container">
                             {% if product.selected_or_first_available_variant.compare_at_price > product.selected_or_first_available_variant.price %}
-                              <div class="regios-dopp-generic-price-item--regular">{{ product.selected_or_first_available_variant.compare_at_price }}</div>
-                              <div class="regios-dopp-generic-price-item--sale">{{ product.selected_or_first_available_variant.price }}</div>
+                              <div class="regios-dopp-generic-price-item--regular">{{ product.selected_or_first_available_variant.compare_at_price | money_without_trailing_zeros }}</div>
+                              <div class="regios-dopp-generic-price-item--sale">{{ product.selected_or_first_available_variant.price | money_without_trailing_zeros }}</div>
                             {% else %}
                               <!-- `regios-dopp-generic-price-item--regular` must be present, even if the item isn't already on sale -->
                               <div class="regios-dopp-generic-price-item--regular" style="display: none"></div>
-                              <div class="regios-dopp-generic-price-item--sale">{{ product.price }}</div>
+                              <div class="regios-dopp-generic-price-item--sale">{{ product.price | money_without_trailing_zeros }}</div>
                             {% endif %}
                           </div>
 
