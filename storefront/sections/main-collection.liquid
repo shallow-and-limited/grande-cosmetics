@@ -36,31 +36,33 @@
                     endif
                   -%}
                   
-                  <div class="editorial-card editorial-card--{{ _b.display }}" data-id="{{ block.id }}"-container>
-                    <style>
-                      .editorial-card[data-id="{{ block.id }}"] {
-                        --card-row:  {{ _b.row }};
-                        --card-span:  {{ _b.display }};
-                        --card-column: {{ _b.column }};
-                      }
-                    </style>
-                    {% render 'image'
-                      image: _b.image_desktop,
-                      class: 'editorial-card__image',
-                      image_m: _b.image_mobile
-                    %}
-                    {%- if _b.eyebrow != blank -%}
-                      <h4 class="editorial-card__eyebrow p-3 color-white">{{ _b.eyebrow }}</h4>
-                    {%- endif -%}
-                    {%- if _b.heading != blank -%}
-                      <h4 class="editorial-card__heading {% if _b.display == '2' %}h3{% else %}h4{% endif %} color-white">{{ _b.heading }}</h4>
-                    {%- endif -%}
-                    {% if _b.cta_copy != blank and _b.cta_url != blank %}
-                      <a class="editorial-card__cta btn btn--primary-dark" href="{{ _b.cta_url }}">
-                        {{ _b.cta_copy }}
-                      </a>
-                    {% endif %}
-                  </div>
+                  {% if _b.image_desktop != blank and _b.image_mobile != blank %}
+                    <div class="editorial-card editorial-card--{{ _b.display }}" data-id="{{ block.id }}"-container>
+                      <style>
+                        .editorial-card[data-id="{{ block.id }}"] {
+                          --card-row:  {{ _b.row }};
+                          --card-span:  {{ _b.display }};
+                          --card-column: {{ _b.column }};
+                        }
+                      </style>
+                      {% render 'image'
+                        image: _b.image_desktop,
+                        class: 'editorial-card__image',
+                        image_m: _b.image_mobile
+                      %}
+                      {%- if _b.eyebrow != blank -%}
+                        <h4 class="editorial-card__eyebrow p-3 color-white">{{ _b.eyebrow }}</h4>
+                      {%- endif -%}
+                      {%- if _b.heading != blank -%}
+                        <h4 class="editorial-card__heading {% if _b.display == '2' %}h3{% else %}h4{% endif %} color-white">{{ _b.heading }}</h4>
+                      {%- endif -%}
+                      {% if _b.cta_copy != blank and _b.cta_url != blank %}
+                        <a class="editorial-card__cta btn btn--primary-dark" href="{{ _b.cta_url }}">
+                          {{ _b.cta_copy }}
+                        </a>
+                      {% endif %}
+                    </div>
+                  {% endif %}
                 {% endfor %}
               {%- endunless -%}
               {% for product in collection.products %}

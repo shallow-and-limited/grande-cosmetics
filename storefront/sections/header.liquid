@@ -96,7 +96,11 @@
       {% else %}
       <a class="header__icon" href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}">{% render 'icons', icon_name: 'account' %}</a>
       {% endif %}
-      <a class="header__icon header__icon-cart" href="/cart">
+      <a 
+        class="header__icon header__icon-cart" 
+        href="/cart"
+        data-cart-link
+      >
         {%- if cart != empty -%}
           {% render 'icons', icon_name: 'cart-filled' %}
           <span class="header__cart-count p-5" data-cart-count>
@@ -124,6 +128,17 @@
 </div>
 
 <script src="{{ 'header.min.js' | asset_url }}" defer="defer"></script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const cartLink = document.querySelector('[data-cart-link]');
+    if (cartLink) {
+      cartLink.addEventListener('click', function(event) {
+        event.preventDefault();
+      });
+    }
+  });
+</script>
 
 {% schema %}
 {

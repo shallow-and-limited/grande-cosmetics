@@ -47,6 +47,28 @@
   width: 1rem;
   height: 1rem;
   margin: 0;
+  appearance: none;
+  -webkit-appearance: none;
+  border: 1px solid var(--color-rose);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.product__subscription-input:checked::before {
+  content: '';
+  display: block;
+  width: 0.5rem;
+  height: 0.5rem;
+  margin: 3px;
+  border-radius: 50%;
+  background-color: var(--color-rose);
+}
+
+.product__subscription select[data-selling-plan] {
+  background-color: #fff;
+  color: #000;
+  -webkit-appearance: none;
+  appearance: none;
 }
 
 .product__subscription-price {
@@ -94,12 +116,13 @@
 }
 
 .product__subscription-content ul li:before {
-  color: var(--color-bloom);
-  content: '✔';
+  color: var(--color-bloom) !important;
+  content: '\2714\fe0e';
 }
 
 .product__subscription-content--onetime ul li:before {
-  content: '✘';
+  color: var(--color-bloom) !important;
+  content: '\2718\fe0e';
 }
 
 
