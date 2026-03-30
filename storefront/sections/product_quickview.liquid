@@ -64,7 +64,7 @@
               class="product__price p-4"
               role="status"
             >
-              <div class="regios-dopp-generic-price-container">
+              <div class="regios-dopp-generic-price-container" data-regios-dopp-discount-even-when-hidden="true">
                 {% if selected_variant.compare_at_price > selected_variant.price %}
                   <div class="regios-dopp-generic-price-item--regular">{{ selected_variant.compare_at_price | money }}</div>
                   <div class="regios-dopp-generic-price-item--sale">{{ selected_variant.price | money }}</div>

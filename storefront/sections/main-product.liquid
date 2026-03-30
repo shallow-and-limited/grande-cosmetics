@@ -52,7 +52,7 @@
                       <div {{ block.shopify_attributes }} 
                         class="main-product__price p-4" data-product-prices>
                         <div class="main-product__price-wrapper">
-                          <div class="regios-dopp-generic-price-container">
+                          <div class="regios-dopp-generic-price-container" data-regios-dopp-discount-even-when-hidden="true">
                             {% if product.selected_or_first_available_variant.compare_at_price > product.selected_or_first_available_variant.price %}
                               <div class="regios-dopp-generic-price-item--regular">{{ product.selected_or_first_available_variant.compare_at_price | money_without_trailing_zeros }}</div>
                               <div class="regios-dopp-generic-price-item--sale">{{ product.selected_or_first_available_variant.price | money_without_trailing_zeros }}</div>
@@ -537,7 +537,7 @@
             {{ 'products.product.add_to_cart' | t }}
             
             •
-            <div class="regios-dopp-generic-price-container">
+            <div class="regios-dopp-generic-price-container" data-regios-dopp-discount-even-when-hidden="true">
               {% if product.selected_or_first_available_variant.compare_at_price > product.selected_or_first_available_variant.price %}
                 <div class="regios-dopp-generic-price-item--regular">{{ product.selected_or_first_available_variant.compare_at_price | money_without_trailing_zeros }}</div>
                 <div class="regios-dopp-generic-price-item--sale">{{ product.selected_or_first_available_variant.price | money_without_trailing_zeros }}</div>
