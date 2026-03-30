@@ -10,6 +10,29 @@
   .footer__content {
     background-color: {{ _settings.background_color }};
   }
+  .footer__language-selector {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 16px;
+  }
+
+  @media(min-width: 1024px) {
+    .footer__language-selector {
+      margin-top: 0;
+    }
+  }
+
+  .footer__language-label {
+    margin: 0;
+  }
+  .footer__language-select {
+    padding: 6px 3px;
+    border: 1px solid var(--color-medium-gray);
+    border-radius: .5rem;
+  }
 </style>
 
 <section {% if template contains 'account' or template contains 'login' or template contains 'register' or template contains 'reset' %}class="footer__wrapper"{% endif %}>
@@ -91,6 +114,45 @@
         {% endfor %}
       </div>
       <div class="footer__copyright p-4 hide-mobile">{{ _settings.copyright }}&nbsp;{{ 'now' | date: '%Y' }}</div>
+
+      {% if localization.available_languages.size > 1 or customer.email contains "@satel.ca" %}
+        {%- assign current_iso = request.locale.iso_code -%}
+        {%- assign current_prefix = '/' | append: current_iso -%}
+        {%- assign current_prefix_with_slash = current_prefix | append: '/' -%}
+        {%- assign path = request.path -%}
+        {%- assign prefix_length = current_prefix_with_slash | size -%}
+        {%- assign path_prefix = path | slice: 0, prefix_length -%}
+        {%- if path == current_prefix -%}
+          {%- assign path_without_locale = '/' -%}
+        {%- elsif path_prefix == current_prefix_with_slash -%}
+          {%- assign path_without_locale = path | remove_first: current_prefix -%}
+        {%- else -%}
+          {%- assign path_without_locale = path -%}
+        {%- endif -%}
+
+        {%- assign footer_language_id = 'footer-language-select-' | append: section.id -%}
+        <language-selector class="footer__language-selector">
+          <label class="footer__language-label p-4" for="{{ footer_language_id }}">
+            {{- 'localization.language_label' | t -}}
+          </label>
+          <select
+            id="{{ footer_language_id }}"
+            class="footer__language-select"
+            name="locale_code"
+          >
+            {% for language in localization.available_languages %}
+              {%- assign url = language.root_url | append: path_without_locale -%}
+              <option
+                lang="{{ language.iso_code }}"
+                value="{{ url | replace: '//', '/' }}"
+                {% if localization.language.iso_code == language.iso_code %} selected{% endif %}
+              >
+                {{ language.name }}
+              </option>
+            {% endfor %}
+          </select>
+        </language-selector>
+      {% endif %}
     </div>
     <div class="footer__copyright-mobile hide-desktop">
       <span class="p-4">{{ _settings.copyright }}&nbsp;{{ 'now' | date: '%Y' }}</span>
