@@ -388,12 +388,26 @@
   padding: 0 !important;
 }
 
+[data-rebuy-component=progress-bar] .rebuy-cart__progress-bar-meter {
+  background: #FFC1C1 !important;
+}
+
+[data-rebuy-component=progress-bar] .rebuy-cart__progress-step-icon {
+  background: #FFC1C1 !important;
+}
+
+[data-rebuy-component=progress-bar] .rebuy-cart__progress-step-icon path {
+  fill: #eb3688 !important;
+}
+
 [data-rebuy-component="progress-bar"] .rebuy-cart__progress-step {
   gap: 4px;
 }
 
-[data-rebuy-component="progress-bar"] .rebuy-cart__progress-step-label {
-  font: var(--font-p-5) !important;
+[data-rebuy-component=progress-bar] .rebuy-cart__progress-step-label {
+  font: var(--font-p-3) !important;
+  text-overflow: initial !important;
+  white-space: normal !important;
 }
 
 [data-rebuy-component=progress-bar] .rebuy-cart__progress-bar-prompt {
