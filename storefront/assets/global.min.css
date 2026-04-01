@@ -353,3 +353,183 @@
 .quickview-actions .btn {
   width: 100%;
 }
+
+
+/** Rebuy Cart */
+.rebuy-cart__flyout {
+  gap: 0 !important;
+}
+
+[data-rebuy-cart-anchor="header"] {
+  padding: 3.375rem 3.375rem 0 !important;
+  border: none !important;
+  background-color: var(--color-beige) !important;
+}
+
+[data-rebuy-cart-anchor="header"] [data-rebuy-cart-header-top] {
+  padding: 0 !important;
+}
+
+[data-rebuy-cart-anchor="header"] .rebuy-cart__title {
+  font-size: 1.875rem !important;
+  line-height: 2.125rem !important;
+  font-family: "PerfectlyNineties" !important;
+  text-align: left !important;
+  text-transform: capitalize !important;
+}
+
+[data-rebuy-cart-anchor="goalBox"] {
+  padding: 1.375rem 3.375rem 0 !important;
+  border: none !important;
+  background-color: var(--color-beige) !important;
+}
+
+[data-rebuy-component="progress-bar"] {
+  padding: 0 !important;
+}
+
+[data-rebuy-component="progress-bar"] .rebuy-cart__progress-step {
+  gap: 4px;
+}
+
+[data-rebuy-component="progress-bar"] .rebuy-cart__progress-step-label {
+  font: var(--font-p-5) !important;
+}
+
+[data-rebuy-component=progress-bar] .rebuy-cart__progress-bar-prompt {
+  margin-top: 16px !important;
+  font: var(--font-p-3) !important;
+}
+
+.rebuy-cart .rebuy-cart__progress-bar-wrapper {
+  margin: 0 !important;
+  align-items: center !important;
+}
+
+.rebuy-cart__progress-gifts {
+  margin-top: 16px;
+}
+
+[data-rebuy-component=progress-bar] .rebuy-cart__progress-gifts-title {
+  font: var(--font-p-3) !important;
+  font-family: "PerfectlyNineties" !important;
+}
+
+[data-rebuy-component=progress-bar] .rebuy-cart__progress-gift {
+  flex-direction: row !important;
+  max-width: 100% !important;
+}
+
+[data-rebuy-component=progress-bar] .rebuy-cart__progress-gift-title {
+  font: var(--font-p-3) !important;
+}
+
+[data-rebuy-component=progress-bar] .rebuy-cart__progress-gift-image {
+  width: 100px !important;
+  height: 100px !important;
+}
+
+[data-rebuy-component=progress-bar] .rebuy-cart__progress-bar-prompt {
+  gap: 4px !important;
+}
+
+.rebuy-cart__progress-gift-variant-readd {
+  font: var(--font-p-3) !important;
+  max-width: 100% !important;
+  padding: var(--button-padding) !important;
+}
+
+[data-rebuy-cart-anchor=body] {
+  gap: 0 !important;
+}
+
+[data-rebuy-component=cart-items] {
+  padding: 1.375rem 3.375rem 0 !important;
+  border: none !important;
+  background-color: var(--color-beige) !important;
+}
+
+[data-rebuy-component=cart-items] .rebuy-cart__flyout-item-product-title {
+  font: var(--font-p-2) !important;
+}
+
+[data-rebuy-component=cart-items] .rebuy-cart__flyout-item-price {
+  font: var(--font-p-3) !important;
+}
+
+.rebuy-cart__flyout-item-quantity-widget-button {
+  border: 0 !important;
+  background: transparent !important;
+}
+
+[data-rebuy-cart-scroll-area] {
+  background-color: var(--color-beige) !important;
+}
+
+[data-rebuy-component=cross-sell-widget] {
+  padding: 1.375rem 3.375rem 0 !important;
+  border: none !important;
+  background-color: var(--color-beige) !important;
+  border-bottom: 2px solid Var(--color-blush) !important;
+}
+
+[data-rebuy-component=cross-sell-widget] .rebuy-widget .super-title,
+[data-rebuy-component=cross-sell-widget] .rebuy-widget .primary-title,
+[data-rebuy-component=cross-sell-widget] .rebuy-widget .description {
+  font-size: 1.875rem !important;
+  line-height: 2.125rem !important;
+  font-family: "PerfectlyNineties" !important;
+  text-align: left !important;
+  text-transform: capitalize !important;
+  color: inherit !important;
+}
+
+[data-rebuy-component=cross-sell-widget] .rebuy-product-media {
+  width: 80px !important;
+}
+
+.rebuy-widget .rebuy-product-title, 
+.rebuy-widget .rebuy-product-title-link, 
+.rebuy-modal__product-title {
+  font: var(--font-p-2) !important;
+}
+
+[data-rebuy-component=discount-input] {
+  padding: 1.375rem 3.375rem !important;
+  border: none !important;
+  background-color: var(--color-beige) !important;
+}
+
+#rebuy-cart.has-items [data-rebuy-cart-anchor=footer] {
+  padding: 1.375rem 3.375rem !important;
+  gap: 0;
+  border: none !important;
+  background-color: var(--color-beige) !important;
+}
+
+[data-rebuy-component=cart-subtotal] {
+  padding: 0 !important;
+}
+
+.rebuy-cart .rebuy-cart__flyout-subtotal-label,
+.rebuy-cart .rebuy-cart__flyout-subtotal-amount,
+.rebuy-cart__flyout-subtotal-amount {
+  font: var(--font-p-2) !important;
+}
+
+.rebuy-widget .rebuy-product-block .rebuy-product-info .rebuy-product-price,
+.rebuy-recommended-products .rebuy-product-block .rebuy-product-info .rebuy-product-price {
+  font: var(--font-p-3) !important;
+}
+
+.rebuy-cart__flyout-empty-cart h4 {
+  font-size: 1.875rem !important;
+  line-height: 2.125rem !important;
+  font-family: "PerfectlyNineties" !important;
+  text-transform: capitalize !important;
+}
+
+.rebuy-cart__flyout-empty-cart p {
+  font: var(--font-p-2) !important;
+  margin-top: 12px;
+}
