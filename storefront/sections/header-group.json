@@ -22,6 +22,7 @@
         },
         "text_bfL8A4": {
           "type": "text",
+          "disabled": true,
           "settings": {
             "message": "<p><strong>25% OFF SITE-WIDE</strong></p>"
           }
@@ -79,7 +80,7 @@
         "text_7YEcCT"
       ],
       "settings": {
-        "font_size_desktop": "5px",
+        "font_size_desktop": "12px",
         "font_size_mobile": "11px",
         "custom_links": "<p><a href=\"/pages/loyalty\" title=\"Loyalty\">Rewards</a>   |   <a href=\"/pages/loyalty\" title=\"Loyalty\">Refer a Friend</a></p>"
       }

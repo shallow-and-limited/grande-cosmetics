@@ -25,6 +25,7 @@
       "blocks": {
         "hero_slide_Up8Chg": {
           "type": "hero_slide",
+          "disabled": true,
           "settings": {
             "color": "dark",
             "alignment_v": "middle",
@@ -49,7 +50,6 @@
         },
         "hero_slide_UqApiR": {
           "type": "hero_slide",
-          "disabled": true,
           "settings": {
             "color": "dark",
             "alignment_v": "middle",
@@ -606,6 +606,7 @@
       ],
       "disabled": true,
       "settings": {
+        "regios_key": "",
         "heading": "",
         "categories": true,
         "cta_copy": "",
@@ -742,6 +743,7 @@
       ],
       "name": "Product Carousel",
       "settings": {
+        "regios_key": "",
         "heading": "Shop Best Sellers",
         "categories": false,
         "cta_copy": "",
