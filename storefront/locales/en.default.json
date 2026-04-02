@@ -8,6 +8,10 @@
  * ------------------------------------------------------------
  */
 {
+  "quickbuy": "Quick Buy",
+  "add_to_bag": "Add to Bag",
+  "sold_out": "Sold Out",
+  "on_sale": "Sale",
   "general": {
     "password_page": {
       "login_form_heading": "Enter store using password:",

@@ -92,7 +92,7 @@
       <form method="post" action="/cart/add" data-add-to-cart-form>
         <quickbuy-trigger data-product-url="{{ product.url }}">
           <button class="product-card__atb btn btn--secondary p-3">
-            Quick Buy
+            {{ 'quickbuy' | t }}
          <span class='{% unless isCarousel %}hide-mobile{% endunless %}'>
            •
         <div class="regios-dopp-generic-price-container" data-regios-dopp-discount-even-when-hidden="true">
@@ -131,9 +131,9 @@
           {% endunless %}
         >
           {% if product.available %}
-            Add to Bag
+            {{ 'add_to_bag' | t }}
           {% else %}
-            Sold Out
+            {{ 'sold_out' | t }}
           {% endif %}
 
           <span class="{% unless isCarousel %}hide-mobile{% endunless %}">

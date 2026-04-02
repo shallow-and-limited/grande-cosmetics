@@ -6,7 +6,7 @@
     {% endif %}
   {%- endfor -%}
   {% if product.price < product.compare_at_price %}
-    <span class="badge badge--sale p-5 w-regular">Sale</span>
+    <span class="badge badge--sale p-5 w-regular">{{ 'on_sale' | t }}</span>
   {% endif %}
 
   {% if product.metafields.custom.product_badge != blank %}
