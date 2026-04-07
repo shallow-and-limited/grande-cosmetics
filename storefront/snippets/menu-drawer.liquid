@@ -4,7 +4,7 @@
 <div class="menu-drawer" data-menu-drawer>
   <nav class="menu-drawer__nav">
     <div class="menu-drawer__header">
-      <a href="/" class="menu-drawer__logo">{% render 'icons', icon_name: 'logo-on-light' %}</a>
+      <a href="{{ routes.root_url }}" class="menu-drawer__logo">{% render 'icons', icon_name: 'logo-on-light' %}</a>
       <span class="menu-drawer__close" data-close-menu>
         {% render 'icons', icon_name: 'close' %}
       </span>
@@ -57,7 +57,7 @@
       {% if section.settings.refer_link != blank %}
         <a href="{{ section.settings.refer_link }}" class="menu-drawer__link"><li class="p-3">{% render 'icons', icon_name: 'user-group' %}Refer a Friend</li></a>
       {% endif %}
-      <a href="/pages/contact" class="menu-drawer__link menu-drawer__link-contact"><li class="p-2">Contact Us</li></a>
+      <a href="{{ routes.root_url }}pages/contact" class="menu-drawer__link menu-drawer__link-contact"><li class="p-2">Contact Us</li></a>
     </ul> 
   </nav>
 </div>

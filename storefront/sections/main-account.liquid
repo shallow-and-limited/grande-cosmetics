@@ -21,9 +21,9 @@
         {% else %}
           <h1 class="h3 color-white">Hello!</h1>
         {% endif %}
-        <a href="/pages/loyalty" class="account__welcome-btn"><span class="p-3">Redeem My Rewards</span></a> 
+        <a href="{{ routes.root_url }}pages/loyalty" class="account__welcome-btn"><span class="p-3">Redeem My Rewards</span></a> 
         
-        <a href="/account/logout/" class="account__logout-btn"><span class="p-3">Log Out</span></a> 
+        <a href="{{ routes.account_logout_url }}" class="account__logout-btn"><span class="p-3">Log Out</span></a> 
       </div>
 
       <div class="account__blocks">

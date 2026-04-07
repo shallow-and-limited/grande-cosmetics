@@ -22,9 +22,9 @@
     </div>
 
     {% if _settings.logo != blank %}
-      <a class="header__logo" href="/"><img src="{{ _settings.logo | image_url }}" alt="Company Logo" /></a>
+      <a class="header__logo" href="{{ routes.root_url }}"><img src="{{ _settings.logo | image_url }}" alt="Company Logo" /></a>
     {% else %}
-      <a class="header__logo" href="/">
+      <a class="header__logo" href="{{ routes.root_url }}">
         {% render 'icons', icon_name: 'logo-on-light' %}
       </a>
     {% endif %}
@@ -98,7 +98,7 @@
       {% endif %}
       <a 
         class="header__icon header__icon-cart" 
-        href="/cart"
+        href="{{ routes.cart_url }}"
         data-cart-link
       >
         {%- if cart != empty -%}

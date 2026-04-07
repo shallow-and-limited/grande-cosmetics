@@ -28,6 +28,22 @@
   .footer__language-label {
     margin: 0;
   }
+
+  .footer__language-link {
+    color: var(--color-black);
+  }
+
+  .footer__language-link--selected {
+    font-weight: bold;
+    text-decoration: none;
+  }
+
+  .footer__language-separator {
+    width: 1px;
+    height: calc(1rem - 3px);
+    background: var(--color-black);
+  }
+
   .footer__language-select {
     padding: 6px 3px;
     border: 1px solid var(--color-medium-gray);
@@ -131,27 +147,29 @@
         {%- endif -%}
 
         {%- assign footer_language_id = 'footer-language-select-' | append: section.id -%}
-        <language-selector class="footer__language-selector">
+        <div class="footer__language-selector">
           <label class="footer__language-label p-4" for="{{ footer_language_id }}">
             {{- 'localization.language_label' | t -}}
           </label>
-          <select
-            id="{{ footer_language_id }}"
-            class="footer__language-select"
-            name="locale_code"
-          >
-            {% for language in localization.available_languages %}
-              {%- assign url = language.root_url | append: path_without_locale -%}
-              <option
-                lang="{{ language.iso_code }}"
-                value="{{ url | replace: '//', '/' }}"
-                {% if localization.language.iso_code == language.iso_code %} selected{% endif %}
-              >
-                {{ language.name }}
-              </option>
-            {% endfor %}
-          </select>
-        </language-selector>
+          {% for language in localization.available_languages %}
+            {%- assign url = language.root_url | append: path_without_locale -%}
+            <a
+              lang="{{ language.iso_code }}"
+              href="{{ url | replace: '//', '/' }}"
+              class="
+                footer__language-link
+                p-4
+                {% if localization.language.iso_code == language.iso_code %}footer__language-link--selected{% endif %}
+              "
+            >
+              {{ language.name }}
+            </a>
+
+            {% unless forloop.last %}
+              <span class="footer__language-separator"></span>
+            {% endunless %}           
+          {% endfor %}
+        </div>
       {% endif %}
     </div>
     <div class="footer__copyright-mobile hide-desktop">
