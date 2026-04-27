@@ -6,10 +6,10 @@
 <section>
   <div id="register_section">
     {% if _settings.bg_dsk != blank %}
-      <img class="customer__bg-dsk hide-mobile" src="{{ _settings.bg_dsk | image_url }}" alt="Account Background Image" />
+      <img class="customer__bg-dsk hide-mobile" src="{{ _settings.bg_dsk | image_url }}" alt="Account Background Image" width="{{ _settings.bg_dsk.width }}" height="{{ _settings.bg_dsk.height }}" />
     {% endif %}
     {% if _settings.bg_mob != blank %}
-      <img class="customer__bg-mob hide-desktop" src="{{ _settings.bg_mob | image_url }}" alt="Account Background Image" />
+      <img class="customer__bg-mob hide-desktop" src="{{ _settings.bg_mob | image_url }}" alt="Account Background Image" width="{{ _settings.bg_mob.width }}" height="{{ _settings.bg_mob.height }}" />
     {% endif %}
     <div class="customer register">
       {% render 'icons', icon_name: 'error', class: 'hide' %}
@@ -22,7 +22,7 @@
           {% for block in _blocks %}
           <li class="register__bullet">
             {% if block.settings.icon != blank %}
-              <img src="{{ block.settings.icon | image_url | width: 24 }}" />
+              <img src="{{ block.settings.icon | image_url: width: 24 }}" width="24" height="24" />
             {% endif %}
             <span class="p-4">{{ block.settings.bullet_text }}</span>
           </li>

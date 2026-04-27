@@ -37,7 +37,7 @@
             class="quickview-container__image"
           >
             <div class="media media--square">
-              {{ image | image_url: width: 1000 | image_tag }}
+              {{ image | image_url: width: 500 | image_tag: width: 500, height: 500, alt: image.alt }}
             </div>
           </div>
 
@@ -125,7 +125,7 @@
                             {% if swatch_code != blank %}style="background-color: {{ swatch_code }};"{% endif %}
                           >
                             {% if swatch_image != blank %}
-                              {{ swatch_image | image_url: width: swatch_image.width | image_tag }}
+                              {{ swatch_image | image_url: width: swatch_image.width | image_tag: width: swatch_image.width, height: swatch_image.height, alt: swatch_image.alt }}
                             {% endif %}
 
                             <span class="visually-hidden">

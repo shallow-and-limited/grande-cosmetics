@@ -87,7 +87,7 @@
             >
               <div class="swatch__inner" {% if swatch_code != blank %}style="background-color: {{ swatch_code }};"{% endif %}>
                 {% if swatch_image != blank %}
-                  {{ swatch_image | image_url: width: swatch_image.width | image_tag: class: 'swatch__image' }}
+                  {{ swatch_image | image_url: width: swatch_image.width | image_tag: class: 'swatch__image', width: swatch_image.width, height: swatch_image.height, alt: swatch_image.alt }}
                 {% endif %}
               </div>
             </button>
@@ -125,7 +125,7 @@
                       </div>
                       <div>
                         <span class="p-4">{{ block.subtitle }}</span>
-                        {{ block.icon | image_url: width: block.icon.width | image_tag: class: 'icon' }}
+                        {{ block.icon | image_url: width: block.icon.width | image_tag: class: 'icon', width: block.icon.width, height: block.icon.height, alt: block.icon.alt }}
                       </div>
                     </div>
                   {% endif %}
@@ -133,7 +133,7 @@
                     {{ block.copy | metafield_tag }}
                   {% endif %}
                   {% if block.image != blank %}
-                    {{ block.image | image_url: width: block.image.width | image_tag: class: 'w-100' }}
+                    {{ block.image | image_url: width: block.image.width | image_tag: class: 'w-100', width: block.image.width, height: block.image.height, alt: block.image.alt }}
                   {% endif %}
                 </div>
               {% endfor %}

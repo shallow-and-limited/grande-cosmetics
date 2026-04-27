@@ -87,7 +87,7 @@
                                 {% endif %}
                               ></span>
                             {% elsif value.display.type == 'image' %}
-                              <img src="{{ value.display.value | image_url: width: 250 }}" alt="{{ value.label }}">
+                              <img src="{{ value.display.value | image_url: width: 250 }}" alt="{{ value.label }}" width="250" height="250">
                             {% endif %}
                           </label>
                         </li>

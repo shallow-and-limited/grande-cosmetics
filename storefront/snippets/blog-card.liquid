@@ -6,6 +6,8 @@
         src="{{ article.image | image_url: width: 500 }}"
         alt="Image for article - {{ article.title }}"
         loading="lazy"
+        width="500"
+        height="500"
       >
       {% if article.tags contains "Video" %}
         {% render 'icons', icon_name: 'video-blog' %}

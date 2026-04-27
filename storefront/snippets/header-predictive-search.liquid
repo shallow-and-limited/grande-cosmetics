@@ -118,7 +118,7 @@
             {% for _product in data.product.value %}
               <div class="popular-searches__product">
                 <a href="{{ _product.url }}" class="mega-menu__product">
-                  <img class="mega-menu__product-img" src="{{ _product.featured_image | image_url: width: 265, height: 332 }}" />
+                  <img class="mega-menu__product-img" src="{{ _product.featured_image | image_url: width: 265, height: 332 }}" width="265" height="332" />
                   <span class="mega-menu__product-category p-5">{{ _product.title }}</span>
                   <span class="mega-menu__product-title p-2">{{ _product.metafields.details.subtitle }}</span>
                 </a>

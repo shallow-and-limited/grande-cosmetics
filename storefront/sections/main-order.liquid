@@ -41,7 +41,7 @@
       <div class="order__body">
         {%  for line_item in order.line_items %}
           <div class="order__item">
-            <img class="order__product-image" width="90" height="90" src="{{ line_item.image | image_url: width: 170, height: 170 }}">
+            <img class="order__product-image" width="90" height="90" src="{{ line_item.image | image_url: width: 170, height: 170 }}" width="170" height="170">
             <span class="order__product-details">
 
               {%- if line_item.url != blank -%}

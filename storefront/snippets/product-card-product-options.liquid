@@ -51,7 +51,7 @@
               >
                 <div class="swatch__inner" {% if swatch_code != blank %}style="background-color: {{ swatch_code }};"{% endif %}>
                   {% if swatch_image != blank %}
-                    {{ swatch_image | image_url: width: swatch_image.width | image_tag: class: 'swatch__image' }}
+                    {{ swatch_image | image_url: width: swatch_image.width | image_tag: class: 'swatch__image', width: swatch_image.width, height: swatch_image.height, alt: swatch_image.alt }}
                   {% endif %}
                 </div>
               </button>

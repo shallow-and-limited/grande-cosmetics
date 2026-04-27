@@ -9,7 +9,7 @@
       <div class="mobile-submenu__products">
         {% for _product in menu_block.product_list %}
           <a href="{{ _product.url }}" class="mobile-submenu__product">
-            <img class="mobile-submenu__product-img" src="{{ _product.featured_image | image_url: width: 60 }}" />
+            <img class="mobile-submenu__product-img" src="{{ _product.featured_image | image_url: width: 60 }}" width="60" height="{{ _product.featured_image.height }}" />
             <div>
               <span class="mobile-submenu__product-category p-5">{{ _product.metafields.details.subtitle }}</span>
               <span class="mobile-submenu__product-title p-2">{{ _product.title }}</span>
