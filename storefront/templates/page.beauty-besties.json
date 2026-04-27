@@ -1,0 +1,100 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "shogun-helper": {
+      "type": "shogun-helper",
+      "disabled": true,
+      "settings": {}
+    },
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {}
+    },
+    "shogun-optimizer": {
+      "type": "shogun-optimizer",
+      "disabled": true,
+      "settings": {}
+    },
+    "split_banner_NEt8yf": {
+      "type": "split-banner",
+      "blocks": {
+        "body_copy_iRx8p8": {
+          "type": "body-copy",
+          "settings": {
+            "copy": "<p>This holiday season, we’re bringing back the joy of togetherness — both in spirit and in self-care. Inspired by retro holiday nostalgia, our Better Together collection celebrates the power of meaningful pairings: time with loved ones, thoughtful gifting, and beauty routines that work better in sync.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "body_copy_iRx8p8"
+      ],
+      "disabled": true,
+      "settings": {
+        "style": "beige",
+        "padding": "full-width",
+        "arrangement": "right_asset_left_content",
+        "header": "h2",
+        "alignment": "centered",
+        "vertical_alignment": "middle",
+        "module_height": "image-height",
+        "image_d": "shopify://shop_images/Holiday2025-WaitlistBannerImage.jpg",
+        "video_poster_d": true,
+        "video_poster_m": true,
+        "video_autoplay": true,
+        "eyebrow": "2025 Holiday Collection Coming Soon",
+        "heading": "Holiday Set Drop: Be The First To Know",
+        "cta_url": "",
+        "cta_copy": ""
+      }
+    },
+    "banner_CxehDA": {
+      "type": "banner",
+      "settings": {
+        "color": "dark",
+        "background": "beige",
+        "alignment": "center",
+        "eyebrow": "Stay in the loop",
+        "heading": "Join the Grande Creator Circle ✨",
+        "heading_size": "h2",
+        "copy": "Get exclusive access to collabs, commissions, and insider drops.",
+        "cta_url": "",
+        "cta_copy": "",
+        "cta_url_alt": "",
+        "cta_copy_alt": "",
+        "overlay": 0
+      }
+    },
+    "172434219355204037": {
+      "type": "apps",
+      "blocks": {
+        "klaviyo_email_marketing_sms_form_embed_block_3tmg8W": {
+          "type": "shopify://apps/klaviyo-email-marketing-sms/blocks/form-embed-block/2632fe16-c075-4321-a88b-50b567f42507",
+          "settings": {
+            "formId": "SqqAfG"
+          }
+        }
+      },
+      "block_order": [
+        "klaviyo_email_marketing_sms_form_embed_block_3tmg8W"
+      ],
+      "settings": {}
+    }
+  },
+  "order": [
+    "shogun-helper",
+    "main",
+    "shogun-optimizer",
+    "split_banner_NEt8yf",
+    "banner_CxehDA",
+    "172434219355204037"
+  ]
+}

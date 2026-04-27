@@ -559,6 +559,9 @@
       },
       "payment_gateway": {
         "fixed_direct_payment_terms": "TRY BEFORE YOU BUY: The full amount will appear as a pending transaction to reserve your items. You are only charged for what you keep."
+      },
+      "contact": {
+        "optional_phone_label": "Phone (optional) "
       }
     }
   }

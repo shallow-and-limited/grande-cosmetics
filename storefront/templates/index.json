@@ -32,17 +32,17 @@
             "alignment_h": "center",
             "alignment_v_m": "middle_m",
             "alignment_h_m": "center_m",
-            "image_d": "shopify://shop_images/Spring_Savings_Homepage_Banners-Desktop.png",
+            "image_d": "shopify://shop_images/Spring_Cleaning_Homepage_Banners-Desktop.png",
             "video_poster_d": true,
-            "image_m": "shopify://shop_images/Spring_Savings_Homepage_Banners-Mobile.png",
+            "image_m": "shopify://shop_images/Spring_Cleaning_Homepage_Banners-Mobile.png",
             "video_poster_m": true,
             "video_autoplay": true,
-            "eyebrow": "Friends & Family Sale",
-            "heading": "25% Off Sitewide",
+            "eyebrow": "buy more, save more",
+            "heading": "Up To 25% Off",
             "heading_size": "h2",
             "copy": "",
             "cta_url": "shopify://collections/best-sellers",
-            "cta_copy": "Start Shopping",
+            "cta_copy": "Shop the Sale",
             "cta_url_alt": "",
             "cta_copy_alt": "",
             "overlay": 0
@@ -1077,7 +1077,8 @@
             "size": "large",
             "player_placement": "bottom-right",
             "hashtag": "",
-            "pip": true
+            "pip": true,
+            "enable_seo": true
           }
         },
         "rebuy_personalization_engine_rebuy_widget_fDFp4B": {

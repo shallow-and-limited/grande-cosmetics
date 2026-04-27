@@ -22,6 +22,7 @@
   width: 100%;
   height: 100%;
   z-index: 2;
+  pointer-events: none;
 
   display: flex;
   flex-direction: column;
@@ -32,6 +33,7 @@
 }
 
 .media-banner__box {
+  pointer-events: auto;
   width: 100%;
   max-width: 532px;  
 

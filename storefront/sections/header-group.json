@@ -24,7 +24,7 @@
           "type": "text",
           "disabled": true,
           "settings": {
-            "message": "<p><strong>25% OFF SITE-WIDE</strong></p>"
+            "message": "<p><a href=\"/collections/best-sellers\" title=\"Best Sellers\"><strong>SHOP 15% OFF $50+, 20% OFF $75+, 25% OFF $100+</strong></a></p>"
           }
         },
         "text_xb4K68": {
