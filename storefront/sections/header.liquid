@@ -129,6 +129,7 @@
 
 <script src="{{ 'header.min.js' | asset_url }}" defer="defer"></script>
 
+{% comment %}
 <script>
   document.addEventListener('DOMContentLoaded', function() {
     const cartLink = document.querySelector('[data-cart-link]');
@@ -139,6 +140,7 @@
     }
   });
 </script>
+{% endcomment %}
 
 {% schema %}
 {

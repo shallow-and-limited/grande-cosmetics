@@ -23,7 +23,7 @@
 	var product = {};
 	var variants = [];
 	{% for v in product.variants %}
-	variants.push({id:{{ v.id }},policy:"{{v.inventory_policy }}",price:{{v.price}},iq:{{ v.inventory_quantity }}});
+	variants.push({id:{{ v.id | json }},policy:{{v.inventory_policy | json }},price:{{v.price | default: 0 | json}},iq:{{ v.inventory_quantity | default: 0 | json }}});
 	{% endfor %}
 	product.variants = variants;
 	product.oos = !{{product.available}};
@@ -39,8 +39,8 @@
         {{shop.metafields.visually_io.app_bootstrap.value}}
     })()
 </script>
-<link href="{{shop.metafields.visually_io.sdk_url.value | default: 'https://assets.visually.io/vsly/lib/visually.js'}}?cb=8af8c396" rel="preload" as="script" data-em-disable>
-<script rel="prefetch" type="text/javascript" src="{{shop.metafields.visually_io.sdk_url.value | default: 'https://assets.visually.io/vsly/lib/visually.js'}}?cb=8af8c396" data-em-disable></script>
+<link href="{{shop.metafields.visually_io.sdk_url.value | default: 'https://assets.visually.io/vsly/lib/visually.js'}}?cb=40337d80" rel="preload" as="script" data-em-disable>
+<script rel="prefetch" type="text/javascript" src="{{shop.metafields.visually_io.sdk_url.value | default: 'https://assets.visually.io/vsly/lib/visually.js'}}?cb=40337d80" data-em-disable></script>
 <link href="https://assets.visually.io/widgets/vsly-preact.min.js" rel="preload" as="script" data-em-disable>
 <script data-vsly="preact2" type="text/javascript" src="https://assets.visually.io/widgets/vsly-preact.min.js" data-em-disable></script>
 <!--LOOMI SDK-->

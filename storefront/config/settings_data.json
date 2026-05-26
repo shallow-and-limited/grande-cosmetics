@@ -126,6 +126,14 @@
           "feature_flags": "watchForInfiniteScroll",
           "disable_auto_config": false
         }
+      },
+      "3408556835904117202": {
+        "type": "shopify://apps/regios-discounts/blocks/regios_add_to_cart_embed/dc1514bb-4830-4102-bffa-e8b300bac5bd",
+        "disabled": false,
+        "settings": {
+          "reload_in_unsupported_themes": true,
+          "re_add_after_manual_removal": false
+        }
       }
     }
   },
