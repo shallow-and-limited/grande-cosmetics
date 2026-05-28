@@ -31,29 +31,115 @@
     ]
   },
   {
-    "name": "Checkout",
+    "name": "Cart",
     "settings": [
       {
-        "type": "textarea",
-        "id": "checkout_privacy_policy_message",
-        "label": "Terms & Conditions Message on Checkout",
-        "default": "I agree with the Terms of Use & Privacy Policy"
+        "type": "checkbox",
+        "id": "cart_drawer_enabled",
+        "label": "Cart Drawer Enabled",
+        "default": true
       },
       {
         "type": "textarea",
-        "id": "checkout_privacy_alert_message",
-        "label": "Terms & Conditions Alert Message",
-        "default": "You must agree with the terms and conditions of sales to check out."
+        "id": "cart_footer_message",
+        "label": "Cart footer message",
+        "default": "Shipping and promotions calculated in checkout."
+      },
+      {
+        "type": "header",
+        "content": "Shipping calculator"
+      },
+      {
+        "type": "checkbox",
+        "id": "shipping_calculator_enabled",
+        "label": "Enable shipping calculator",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "shipping_calculator_threshold",
+        "label": "Threshold",
+        "info": "Enter the price at which free shipping is available in CENTS"
       },
       {
         "type": "textarea",
-        "id": "html_privacy_policy",
-        "label": "Add html for Privacy Policy Popup"
+        "id": "shipping_calculator_incomplete",
+        "label": "Incomplete message",
+        "info": "Use |price| to display the remaining price",
+        "default": "You're |price| away from free shipping!"
       },
       {
         "type": "textarea",
-        "id": "html_terms_of_use",
-        "label": "Add html for Terms of Use Popup"
+        "id": "shipping_calculator_complete",
+        "label": "Complete message",
+        "default": "Congrats! You've qualified for free shipping!"
+      },
+      {
+        "type": "header",
+        "content": "Product Carousel 1"
+      },
+      {
+        "type": "collection",
+        "id": "cart_drawer_collection_1",
+        "label": "Collection"
+      },
+      {
+        "type": "text",
+        "id": "cart_drawer_collection_title_1",
+        "label": "Title"
+      },
+      {
+        "type": "richtext",
+        "id": "cart_drawer_collection_description_1",
+        "label": "Description"
+      },
+      {
+        "type": "header",
+        "content": "Product Carousel 2"
+      },
+      {
+        "type": "collection",
+        "id": "cart_drawer_collection_2",
+        "label": "Collection"
+      },
+      {
+        "type": "text",
+        "id": "cart_drawer_collection_title_2",
+        "label": "Title"
+      },
+      {
+        "type": "richtext",
+        "id": "cart_drawer_collection_description_2",
+        "label": "Description"
+      },
+      {
+        "type": "header",
+        "content": "Cart Upsell Products"
+      },
+      {
+        "type": "checkbox",
+        "id": "cart_upsell_enabled",
+        "label": "Cart Upsell Products Enabled"
+      },
+      {
+        "type": "collection",
+        "id": "upsell_products",
+        "label": "Upsell Products"
+      },
+      {
+        "type": "collection",
+        "id": "qualifying_products",
+        "label": "Products that will qualify the customer for the discount"
+      },
+      {
+        "type": "richtext",
+        "id": "qualified_text",
+        "label": "Qualified Promo Text"
+      },
+      {
+        "type": "richtext",
+        "id": "unqualified_text",
+        "label": "Unqualified Promo Text"
       }
     ]
   }

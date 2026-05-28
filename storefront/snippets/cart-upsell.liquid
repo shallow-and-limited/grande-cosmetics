@@ -1,0 +1,111 @@
+{%- assign upsell_products = settings.upsell_products -%}
+{%- assign qualifying_products = settings.qualifying_products -%}
+
+{%- if upsell_products != blank and qualifying_products != blank -%}
+  {%- assign has_qualifying_product = false -%}
+
+  {%- for item in cart.items -%}
+    {%- for qualifying_product in qualifying_products.products -%}
+      {%- if item.product.handle == qualifying_product.handle -%}
+        {%- assign has_qualifying_product = true -%}
+        {%- break -%}
+      {%- endif -%}
+    {%- endfor -%}
+    {%- if has_qualifying_product -%}
+      {%- break -%}
+    {%- endif -%}
+  {%- endfor -%}
+
+  <div class="{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+    {%- if has_qualifying_product -%}
+      <p>{{ settings.qualified_text }}</p>
+    {%- else -%}
+      <p>{{ settings.unqualified_text }}</p>
+    {%- endif -%}
+    
+    <slider-component>
+      <ul
+        class="cart-carousel__grid slider slider--mobile slider--desktop"
+        id="Slider-CartDrawer-{{ x }}"
+        role="list"
+      >
+        {%- for upsell_product in upsell_products.products -%}
+          {%- unless upsell_product.selected_or_first_available_variant.available -%}
+            {%- continue -%}
+          {%- endunless -%}
+
+          <li
+            class="grid__item slider__slide upsell-grid__item"
+            id="Slide-CartDrawer-{{ x }}-{{ forloop.index }}"
+            {{ block.shopify_attributes }}
+          >
+            <div class="cart-upsell__item">
+              <div class="cart-upsell__item-image">
+                <a href="{{ upsell_product.url }}" class="link full-unstyled-link" tabindex="-1" aria-hidden="true">
+                  <div class="media media--square">
+                    {% if upsell_product.featured_image %}
+                      <img
+                        src="{{ upsell_product.featured_image | image_url: width: 300 }}"
+                        alt="{{ upsell_product.featured_image.alt | escape }}"
+                        loading="lazy"
+                        width="150"
+                        height="{{ 150 | divided_by: upsell_product.featured_image.aspect_ratio | ceil }}"
+                      >
+                    {% endif %}
+                  </div>
+                </a>
+              </div>
+
+              <div class="cart-upsell__item-info">
+                <div class="cart-upsell__item-details">
+                  <a
+                    href="{{ upsell_product.url }}"
+                    class="cart-upsell__item-name cart__item-name"
+                  >
+                    {{- upsell_product.title | escape -}}
+                  </a>
+
+                  {%- if upsell_product.selected_or_first_available_variant.title != 'Default Title' -%}
+                    <div class="cart__item-option">
+                      {{ upsell_product.selected_or_first_available_variant.title | escape }}
+                    </div>
+                  {%- endif -%}
+                </div>
+
+                <div class="cart-upsell__item-actions">
+                  {%- assign product_form_id = "Slide-CartDrawer-" | append: forloop.index | append: "-Form" -%}
+                  <div class="cart-upsell__action" id="{{ product_form_id }}">
+                    {% render 'buy-buttons', upsell: true, product: upsell_product, product_form_id: product_form_id, section_id: section_id %}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+        {%- endfor -%}
+      </ul>
+
+      {%- if upsell_products.products.size > 1 -%}
+        <div class="slider-buttons">
+          <button
+            type="button"
+            class="slider-button slider-button--prev"
+            name="previous"
+            aria-label="{{ 'sections.slideshow.previous_slideshow' | t }}"
+            aria-controls="Slider-{{ section.id }}"
+          >
+            {% render 'icon-caret' %}
+          </button>
+          <button
+            type="button"
+            class="slider-button slider-button--next"
+            name="next"
+            aria-label="{{ 'sections.slideshow.next_slideshow' | t }}"
+            aria-controls="Slider-{{ section.id }}"
+          >
+            {% render 'icon-caret' %}
+          </button>
+        </div>
+      {%- endif -%}
+    </slider-component>
+  </div>
+{%- endif -%}

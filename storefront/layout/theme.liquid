@@ -45,7 +45,14 @@
     {% render 'theme-styles' %}
     {% render 'theme-scripts' %}
 
+    <link rel="stylesheet" href="{{ 'base.css' | asset_url }}" />
+
     <script src="{{ 'global.min.js' | asset_url }}" defer="defer"></script>
+
+    {% if settings.cart_drawer_enabled %}
+      <script src="{{ 'cart.js' | asset_url }}" defer="defer"></script>
+      <script src="{{ 'cart-drawer.js' | asset_url }}" defer="defer"></script>
+    {% endif %}
 
     {% render 'shogun-head' %}
   </head>
@@ -77,6 +84,10 @@
     </main>
 
     {% sections 'footer-group' %}
+
+    {% if settings.cart_drawer_enabled %}
+      {%- render 'cart-drawer' -%}
+    {% endif %}
 
     <script>
       (function () {

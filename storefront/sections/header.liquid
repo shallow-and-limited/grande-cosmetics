@@ -96,6 +96,7 @@
       {% else %}
       <a class="header__icon" href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}">{% render 'icons', icon_name: 'account' %}</a>
       {% endif %}
+      
       <a 
         class="header__icon header__icon-cart" 
         href="{{ routes.cart_url }}"

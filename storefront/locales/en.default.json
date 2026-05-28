@@ -313,6 +313,10 @@
       }
     },
     "cart": {
+      "upsell": {
+        "title": "Upgrade to a set",
+        "button": "Add to cart"
+      },
       "title": "Your cart",
       "caption": "Cart items",
       "remove_title": "Remove {{ title }}",
@@ -394,7 +398,10 @@
       "total_items": "Total items",
       "remove_all_items_confirmation": "Remove all {{ quantity }} items from your cart?",
       "remove_all": "Remove all",
-      "cancel": "Cancel"
+      "cancel": "Cancel",
+      "min_error": "This item has a minimum of {{ min }}",
+      "max_error": "This item has a maximum of {{ max }}",
+      "step_error": "You can only add this item in increments of {{ step }}"
     }
   },
   "localization": {
