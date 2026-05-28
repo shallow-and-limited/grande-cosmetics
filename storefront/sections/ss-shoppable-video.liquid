@@ -1981,6 +1981,11 @@
                   _this.handleErrorMessage(response.description);
                   return;
                 }
+
+                const cartDrawer = document.querySelector("cart-drawer");
+                if (cartDrawer) {
+                  cartDrawer.fullUpdate(true);
+                }
               })["catch"](function (e) {
                 console.error(e);
               })["finally"](function () {});

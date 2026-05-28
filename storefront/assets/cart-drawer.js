@@ -114,12 +114,16 @@ class CartDrawer extends HTMLElement {
       .querySelector(selector);
   }
 
-  fullUpdate() {
+  fullUpdate(open = false) {
     return fetch(`${routes.cart_url}?section_id=cart-drawer`)
       .then((response) => response.text())
       .then((responseText) => {
         const html = new DOMParser().parseFromString(responseText, 'text/html');
-        this.innerHTML = html.querySelector('cart-drawer').innerHTML;
+        this.querySelector('.drawer__container').innerHTML = html.querySelector('.drawer__container').innerHTML;
+
+        if (open) {
+          this.open();
+        }
       });
   }
 
