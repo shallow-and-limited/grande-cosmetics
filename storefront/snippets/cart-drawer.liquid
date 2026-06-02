@@ -319,6 +319,7 @@
                       class="grid__item slider__slide"
                       id="Slide-CartDrawer-{{ x }}-{{ forloop.index }}"
                       {{ block.shopify_attributes }}
+                      data-regios-dopp-generic-product-id="{{ product.id }}"
                     >
                       <div class="cart-carousel__item">
                         <div class="cart-carousel__item-image">
@@ -349,7 +350,16 @@
 
                           <div class="cart-carousel__item-actions">
                             <div class="cart-carousel__price body body--small">
-                              {% render 'price' with product: product, use_variant: true, show_badges: false %}
+                              <div class="regios-dopp-generic-price-container" data-regios-dopp-discount-even-when-hidden="true">
+                                {% if product.compare_at_price > product.price %}
+                                  <div class="regios-dopp-generic-price-item--regular">{{ product.selected_or_first_available_variant.compare_at_price | money_without_trailing_zeros }}</div>
+                                  <div class="regios-dopp-generic-price-item--sale">{{ product.selected_or_first_available_variant.price | money_without_trailing_zeros }}</div>
+                                {% else %}
+                                  <!-- `regios-dopp-generic-price-item--regular` must be present, even if the item isn't already on sale -->
+                                  <div class="regios-dopp-generic-price-item--regular" style="display: none"></div>
+                                  <div class="regios-dopp-generic-price-item--sale">{{ product.selected_or_first_available_variant.price | money_without_trailing_zeros }}</div>
+                                {% endif %}
+                              </div>
                             </div>
 
                             <div class="cart-carousel__action">
