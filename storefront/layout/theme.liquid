@@ -2,6 +2,10 @@
 <!doctype html>
 <html class="no-js" lang="{{ request.locale.iso_code }}">
   <head>
+    {%- if request.design_mode == false -%}
+      <script src="https://cmp.osano.com/AzqTU8UCNqbF03lez/1ce67a0e-cd34-495b-b6e9-b496e34c4646/osano.js"></script>
+    {%- endif -%}
+
     {% render 'visually_io_sdk' %}
     {% comment %}
       === Google Tag Manager (GTM) ===
@@ -16,11 +20,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="theme-color" content="">
     <link rel="canonical" href="{{ canonical_url }}">
-    <link rel="preconnect" href="https://cdn.shopify.com" crossorigin>
-
-    {%- if request.design_mode == false -%}
-      <script src="https://cmp.osano.com/AzqTU8UCNqbF03lez/1ce67a0e-cd34-495b-b6e9-b496e34c4646/osano.js"></script>
-    {%- endif -%}
+    <link rel="preconnect" href="https://cdn.shopify.com" crossorigin>    
 
     <title>
       {{ page_title }}
@@ -226,5 +226,25 @@
         display: none;
       }
     </style>
+
+    <script>
+      window.Shopify.loadFeatures(
+        [
+          {
+            name: 'consent-tracking-api',
+            version: '0.1',
+          },
+        ],
+        function (error) {
+          if (!error) {
+            try {
+              window.Osano.cm.ready('shopify');
+            } catch (error) {
+              console.error('Osano must be loaded before initializing the Shopify API.');
+            }
+          }
+        }
+      );
+    </script>    
   </body>
 </html>
