@@ -13,6 +13,7 @@
     "storefront_api_key": "66293c018a0c8a2396a88167c3793f51",
     "favicon": "shopify://shop_images/CircleLogo-NoBackground.png",
     "yotpo_instance_id": "772720",
+    "cart_drawer_enabled": false,
     "shipping_calculator_enabled": true,
     "shipping_calculator_threshold": "5000",
     "cart_drawer_collection_1": "10-steals",
