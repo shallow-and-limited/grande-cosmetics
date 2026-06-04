@@ -17,7 +17,10 @@ This file can be re-written at any time.
     <link rel="preconnect" href="https://cdn.shopify.com" crossorigin>
 
     <script src="https://cmp.osano.com/AzqTU8UCNqbF03lez/1ce67a0e-cd34-495b-b6e9-b496e34c4646/osano.js"></script>
-    
+
+    {% comment %} Google Consent Mode v2 — must run before content_for_header (which can inject Google tags). {% endcomment %}
+    {% render 'gtm-consent-mode' %}
+
     <title>
       {{ page_title }}
       {%- if current_tags %} &ndash; tagged "{{ current_tags | join: ', ' }}"{% endif -%}
@@ -123,7 +126,27 @@ This file can be re-written at any time.
       background: white !important;
     }
   </style>
-  
+
+  <script>
+    window.Shopify.loadFeatures(
+      [
+        {
+          name: 'consent-tracking-api',
+          version: '0.1',
+        },
+      ],
+      function (error) {
+        if (!error) {
+          try {
+            window.Osano.cm.ready('shopify');
+          } catch (error) {
+            console.error('Osano must be loaded before initializing the Shopify API.');
+          }
+        }
+      }
+    );
+  </script>
+
 </body>
 
 </html>

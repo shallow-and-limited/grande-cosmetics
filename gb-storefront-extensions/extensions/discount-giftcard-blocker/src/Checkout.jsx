@@ -12,7 +12,7 @@ const GIFT_CARD_PRODUCT_TYPE = 'Gift Cards';
 
 const BLOCKED_HEADING = "You can not add coupon for the Gift Card.";
 const BLOCKED_MESSAGE =
-  "Discount codes can't be applied to orders that contain a gift card. Please remove the discount code or the gift card from your cart to continue.";
+  "Discount codes cannot be applied to orders that contain a gift card. Please remove the discount code or the gift card from your cart to continue.";
 
 function Extension() {
   console.log(shopify.discountCodes.value);

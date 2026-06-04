@@ -7,6 +7,10 @@
     {%- endif -%}
 
     {% render 'visually_io_sdk' %}
+
+    {% comment %} Google Consent Mode v2 — must run before GTM so its tags respect opt-out. {% endcomment %}
+    {% render 'gtm-consent-mode' %}
+
     {% comment %}
       === Google Tag Manager (GTM) ===
       Required for marketing.

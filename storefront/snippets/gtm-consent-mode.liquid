@@ -1,0 +1,80 @@
+{% comment %}
+  === Google Consent Mode v2 ===
+  Initializes Consent Mode in a "denied" state BEFORE Google Tag Manager (and any
+  Google tag) loads, then updates the signals from the Osano CMP consent state.
+
+  Why this exists:
+  GTM (googletagmanager.com) is classified "Essential" in Osano, so Osano does not
+  block it. Without Consent Mode, every tag GTM fires (Google Ads, GA4, Microsoft
+  Ads, etc.) runs regardless of opt-out. Consent Mode lets gtm.js load while holding
+  storage/tags until the user grants consent.
+
+  IMPORTANT:
+  - This MUST be rendered BEFORE 'gtm-head' (and before content_for_header, which can
+    inject Google tags via Shopify apps/channels).
+  - Google's own tags respect these signals automatically. NON-Google tags inside the
+    GTM container (e.g. Microsoft Ads) still need per-tag "Consent Settings ->
+    Require additional consent" configured in the GTM container itself.
+  - If Osano's native Google Consent Mode integration is enabled in the Osano
+    dashboard, it will also push these signals. Both push the same values, so it is
+    redundant but not harmful. Prefer keeping only one source of truth.
+{% endcomment %}
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+
+  // Deny everything until the user grants consent. Applied to all regions (strictest).
+  gtag('consent', 'default', {
+    ad_storage: 'denied',
+    ad_user_data: 'denied',
+    ad_personalization: 'denied',
+    analytics_storage: 'denied',
+    personalization_storage: 'denied',
+    functionality_storage: 'granted',
+    security_storage: 'granted',
+    wait_for_update: 500
+  });
+
+  // Consent Mode v2 recommended settings.
+  gtag('set', 'ads_data_redaction', true);
+  gtag('set', 'url_passthrough', true);
+</script>
+
+<script>
+  // Bridge: map Osano CMP consent -> Google Consent Mode signals.
+  (function () {
+    function toState(consent, category) {
+      return consent && consent[category] === 'ACCEPT' ? 'granted' : 'denied';
+    }
+
+    function update(consent) {
+      // Osano categories: ESSENTIAL, MARKETING, ANALYTICS, PERSONALIZATION.
+      var marketing = toState(consent, 'MARKETING');
+      gtag('consent', 'update', {
+        ad_storage: marketing,
+        ad_user_data: marketing,
+        ad_personalization: marketing,
+        analytics_storage: toState(consent, 'ANALYTICS'),
+        personalization_storage: toState(consent, 'PERSONALIZATION')
+      });
+    }
+
+    function bind() {
+      if (!window.Osano || !window.Osano.cm) return false;
+      // Fires once Osano has loaded the visitor's stored consent (covers returning users).
+      Osano.cm.addEventListener('osano-cm-initialized', update);
+      // Fires whenever the visitor changes their preferences.
+      Osano.cm.addEventListener('osano-cm-consent-saved', update);
+      return true;
+    }
+
+    // Osano loads synchronously and first, but its consent manager may init slightly
+    // later. Bind immediately if possible, otherwise poll briefly until it's ready.
+    if (!bind()) {
+      var tries = 0;
+      var poll = setInterval(function () {
+        if (bind() || ++tries > 50) clearInterval(poll);
+      }, 100);
+    }
+  })();
+</script>
