@@ -25,24 +25,23 @@
       "blocks": {
         "hero_slide_Up8Chg": {
           "type": "hero_slide",
-          "disabled": true,
           "settings": {
-            "color": "light",
+            "color": "dark",
             "alignment_v": "middle",
             "alignment_h": "center",
             "alignment_v_m": "top_m",
             "alignment_h_m": "center_m",
-            "image_d": "shopify://shop_images/Memorial_Day_Homepage_Banners-Desktop.png",
+            "image_d": "shopify://shop_images/Summer_Fridays_Homepage_Banners-Desktop.png",
             "video_poster_d": true,
-            "image_m": "shopify://shop_images/Memorial_Day_Homepage_Banners-Mobile.png",
+            "image_m": "shopify://shop_images/Summer_Fridays_Homepage_Banners-Mobile.png",
             "video_poster_m": true,
             "video_autoplay": true,
-            "eyebrow": "shop the memorial day sale",
-            "heading": "Up To 60% Off",
+            "eyebrow": "summer friday steals. brow edition",
+            "heading": "25% Off",
             "heading_size": "h2",
             "copy": "",
-            "cta_url": "https://grandecosmetics.com/collections/all",
-            "cta_copy": "Shop the Sale",
+            "cta_url": "shopify://collections/brows",
+            "cta_copy": "Shop Brows",
             "cta_url_alt": "",
             "cta_copy_alt": "",
             "overlay": 0
@@ -50,6 +49,7 @@
         },
         "hero_slide_UqApiR": {
           "type": "hero_slide",
+          "disabled": true,
           "settings": {
             "color": "dark",
             "alignment_v": "middle",
