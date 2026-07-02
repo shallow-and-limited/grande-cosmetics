@@ -243,6 +243,14 @@
           if (!error) {
             try {
               window.Osano.cm.ready('shopify');
+              window.Osano.cm.addEventListener('osano-cm-consent-saved', (c) => {
+                window.Shopify.customerPrivacy.setTrackingConsent({
+                  analytics:    c.ANALYTICS       === 'ACCEPT',
+                  marketing:    c.MARKETING        === 'ACCEPT',
+                  preferences:  c.PERSONALIZATION  === 'ACCEPT',
+                  sale_of_data: c.MARKETING        === 'ACCEPT',
+                }, () => {});
+              });
             } catch (error) {
               console.error('Osano must be loaded before initializing the Shopify API.');
             }
