@@ -15,6 +15,7 @@
     },
     "main": {
       "type": "main-page",
+      "disabled": true,
       "settings": {}
     },
     "shogun-optimizer": {
@@ -225,17 +226,18 @@
     "17803259337df9d930": {
       "type": "apps",
       "blocks": {
-        "bubblehouse_grande_cosmetics_page_yXYhH4": {
+        "bubblehouse_grande_cosmetics_page_6cRY8j": {
           "type": "shopify://apps/bubblehouse-grande-cosmetics/blocks/page/019dfd7b-f872-742d-801e-cc871e5fcdab",
           "settings": {
             "page_name": "rewards",
             "instance_suffix": "",
+            "iframe_title": "",
             "initial_height": 1000
           }
         }
       },
       "block_order": [
-        "bubblehouse_grande_cosmetics_page_yXYhH4"
+        "bubblehouse_grande_cosmetics_page_6cRY8j"
       ],
       "settings": {}
     }

@@ -419,6 +419,7 @@
                             </div>
                           </div>
                         {% endif %}
+
                         {% if _metafields.how_to_use != blank %}
                           <div class="main-product__tab main-product__tab--howtouse" data-accordion="howtouse">
                             <div class="main-product__tab-title p-3" data-tab="howtouse">
@@ -432,7 +433,8 @@
                             </div>
                           </div>
                         {% endif %}
-                        {% if _metafields.ingredients != blank %}
+
+                        {% if _metafields.ingredients != blank or _metafields.ingredients_list != blank %}
                           {% assign ingredients = _metafields.ingredients.value %}
                           <div class="main-product__tab main-product__tab--ingredients" data-accordion="ingredients">
                             <div class="main-product__tab-title p-3" data-tab="ingredients">

@@ -22,9 +22,8 @@
         },
         "text_bfL8A4": {
           "type": "text",
-          "disabled": true,
           "settings": {
-            "message": "<p><a href=\"https://grandecosmetics.com/collections/all\" title=\"https://grandecosmetics.com/collections/all\"><strong>SHOP UP TO 60% OFF</strong></a></p>"
+            "message": "<p><a href=\"/collections/best-sellers\" title=\"Best Sellers\"><strong>SHOP 20% OFF SITEWIDE</strong></a></p>"
           }
         },
         "text_xb4K68": {

@@ -288,6 +288,7 @@
   gap: 4px;
 }
 
+.regios-dopp-generic-price-container .regios-dopp-generic-price-item--regular,
 .quickview-container__info .regios-dopp-generic-price-item--regular {
   text-decoration: line-through;
 }

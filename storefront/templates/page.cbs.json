@@ -1,0 +1,492 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {}
+    },
+    "split_banner_BbeYmF": {
+      "type": "split-banner",
+      "blocks": {
+        "body_copy_icAHtE": {
+          "type": "body-copy",
+          "settings": {
+            "copy": "<p>While the rest tell you to cover up, “make-up”, & conceal; we’re all about accentuating what’s real. Clinically proven formulas. Obvious results. Discover DIY beauty amplifiers to help you embrace your real, authentic self. </p>"
+          }
+        }
+      },
+      "block_order": [
+        "body_copy_icAHtE"
+      ],
+      "settings": {
+        "style": "rose",
+        "padding": "full-width",
+        "arrangement": "left_asset_right_content",
+        "header": "h2",
+        "alignment": "left",
+        "vertical_alignment": "middle",
+        "module_height": "image-height",
+        "image_d": "shopify://shop_images/people.jpg",
+        "video_poster_d": true,
+        "video_poster_m": true,
+        "video_autoplay": true,
+        "eyebrow": "",
+        "heading": "You, <em>Amplified</em>",
+        "cta_url": "shopify://collections/best-sellers",
+        "cta_copy": "Discover Now"
+      }
+    },
+    "ticker_ptmRqh": {
+      "type": "ticker",
+      "blocks": {
+        "text_VwneCr": {
+          "type": "text",
+          "settings": {
+            "svg_icon": "flower",
+            "text": "We’re all about <em>revealing</em>, not concealing",
+            "url": ""
+          }
+        },
+        "text_REkJaW": {
+          "type": "text",
+          "settings": {
+            "svg_icon": "flower",
+            "text": "We promise to deliver <em>real, undeniable</em> results",
+            "url": ""
+          }
+        },
+        "text_B8eMny": {
+          "type": "text",
+          "settings": {
+            "svg_icon": "flower",
+            "text": "Embrace your <em>real, authentic self</em>",
+            "url": ""
+          }
+        },
+        "text_Bah7VY": {
+          "type": "text",
+          "settings": {
+            "svg_icon": "flower",
+            "text": "Show up <em>unafraid + effortlessly confident</em>",
+            "url": ""
+          }
+        }
+      },
+      "block_order": [
+        "text_VwneCr",
+        "text_REkJaW",
+        "text_B8eMny",
+        "text_Bah7VY"
+      ],
+      "settings": {
+        "optional_text": "",
+        "optional_url": "",
+        "speed": 0.5,
+        "color_scheme": "blush"
+      }
+    },
+    "ss_video_with_text_9_THHYLr": {
+      "type": "ss-video-with-text-9",
+      "blocks": {
+        "heading_p374WA": {
+          "type": "heading",
+          "settings": {
+            "heading": "<p>Confidence<br/>Starts <em><strong>Here</strong></em></p>",
+            "heading_custom": false,
+            "heading_font": "josefin_sans_n4",
+            "heading_size": 42,
+            "heading_size_mobile": 32,
+            "advanced": false,
+            "heading_height": 130,
+            "heading_mt": 0,
+            "heading_mt_mobile": 0,
+            "heading_color": "#121212",
+            "heading_accent_color": "#fc2d76",
+            "heading_gradient": ""
+          }
+        },
+        "text_KLedVk": {
+          "type": "text",
+          "settings": {
+            "text": "<p>We believe beauty isn't about covering up—it's about amplifying what's already yours. Our innovative formulas help enhance your natural beauty with visible results.</p>",
+            "text_custom": true,
+            "text_font": "quattrocento_sans_n4",
+            "text_size": 16,
+            "text_size_mobile": 16,
+            "text_advanced": true,
+            "text_height": 130,
+            "text_mt": 24,
+            "text_mt_mobile": 16,
+            "text_color": "#121212"
+          }
+        },
+        "feature_tyEF7h": {
+          "type": "feature",
+          "settings": {
+            "icon": "none",
+            "feature_title": "Longer-Looking Lashes",
+            "feature_text": "<p>Enhance the appearance of naturally beautiful lashes with GrandeLASH-MD.</p>"
+          }
+        },
+        "feature_pXR9Re": {
+          "type": "feature",
+          "settings": {
+            "icon": "none",
+            "feature_title": "Fuller-Looking Brows",
+            "feature_text": "<p>Create the look of naturally defined brows with GrandeBROW.</p>"
+          }
+        },
+        "feature_RQNqNR": {
+          "type": "feature",
+          "settings": {
+            "icon": "none",
+            "feature_title": "Healthier-Looking Hair",
+            "feature_text": "<p>Support the appearance of fuller-looking, healthier-looking hair with GrandeHAIR.</p>"
+          }
+        },
+        "button_wNi9Vf": {
+          "type": "button",
+          "settings": {
+            "button": "Discover Grande",
+            "button_url": "shopify://collections/best-sellers",
+            "button_style": "outline",
+            "button_custom": true,
+            "button_font": "quattrocento_sans_n7",
+            "button_size": 20,
+            "button_size_mobile": 16,
+            "button_height": 100,
+            "button_padding_advanced": false,
+            "button_padding_vertical": 16,
+            "button_padding_vertical_mobile": 16,
+            "button_padding_horizontal": 24,
+            "button_padding_horizontal_mobile": 24,
+            "button_radius": 100,
+            "button_border_thickness": 1,
+            "button_color": "#ffffff",
+            "button_hover_color": "#ffffff",
+            "button_bg_color": "#fc2d76",
+            "button_bg_hover_color": "#121212",
+            "button_border_color": "#fc2d76",
+            "button_border_hover_color": "#121212"
+          }
+        }
+      },
+      "block_order": [
+        "heading_p374WA",
+        "text_KLedVk",
+        "feature_tyEF7h",
+        "feature_pXR9Re",
+        "feature_RQNqNR",
+        "button_wNi9Vf"
+      ],
+      "name": "SS - Video with text #9",
+      "settings": {
+        "layout_gap": 80,
+        "layout_gap_mobile": 28,
+        "content_horizontal_align": "center",
+        "content_horizontal_align_mobile": "start",
+        "content_vertical_align": "center",
+        "features_per_row": 1,
+        "features_per_row_mobile": "1",
+        "feature_icon_size": 44,
+        "feature_icon_size_mobile": 40,
+        "feature_icon_padding": 8,
+        "feature_icon_radius": 4,
+        "feature_icon_border_thickness": 0,
+        "feature_title_custom": true,
+        "feature_title_font": "quattrocento_sans_n7",
+        "feature_title_size": 20,
+        "feature_title_size_mobile": 16,
+        "feature_title_advanced": true,
+        "feature_title_height": 100,
+        "feature_text_custom": true,
+        "feature_text_font": "quattrocento_sans_n4",
+        "feature_text_size": 16,
+        "feature_text_size_mobile": 14,
+        "feature_text_advanced": true,
+        "feature_text_height": 120,
+        "feature_text_mt": 10,
+        "feature_text_mt_mobile": 10,
+        "open_in_new_tab": false,
+        "buttons_advanced": false,
+        "buttons_gap": 16,
+        "buttons_gap_mobile": 12,
+        "buttons_mt": 32,
+        "buttons_mt_mobile": 24,
+        "source": "uploaded",
+        "video": "shopify://files/videos/January2026-ConfidenceAtYourCore.mp4",
+        "video_url": "",
+        "video_position": "left",
+        "video_position_mobile": "top",
+        "video_ratio": "original",
+        "video_ratio_mobile": "original",
+        "video_radius": 0,
+        "video_border_thickness": 0,
+        "video_autoplay": true,
+        "video_loop": true,
+        "use_controls": true,
+        "play_icon_size": 16,
+        "play_icon_size_mobile": 16,
+        "play_padding": 14,
+        "play_padding_mobile": 14,
+        "play_radius": 100,
+        "play_border_thickness": 0,
+        "video_border_color": "#121212",
+        "play_color": "#fc2d76",
+        "play_hover_color": "#121212",
+        "play_bg_color": "#ffffff",
+        "play_bg_hover_color": "#f3f3f3",
+        "play_border_color": "#121212",
+        "play_border_hover_color": "#121212",
+        "feature_icon_color": "#121212",
+        "feature_icon_border_color": "#f3f3f3",
+        "feature_title_color": "#593e23",
+        "feature_text_color": "#121212",
+        "background_style": "solid",
+        "background_color": "#fdf1e4",
+        "background_gradient": "linear-gradient(180deg, #FFFFFF 0%, #F2F2F2 100%)",
+        "border_color": "#121212",
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "margin_horizontal": 0,
+        "margin_horizontal_mobile": 0,
+        "padding_top": 60,
+        "padding_bottom": 64,
+        "padding_horizontal": 5,
+        "padding_horizontal_mobile": 1.5,
+        "width": "page",
+        "content_width": 1200,
+        "border_thickness": 0,
+        "section_radius": 0,
+        "lazy": true
+      }
+    },
+    "banner_i6QafK": {
+      "type": "banner",
+      "name": "Banner",
+      "settings": {
+        "color": "light",
+        "background": "rose",
+        "image_d": "shopify://shop_images/Awards-DesktopBanner_260b53e0-cc22-42d8-bcb5-216cd64fe451.jpg",
+        "image_m": "shopify://shop_images/Awards-MobileBanner.jpg",
+        "alignment": "center",
+        "eyebrow": "",
+        "heading": "150+ Award Wins Brandwide. Over 1 Million Products Sold.",
+        "heading_size": "h2",
+        "copy": "Clinically tested. Ophthalmologist approved. Cruelty-free. Trusted by millions of real women.",
+        "cta_url": "",
+        "cta_copy": "",
+        "cta_url_alt": "",
+        "cta_copy_alt": "",
+        "overlay": 10
+      }
+    },
+    "before_after_LhRfrU": {
+      "type": "before-after",
+      "settings": {
+        "switch_sides": false,
+        "metaobject_handle": "before-and-after-mrxdzcx0"
+      }
+    },
+    "split_banner_6yRtWi": {
+      "type": "split-banner",
+      "blocks": {
+        "body_copy_kPnLzN": {
+          "type": "body-copy",
+          "settings": {
+            "copy": "<p>Grande Cosmetics’ very first product was GrandeLASH-MD—a revolutionary lash enhancing serum that gave people longer, thicker looking lashes. From there, the serum caught on like wildfire and garnered a cult-following. Since 2008, we’ve transformed millions of lashes & are proud to say that we are America's #1 Lash & Brow Serum Brand* today.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "body_copy_kPnLzN"
+      ],
+      "settings": {
+        "style": "rose",
+        "padding": "full-width",
+        "arrangement": "left_asset_right_content",
+        "header": "h3",
+        "alignment": "left",
+        "vertical_alignment": "middle",
+        "module_height": "image-height",
+        "image_d": "shopify://shop_images/Alicia-President-Founder.jpg",
+        "video_poster_d": true,
+        "video_poster_m": true,
+        "video_autoplay": true,
+        "eyebrow": "1 PRODUCT | 36X AWARD WINNER",
+        "heading": "The Product That Started It All",
+        "cta_url": "shopify://products/grandelash-md",
+        "cta_copy": "Try GrandeLASH-MD"
+      }
+    },
+    "categories_zyqj7a": {
+      "type": "categories",
+      "blocks": {
+        "content_cnmpUx": {
+          "type": "content",
+          "settings": {
+            "image": "shopify://shop_images/Yvette-CategoryPic_372bf217-b283-4460-8b00-14095cac24c5.jpg",
+            "heading_image": "",
+            "eyebrow": "Yvette",
+            "heading": "",
+            "copy": "“No more falsies — I wake up with lashes I love.”",
+            "cta_url": "",
+            "cta_copy": "Shop All",
+            "cta_url_alt": "",
+            "cta_copy_alt": ""
+          }
+        },
+        "content_jHXYht": {
+          "type": "content",
+          "settings": {
+            "image": "shopify://shop_images/Jan-CategoryPic_10c5b839-5cc4-411a-aa9d-f96c9bf13058.jpg",
+            "heading_image": "",
+            "eyebrow": "Jan",
+            "heading": "",
+            "copy": "“My brows came back; I don't need makeup to leave the house anymore”",
+            "cta_url": "",
+            "cta_copy": "Shop All",
+            "cta_url_alt": "",
+            "cta_copy_alt": ""
+          }
+        },
+        "content_Xhf3jU": {
+          "type": "content",
+          "settings": {
+            "image": "shopify://shop_images/Inger-CategoryPic_7d5544c1-0ad8-4200-9feb-eb2827aa8d40.jpg",
+            "heading_image": "",
+            "eyebrow": "Inger",
+            "heading": "",
+            "copy": "“The bald spot is gone, finito, finished — it doesn't exist.”",
+            "cta_url": "",
+            "cta_copy": "Shop All",
+            "cta_url_alt": "",
+            "cta_copy_alt": ""
+          }
+        },
+        "content_ernYbB": {
+          "type": "content",
+          "settings": {
+            "image": "shopify://shop_images/Angela-CategoryPic_fe1f263e-06bc-4784-8559-568d8a624e05.jpg",
+            "heading_image": "",
+            "eyebrow": "Angela",
+            "heading": "",
+            "copy": "\"I feel like myself again; my lips look fuller & more kissable\"",
+            "cta_url": "",
+            "cta_copy": "Shop All",
+            "cta_url_alt": "",
+            "cta_copy_alt": ""
+          }
+        }
+      },
+      "block_order": [
+        "content_cnmpUx",
+        "content_jHXYht",
+        "content_Xhf3jU",
+        "content_ernYbB"
+      ],
+      "custom_css": [],
+      "name": "Categories",
+      "settings": {
+        "eyebrow": "",
+        "heading": "Real Results. Real Confidence.",
+        "cta_copy": "",
+        "cta_url": ""
+      }
+    },
+    "product_carousel_Dx8EHU": {
+      "type": "product-carousel",
+      "blocks": {
+        "content_jx8nVC": {
+          "type": "content",
+          "settings": {
+            "product": "grandelash-md",
+            "category": ""
+          }
+        },
+        "content_MxhTb6": {
+          "type": "content",
+          "settings": {
+            "product": "grandebrow",
+            "category": ""
+          }
+        },
+        "content_MmckWV": {
+          "type": "content",
+          "settings": {
+            "product": "grandehair-enhancing-serum",
+            "category": ""
+          }
+        }
+      },
+      "block_order": [
+        "content_jx8nVC",
+        "content_MxhTb6",
+        "content_MmckWV"
+      ],
+      "name": "Product Carousel",
+      "settings": {
+        "regios_key": "",
+        "heading": "Start Your Transformation",
+        "categories": false,
+        "cta_copy": "",
+        "cta_url": ""
+      }
+    },
+    "ss_text_block_AtrmKQ": {
+      "type": "ss-text-block",
+      "blocks": {
+        "text_E3mhqx": {
+          "type": "text",
+          "settings": {
+            "heading": "<h3>Frequently Asked Questions</h3>",
+            "color": "#121212",
+            "font_size": 30,
+            "richtext": "",
+            "richtext_color": "#121212",
+            "richtext_font_size": 14
+          }
+        }
+      },
+      "block_order": [
+        "text_E3mhqx"
+      ],
+      "name": "SS - Text block",
+      "settings": {
+        "padding_header": 10,
+        "padding_button": 10,
+        "background-color": "#fdf1e4",
+        "padding_top": 36,
+        "padding_bottom": 0,
+        "section-width": 120
+      }
+    },
+    "faq_CHmB4T": {
+      "type": "faq",
+      "name": "FAQ Section",
+      "settings": {}
+    }
+  },
+  "order": [
+    "main",
+    "split_banner_BbeYmF",
+    "ticker_ptmRqh",
+    "ss_video_with_text_9_THHYLr",
+    "banner_i6QafK",
+    "before_after_LhRfrU",
+    "split_banner_6yRtWi",
+    "categories_zyqj7a",
+    "product_carousel_Dx8EHU",
+    "ss_text_block_AtrmKQ",
+    "faq_CHmB4T"
+  ]
+}

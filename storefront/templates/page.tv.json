@@ -11,136 +11,1834 @@
   "sections": {
     "shogun-helper": {
       "type": "shogun-helper",
+      "disabled": true,
       "settings": {}
     },
     "main": {
       "type": "main-page",
+      "disabled": true,
       "settings": {}
     },
     "shogun-optimizer": {
       "type": "shogun-optimizer",
+      "disabled": true,
       "settings": {}
     },
-    "banner_HjctWi": {
-      "type": "banner",
-      "disabled": true,
-      "settings": {
-        "color": "light",
-        "background": "beige",
-        "image_d": "shopify://shop_images/KaleeRogers-CollectionPage-Banner-8.jpg",
-        "alignment": "left",
-        "eyebrow": "",
-        "heading": "",
-        "heading_size": "h2",
-        "copy": "",
-        "cta_url": "",
-        "cta_copy": "",
-        "cta_url_alt": "",
-        "cta_copy_alt": "",
-        "overlay": 0
-      }
-    },
-    "ticker_Wk94Jh": {
+    "ticker_VhL46P": {
       "type": "ticker",
       "blocks": {
-        "text_kYMPx8": {
+        "text_FNPRBY": {
           "type": "text",
           "settings": {
             "svg_icon": "flower",
-            "text": "Use Code: KALEEROGERS",
+            "text": "LIMITED TIME OFFER: FREE MASCARA WITH EVERY SERUM PURCHASE",
             "url": ""
           }
         },
-        "text_i3ER67": {
+        "text_bCXCGN": {
           "type": "text",
           "settings": {
             "svg_icon": "flower",
-            "text": "Get 15% Off",
+            "text": "WHILE SUPPLIES LAST",
             "url": ""
           }
         }
       },
       "block_order": [
-        "text_kYMPx8",
-        "text_i3ER67"
+        "text_FNPRBY",
+        "text_bCXCGN"
       ],
-      "disabled": true,
+      "name": "Ticker",
       "settings": {
         "optional_text": "",
         "optional_url": "",
-        "speed": 3,
+        "speed": 1.5,
         "color_scheme": "dark-pink"
       }
     },
-    "product_carousel_HkKyCt": {
-      "type": "product-carousel",
+    "ss_parallax_banner_Wi83ra": {
+      "type": "ss-parallax-banner",
       "blocks": {
-        "content_Vhm3CP": {
-          "type": "content",
+        "heading_fWm3EJ": {
+          "type": "heading",
           "settings": {
-            "product": "grandelash-md",
-            "category": ""
+            "heading": "<h2>Proof you can see.<br/>Confidence you can feel.</h2>",
+            "heading_custom": false,
+            "heading_font": "josefin_sans_n4",
+            "heading_size": 52,
+            "heading_size_mobile": 30,
+            "heading_height": 130,
+            "heading_mt": 0,
+            "heading_color": "#ffffff"
           }
         },
-        "content_KWmFy7": {
-          "type": "content",
+        "text_6fG4Bd": {
+          "type": "text",
           "settings": {
-            "product": "kaylee-bundle",
-            "category": "Shop The Bundle"
+            "text": "<p>25 real people. 180 days. 4 serum-infused products. Unscripted results. This is what happens when beauty actually works.</p>",
+            "text_custom": true,
+            "text_font": "quattrocento_sans_n4",
+            "text_size": 18,
+            "text_size_mobile": 16,
+            "text_height": 150,
+            "text_mt": 16,
+            "text_color": "#ffffff"
           }
         },
-        "content_8Xgxj9": {
-          "type": "content",
+        "button_QY7bDU": {
+          "type": "button",
           "settings": {
-            "product": "grandedrama",
-            "category": ""
+            "button": "START YOUR TRANSFORMATION",
+            "button_url": "shopify://collections/best-sellers",
+            "button_custom": true,
+            "button_font": "quattrocento_sans_n7",
+            "button_size": 16,
+            "button_size_mobile": 14,
+            "button_height": 100,
+            "button_padding_vertical": 16,
+            "button_padding_vertical_mobile": 16,
+            "button_padding_horizontal": 50,
+            "button_padding_horizontal_mobile": 50,
+            "button_radius": 100,
+            "button_border_thickness": 1,
+            "button_mt": 16,
+            "button_gap": 28,
+            "button_ellipse": false,
+            "button_shadow": false,
+            "button_style": "outline",
+            "button_color": "#ffffff",
+            "button_hover_color": "#ffffff",
+            "button_bg_color": "#fc2d76",
+            "button_bg_hover_color": "#fc2d76",
+            "button_border_color": "#fc2d76",
+            "button_border_hover_color": "#fc2d76",
+            "button_shadow_color": "#000000"
+          }
+        },
+        "button_tiRFCR": {
+          "type": "button",
+          "settings": {
+            "button": "WATCH THE JOURNEYS",
+            "button_url": "",
+            "button_custom": true,
+            "button_font": "quattrocento_sans_n7",
+            "button_size": 16,
+            "button_size_mobile": 14,
+            "button_height": 100,
+            "button_padding_vertical": 16,
+            "button_padding_vertical_mobile": 16,
+            "button_padding_horizontal": 50,
+            "button_padding_horizontal_mobile": 50,
+            "button_radius": 100,
+            "button_border_thickness": 1,
+            "button_mt": 16,
+            "button_gap": 28,
+            "button_ellipse": false,
+            "button_shadow": false,
+            "button_style": "outline",
+            "button_color": "#ffffff",
+            "button_hover_color": "#ffffff",
+            "button_bg_color": "#fc2d76",
+            "button_bg_hover_color": "#fc2d76",
+            "button_border_color": "#fc2d76",
+            "button_border_hover_color": "#fc2d76",
+            "button_shadow_color": "#000000"
           }
         }
       },
       "block_order": [
-        "content_Vhm3CP",
-        "content_KWmFy7",
-        "content_8Xgxj9"
+        "heading_fWm3EJ",
+        "text_6fG4Bd",
+        "button_QY7bDU",
+        "button_tiRFCR"
       ],
-      "disabled": true,
-      "custom_css": [],
+      "name": "SS - Parallax Banner",
       "settings": {
-        "heading": "",
-        "categories": true,
-        "cta_copy": "",
-        "cta_url": ""
+        "parallax": false,
+        "parallax_mobile": false,
+        "banner_height": "adapt_first",
+        "banner_fixed_height": 600,
+        "banner_fixed_height_mobile": 500,
+        "image": "shopify://shop_images/Spring_Savings_Homepage_Banners-Desktop.png",
+        "overlay": 0,
+        "content_maxwidth": 65,
+        "content_maxwidth_mobile": 100,
+        "content_horizontal_position": "center",
+        "content_horizontal_position_mobile": "center",
+        "content_vertical_position": "center",
+        "content_vertical_position_mobile": "center",
+        "content_padding_vertical": 32,
+        "content_padding_vertical_mobile": 20,
+        "content_padding_horizontal": 20,
+        "content_padding_horizontal_mobile": 20,
+        "overlay_color": "#000000",
+        "background_color": "#ffffff",
+        "background_gradient": "",
+        "border_color": "#000000",
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "padding_horizontal": 5,
+        "padding_horizontal_mobile": 1.5,
+        "full_width": true,
+        "content_width": 120,
+        "border_thickness": 0,
+        "lazy": true
       }
     },
-    "split_banner_RpcCep": {
-      "type": "split-banner",
+    "ss_parallax_banner_CmyCXy": {
+      "type": "ss-parallax-banner",
       "blocks": {
-        "body_copy_9mddpK": {
-          "type": "body-copy",
+        "heading_cq8gje": {
+          "type": "heading",
           "settings": {
-            "copy": "<p>BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY</p>"
+            "heading": "<h2>What happens when beauty stops being about <em>covering up.</em></h2>",
+            "heading_custom": false,
+            "heading_font": "josefin_sans_n4",
+            "heading_size": 52,
+            "heading_size_mobile": 30,
+            "heading_height": 130,
+            "heading_mt": 0,
+            "heading_color": "#121212"
+          }
+        },
+        "text_bL6tVn": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>Hormones, aging, menopause, postpartum, stress, GLP-1 medications—</strong> so many things can cause lash and brow thinning. And for most people, nobody ever tells them that a solution even exists.</p><p></p><p>GrandeLASH-MD was born from that frustration. A once-nightly ritual—one swipe along the lash line—that supports visibly longer, fuller-looking lashes over time. No extensions. No faking it. Just your own lashes, at their best.</p><p>The Lash & Brow Confidence Project is our proof. <strong>25 real people. Unfiltered. Unscripted.</strong> We followed their frustrations, their skepticism, and—for most—their genuine surprise at what happened next.</p>",
+            "text_custom": true,
+            "text_font": "quattrocento_sans_n4",
+            "text_size": 18,
+            "text_size_mobile": 16,
+            "text_height": 150,
+            "text_mt": 38,
+            "text_color": "#121212"
           }
         }
       },
       "block_order": [
-        "body_copy_9mddpK"
+        "heading_cq8gje",
+        "text_bL6tVn"
       ],
       "disabled": true,
+      "name": "SS - Parallax Banner",
       "settings": {
-        "style": "blush",
-        "padding": "full-width",
-        "arrangement": "right_asset_left_content",
-        "header": "h4",
-        "alignment": "left",
-        "vertical_alignment": "middle",
-        "module_height": "image-height",
-        "video_poster_d": true,
-        "video_poster_m": true,
-        "video_d": "shopify://files/videos/Lash_Defense_Alicia_DO_AND_DONT__CC_Logo_V13.mp4",
+        "parallax": false,
+        "parallax_mobile": false,
+        "banner_height": "fixed_height",
+        "banner_fixed_height": 540,
+        "banner_fixed_height_mobile": 610,
+        "image": "shopify://shop_images/Screenshot_2026-06-11_at_1.57.08_PM.png",
+        "overlay": 0,
+        "content_maxwidth": 65,
+        "content_maxwidth_mobile": 100,
+        "content_horizontal_position": "center",
+        "content_horizontal_position_mobile": "center",
+        "content_vertical_position": "center",
+        "content_vertical_position_mobile": "center",
+        "content_padding_vertical": 28,
+        "content_padding_vertical_mobile": 20,
+        "content_padding_horizontal": 20,
+        "content_padding_horizontal_mobile": 20,
+        "overlay_color": "#000000",
+        "background_color": "#ffffff",
+        "background_gradient": "",
+        "border_color": "#000000",
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "padding_top": 20,
+        "padding_bottom": 44,
+        "padding_horizontal": 5,
+        "padding_horizontal_mobile": 1.5,
+        "full_width": true,
+        "content_width": 120,
+        "border_thickness": 0,
+        "lazy": true
+      }
+    },
+    "ss_guarantee_8ddtK7": {
+      "type": "ss-guarantee",
+      "blocks": {
+        "text_ehNC6i": {
+          "type": "text",
+          "settings": {
+            "text": "<p><em>\"I wanted to see what happened when real people — not models, not influencers — gave Grande serums a real chance. What we documented changed everything I thought I knew about proof.\"</em></p>",
+            "text_custom": false,
+            "text_font": "josefin_sans_n4",
+            "text_size": 23,
+            "text_size_mobile": 14,
+            "text_advanced": false,
+            "text_height": 150,
+            "text_mt": 24,
+            "text_mt_mobile": 16,
+            "text_color": "#121212"
+          }
+        },
+        "guarantee_CXtyyb": {
+          "type": "guarantee",
+          "settings": {
+            "icon": "none",
+            "text": "<p>Alicia Grande</p>"
+          }
+        },
+        "guarantee_GTePtd": {
+          "type": "guarantee",
+          "settings": {
+            "icon": "none",
+            "text": "<p>Founder & CEO, Grande Cosmetics</p>"
+          }
+        },
+        "image_w7jA8h": {
+          "type": "image",
+          "settings": {
+            "rotate": 10,
+            "rotate_mobile": 10,
+            "image": "shopify://shop_images/Alicia-HomepageImage.jpg",
+            "image_hide_mobile": true
+          }
+        }
+      },
+      "block_order": [
+        "text_ehNC6i",
+        "guarantee_CXtyyb",
+        "guarantee_GTePtd",
+        "image_w7jA8h"
+      ],
+      "disabled": true,
+      "name": "Quote from Alicia",
+      "settings": {
+        "content_max_width": 60,
+        "content_align": "center",
+        "content_align_mobile": "center",
+        "content_vertical_align": "center",
+        "content_gap": 20,
+        "content_gap_mobile": 8,
+        "guarantees_advanced": false,
+        "guarantees_text_mt": 20,
+        "guarantees_text_mt_mobile": 16,
+        "guarantees_gap": 10,
+        "guarantees_gap_mobile": 10,
+        "guarantee_gap": 4,
+        "guarantee_gap_mobile": 4,
+        "guarantee_icon_size": 16,
+        "guarantee_icon_size_mobile": 16,
+        "guarantee_icon_radius": 0,
+        "guarantee_icon_border_thickness": 0,
+        "guarantee_text_custom": false,
+        "guarantee_text_font": "josefin_sans_n4",
+        "guarantee_text_size": 14,
+        "guarantee_text_size_mobile": 12,
+        "guarantee_text_height": 130,
+        "images_gap": 50,
+        "images_gap_mobile": 0,
+        "images_ratio": "portrait",
+        "images_ratio_mobile": "portrait",
+        "images_radius": 2,
+        "images_border_thickness": 8,
+        "guarantee_text_color": "#121212",
+        "guarantee_icon_color": "#121212",
+        "guarantee_icon_bg": "rgba(0,0,0,0)",
+        "guarantee_icon_border_color": "#121212",
+        "images_border_color": "#ffffff",
+        "background_style": "solid",
+        "background_color": "#fc2d76",
+        "background_gradient": "linear-gradient(180deg, #FFFFFF 0%, #F2F2F2 100%)",
+        "border_color": "#121212",
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "margin_horizontal": 0,
+        "margin_horizontal_mobile": 0,
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "padding_horizontal": 5,
+        "padding_horizontal_mobile": 1.5,
+        "width": "page",
+        "content_width": 1200,
+        "border_thickness": 0,
+        "section_radius": 0,
+        "lazy": true
+      }
+    },
+    "ss_parallax_banner_yQctDG": {
+      "type": "ss-parallax-banner",
+      "blocks": {
+        "heading_aRckGj": {
+          "type": "heading",
+          "settings": {
+            "heading": "<h3>Did Your Lashes or Brows Suddenly Disappear?</h3>",
+            "heading_custom": false,
+            "heading_font": "josefin_sans_n4",
+            "heading_size": 52,
+            "heading_size_mobile": 30,
+            "heading_height": 130,
+            "heading_mt": 0,
+            "heading_color": "#121212"
+          }
+        },
+        "text_LQTx8t": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Hormones. Menopause. Postpartum. Stress. Aging. Beauty damage.<br/><br/>Many participants came to this project feeling <strong>frustrated </strong>by thinning lashes and sparse brows. <strong>Some thought it was simply something they had to live with. </strong>Then they discovered a different solution.</p>",
+            "text_custom": true,
+            "text_font": "quattrocento_sans_n4",
+            "text_size": 18,
+            "text_size_mobile": 16,
+            "text_height": 150,
+            "text_mt": 38,
+            "text_color": "#121212"
+          }
+        }
+      },
+      "block_order": [
+        "heading_aRckGj",
+        "text_LQTx8t"
+      ],
+      "name": "SS - Parallax Banner",
+      "settings": {
+        "parallax": false,
+        "parallax_mobile": false,
+        "banner_height": "fixed_height",
+        "banner_fixed_height": 470,
+        "banner_fixed_height_mobile": 430,
+        "image": "shopify://shop_images/Screenshot_2026-06-11_at_1.57.08_PM.png",
+        "overlay": 0,
+        "content_maxwidth": 65,
+        "content_maxwidth_mobile": 100,
+        "content_horizontal_position": "center",
+        "content_horizontal_position_mobile": "center",
+        "content_vertical_position": "center",
+        "content_vertical_position_mobile": "center",
+        "content_padding_vertical": 28,
+        "content_padding_vertical_mobile": 20,
+        "content_padding_horizontal": 20,
+        "content_padding_horizontal_mobile": 20,
+        "overlay_color": "#000000",
+        "background_color": "#ffffff",
+        "background_gradient": "",
+        "border_color": "#000000",
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "padding_top": 20,
+        "padding_bottom": 44,
+        "padding_horizontal": 5,
+        "padding_horizontal_mobile": 1.5,
+        "full_width": true,
+        "content_width": 120,
+        "border_thickness": 0,
+        "lazy": true
+      }
+    },
+    "ss_waves_FBmRKx": {
+      "type": "ss-waves",
+      "name": "SS - Wave",
+      "settings": {
+        "wave_height": -40,
+        "wave_curvature": 250,
+        "wave_style": "less",
+        "wave_side": "0",
+        "animation": false,
+        "animation_duration": 5,
+        "background_color": "#fdf1e4",
+        "wave_color": "#ffc1c1",
+        "margin_top": -64,
+        "margin_bottom": 0,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_horizontal": 0,
+        "padding_horizontal_mobile": 0,
+        "full_width": true,
+        "content_width": 120
+      }
+    },
+    "ss_featured_product_4_JRdETM": {
+      "type": "ss-featured-product-4",
+      "blocks": {
+        "heading_WkYc7e": {
+          "type": "heading",
+          "settings": {
+            "heading": "<h2>GrandeLASH-MD</h2>",
+            "heading_custom": false,
+            "heading_font": "josefin_sans_n4",
+            "heading_accent_custom": false,
+            "heading_accent_font": "josefin_sans_n4",
+            "heading_size": 56,
+            "heading_size_mobile": 32,
+            "heading_advanced": false,
+            "heading_height": 130,
+            "heading_mt": 0,
+            "heading_mt_mobile": 0,
+            "heading_color": "#121212",
+            "heading_accent_color": "#afafaf"
+          }
+        },
+        "text_9Hre63": {
+          "type": "text",
+          "settings": {
+            "text": "<p>LASH ENHANCING SERUM</p>",
+            "text_custom": true,
+            "text_font": "quattrocento_sans_n4",
+            "text_size": 16,
+            "text_size_mobile": 14,
+            "text_advanced": false,
+            "text_height": 150,
+            "text_mt": 20,
+            "text_mt_mobile": 16,
+            "text_color": "#9b4d2c"
+          }
+        },
+        "text_FrM7pJ": {
+          "type": "text",
+          "settings": {
+            "text": "<p>The original. One swipe along the lash line each night. Supports visibly longer, fuller-looking lashes over time.</p>",
+            "text_custom": true,
+            "text_font": "quattrocento_sans_n4",
+            "text_size": 16,
+            "text_size_mobile": 14,
+            "text_advanced": false,
+            "text_height": 150,
+            "text_mt": 20,
+            "text_mt_mobile": 16,
+            "text_color": "#121212"
+          }
+        },
+        "author_FTf4jL": {
+          "type": "author",
+          "settings": {
+            "use_author_image": true,
+            "image_width": 80,
+            "image_width_mobile": 64,
+            "image_radius": 50,
+            "image_border_thickness": 0,
+            "text": "<p><em>\"By week six I was getting compliments. By month three I threw out my strip lashes for good.\"</em></p>",
+            "text_custom": false,
+            "text_font": "quattrocento_sans_n4",
+            "text_size": 18,
+            "text_size_mobile": 17,
+            "text_advanced": false,
+            "text_height": 150,
+            "author_mt": 24,
+            "author_mt_mobile": 12,
+            "author": "— VALERIE, 180-DAY PARTICIPANT",
+            "author_custom": true,
+            "author_font": "quattrocento_sans_n4",
+            "author_size": 14,
+            "author_size_mobile": 12,
+            "author_advanced": false,
+            "author_height": 130,
+            "author_name_mt": 16,
+            "author_name_mt_mobile": 12,
+            "text_color": "#121212",
+            "author_color": "#121212",
+            "image_border_color": "#121212"
+          }
+        },
+        "button_GQbYDM": {
+          "type": "button",
+          "settings": {
+            "button": "SHOP NOW",
+            "url": "shopify://products/grandelash-md",
+            "open_in_new_tab": false,
+            "button_style": "outline",
+            "button_custom": true,
+            "button_font": "josefin_sans_n4",
+            "button_size": 14,
+            "button_size_mobile": 14,
+            "button_advanced": false,
+            "button_height": 100,
+            "button_padding_horizontal": 28,
+            "button_padding_horizontal_mobile": 28,
+            "button_padding_vertical": 16,
+            "button_padding_vertical_mobile": 16,
+            "button_radius": 100,
+            "button_border_thickness": 1,
+            "button_mt": 20,
+            "button_mt_mobile": 16,
+            "button_color": "#fc2d76",
+            "button_hover_color": "#121212",
+            "button_bg_color": "#ffc1c1",
+            "button_bg_hover_color": "#ffc1c1",
+            "button_border_color": "#fc2d76",
+            "button_border_hover_color": "#121212"
+          }
+        },
+        "caption_R69qzK": {
+          "type": "caption",
+          "settings": {
+            "icon": "none",
+            "text": "<p>$68 + FREE Mascara</p>",
+            "text_custom": true,
+            "text_font": "quattrocento_sans_n4",
+            "text_size": 16,
+            "text_size_mobile": 16,
+            "text_advanced": false,
+            "text_height": 150,
+            "text_mt": 20,
+            "text_mt_mobile": 16,
+            "icon_color": "#121212",
+            "text_color": "#121212"
+          }
+        },
+        "feature_AdPRfL": {
+          "type": "feature",
+          "settings": {
+            "icon": "star_sparkle",
+            "text": "Visible results in as little as 4-6 weeks*",
+            "hide_mobile": false
+          }
+        },
+        "feature_aTWQkE": {
+          "type": "feature",
+          "settings": {
+            "icon": "star_sparkle",
+            "text": "Once-daily, one-swipe nightly ritual",
+            "hide_mobile": false
+          }
+        },
+        "feature_9LVFwV": {
+          "type": "feature",
+          "settings": {
+            "icon": "star_sparkle",
+            "text": "Clinically tested • Ophthalmologist reviewed",
+            "hide_mobile": false
+          }
+        },
+        "feature_KVdfCt": {
+          "type": "feature",
+          "settings": {
+            "icon": "star_sparkle",
+            "text": "Hormonal thinning, aging, damage, stress",
+            "hide_mobile": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_WkYc7e",
+        "text_9Hre63",
+        "text_FrM7pJ",
+        "author_FTf4jL",
+        "button_GQbYDM",
+        "caption_R69qzK",
+        "feature_AdPRfL",
+        "feature_aTWQkE",
+        "feature_9LVFwV",
+        "feature_KVdfCt"
+      ],
+      "name": "Feature - GrandeLASH",
+      "settings": {
+        "layout": "content_image",
+        "layout_mobile": "image_content",
+        "layout_advanced": false,
+        "image_width": 45,
+        "layout_gap": 80,
+        "layout_gap_mobile": 20,
+        "content_align": "left",
+        "content_align_mobile": "left",
+        "content_vertical_align": "center",
+        "source": "uploaded",
+        "video_url": "",
+        "video_ratio": "landscape",
+        "video_ratio_mobile": "landscape",
+        "video_radius": 16,
+        "video_border_thickness": 0,
         "video_autoplay": true,
-        "eyebrow": "",
-        "heading": "Why You Need This Bundle",
-        "cta_url": "shopify://products/kaylee-bundle",
-        "cta_copy": "Shop Now"
+        "video_loop": true,
+        "use_controls": true,
+        "play_icon_size": 16,
+        "play_icon_size_mobile": 16,
+        "play_padding": 14,
+        "play_padding_mobile": 14,
+        "play_radius": 100,
+        "play_border_thickness": 0,
+        "use_third_image": true,
+        "image_ratio": "square",
+        "image_ratio_mobile": "square",
+        "image_radius": 16,
+        "image_border_thickness": 0,
+        "features_columns": "one",
+        "features_columns_mobile": "one",
+        "features_advanced": true,
+        "features_border_thickness": 1,
+        "features_mt": 20,
+        "features_mt_mobile": 20,
+        "feature_gap": 10,
+        "feature_gap_mobile": 10,
+        "feature_mt": 10,
+        "feature_mt_mobile": 10,
+        "feature_icon_size": 16,
+        "feature_icon_size_mobile": 16,
+        "feature_text_custom": true,
+        "feature_text_font": "quattrocento_sans_n4",
+        "feature_text_size": 14,
+        "feature_text_size_mobile": 12,
+        "feature_text_height": 150,
+        "feature_icon_color": "#fc2d76",
+        "feature_text_color": "#9b4d2c",
+        "features_border_color": "#121212",
+        "image_border_color": "#121212",
+        "video_border_color": "#121212",
+        "play_color": "#121212",
+        "play_hover_color": "#121212",
+        "play_bg_color": "#ffffff",
+        "play_bg_hover_color": "#f3f3f3",
+        "play_border_color": "#121212",
+        "play_border_hover_color": "#121212",
+        "background_style": "solid",
+        "background_color": "#ffc1c1",
+        "background_gradient": "linear-gradient(180deg, #FFFFFF 0%, #F2F2F2 100%)",
+        "border_color": "#121212",
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "margin_horizontal": 0,
+        "margin_horizontal_mobile": 0,
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "padding_horizontal": 5,
+        "padding_horizontal_mobile": 1.5,
+        "width": "page",
+        "content_width": 1200,
+        "border_thickness": 0,
+        "section_radius": 0,
+        "lazy": true
+      }
+    },
+    "ss_waves_MMCzbb": {
+      "type": "ss-waves",
+      "name": "SS - Wave",
+      "settings": {
+        "wave_height": -40,
+        "wave_curvature": 250,
+        "wave_style": "less",
+        "wave_side": "180",
+        "animation": false,
+        "animation_duration": 5,
+        "background_color": "#fdf1e4",
+        "wave_color": "#ffc1c1",
+        "margin_top": -64,
+        "margin_bottom": 0,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_horizontal": 0,
+        "padding_horizontal_mobile": 0,
+        "full_width": true,
+        "content_width": 120
+      }
+    },
+    "ss_featured_product_4_rGyN7M": {
+      "type": "ss-featured-product-4",
+      "blocks": {
+        "heading_NQb7ry": {
+          "type": "heading",
+          "settings": {
+            "heading": "<h2>GrandeBROW</h2>",
+            "heading_custom": false,
+            "heading_font": "josefin_sans_n4",
+            "heading_accent_custom": false,
+            "heading_accent_font": "josefin_sans_n4",
+            "heading_size": 56,
+            "heading_size_mobile": 32,
+            "heading_advanced": false,
+            "heading_height": 130,
+            "heading_mt": 0,
+            "heading_mt_mobile": 0,
+            "heading_color": "#121212",
+            "heading_accent_color": "#afafaf"
+          }
+        },
+        "text_KwPQ6z": {
+          "type": "text",
+          "settings": {
+            "text": "<p>BROW ENHANCING SERUM</p>",
+            "text_custom": true,
+            "text_font": "quattrocento_sans_n4",
+            "text_size": 16,
+            "text_size_mobile": 14,
+            "text_advanced": false,
+            "text_height": 150,
+            "text_mt": 20,
+            "text_mt_mobile": 16,
+            "text_color": "#9b4d2c"
+          }
+        },
+        "text_9xtjYe": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Supports fuller-looking, more defined brows over time. Your makeup-free day essential.</p>",
+            "text_custom": true,
+            "text_font": "quattrocento_sans_n4",
+            "text_size": 16,
+            "text_size_mobile": 14,
+            "text_advanced": false,
+            "text_height": 150,
+            "text_mt": 20,
+            "text_mt_mobile": 16,
+            "text_color": "#121212"
+          }
+        },
+        "author_xFzwCr": {
+          "type": "author",
+          "settings": {
+            "use_author_image": true,
+            "image_width": 80,
+            "image_width_mobile": 64,
+            "image_radius": 50,
+            "image_border_thickness": 0,
+            "text": "<p><em>\"I've used brow pencils for 15 years. I genuinely don't need them anymore.\"</em></p>",
+            "text_custom": false,
+            "text_font": "quattrocento_sans_n4",
+            "text_size": 18,
+            "text_size_mobile": 17,
+            "text_advanced": false,
+            "text_height": 150,
+            "author_mt": 24,
+            "author_mt_mobile": 12,
+            "author": "— DANA, 180-DAY PARTICIPANT",
+            "author_custom": true,
+            "author_font": "quattrocento_sans_n4",
+            "author_size": 14,
+            "author_size_mobile": 12,
+            "author_advanced": false,
+            "author_height": 130,
+            "author_name_mt": 16,
+            "author_name_mt_mobile": 12,
+            "text_color": "#121212",
+            "author_color": "#121212",
+            "image_border_color": "#121212"
+          }
+        },
+        "button_JVjqUd": {
+          "type": "button",
+          "settings": {
+            "button": "SHOP NOW",
+            "url": "shopify://products/grandebrow",
+            "open_in_new_tab": false,
+            "button_style": "outline",
+            "button_custom": true,
+            "button_font": "josefin_sans_n4",
+            "button_size": 14,
+            "button_size_mobile": 14,
+            "button_advanced": false,
+            "button_height": 100,
+            "button_padding_horizontal": 28,
+            "button_padding_horizontal_mobile": 28,
+            "button_padding_vertical": 16,
+            "button_padding_vertical_mobile": 16,
+            "button_radius": 100,
+            "button_border_thickness": 1,
+            "button_mt": 20,
+            "button_mt_mobile": 16,
+            "button_color": "#fc2d76",
+            "button_hover_color": "#121212",
+            "button_bg_color": "#fdf1e4",
+            "button_bg_hover_color": "#fdf1e4",
+            "button_border_color": "#fc2d76",
+            "button_border_hover_color": "#121212"
+          }
+        },
+        "caption_N3UTCE": {
+          "type": "caption",
+          "settings": {
+            "icon": "none",
+            "text": "<p>$72 + FREE Mascara</p>",
+            "text_custom": true,
+            "text_font": "quattrocento_sans_n4",
+            "text_size": 16,
+            "text_size_mobile": 16,
+            "text_advanced": false,
+            "text_height": 150,
+            "text_mt": 20,
+            "text_mt_mobile": 16,
+            "icon_color": "#121212",
+            "text_color": "#121212"
+          }
+        },
+        "feature_9GNpFa": {
+          "type": "feature",
+          "settings": {
+            "icon": "star_sparkle",
+            "text": "Supports visibly fuller-looking brows*",
+            "hide_mobile": false
+          }
+        },
+        "feature_DDH9DG": {
+          "type": "feature",
+          "settings": {
+            "icon": "star_sparkle",
+            "text": "Simple nightly application",
+            "hide_mobile": false
+          }
+        },
+        "feature_xfUHeM": {
+          "type": "feature",
+          "settings": {
+            "icon": "star_sparkle",
+            "text": "Sparse brows, microblading gaps, aging",
+            "hide_mobile": false
+          }
+        },
+        "feature_hDQfBM": {
+          "type": "feature",
+          "settings": {
+            "icon": "star_sparkle",
+            "text": "Pairs with GrandeBROW 2-in-1 on makeup days",
+            "hide_mobile": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_NQb7ry",
+        "text_KwPQ6z",
+        "text_9xtjYe",
+        "author_xFzwCr",
+        "button_JVjqUd",
+        "caption_N3UTCE",
+        "feature_9GNpFa",
+        "feature_DDH9DG",
+        "feature_xfUHeM",
+        "feature_hDQfBM"
+      ],
+      "name": "Feature - GrandeBROW",
+      "settings": {
+        "layout": "image_content",
+        "layout_mobile": "image_content",
+        "layout_advanced": false,
+        "image_width": 45,
+        "layout_gap": 80,
+        "layout_gap_mobile": 20,
+        "content_align": "left",
+        "content_align_mobile": "left",
+        "content_vertical_align": "center",
+        "source": "uploaded",
+        "video_url": "",
+        "video_ratio": "landscape",
+        "video_ratio_mobile": "landscape",
+        "video_radius": 16,
+        "video_border_thickness": 0,
+        "video_autoplay": true,
+        "video_loop": true,
+        "use_controls": true,
+        "play_icon_size": 16,
+        "play_icon_size_mobile": 16,
+        "play_padding": 14,
+        "play_padding_mobile": 14,
+        "play_radius": 100,
+        "play_border_thickness": 0,
+        "use_third_image": true,
+        "image_ratio": "square",
+        "image_ratio_mobile": "square",
+        "image_radius": 16,
+        "image_border_thickness": 0,
+        "features_columns": "one",
+        "features_columns_mobile": "one",
+        "features_advanced": true,
+        "features_border_thickness": 1,
+        "features_mt": 20,
+        "features_mt_mobile": 20,
+        "feature_gap": 10,
+        "feature_gap_mobile": 10,
+        "feature_mt": 10,
+        "feature_mt_mobile": 10,
+        "feature_icon_size": 16,
+        "feature_icon_size_mobile": 16,
+        "feature_text_custom": true,
+        "feature_text_font": "quattrocento_sans_n4",
+        "feature_text_size": 14,
+        "feature_text_size_mobile": 12,
+        "feature_text_height": 150,
+        "feature_icon_color": "#fc2d76",
+        "feature_text_color": "#9b4d2c",
+        "features_border_color": "#dbdbdb",
+        "image_border_color": "#121212",
+        "video_border_color": "#121212",
+        "play_color": "#121212",
+        "play_hover_color": "#121212",
+        "play_bg_color": "#ffffff",
+        "play_bg_hover_color": "#f3f3f3",
+        "play_border_color": "#121212",
+        "play_border_hover_color": "#121212",
+        "background_style": "solid",
+        "background_color": "#fdf1e4",
+        "background_gradient": "linear-gradient(180deg, #FFFFFF 0%, #F2F2F2 100%)",
+        "border_color": "#121212",
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "margin_horizontal": 0,
+        "margin_horizontal_mobile": 0,
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "padding_horizontal": 5,
+        "padding_horizontal_mobile": 1.5,
+        "width": "page",
+        "content_width": 1200,
+        "border_thickness": 0,
+        "section_radius": 0,
+        "lazy": true
+      }
+    },
+    "ss_waves_7K8GU3": {
+      "type": "ss-waves",
+      "name": "SS - Wave",
+      "settings": {
+        "wave_height": -40,
+        "wave_curvature": 250,
+        "wave_style": "less",
+        "wave_side": "0",
+        "animation": false,
+        "animation_duration": 5,
+        "background_color": "#fdf1e4",
+        "wave_color": "#ffbc59",
+        "margin_top": -64,
+        "margin_bottom": 0,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_horizontal": 0,
+        "padding_horizontal_mobile": 0,
+        "full_width": true,
+        "content_width": 120
+      }
+    },
+    "ss_before_after_image_10_xp9qNh": {
+      "type": "ss-before-after-image-10",
+      "blocks": {
+        "card_WAEtBD": {
+          "type": "card",
+          "settings": {
+            "sub_title": "GrandeLASH-MD",
+            "title": "Michelle, 52 • Menopause"
+          }
+        },
+        "card_RPPeyx": {
+          "type": "card",
+          "settings": {
+            "sub_title": "GrandeBROW",
+            "title": "Janet, 63 • Aging"
+          }
+        },
+        "card_NLQWmB": {
+          "type": "card",
+          "settings": {
+            "sub_title": "GrandeBROW 2-in-1",
+            "title": "Vanessa, 36 • Postpartum"
+          }
+        }
+      },
+      "block_order": [
+        "card_WAEtBD",
+        "card_RPPeyx",
+        "card_NLQWmB"
+      ],
+      "name": "SS - Before/after image #10",
+      "settings": {
+        "heading": "<p>Real People. Real Results.</p>",
+        "heading_custom": false,
+        "heading_font": "josefin_sans_n4",
+        "heading_size": 52,
+        "heading_size_mobile": 30,
+        "heading_height": 130,
+        "heading_align": "center",
+        "heading_align_mobile": "center",
+        "cards_view": 3,
+        "cards_view_mobile": "1",
+        "cards_gap": 14,
+        "cards_gap_mobile": 12,
+        "cards_mt": 40,
+        "cards_mt_mobile": 24,
+        "card_radius": 12,
+        "card_border_thickness": 0,
+        "card_align": "center",
+        "card_align_mobile": "center",
+        "image_overlay": 0,
+        "image_ratio": "portrait",
+        "image_ratio_mobile": "portrait",
+        "sub_title_custom": true,
+        "sub_title_font": "quattrocento_sans_n4",
+        "sub_title_size": 17,
+        "sub_title_size_mobile": 15,
+        "sub_title_height": 100,
+        "sub_title_padding_vertical": 6,
+        "sub_title_padding_vertical_mobile": 6,
+        "sub_title_padding_horizontal": 12,
+        "sub_title_padding_horizontal_mobile": 12,
+        "sub_title_radius": 100,
+        "sub_title_border_thickness": 1,
+        "title_custom": true,
+        "title_font": "quattrocento_sans_n4",
+        "title_size": 20,
+        "title_size_mobile": 20,
+        "title_height": 130,
+        "title_mt": 14,
+        "title_mt_mobile": 14,
+        "toggles_padding_vertical": 6,
+        "toggles_padding_vertical_mobile": 6,
+        "toggles_padding_horizontal": 8,
+        "toggles_padding_horizontal_mobile": 8,
+        "toggles_radius": 100,
+        "toggles_border_thickness": 0,
+        "toggles_active": "before",
+        "before_text": "BEFORE",
+        "after_text": "AFTER",
+        "toggle_custom": true,
+        "toggle_font": "quattrocento_sans_n4",
+        "toggle_size": 14,
+        "toggle_size_mobile": 14,
+        "toggle_height": 100,
+        "toggle_padding_vertical": 4,
+        "toggle_padding_vertical_mobile": 10,
+        "toggle_padding_horizontal": 18,
+        "toggle_padding_horizontal_mobile": 18,
+        "toggle_radius": 100,
+        "toggle_border_thickness": 0,
+        "sub_title_color": "#ffffff",
+        "sub_title_bg_color": "rgba(0,0,0,0)",
+        "sub_title_border_color": "#ffffff",
+        "title_color": "#ffffff",
+        "card_border_color": "#121212",
+        "image_overlay_color": "#121212",
+        "toggle_color": "#121212",
+        "toggle_active_color": "#ffffff",
+        "toggle_bg_active_color": "#fc2d76",
+        "toggle_border_active_color": "#fc2d76",
+        "toggles_bg_color": "rgba(0,0,0,0)",
+        "toggles_border_color": "#fc2d76",
+        "heading_color": "#121212",
+        "background_color": "#ffbc59",
+        "background_gradient": "",
+        "border_color": "#121212",
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "margin_horizontal": 0,
+        "margin_horizontal_mobile": 0,
+        "padding_top": 12,
+        "padding_bottom": 36,
+        "padding_horizontal": 5,
+        "padding_horizontal_mobile": 1.5,
+        "full_width": true,
+        "content_width": 1200,
+        "border_thickness": 0,
+        "section_radius": 0,
+        "lazy": true
+      }
+    },
+    "ss_waves_jcP9cd": {
+      "type": "ss-waves",
+      "name": "SS - Wave",
+      "settings": {
+        "wave_height": -40,
+        "wave_curvature": 250,
+        "wave_style": "less",
+        "wave_side": "180",
+        "animation": false,
+        "animation_duration": 5,
+        "background_color": "#fdf1e4",
+        "wave_color": "#ffbc59",
+        "margin_top": -24,
+        "margin_bottom": 0,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_horizontal": 0,
+        "padding_horizontal_mobile": 0,
+        "full_width": true,
+        "content_width": 120
+      }
+    },
+    "ss_featured_product_4_eHMCX8": {
+      "type": "ss-featured-product-4",
+      "blocks": {
+        "heading_KQLBeM": {
+          "type": "heading",
+          "settings": {
+            "heading": "<h2>GrandeLASH-Sensitive</h2>",
+            "heading_custom": false,
+            "heading_font": "josefin_sans_n4",
+            "heading_accent_custom": false,
+            "heading_accent_font": "josefin_sans_n4",
+            "heading_size": 56,
+            "heading_size_mobile": 32,
+            "heading_advanced": false,
+            "heading_height": 130,
+            "heading_mt": 0,
+            "heading_mt_mobile": 0,
+            "heading_color": "#121212",
+            "heading_accent_color": "#afafaf"
+          }
+        },
+        "text_JWaAee": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>PEPTIDE LASH SERUM • GENTLE FORMULA</strong></p>",
+            "text_custom": true,
+            "text_font": "quattrocento_sans_n4",
+            "text_size": 16,
+            "text_size_mobile": 14,
+            "text_advanced": false,
+            "text_height": 150,
+            "text_mt": 20,
+            "text_mt_mobile": 16,
+            "text_color": "#9b4d2c"
+          }
+        },
+        "text_L6NFii": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Same lash-enhancing power, formulated for contact lens wearers and sensitive eyes. No compromise. No irritation.</p>",
+            "text_custom": true,
+            "text_font": "quattrocento_sans_n4",
+            "text_size": 16,
+            "text_size_mobile": 14,
+            "text_advanced": false,
+            "text_height": 150,
+            "text_mt": 20,
+            "text_mt_mobile": 16,
+            "text_color": "#121212"
+          }
+        },
+        "author_dYr9dF": {
+          "type": "author",
+          "settings": {
+            "use_author_image": true,
+            "image_width": 80,
+            "image_width_mobile": 64,
+            "image_radius": 50,
+            "image_border_thickness": 0,
+            "text": "<p><em>\"The first serum that worked without any irritation.\"</em></p>",
+            "text_custom": false,
+            "text_font": "quattrocento_sans_n4",
+            "text_size": 18,
+            "text_size_mobile": 17,
+            "text_advanced": false,
+            "text_height": 150,
+            "author_mt": 24,
+            "author_mt_mobile": 12,
+            "author": "— NIKKI, 180-DAY PARTICIPANT",
+            "author_custom": true,
+            "author_font": "quattrocento_sans_n4",
+            "author_size": 14,
+            "author_size_mobile": 12,
+            "author_advanced": false,
+            "author_height": 130,
+            "author_name_mt": 16,
+            "author_name_mt_mobile": 12,
+            "text_color": "#121212",
+            "author_color": "#121212",
+            "image_border_color": "#121212"
+          }
+        },
+        "button_RtrwfR": {
+          "type": "button",
+          "settings": {
+            "button": "SHOP NOW",
+            "url": "shopify://products/grandelash-sensitive",
+            "open_in_new_tab": false,
+            "button_style": "outline",
+            "button_custom": true,
+            "button_font": "josefin_sans_n4",
+            "button_size": 14,
+            "button_size_mobile": 14,
+            "button_advanced": false,
+            "button_height": 100,
+            "button_padding_horizontal": 28,
+            "button_padding_horizontal_mobile": 28,
+            "button_padding_vertical": 16,
+            "button_padding_vertical_mobile": 16,
+            "button_radius": 100,
+            "button_border_thickness": 1,
+            "button_mt": 20,
+            "button_mt_mobile": 16,
+            "button_color": "#fc2d76",
+            "button_hover_color": "#121212",
+            "button_bg_color": "#fdf1e4",
+            "button_bg_hover_color": "#fdf1e4",
+            "button_border_color": "#fc2d76",
+            "button_border_hover_color": "#121212"
+          }
+        },
+        "caption_EVLQCp": {
+          "type": "caption",
+          "settings": {
+            "icon": "none",
+            "text": "<p>$48 + FREE Mascara</p>",
+            "text_custom": true,
+            "text_font": "quattrocento_sans_n4",
+            "text_size": 16,
+            "text_size_mobile": 16,
+            "text_advanced": false,
+            "text_height": 150,
+            "text_mt": 20,
+            "text_mt_mobile": 16,
+            "icon_color": "#121212",
+            "text_color": "#121212"
+          }
+        },
+        "feature_6aahyp": {
+          "type": "feature",
+          "settings": {
+            "icon": "star_sparkle",
+            "text": "Formulated for sensitive eyes & contacts",
+            "hide_mobile": false
+          }
+        },
+        "feature_Ymz9DV": {
+          "type": "feature",
+          "settings": {
+            "icon": "star_sparkle",
+            "text": "Clinically tested · Ophthalmologist reviewed",
+            "hide_mobile": false
+          }
+        },
+        "feature_Bm6JiA": {
+          "type": "feature",
+          "settings": {
+            "icon": "star_sparkle",
+            "text": "Same one-swipe nightly ritual",
+            "hide_mobile": false
+          }
+        },
+        "feature_MHpxNA": {
+          "type": "feature",
+          "settings": {
+            "icon": "star_sparkle",
+            "text": "Visible results in as little as 4–6 weeks*",
+            "hide_mobile": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_KQLBeM",
+        "text_JWaAee",
+        "text_L6NFii",
+        "author_dYr9dF",
+        "button_RtrwfR",
+        "caption_EVLQCp",
+        "feature_6aahyp",
+        "feature_Ymz9DV",
+        "feature_Bm6JiA",
+        "feature_MHpxNA"
+      ],
+      "name": "Feature - Sensitive",
+      "settings": {
+        "layout": "content_image",
+        "layout_mobile": "image_content",
+        "layout_advanced": false,
+        "image_width": 45,
+        "layout_gap": 80,
+        "layout_gap_mobile": 20,
+        "content_align": "left",
+        "content_align_mobile": "left",
+        "content_vertical_align": "center",
+        "source": "uploaded",
+        "video_url": "",
+        "video_ratio": "landscape",
+        "video_ratio_mobile": "landscape",
+        "video_radius": 16,
+        "video_border_thickness": 0,
+        "video_autoplay": true,
+        "video_loop": true,
+        "use_controls": true,
+        "play_icon_size": 16,
+        "play_icon_size_mobile": 16,
+        "play_padding": 14,
+        "play_padding_mobile": 14,
+        "play_radius": 100,
+        "play_border_thickness": 0,
+        "use_third_image": true,
+        "image_ratio": "square",
+        "image_ratio_mobile": "square",
+        "image_radius": 16,
+        "image_border_thickness": 0,
+        "features_columns": "one",
+        "features_columns_mobile": "one",
+        "features_advanced": true,
+        "features_border_thickness": 1,
+        "features_mt": 20,
+        "features_mt_mobile": 20,
+        "feature_gap": 10,
+        "feature_gap_mobile": 10,
+        "feature_mt": 10,
+        "feature_mt_mobile": 10,
+        "feature_icon_size": 16,
+        "feature_icon_size_mobile": 16,
+        "feature_text_custom": true,
+        "feature_text_font": "quattrocento_sans_n4",
+        "feature_text_size": 14,
+        "feature_text_size_mobile": 12,
+        "feature_text_height": 150,
+        "feature_icon_color": "#fc2d76",
+        "feature_text_color": "#9b4d2c",
+        "features_border_color": "#dbdbdb",
+        "image_border_color": "#121212",
+        "video_border_color": "#121212",
+        "play_color": "#121212",
+        "play_hover_color": "#121212",
+        "play_bg_color": "#ffffff",
+        "play_bg_hover_color": "#f3f3f3",
+        "play_border_color": "#121212",
+        "play_border_hover_color": "#121212",
+        "background_style": "solid",
+        "background_color": "#fdf1e4",
+        "background_gradient": "linear-gradient(180deg, #FFFFFF 0%, #F2F2F2 100%)",
+        "border_color": "#121212",
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "margin_horizontal": 0,
+        "margin_horizontal_mobile": 0,
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "padding_horizontal": 5,
+        "padding_horizontal_mobile": 1.5,
+        "width": "page",
+        "content_width": 1200,
+        "border_thickness": 0,
+        "section_radius": 0,
+        "lazy": true
+      }
+    },
+    "ss_waves_N7YMwU": {
+      "type": "ss-waves",
+      "name": "SS - Wave",
+      "settings": {
+        "wave_height": -40,
+        "wave_curvature": 250,
+        "wave_style": "less",
+        "wave_side": "0",
+        "animation": false,
+        "animation_duration": 5,
+        "background_color": "#fdf1e4",
+        "wave_color": "#ffc1c1",
+        "margin_top": -64,
+        "margin_bottom": 0,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_horizontal": 0,
+        "padding_horizontal_mobile": 0,
+        "full_width": true,
+        "content_width": 120
+      }
+    },
+    "ss_featured_product_4_UaWDFQ": {
+      "type": "ss-featured-product-4",
+      "blocks": {
+        "heading_CVDzcD": {
+          "type": "heading",
+          "settings": {
+            "heading": "<h2>GrandeBROW 2-in-1</h2>",
+            "heading_custom": false,
+            "heading_font": "josefin_sans_n4",
+            "heading_accent_custom": false,
+            "heading_accent_font": "josefin_sans_n4",
+            "heading_size": 52,
+            "heading_size_mobile": 32,
+            "heading_advanced": false,
+            "heading_height": 130,
+            "heading_mt": 0,
+            "heading_mt_mobile": 0,
+            "heading_color": "#121212",
+            "heading_accent_color": "#afafaf"
+          }
+        },
+        "text_PfG38w": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>TINTED BROW GEL + BROW ENHANCING SERUM</strong></p>",
+            "text_custom": true,
+            "text_font": "quattrocento_sans_n4",
+            "text_size": 16,
+            "text_size_mobile": 14,
+            "text_advanced": false,
+            "text_height": 150,
+            "text_mt": 20,
+            "text_mt_mobile": 16,
+            "text_color": "#9b4d2c"
+          }
+        },
+        "text_VaD9MJ": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Your brow serum for makeup days. Instant tint now—serum working underneath, every application.</p>",
+            "text_custom": true,
+            "text_font": "quattrocento_sans_n4",
+            "text_size": 16,
+            "text_size_mobile": 14,
+            "text_advanced": false,
+            "text_height": 150,
+            "text_mt": 20,
+            "text_mt_mobile": 16,
+            "text_color": "#121212"
+          }
+        },
+        "author_Ubjzpx": {
+          "type": "author",
+          "settings": {
+            "use_author_image": true,
+            "image_width": 80,
+            "image_width_mobile": 64,
+            "image_radius": 50,
+            "image_border_thickness": 0,
+            "text": "<p><em>\"My brow product and serum in one step. Every single morning.\"</em></p>",
+            "text_custom": false,
+            "text_font": "quattrocento_sans_n4",
+            "text_size": 18,
+            "text_size_mobile": 17,
+            "text_advanced": false,
+            "text_height": 150,
+            "author_mt": 24,
+            "author_mt_mobile": 12,
+            "author": "— SHALAINE, 180-DAY PARTICIPANT",
+            "author_custom": true,
+            "author_font": "quattrocento_sans_n4",
+            "author_size": 14,
+            "author_size_mobile": 12,
+            "author_advanced": false,
+            "author_height": 130,
+            "author_name_mt": 16,
+            "author_name_mt_mobile": 12,
+            "text_color": "#121212",
+            "author_color": "#121212",
+            "image_border_color": "#121212"
+          }
+        },
+        "button_9p6jeW": {
+          "type": "button",
+          "settings": {
+            "button": "SHOP NOW",
+            "url": "shopify://products/grandebrow-2-in-1",
+            "open_in_new_tab": false,
+            "button_style": "outline",
+            "button_custom": true,
+            "button_font": "josefin_sans_n4",
+            "button_size": 14,
+            "button_size_mobile": 14,
+            "button_advanced": false,
+            "button_height": 100,
+            "button_padding_horizontal": 28,
+            "button_padding_horizontal_mobile": 28,
+            "button_padding_vertical": 16,
+            "button_padding_vertical_mobile": 16,
+            "button_radius": 100,
+            "button_border_thickness": 1,
+            "button_mt": 20,
+            "button_mt_mobile": 16,
+            "button_color": "#fc2d76",
+            "button_hover_color": "#121212",
+            "button_bg_color": "#ffc1c1",
+            "button_bg_hover_color": "#ffc1c1",
+            "button_border_color": "#fc2d76",
+            "button_border_hover_color": "#121212"
+          }
+        },
+        "caption_UaFbB3": {
+          "type": "caption",
+          "settings": {
+            "icon": "none",
+            "text": "<p>$38 + FREE Mascara</p>",
+            "text_custom": true,
+            "text_font": "quattrocento_sans_n4",
+            "text_size": 16,
+            "text_size_mobile": 16,
+            "text_advanced": false,
+            "text_height": 150,
+            "text_mt": 20,
+            "text_mt_mobile": 16,
+            "icon_color": "#121212",
+            "text_color": "#121212"
+          }
+        },
+        "feature_9kQbBf": {
+          "type": "feature",
+          "settings": {
+            "icon": "star_sparkle",
+            "text": "Instant tint for immediate, defined brow color",
+            "hide_mobile": false
+          }
+        },
+        "feature_DktXXN": {
+          "type": "feature",
+          "settings": {
+            "icon": "star_sparkle",
+            "text": "Serum-infused to support fuller-looking brows*",
+            "hide_mobile": false
+          }
+        },
+        "feature_DgaeaF": {
+          "type": "feature",
+          "settings": {
+            "icon": "star_sparkle",
+            "text": "Replaces your brow pencil and brow gel",
+            "hide_mobile": false
+          }
+        },
+        "feature_NtgDGc": {
+          "type": "feature",
+          "settings": {
+            "icon": "star_sparkle",
+            "text": "Use GrandeBROW on makeup-free days for brow care around the clock",
+            "hide_mobile": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_CVDzcD",
+        "text_PfG38w",
+        "text_VaD9MJ",
+        "author_Ubjzpx",
+        "button_9p6jeW",
+        "caption_UaFbB3",
+        "feature_9kQbBf",
+        "feature_DktXXN",
+        "feature_DgaeaF",
+        "feature_NtgDGc"
+      ],
+      "name": "Feature - GrandeBROW 2in1",
+      "settings": {
+        "layout": "image_content",
+        "layout_mobile": "image_content",
+        "layout_advanced": false,
+        "image_width": 45,
+        "layout_gap": 80,
+        "layout_gap_mobile": 20,
+        "content_align": "left",
+        "content_align_mobile": "left",
+        "content_vertical_align": "center",
+        "source": "uploaded",
+        "video_url": "",
+        "video_ratio": "landscape",
+        "video_ratio_mobile": "landscape",
+        "video_radius": 16,
+        "video_border_thickness": 0,
+        "video_autoplay": true,
+        "video_loop": true,
+        "use_controls": true,
+        "play_icon_size": 16,
+        "play_icon_size_mobile": 16,
+        "play_padding": 14,
+        "play_padding_mobile": 14,
+        "play_radius": 100,
+        "play_border_thickness": 0,
+        "use_third_image": true,
+        "image_ratio": "square",
+        "image_ratio_mobile": "square",
+        "image_radius": 16,
+        "image_border_thickness": 0,
+        "features_columns": "one",
+        "features_columns_mobile": "one",
+        "features_advanced": true,
+        "features_border_thickness": 1,
+        "features_mt": 20,
+        "features_mt_mobile": 20,
+        "feature_gap": 10,
+        "feature_gap_mobile": 10,
+        "feature_mt": 10,
+        "feature_mt_mobile": 10,
+        "feature_icon_size": 16,
+        "feature_icon_size_mobile": 16,
+        "feature_text_custom": true,
+        "feature_text_font": "quattrocento_sans_n4",
+        "feature_text_size": 14,
+        "feature_text_size_mobile": 12,
+        "feature_text_height": 150,
+        "feature_icon_color": "#fc2d76",
+        "feature_text_color": "#9b4d2c",
+        "features_border_color": "#dbdbdb",
+        "image_border_color": "#121212",
+        "video_border_color": "#121212",
+        "play_color": "#121212",
+        "play_hover_color": "#121212",
+        "play_bg_color": "#ffffff",
+        "play_bg_hover_color": "#f3f3f3",
+        "play_border_color": "#121212",
+        "play_border_hover_color": "#121212",
+        "background_style": "solid",
+        "background_color": "#ffc1c1",
+        "background_gradient": "linear-gradient(180deg, #FFFFFF 0%, #F2F2F2 100%)",
+        "border_color": "#121212",
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "margin_horizontal": 0,
+        "margin_horizontal_mobile": 0,
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "padding_horizontal": 5,
+        "padding_horizontal_mobile": 1.5,
+        "width": "page",
+        "content_width": 1200,
+        "border_thickness": 0,
+        "section_radius": 0,
+        "lazy": true
+      }
+    },
+    "ss_waves_Ti7hwe": {
+      "type": "ss-waves",
+      "name": "SS - Wave",
+      "settings": {
+        "wave_height": -40,
+        "wave_curvature": 250,
+        "wave_style": "less",
+        "wave_side": "180",
+        "animation": false,
+        "animation_duration": 5,
+        "background_color": "#9b4d2c",
+        "wave_color": "#ffc1c1",
+        "margin_top": -64,
+        "margin_bottom": 0,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_horizontal": 0,
+        "padding_horizontal_mobile": 0,
+        "full_width": true,
+        "content_width": 120
+      }
+    },
+    "ss_parallax_banner_4MjXW3": {
+      "type": "ss-parallax-banner",
+      "blocks": {
+        "heading_prWwbQ": {
+          "type": "heading",
+          "settings": {
+            "heading": "<h2>This is what happens when<br/>beauty <em>actually</em> works.</h2>",
+            "heading_custom": false,
+            "heading_font": "josefin_sans_n4",
+            "heading_size": 52,
+            "heading_size_mobile": 30,
+            "heading_height": 130,
+            "heading_mt": 0,
+            "heading_color": "#ffffff"
+          }
+        },
+        "text_fbRGHi": {
+          "type": "text",
+          "settings": {
+            "text": "<p>One swipe. Every night. 25 people proved it.<br/>Now it's your turn—and your free mascara is waiting.</p>",
+            "text_custom": true,
+            "text_font": "quattrocento_sans_n4",
+            "text_size": 22,
+            "text_size_mobile": 16,
+            "text_height": 150,
+            "text_mt": 16,
+            "text_color": "#ffc1c1"
+          }
+        },
+        "button_4cdHpP": {
+          "type": "button",
+          "settings": {
+            "button": "SHOP NOW",
+            "button_url": "shopify://collections/best-sellers",
+            "button_custom": true,
+            "button_font": "quattrocento_sans_n7",
+            "button_size": 16,
+            "button_size_mobile": 14,
+            "button_height": 100,
+            "button_padding_vertical": 16,
+            "button_padding_vertical_mobile": 16,
+            "button_padding_horizontal": 50,
+            "button_padding_horizontal_mobile": 50,
+            "button_radius": 100,
+            "button_border_thickness": 1,
+            "button_mt": 16,
+            "button_gap": 28,
+            "button_ellipse": false,
+            "button_shadow": false,
+            "button_style": "outline",
+            "button_color": "#ffffff",
+            "button_hover_color": "#ffffff",
+            "button_bg_color": "#fc2d76",
+            "button_bg_hover_color": "#000000",
+            "button_border_color": "#fc2d76",
+            "button_border_hover_color": "#000000",
+            "button_shadow_color": "#000000"
+          }
+        },
+        "button_ezXiwT": {
+          "type": "button",
+          "settings": {
+            "button": "WATCH THE JOURNEYS",
+            "button_url": "",
+            "button_custom": true,
+            "button_font": "quattrocento_sans_n7",
+            "button_size": 16,
+            "button_size_mobile": 14,
+            "button_height": 100,
+            "button_padding_vertical": 16,
+            "button_padding_vertical_mobile": 16,
+            "button_padding_horizontal": 50,
+            "button_padding_horizontal_mobile": 50,
+            "button_radius": 100,
+            "button_border_thickness": 1,
+            "button_mt": 16,
+            "button_gap": 28,
+            "button_ellipse": false,
+            "button_shadow": false,
+            "button_style": "outline",
+            "button_color": "#ffffff",
+            "button_hover_color": "#ffffff",
+            "button_bg_color": "#fc2d76",
+            "button_bg_hover_color": "#000000",
+            "button_border_color": "#fc2d76",
+            "button_border_hover_color": "#000000",
+            "button_shadow_color": "#000000"
+          }
+        }
+      },
+      "block_order": [
+        "heading_prWwbQ",
+        "text_fbRGHi",
+        "button_4cdHpP",
+        "button_ezXiwT"
+      ],
+      "name": "SS - Parallax Banner",
+      "settings": {
+        "parallax": false,
+        "parallax_mobile": false,
+        "banner_height": "fixed_height",
+        "banner_fixed_height": 510,
+        "banner_fixed_height_mobile": 500,
+        "image": "shopify://shop_images/Screenshot_2026-06-11_at_1.49.05_PM.png",
+        "overlay": 0,
+        "content_maxwidth": 65,
+        "content_maxwidth_mobile": 100,
+        "content_horizontal_position": "center",
+        "content_horizontal_position_mobile": "center",
+        "content_vertical_position": "center",
+        "content_vertical_position_mobile": "center",
+        "content_padding_vertical": 32,
+        "content_padding_vertical_mobile": 20,
+        "content_padding_horizontal": 20,
+        "content_padding_horizontal_mobile": 20,
+        "overlay_color": "#000000",
+        "background_color": "#ffffff",
+        "background_gradient": "",
+        "border_color": "#000000",
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "padding_horizontal": 5,
+        "padding_horizontal_mobile": 1.5,
+        "full_width": true,
+        "content_width": 120,
+        "border_thickness": 0,
+        "lazy": true
+      }
+    },
+    "ss_waves_6KU3GK": {
+      "type": "ss-waves",
+      "disabled": true,
+      "name": "SS - Wave",
+      "settings": {
+        "wave_height": -40,
+        "wave_curvature": 250,
+        "wave_style": "less",
+        "wave_side": "0",
+        "animation": false,
+        "animation_duration": 5,
+        "background_color": "#9b4d2c",
+        "wave_color": "#fdf1e4",
+        "margin_top": -64,
+        "margin_bottom": 0,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_horizontal": 0,
+        "padding_horizontal_mobile": 0,
+        "full_width": true,
+        "content_width": 120
       }
     },
     "product_carousel_UTdhw3": {
@@ -149,21 +1847,21 @@
         "content_TXRGgU": {
           "type": "content",
           "settings": {
-            "product": "mini-magic-set-1",
+            "product": "grandelash-md",
             "category": ""
           }
         },
         "content_giTGtA": {
           "type": "content",
           "settings": {
-            "product": "grandelips-gloss",
+            "product": "grandebrow",
             "category": ""
           }
         },
         "content_T9EHpk": {
           "type": "content",
           "settings": {
-            "product": "grandeprimer",
+            "product": "grandehair-enhancing-serum",
             "category": ""
           }
         }
@@ -173,47 +1871,9 @@
         "content_giTGtA",
         "content_T9EHpk"
       ],
-      "disabled": true,
       "settings": {
-        "heading": "Add Kalee's Faves To Your Routine",
-        "categories": false,
-        "cta_copy": "",
-        "cta_url": ""
-      }
-    },
-    "product_carousel_M9gpFi": {
-      "type": "product-carousel",
-      "blocks": {
-        "content_AxnWCw": {
-          "type": "content",
-          "settings": {
-            "product": "grandelash-separator-lash-separating-comb",
-            "category": ""
-          }
-        },
-        "content_URbxkN": {
-          "type": "content",
-          "settings": {
-            "product": "grandefanatic-fanning-curling-mascara",
-            "category": ""
-          }
-        },
-        "content_fP7WCM": {
-          "type": "content",
-          "settings": {
-            "product": "mighty-minis-set",
-            "category": ""
-          }
-        }
-      },
-      "block_order": [
-        "content_AxnWCw",
-        "content_URbxkN",
-        "content_fP7WCM"
-      ],
-      "disabled": true,
-      "settings": {
-        "heading": "",
+        "regios_key": "",
+        "heading": "Shop Serums",
         "categories": false,
         "cta_copy": "",
         "cta_url": ""
@@ -224,11 +1884,24 @@
     "shogun-helper",
     "main",
     "shogun-optimizer",
-    "banner_HjctWi",
-    "ticker_Wk94Jh",
-    "product_carousel_HkKyCt",
-    "split_banner_RpcCep",
-    "product_carousel_UTdhw3",
-    "product_carousel_M9gpFi"
+    "ticker_VhL46P",
+    "ss_parallax_banner_Wi83ra",
+    "ss_parallax_banner_CmyCXy",
+    "ss_guarantee_8ddtK7",
+    "ss_parallax_banner_yQctDG",
+    "ss_waves_FBmRKx",
+    "ss_featured_product_4_JRdETM",
+    "ss_waves_MMCzbb",
+    "ss_featured_product_4_rGyN7M",
+    "ss_waves_7K8GU3",
+    "ss_before_after_image_10_xp9qNh",
+    "ss_waves_jcP9cd",
+    "ss_featured_product_4_eHMCX8",
+    "ss_waves_N7YMwU",
+    "ss_featured_product_4_UaWDFQ",
+    "ss_waves_Ti7hwe",
+    "ss_parallax_banner_4MjXW3",
+    "ss_waves_6KU3GK",
+    "product_carousel_UTdhw3"
   ]
 }
