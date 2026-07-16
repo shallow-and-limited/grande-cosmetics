@@ -32,7 +32,7 @@
         "desktop_alignment": "right",
         "mobile_content_position": "top",
         "mobile_alignment": "right",
-        "image_link": "shopify://collections/all",
+        "image_link": "shopify://collections/subscribe-save",
         "image": "shopify://shop_images/1_3.jpg",
         "image_overlay_opacity": 0
       }
@@ -47,7 +47,7 @@
         "desktop_alignment": "right",
         "mobile_content_position": "top",
         "mobile_alignment": "right",
-        "image_link": "shopify://collections/all",
+        "image_link": "shopify://collections/subscribe-save",
         "image": "shopify://shop_images/2.jpg",
         "image_overlay_opacity": 0
       }
@@ -62,7 +62,7 @@
         "desktop_alignment": "right",
         "mobile_content_position": "top",
         "mobile_alignment": "right",
-        "image_link": "",
+        "image_link": "shopify://collections/subscribe-save",
         "image": "shopify://shop_images/3.jpg",
         "image_overlay_opacity": 0
       }

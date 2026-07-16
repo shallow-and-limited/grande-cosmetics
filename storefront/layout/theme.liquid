@@ -243,6 +243,7 @@
           if (!error) {
             try {
               window.Osano.cm.ready('shopify');
+
               window.Osano.cm.addEventListener('osano-cm-consent-saved', (c) => {
                 window.Shopify.customerPrivacy.setTrackingConsent({
                   analytics:    c.ANALYTICS       === 'ACCEPT',
@@ -257,6 +258,7 @@
           }
         }
       );
-    </script>    
+    </script>  
+
   </body>
 </html>

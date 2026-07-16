@@ -34,8 +34,12 @@
 	window.loomi_ctx.variantId = {{ product.selected_or_first_available_variant.id  }};
 	{%- endif %}
 	{% endif %}
-        {{shop.metafields.visually_io.ttl}}
-        {{shop.metafields.visually_io.embedded_tests}}
+        {% if customer %}
+        window.loomi_ctx.clientId = {{ customer.id | json }}
+        {% endif %}
+        window.loomi_ctx.blockingConcent = {{shop.metafields.visually_io.blocking_concent.value}};
+        {{shop.metafields.visually_io.ttl.value}}
+        {{shop.metafields.visually_io.embedded_tests.value}}
         {{shop.metafields.visually_io.app_bootstrap.value}}
     })()
 </script>

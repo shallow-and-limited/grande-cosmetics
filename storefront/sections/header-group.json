@@ -22,6 +22,7 @@
         },
         "text_bfL8A4": {
           "type": "text",
+          "disabled": true,
           "settings": {
             "message": "<p><a href=\"/collections/best-sellers\" title=\"Best Sellers\"><strong>SHOP 20% OFF SITEWIDE</strong></a></p>"
           }
