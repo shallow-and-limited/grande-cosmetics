@@ -1,0 +1,277 @@
+{{ 'header.min.css' | asset_url | stylesheet_tag: preload: true }}
+
+{% if section.settings.sticky_header %}
+  <style>
+    #shopify-section-{{ section.id }} {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+  </style>
+{% endif %}
+
+{% assign _settings = section.settings %}
+{% assign _blocks = section.blocks %}
+
+<section-header>
+  <div class="header" data-header>
+    <div class="mobile-overlay hide-desktop" data-mobile-overlay></div>
+
+    <div class="header__icons header__icons--left hide-desktop">
+      <span class="header__icon header__icon-menu" data-open-menu>{% render 'icons', icon_name: 'menu', class: 'hide-desktop' %}</span>
+    </div>
+
+    {% if _settings.logo != blank %}
+      <a class="header__logo" href="{{ routes.root_url }}"><img src="{{ _settings.logo | image_url }}" alt="Company Logo" width="{{ _settings.logo.width }}" height="{{ _settings.logo.height }}" /></a>
+    {% else %}
+      <a class="header__logo" href="{{ routes.root_url }}">
+        {% render 'icons', icon_name: 'logo-on-light' %}
+      </a>
+    {% endif %}
+
+    <div class="header__nav hide-mobile" data-desktop-nav>
+      <nav class="header__nav-container hide-mobile">
+        {% if _settings.menu != blank %}
+          <ul class="header__nav-list">
+            {% assign menu_count = 0 %}
+            {% for link in _settings.menu.links %}
+              {% if forloop.last %}
+                <hr class="header__nav-hr">
+              {% endif %}
+              <li class="header__nav-item" {% if link.links != blank %}data-has-submenu="{{ forloop.index }}" {% else %}data-no-submenu{% endif %}>
+                <div>
+                  <a href="{{ link.url }}" class="header__nav-link p-3" data-nav-link>{{ link.title }}</a>
+                  {% if link.links != blank %}
+                    {% if forloop.index0 != 0 %}
+                      {% assign menu_count = menu_count | plus: 1 %}
+                    {% endif %}
+                    {% comment %} === mega menu start === {% endcomment %}
+                    {% render 'mega-menu', 
+                      index: forloop.index
+                      child_links: link.links
+                      _block: _blocks[menu_count].settings
+                    %}
+                    {% comment %} ===== end megamenu ==== {% endcomment %}
+                  {% endif %}
+                </div>
+              </li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+      </nav>
+    </div>
+    <div class="header__icons">
+      <div class="header__search hide-desktop">
+        <span class="header__icon" data-search-button>{% render 'icons', icon_name: 'search-filled', class: 'hide-desktop' %}</span>
+      </div>
+      <span class="header__search-close hide-mobile" data-search-close>
+        {% render 'icons': icon_name: 'close', class: 'predictive-close' %}
+      </span>
+      <div class="header__search hide-mobile">
+        <span class="header__icon" data-search-button>{% render 'icons', icon_name: 'search-filled', class: 'hide-mobile' %}</span>
+        <input
+          class="header__search-input field__input header__search-title"
+          name="q"
+          value="{{ search.terms | escape }}"
+          placeholder="Search"
+          role="combobox"
+          aria-expanded="false"
+          aria-owns="predictive-search-results"
+          aria-controls="predictive-search-results"
+          aria-haspopup="listbox"
+          aria-autocomplete="list"
+          autocorrect="off"
+          autocomplete="off"
+          autocapitalize="off"
+          spellcheck="false"
+          form="search-form"
+          data-p-search-input
+        >
+      </div>
+      <span class="header__search-close hide-mobile" data-search-close>
+        {% render 'icons': icon_name: 'close', class: 'predictive-close' %}
+      </span>
+      {%- if customer -%}
+      <a class="header__icon header__icon-customer p-4" href="{{ routes.account_url }}">{% if customer.first_name != blank %}{{ customer.first_name | slice: 0 }}{{ customer.last_name | slice: 0 }}{% else %}{% render 'icons', icon_name: 'account' %}{% endif %}</a>
+      {% else %}
+      <a class="header__icon" href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}">{% render 'icons', icon_name: 'account' %}</a>
+      {% endif %}
+      <a 
+        class="header__icon header__icon-cart" 
+        href="{{ routes.cart_url }}"
+        data-cart-link
+      >
+        {%- if cart != empty -%}
+          {% render 'icons', icon_name: 'cart-filled' %}
+          <span class="header__cart-count p-5" data-cart-count>
+            {% if cart.item_count < 10 %}
+              {{ cart.item_count | prepend: '0' }}
+            {% else %}
+              {{ cart.item_count }}
+            {% endif %}
+          </span>
+        {%- else -%}
+          {% render 'icons', icon_name: 'cart' %}
+        {% endif %}
+      </a>
+    </div>
+    {% render 'menu-drawer',
+      _links: _settings.menu.links
+      _blocks: _blocks
+    %}
+  </div>
+  <div class="desktop-overlay hide-mobile" data-desktop-overlay></div>
+</section-header>
+
+<div class="predictive-search__container" data-search-container>
+  {% render 'header-predictive-search' %}
+</div>
+
+<script src="{{ 'header.min.js' | asset_url }}" defer="defer"></script>
+
+{% comment %}
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const cartLink = document.querySelector('[data-cart-link]');
+    if (cartLink) {
+      cartLink.addEventListener('click', function(event) {
+        event.preventDefault();
+      });
+    }
+  });
+</script>
+{% endcomment %}
+
+{% schema %}
+{
+  "name": "Header",
+  "tag": "header",
+  "settings": [
+    {
+      "type": "image_picker",
+      "label": "Logo",
+      "id": "logo"
+    },
+    {
+      "type": "link_list",
+      "label": "Menu",
+      "id": "menu"
+    },
+    {
+      "type": "header",
+      "content": "Mobile Only Links",
+    },
+    {
+      "type": "url",
+      "label": "Rewards Page Link",
+      "id": "reward_link"
+    },
+    {
+      "type": "url",
+      "label": "Refer a Friend Page Link",
+      "id": "refer_link"
+    },
+    {
+      "type": "header",
+      "content": "Sticky Settings",
+    },
+    {
+      "type": "checkbox",
+      "label": "Sticky header?",
+      "id": "sticky_header"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "mega_menu",
+      "name": "Menu Block",
+      "settings": [
+        {
+          "type": "header",
+          "content": "Products to display"
+        },
+        {
+          "type": "product_list",
+          "id": "product_list",
+          "label": "Products",
+          "limit": 3,
+          "info": "Maximum 3 products"
+        },
+        {
+          "type": "header",
+          "content": "Link CTA",
+          "info": "Appears at bottom of link lists"
+        },
+        {
+          "type": "text",
+          "id": "link_text",
+          "label": "Link Text"
+        },
+        {
+          "type": "url",
+          "id": "link_url",
+          "label": "Link URL"
+        },
+        {
+          "type": "header",
+          "content": "Image CTA's"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_1",
+          "label": "CTA Image #1"
+        },
+        {
+          "type": "text",
+          "id": "text_1",
+          "label": "CTA Text #1"
+        },
+        {
+          "type": "url",
+          "id": "url_1",
+          "label": "CTA URL #1"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_2",
+          "label": "CTA Image #2"
+        },
+        {
+          "type": "text",
+          "id": "text_2",
+          "label": "CTA Text #2"
+        },
+        {
+          "type": "url",
+          "id": "url_2",
+          "label": "CTA URL #2"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_3",
+          "label": "CTA Image #3"
+        },
+        {
+          "type": "text",
+          "id": "text_3",
+          "label": "CTA Text #3"
+        },
+        {
+          "type": "url",
+          "id": "url_3",
+          "label": "CTA URL #3"
+        },
+        {
+          "type": "header",
+          "content": "Mobile Menu Settings"
+        },
+        {
+          "type": "checkbox",
+          "id": "child_accordions",
+          "label": "Show child links as accordion"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

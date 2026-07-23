@@ -1,0 +1,183 @@
+{{ 'main-cart.min.css' | asset_url | stylesheet_tag }}
+
+{% liquid
+  assign _s = section.settings
+  assign freeShippingThreshold = _s.free_shipping_threshold | divided_by: 1.00
+  assign percentToFreeShipping = cart.total_price | divided_by: freeShippingThreshold | times: 100.00
+  assign priceToFreeShipping = freeShippingThreshold | minus: cart.total_price | money
+  if percentToFreeShipping >= 100
+    assign qualifiesFreeShipping = true
+  endif
+
+  assign subtitles = ''
+  for item in cart.items
+    assign subtitles = subtitles | append: item.product.metafields.details.subtitle | append: ','
+  endfor
+%}
+
+<div class="main-cart container" data-items="{{ subtitles }}">
+  {% unless cart.empty? %}
+    <div class="main-cart__inner">
+      <div class="main-cart__header">
+        <h4 class="main-cart__heading h5">
+          Your Bag (<span data-cart-count>{{ cart.item_count }}</span>)
+        </h4>
+        {% if _s.cart_promo_message != blank %}
+          <div class="main-cart__promo p-4">
+            {{ _s.cart_promo_message }}
+          </div>
+        {% endif %}
+      </div>
+      <div data-main-cart class="mini-cart__items"></div>
+      <div class="main-cart__sticky hide-desktop">
+        <div class="main-cart__line space-between">
+          <span class="p-4">Subtotal:</span>
+          <span class="p-3" data-cart-total>{{ cart.total_price | money }}</span>
+        </div>
+        <div class="main-cart__cta">
+          <a href="/checkout" class="btn btn--primary">
+            Checkout
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="main-cart__summary">
+      <div class="main-cart__order-summary p-2 hide-mobile">Order Summary</div>
+
+      {% if _s.free_shipping_threshold != blank %}
+        <div class="text-block text-block__progress p-4" data-shipping-threshold="{{ freeShippingThreshold }}" data-shipping-message="{{ _s.free_shipping_message }}">
+          <div class="progress-text-wrapper space-between">
+            {% liquid
+              if qualifiesFreeShipping
+                assign leftText =  _s.free_shipping_message
+              else
+                assign leftText = 'You are ' | append: priceToFreeShipping | append: ' away from'
+              endif
+            %}
+            <span>
+              <span class="{% unless qualifiesFreeShipping %}d-none{% endunless %}" data-shipping-icon>
+                {% render 'icons', icon_name: 'sparkle-large' %}
+              </span>
+              <span class="w-light" data-shipping-text>{{ leftText }}</span>
+            </span>
+            <span>Free Shipping</span>
+          </div>
+          <div class="text-block__progress progress-bar">
+            <div class="progress-bar__progress" data-progress-bar style="width: {{ percentToFreeShipping }}%"></div>
+          </div>
+        </div>
+      {% endif %}
+      
+      <cart-data class="main-cart__lineWrapper">
+        <div class="main-cart__line space-between p-4">
+          <div id="shipping-tooltip" class="tooltip-icon" data-shipping-tooltip data-text="{{ _s.shipping_tooltip | escape }}">
+            Shipping
+            {% render 'icons', icon_name: 'help' %}
+          </div>
+          <span>Calculated at Checkout</span>
+        </div>
+        <div class="main-cart__line space-between p-4">
+          <div id="tax-tooltip" class="tooltip-icon" data-tax-tooltip data-text="{{ _s.tax_tooltip | escape }}">
+            Estimated Tax
+            {% render 'icons', icon_name: 'help' %}
+          </div>
+          <span>Calculated at Checkout</span>
+        </div>
+
+        <hr class="line hide-mobile" />
+
+        <div class="main-cart__line-total p-4 hide-desktop">
+          <div>Subtotal</div>
+          <div data-cart-total>{{ cart.total_price | money }}</div>
+        </div>
+
+        <div class="main-cart__line main-cart__rewards p-4">
+          You have
+          <span class="points-text">
+            <span data-lion-points-for="{{ cart.total_price }}"></span> points 
+          </span>
+          {% render 'icons', icon_name: 'sparkle' %}
+          Redeem at checkout!
+        </div>
+
+        <div class="main-cart__line-total p-4 hide-mobile">
+          <div>Subtotal</div>
+          <div data-cart-total>{{ cart.total_price | money }}</div>
+        </div>
+      </cart-data>
+
+      <hr class="line hide-desktop" />
+
+      <div class="main-cart__cta hide-mobile">
+        <a href="/checkout" class="btn btn--primary">
+          Checkout
+        </a>
+      </div>
+      <div class="main-cart__messages">
+        {% if _s.shipping_text != blank %}
+          <div class="p-4">
+            {{ _s.shipping_text }}
+            {% render 'icons', icon_name: 'sun' %}
+          </div>
+        {% endif %}
+        {% if _s.guarantee_text != blank %}
+          <div class="p-4">{{ _s.guarantee_text }}</div>
+        {% endif %}
+      </div>
+
+      <hr class="line hide-desktop" />
+    </div>
+  {% else %}
+    <div class="main-cart__empty">
+      <p class="main-cart__message h2">Your Bag is empty</p>
+    </div>
+  {% endunless %}
+</div>
+
+<script src="{{ 'main-cart.min.js' | asset_url }}" defer="defer"></script>
+<script src="{{ 'cart-data.min.js' | asset_url }}" defer="defer"></script>
+
+{% schema %}
+{
+  "name": "Cart Page",
+  "settings": [
+    {
+      "type": "text",
+      "id": "cart_promo_message",
+      "label": "Promotional Message"
+    },
+    {
+      "type": "text",
+      "id": "free_shipping_threshold",
+      "label": "Free Shipping Threshold",
+      "info": "Enter value in cents"
+    },
+    {
+      "type": "text",
+      "id": "free_shipping_message",
+      "label": "Free Shipping Message"
+    },
+    {
+      "type": "richtext",
+      "label": "Shipping Tooltip Text",
+      "id": "shipping_tooltip"
+    },
+    {
+      "type": "richtext",
+      "label": "Tax Tooltip Text",
+      "id": "tax_tooltip"
+    },
+    {
+      "type": "richtext",
+      "label": "Shipping Text",
+      "id": "shipping_text"
+    },
+    {
+      "type": "text",
+      "label": "Guarantee Text",
+      "id": "guarantee_text",
+      "default": "90 Money Back Guarantee Lipsum"
+    }
+  ]
+}
+{% endschema %}

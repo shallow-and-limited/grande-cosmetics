@@ -1,0 +1,70 @@
+{% comment %}
+  Renders Filter Sidebar
+  Accepts:
+  - blog: {Object} Blog object
+  Usage:
+  {% render 'filters', blog: blog %}
+{% endcomment %}
+
+<blog-filter-drawer class="main-blog__filter-drawer">
+  <section
+    class="filter__drawer"
+  >
+    <div class="filter__drawer-heading filter__drawer-heading--mob">
+      <h4>Filters</h4>
+      <div class="filter__close" data-filter-close>
+        {% render 'icons', icon_name: 'modal-close' %}
+      </div>
+    </div>
+    {%- if blog.all_tags != empty -%}
+      <div class="filter__drawer-content">
+        <div class="filter__drawer-content-inner">
+          <article class="filter">
+            <filter-accordion class="filter--expanded">
+              <details
+                class="js-filter"
+                data-index="{{ forloop.index }}"
+                open
+              >
+                <summary class="filter__heading">
+                  <h4>Tags</h4>
+                  <span></span>
+                </summary>
+
+
+                <div class="filter__content">
+                  <ul class="filter__content-inner">
+                    <li data-drawer-tag data-value="all">
+                      <label class="filter__checkbox">
+                        <div class="filter__checkbox-left">
+                          <span class="checkbox"></span>
+                          <a href="{{ blog.url }}" class="main-blog__tag-title">All</a>
+                        </div>
+                      </label>
+                    </li>
+                    
+                    {%- for tag in blog.all_tags -%}
+                    {% assign tagHandle = tag | handle %}
+                      <li data-drawer-tag data-value="{{ tag }}">
+                        <label class="filter__checkbox">
+                          <div class="filter__checkbox-left">
+                            <span class="checkbox"></span>
+                            <a href="{{ blog.url }}/tagged/{{ tagHandle}}" class="main-blog__tag-title">{{ tag }}</a>
+                          </div>
+                        </label>
+                      </li>
+                    {%- endfor -%}
+                  </ul>
+                </div>
+
+
+
+
+              </details>
+            </filter-accordion>
+          </article>
+        </div>
+      </div>
+    {%- endif -%}
+  </section>
+</blog-filter-drawer>

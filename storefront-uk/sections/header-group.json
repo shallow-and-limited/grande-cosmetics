@@ -1,0 +1,202 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "type": "header",
+  "name": "Header Group",
+  "sections": {
+    "promo_banner_WaT9qK": {
+      "type": "promo-banner",
+      "blocks": {
+        "text_9fDHkT": {
+          "type": "text",
+          "settings": {
+            "message": "<p><a href=\"/collections/new-arrivals\" title=\"New Arrivals\"><strong>FREE GIFT ON ORDERS $50+</strong></a></p>"
+          }
+        },
+        "text_bfL8A4": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "message": "<p><a href=\"https://grandecosmetics.com/collections/all\" title=\"https://grandecosmetics.com/collections/all\"><strong>SHOP UP TO 60% OFF</strong></a></p>"
+          }
+        },
+        "text_xb4K68": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "message": "<p><a href=\"/collections/sets\" title=\"SETS\"><strong>CYBER MONDAY: 40% OFF ALL SETS! (no code needed)*</strong></a></p>"
+          }
+        },
+        "text_YcxaT6": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "message": "<p><a href=\"/collections/best-sellers\" title=\"Best Sellers\"><strong>CYBER SAVINGS END TONIGHT: 30% OFF SITEWIDE (no code needed)*</strong></a></p>"
+          }
+        },
+        "text_9KgXih": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "message": "<p><a href=\"/collections/best-sellers\" title=\"Best Sellers\"><strong>FRIENDS & FAMILY: 20% OFF SITEWIDE (discount applied at cart)</strong></a></p>"
+          }
+        },
+        "text_6EVabp": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "message": "<p><a href=\"/collections/sale\" title=\"Sale\"><strong>Labor Day Sale: Up to 60% Off Select Items*</strong></a></p>"
+          }
+        },
+        "text_RnDDY6": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "message": "<p>❄️<strong> </strong><a href=\"/pages/shipping-returns\" title=\"Shipping & Returns\"><strong>Winter weather may cause shipping delays. Thanks for your patience!</strong></a></p>"
+          }
+        },
+        "text_7YEcCT": {
+          "type": "text",
+          "settings": {
+            "message": "<p><a href=\"https://grandecosmetics.com/pages/grande-offers\" title=\"https://grandecosmetics.com/pages/grande-offers\"><strong>FREE GROUND SHIPPING WITH ORDERS $50+*</strong></a></p>"
+          }
+        }
+      },
+      "block_order": [
+        "text_9fDHkT",
+        "text_bfL8A4",
+        "text_xb4K68",
+        "text_YcxaT6",
+        "text_9KgXih",
+        "text_6EVabp",
+        "text_RnDDY6",
+        "text_7YEcCT"
+      ],
+      "settings": {
+        "font_size_desktop": "12px",
+        "font_size_mobile": "11px",
+        "custom_links": "<p><a href=\"/pages/loyalty\" title=\"Loyalty\">Rewards</a>   |   <a href=\"/pages/loyalty\" title=\"Loyalty\">Refer a Friend</a></p>"
+      }
+    },
+    "header": {
+      "type": "header",
+      "blocks": {
+        "mega_menu_rkCr3h": {
+          "type": "mega_menu",
+          "settings": {
+            "product_list": [
+              "grandelash-md",
+              "2-step-lash-system-1",
+              "the-cult-faves"
+            ],
+            "link_text": "Shop All Lash",
+            "link_url": "shopify://collections/lashes",
+            "image_1": "shopify://shop_images/GrandeLASH-MD_53e4717f-fbb4-49d9-92b0-3dcc24057983.jpg",
+            "text_1": "Meet GrandeLASH-MD",
+            "url_1": "shopify://products/grandelash-md",
+            "text_2": "",
+            "url_2": "",
+            "text_3": "",
+            "url_3": "",
+            "child_accordions": false
+          }
+        },
+        "mega_menu_iChda4": {
+          "type": "mega_menu",
+          "settings": {
+            "product_list": [],
+            "link_text": "",
+            "link_url": "",
+            "image_1": "shopify://shop_images/Sensitive-Launch-MegaMenu_71f7e0ce-569c-4932-b6cb-025ccfbfe085.jpg",
+            "text_1": "Try Something New",
+            "url_1": "shopify://products/grandelash-sensitive",
+            "text_2": "",
+            "url_2": "",
+            "text_3": "",
+            "url_3": "",
+            "child_accordions": false
+          }
+        },
+        "mega_menu_qizYEm": {
+          "type": "mega_menu",
+          "settings": {
+            "product_list": [],
+            "link_text": "",
+            "link_url": "",
+            "image_1": "shopify://shop_images/HolidaySets-MegaMenu.jpg",
+            "text_1": "Shop Holiday 2025 Collection",
+            "url_1": "shopify://collections/holiday-2025",
+            "text_2": "",
+            "url_2": "",
+            "text_3": "",
+            "url_3": "",
+            "child_accordions": true
+          }
+        },
+        "mega_menu_8wigna": {
+          "type": "mega_menu",
+          "settings": {
+            "product_list": [],
+            "link_text": "",
+            "link_url": "",
+            "image_1": "shopify://shop_images/Press_Block_8c680134-2500-4f25-8376-0edd16de7145.jpg",
+            "text_1": "Press",
+            "url_1": "https://grandecosmetics.com/pages/press",
+            "image_2": "shopify://shop_images/Blog_Block_65eddbc2-a3a6-4d79-ab57-87f18bcc2d4b.jpg",
+            "text_2": "Blog",
+            "url_2": "https://grandecosmetics.com/blogs/news",
+            "text_3": "",
+            "url_3": "",
+            "child_accordions": false
+          }
+        },
+        "mega_menu_eqGTwB": {
+          "type": "mega_menu",
+          "settings": {
+            "product_list": [],
+            "link_text": "",
+            "link_url": "",
+            "text_1": "Grande Gives Back",
+            "url_1": "shopify://pages/contact-old",
+            "image_2": "shopify://shop_images/Press_Block_0bc26064-190b-4107-8da4-e3dc3bf69aad.jpg",
+            "text_2": "Press",
+            "url_2": "shopify://blogs/news",
+            "image_3": "shopify://shop_images/Blog_Block_edf5b1cd-01cc-4fa9-b8f2-04f331b0288b.jpg",
+            "text_3": "Blog",
+            "url_3": "shopify://blogs/news",
+            "child_accordions": false
+          }
+        }
+      },
+      "block_order": [
+        "mega_menu_rkCr3h",
+        "mega_menu_iChda4",
+        "mega_menu_qizYEm",
+        "mega_menu_8wigna",
+        "mega_menu_eqGTwB"
+      ],
+      "settings": {
+        "menu": "main-menu",
+        "reward_link": "https://grandecosmetics.com/pages/loyalty",
+        "refer_link": "https://grandecosmetics.com/pages/loyalty",
+        "sticky_header": true
+      }
+    },
+    "landing_animation_3KbHwC": {
+      "type": "landing-animation",
+      "settings": {}
+    }
+  },
+  "order": [
+    "promo_banner_WaT9qK",
+    "header",
+    "landing_animation_3KbHwC"
+  ]
+}

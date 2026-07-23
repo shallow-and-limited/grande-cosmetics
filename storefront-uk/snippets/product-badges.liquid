@@ -1,0 +1,23 @@
+<div class="badge-wrapper">
+  {%- for tag in product.tags -%}
+    {% if tag contains 'badge:' %}
+      {% assign badge = tag | split: ':' | last | replace: '-', ' ' %}
+      <span class="badge badge--{{ badge | handleize }} p-5 w-regular">{{ badge }}</span>
+    {% endif %}
+  {%- endfor -%}
+  {% if product.price < product.compare_at_price %}
+    <span class="badge badge--sale p-5 w-regular">{{ 'on_sale' | t }}</span>
+  {% endif %}
+
+  {% if product.metafields.custom.product_badge != blank %}
+    <span 
+      class="badge badge--{{ product.metafields.custom.product_badge | handle }} p-5 w-regular"
+      style="
+        background-color: {{ product.metafields.custom.product_badge_background_color }};
+        color: {{ product.metafields.custom.product_badge_text_color }};
+      "
+    >
+      {{ product.metafields.custom.product_badge }}
+    </span>
+  {% endif %}
+</div>

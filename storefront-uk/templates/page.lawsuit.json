@@ -1,0 +1,115 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {}
+    },
+    "banner_wbi7F8": {
+      "type": "banner",
+      "settings": {
+        "color": "dark",
+        "background": "beige",
+        "alignment": "center",
+        "eyebrow": "",
+        "heading": "Lawsuit Information",
+        "heading_size": "h2",
+        "copy": "For Class Action Settlement-Related Questions, an independent third-party administrator will assist you further:",
+        "cta_url": "https:\/\/www.GC-Settlement.com",
+        "cta_copy": "www.GC-Settlement.com",
+        "cta_url_alt": "",
+        "cta_copy_alt": "",
+        "overlay": 0
+      }
+    },
+    "split_banner_DMEaU9": {
+      "type": "split-banner",
+      "blocks": {
+        "body_copy_miqCNg": {
+          "type": "body-copy",
+          "settings": {
+            "copy": "<p>GrandeLASH-MD, GrandeBROW & GrandeHAIR Enhancing Serums are safe, clinically tested cosmetic products.<br\/><br\/>The lawsuit alleged Grande’s marketing of these products was false or misleading. In resolving the dispute, Grande Cosmetics did not admit any wrongdoing relating to its marketing of any of its products.\u2028\u2028<br\/><br\/>Grande Cosmetics, however, has agreed to enhance the labeling of the products – including updated usage instructions and wording within the ingredient list – for clarity.<br\/><br\/>The case did not relate to personal injuries suffered by users of the products.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "body_copy_miqCNg"
+      ],
+      "settings": {
+        "style": "beige",
+        "padding": "inset",
+        "arrangement": "right_asset_left_content",
+        "header": "h3",
+        "alignment": "centered",
+        "vertical_alignment": "top",
+        "module_height": "content-based",
+        "image_d": "shopify:\/\/shop_images\/Lash-bottles.jpg",
+        "eyebrow": "11 safety & performance studies",
+        "heading": "Safe & <em>Clinically Tested<\/em>",
+        "cta_url": "",
+        "cta_copy": ""
+      }
+    },
+    "split_banner_jny7Vq": {
+      "type": "split-banner",
+      "blocks": {
+        "body_copy_DHyELx": {
+          "type": "body-copy",
+          "settings": {
+            "copy": "<p>Since 2008, we've prioritized product safety just as much as performance. GrandeLASH-MD is one of the most-studied cosmetic lash serums, including a third-party 8-month clinical study & a toxicological review of its formula & individual ingredients.To learn more about GrandeLASH-MD's Safety & Testing: <a href=\"https:\/\/grandecosmetics.com\/pages\/grandelash-md-safety-testing\" target=\"_blank\" title=\"https:\/\/grandecosmetics.com\/pages\/grandelash-md-safety-testing\">Click Here<\/a><\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "body_copy_DHyELx"
+      ],
+      "settings": {
+        "style": "beige",
+        "padding": "inset",
+        "arrangement": "left_asset_right_content",
+        "header": "h3",
+        "alignment": "centered",
+        "vertical_alignment": "top",
+        "module_height": "image-height",
+        "image_d": "shopify:\/\/shop_images\/performance_studies.png",
+        "eyebrow": "",
+        "heading": "One of the <em>Most-Studied <\/em>Cosmetic Lash Serums",
+        "cta_url": "",
+        "cta_copy": ""
+      }
+    },
+    "banner_bzKLiy": {
+      "type": "banner",
+      "settings": {
+        "color": "dark",
+        "background": "beige",
+        "alignment": "center",
+        "eyebrow": "",
+        "heading": "",
+        "heading_size": "h2",
+        "copy": "For Class Action Settlement-Related Questions, an independent third-party administrator will assist you further: www.GC-Settlement.com\n<br>\nFor Product-Related Questions,\u2028please contact our Customer Service Team: \n\n<br>\nMonday - Friday, 9am-5pm EST\n\n<br>\n(877) 835-3010\n\n<br>\ncustomerservice@grandecosmetics.com\n\n<br>\nClosed Weekends & Holidays\n",
+        "cta_url": "https:\/\/www.GC-Settlement.com",
+        "cta_copy": "",
+        "cta_url_alt": "",
+        "cta_copy_alt": "",
+        "overlay": 0
+      }
+    }
+  },
+  "order": [
+    "main",
+    "banner_wbi7F8",
+    "split_banner_DMEaU9",
+    "split_banner_jny7Vq",
+    "banner_bzKLiy"
+  ]
+}

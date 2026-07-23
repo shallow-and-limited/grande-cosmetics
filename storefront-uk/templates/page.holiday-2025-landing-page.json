@@ -1,0 +1,562 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "shogun-helper": {
+      "type": "shogun-helper",
+      "settings": {}
+    },
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {}
+    },
+    "shogun-optimizer": {
+      "type": "shogun-optimizer",
+      "settings": {}
+    },
+    "hero_carousel_VWxPyj": {
+      "type": "hero-carousel",
+      "blocks": {
+        "hero_slide_r88hUf": {
+          "type": "hero_slide",
+          "settings": {
+            "color": "dark",
+            "alignment_v": "middle",
+            "alignment_h": "center",
+            "alignment_v_m": "top_m",
+            "alignment_h_m": "center_m",
+            "image_d": "shopify:\/\/shop_images\/Holiday2025LandingPage-DesktopBanner.gif",
+            "video_poster_d": true,
+            "image_m": "shopify:\/\/shop_images\/Holiday2025LandingPage-MobileBanner.gif",
+            "video_poster_m": true,
+            "video_autoplay": true,
+            "eyebrow": "HOLIDAY 2025 COLLECTION IS HERE",
+            "heading": "Give The Gift Of Natural Beauty",
+            "heading_size": "h2",
+            "copy": "",
+            "cta_url": "shopify:\/\/collections\/holiday-2025",
+            "cta_copy": "Shop The Collection",
+            "cta_url_alt": "",
+            "cta_copy_alt": "",
+            "overlay": 0
+          }
+        }
+      },
+      "block_order": [
+        "hero_slide_r88hUf"
+      ],
+      "name": "Hero Carousel",
+      "settings": {
+        "display": "full-bleed"
+      }
+    },
+    "before_after_VP7B7W": {
+      "type": "before-after",
+      "disabled": true,
+      "settings": {
+        "switch_sides": false,
+        "metaobject_handle": "before-and-after-gt6jmarm"
+      }
+    },
+    "ticker_3pyWYU": {
+      "type": "ticker",
+      "blocks": {
+        "text_YeREMV": {
+          "type": "text",
+          "settings": {
+            "svg_icon": "flower",
+            "text": "<em>Once-A-Year Savings<\/em>",
+            "url": ""
+          }
+        },
+        "text_XrcTrw": {
+          "type": "text",
+          "settings": {
+            "svg_icon": "flower",
+            "text": "<em>Savings Up To 54%<\/em>",
+            "url": ""
+          }
+        }
+      },
+      "block_order": [
+        "text_YeREMV",
+        "text_XrcTrw"
+      ],
+      "name": "Ticker",
+      "settings": {
+        "optional_text": "",
+        "optional_url": "",
+        "speed": 2,
+        "color_scheme": "dark-pink"
+      }
+    },
+    "birthday_promo_8bcwji": {
+      "type": "birthday-promo",
+      "blocks": {
+        "promo_card_rHYPwD": {
+          "type": "promo-card",
+          "settings": {
+            "status": "active",
+            "active_image": "shopify:\/\/shop_images\/Promo-Block-FreeSingleLip-GWP-WithValue.jpg",
+            "apply_effect": true,
+            "upcoming_image_color": "#FF76B8",
+            "upcoming_image_opacity": 70,
+            "eyebrow": "Week 1",
+            "heading": "1 FREE Clear GrandeLIPS",
+            "copy": "<br>\nWhen you spend $50+",
+            "cta": "Shop Now",
+            "link": "shopify:\/\/collections\/best-sellers"
+          }
+        },
+        "promo_card_M8gCfa": {
+          "type": "promo-card",
+          "settings": {
+            "status": "active",
+            "active_image": "shopify:\/\/shop_images\/Promo-Block-FreeLip-AllShades-GWP-2.jpg",
+            "apply_effect": true,
+            "upcoming_image_color": "#FF76B8",
+            "upcoming_image_opacity": 70,
+            "eyebrow": "Week 2",
+            "heading": "4 FREE GrandeLIPS",
+            "copy": "When you spend $75+",
+            "cta": "Shop Now",
+            "link": "shopify:\/\/collections\/best-sellers"
+          }
+        }
+      },
+      "block_order": [
+        "promo_card_rHYPwD",
+        "promo_card_M8gCfa"
+      ],
+      "name": "Birthday promo",
+      "settings": {
+        "heading": "Current Free Gifts With Purchase:"
+      }
+    },
+    "split_banner_KiNC4h": {
+      "type": "split-banner",
+      "blocks": {
+        "body_copy_WJyKR4": {
+          "type": "body-copy",
+          "settings": {
+            "copy": "<p>Set Includes:<\/p>"
+          }
+        },
+        "line_item_f6TNpL": {
+          "type": "line-item",
+          "settings": {
+            "line_item_icon_rotation": true,
+            "line_item_text": "GrandeLASH-MD | Full Size"
+          }
+        },
+        "line_item_hgb4t3": {
+          "type": "line-item",
+          "settings": {
+            "line_item_icon_rotation": true,
+            "line_item_text": "GrandeBROW | Mini"
+          }
+        },
+        "line_item_zBBWJi": {
+          "type": "line-item",
+          "settings": {
+            "line_item_icon_rotation": true,
+            "line_item_text": "GrandeDRAMA | Mini"
+          }
+        },
+        "line_item_6hTWM7": {
+          "type": "line-item",
+          "settings": {
+            "line_item_icon_rotation": true,
+            "line_item_text": "GrandeMASCARA | Mini"
+          }
+        },
+        "line_item_8c4ne6": {
+          "type": "line-item",
+          "settings": {
+            "line_item_icon_rotation": true,
+            "line_item_text": "GrandeLIPS | Mini"
+          }
+        }
+      },
+      "block_order": [
+        "body_copy_WJyKR4",
+        "line_item_f6TNpL",
+        "line_item_hgb4t3",
+        "line_item_zBBWJi",
+        "line_item_6hTWM7",
+        "line_item_8c4ne6"
+      ],
+      "name": "Split Banner",
+      "settings": {
+        "style": "beige",
+        "padding": "full-width",
+        "arrangement": "left_asset_right_content",
+        "header": "h4",
+        "alignment": "left",
+        "vertical_alignment": "middle",
+        "module_height": "image-height",
+        "image_d": "shopify:\/\/shop_images\/FarOutFive-SplitBannerImage_2ee034cc-0be8-43cf-94d5-3ed87577b31a.jpg",
+        "video_poster_d": true,
+        "video_poster_m": true,
+        "video_autoplay": true,
+        "eyebrow": "FAR OUT FIVE IS PERFECT FOR...",
+        "heading": "The GrandeLASH-MD Lover",
+        "cta_url": "shopify:\/\/collections\/holiday-sets",
+        "cta_copy": "Shop The Set"
+      }
+    },
+    "ticker_pnKyyG": {
+      "type": "ticker",
+      "name": "Ticker",
+      "settings": {
+        "optional_text": "",
+        "optional_url": "",
+        "speed": 3,
+        "color_scheme": "beige"
+      }
+    },
+    "split_banner_KnQiPj": {
+      "type": "split-banner",
+      "blocks": {
+        "body_copy_eJkjwF": {
+          "type": "body-copy",
+          "settings": {
+            "copy": "<p>Set Includes:<\/p>"
+          }
+        },
+        "line_item_Kegr8R": {
+          "type": "line-item",
+          "settings": {
+            "line_item_icon_rotation": true,
+            "line_item_text": "GrandeLASH-MD | Full Size"
+          }
+        },
+        "line_item_UqzMbp": {
+          "type": "line-item",
+          "settings": {
+            "line_item_icon_rotation": true,
+            "line_item_text": "GrandeBROW | Full Size"
+          }
+        },
+        "line_item_gtmyfU": {
+          "type": "line-item",
+          "settings": {
+            "line_item_icon_rotation": true,
+            "line_item_text": "GrandeMASCARA | Full Size"
+          }
+        },
+        "line_item_UABy6E": {
+          "type": "line-item",
+          "settings": {
+            "line_item_icon_rotation": true,
+            "line_item_text": "GrandePRIMER | Full Size"
+          }
+        }
+      },
+      "block_order": [
+        "body_copy_eJkjwF",
+        "line_item_Kegr8R",
+        "line_item_UqzMbp",
+        "line_item_gtmyfU",
+        "line_item_UABy6E"
+      ],
+      "settings": {
+        "style": "beige",
+        "padding": "full-width",
+        "arrangement": "left_asset_right_content",
+        "header": "h4",
+        "alignment": "left",
+        "vertical_alignment": "middle",
+        "module_height": "image-height",
+        "image_d": "shopify:\/\/shop_images\/NextGenGlamour-SplitBannerImage_0f01b378-90c8-44a9-b060-5018dc36397b.jpg",
+        "video_poster_d": true,
+        "video_poster_m": true,
+        "video_autoplay": true,
+        "eyebrow": "NEXT GEN GLAMOUR IS PERFECT FOR...",
+        "heading": "A Simple, Clean Girl Look",
+        "cta_url": "shopify:\/\/collections\/holiday-sets",
+        "cta_copy": "Shop The Set"
+      }
+    },
+    "ticker_jBxJVG": {
+      "type": "ticker",
+      "name": "Ticker",
+      "settings": {
+        "optional_text": "",
+        "optional_url": "",
+        "speed": 3,
+        "color_scheme": "beige"
+      }
+    },
+    "split_banner_dc4r3E": {
+      "type": "split-banner",
+      "blocks": {
+        "body_copy_mpVdpg": {
+          "type": "body-copy",
+          "settings": {
+            "copy": "<p>Set Includes:<\/p>"
+          }
+        },
+        "line_item_7deKxU": {
+          "type": "line-item",
+          "settings": {
+            "line_item_icon_rotation": true,
+            "line_item_text": "GrandeLASH-MD | Full Size"
+          }
+        },
+        "line_item_9PNN68": {
+          "type": "line-item",
+          "settings": {
+            "line_item_icon_rotation": true,
+            "line_item_text": "GrandeBROW | Full Size"
+          }
+        }
+      },
+      "block_order": [
+        "body_copy_mpVdpg",
+        "line_item_7deKxU",
+        "line_item_9PNN68"
+      ],
+      "name": "Split Banner",
+      "settings": {
+        "style": "beige",
+        "padding": "full-width",
+        "arrangement": "left_asset_right_content",
+        "header": "h4",
+        "alignment": "left",
+        "vertical_alignment": "top",
+        "module_height": "image-height",
+        "image_d": "shopify:\/\/shop_images\/LashBrowPowerPair-SplitBannerImage.jpg",
+        "video_poster_d": true,
+        "video_poster_m": true,
+        "video_autoplay": true,
+        "eyebrow": "LASH & BROW POWER PAIR IS PERFECT FOR...",
+        "heading": "Boosting Your Confidence",
+        "cta_url": "",
+        "cta_copy": ""
+      }
+    },
+    "ticker_mfY3yx": {
+      "type": "ticker",
+      "name": "Ticker",
+      "settings": {
+        "optional_text": "",
+        "optional_url": "",
+        "speed": 3,
+        "color_scheme": "beige"
+      }
+    },
+    "ticker_jEUfHp": {
+      "type": "ticker",
+      "name": "Ticker",
+      "settings": {
+        "optional_text": "",
+        "optional_url": "",
+        "speed": 3,
+        "color_scheme": "beige"
+      }
+    },
+    "split_banner_mmgiEW": {
+      "type": "split-banner",
+      "blocks": {
+        "body_copy_T78xb3": {
+          "type": "body-copy",
+          "settings": {
+            "copy": "<p>Set Includes:<\/p>"
+          }
+        },
+        "line_item_tb3cf9": {
+          "type": "line-item",
+          "settings": {
+            "line_item_icon_rotation": true,
+            "line_item_text": "GrandeDRAMA | Full Size"
+          }
+        },
+        "line_item_iUerLd": {
+          "type": "line-item",
+          "settings": {
+            "line_item_icon_rotation": true,
+            "line_item_text": "GrandeLASH-MD | Full Size"
+          }
+        },
+        "line_item_UQaFH4": {
+          "type": "line-item",
+          "settings": {
+            "line_item_icon_rotation": true,
+            "line_item_text": "GrandeBROW | Travel Size"
+          }
+        },
+        "line_item_7qpnrG": {
+          "type": "line-item",
+          "settings": {
+            "line_item_icon_rotation": true,
+            "line_item_text": "GrandeLASH-MD | Trial Size (to keep, or to share the love!)"
+          }
+        }
+      },
+      "block_order": [
+        "body_copy_T78xb3",
+        "line_item_tb3cf9",
+        "line_item_iUerLd",
+        "line_item_UQaFH4",
+        "line_item_7qpnrG"
+      ],
+      "name": "Split Banner",
+      "settings": {
+        "style": "beige",
+        "padding": "full-width",
+        "arrangement": "left_asset_right_content",
+        "header": "h4",
+        "alignment": "left",
+        "vertical_alignment": "top",
+        "module_height": "image-height",
+        "image_d": "shopify:\/\/shop_images\/DynamiteLashesBrows-SplitBannerImage.jpg",
+        "video_poster_d": true,
+        "video_poster_m": true,
+        "video_autoplay": true,
+        "eyebrow": "dynaMITE lashes & brows IS PERFECT FOR...",
+        "heading": "Creating A Dramatic Look",
+        "cta_url": "",
+        "cta_copy": ""
+      }
+    },
+    "banner_AgcYwr": {
+      "type": "banner",
+      "name": "Banner",
+      "settings": {
+        "color": "light",
+        "background": "beige",
+        "image_d": "shopify:\/\/shop_images\/Sharing-BannerImage.jpg",
+        "alignment": "center",
+        "eyebrow": "",
+        "heading": "Better Together - <em>Results Worth Sharing<\/em>",
+        "heading_size": "h3",
+        "copy": "",
+        "cta_url": "",
+        "cta_copy": "",
+        "cta_url_alt": "",
+        "cta_copy_alt": "",
+        "overlay": 30
+      }
+    },
+    "press_XYJzha": {
+      "type": "press",
+      "blocks": {
+        "slide_ztWzzd": {
+          "type": "slide",
+          "settings": {
+            "quote": "\"After testing a number of eyelash serums, this one from Grande Cosmetics blew us away in the volume department.\"",
+            "logo": "shopify:\/\/shop_images\/byrdie-logo_699e1858-06f1-4b11-b39a-741a99112b95.png"
+          }
+        },
+        "slide_NFTjWg": {
+          "type": "slide",
+          "settings": {
+            "quote": "GrandeLASH-MD is \"A <em>Real Simple<\/em> reader-favorite.\"",
+            "logo": "shopify:\/\/shop_images\/realsimplepink_1e9e42d7-8fb8-4b0a-b628-5c3f28065b78.png"
+          }
+        },
+        "slide_7NqHBh": {
+          "type": "slide",
+          "settings": {
+            "quote": "\"Grande Cosmetics founder Alicia Grande cracked the eyelash-enhancing code with this little gold tube of magic. Ophthalmologist-tested and clinically proven, it transforms short, weak lashes by making them appear longer and thicker.\"",
+            "logo": "shopify:\/\/shop_images\/NewBeauty-1-q0aalw3k4p51an8zfmtpl6kt24uksdudr5b581kg7k_b703bce9-90cb-42fc-9dce-aca326d9287d.png"
+          }
+        }
+      },
+      "block_order": [
+        "slide_ztWzzd",
+        "slide_NFTjWg",
+        "slide_7NqHBh"
+      ],
+      "disabled": true,
+      "custom_css": [
+        "h3 {font-size: 35px !important;}"
+      ],
+      "settings": {}
+    },
+    "before_after_xtEAhq": {
+      "type": "before-after",
+      "name": "Before After",
+      "settings": {
+        "switch_sides": false,
+        "metaobject_handle": "before-and-after-irxkry5r"
+      }
+    },
+    "before_after_w4B7Wh": {
+      "type": "before-after",
+      "name": "Before After",
+      "settings": {
+        "switch_sides": false,
+        "metaobject_handle": "before-and-after-bixl8haz"
+      }
+    },
+    "before_after_ffCriG": {
+      "type": "before-after",
+      "name": "Before After",
+      "settings": {
+        "switch_sides": false,
+        "metaobject_handle": "before-and-after-tjvf4vrv"
+      }
+    },
+    "before_after_YQnyW7": {
+      "type": "before-after",
+      "name": "Before After",
+      "settings": {
+        "switch_sides": false,
+        "metaobject_handle": "before-and-after-tn95duil"
+      }
+    },
+    "banner_HYxB6K": {
+      "type": "banner",
+      "name": "Banner",
+      "settings": {
+        "color": "light",
+        "background": "beige",
+        "image_d": "shopify:\/\/shop_images\/Sharing-BannerImage-2.jpg",
+        "alignment": "center",
+        "eyebrow": "",
+        "heading": "Confidence Is A Gift - <em>Share It<\/em>",
+        "heading_size": "h3",
+        "copy": "",
+        "cta_url": "",
+        "cta_copy": "",
+        "cta_url_alt": "",
+        "cta_copy_alt": "",
+        "overlay": 30
+      }
+    }
+  },
+  "order": [
+    "shogun-helper",
+    "main",
+    "shogun-optimizer",
+    "hero_carousel_VWxPyj",
+    "before_after_VP7B7W",
+    "ticker_3pyWYU",
+    "birthday_promo_8bcwji",
+    "split_banner_KiNC4h",
+    "ticker_pnKyyG",
+    "split_banner_KnQiPj",
+    "ticker_jBxJVG",
+    "split_banner_dc4r3E",
+    "ticker_mfY3yx",
+    "split_banner_mmgiEW",
+    "ticker_jEUfHp",
+    "banner_AgcYwr",
+    "press_XYJzha",
+    "before_after_xtEAhq",
+    "before_after_w4B7Wh",
+    "before_after_ffCriG",
+    "before_after_YQnyW7",
+    "banner_HYxB6K"
+  ]
+}

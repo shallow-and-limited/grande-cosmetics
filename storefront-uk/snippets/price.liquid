@@ -1,0 +1,68 @@
+{% comment %}
+  Renders a list of product's price (regular, sale)
+
+  @param target {Product|Variant}
+  @param price {number}
+  @param class {String}
+  @param attr {String}
+  @param show_trailing_zeros {Boolean} [false]
+
+  Usage:
+  {% render 'price', target: target %}
+{% endcomment %}
+
+{%- liquid
+  assign target = target | default: ''
+  assign compare_at_price = target.compare_at_price
+
+  if discount == blank
+    assign discount = 1
+  endif
+  assign price = price | default: target.price | times: discount | default: 1999
+  assign money_price = price | money_without_trailing_zeros
+  if show_trailing_zeros
+    assign money_price = price | money
+  endif
+
+  assign on_sale = false
+  if compare_at_price != blank and compare_at_price > price
+    assign on_sale = true
+  endif
+-%}
+
+<span class="price {{ class }}" {{ attr }}>
+  <span>
+    {% if on_sale %}
+      <span class="visually-hidden">Sale Price</span>
+    {% else %}
+      <span class="visually-hidden">Regular Price</span>
+    {% endif %}
+    {% liquid
+      if sub_toggle
+        if class contains 'price--sub'
+          assign data_attr = 'data-price-sub-toggle-subscription'
+        else
+          assign data_attr = 'data-price-sub-toggle'
+        endif
+      elsif product_card
+        assign data_attr = ''
+      else
+        assign data_attr = 'data-price'
+      endif
+    %}
+    <span id="ProductPrice" {{ data_attr }} data-lion-price-for-product-id="{{ product.id }}">
+      {{ money_price }}
+    </span>
+    <span>
+      <s class="price__item price__item--compare" data-compare-price>
+        {% if compare_at_price > price %}
+          {% if show_trailing_zeros %}
+            {{ compare_at_price | times: discount | money }}
+          {% else %}
+            {{ compare_at_price | money_without_trailing_zeros }}
+          {% endif %}
+        {% endif %}
+      </s>
+    </span>
+  </span>
+</span>

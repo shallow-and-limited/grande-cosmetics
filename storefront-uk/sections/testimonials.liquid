@@ -1,0 +1,327 @@
+{% assign pagetype = request.page_type %}
+{% case pagetype %}
+{% when 'product' %}
+  {% assign _settings = product.metafields.details.product_testimonials.value %}
+  {% if _settings.carousel_type == "Image Backgrounds" %}
+    {% assign _blocks = _settings.image_testimonial_slides.value %}
+    {% assign _slide_type = "image_bg" %}
+  {% else %}
+    {% assign _blocks = _settings.color_testimonial_slides.value %}
+    {% assign _slide_type = "color_bg" %}
+  {% endif %}
+  {% assign _blocks_size = _blocks.count %}
+{% when 'collection' %}
+  {% assign _settings = collection.metafields.details.collection_testimonials.value %}
+  {% if _settings.carousel_type == "Image Backgrounds" %}
+    {% assign _blocks = _settings.image_testimonial_slides.value %}
+    {% assign _slide_type = "image_bg" %}
+  {% else %}
+    {% assign _blocks = _settings.color_testimonial_slides.value %}
+    {% assign _slide_type = "color_bg" %}
+  {% endif %}
+  {% assign _blocks_size = _blocks.count %}  
+{% else %}
+  {%- assign _settings = section.settings -%}
+  {% assign _blocks = section.blocks %}
+  {% assign _blocks_size = _blocks.size %}
+  {% assign _slide_type = _settings.slide_type %}
+{% endcase %}
+
+{% if _settings %}
+
+  {{ 'testimonials.min.css' | asset_url | stylesheet_tag }}
+
+  <testimonials>
+    <section class="testimonials testimonials__container {{ _slide_type | downcase }} bg-{{ _settings.background_color | downcase }}">
+      <testimonials-carousel class="testimonials__slider" data-swiper-class="swiper">
+        <div class="testimonials-carousel__slides" data-swiper-class="swiper-wrapper">
+          {% for block in _blocks %}
+            {% if pagetype == "product" or pagetype == "collection" %}
+              {%  assign _b = block %}
+              {% if _b.text_color == "Light" %}
+                {% assign _text_color = "white" %}
+              {% else %}
+                {% assign _text_color = "noir" %}
+              {% endif %}
+            {% else %}
+              {%  assign _b = block.settings %}
+              {%  assign _text_color = _b.text_color %}
+            {% endif %}
+            <div class="testimonials__slide text-{{ _text_color }}" data-swiper-class="swiper-slide">
+              <div class="testimonials__slide-content">
+                {% if _slide_type == "image_bg" %}
+                  <div class="testimonials__slide-image">
+                    {% if pagetype == "product" or pagetype == "collection" %}
+                      {% assign _image_d = _b.image_d.value %}
+                      {% assign _image_m = _b.image_m.value %}
+                    {% else %}
+                      {% assign _image_d = _b.image_d %}
+                      {% assign _image_m = _b.image_m %}
+                    {% endif %}
+                    {% render 'image', image: _image_d, class: 'hide-mobile' %}
+                    {% render 'image', image: _image_m, class: 'hide-desktop' %}
+                    </div>
+                {% endif %}
+                <div class="testimonials__slide-text {{ _b.text_placement | downcase }}">
+                  <div class="testimonials__slide-quote color-{{ _text_color }}">
+                      <div class="testimonials__slide-eyebrow s-3">
+                          {{ _b.eyebrow }}
+                      </div>
+                    {% assign quote_size = _b.quote_size | downcase %}
+                    {% unless quote_size == 'p1' %}
+                      <{{ quote_size }}>{{ _b.quote }}</{{ quote_size }}>
+                      {% if _b.image_logo == blank %}
+                        <p class="testimonials__slide-body p-3 color-{{ _text_color }}">{{ _b.text }}</p>
+                      {% endif %}
+                    {% else %}
+                      <div class="p-1">{{ _b.quote }}
+                        {% if _b.image_logo == blank %}
+                          <p class="testimonials__slide-body p-3 color-{{ _text_color }}">{{ _b.text }}</p>
+                        {% endif %}
+                      </div>
+                    {% endunless %}
+                  </div>
+                  {% if _b.image_logo %}
+                    <div class="testimonials__slide-logo {{ _b.text_placement | downcase }}">
+                      <div class="testimonials__slide-logo__dash bg-{{ _text_color }}"></div>
+                      {% if pagetype == "product" or pagetype == "collection" %}
+                        {% render 'image', image: _b.image_logo.value %}
+                      {% else %}
+                        {% render 'image', image: _b.image_logo %}
+                      {% endif %}
+                      {% if _b.text %}
+                        <p class="testimonials__slide-body p-3 color-{{ _text_color }}">{{ _b.text }}</p>
+                      {% endif %}
+                    </div>
+                  {% endif %}
+                </div>
+              </div>
+              {% if _b.cta_url %}
+                <a href="{{ _b.cta_url }}" class="visually-hidden testimonials__slide-cta p-3 color-{{ _b.text_color }} hide-mobile">{{ _b.cta_copy }}</a>
+              {% endif %}
+            </div>
+          {% endfor %}
+        </div>
+        {% if pagetype == 'product' or pagetype == 'collection' %}
+          {% assign blocks_array = _blocks | compact %}
+          {% assign nav_color_initial = blocks_array[0].text_color %}
+          {% if nav_color_initial == "Light" %}
+            {% assign nav_color_initial = "white" %}
+          {% else %}
+            {% assign nav_color_initial = "noir" %}
+          {% endif %}
+          {% assign cta_url_initial = blocks_array[0].cta_url %}
+          {% assign cta_copy_initial = blocks_array[0].cta_copy %}
+        {% else %}
+          {% assign nav_color_initial = _blocks[0].settings.text_color %}
+          {% assign cta_url_initial = blocks[0].settings.cta_url %}
+          {% assign cta_copy_initial = blocks[0].settings.cta_copy %}
+        {% endif %}
+        <div class="testimonials__nav-controls text-{{ nav_color_initial | downcase }}">
+          {% if _blocks_size > 1 %}
+            <div class="carousel__pager">
+              <button class="pager-prev" data-previous-testimonial aria-label="Previous Carousel Slide">
+                {% render 'icons', icon_name: 'arrow-left' %}
+              </button>
+              <button class="pager-next" data-next-testimonial aria-label="Next Carousel Slide">
+                {% render 'icons', icon_name: 'arrow-right' %}
+              </button>
+            </div>
+          {% endif %}
+          <a href="{{ cta_url_initial }}" class="testimonials__slide__desktop-cta p-3 color-{{ nav_color_initial | downcase }} {% unless cta_url_initial %}ghost{% endunless %}">{{ cta_copy_initial }}</a>
+        </div>
+      </testimonials-carousel>
+    </section>
+  </testimonials>
+
+  <script src="{{ 'testimonials.min.js' | asset_url }}" defer="defer"></script>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Testimonials",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section Settings",
+      "info": "Note: if this section is placed on a product or collection page, it will take its settings and items from the product or collection metafields."
+    },
+    {
+      "type": "select",
+      "id": "slide_type",
+      "label": "Carousel Type",
+      "options": [
+        {
+          "value": "image_bg",
+          "label": "Image Backgrounds"
+        },
+        {
+          "value": "color_bg",
+          "label": "Color Backgrounds"
+        }
+      ],
+      "default": "image_bg"
+    },
+    {
+      "type": "select",
+      "id": "background_color",
+      "label": "Background Color",
+      "options": [
+        { "value": "beige", "label": "Beige" },
+        { "value": "rose", "label": "Rose" }
+      ],
+      "info": "Select the background color for the carousel (does not apply to image carousels)"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "testimonial_slide_image",
+      "name": "Image Slide",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image_d",
+          "label": "Image - Desktop"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_m",
+          "label": "Image - Mobile"
+        },
+        {
+          "type": "select",
+          "id": "text_placement",
+          "label": "Text Placement",
+          "options": [
+            { "value": "top", "label": "Top" },
+            { "value": "bottom", "label": "Bottom" }
+          ]
+        },
+        {
+          "type": "select",
+          "id": "text_color",
+          "label": "Text Color",
+          "options": [
+            { "value": "white", "label": "Light" },
+            { "value": "noir", "label": "Dark" }
+          ]
+        },
+        {
+          "type": "text",
+          "id": "eyebrow",
+          "label": "Eyebrow (optional)"
+        },
+        {
+          "type": "select",
+          "id": "quote_size",
+          "label": "Quote Font Styling",
+          "options": [
+            { "value": "h1", "label": "H1" },
+            { "value": "h2", "label": "H2" },
+            { "value": "h3", "label": "H3" },
+            { "value": "h4", "label": "H4" },
+            { "value": "p1", "label": "P1" }
+          ]
+        },
+        {
+          "type": "text",
+          "id": "quote",
+          "label": "Quote Text"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_logo",
+          "label": "Press Logo"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Optional P3 Body Copy"
+        },
+        {
+          "type": "url",
+          "id": "cta_url",
+          "label": "Optional CTA Url"
+        },
+        {
+          "type": "text",
+          "id": "cta_copy",
+          "label": "Optional CTA Text"
+        }
+      ]
+    },
+    {
+      "type": "testimonial_slide_color",
+      "name": "Color Slide",
+      "settings": [
+        {
+          "type": "select",
+          "id": "text_placement",
+          "label": "Text Placement",
+          "options": [
+            { "value": "top", "label": "Top" },
+            { "value": "bottom", "label": "Bottom" }
+          ]
+        },
+        {
+          "type": "select",
+          "id": "text_color",
+          "label": "Text Color",
+          "options": [
+            { "value": "white", "label": "Light" },
+            { "value": "noir", "label": "Dark" }
+          ]
+        },
+        {
+          "type": "text",
+          "id": "eyebrow",
+          "label": "Eyebrow (optional)"
+        },
+        {
+          "type": "select",
+          "id": "quote_size",
+          "label": "Quote Font Styling",
+          "options": [
+            { "value": "h1", "label": "H1" },
+            { "value": "h2", "label": "H2" },
+            { "value": "h3", "label": "H3" },
+            { "value": "h4", "label": "H4" },
+            { "value": "p1", "label": "P1" }
+          ]
+        },
+        {
+          "type": "text",
+          "id": "quote",
+          "label": "Quote Text"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_logo",
+          "label": "Press Logo"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Optional P3 Body Copy"
+        },
+        {
+          "type": "url",
+          "id": "cta_url",
+          "label": "Optional CTA Url"
+        },
+        {
+          "type": "text",
+          "id": "cta_copy",
+          "label": "Optional CTA Text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Testimonials",
+      "category": "Testimonial"
+    }
+  ]
+}
+{% endschema %}

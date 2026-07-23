@@ -1,0 +1,32 @@
+{{ 'page-carousel.min.css' | asset_url | stylesheet_tag }}
+
+
+<script src="{{ 'page-carousel.min.js' | asset_url }}" defer="defer"></script>
+
+
+{% schema %}
+{
+  "name": "Page Carousel",
+  "tag": "section",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "image_slide",
+      "name": "Image Slide",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "category": "page-carousel",
+      "name": "Page Carousel"
+    }
+  ]
+}
+{% endschema %}

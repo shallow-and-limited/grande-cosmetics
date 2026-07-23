@@ -1,0 +1,163 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "content_for_index": [],
+  "current": {
+    "storefront_api_key": "66293c018a0c8a2396a88167c3793f51",
+    "favicon": "shopify://shop_images/CircleLogo-NoBackground.png",
+    "yotpo_instance_id": "772720",
+    "cart_drawer_enabled": false,
+    "shipping_calculator_enabled": true,
+    "shipping_calculator_threshold": "5000",
+    "cart_drawer_collection_1": "10-steals",
+    "cart_drawer_collection_title_1": "You may also like",
+    "cart_drawer_collection_description_1": "<p>Memorial Day Sale</p>",
+    "cart_upsell_enabled": false,
+    "upsell_products": "",
+    "qualifying_products": "",
+    "qualified_text": "",
+    "unqualified_text": "",
+    "cart_progress_bubbles_enabled": true,
+    "cart_progress_bubbles_title": "",
+    "cart_progress_bubbles_icon_1": "<svg width=\"9\" height=\"8\" viewBox=\"0 0 9 8\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n          <path d=\"M2.82415 6.15237L0.726419 4.05464L0.012085 4.76395L2.82415 7.57601L8.86078 1.53938L8.15147 0.830078L2.82415 6.15237Z\" fill=\"currentColor\"></path>\n        </svg>",
+    "cart_progress_bubbles_title_1": "Step 1 ACHIEVED",
+    "cart_progress_bubbles_price_1": "5000",
+    "cart_progress_bubbles_price_2": "6500",
+    "cart_progress_bubbles_title_3": "",
+    "cart_progress_bubbles_text_3": "",
+    "cart_progress_bubbles_price_3": "",
+    "checkout_logo_image": "shopify://shop_images/Grande_Logo_2.png",
+    "checkout_logo_position": "center",
+    "checkout_body_background_color": "#fdf1e4",
+    "checkout_input_background_color_mode": "transparent",
+    "checkout_sidebar_background_color": "#fdf1e4",
+    "checkout_accent_color": "#0a0a0a",
+    "checkout_button_color": "#0a0a0a",
+    "content_for_index": [],
+    "blocks": {
+      "4291333794791649201": {
+        "type": "shopify://apps/loyalty-rewards-and-referrals/blocks/embed-sdk/6f172e67-4106-4ac0-89c5-b32a069b3101",
+        "disabled": false,
+        "settings": {
+          "disableBundledCSS": false,
+          "disableBundledFonts": false,
+          "useClassIsolator": false
+        }
+      },
+      "10641372206048101839": {
+        "type": "shopify://apps/rebuy-personalization-engine/blocks/rebuy-global-embed/a26ae9b9-933b-40bf-bbc6-bf1220bbc4dc",
+        "disabled": false,
+        "settings": {}
+      },
+      "7570552984445421165": {
+        "type": "shopify://apps/yotpo-product-reviews-ugc/blocks/settings/eb7dfd7d-db44-4334-bc49-c893b51b36cf",
+        "disabled": false,
+        "settings": {}
+      },
+      "855628211100114053": {
+        "type": "shopify://apps/klaviyo-email-marketing-sms/blocks/klaviyo-onsite-embed/2632fe16-c075-4321-a88b-50b567f42507",
+        "disabled": false,
+        "settings": {}
+      },
+      "14339172867238703359": {
+        "type": "shopify://apps/yotpo-product-reviews-ugc/blocks/reviews_tab/eb7dfd7d-db44-4334-bc49-c893b51b36cf",
+        "disabled": false,
+        "settings": {
+          "product": ""
+        }
+      },
+      "1291562577487733835": {
+        "type": "shopify://apps/black-crow-more-new-customers/blocks/blackcrow_ai_script/3e73f597-cb71-47a1-8a06-0c931482ecd2",
+        "disabled": false,
+        "settings": {}
+      },
+      "11809892702313333283": {
+        "type": "shopify://apps/firework-shoppable-video-ugc/blocks/firework-header/347a2e4c-f5cb-410d-8354-490d1e80558c",
+        "disabled": false,
+        "settings": {}
+      },
+      "735721325670868888": {
+        "type": "shopify://apps/checkmate/blocks/checked_network/697a3444-1374-4f13-ba8c-ec03db25ebf0",
+        "disabled": false,
+        "settings": {}
+      },
+      "17428600031447253342": {
+        "type": "shopify://apps/attentive/blocks/attn-tag/8df62c72-8fe4-407e-a5b3-72132be30a0d",
+        "disabled": false,
+        "settings": {}
+      },
+      "2567389343055140935": {
+        "type": "shopify://apps/microsoft-clarity/blocks/clarity_js/31c3d126-8116-4b4a-8ba1-baeda7c4aeea",
+        "disabled": false,
+        "settings": {}
+      },
+      "17151115064775110295": {
+        "type": "shopify://apps/recharge-subscriptions/blocks/recharge-theme/371eed76-0b44-4869-9813-730372ea378e",
+        "disabled": false,
+        "settings": {
+          "color_brand": "#ec116b",
+          "contrast_color": "#ffffff",
+          "color_brand_secondary": "#ec116b",
+          "corners": "8px",
+          "app_background": "#fef2e5",
+          "app_container": 1200,
+          "app_vertical_padding": 32,
+          "images_aspect_ratio": "1",
+          "cards_background": "#ffffff",
+          "cards_border_color": "rgba(0,0,0,0)"
+        }
+      },
+      "9458859355026413180": {
+        "type": "shopify://apps/try-with-mirra/blocks/try-with-mirra-modal/17eab015-3219-4f1b-8ced-c0ffd59b7b46",
+        "disabled": false,
+        "settings": {
+          "useShopFont": false,
+          "accentColor": "#e6006b",
+          "showTWMBannerOnCart": true,
+          "shouldOpenCartOnAddToCart": true,
+          "shouldReloadAfterAddToCart": false,
+          "termsAndConditionsUrl": "https://trywithmirra.com/terms-and-conditions"
+        }
+      },
+      "9137299313046473183": {
+        "type": "shopify://apps/regios-discounts/blocks/regios_discounts_embed/dc1514bb-4830-4102-bffa-e8b300bac5bd",
+        "disabled": false,
+        "settings": {
+          "theme_type": "generic",
+          "currency_code_enabled": false,
+          "discount_description": "[discount_message]",
+          "discount_description_css": "",
+          "badge_description": "[discount_percentage] OFF",
+          "badge_css": "",
+          "price_on_sale_class": "",
+          "sale_price_description": "[sale_price]",
+          "regular_price_description": "[regular_price]",
+          "delay": 0,
+          "customer_metafields_to_check": "",
+          "calculate_discount_based_on_quantity": false,
+          "log_level": "debug",
+          "feature_flags": "watchForInfiniteScroll",
+          "disable_auto_config": false
+        }
+      },
+      "3408556835904117202": {
+        "type": "shopify://apps/regios-discounts/blocks/regios_add_to_cart_embed/dc1514bb-4830-4102-bffa-e8b300bac5bd",
+        "disabled": false,
+        "settings": {
+          "reload_in_unsupported_themes": true,
+          "re_add_after_manual_removal": false
+        }
+      }
+    }
+  },
+  "platform_customizations": {
+    "custom_css": []
+  }
+}

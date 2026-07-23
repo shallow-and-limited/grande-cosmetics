@@ -1,0 +1,78 @@
+{{ 'bulk-order-form.min.css' | asset_url | stylesheet_tag }}
+{{ 'product-card-bulk-form.min.css' | asset_url | stylesheet_tag }}
+
+{% render 'bulk-form-header' %}
+
+{% assign size = collection.products.size | times: 1 %}
+
+<bulk-order-form id="product-grid-section" data-id="{{ section.id }}" class="container bulk-form">
+  <form>
+    {% paginate collection.products by 20 %}
+      {%- if paginate.page_size > paginate.items -%}
+        {% assign current_size = paginate.items | times: 1.0 %}
+      {%- else -%}
+        {% assign current_size = paginate.page_size | times: 1.0 %}
+      {%- endif -%}
+      <div class="bulk-form__product-grid">
+        <div class="product-grid product-grid--fourths" data-product-grid>
+          {% for product in collection.products %}
+            {% render 'product-card-bulk-form', product: product, collection: collection, attr: 'data-product-card' %}
+          {% endfor %}
+        </div>
+      </div>
+      <div class="bulk-form__pagination">
+        <div class="pagination">
+          <p class="p-3">
+            Showing <span data-product-count>{{ current_size | floor }}</span> of
+            <span data-collection-count>{{ size }}</span> Items
+          </p>
+        </div>
+        {% if paginate.next != blank %}
+          <a
+            href="{{ paginate.next.url }}"
+            class="btn btn--primary"
+            data-load-more
+            >Load More</a
+          >
+        {% endif %}
+      </div>
+    {% endpaginate %}
+  </form>
+</bulk-order-form>
+
+<script src="{{ 'bulk-order-form.min.js' | asset_url }}" defer="defer"></script>
+
+{% schema %}
+{
+  "name": "Bulk Order Form",
+  "tag": "section",
+  "enabled_on": {
+    "templates": ["collection"]
+  },
+  "settings": [
+    {
+      "type": "text",
+      "label": "Heading",
+      "id": "heading",
+      "default": "Wholesale Order Form"
+    },
+    {
+      "type": "textarea",
+      "label": "Subheading",
+      "id": "subheading",
+      "default": "Your discount program"
+    },
+    {
+      "type": "textarea",
+      "label": "Promo Text",
+      "id": "promo_text",
+      "default": "Buy 5-9 and get 30% off. Buy 10+ and 35% off"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Bulk Order Form"
+    }
+  ]
+}
+{% endschema %}

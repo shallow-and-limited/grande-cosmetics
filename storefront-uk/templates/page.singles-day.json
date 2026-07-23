@@ -1,0 +1,619 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "shogun-helper": {
+      "type": "shogun-helper",
+      "settings": {}
+    },
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {}
+    },
+    "shogun-optimizer": {
+      "type": "shogun-optimizer",
+      "settings": {}
+    },
+    "hero_carousel_VWxPyj": {
+      "type": "hero-carousel",
+      "blocks": {
+        "hero_slide_r88hUf": {
+          "type": "hero_slide",
+          "settings": {
+            "color": "dark",
+            "alignment_v": "middle",
+            "alignment_h": "center",
+            "alignment_v_m": "middle_m",
+            "alignment_h_m": "center_m",
+            "image_d": "shopify:\/\/shop_images\/SinglesDay-HeroBanner-LandingPage-Desktop_4401e45d-c5e8-4077-98cc-7cb9beddf97a.gif",
+            "video_poster_d": true,
+            "image_m": "shopify:\/\/shop_images\/SinglesDay-HeroBanner-LandingPage-Mobile_99fc8efd-97a6-401c-91bf-390f24fc8540.gif",
+            "video_poster_m": true,
+            "video_autoplay": true,
+            "eyebrow": "",
+            "heading": "",
+            "heading_size": "h2",
+            "copy": "",
+            "cta_url": "shopify:\/\/collections\/singles-day-11-steals",
+            "cta_copy": "",
+            "cta_url_alt": "",
+            "cta_copy_alt": "",
+            "overlay": 0
+          }
+        }
+      },
+      "block_order": [
+        "hero_slide_r88hUf"
+      ],
+      "name": "Hero Carousel",
+      "settings": {
+        "display": "full-bleed"
+      }
+    },
+    "ticker_3pyWYU": {
+      "type": "ticker",
+      "blocks": {
+        "text_YeREMV": {
+          "type": "text",
+          "settings": {
+            "svg_icon": "flower",
+            "text": "<em>Treat Yourself<\/em>",
+            "url": ""
+          }
+        },
+        "text_XrcTrw": {
+          "type": "text",
+          "settings": {
+            "svg_icon": "flower",
+            "text": "You Don't Want To Miss This",
+            "url": ""
+          }
+        }
+      },
+      "block_order": [
+        "text_YeREMV",
+        "text_XrcTrw"
+      ],
+      "name": "Ticker",
+      "settings": {
+        "optional_text": "",
+        "optional_url": "",
+        "speed": 2,
+        "color_scheme": "coral"
+      }
+    },
+    "ticker_jBxJVG": {
+      "type": "ticker",
+      "name": "Ticker",
+      "settings": {
+        "optional_text": "",
+        "optional_url": "",
+        "speed": 3,
+        "color_scheme": "beige"
+      }
+    },
+    "birthday_promo_i6BHpN": {
+      "type": "birthday-promo",
+      "blocks": {
+        "promo_card_iyY9Kg": {
+          "type": "promo-card",
+          "settings": {
+            "status": "active",
+            "active_image": "shopify:\/\/shop_images\/Promo-Block-30Off-Sitewide.jpg",
+            "apply_effect": true,
+            "upcoming_image_color": "#e6006b",
+            "upcoming_image_opacity": 70,
+            "eyebrow": "Today's Sale",
+            "heading": "30% Off Sitewide*",
+            "copy": "<br>\nHappening Now (*Excludes $11 Steals)",
+            "cta": "Shop Now",
+            "link": "shopify:\/\/collections\/best-sellers"
+          }
+        },
+        "promo_card_JPkDwk": {
+          "type": "promo-card",
+          "settings": {
+            "status": "active",
+            "active_image": "shopify:\/\/shop_images\/Promo-Block-FreeLip-Clear-GWP.jpg",
+            "apply_effect": true,
+            "upcoming_image_color": "#e6006b",
+            "upcoming_image_opacity": 70,
+            "eyebrow": "Free Gift",
+            "heading": "1 FREE Clear GrandeLIPS",
+            "copy": "<br>\nwith order of $50+",
+            "cta": "Shop Now",
+            "link": ""
+          }
+        },
+        "promo_card_rYcDcf": {
+          "type": "promo-card",
+          "settings": {
+            "status": "active",
+            "active_image": "shopify:\/\/shop_images\/Promo-Block-FreeLip-GWP_a3401910-0b39-4154-9feb-d07a2a8d8189.jpg",
+            "apply_effect": true,
+            "upcoming_image_color": "#ff76b8",
+            "upcoming_image_opacity": 70,
+            "eyebrow": "Free Gift",
+            "heading": "4 Free GrandeLIPS",
+            "copy": "<br>\nwith order of $75+",
+            "cta": "Shop Now",
+            "link": ""
+          }
+        },
+        "promo_card_U367Jt": {
+          "type": "promo-card",
+          "disabled": true,
+          "settings": {
+            "status": "active",
+            "active_image": "shopify:\/\/shop_images\/Promo-Block-Free2in1-GWP.jpg",
+            "apply_effect": true,
+            "upcoming_image_color": "#e6006b",
+            "upcoming_image_opacity": 70,
+            "eyebrow": "Free Gift",
+            "heading": "FREE GrandeBROW 2-In-1 With $25+ Purchase",
+            "copy": "",
+            "cta": "Shop Now",
+            "link": "shopify:\/\/collections\/best-sellers"
+          }
+        }
+      },
+      "block_order": [
+        "promo_card_iyY9Kg",
+        "promo_card_JPkDwk",
+        "promo_card_rYcDcf",
+        "promo_card_U367Jt"
+      ],
+      "name": "Birthday promo",
+      "settings": {
+        "heading": "Current Deals:"
+      }
+    },
+    "banner_trHUzE": {
+      "type": "banner",
+      "name": "Banner",
+      "settings": {
+        "color": "light",
+        "background": "beige",
+        "image_d": "shopify:\/\/shop_images\/SinglesDay-BannerImage.jpg",
+        "alignment": "center",
+        "eyebrow": "",
+        "heading": "$11 Steals",
+        "heading_size": "h1",
+        "copy": "",
+        "cta_url": "",
+        "cta_copy": "",
+        "cta_url_alt": "",
+        "cta_copy_alt": "",
+        "overlay": 0
+      }
+    },
+    "product_carousel_rgNnDc": {
+      "type": "product-carousel",
+      "blocks": {
+        "content_q6VrEP": {
+          "type": "content",
+          "settings": {
+            "product": "grandewrap-tubing-mascara-with-provitamin-b5",
+            "category": ""
+          }
+        },
+        "content_ECNjVP": {
+          "type": "content",
+          "settings": {
+            "product": "grandefanatic-fanning-curling-mascara",
+            "category": ""
+          }
+        },
+        "content_9JfUpe": {
+          "type": "content",
+          "settings": {
+            "product": "granderepair-leave-in-lash-conditioner",
+            "category": ""
+          }
+        }
+      },
+      "block_order": [
+        "content_q6VrEP",
+        "content_ECNjVP",
+        "content_9JfUpe"
+      ],
+      "name": "Product Carousel",
+      "settings": {
+        "heading": "",
+        "categories": false,
+        "cta_copy": "",
+        "cta_url": ""
+      }
+    },
+    "product_carousel_xQDfr4": {
+      "type": "product-carousel",
+      "blocks": {
+        "content_T6HPKB": {
+          "type": "content",
+          "settings": {
+            "product": "grandeprimer",
+            "category": ""
+          }
+        },
+        "content_MA3GRF": {
+          "type": "content",
+          "settings": {
+            "product": "grandebrow-fill",
+            "category": ""
+          }
+        },
+        "content_7GNnmy": {
+          "type": "content",
+          "settings": {
+            "product": "grandemascara-waterproof-conditioning-peptide-mascara",
+            "category": ""
+          }
+        }
+      },
+      "block_order": [
+        "content_T6HPKB",
+        "content_MA3GRF",
+        "content_7GNnmy"
+      ],
+      "name": "Product Carousel",
+      "settings": {
+        "heading": "",
+        "categories": false,
+        "cta_copy": "",
+        "cta_url": ""
+      }
+    },
+    "product_carousel_RPjcgw": {
+      "type": "product-carousel",
+      "blocks": {
+        "content_6JJP4r": {
+          "type": "content",
+          "settings": {
+            "product": "grandehair-full-boost-shampoo",
+            "category": ""
+          }
+        },
+        "content_UAV7UH": {
+          "type": "content",
+          "settings": {
+            "product": "grandehair-full-boost-conditioner",
+            "category": ""
+          }
+        },
+        "content_XUGDWE": {
+          "type": "content",
+          "settings": {
+            "product": "travel-size-grandehair",
+            "category": ""
+          }
+        }
+      },
+      "block_order": [
+        "content_6JJP4r",
+        "content_UAV7UH",
+        "content_XUGDWE"
+      ],
+      "name": "Product Carousel",
+      "settings": {
+        "heading": "",
+        "categories": false,
+        "cta_copy": "",
+        "cta_url": ""
+      }
+    },
+    "product_carousel_7TBWx6": {
+      "type": "product-carousel",
+      "blocks": {
+        "content_VweDTQ": {
+          "type": "content",
+          "settings": {
+            "product": "grandeglow-up",
+            "category": ""
+          }
+        },
+        "content_AAFhdX": {
+          "type": "content",
+          "settings": {
+            "product": "copy-of-grandebuff-moisturizing-lip-scrub",
+            "category": ""
+          }
+        },
+        "content_6Fdagz": {
+          "type": "content",
+          "settings": {
+            "product": "grandepout",
+            "category": ""
+          }
+        }
+      },
+      "block_order": [
+        "content_VweDTQ",
+        "content_AAFhdX",
+        "content_6Fdagz"
+      ],
+      "name": "Product Carousel",
+      "settings": {
+        "heading": "",
+        "categories": false,
+        "cta_copy": "",
+        "cta_url": ""
+      }
+    },
+    "product_carousel_gtCQnM": {
+      "type": "product-carousel",
+      "blocks": {
+        "content_y9ft8M": {
+          "type": "content",
+          "settings": {
+            "product": "grandevanish-bi-phase-makeup-remover-for-eyes-lashes-lips",
+            "category": ""
+          }
+        },
+        "content_mAiiad": {
+          "type": "content",
+          "settings": {
+            "product": "grandehair-microfiber-towel",
+            "category": ""
+          }
+        },
+        "content_GyN9nH": {
+          "type": "content",
+          "settings": {
+            "product": "grandehair",
+            "category": ""
+          }
+        }
+      },
+      "block_order": [
+        "content_y9ft8M",
+        "content_mAiiad",
+        "content_GyN9nH"
+      ],
+      "name": "Product Carousel",
+      "settings": {
+        "heading": "",
+        "categories": false,
+        "cta_copy": "",
+        "cta_url": ""
+      }
+    },
+    "product_carousel_QR8i6P": {
+      "type": "product-carousel",
+      "blocks": {
+        "content_QXVzwc": {
+          "type": "content",
+          "settings": {
+            "product": "grandetweezers",
+            "category": ""
+          }
+        },
+        "content_MMcj9K": {
+          "type": "content",
+          "settings": {
+            "product": "baby-shiela",
+            "category": ""
+          }
+        },
+        "content_eWQMAX": {
+          "type": "content",
+          "settings": {
+            "product": "grande-branded-cosmetic-bag",
+            "category": ""
+          }
+        }
+      },
+      "block_order": [
+        "content_QXVzwc",
+        "content_MMcj9K",
+        "content_eWQMAX"
+      ],
+      "name": "Product Carousel",
+      "settings": {
+        "heading": "",
+        "categories": false,
+        "cta_copy": "",
+        "cta_url": ""
+      }
+    },
+    "banner_AgcYwr": {
+      "type": "banner",
+      "name": "Banner",
+      "settings": {
+        "color": "light",
+        "background": "beige",
+        "image_d": "shopify:\/\/shop_images\/SinglesDay-BannerImage.jpg",
+        "alignment": "center",
+        "eyebrow": "",
+        "heading": "30% Off Sitewide",
+        "heading_size": "h1",
+        "copy": "",
+        "cta_url": "",
+        "cta_copy": "",
+        "cta_url_alt": "",
+        "cta_copy_alt": "",
+        "overlay": 0
+      }
+    },
+    "product_carousel_dxnWwh": {
+      "type": "product-carousel",
+      "blocks": {
+        "content_Md7cWQ": {
+          "type": "content",
+          "settings": {
+            "product": "grandelash-md",
+            "category": ""
+          }
+        },
+        "content_nRRFrR": {
+          "type": "content",
+          "settings": {
+            "product": "grandebrow",
+            "category": ""
+          }
+        },
+        "content_EUKkPk": {
+          "type": "content",
+          "settings": {
+            "product": "grandelash-sensitive",
+            "category": ""
+          }
+        }
+      },
+      "block_order": [
+        "content_Md7cWQ",
+        "content_nRRFrR",
+        "content_EUKkPk"
+      ],
+      "name": "Product Carousel",
+      "settings": {
+        "heading": "30% Off Sitewide",
+        "categories": false,
+        "cta_copy": "",
+        "cta_url": ""
+      }
+    },
+    "product_carousel_TCEGej": {
+      "type": "product-carousel",
+      "blocks": {
+        "content_AYKNk4": {
+          "type": "content",
+          "settings": {
+            "product": "far-out-five",
+            "category": ""
+          }
+        },
+        "content_MxdGYU": {
+          "type": "content",
+          "settings": {
+            "product": "next-gen-glamour",
+            "category": ""
+          }
+        },
+        "content_TP6Q9J": {
+          "type": "content",
+          "settings": {
+            "product": "dynamite-lashes-brows",
+            "category": ""
+          }
+        }
+      },
+      "block_order": [
+        "content_AYKNk4",
+        "content_MxdGYU",
+        "content_TP6Q9J"
+      ],
+      "name": "Product Carousel",
+      "settings": {
+        "heading": "",
+        "categories": false,
+        "cta_copy": "",
+        "cta_url": ""
+      }
+    },
+    "product_carousel_fgNN3X": {
+      "type": "product-carousel",
+      "blocks": {
+        "content_bpmhyh": {
+          "type": "content",
+          "settings": {
+            "product": "lash-brow-power-pair",
+            "category": ""
+          }
+        },
+        "content_JC7xhB": {
+          "type": "content",
+          "settings": {
+            "product": "grandelips-gloss",
+            "category": ""
+          }
+        },
+        "content_wEaBaf": {
+          "type": "content",
+          "settings": {
+            "product": "grandemascara",
+            "category": ""
+          }
+        }
+      },
+      "block_order": [
+        "content_bpmhyh",
+        "content_JC7xhB",
+        "content_wEaBaf"
+      ],
+      "name": "Product Carousel",
+      "settings": {
+        "heading": "",
+        "categories": false,
+        "cta_copy": "",
+        "cta_url": ""
+      }
+    },
+    "product_carousel_jzQt48": {
+      "type": "product-carousel",
+      "blocks": {
+        "content_CFDgkJ": {
+          "type": "content",
+          "settings": {
+            "product": "grandebrow-2-in-1",
+            "category": ""
+          }
+        },
+        "content_V9QRFm": {
+          "type": "content",
+          "settings": {
+            "product": "grandelash-lift-heated-lash-curler",
+            "category": ""
+          }
+        },
+        "content_zGctX9": {
+          "type": "content",
+          "settings": {
+            "product": "grandedrama",
+            "category": ""
+          }
+        }
+      },
+      "block_order": [
+        "content_CFDgkJ",
+        "content_V9QRFm",
+        "content_zGctX9"
+      ],
+      "name": "Product Carousel",
+      "settings": {
+        "heading": "",
+        "categories": false,
+        "cta_copy": "",
+        "cta_url": ""
+      }
+    }
+  },
+  "order": [
+    "shogun-helper",
+    "main",
+    "shogun-optimizer",
+    "hero_carousel_VWxPyj",
+    "ticker_3pyWYU",
+    "ticker_jBxJVG",
+    "birthday_promo_i6BHpN",
+    "banner_trHUzE",
+    "product_carousel_rgNnDc",
+    "product_carousel_xQDfr4",
+    "product_carousel_RPjcgw",
+    "product_carousel_7TBWx6",
+    "product_carousel_gtCQnM",
+    "product_carousel_QR8i6P",
+    "banner_AgcYwr",
+    "product_carousel_dxnWwh",
+    "product_carousel_TCEGej",
+    "product_carousel_fgNN3X",
+    "product_carousel_jzQt48"
+  ]
+}

@@ -1,0 +1,311 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {}
+    },
+    "split_banner_j9F8qp": {
+      "type": "split-banner",
+      "blocks": {
+        "body_copy_H7NqG8": {
+          "type": "body-copy",
+          "settings": {
+            "copy": "<p>At Grande Cosmetics, we believe that beauty starts from the heart. We vow to use our platform to support the social causes that are at the forefront of our society and to give to the organizations that demand our attention in the here & now.<\/p><p><br\/>Because of your support, we have had the privilege of partnering with organizations and non-profits that empower women, aide with cancer research, fight social inequality and provide support during times of uncertainty in the world.<\/p><p> <\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "body_copy_H7NqG8"
+      ],
+      "settings": {
+        "style": "rose",
+        "padding": "full-width",
+        "arrangement": "left_asset_right_content",
+        "header": "h3",
+        "alignment": "left",
+        "vertical_alignment": "middle",
+        "module_height": "image-height",
+        "image_d": "shopify:\/\/shop_images\/grandegivesback.jpg",
+        "video_poster_d": true,
+        "video_poster_m": true,
+        "video_autoplay": true,
+        "eyebrow": "",
+        "heading": "Nothing is more powerful than lifting others up.",
+        "cta_url": "",
+        "cta_copy": ""
+      }
+    },
+    "categories_KDrWFT": {
+      "type": "categories",
+      "blocks": {
+        "content_jrMi97": {
+          "type": "content",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Womenhealth.jpg",
+            "heading_image": "",
+            "eyebrow": "",
+            "heading": "Katz's Institute for Women's Health",
+            "copy": "We've partnered with Katz's Institute for Women's Health to help support this cause through fundraising events and product donations. With this partnership, we've raised $40,679!",
+            "cta_url": "https:\/\/www.northwell.edu\/katz-institute-for-womens-health",
+            "cta_copy": "Learn More",
+            "cta_url_alt": "",
+            "cta_copy_alt": ""
+          }
+        },
+        "content_AUgXfF": {
+          "type": "content",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/workingforwomen.jpg",
+            "heading_image": "",
+            "eyebrow": "",
+            "heading": "Working For Women",
+            "copy": "With this partnership, following the pandemic, we've raised $100K to restore businesses built, run and led by women.\n\nWe also donated 192 pieces of clothing to women in need through Bottomless Closet, a clothing drive organization.",
+            "cta_url": "https:\/\/www.workingforwomen.org\/?gclid=Cj0KCQiA-qGNBhD3ARIsAO_o7ykleW3r7D9y5s3eUbu1ymLcJ1B4CFu_KZ8XT_8mRfzGdoVRDzSIw2MaAl7-EALw_wcBhttps:\/\/www.workingforwomen.org\/?gclid=Cj0KCQiA-qGNBhD3ARIsAO_o7ykleW3r7D9y5s3eUbu1ymLcJ1B4CFu_KZ8XT_8mRfzGdoVRDzSIw2MaAl7-EALw_wcB",
+            "cta_copy": "Learn More",
+            "cta_url_alt": "",
+            "cta_copy_alt": ""
+          }
+        },
+        "content_jEHDYg": {
+          "type": "content",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/dressforsuccess.jpg",
+            "heading_image": "",
+            "eyebrow": "",
+            "heading": "Dress For Success",
+            "copy": "We've partnered with Dress For Success to provide disadvantaged women with professional attire and support they need to succeed in their career search.",
+            "cta_url": "https:\/\/dressforsuccess.org\/",
+            "cta_copy": "Learn More",
+            "cta_url_alt": "",
+            "cta_copy_alt": ""
+          }
+        }
+      },
+      "block_order": [
+        "content_jrMi97",
+        "content_AUgXfF",
+        "content_jEHDYg"
+      ],
+      "settings": {
+        "eyebrow": "",
+        "heading": "Supporting & Empowering Women",
+        "cta_copy": "",
+        "cta_url": ""
+      }
+    },
+    "categories_gw4NFz": {
+      "type": "categories",
+      "blocks": {
+        "content_Pn6Xrr": {
+          "type": "content",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/download.jpg",
+            "heading_image": "",
+            "eyebrow": "",
+            "heading": "Tell Every Amazing Lady (T.E.A.L®)",
+            "copy": "Grande has proudly taken part in bringing awareness to ovarian cancer through sponsorship, donations, & participation in the annual TEAL walk.",
+            "cta_url": "https:\/\/telleveryamazinglady.org\/",
+            "cta_copy": "Learn More",
+            "cta_url_alt": "",
+            "cta_copy_alt": ""
+          }
+        },
+        "content_ATQLfY": {
+          "type": "content",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/susang.jpg",
+            "heading_image": "",
+            "eyebrow": "",
+            "heading": "Susan G. Komen",
+            "copy": "For years, we have made it a mission to raise critical funds for breast cancer through sales donations, while continuing to bring further awareness to the cause each year.",
+            "cta_url": "https:\/\/www.komen.org\/",
+            "cta_copy": "Learn More",
+            "cta_url_alt": "",
+            "cta_copy_alt": ""
+          }
+        },
+        "content_ML6CQL": {
+          "type": "content",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/angelfoundation.jpg",
+            "heading_image": "",
+            "eyebrow": "",
+            "heading": "Gabrielle's Angel Foundation",
+            "copy": "We have continued our donations and support for Gabrielle's Angel Foundation each year to help contribute to continued cancer research and one day: a cure.",
+            "cta_url": "https:\/\/gabriellesangels.org\/",
+            "cta_copy": "Learn More",
+            "cta_url_alt": "",
+            "cta_copy_alt": ""
+          }
+        }
+      },
+      "block_order": [
+        "content_Pn6Xrr",
+        "content_ATQLfY",
+        "content_ML6CQL"
+      ],
+      "settings": {
+        "eyebrow": "",
+        "heading": "Supporting Cancer Research",
+        "cta_copy": "",
+        "cta_url": ""
+      }
+    },
+    "categories_kQXJPf": {
+      "type": "categories",
+      "blocks": {
+        "content_dXYVe8": {
+          "type": "content",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/naacp_c4c10b22-26c4-4d2a-b479-a29c8f1bcac4.jpg",
+            "heading_image": "",
+            "eyebrow": "",
+            "heading": "National Association for the Advancement of Colored People (NAACP)",
+            "copy": "We immediately donated $25k to the NAACP and then went on to raise $50k by donating a percentage of our sales in June 2021. Thank you for helping us support the cause!",
+            "cta_url": "https:\/\/naacp.org\/",
+            "cta_copy": "Learn More",
+            "cta_url_alt": "",
+            "cta_copy_alt": ""
+          }
+        },
+        "content_HEWVRE": {
+          "type": "content",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/redcross.jpg",
+            "heading_image": "",
+            "eyebrow": "",
+            "heading": "Ukrainian Red Cross",
+            "copy": "Grande Cosmetics donated 50% of all site proceeds from March 10th - March 12th 2022, reaching a goal of $50K to the Ukrainian Red Cross. With your help, we brought over 700 tons of medical supplies, food, and relief item to help those in need in Ukraine.",
+            "cta_url": "https:\/\/www.icrc.org\/en\/where-we-work\/europe-central-asia\/ukraine",
+            "cta_copy": "Learn More",
+            "cta_url_alt": "",
+            "cta_copy_alt": ""
+          }
+        }
+      },
+      "block_order": [
+        "content_dXYVe8",
+        "content_HEWVRE"
+      ],
+      "settings": {
+        "eyebrow": "",
+        "heading": "Lending a Helping Hand",
+        "cta_copy": "",
+        "cta_url": ""
+      }
+    },
+    "categories_94TXAn": {
+      "type": "categories",
+      "blocks": {
+        "content_xwXdWL": {
+          "type": "content",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/feedingamerica.jpg",
+            "heading_image": "",
+            "eyebrow": "",
+            "heading": "Feeding America",
+            "copy": "Together we've raised over $250K for Feeding America's Covid-19 Relief Fund to help those affected during the pandemic. Through Feeding America $1 = 10 Meals.",
+            "cta_url": "https:\/\/www.feedingamerica.org\/",
+            "cta_copy": "Learn More",
+            "cta_url_alt": "",
+            "cta_copy_alt": ""
+          }
+        },
+        "content_fzrphp": {
+          "type": "content",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/essentialworkers.jpg",
+            "heading_image": "",
+            "eyebrow": "",
+            "heading": "Essential Workers Giveaway",
+            "copy": "To lift spirits and show our appreciation during these uncertain times, we reached out to some hospitals and grocery stores in our local communities to gift them with some Grande goodies!\n\nWe gifted 2,955 products to those on the front lines and held an exclusive essential workers giveaway.",
+            "cta_url": "",
+            "cta_copy": "Shop All",
+            "cta_url_alt": "",
+            "cta_copy_alt": ""
+          }
+        }
+      },
+      "block_order": [
+        "content_xwXdWL",
+        "content_fzrphp"
+      ],
+      "settings": {
+        "eyebrow": "",
+        "heading": "Supporting Those In Need During the COVID-19 Pandemic",
+        "cta_copy": "",
+        "cta_url": ""
+      }
+    },
+    "split_banner_zc9Rn3": {
+      "type": "split-banner",
+      "blocks": {
+        "body_copy_fHTArg": {
+          "type": "body-copy",
+          "settings": {
+            "copy": "<p>Theres 2 Ways To Get Involved:<\/p><p><\/p><p><strong>1. Write A Check ✍️<\/strong><\/p><p>All checks should be payable to: National Breast Cancer Foundation<br\/><\/p><p><strong>2. ACH Deposit\/Wire\/Transfer 🏦<\/strong><\/p><p><\/p><p><\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "body_copy_fHTArg"
+      ],
+      "disabled": true,
+      "settings": {
+        "style": "rose",
+        "padding": "inset",
+        "arrangement": "left_asset_right_content",
+        "header": "h2",
+        "alignment": "left",
+        "vertical_alignment": "top",
+        "module_height": "image-height",
+        "image_d": "shopify:\/\/shop_images\/Accounting_Instructions.png",
+        "video_poster_d": true,
+        "video_poster_m": true,
+        "video_autoplay": true,
+        "eyebrow": "THANK YOU FOR YOUR SUPPORT",
+        "heading": "So, How Do You Donate?",
+        "cta_url": "",
+        "cta_copy": ""
+      }
+    },
+    "banner_g7ygXA": {
+      "type": "banner",
+      "settings": {
+        "color": "light",
+        "background": "beige",
+        "image_d": "shopify:\/\/shop_images\/Lash-bottles.jpg",
+        "alignment": "center",
+        "eyebrow": "So Far We've Raised",
+        "heading": "$1,005,000+",
+        "heading_size": "h1",
+        "copy": "THANK YOU FOR ALL OF YOUR SUPPORT!",
+        "cta_url": "",
+        "cta_copy": "",
+        "cta_url_alt": "",
+        "cta_copy_alt": "",
+        "overlay": 30
+      }
+    }
+  },
+  "order": [
+    "main",
+    "split_banner_j9F8qp",
+    "categories_KDrWFT",
+    "categories_gw4NFz",
+    "categories_kQXJPf",
+    "categories_94TXAn",
+    "split_banner_zc9Rn3",
+    "banner_g7ygXA"
+  ]
+}

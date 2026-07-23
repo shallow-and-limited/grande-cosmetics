@@ -1,0 +1,129 @@
+{{ 'main-contact.min.css' | asset_url | stylesheet_tag }}
+
+<div
+  class="contact-us"
+  data-section-type="contact-form"
+  data-section-id="{{ section.id }}"
+  style="background-color: {{ section.settings.bg_color }};">
+  <div class="container" id="contact">
+    <h1 class="h1 pt-medium  strong">{{ page.title }}</h1>
+    <p class="p-3 contact-us__intro">{{ section.settings.intro }}</p>
+    <div class="contact-us__info">
+      <p class="p-4">{{ section.settings.secondary_text }}</p>
+    </div>
+
+    <div class="contact-us__form">
+      {%- form 'contact', id: 'ContactForm' -%}
+        {{ form.errors | default_errors }}
+        {% if form.posted_successfully? %}
+          <p class="p-2 color-rose contact-us__confirmation">Thank you for contacting us. We will get back to you as soon as possible.</p>
+        {% endif %}
+          <div class="contact-us__row  desktop-split">
+            <div class="input-wrapper">
+              <label class="p-5" for="first-name">First Name<sup>*</sup></label><input
+                class="form-control p-3"
+                type="text"
+                name="contact[first_name]" 
+                id="first-name"
+                placeholder="First Name*"
+                value=""
+                required>
+            </div>
+            <div class="input-wrapper">
+              <label class="p-5" for="last-name">Last Name<sup>*</sup></label>
+              <input
+                class="form-control p-3"
+                type="text"
+                name="contact[last_name]" 
+                id="last-name"
+                placeholder="Last Name*"
+                value=""
+                required>            
+            </div>
+          </div>
+          <div class="contact-us__row ">
+            <label class="p-5" for="email">Email<sup>*</sup></label>
+            <input
+              class="form-control p-3"
+              type="email"
+              name="contact[email]" 
+              id="email"
+              placeholder="Email*"
+              value=""
+              required>
+          </div>
+          <div class="contact-us__row ">
+            <label class="p-5" for="ContactFormMessage">Your Message<sup>*</sup>
+            </label>
+            <textarea
+              class="form-control form-control--textarea p-3"
+              rows="10"
+              name="contact[body]" 
+              id="message"
+              value=""
+              placeholder="Enter your message here*"
+              required></textarea>
+          </div>
+          <div class="contact-us__row">
+            <input
+              class="input--checkbox"
+              type="checkbox"
+              id="agree"
+              name="contact[agree]"
+              required>
+            <span class="contact-us__custom">
+            {% render 'icons', icon_name: 'check-small', icon_class: 'agree-check' %}
+            </span>
+            <label for="agree" class="p-4 static">
+            I agree to <a class="color-black" href="/policies/terms-of-service">Terms of Service</a> and <a class="color-black" href="/policies/privacy-policy">Privacy Policy</a><sup>*</sup>
+            </label>
+          </div>
+          <div class="contact-us__row">
+            <input
+              class="btn btn--primary"
+              type="submit"
+              value="Submit">
+          </div>
+      {%- endform -%}
+    </div>
+  </div>
+</div>
+{% schema %}
+  {
+    "name": "Contact form",
+    "tag": "section",
+    "settings": [
+      {
+        "type": "text",
+        "id": "email",
+        "default": "customerservice@grandecosmetics.com",
+        "label": "Company Email",
+        "info": "This is the email users will submit to"
+      },
+      {
+        "type": "color",
+        "id": "bg_color",
+        "default": "#FDF1E4",
+        "label": "Background Color"
+      },
+      {
+        "type": "textarea",
+        "id": "intro",
+        "default": "Email is always the fastest way to reach us. Please email us at <a class='color-black' href='mailto:customerservice@grandecosmetics.com'>customerservice@grandecosmetics.com</a>, or fill out the form below and we will respond back via email as soon as possible.",
+        "label": "Introduction Text"
+      },
+      {
+        "type": "textarea",
+        "id": "secondary_text",
+        "default": "For more information about orders, shipping, and promotions, please visit our <a class='color-black' href='/pages/frequently-asked-questions'>FAQs page</a>.",
+        "label": "Introduction Text",
+        "info": "Will appear smaller and below introductiont text"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Contact form"
+      }
+    ]
+  }
+{% endschema %}

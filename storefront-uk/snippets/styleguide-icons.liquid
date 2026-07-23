@@ -1,0 +1,41 @@
+{%- liquid
+  comment
+    @format: <background-color>:<text-color>:<hex-code>
+  endcomment
+
+  assign utility_icons = 'cart,cart-filled,shop,shop-filled,search,search-filled,wishlist,wishlist-filled,bookmark,bookmark-filled,location,location-filled,lock,lock-filled,settings,settings-filled,chat,chat-filled,phone,phone-filled,plus,plus-filled,minus,minus-filled,remove,remove-filled,menu,menu-filled,star,star-filled,help,help-filled,account,account-filled,filter,filter-filled,zoom-in,zoom-in-filled,zoom-out,zoom-out-filled,refresh,refresh-filled,product-product-filled,arrow-left,arrow-left-filled,user-group,user-group-filled,home,home-filled,promotion,promotion-filled,calendar,calendar-filled,email,email-filled,invoice,invoice-filled,arrow-right,arrow-right-filled,arrow-right-dark,arrow-right-dark-filled,close,close-filled,reviews,play,pause'
+  assign utility_icons_array = utility_icons | split: ','
+
+  assign utility_icons_small = 'close,plus,minus,check,caret-down,caret-up,caret-left,caret-right,filter,attention'
+  assign utility_icons_small_array = utility_icons_small | split: ','
+
+  assign social_icons = 'facebook,instagram,tiktok,youtube,x'
+  assign social_icons_array = social_icons | split: ','
+-%}
+
+{%- if utility_icons != blank -%}
+  <h6 class="h6">Utility Icons</h6>
+  <div class="styleguide__icons">
+    {%- for icon in utility_icons_array -%}
+      {% render 'icons', icon_name: icon %}
+    {%- endfor -%}
+  </div>
+{%- endif -%}
+
+{%- if utility_icons_small != blank -%}
+  <h6 class="h6">Small Utility Icons</h6>
+  <div class="styleguide__icons">
+    {%- for icon in utility_icons_small_array -%}
+      {% render 'icons', icon_name: icon, class: 'icon--small' %}
+    {%- endfor -%}
+  </div>
+{%- endif -%}
+
+{%- if social_icons != blank -%}
+  <h6 class="h6">Social Icons</h6>
+  <div class="styleguide__icons">
+    {%- for icon in social_icons_array -%}
+      {% render 'icons', icon_name: icon %}
+    {%- endfor -%}
+  </div>
+{%- endif -%}

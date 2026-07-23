@@ -1,0 +1,63 @@
+@font-face {
+    font-family: 'ITC Avant Garde Pro Bk';
+    src: url('ITCAvantGardePro-Bk.woff2') format('woff2'),
+        url('ITCAvantGardePro-Bk.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'ITC Avant Garde Pro Bk';
+    src: url('ITCAvantGardePro-BkObl.woff2') format('woff2'),
+        url('ITCAvantGardePro-BkObl.woff') format('woff');
+    font-weight: 300;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'ITC Avant Garde Pro Md';
+    src: url('ITCAvantGardePro-Bold.woff2') format('woff2'),
+        url('ITCAvantGardePro-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'ITC Avant Garde Pro Md';
+    src: url('ITCAvantGardePro-BoldObl.woff2') format('woff2'),
+        url('ITCAvantGardePro-BoldObl.woff') format('woff');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'ITC Avant Garde Pro Bk';
+    src: url('ITCAvantGardePro-Demi.woff2') format('woff2'),
+        url('ITCAvantGardePro-Demi.woff') format('woff');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'ITC Avant Garde Pro Md';
+    src: url('ITCAvantGardePro-Md.woff2') format('woff2'),
+        url('ITCAvantGardePro-Md.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'ITC Avant Garde Pro XLt';
+    src: url('ITCAvantGardePro-XLt.woff2') format('woff2'),
+        url('ITCAvantGardePro-XLt.woff') format('woff');
+    font-weight: 200;
+    font-style: normal;
+    font-display: swap;
+}
+

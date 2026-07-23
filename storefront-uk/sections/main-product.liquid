@@ -1,0 +1,822 @@
+{{ 'main-product.min.css' | asset_url | stylesheet_tag }}
+
+<script src="{{ 'product-subscriptions.js' | asset_url }}" defer="defer"></script>
+
+{%- liquid
+  assign variant = product.selected_or_first_available_variant
+  assign _metafields = product.metafields.details
+  assign gid = 'gid://shopify/Product/' | append: product.id
+  assign swatches = swatches | default: true, allow_false: true
+  unless swatches == true
+    assign swatch_class = 'main-product--no-swatches'
+  endunless
+
+  for tag in product.tags
+    if tag contains 'style:'
+      assign product_style = tag
+      break
+    endif
+  endfor
+-%}
+<section id="top" class="main-product" data-product-top data-section-type="main-product" data-section-id="{{ section.id }}">
+  <div class="main-product__wrap" data-product-id="{{ product.id }}" data-main-product>
+    {% render 'media-gallery', product: product %}
+    <div class="main-product__info container">
+      <div class="main-product__info-wrapper">
+        <product-info>
+          <script
+            data-section-data
+            type="application/json"
+          >
+            {
+              "style": {{ product_style | default: product_gid | json }},
+              "id": {{ gid | json }}
+            }
+          </script>
+          <div class="main-product__info-blocks">
+            <div class="product-modal__overlay" data-product-modal-overlay></div>
+
+            {%- for block in section.blocks -%}
+              {% assign _b = block.settings %}
+              {%- case block.type -%}
+                {%- when '@app' -%}
+                  {% render block %}
+                  {%- when 'title' -%}
+                    <div {{ block.shopify_attributes }} 
+                      class="main-product__title">
+                      <div class="main-product__title-wrapper">
+                        <h1 class="main-product__title-text h5" data-product-title>{{ product.title }}</h1>
+                      </div>
+                    </div>
+                    {% when 'price' %}
+                      <div {{ block.shopify_attributes }} 
+                        class="main-product__price p-4" data-product-prices>
+                        <div class="main-product__price-wrapper">
+                          <div class="regios-dopp-generic-price-container" data-regios-dopp-discount-even-when-hidden="true">
+                            {% if product.selected_or_first_available_variant.compare_at_price > product.selected_or_first_available_variant.price %}
+                              <div class="regios-dopp-generic-price-item--regular">{{ product.selected_or_first_available_variant.compare_at_price | money_without_trailing_zeros }}</div>
+                              <div class="regios-dopp-generic-price-item--sale">{{ product.selected_or_first_available_variant.price | money_without_trailing_zeros }}</div>
+                            {% else %}
+                              <!-- `regios-dopp-generic-price-item--regular` must be present, even if the item isn't already on sale -->
+                              <div class="regios-dopp-generic-price-item--regular" style="display: none"></div>
+                              <div class="regios-dopp-generic-price-item--sale">{{ product.price | money_without_trailing_zeros }}</div>
+                            {% endif %}
+                          </div>
+
+                          <div class='regios-dopp-description'>
+                          </div>
+
+                          {% comment %}
+                            {% render 'price', target: product.variants.first %}
+                          {% endcomment %}
+                          <div id="tt-teaser-widget"></div>
+                        </div>
+                        <div class="yotpo-widget-instance" data-yotpo-instance-id="{{ settings.yotpo_instance_id }}" data-yotpo-product-id="{{product.id}}" data-yotpo-cart-product-id="{{item.product.id}}" data-yotpo-section-id="{{template.name}}"></div>
+                      </div>
+                    {% when 'promo-text' %}
+                      {% if _metafields.promo_text != blank %}
+                        <p class="p-4 main-product__promo-text color-dark-pink">{{ _metafields.promo_text }}</p>
+                      {% endif %}
+                    {% when 'subtitle' %}
+                      <div {{ block.shopify_attributes }} class="main-product__subtitle p-3">{{ _b.subtitle }}</div>
+                    {% when 'short_desc' %}
+                      {% if _metafields.short_desc != blank %}
+                        <div {{ block.shopify_attributes }} class="main-product__block p-4 w-bold">
+                          {{ _metafields.short_desc }}
+                          <a href="#prod-description" class="product-form__link">See Full Details</a>
+                        </div>
+                      {% endif %}
+                    {% when 'promo_carousel' %}
+                      {% liquid
+                        assign carousel_data = _metafields.promo_carousel.value
+                        if carousel_data != blank
+                          render 'promo-carousel', data: carousel_data
+                        endif
+                      %}
+                    {% when 'faqs' %}
+                      {% liquid
+                        assign modalID = 'faqs'
+                        assign modalTitle = 'FAQs'
+                        assign _faq = _metafields.faq.value
+                      %}
+
+                      {% if _faq != blank %}
+                        {{ 'accordion-tab.min.css' | asset_url | stylesheet_tag }}
+                        <button class="w-100" data-product-modal-trigger="{{ modalID }}">
+                          <div class="main-product__faqs main-product__block space-between">
+                            {% if _b.label != blank %}
+                              <div class="btn--link">{{ _b.label }}</div>
+                            {% endif %}
+                            <span class="btn--link">
+                              {{ _b.link-text }}
+                              {% render 'icons', icon_name: 'expand' %}
+                            </span>
+                          </div>
+                        </button>
+
+                        {% capture modalContent %}
+                          <h4 class="h4">{{ _faq.title | metafield_tag }}</h4>
+
+                          {% for block in _faq.faq_blocks.value %}
+                            <accordion-tab class="accordion-tab {% if forloop.first %}accordion-tab--open{% endif %}" data-accordion>
+                              <div class="accordion-tab__title p-2" data-accordion-opener>{{ block.question }}</div>
+                              {% render 'icons', icon_name: 'caret-down' %}
+                              <div class="accordion-tab__content p-4">{{ block.answer | metafield_tag }}</div>
+                            </accordion-tab>
+                          {% endfor %}
+                        {% endcapture %}
+                        {% render 'product-modal',
+                          id: modalID,
+                          title: modalTitle,
+                          content: modalContent
+                        %}
+                        <script src="{{ 'accordion-tab.min.js' | asset_url }}" defer="defer"></script>
+                      {% endif %}
+                    {% when 'report' %}
+                      {% if _metafields.reports_results.value %}
+                        <div {{ block.shopify_attributes }} class="main-product__report">
+
+                          {{ _b.icon | image_url: width: _b.icon.width | image_tag: class: '' }}
+
+
+                          <div class="main-product__report-text">
+                            {% if _b.copy != blank %}
+                              <p class="p-2">{{ _b.copy }}</p>
+                            {% endif %}
+                            {% liquid
+                              assign _report = _metafields.reports_results.value
+                              assign modalID = 'report'
+                              assign modalTitle = 'Reports & Results'
+                            %}
+                            {% if _report != blank %}
+                              <button class="product-form__link" data-product-modal-trigger="{{ modalID }}">{{ _b.link-text }}</button>
+
+                              {% capture modalContent %}
+                                <h4 class="h4">{{ _report.title }}</h4>
+                                <p class="p-4">{{ _report.copy }}</p>
+
+                                {% for block in _report.content_blocks.value %}
+                                  <accordion-tab class="accordion-tab accordion-tab--open">
+                                    <div class="s-3">{{ block.title }}</div>
+                                    {% render 'image', image: block.icon %}
+                                    <div class="accordion-tab__content">{{ block.copy | metafield_tag }}</div>
+                                  </accordion-tab>
+                                {% endfor %}
+                              {% endcapture %}
+                              {% render 'product-modal', id: modalID, title: modalTitle, content: modalContent %}
+                            {% endif %}
+                          </div>
+                        </div>
+                      {% endif %}
+                    {% when 'product_features' %}
+                      {% assign features = _metafields.product_features.value %}
+                      <div {{ block.shopify_attributes }} class="grid grid--features">
+                        {% for feature in features %}
+                          <div>
+                            {{ feature.icon | image_url: width: feature.icon.width | image_tag: class: '' }}
+                            <span class="main-product__features-copy p-4">{{ feature.copy }}</span>
+                          </div>
+                        {% endfor %}
+                      </div>
+                    {% when 'bundled_products' %}
+                      {% if product.metafields.custom.bundled_products != blank %}
+                        {% assign subproducts = product.metafields.custom.bundled_products.value %}
+                        <div class="bundled-products">
+                          <div class="p-3 bundled-products__heading">Includes{% if subproducts.size %} {{ subproducts.size }} items{% endif %}:</div>
+                          <ul class="bundled-products__list">
+                            {% for subproduct in subproducts %}
+                              <li class="bundled-products__product">
+                                  <a href="{{ subproduct.url }}" class="p-4 btn--link">{{ subproduct.title }}</a>
+                              </li>
+                            {% endfor %}
+                          </ul>
+                        </div>
+                      {% endif %}
+                    {%- when 'variant_picker' -%}
+                      <product-form 
+                        {{ block.shopify_attributes }} 
+                        data-variants="{{ product.variants | json | escape }}"
+                      >
+                        <div class="product-form">
+                          {% assign randomNumber = 'now' | date: '%N' | modulo: 100 %}
+                          {% assign formId = section.id
+                            | append: '-'
+                            | append: product.id
+                            | append: '-'
+                            | append: randomNumber
+                          %}
+                          {%- assign product_form_id = 'product-form-' | append: product.id -%}
+
+                          {% render 'product-options', product: product, id: formId, _metafields: _metafields %}
+
+                          {%- if product.selling_plan_groups != blank %}
+                            <product-subscription
+                              data-product-subscription
+                              id="ProductSubscription-{{ section.id }}"
+                              class="product__subscriptions"
+                              {{ block.shopify_attributes }}
+                            >
+                              <div class="product__subscription active">
+                                <div class="product__subscription-heading">
+                                  <input
+                                    data-subscription-input
+                                    class="product__subscription-input"
+                                    type="radio"
+                                    value="Subscription Purchase"
+                                    name="selling_plan_group"
+                                    id="SubscriptionSubscribe-{{ section.id }}"
+                                    {% if product.selected_or_first_available_variant.selling_plan_allocations != blank %}
+                                      checked
+                                    {% else %}
+                                      disabled
+                                    {% endif %}
+                                  >
+                                  <label
+                                    for="SubscriptionSubscribe-{{ section.id }}"
+                                    class="product__subscription-label body bold"
+                                  >
+                                    {{ block.settings.subscription_label }}
+                                  </label>
+          
+                                  <div class="product__subscription-price">
+                                    {% if product.selected_or_first_available_variant.selling_plan_allocations != blank %}
+                                      <span class="product__subscription-price-label body bold">
+                                        {{ product.selected_or_first_available_selling_plan_allocation.price | money }}
+                                      </span>
+                                      <span class="product__subscription-price-value body body--small strike">
+                                        {{ product.selected_or_first_available_variant.price | money }}
+                                      </span>
+                                    {% else %}
+                                      <span class="product__subscription-price-label body bold">N/A</span>
+                                    {% endif %}
+                                  </div>
+                                </div>
+          
+                                <div class="field field--select">
+                                  <select
+                                    data-selling-plan
+                                    name="selling_plan"
+                                    class="field__select"
+                                    form="{{ product_form_id }}"
+                                    {% if product.selected_or_first_available_variant.selling_plan_allocations == blank %}
+                                      disabled
+                                    {% endif %}
+                                  >
+                                    {%- for group in product.selling_plan_groups -%}
+                                      <option value="{{ group.selling_plans[0].id }}">
+                                        {{ group.name }}
+                                      </option>
+                                    {%- endfor -%}
+                                  </select>
+                                  {% render 'icon-caret' %}
+                                </div>
+          
+                                {%- if block.settings.subscription_text != blank -%}
+                                  <div class="product__subscription-content body body--small">
+                                    {{ block.settings.subscription_text }}
+                                  </div>
+                                {%- endif -%}
+                              </div>
+          
+                              <div class="product__subscription-seperator">
+                                <span>{{ block.settings.subscription_or }}</span>
+                              </div>
+          
+                              <div class="product__subscription">
+                                <div class="product__subscription-heading">
+                                  <input
+                                    data-onetime-input
+                                    class="product__subscription-input"
+                                    type="radio"
+                                    value="One-time Purchase"
+                                    name="selling_plan_group"
+                                    id="SubscriptionOnetime-{{ section.id }}"
+                                    {% if product.selected_or_first_available_variant.selling_plan_allocations == blank %}
+                                      checked
+                                    {% endif %}
+                                  >
+                                  <label for="SubscriptionOnetime-{{ section.id }}" class="product__subscription-label body bold">
+                                    {{ block.settings.one_time_label }}
+                                  </label>
+          
+                                  <div class="product__subscription-price">
+                                    <span class="product__subscription-price-value body body--small bold">
+                                      <div class="regios-dopp-generic-price-container" data-regios-dopp-discount-even-when-hidden="true">
+                                        {% if product.selected_or_first_available_variant.compare_at_price > product.selected_or_first_available_variant.price %}
+                                          <div class="regios-dopp-generic-price-item--regular">{{ product.selected_or_first_available_variant.compare_at_price | money_without_trailing_zeros }}</div>
+                                          <div class="regios-dopp-generic-price-item--sale">{{ product.selected_or_first_available_variant.price | money_without_trailing_zeros }}</div>
+                                        {% else %}
+                                          <!-- `regios-dopp-generic-price-item--regular` must be present, even if the item isn't already on sale -->
+                                          <div class="regios-dopp-generic-price-item--regular" style="display: none"></div>
+                                          <div class="regios-dopp-generic-price-item--sale">{{ product.price | money_without_trailing_zeros }}</div>
+                                        {% endif %}
+                                      </div>
+                                    </span>
+                                  </div>
+                                </div>
+          
+                                {%- if block.settings.one_time_text != blank -%}
+                                  <div class="product__subscription-content product__subscription-content--onetime body body--small">
+                                    {{ block.settings.one_time_text }}
+                                  </div>
+                                {%- endif -%}
+                              </div>
+                            </product-subscription>
+                          {%- endif -%}
+
+
+                          {% render 'buy-buttons',
+                            product: product,
+                            show_dynamic_checkout: _b.show_dynamic_checkout,
+                            hide_price: true
+                          %}
+                        </div>
+                      </product-form>
+                      <script src="{{ 'main-product.min.js' | asset_url }}" defer="defer"></script>
+                      <notify-form>
+                        {%- form 'product',
+                          product,
+                          id: 'back-in-stock-form',
+                          novalidate: 'novalidate',
+                          class: 'main-product__notify-form',
+                          data-type: 'notify-form',
+                          method: 'post',
+                          action: '/',
+                          data-back-in-stock: 'true'
+                        -%}
+                          {% if isBackInStock %}
+                            <div
+                              class="main-product__back-in-stock{% if product.selected_or_first_available_variant.available == true %} hide{% endif %}"
+                              data-notify-form
+                            >
+                              <div class="main-product__back-in-stock-copy">
+                                <span class="main-product__back-in-stock-copy-text p-3">
+                                  {{- 'products.product.back_in_stock_text' | t -}}
+                                </span>
+                                <span class="main-product__back-in-stock-copy-success p-3">
+                                  {{- 'products.product.back_in_stock_thanks' | t -}}
+                                </span>
+                                <span class="main-product__back-in-stock-copy-error color-red p-3">
+                                  {{- 'products.product.back_in_stock_error' | t -}}
+                                </span>
+                              </div>
+                              <div class="main-product__back-in-stock-form">
+                                <input
+                                  type="email"
+                                  placeholder="Email Address"
+                                  id="pdp_bis_email"
+                                  data-notify-email
+                                  class="main-product__back-in-stock-form-email main"
+                                >
+                                <button
+                                  type="submit"
+                                  class="btn btn--primary main-product__back-in-stock-form-button"
+                                  data-notify-submit-btn
+                                  data-submit-button
+                                >
+                                  {{ 'products.product.back_in_stock_button' | t }}
+                                </button>
+                              </div>
+                            </div>
+                          {% endif %}
+                        {% endform %}
+                      </notify-form>
+
+
+                    {% when 'selectable_bundle' %}
+                      {% render 'selectable-bundle', block: block, _b: _b %}
+                   
+
+                    {% when 'rewards' %}
+                      <div {{ block.shopify_attributes }} class="main-product__rewards space-between">
+                        <div class="p-4">
+                          Earn
+                          {% render 'icons', icon_name: 'sparkle' %}
+                          <span data-lion-points-possible></span>
+                          with Grande Rewards.
+                        </div>
+                        <a href="{{ routes.root_url }}pages/loyalty" class="btn--link">Join Now</a>
+                      </div>
+                    {% when 'accordions' %}
+                      {% capture accordion_icons %}
+                        {% render 'icons', icon_name: 'plus' %}
+                        {% render 'icons', icon_name: 'minus' %}
+                      {% endcapture %}
+
+                      <main-product__info-blocks
+                        {{ block.shopify_attributes }}
+                        class="main-product__tabs main-product__tabs--description" >
+                        {% if product.description != blank %}
+                          <div id="prod-description" class="main-product__tab main-product__tab--description accordion--expanded" data-accordion="description">
+                            <div class="main-product__tab-title p-3" data-tab="description">
+                              {{ accordion_icons }}
+                              Description
+                            </div>
+                            <div class="main-product__tab-text__container">
+                              <div class="main-product__tab-text p-4">
+                                {{ product.description }}
+                              </div>
+                            </div>
+                          </div>
+                        {% endif %}
+                        {% if _metafields.how_to_use != blank %}
+                          <div class="main-product__tab main-product__tab--howtouse" data-accordion="howtouse">
+                            <div class="main-product__tab-title p-3" data-tab="howtouse">
+                              {{ accordion_icons }}
+                              How to Use
+                            </div>
+                            <div class="main-product__tab-text__container">
+                              <div class="main-product__tab-text p-4">
+                                {{ _metafields.how_to_use | metafield_tag }}
+                              </div>
+                            </div>
+                          </div>
+                        {% endif %}
+                        {% if _metafields.ingredients != blank %}
+                          {% assign ingredients = _metafields.ingredients.value %}
+                          <div class="main-product__tab main-product__tab--ingredients" data-accordion="ingredients">
+                            <div class="main-product__tab-title p-3" data-tab="ingredients">
+                              {{ accordion_icons }}
+                              Ingredients
+                            </div>
+                            <div class="main-product__tab-text__container">
+                              <div class="main-product__tab-text p-4">
+                                {% for ingredient in ingredients %}
+                                  <div class="main-product__ingredient">
+                                    {% if ingredient.icon != blank %}
+                                      {{ ingredient.icon | image_url: width: ingredient.icon.width | image_tag: class: '' }}
+                                    {% endif %}
+                                    <div class="main-product__ingredient--text">
+                                      <p class="main-product__ingredient--title p-5 w-bold">{{ ingredient.title }}</p>
+                                      <p class="main-product__ingredient--copy p-4">{{ ingredient.copy }}</p>
+                                    </div>
+                                  </div>
+                                {% endfor %}
+                                {% if _metafields.ingredients_list != blank %}
+                                  <div class="main-product__ingredient--title p-5 w-bold">Ingredients List:</div>
+                                  <div class="main-product__ingredient--copy p-4">{{ _metafields.ingredients_list }}</div>
+                                {% endif %}
+                              </div>
+                            </div>
+                          </div>
+                        {% endif %}
+                      </main-product__info-blocks>
+                    {% when 'details' %}
+                      {% if product.metafields.custom.details != blank %}
+                        <main-product__info-blocks 
+                          {{ block.shopify_attributes }}
+                          class="main-product__tabs main-product__tabs--details">
+                          <div class="main-product__tab">
+                            <div class="main-product__tab-details">
+                              <div class="main-product__tab-title p-3">{{ _b.details_heading }} {% render 'icons', icon_name: 'plus' %}{% render 'icons', icon_name: 'minus' %}</div>
+                              <div class="main-product__tab-text__container">
+                                <div class="main-product__tab-text p-3">
+                                  <div class="main-product__tab-inner">
+                                    {{ product.metafields.custom.details | metafield_tag }}
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </main-product__info-blocks>
+                      {% endif %}
+                  {% when 'warranty' %}
+                    {% if product.metafields.custom.warranty != blank %}
+                      <main-product__info-blocks 
+                        {{ block.shopify_attributes }}
+                        class="main-product__tabs main-product__tabs--warranty">
+                        <div class="main-product__tab">
+                          <div class="main-product__tab-warranty">
+                            <div class="main-product__tab-title p-3">{{ _b.warranty_heading }} {% render 'icons', icon_name: 'plus' %}{% render 'icons', icon_name: 'minus' %}</div>
+                            <div class="main-product__tab-text__container">
+                              <div class="main-product__tab-text p-3">
+                                <div class="main-product__tab-inner">
+                                  {{ product.metafields.custom.warranty | metafield_tag }}
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </main-product__info-blocks>
+                    {% endif %}
+                  {% when 'pdf' %}
+                    {% if product.metafields.custom.pdf_guides != blank %}
+                      <main-product__info-blocks 
+                        {{ block.shopify_attributes }}
+                        class="main-product__tabs main-product__tabs--pdf_guides">
+                        <div class="main-product__tab">
+                          <div class="main-product__tab-pdf_guides">
+                            <div class="main-product__tab-title p-3">{{ _b.pdf_heading }} {% render 'icons', icon_name: 'plus' %}{% render 'icons', icon_name: 'minus' %}</div>
+                            <div class="main-product__tab-text__container">
+                              <div class="main-product__tab-text p-3">
+                                <div class="main-product__tab-inner">
+                                  {{ product.metafields.custom.pdf_guides | metafield_tag }}
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </main-product__info-blocks>
+                    {% endif %}
+                {%- endcase -%}
+            {%- endfor -%}
+          </div>
+        </product-info>
+      </div>
+    </div>
+  </div>
+
+  <div class="main-product__sticky-bar" data-sticky-add-to-cart>
+    <div class="space-between">
+      <span>
+        {% render 'image', image: product.images.first, class: 'main-product__sticky-bar-image hide-mobile' %}
+        <span class="main-product__sticky-bar-title p-3">{{ product.title }}</span>
+      </span>
+      <span>
+        <span class="edit-group">
+          {% assign sticky_title = product.variants.first.title | downcase %}
+          {% unless sticky_title == 'default title' %}
+            <span class="p-3" data-sticky-variant-title>{{ product.variants.first.title }}</span>
+          {% endunless %}
+          <a href="#top" class="btn--link">Edit</a>
+        </span>
+        <button class="btn btn--primary {% if product.selected_or_first_available_variant.available == false or quantity_rule_soldout  %}disabled{% endif %}" onclick="document.querySelector('[data-add-to-cart-btn]').click();" data-sticky-add-to-cart-btn>
+          <span class="text-unavailable">{{ 'products.product.sold_out' | t }}</span>
+          <span class="text-available">
+            {{ 'products.product.add_to_cart' | t }}
+            
+            •
+            <div class="regios-dopp-generic-price-container" data-regios-dopp-discount-even-when-hidden="true">
+              {% if product.selected_or_first_available_variant.compare_at_price > product.selected_or_first_available_variant.price %}
+                <div class="regios-dopp-generic-price-item--regular">{{ product.selected_or_first_available_variant.compare_at_price | money_without_trailing_zeros }}</div>
+                <div class="regios-dopp-generic-price-item--sale">{{ product.selected_or_first_available_variant.price | money_without_trailing_zeros }}</div>
+              {% else %}
+                <!-- `regios-dopp-generic-price-item--regular` must be present, even if the item isn't already on sale -->
+                <div class="regios-dopp-generic-price-item--regular" style="display: none"></div>
+                <div class="regios-dopp-generic-price-item--sale">{{ product.selected_or_first_available_variant.price | money_without_trailing_zeros }}</div>
+              {% endif %}
+            </div>
+
+            {% comment %}
+            {% render 'price', target: product.variants.first %}
+            {% endcomment %}
+          </span>
+        </button>
+      </span>
+    </div>
+  </div>
+  <div class="main-product__sticky-mobile-watcher" data-mobile-sticky-watcher></div>
+  <style>
+    .footer {
+      padding-bottom: 115px;
+
+    }
+    @media (min-width: 1024px) {
+      .footer {
+        padding-bottom: 63px;
+      }
+    }
+  </style>
+</section>
+
+{% schema %}
+{
+  "name": "Main Product",
+  "enabled_on": {
+    "templates": ["product"]
+  },
+  "blocks": [
+    {
+      "type": "@app"
+    },
+    {
+      "type": "title",
+      "name": "Title",
+      "limit": 1
+    },
+    {
+      "type": "price",
+      "name": "Price",
+      "limit": 1
+    },
+    {
+      "type": "promo-text",
+      "name": "Promo Text",
+      "limit": 1
+    },
+    {
+      "type": "short_desc",
+      "name": "Short Description",
+      "limit": 1
+    },
+    {
+      "type": "promo_carousel",
+      "name": "Promo Carousel",
+      "limit": 1
+    },
+    {
+      "type": "product_features",
+      "name": "Product Features",
+      "limit": 1
+    },
+    {
+      "type": "bundled_products",
+      "name": "Bundled Products",
+      "limit": 1
+    },
+    {
+      "type": "selectable_bundle",
+      "name": "Selectable Bundle",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "checkbox",
+          "label": "Show Dynamic Buy Buttons",
+          "id": "show_dynamic_checkout",
+          "default": true
+        },
+        {
+          "type": "richtext",
+          "label": "Subscription Tooltip Text",
+          "id": "subscription_tooltip_text"
+        }
+      ]
+    },
+    {
+      "type": "variant_picker",
+      "name": "Variants",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "checkbox",
+          "label": "Show Dynamic Buy Buttons",
+          "id": "show_dynamic_checkout",
+          "default": true
+        },
+        {
+          "type": "header",
+          "content": "Subscription Settings"
+        },
+        {
+          "type": "text",
+          "id": "subscription_label",
+          "label": "Subscription Label",
+          "default": "Subscribe & Save"
+        },
+        {
+          "type": "richtext",
+          "id": "subscription_text",
+          "label": "Subscription Text"
+        },
+        {
+          "type": "text",
+          "id": "subscription_or",
+          "label": "Or text",
+          "default": "OR"
+        },
+        {
+          "type": "header",
+          "content": "One-time Settings"
+        },
+        {
+          "type": "text",
+          "id": "one_time_label",
+          "label": "One-time Label",
+          "default": "One-time Purchase"
+        },
+        {
+          "type": "richtext",
+          "id": "one_time_text",
+          "label": "One-time content"
+        }
+      ]
+    },
+    {
+      "type": "shipping_details",
+      "name": "Shipping Details",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "label": "Shiiping Info Text",
+          "id": "shipping_details_text"
+        }
+      ]
+    },
+    {
+      "type": "rewards",
+      "name": "Rewards",
+      "limit": 1
+    },
+    {
+      "type": "accordions",
+      "name": "Accordions",
+      "limit": 1
+    },
+    {
+      "type": "details",
+      "name": "Details",
+      "settings": [
+        {
+          "type": "text",
+          "id": "details_heading",
+          "default": "Details",
+          "label": "Heading"
+        }
+      ],
+      "limit": 1
+    },
+    {
+      "type": "warranty",
+      "name": "Warranty",
+      "settings": [
+        {
+          "type": "text",
+          "id": "warranty_heading",
+          "default": "Warranty",
+          "label": "Heading"
+        }
+      ],
+      "limit": 1
+    },
+    {
+      "type": "pdf",
+      "name": "PDF Guides",
+      "settings": [
+        {
+          "type": "text",
+          "id": "pdf_heading",
+          "default": "PDF Guides",
+          "label": "Heading"
+        }
+      ],
+      "limit": 1
+    },
+    {
+      "type": "faqs",
+      "name": "FAQS",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "default": "Have a question? Read our FAQs",
+          "label": "Label"
+        },
+        {
+          "type": "text",
+          "id": "link-text",
+          "default": "Expand",
+          "label": "Link Text"
+        }
+      ],
+      "limit": 1
+    },
+    {
+      "type": "report",
+      "name": "Report",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon"
+        },
+        {
+          "type": "textarea",
+          "id": "copy",
+          "default": "Committed to using safe & clinically–tested ingredients.",
+          "label": "Copy"
+        },
+        {
+          "type": "text",
+          "id": "link-text",
+          "default": "See the Report",
+          "label": "Link Text"
+        },
+        {
+          "type": "url",
+          "id": "link-url",
+          "label": "Link URL"
+        }
+      ],
+      "limit": 1
+    },
+    {
+      "type": "subtitle",
+      "name": "Subtitle",
+      "settings": [
+        {
+          "type": "text",
+          "id": "subtitle",
+          "label": "Subtitle"
+        }
+      ],
+      "limit": 1
+    }
+  ],
+  "presets": [
+    {
+      "name": "Main Product"
+    }
+  ]
+}
+{% endschema %}

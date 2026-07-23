@@ -1,0 +1,24 @@
+<div class="sort__options" data-sort-content>
+  {% assign allowed_sort_options = 'manual|Featured,created-descending|Newest,price-descending|Price: High to Low,price-ascending|Price: Low to High' | split: ',' %}
+  {%- for option_value in allowed_sort_options -%}
+    {%- assign value = option_value | split: '|' | first | escape -%}
+    {%- assign label = option_value | split: '|' | last | escape -%}
+    <div class="sort__option">
+      <input
+        type="radio"
+        id="sort_by_{{ value }}{% if isDesktop %}_2{% endif %}"
+        name="sort_by"
+        class="input--radio"
+        value="{{ value }}"
+        data-value="{{ label }}"
+        {% if value == sort_by %}
+          checked
+        {% endif %}
+        aria-describedby="a11y-refresh-page-message"
+      />
+      <label class="p-3" for="sort_by_{{ value }}{% if isDesktop %}_2{% endif %}">
+        {{ label }}
+      </label>
+    </div>
+  {%- endfor -%}
+</div>

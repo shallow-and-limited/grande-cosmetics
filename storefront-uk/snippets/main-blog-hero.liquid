@@ -1,0 +1,9 @@
+<div class="main-blog__header">
+  {%  render 'image', image: section.settings.image_desktop, class: 'hide-mobile' %}
+  {%  render 'image', image: section.settings.image_mobile, class: 'hide-desktop' %}
+  <div class="main-blog__header__content">
+    <h1 class="main-blog__header__title">
+      {{ blog.title | escape }}
+    </h1>
+  </div>
+</div>

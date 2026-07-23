@@ -1,0 +1,194 @@
+{% comment %}
+  Renders Filter Sidebar
+
+  Accepts:
+  - results: {Object} Collection or Search object
+
+  Usage:
+  {% render 'filters', results: collection %}
+{% endcomment %}
+
+{%- liquid
+  assign results = results
+  assign terms = results.terms | escape
+  assign current_size = current_size
+  if results.url
+    assign results_url = results.url
+  else
+    assign terms = results.terms | escape
+    assign results_url = '?q=' | append: terms | append: '&options%5Bprefix%5D=last&sort_by=' | append: sort_by | append: '&type=product'
+  endif
+-%}
+
+<div class="main-collection__overlay" data-collection-overlay></div>
+
+<filter-drawer class="main-collection__filter-drawer">
+  <section
+    class="filter-drawer"
+    data-filter-content
+  >
+    <div class="filter-drawer__heading hide-desktop">
+      <div class="space-between">
+        <p class="p-2">Filter & Sort</p>
+        <div class="filter__close" data-filter-toggle>
+          {% render 'icons', icon_name: 'close' %}
+        </div>
+      </div>
+    </div>
+    <div class="filter-drawer__content">
+      <article class="filter hide-desktop">
+        <filter-accordion>
+          <details>
+            <summary class="filter__heading">
+              <h4 class="p-3">Sort By</h4>
+              {% render 'icons', icon_name: 'caret-down', class: 'filter__arrow' %}
+            </summary>
+            <div class="filter__content">
+              {% render 'sort-radios', sort_by: sort_by %}
+            </div>
+          </details>
+        </filter-accordion>
+      </article>
+      {%- if results.filters != empty -%}
+        {%- for filter in results.filters -%}
+          {%- liquid
+            case filter.presentation
+              when 'swatch'
+                assign has_visual_display = true
+              else
+                assign has_visual_display = false
+            endcase
+          -%}
+
+          {% if filter.type == 'price_range' %}
+            {% liquid
+              assign currencies_using_comma_decimals = 'ANG,ARS,BRL,BYN,BYR,CLF,CLP,COP,CRC,CZK,DKK,EUR,HRK,HUF,IDR,ISK,MZN,NOK,PLN,RON,RUB,SEK,UYU,VES,VND' | split: ','
+              assign uses_comma_decimals = false
+              if currencies_using_comma_decimals contains cart.currency.iso_code
+                assign uses_comma_decimals = true
+              endif
+            %}
+            <article class="filter">
+              <filter-accordion>
+                <details class="js-filter"
+                  data-index="{{ forloop.index }}">
+                  <summary class="filter__heading">
+                    <h4 class="p-3">{{ filter.label | escape }}</h4>
+                    {% render 'icons', icon_name: 'caret-down', class: 'filter__arrow' %}
+                  </summary>
+                  <div class="filter__content">
+                    <price-range class="filter__price">
+                      <div class="field">
+                        <span class="field-currency">{{ cart.currency.symbol }}</span>
+                        <input
+                          class="field__input"
+                          name="{{ filter.min_value.param_name }}"
+                          id="Filter-{{ filter.label | escape }}-GTE"
+                          {%- if filter.min_value.value -%}
+                            {%- if uses_comma_decimals -%}
+                              value="{{ filter.min_value.value | money_without_currency | replace: '.', '' | replace: ',', '.' }}"
+                            {%- else -%}
+                              value="{{ filter.min_value.value | money_without_currency | replace: ',', '' }}"
+                            {%- endif %}
+                          {%- endif -%}
+                          type="number"
+                          placeholder="From"
+                          min="0"
+                          {%- if uses_comma_decimals -%}
+                            max="{{ filter.range_max | money_without_currency | replace: '.', '' | replace: ',', '.' }}"
+                          {%- else -%}
+                            max="{{ filter.range_max | money_without_currency | replace: ',', '' }}"
+                          {% endif %}
+                        >
+                      </div>
+                      <div class="field">
+                        {%- if filter_type != 'vertical' -%}
+                          <span class="field-currency">{{ cart.currency.symbol }}</span>
+                        {%- endif -%}
+                        <input
+                          class="field__input"
+                          name="{{ filter.max_value.param_name }}"
+                          id="Filter-{{ filter.label | escape }}-LTE"
+                          {%- if filter.max_value.value -%}
+                            {%- if uses_comma_decimals -%}
+                              value="{{ filter.max_value.value | money_without_currency | replace: '.', '' | replace: ',', '.' }}"
+                            {%- else -%}
+                              value="{{ filter.max_value.value | money_without_currency | replace: ',', '' }}"
+                            {%- endif %}
+                          {%- endif -%}
+                          type="number"
+                          min="0"
+                          {%- if uses_comma_decimals -%}
+                            placeholder="To"
+                            max="{{ filter.range_max | money_without_currency | replace: '.', '' | replace: ',', '.' }}"
+                          {%- else -%}
+                            placeholder="{{ filter.range_max | money_without_currency | replace: ',', '' }}"
+                            max="To"
+                          {% endif %}
+                        >
+                      </div>
+                    </price-range>
+                  </div>
+                </details>
+              </filter-accordion>
+            </article>
+          {% else %}
+            <article class="filter">
+              <filter-accordion>
+                <details class="js-filter"
+                  data-index="{{ forloop.index }}">
+                  <summary class="filter__heading">
+                    <h4 class="p-3">{{ filter.label | escape }}</h4>
+                    {% render 'icons', icon_name: 'caret-down', class: 'filter__arrow' %}
+                  </summary>
+                  <div class="filter__content">
+                    <ol>
+                      {%- for value in filter.values -%}
+                        {% if value.active %}
+                          <li>
+                            <label class="filter__checkbox p-3">
+                              <input
+                                type="checkbox"
+                                class="main-filter__input input--checkbox"
+                                name="{{ value.param_name }}"
+                                value="{{ value.value }}"
+                                checked
+                              >
+                              <span>{{- value.label | escape }}</span>
+                            </label>
+                          </li>
+                        {% endif %}
+                      {%- endfor -%}
+                      {%- for value in filter.values -%}
+                        {% unless value.active %}
+                          <li>
+                            <label class="filter__checkbox p-3">
+                              <input
+                                type="checkbox"
+                                class="main-filter__input  input--checkbox"
+                                name="{{ value.param_name }}"
+                                value="{{ value.value }}"
+                                {% if value.count == 0 %}
+                                  disabled
+                                {% endif %}
+                              >
+                              <span>{{- value.label | escape }}</span>
+                            </label>
+                          </li>
+                        {% endunless %}
+                      {%- endfor -%}
+                    </ol>
+                  </div>
+                </details>
+              </filter-accordion>
+            </article>
+          {% endif %}
+        {%- endfor -%}
+      {%- endif -%}
+    </div>
+    <div class="main-collection__facet-footer hide-desktop">
+      <button class="btn btn--primary" data-filter-toggle>View <span data-product-count>{{ collection.all_products_count }}</span> Results</button>
+      <button class="btn--link" data-filter-toggle onclick="document.querySelector('[data-clear]').click();">Clear All</button>
+    </div>
+  </section>
+</filter-drawer>

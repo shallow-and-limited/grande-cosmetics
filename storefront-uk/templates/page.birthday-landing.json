@@ -1,0 +1,490 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "shogun-helper": {
+      "type": "shogun-helper",
+      "settings": {}
+    },
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {}
+    },
+    "shogun-optimizer": {
+      "type": "shogun-optimizer",
+      "settings": {}
+    },
+    "split_banner_RpcCep": {
+      "type": "split-banner",
+      "blocks": {
+        "body_copy_9mddpK": {
+          "type": "body-copy",
+          "settings": {
+            "copy": "<p>A lot has changed since 2008 - styles, products, even our packaging. But once thing has stayed the same: confidence never goes out of style.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "body_copy_9mddpK"
+      ],
+      "settings": {
+        "style": "beige",
+        "padding": "full-width",
+        "arrangement": "left_asset_right_content",
+        "header": "h3",
+        "alignment": "centered",
+        "vertical_alignment": "middle",
+        "module_height": "image-height",
+        "image_d": "shopify://shop_images/17thBirthday-SplitBanner-Desktop-2_c2de9661-f601-400d-b3a3-3d41caef8091.jpg",
+        "video_poster_d": true,
+        "image_m": "shopify://shop_images/17thBirthday-SplitBanner-Mobile-2_30b0b16d-18a8-46de-88c9-9459f6ce005e.jpg",
+        "video_poster_m": true,
+        "video_autoplay": true,
+        "eyebrow": "",
+        "heading": "From Then to Now - Your Transformation Is Our Story",
+        "cta_url": "",
+        "cta_copy": ""
+      }
+    },
+    "banner_qibN3c": {
+      "type": "banner",
+      "settings": {
+        "color": "light",
+        "background": "rose",
+        "alignment": "center",
+        "eyebrow": "THE BRAND THAT STARTED THE NATURAL BEAUTY ENHANCING REVOLUTION",
+        "heading": "Grande Over <em>The Years</em>",
+        "heading_size": "h2",
+        "copy": "",
+        "cta_url": "",
+        "cta_copy": "",
+        "cta_url_alt": "",
+        "cta_copy_alt": "",
+        "overlay": 0
+      }
+    },
+    "hero_carousel_DpHKTT": {
+      "type": "hero-carousel",
+      "blocks": {
+        "hero_slide_ARWPXL": {
+          "type": "hero_slide",
+          "settings": {
+            "color": "light",
+            "video_poster_d": true,
+            "video_poster_m": true,
+            "video_d": "shopify://files/videos/Grande's Timeline-Desktop.mp4",
+            "video_m": "shopify://files/videos/Grande's Timeline-Mobile.mp4",
+            "video_autoplay": true,
+            "eyebrow": "",
+            "heading": "",
+            "heading_size": "h2",
+            "copy": "",
+            "cta_url": "",
+            "cta_copy": "",
+            "cta_url_alt": "",
+            "cta_copy_alt": "",
+            "overlay": 0
+          }
+        }
+      },
+      "block_order": [
+        "hero_slide_ARWPXL"
+      ],
+      "settings": {
+        "display": "full-bleed"
+      }
+    },
+    "ticker_DQVGDW": {
+      "type": "ticker",
+      "blocks": {
+        "text_ahVb4H": {
+          "type": "text",
+          "settings": {
+            "svg_icon": "flower",
+            "text": "100+ Awards Won",
+            "url": ""
+          }
+        },
+        "text_DxPYLz": {
+          "type": "text",
+          "settings": {
+            "svg_icon": "flower",
+            "text": "Over 10 Million Sold",
+            "url": ""
+          }
+        },
+        "text_Kxj4Ly": {
+          "type": "text",
+          "settings": {
+            "svg_icon": "flower",
+            "text": "35,000+ 5-Star Reviews",
+            "url": ""
+          }
+        }
+      },
+      "block_order": [
+        "text_ahVb4H",
+        "text_DxPYLz",
+        "text_Kxj4Ly"
+      ],
+      "settings": {
+        "optional_text": "",
+        "optional_url": "",
+        "speed": 2.5,
+        "color_scheme": "dark-pink"
+      }
+    },
+    "birthday_promo_wcFHbn": {
+      "type": "birthday-promo",
+      "blocks": {
+        "promo_card_eTGgkq": {
+          "type": "promo-card",
+          "settings": {
+            "status": "active",
+            "active_image": "shopify://shop_images/Birthday_Deals_Week_5_Image_19e8c853-1059-4ce3-8ec3-95fea9ff218d.jpg",
+            "apply_effect": true,
+            "upcoming_image_color": "#ff76b8",
+            "upcoming_image_opacity": 70,
+            "eyebrow": "Week 5",
+            "heading": "$17 Off $60+",
+            "copy": "Happening Now",
+            "cta": "Shop Now",
+            "link": "shopify://collections/best-sellers"
+          }
+        },
+        "promo_card_tb9NHJ": {
+          "type": "promo-card",
+          "settings": {
+            "status": "disabled",
+            "active_image": "shopify://shop_images/Birthday_Deals_Week_4_Image_d312eae9-0969-4eba-9d8f-983f094d4944.jpg",
+            "apply_effect": true,
+            "upcoming_image_color": "#fc2d75",
+            "upcoming_image_opacity": 70,
+            "eyebrow": "Sorry",
+            "heading": "34% Off All Serums",
+            "copy": "",
+            "cta": "Shop Now",
+            "link": "shopify://collections/grandes-birthday-month"
+          }
+        },
+        "promo_card_RAtRYd": {
+          "type": "promo-card",
+          "settings": {
+            "status": "disabled",
+            "disabled_image": "shopify://shop_images/Birthday_Deals_Week_3_Image_b0bd90ad-4bd7-4f08-a621-cc8afd911f49.jpg",
+            "apply_effect": true,
+            "upcoming_image_color": "#fc2d75",
+            "upcoming_image_opacity": 70,
+            "eyebrow": "Sorry",
+            "heading": "BOGO Bundles",
+            "copy": "",
+            "cta": "Shop Now",
+            "link": "shopify://collections/grandes-birthday-month"
+          }
+        },
+        "promo_card_pNLXCM": {
+          "type": "promo-card",
+          "settings": {
+            "status": "disabled",
+            "disabled_image": "shopify://shop_images/Birthday_Deals_Week_2_Image_fb186490-47aa-4e61-9521-2ba90bb60e42.jpg",
+            "apply_effect": true,
+            "upcoming_image_color": "#fc2d75",
+            "upcoming_image_opacity": 70,
+            "eyebrow": "Sorry",
+            "heading": "$17 Mascaras",
+            "copy": "",
+            "cta": "Shop Now",
+            "link": "shopify://collections/grandes-birthday-month"
+          }
+        },
+        "promo_card_PLqDBi": {
+          "type": "promo-card",
+          "settings": {
+            "status": "disabled",
+            "disabled_image": "shopify://shop_images/Birthday_Deals_Week_1_Image_329e52a5-2223-4d1c-8511-0bfb41b4cb25.jpg",
+            "apply_effect": true,
+            "upcoming_image_color": "#ff76b8",
+            "upcoming_image_opacity": 70,
+            "eyebrow": "Sorry",
+            "heading": "$17 Collection",
+            "copy": "",
+            "cta": "Shop Now",
+            "link": "https://grandecosmetics.com/collections/grandes-birthday-month"
+          }
+        }
+      },
+      "block_order": [
+        "promo_card_eTGgkq",
+        "promo_card_tb9NHJ",
+        "promo_card_RAtRYd",
+        "promo_card_pNLXCM",
+        "promo_card_PLqDBi"
+      ],
+      "settings": {
+        "heading": "keep up with the deals"
+      }
+    },
+    "split_banner_nG8tiJ": {
+      "type": "split-banner",
+      "blocks": {
+        "body_copy_47Kkxc": {
+          "type": "body-copy",
+          "settings": {
+            "copy": "<p> For 17 years, we’ve been helping you enhance what you already have — because true beauty isn’t just about the outer transformations our products create; it’s about the inner transformation that happens when you look in the mirror and feel proud, confident, and glowing.</p><p> </p><p> </p>"
+          }
+        }
+      },
+      "block_order": [
+        "body_copy_47Kkxc"
+      ],
+      "settings": {
+        "style": "beige",
+        "padding": "inset",
+        "arrangement": "left_asset_right_content",
+        "header": "h2",
+        "alignment": "centered",
+        "vertical_alignment": "top",
+        "module_height": "image-height",
+        "image_d": "shopify://shop_images/17thBirthday-ThenNow-SplitBanner.jpg",
+        "video_poster_d": true,
+        "video_poster_m": true,
+        "video_autoplay": true,
+        "eyebrow": "Then & Now",
+        "heading": "First, A Dream. Now, A Legacy.",
+        "cta_url": "shopify://products/grandelash-md",
+        "cta_copy": "Shop Our 1st Product"
+      }
+    },
+    "before_after_MRbzfD": {
+      "type": "before-after",
+      "settings": {
+        "switch_sides": false,
+        "metaobject_handle": "before-and-after-mrxdzcx0"
+      }
+    },
+    "split_banner_rpBjY6": {
+      "type": "split-banner",
+      "blocks": {
+        "body_copy_MCHUjm": {
+          "type": "body-copy",
+          "settings": {
+            "copy": "<p>- xoxo Alicia Grande <br/>Founder & CEO</p>"
+          }
+        }
+      },
+      "block_order": [
+        "body_copy_MCHUjm"
+      ],
+      "settings": {
+        "style": "rose",
+        "padding": "inset",
+        "arrangement": "left_asset_right_content",
+        "header": "h4",
+        "alignment": "left",
+        "vertical_alignment": "middle",
+        "module_height": "image-height",
+        "image_d": "shopify://shop_images/17thBirthday-ThenNow-SplitBanner-Alicia_132987c9-95b6-495e-9ccc-7b63308913fe.jpg",
+        "video_poster_d": true,
+        "video_poster_m": true,
+        "video_autoplay": true,
+        "eyebrow": "THEN & NOW",
+        "heading": "\"Every enhanced lash, every fuller brow, every moment you feel your best, that’s what we’re here for —  every step of your journey.\"",
+        "cta_url": "",
+        "cta_copy": ""
+      }
+    },
+    "press_Gy6Jeq": {
+      "type": "press",
+      "blocks": {
+        "slide_ydMqGX": {
+          "type": "slide",
+          "settings": {
+            "quote": "\"Grande Cosmetics founder Alicia Grande <em>cracked the eyelash-enhancing code with this little gold tube of magic.\"</em>",
+            "logo": "shopify://shop_images/NewBeauty-1-q0aalw3k4p51an8zfmtpl6kt24uksdudr5b581kg7k_b703bce9-90cb-42fc-9dce-aca326d9287d.png"
+          }
+        }
+      },
+      "block_order": [
+        "slide_ydMqGX"
+      ],
+      "disabled": true,
+      "settings": {}
+    },
+    "fw_html_embed_AYMBHk": {
+      "type": "fw-html-embed",
+      "settings": {
+        "title": "TikTok Viral <em>For A Reason</em>",
+        "embed_code": "<script async type=\"text/javascript\" src=\"//asset.fwcdn3.com/js/embed-feed.js\"></script>\n\n    <fw-embed-feed channel=\"grandecosmetics\" playlist=\"v6KeM5\" mode=\"row\" open_in=\"default\" max_videos=\"0\" placement=\"middle\" player_placement=\"bottom-right\" branding=\"false\"></fw-embed-feed>"
+      }
+    },
+    "split_banner_gyxc3C": {
+      "type": "split-banner",
+      "blocks": {
+        "body_copy_JeqB9J": {
+          "type": "body-copy",
+          "settings": {
+            "copy": "<p>We take pride in being the safest, most effective, and <strong>most studied</strong> lash serum brand with 11 safety and performance studies. </p>"
+          }
+        }
+      },
+      "block_order": [
+        "body_copy_JeqB9J"
+      ],
+      "settings": {
+        "style": "rose",
+        "padding": "inset",
+        "arrangement": "right_asset_left_content",
+        "header": "h2",
+        "alignment": "left",
+        "vertical_alignment": "middle",
+        "module_height": "image-height",
+        "image_d": "shopify://shop_images/17thBirthday-SplitBanner-SafetyBanner-Desktop.gif",
+        "video_poster_d": true,
+        "video_poster_m": true,
+        "video_autoplay": true,
+        "eyebrow": "",
+        "heading": "17 Years of <em>Putting Your Safety First</em>",
+        "cta_url": "https://grandecosmetics.com/pages/grandelash-md-safety-testing",
+        "cta_copy": "Read More"
+      }
+    },
+    "birthday_promo_FNGUji": {
+      "type": "birthday-promo",
+      "blocks": {
+        "promo_card_nnNj6p": {
+          "type": "promo-card",
+          "settings": {
+            "status": "active",
+            "active_image": "shopify://shop_images/GWP_Deals_Week_4_Image.jpg",
+            "apply_effect": true,
+            "upcoming_image_color": "#fc2d75",
+            "upcoming_image_opacity": 70,
+            "eyebrow": "Week 4",
+            "heading": "Free Hydrojug",
+            "copy": "With First 100 Orders",
+            "cta": "Shop Now",
+            "link": "shopify://collections/grandes-birthday-month"
+          }
+        },
+        "promo_card_Y7np4h": {
+          "type": "promo-card",
+          "settings": {
+            "status": "disabled",
+            "disabled_image": "shopify://shop_images/GWP_Deals_Week_3_Image.jpg",
+            "apply_effect": true,
+            "upcoming_image_color": "#fc2d75",
+            "upcoming_image_opacity": 70,
+            "eyebrow": "Week 3",
+            "heading": "Sale Is Over!",
+            "copy": "Available in 2 weeks",
+            "cta": "Shop Now",
+            "link": ""
+          }
+        },
+        "promo_card_e3xhQr": {
+          "type": "promo-card",
+          "settings": {
+            "status": "disabled",
+            "disabled_image": "shopify://shop_images/GWP_Deals_Week_2_Image.jpg",
+            "apply_effect": true,
+            "upcoming_image_color": "#fc2d75",
+            "upcoming_image_opacity": 70,
+            "eyebrow": "Week 2",
+            "heading": "Sale Is Over!",
+            "copy": "",
+            "cta": "Shop Now",
+            "link": "shopify://collections/grandes-birthday-month"
+          }
+        },
+        "promo_card_REhwt6": {
+          "type": "promo-card",
+          "settings": {
+            "status": "disabled",
+            "disabled_image": "shopify://shop_images/GWP_Deals_Week_1_Image.jpg",
+            "apply_effect": true,
+            "upcoming_image_color": "#ff76b8",
+            "upcoming_image_opacity": 70,
+            "eyebrow": "Week 1",
+            "heading": "Sale Is Over!",
+            "copy": "",
+            "cta": "Shop Now",
+            "link": "shopify://collections/grandes-birthday-month"
+          }
+        }
+      },
+      "block_order": [
+        "promo_card_nnNj6p",
+        "promo_card_Y7np4h",
+        "promo_card_e3xhQr",
+        "promo_card_REhwt6"
+      ],
+      "settings": {
+        "heading": "free gifts this month"
+      }
+    },
+    "product_carousel_HkKyCt": {
+      "type": "product-carousel",
+      "blocks": {
+        "content_Vhm3CP": {
+          "type": "content",
+          "settings": {
+            "product": "grandelash-md",
+            "category": ""
+          }
+        },
+        "content_KWmFy7": {
+          "type": "content",
+          "settings": {
+            "product": "grandebrow",
+            "category": "Shop The Bundle"
+          }
+        },
+        "content_8Xgxj9": {
+          "type": "content",
+          "settings": {
+            "product": "grandehair-enhancing-serum",
+            "category": ""
+          }
+        }
+      },
+      "block_order": [
+        "content_Vhm3CP",
+        "content_KWmFy7",
+        "content_8Xgxj9"
+      ],
+      "custom_css": [],
+      "settings": {
+        "heading": "Shop Our #1 Serums",
+        "categories": true,
+        "cta_copy": "",
+        "cta_url": ""
+      }
+    }
+  },
+  "order": [
+    "shogun-helper",
+    "main",
+    "shogun-optimizer",
+    "split_banner_RpcCep",
+    "banner_qibN3c",
+    "hero_carousel_DpHKTT",
+    "ticker_DQVGDW",
+    "birthday_promo_wcFHbn",
+    "split_banner_nG8tiJ",
+    "before_after_MRbzfD",
+    "split_banner_rpBjY6",
+    "press_Gy6Jeq",
+    "fw_html_embed_AYMBHk",
+    "split_banner_gyxc3C",
+    "birthday_promo_FNGUji",
+    "product_carousel_HkKyCt"
+  ]
+}

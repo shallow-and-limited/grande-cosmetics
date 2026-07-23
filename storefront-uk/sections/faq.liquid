@@ -1,0 +1,58 @@
+
+{% assign pagetype = request.page_type %}
+{% case pagetype %}
+{% when 'product' %}
+  {% assign _faq = product.metafields.details.faq.value %}
+{% when 'collection' %}
+  {% assign _faq = collection.metafields.details.faq.value %}
+{% when 'blog' %}
+  {% assign _faq = blog.metafields.details.faq.value %}
+{% when 'page' %}
+  {% assign _faq = page.metafields.details.faq.value %}  
+{% when 'article' %}
+  {% assign _faq = article.metafields.details.faq.value %}
+{% else %}
+  {% assign _faq = shop.metafields.details.faq.value %}  
+{% endcase %}
+
+<script>console.log('product: ', {{ product | json }});</script>
+<script>console.log('faq: ', {{ _faq | json }});</script>
+
+{%- liquid
+  assign _blocks = _faq.faq_blocks
+-%}
+
+
+{% if _faq != blank %}
+  {{ 'accordion-tab.min.css' | asset_url | stylesheet_tag }}
+  {{ 'faq.min.css' | asset_url | stylesheet_tag }}  
+
+<div class="faq-section">
+  <div class="faq-section__wrapper">
+    <h4 class="h4">{{ _faq.title | metafield_tag }}</h4>
+  
+    {% for block in _faq.faq_blocks.value %}
+      <accordion-tab class="accordion-tab {% if forloop.first %}accordion-tab--open{% endif %}" data-accordion>
+        <div class="accordion-tab__title p-2" data-accordion-opener>{{ block.question }}</div>
+        {% render 'icons', icon_name: 'caret-down' %}
+        <div class="accordion-tab__content p-4">{{ block.answer | metafield_tag }}</div>
+      </accordion-tab>
+    {% endfor %}  
+  </div>
+</div>
+
+  <script src="{{ 'accordion-tab.min.js' | asset_url }}" defer="defer"></script>
+{% endif %}
+
+{% schema %}
+{
+  "name": "FAQ Section",
+  "settings": [
+  ],
+  "presets": [
+    {
+      "name": "FAQ Section"
+    }
+  ]
+}
+{% endschema %}

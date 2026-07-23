@@ -1,0 +1,568 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "shogun-helper": {
+      "type": "shogun-helper",
+      "settings": {}
+    },
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {}
+    },
+    "shogun-optimizer": {
+      "type": "shogun-optimizer",
+      "settings": {}
+    },
+    "hero_carousel_VWxPyj": {
+      "type": "hero-carousel",
+      "blocks": {
+        "hero_slide_r88hUf": {
+          "type": "hero_slide",
+          "settings": {
+            "color": "light",
+            "alignment_v": "middle",
+            "alignment_h": "center",
+            "alignment_v_m": "middle_m",
+            "alignment_h_m": "center_m",
+            "video_poster_d": true,
+            "video_poster_m": true,
+            "video_d": "shopify://files/videos/January2026-ConfidenceAtYourCore.mp4",
+            "video_m": "shopify://files/videos/January2026-ConfidenceAtYourCore-Mobile.mp4",
+            "video_autoplay": true,
+            "eyebrow": "",
+            "heading": "New <br>Year, <em>New Confidence</em>",
+            "heading_size": "h1",
+            "copy": "",
+            "cta_url": "shopify://collections/singles-day-11-steals",
+            "cta_copy": "",
+            "cta_url_alt": "",
+            "cta_copy_alt": "",
+            "overlay": 0
+          }
+        }
+      },
+      "block_order": [
+        "hero_slide_r88hUf"
+      ],
+      "name": "Hero Carousel",
+      "settings": {
+        "display": "full-bleed"
+      }
+    },
+    "ticker_3pyWYU": {
+      "type": "ticker",
+      "blocks": {
+        "text_YeREMV": {
+          "type": "text",
+          "settings": {
+            "svg_icon": "flower",
+            "text": "Be A Better You This Year",
+            "url": ""
+          }
+        },
+        "text_XrcTrw": {
+          "type": "text",
+          "settings": {
+            "svg_icon": "flower",
+            "text": "You Got This",
+            "url": ""
+          }
+        }
+      },
+      "block_order": [
+        "text_YeREMV",
+        "text_XrcTrw"
+      ],
+      "name": "Ticker",
+      "settings": {
+        "optional_text": "",
+        "optional_url": "",
+        "speed": 2,
+        "color_scheme": "bloom"
+      }
+    },
+    "ticker_jBxJVG": {
+      "type": "ticker",
+      "name": "Ticker",
+      "settings": {
+        "optional_text": "",
+        "optional_url": "",
+        "speed": 3,
+        "color_scheme": "beige"
+      }
+    },
+    "split_banner_zAjF9E": {
+      "type": "split-banner",
+      "blocks": {
+        "line_item_6MVcXJ": {
+          "type": "line-item",
+          "settings": {
+            "line_item_icon_rotation": true,
+            "line_item_text": "<strong>Step 1:</strong> Start using GrandeLASH-MD 1x a day daily"
+          }
+        },
+        "line_item_QEcdmr": {
+          "type": "line-item",
+          "settings": {
+            "line_item_icon_rotation": true,
+            "line_item_text": "<strong>Step 2:</strong> In 4 weeks of consistent use, notice longer, thicker looking natural lashes"
+          }
+        },
+        "line_item_U9w66m": {
+          "type": "line-item",
+          "settings": {
+            "line_item_icon_rotation": true,
+            "line_item_text": "<strong>Step 3:</strong> Start your morning with confidence and rock your no makeup days"
+          }
+        }
+      },
+      "block_order": [
+        "line_item_6MVcXJ",
+        "line_item_QEcdmr",
+        "line_item_U9w66m"
+      ],
+      "name": "Split Banner",
+      "settings": {
+        "style": "beige",
+        "padding": "inset",
+        "arrangement": "left_asset_right_content",
+        "header": "h2",
+        "alignment": "left",
+        "vertical_alignment": "top",
+        "module_height": "image-height",
+        "image_d": "shopify://shop_images/kelsey-lashmd-application.jpg",
+        "video_poster_d": true,
+        "video_poster_m": true,
+        "video_autoplay": true,
+        "image_product": "shopify://shop_images/Lash_Main_Image.jpg",
+        "eyebrow": "This YEAR, DO YOU WANT",
+        "heading": "<span style=\"color: #FC2D76;\">Longer, Thicker Looking Lashes?</span>",
+        "cta_url": "shopify://products/grandelash-md",
+        "cta_copy": "Shop GrandeLASH-MD"
+      }
+    },
+    "banner_trHUzE": {
+      "type": "banner",
+      "name": "Banner",
+      "settings": {
+        "color": "light",
+        "background": "rose",
+        "alignment": "center",
+        "eyebrow": "",
+        "heading": "Confidence Starts Small.",
+        "heading_size": "h2",
+        "copy": "Confidence doesn’t just appear. It builds quietly — in the everyday moments you show up for yourself.",
+        "cta_url": "",
+        "cta_copy": "",
+        "cta_url_alt": "",
+        "cta_copy_alt": "",
+        "overlay": 0
+      }
+    },
+    "split_banner_ERcytF": {
+      "type": "split-banner",
+      "blocks": {
+        "line_item_UdxV43": {
+          "type": "line-item",
+          "settings": {
+            "line_item_icon_rotation": true,
+            "line_item_text": "<strong>Step 1:</strong> Start using GrandeLASH-Sensitive 2x daily"
+          }
+        },
+        "line_item_pHMDL3": {
+          "type": "line-item",
+          "settings": {
+            "line_item_icon_rotation": true,
+            "line_item_text": "<strong>Step 2:</strong> In 6 weeks of consistent use, notice thicker, longer looking lashes"
+          }
+        },
+        "line_item_mLYWpM": {
+          "type": "line-item",
+          "settings": {
+            "line_item_icon_rotation": true,
+            "line_item_text": "<strong>Step 3:</strong> Start your morning with confidence and rock your no makeup days"
+          }
+        }
+      },
+      "block_order": [
+        "line_item_UdxV43",
+        "line_item_pHMDL3",
+        "line_item_mLYWpM"
+      ],
+      "name": "Split Banner",
+      "settings": {
+        "style": "beige",
+        "padding": "inset",
+        "arrangement": "left_asset_right_content",
+        "header": "h2",
+        "alignment": "left",
+        "vertical_alignment": "top",
+        "module_height": "image-height",
+        "image_d": "shopify://shop_images/polly-sensitive-application.jpg",
+        "video_poster_d": true,
+        "video_poster_m": true,
+        "video_autoplay": true,
+        "image_product": "shopify://shop_images/LashSensitive-MainImage_8946b6f4-0dfe-42c3-bbca-bda9e0fa3eb3.jpg",
+        "eyebrow": "This Year, Do yOu Want",
+        "heading": "<span style=\"color: #FC2D76;\">Thicker, Longer Looking Lashes?</span>",
+        "cta_url": "shopify://products/grandelash-sensitive",
+        "cta_copy": "GrandeLASH-Sensitive"
+      }
+    },
+    "split_banner_UxBGTE": {
+      "type": "split-banner",
+      "blocks": {
+        "line_item_zxaxKU": {
+          "type": "line-item",
+          "settings": {
+            "line_item_icon_rotation": true,
+            "line_item_text": "<strong>Step 1:</strong> Start using GrandeBROW 1x daily"
+          }
+        },
+        "line_item_4HXBbQ": {
+          "type": "line-item",
+          "settings": {
+            "line_item_icon_rotation": true,
+            "line_item_text": "<strong>Step 2:</strong> In 6 weeks of consistent use, notice thicker, bolder looking natural brows"
+          }
+        },
+        "line_item_WMmbjm": {
+          "type": "line-item",
+          "settings": {
+            "line_item_icon_rotation": true,
+            "line_item_text": "<strong>Step 3:</strong> Start your morning with confidence and rock your no makeup days"
+          }
+        }
+      },
+      "block_order": [
+        "line_item_zxaxKU",
+        "line_item_4HXBbQ",
+        "line_item_WMmbjm"
+      ],
+      "name": "Split Banner",
+      "settings": {
+        "style": "beige",
+        "padding": "inset",
+        "arrangement": "left_asset_right_content",
+        "header": "h2",
+        "alignment": "left",
+        "vertical_alignment": "top",
+        "module_height": "image-height",
+        "image_d": "shopify://shop_images/diana-brow-press.jpg",
+        "video_poster_d": true,
+        "video_poster_m": true,
+        "video_autoplay": true,
+        "image_product": "shopify://shop_images/BrowMainImage_c63066f6-6246-4558-b368-c095b81a31b1.jpg",
+        "eyebrow": "this year, do you want",
+        "heading": "<span style=\"color: #FC2D76;\">Thicker, Darker Looking Brows?</span>",
+        "cta_url": "shopify://products/grandebrow",
+        "cta_copy": "Shop GrandeBROW"
+      }
+    },
+    "banner_DHpPqb": {
+      "type": "banner",
+      "name": "Banner",
+      "settings": {
+        "color": "light",
+        "background": "rose",
+        "alignment": "center",
+        "eyebrow": "",
+        "heading": "A Simple Ritual. <em>A Core Essential.</em>",
+        "heading_size": "h2",
+        "copy": "Like keeping a simple serum ritual — one extra minute to care for your lashes and brows before bed. A core essential that forms the base of your routine.",
+        "cta_url": "",
+        "cta_copy": "",
+        "cta_url_alt": "",
+        "cta_copy_alt": "",
+        "overlay": 0
+      }
+    },
+    "split_banner_Hw87aH": {
+      "type": "split-banner",
+      "blocks": {
+        "line_item_wz8FAK": {
+          "type": "line-item",
+          "settings": {
+            "line_item_icon_rotation": true,
+            "line_item_text": "<strong>Step 1:</strong> Start using GrandeHAIR 1x daily"
+          }
+        },
+        "line_item_aEHjbg": {
+          "type": "line-item",
+          "settings": {
+            "line_item_icon_rotation": true,
+            "line_item_text": "<strong>Step 2:</strong> In 8 weeks of consistent use, notice fuller, thicker looking hair"
+          }
+        },
+        "line_item_4hWHHF": {
+          "type": "line-item",
+          "settings": {
+            "line_item_icon_rotation": true,
+            "line_item_text": "<strong>Step 3:</strong> Start your morning with confidence to wear your hair how you always wished you could"
+          }
+        }
+      },
+      "block_order": [
+        "line_item_wz8FAK",
+        "line_item_aEHjbg",
+        "line_item_4hWHHF"
+      ],
+      "name": "Split Banner",
+      "settings": {
+        "style": "beige",
+        "padding": "inset",
+        "arrangement": "left_asset_right_content",
+        "header": "h2",
+        "alignment": "left",
+        "vertical_alignment": "top",
+        "module_height": "image-height",
+        "image_d": "shopify://shop_images/sierra-hair-block.jpg",
+        "video_poster_d": true,
+        "video_poster_m": true,
+        "video_autoplay": true,
+        "image_product": "shopify://shop_images/MainImage_0b31641f-87bf-4ad4-ae83-ea73be597caa.jpg",
+        "eyebrow": "This year, do you want",
+        "heading": "<span style=\"color: #FC2D76;\">Fuller, Thicker Looking Hair?</span>",
+        "cta_url": "shopify://products/grandehair-enhancing-serum",
+        "cta_copy": "Shop GrandeHAIR"
+      }
+    },
+    "banner_4Fb634": {
+      "type": "banner",
+      "name": "Banner",
+      "settings": {
+        "color": "light",
+        "background": "rose",
+        "alignment": "center",
+        "eyebrow": "",
+        "heading": "Steady. Personal. <em>100% Worth it.</em>",
+        "heading_size": "h2",
+        "copy": "It’s not a gimmick. It's not overnight. It’s steady, it's personal, and it's so unbelievably worth it.",
+        "cta_url": "",
+        "cta_copy": "",
+        "cta_url_alt": "",
+        "cta_copy_alt": "",
+        "overlay": 0
+      }
+    },
+    "birthday_promo_i6BHpN": {
+      "type": "birthday-promo",
+      "blocks": {
+        "promo_card_iyY9Kg": {
+          "type": "promo-card",
+          "settings": {
+            "status": "active",
+            "active_image": "shopify://shop_images/Promo-Block-30Off-Sitewide.jpg",
+            "apply_effect": true,
+            "upcoming_image_color": "#e6006b",
+            "upcoming_image_opacity": 70,
+            "eyebrow": "Today's Sale",
+            "heading": "30% Off Sitewide*",
+            "copy": "<br>\nHappening Now (*Excludes $11 Steals)",
+            "cta": "Shop Now",
+            "link": "shopify://collections/best-sellers"
+          }
+        },
+        "promo_card_JPkDwk": {
+          "type": "promo-card",
+          "settings": {
+            "status": "active",
+            "active_image": "shopify://shop_images/Promo-Block-FreeLip-Clear-GWP.jpg",
+            "apply_effect": true,
+            "upcoming_image_color": "#e6006b",
+            "upcoming_image_opacity": 70,
+            "eyebrow": "Free Gift",
+            "heading": "1 FREE Clear GrandeLIPS",
+            "copy": "<br>\nwith order of $50+",
+            "cta": "Shop Now",
+            "link": ""
+          }
+        },
+        "promo_card_rYcDcf": {
+          "type": "promo-card",
+          "settings": {
+            "status": "active",
+            "active_image": "shopify://shop_images/Promo-Block-FreeLip-GWP_a3401910-0b39-4154-9feb-d07a2a8d8189.jpg",
+            "apply_effect": true,
+            "upcoming_image_color": "#ff76b8",
+            "upcoming_image_opacity": 70,
+            "eyebrow": "Free Gift",
+            "heading": "4 Free GrandeLIPS",
+            "copy": "<br>\nwith order of $75+",
+            "cta": "Shop Now",
+            "link": ""
+          }
+        },
+        "promo_card_U367Jt": {
+          "type": "promo-card",
+          "disabled": true,
+          "settings": {
+            "status": "active",
+            "active_image": "shopify://shop_images/Promo-Block-Free2in1-GWP.jpg",
+            "apply_effect": true,
+            "upcoming_image_color": "#e6006b",
+            "upcoming_image_opacity": 70,
+            "eyebrow": "Free Gift",
+            "heading": "FREE GrandeBROW 2-In-1 With $25+ Purchase",
+            "copy": "",
+            "cta": "Shop Now",
+            "link": "shopify://collections/best-sellers"
+          }
+        }
+      },
+      "block_order": [
+        "promo_card_iyY9Kg",
+        "promo_card_JPkDwk",
+        "promo_card_rYcDcf",
+        "promo_card_U367Jt"
+      ],
+      "disabled": true,
+      "name": "Birthday promo",
+      "settings": {
+        "heading": "Current Deals:"
+      }
+    },
+    "product_carousel_7jpdxY": {
+      "type": "product-carousel",
+      "blocks": {
+        "content_63qphH": {
+          "type": "content",
+          "settings": {
+            "product": "grandelash-md",
+            "category": ""
+          }
+        },
+        "content_DcF6RR": {
+          "type": "content",
+          "settings": {
+            "product": "grandebrow",
+            "category": ""
+          }
+        },
+        "content_V9wgi4": {
+          "type": "content",
+          "settings": {
+            "product": "grandebrow-2-in-1",
+            "category": ""
+          }
+        }
+      },
+      "block_order": [
+        "content_63qphH",
+        "content_DcF6RR",
+        "content_V9wgi4"
+      ],
+      "name": "Product Carousel",
+      "settings": {
+        "heading": "Can't Decide? Shop Best Sellers",
+        "categories": false,
+        "cta_copy": "",
+        "cta_url": ""
+      }
+    },
+    "product_carousel_nqhJk7": {
+      "type": "product-carousel",
+      "blocks": {
+        "content_iw8BhC": {
+          "type": "content",
+          "settings": {
+            "product": "grandelash-sensitive",
+            "category": ""
+          }
+        },
+        "content_PaGKFb": {
+          "type": "content",
+          "settings": {
+            "product": "grandewrap-tubing-mascara-with-provitamin-b5",
+            "category": ""
+          }
+        },
+        "content_eLet3E": {
+          "type": "content",
+          "settings": {
+            "product": "grandemascara",
+            "category": ""
+          }
+        }
+      },
+      "block_order": [
+        "content_iw8BhC",
+        "content_PaGKFb",
+        "content_eLet3E"
+      ],
+      "name": "Product Carousel",
+      "settings": {
+        "heading": "",
+        "categories": false,
+        "cta_copy": "",
+        "cta_url": ""
+      }
+    },
+    "product_carousel_RwQVW4": {
+      "type": "product-carousel",
+      "blocks": {
+        "content_FHCX3W": {
+          "type": "content",
+          "settings": {
+            "product": "grandelips-gloss",
+            "category": ""
+          }
+        },
+        "content_dKFBrJ": {
+          "type": "content",
+          "settings": {
+            "product": "grandehair-enhancing-serum",
+            "category": ""
+          }
+        },
+        "content_QWnjgA": {
+          "type": "content",
+          "settings": {
+            "product": "2-step-lash-system-1",
+            "category": ""
+          }
+        }
+      },
+      "block_order": [
+        "content_FHCX3W",
+        "content_dKFBrJ",
+        "content_QWnjgA"
+      ],
+      "name": "Product Carousel",
+      "settings": {
+        "heading": "",
+        "categories": false,
+        "cta_copy": "",
+        "cta_url": ""
+      }
+    }
+  },
+  "order": [
+    "shogun-helper",
+    "main",
+    "shogun-optimizer",
+    "hero_carousel_VWxPyj",
+    "ticker_3pyWYU",
+    "ticker_jBxJVG",
+    "split_banner_zAjF9E",
+    "banner_trHUzE",
+    "split_banner_ERcytF",
+    "banner_DHpPqb",
+    "split_banner_UxBGTE",
+    "banner_4Fb634",
+    "split_banner_Hw87aH",
+    "birthday_promo_i6BHpN",
+    "product_carousel_7jpdxY",
+    "product_carousel_nqhJk7",
+    "product_carousel_RwQVW4"
+  ]
+}

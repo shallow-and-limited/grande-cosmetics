@@ -569,6 +569,9 @@
       },
       "contact": {
         "optional_phone_label": "Phone (optional) "
+      },
+      "marketing": {
+        "accept_sms_checkbox_label": "Text me with news and offers"
       }
     }
   }

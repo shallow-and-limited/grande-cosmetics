@@ -1,0 +1,117 @@
+{% assign videoIdMobile = "now" | date: "%N" | modulo: 100 %}
+{% assign videoIdDesktop = "now" | date: "%N" | modulo: 100 %}
+
+<div
+  class="hero-carousel__slide hero-carousel__slide--{{ position }} hero-carousel__slide--{{ _s.color }} {{ _s.cta_alignment }}"
+  data-swiper-class="swiper-slide"{% if position == 1 %} data-media-scale-container{% endif %} 
+>
+  <div class="hero-carousel__background{% if position == 1 %} first{% endif %}"{% if position == 1 and in_first %} data-media-scale{% endif %}>
+    {% if _s.video_m != blank %}
+      <video
+        class="hero-carousel__video hide-desktop"
+        {% if autoplay %}autoplay{% endif %}
+        playsinline
+        muted
+        loop
+        {% if _s.image_m and video_poster_m %}poster="{{ _s.image_m | image_url }}"{% endif %}
+        data-video-id="{{ videoIdMobile }}"
+      >
+        {% for source in _s.video_m.sources %}
+          <source src="{{ source.url }}" type="{{ source.type }}">
+        {% endfor %}
+      </video>
+    {% endif %}
+    {% if _s.video_d != blank %}
+      <video
+        class="hero-carousel__video hide-mobile"
+        {% if autoplay %}autoplay{% endif %}
+        playsinline
+        muted
+        loop
+        {% if _s.image_d and video_poster_d %}poster="{{ _s.image_d | image_url }}"{% endif %}
+        data-video-id="{{ videoIdDesktop }}"
+      >
+        {% for source in _s.video_d.sources %}
+          <source src="{{ source.url }}" type="{{ source.type }}">
+        {% endfor %}
+      </video>
+    {% endif %}
+    {% render 'image',
+      image: _s.image_d,
+      image_m: _s.image_m,
+      loading: loading,
+      max_width: 1440,
+      mobile_vid: mobile_vid,
+      desktop_vid: desktop_vid
+    %}    
+  </div>
+  <div class="hero-carousel__content {{ _s.alignment_v }} {{ _s.alignment_h }} {{ _s.alignment_v_m }} {{ _s.alignment_h_m }}" {% if in_first %}data-slide-up{% else %}data-slide-up-container{% endif %}>
+    {% if _s.eyebrow != blank %}
+      <div class="hero-carousel__eyebrow s-3"{% unless in_first %}data-slide-up{% endunless %}>
+        {{ _s.eyebrow }}
+      </div>
+    {% endif %}
+    {% if _s.heading != blank %}
+      {% if is_first_module %}
+        <h1 class="hero-carousel__heading {{  _s.heading_size }}"{% unless in_first %} data-slide-up{% endunless %}>{{ _s.heading }}</h1>
+      {% else %}
+        <h2 class="hero-carousel__heading {{  _s.heading_size }}"{% unless in_first %} data-slide-up{% endunless %}>{{ _s.heading }}</h2>
+      {% endif %}
+    {% endif %}
+    {% if _s.copy != blank %}
+      <div class="hero-carousel__copy p-3"{% unless in_first %} data-slide-up{% endunless %}>
+        {{ _s.copy | newline_to_br }}
+      </div>
+    {% endif %}
+    <div {% unless in_first %} data-slide-up{% endunless %}>
+      {% if _s.cta_copy != blank and _s.cta_url != blank %}
+        <a
+          class="hero-carousel__cta btn{% if _s.color == 'light' %} btn--primary-dark{% else %} btn--primary{% endif %}"
+          href="{{ _s.cta_url }}"
+        >
+          {{- _s.cta_copy -}}
+        </a>
+      {% endif %}
+      {% if _s.cta_copy_alt != blank and _s.cta_url_alt != blank %}
+        <a
+          class="btn{% if _s.color == 'light' %} btn--primary-dark{% else %} btn--primary{% endif %}"
+          href="{{ _s.cta_url_alt }}"
+        >
+          {{- _s.cta_copy_alt -}}
+        </a>
+      {% endif %}
+    </div>
+  </div>
+  {%  if autoplay == false %}
+    {%  if _s.video_d %}
+      <div class="hero-carousel__video-controls hide-mobile paused">
+        <button class="hero-carousel__video-play" data-video-play data-video-id="{{ videoIdDesktop }}" aria-label="Play Video">
+          {% render 'icons', icon_name: 'play-video' %}
+        </button>
+        <button class="hero-carousel__video-pause" data-video-pause data-video-id="{{ videoIdDesktop }}" aria-label="Pause Video">
+          {% render 'icons', icon_name: 'pause-video' %}
+        </button>
+      </div>
+    {% endif %}
+    {%  if _s.video_m %}
+      <div class="hero-carousel__video-controls hide-desktop paused">
+        <button class="hero-carousel__video-play" data-video-play data-video-id="{{ videoIdMobile }}" aria-label="Play Video">
+          {% render 'icons', icon_name: 'play-video' %}
+        </button>
+        <button class="hero-carousel__video-pause" data-video-pause data-video-id="{{ videoIdMobile }}" aria-label="Pause Video">
+          {% render 'icons', icon_name: 'pause-video' %}
+        </button>
+      </div>
+    {% endif %}
+  {% endif %}  
+  {% if section.blocks.size > 1 %}
+    <div class="hero-carousel__navigation"{% unless in_first %} data-slide-up{% endunless %}>
+      <button class="hero-carousel__prev" data-slide-previous aria-label="Previous Carousel Slide">
+        {% render 'icons', icon_name: 'arrow-left' %}
+      </button>
+      <button class="hero-carousel__next" data-slide-next aria-label="Next Carousel Slide">
+        {% render 'icons', icon_name: 'arrow-right' %}
+      </button>
+    </div>
+  {% endif %}
+</div>

@@ -1,0 +1,130 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "hero_carousel_3dFHFM": {
+      "type": "hero-carousel",
+      "blocks": {
+        "hero_slide_7gC6kf": {
+          "type": "hero_slide",
+          "settings": {
+            "color": "dark",
+            "alignment_v": "bottom",
+            "alignment_h": "left",
+            "alignment_v_m": "top_m",
+            "alignment_h_m": "left_m",
+            "image_d": "shopify://shop_images/LoyaltyPage-DesktopBanner.jpg",
+            "video_poster_d": true,
+            "image_m": "shopify://shop_images/LoyaltyPage_MobileBanner.jpg",
+            "video_poster_m": true,
+            "video_autoplay": true,
+            "eyebrow": "GRANDE REWARDS",
+            "heading": "Get Rewarded While You Shop",
+            "heading_size": "h2",
+            "copy": "Receive 50 points for signing up. Start earning today!",
+            "cta_url": "/account/register",
+            "cta_copy": "Sign Up",
+            "cta_url_alt": "/account/login",
+            "cta_copy_alt": "Sign In",
+            "overlay": 0
+          }
+        }
+      },
+      "block_order": [
+        "hero_slide_7gC6kf"
+      ],
+      "settings": {
+        "display": "full-bleed"
+      }
+    },
+    "main": {
+      "type": "main-loyalty",
+      "settings": {}
+    },
+    "categories_yax3hy": {
+      "type": "categories",
+      "blocks": {
+        "content_yH3wNq": {
+          "type": "content",
+          "settings": {
+            "image": "shopify://shop_images/LongLashes-CategoryImage.jpg",
+            "heading_image": "Lash",
+            "eyebrow": "",
+            "heading": "",
+            "copy": "",
+            "cta_url": "https://grandecosmetics.com/collections/lashes",
+            "cta_copy": "Shop All",
+            "cta_url_alt": "",
+            "cta_copy_alt": ""
+          }
+        },
+        "content_Vfp3zA": {
+          "type": "content",
+          "settings": {
+            "image": "shopify://shop_images/BoldBrows-CategoryImage.jpg",
+            "heading_image": "Brow",
+            "eyebrow": "",
+            "heading": "",
+            "copy": "",
+            "cta_url": "https://grandecosmetics.com/collections/brows",
+            "cta_copy": "Shop All",
+            "cta_url_alt": "",
+            "cta_copy_alt": ""
+          }
+        },
+        "content_XQjtPK": {
+          "type": "content",
+          "settings": {
+            "image": "shopify://shop_images/ThickHair-CategoryImage.jpg",
+            "heading_image": "Hair",
+            "eyebrow": "",
+            "heading": "",
+            "copy": "",
+            "cta_url": "https://grandecosmetics.com/collections/hair",
+            "cta_copy": "Shop All",
+            "cta_url_alt": "",
+            "cta_copy_alt": ""
+          }
+        },
+        "content_AWk84Q": {
+          "type": "content",
+          "settings": {
+            "image": "shopify://shop_images/FullLips-CategoryImage.jpg",
+            "heading_image": "Lip",
+            "eyebrow": "",
+            "heading": "",
+            "copy": "",
+            "cta_url": "https://grandecosmetics.com/collections/lips",
+            "cta_copy": "Shop All",
+            "cta_url_alt": "",
+            "cta_copy_alt": ""
+          }
+        }
+      },
+      "block_order": [
+        "content_yH3wNq",
+        "content_Vfp3zA",
+        "content_XQjtPK",
+        "content_AWk84Q"
+      ],
+      "settings": {
+        "eyebrow": "EXPLORE GRANDE",
+        "heading": "",
+        "cta_copy": "",
+        "cta_url": ""
+      }
+    }
+  },
+  "order": [
+    "hero_carousel_3dFHFM",
+    "main",
+    "categories_yax3hy"
+  ]
+}

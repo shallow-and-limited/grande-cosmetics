@@ -1,0 +1,34 @@
+{% assign features = metaData %}
+  <div class="featured-images featured-images__container">
+    <featured-images class="featured-images__slider" data-swiper-class="swiper">
+      <div class="featured-images__slides" data-swiper-class="swiper-wrapper">
+        {% for item in features %}
+          <div class="featured-images__slide" data-swiper-class="swiper-slide">
+            <div class="featured-images__image">
+              {% render 'image', image: item.image.value %}            
+            </div>
+            <h5 class="featured-images__title">{{ item.title.value }}</h5>
+            <p class="p-3 featured-images__description">{{  item.description.value }}</p>
+          </div>          
+        {% endfor %}
+      </div>
+    </featured-images>
+    <div class="featured-images__nav featured-items__nav">
+      <div class="featured-items__pagination" data-pagination></div>
+      <div class="featured-items__nav-arrows">
+        <button class="featured-images-carousel__prev hide-mobile" data-slide-previous aria-label="Previous Carousel Slide">
+          {% render 'icons', icon_name: 'arrow-left' %}
+        </button>
+        <button class="featured-images-carousel__next hide-mobile" data-slide-next aria-label="Next Carousel Slide">
+          {% render 'icons', icon_name: 'arrow-right' %}
+        </button>                    
+      </div>
+    </div>
+  </div>
+
+  <div class="featured-images__slide" data-swiper-class="swiper-slide">
+    {% render 'image', image: image %}
+    {% assign index = forloop.index0 %}
+    <h5>{{ headingList[index] }}</h5>
+    <p class="p-3">{{ descriptionList[index] }}</p>
+  </div>

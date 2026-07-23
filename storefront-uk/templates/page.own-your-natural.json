@@ -1,0 +1,788 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "shogun-helper": {
+      "type": "shogun-helper",
+      "settings": {}
+    },
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {}
+    },
+    "shogun-optimizer": {
+      "type": "shogun-optimizer",
+      "settings": {}
+    },
+    "banner_VkWm87": {
+      "type": "banner",
+      "name": "Banner",
+      "settings": {
+        "color": "light",
+        "background": "rose",
+        "alignment": "center",
+        "eyebrow": "Serum Experts | Clinically Proven | Ophthalmologist Tested",
+        "heading": "#1 Lash & Brow Serum Brand*",
+        "heading_size": "h2",
+        "copy": "From sparse lashes to thinning brows, explore formulas designed to tackle your toughest beauty challenges.",
+        "cta_url": "shopify://collections/enhancing-serums",
+        "cta_copy": "Shop Award-Winning Serums",
+        "cta_url_alt": "",
+        "cta_copy_alt": "",
+        "overlay": 0
+      }
+    },
+    "ticker_pmVNFL": {
+      "type": "ticker",
+      "blocks": {
+        "text_c7XaeA": {
+          "type": "text",
+          "settings": {
+            "svg_icon": "star-with-check",
+            "text": "20% Off Your First Order",
+            "url": ""
+          }
+        },
+        "text_aWVACQ": {
+          "type": "text",
+          "settings": {
+            "svg_icon": "flower",
+            "text": "Use Code: WELCOMEOYN",
+            "url": ""
+          }
+        }
+      },
+      "block_order": [
+        "text_c7XaeA",
+        "text_aWVACQ"
+      ],
+      "name": "Ticker",
+      "settings": {
+        "optional_text": "",
+        "optional_url": "",
+        "speed": 2,
+        "color_scheme": "bloom"
+      }
+    },
+    "banner_mtFbg7": {
+      "type": "banner",
+      "disabled": true,
+      "name": "Banner",
+      "settings": {
+        "color": "dark",
+        "background": "beige",
+        "image_d": "shopify://shop_images/TheSerumExperts-DesktopBanner-GIF.gif",
+        "alignment": "center",
+        "eyebrow": "",
+        "heading": "",
+        "heading_size": "h4",
+        "copy": "",
+        "cta_url": "",
+        "cta_copy": "Shop Serums",
+        "cta_url_alt": "",
+        "cta_copy_alt": "",
+        "overlay": 0
+      }
+    },
+    "banner_8EdnkP": {
+      "type": "banner",
+      "custom_css": [
+        "/* Reduce bottom padding on all banner sections */.banner {padding-bottom: 0px !important; /* adjust px value */}"
+      ],
+      "name": "Banner",
+      "settings": {
+        "color": "dark",
+        "background": "beige",
+        "alignment": "center",
+        "eyebrow": "",
+        "heading": "Real Women, Real Transformations",
+        "heading_size": "h4",
+        "copy": "Discover how four women completely transformed their lashes, brows, hair, lips — and confidence along the way.",
+        "cta_url": "",
+        "cta_copy": "",
+        "cta_url_alt": "",
+        "cta_copy_alt": "",
+        "overlay": 0
+      }
+    },
+    "categories_KRpera": {
+      "type": "categories",
+      "blocks": {
+        "content_8BJzRi": {
+          "type": "content",
+          "settings": {
+            "image": "shopify://shop_images/Yvette-CategoryPic_372bf217-b283-4460-8b00-14095cac24c5.jpg",
+            "heading_image": "",
+            "eyebrow": "Yvette",
+            "heading": "",
+            "copy": "“No more falsies — I wake up with lashes I love.”",
+            "cta_url": "",
+            "cta_copy": "Shop All",
+            "cta_url_alt": "",
+            "cta_copy_alt": ""
+          }
+        },
+        "content_njPfh7": {
+          "type": "content",
+          "settings": {
+            "image": "shopify://shop_images/Jan-CategoryPic_10c5b839-5cc4-411a-aa9d-f96c9bf13058.jpg",
+            "heading_image": "",
+            "eyebrow": "Jan",
+            "heading": "",
+            "copy": "“My brows came back; I don't need makeup to leave the house anymore”",
+            "cta_url": "",
+            "cta_copy": "Shop All",
+            "cta_url_alt": "",
+            "cta_copy_alt": ""
+          }
+        },
+        "content_bYnqh7": {
+          "type": "content",
+          "settings": {
+            "image": "shopify://shop_images/Inger-CategoryPic_7d5544c1-0ad8-4200-9feb-eb2827aa8d40.jpg",
+            "heading_image": "",
+            "eyebrow": "Inger",
+            "heading": "",
+            "copy": "“The bald spot is gone, finito, finished — it doesn't exist.”",
+            "cta_url": "",
+            "cta_copy": "Shop All",
+            "cta_url_alt": "",
+            "cta_copy_alt": ""
+          }
+        },
+        "content_irmNtn": {
+          "type": "content",
+          "settings": {
+            "image": "shopify://shop_images/Angela-CategoryPic_fe1f263e-06bc-4784-8559-568d8a624e05.jpg",
+            "heading_image": "",
+            "eyebrow": "Angela",
+            "heading": "",
+            "copy": "\"I feel like myself again; my lips look fuller & more kissable\"",
+            "cta_url": "",
+            "cta_copy": "Shop All",
+            "cta_url_alt": "",
+            "cta_copy_alt": ""
+          }
+        }
+      },
+      "block_order": [
+        "content_8BJzRi",
+        "content_njPfh7",
+        "content_bYnqh7",
+        "content_irmNtn"
+      ],
+      "custom_css": [],
+      "name": "Categories",
+      "settings": {
+        "eyebrow": "",
+        "heading": "",
+        "cta_copy": "",
+        "cta_url": ""
+      }
+    },
+    "split_banner_hHWqU4": {
+      "type": "split-banner",
+      "blocks": {
+        "body_copy_gLetnV": {
+          "type": "body-copy",
+          "settings": {
+            "copy": "<h6>Grande<strong>LASH-MD</strong> User | General Contractor | Handstand Aficionado</h6><p> </p><p>Yvette misses the long, luscious lashes of her twenties. The “I woke up like this” lashes. The kind of lashes where mascara is just an added bonus. It’s finally time for Yvette to reclaim the lashes of her dreams</p><p> </p><p></p><p><strong>FabFact: </strong>Yvette was a cheerleader for the Tampa Bay Buccaneers!</p>"
+          }
+        }
+      },
+      "block_order": [
+        "body_copy_gLetnV"
+      ],
+      "settings": {
+        "style": "blush",
+        "padding": "full-width",
+        "arrangement": "right_asset_left_content",
+        "header": "h2",
+        "alignment": "left",
+        "vertical_alignment": "middle",
+        "module_height": "image-height",
+        "video_poster_d": true,
+        "video_poster_m": true,
+        "video_d": "shopify://files/videos/Yvette Social Spot.mp4",
+        "video_autoplay": true,
+        "eyebrow": "",
+        "heading": "Meet Yvette",
+        "cta_url": "shopify://products/grandelash-md",
+        "cta_copy": "Transform Your Lashes"
+      }
+    },
+    "before_after_fcMaGG": {
+      "type": "before-after",
+      "name": "Before After",
+      "settings": {
+        "switch_sides": false,
+        "metaobject_handle": "before-and-after-ycbwpsfp"
+      }
+    },
+    "split_banner_GF3NUU": {
+      "type": "split-banner",
+      "blocks": {
+        "body_copy_K9HVnq": {
+          "type": "body-copy",
+          "settings": {
+            "copy": "<h6>Grande<strong>BROW</strong> User | Mother of 4 | Former Teacher & Coach</h6><p></p><p> </p><p>Jan has the most gorgeous blue eyes. But having been fair-haired all her life, she’s never felt her brows have done them justice. With GrandeBROW in hand, Jan’s on a mission to “see and celebrate” her beautiful baby blues.</p><h6> </h6><p><strong>Fab Fact: </strong>Jan has run 21 marathons total, 17 pushing two kids in a stroller! She even qualified for the Boston marathon. Twice. What can’t this woman do?!</p>"
+          }
+        }
+      },
+      "block_order": [
+        "body_copy_K9HVnq"
+      ],
+      "name": "Split Banner",
+      "settings": {
+        "style": "blush",
+        "padding": "full-width",
+        "arrangement": "left_asset_right_content",
+        "header": "h2",
+        "alignment": "left",
+        "vertical_alignment": "middle",
+        "module_height": "image-height",
+        "video_poster_d": true,
+        "video_poster_m": true,
+        "video_d": "shopify://files/videos/Jan Social Spot.mp4",
+        "video_autoplay": true,
+        "eyebrow": "",
+        "heading": "Meet Jan",
+        "cta_url": "shopify://products/grandebrow",
+        "cta_copy": "Transform Your Brows"
+      }
+    },
+    "before_after_iephzh": {
+      "type": "before-after",
+      "name": "Before After",
+      "settings": {
+        "switch_sides": false,
+        "metaobject_handle": "before-and-after-fub7aarf"
+      }
+    },
+    "ticker_ddXCgQ": {
+      "type": "ticker",
+      "blocks": {
+        "text_AxBLdG": {
+          "type": "text",
+          "settings": {
+            "svg_icon": "star-with-check",
+            "text": "20% Off Your First Order",
+            "url": ""
+          }
+        },
+        "text_tWkMtB": {
+          "type": "text",
+          "settings": {
+            "svg_icon": "flower",
+            "text": "Use Code: WELCOMEOYN",
+            "url": ""
+          }
+        }
+      },
+      "block_order": [
+        "text_AxBLdG",
+        "text_tWkMtB"
+      ],
+      "name": "Ticker",
+      "settings": {
+        "optional_text": "",
+        "optional_url": "",
+        "speed": 2,
+        "color_scheme": "bloom"
+      }
+    },
+    "split_banner_KiNC4h": {
+      "type": "split-banner",
+      "blocks": {
+        "body_copy_B4tnFN": {
+          "type": "body-copy",
+          "settings": {
+            "copy": "<h6>Grande<strong>HAIR</strong> User | Goodwill Ambassador | Overall Queen</h6><p></p><p> </p><p>Years of wearing a ponytail left Inger with a bald spot and a reluctance to show her natural hair, even amongst close friends. Now, that’s about to change. No, seriously. Click that video if you don’t believe us. As Inger’s mom always said, “the proof is in the pudding.”</p><h6> </h6><p><strong>Fab Fact: </strong>Inger was in the Miss Universe Pageant 1982, representing the U.S. Virgin Islands!</p><p></p>"
+          }
+        }
+      },
+      "block_order": [
+        "body_copy_B4tnFN"
+      ],
+      "name": "Split Banner",
+      "settings": {
+        "style": "blush",
+        "padding": "full-width",
+        "arrangement": "left_asset_right_content",
+        "header": "h2",
+        "alignment": "left",
+        "vertical_alignment": "middle",
+        "module_height": "image-height",
+        "video_poster_d": true,
+        "video_poster_m": true,
+        "video_d": "shopify://files/videos/Inger Social Spot.mp4",
+        "video_autoplay": true,
+        "eyebrow": "",
+        "heading": "Meet Inger",
+        "cta_url": "shopify://products/grandehair-enhancing-serum",
+        "cta_copy": "Transform Your Hair"
+      }
+    },
+    "before_after_tkjc8H": {
+      "type": "before-after",
+      "name": "Before After",
+      "settings": {
+        "switch_sides": false,
+        "metaobject_handle": "before-and-after-dfzv7kqe"
+      }
+    },
+    "split_banner_VXagJD": {
+      "type": "split-banner",
+      "blocks": {
+        "body_copy_Ha7jxC": {
+          "type": "body-copy",
+          "settings": {
+            "copy": "<h6>Grande<strong>LIPS</strong> User | True Crime Fanatic | \"Best Laugh\" in High School</h6><p></p><p> </p><p>Angela has noticed that as she’s aged, her lips have lost some of their fullness. She’s not alone – we lose 1% of collagen production each year after age 20! Angela’s now on a 30-day journey to a lip boost, and a confidence boost.</p><h6> </h6><p><strong>Fab Fact: </strong>You'll always catch Angela snacking on jellybeans while walking her dogs. Her husband calls them her \"road beans\".</p><p></p>"
+          }
+        }
+      },
+      "block_order": [
+        "body_copy_Ha7jxC"
+      ],
+      "name": "Split Banner",
+      "settings": {
+        "style": "blush",
+        "padding": "full-width",
+        "arrangement": "left_asset_right_content",
+        "header": "h2",
+        "alignment": "left",
+        "vertical_alignment": "middle",
+        "module_height": "image-height",
+        "video_poster_d": true,
+        "video_poster_m": true,
+        "video_d": "shopify://files/videos/Angela Social Spot.mp4",
+        "video_autoplay": false,
+        "eyebrow": "",
+        "heading": "Meet Angela",
+        "cta_url": "shopify://products/grandelips-gloss",
+        "cta_copy": "Transform Your Lips"
+      }
+    },
+    "before_after_hJUd34": {
+      "type": "before-after",
+      "name": "Before After",
+      "settings": {
+        "switch_sides": false,
+        "metaobject_handle": "before-and-after-h7td2a6d"
+      }
+    },
+    "banner_BpxyC8": {
+      "type": "banner",
+      "name": "Banner",
+      "settings": {
+        "color": "light",
+        "background": "rose",
+        "image_d": "shopify://shop_images/Awards-DesktopBanner_260b53e0-cc22-42d8-bcb5-216cd64fe451.jpg",
+        "image_m": "shopify://shop_images/Awards-MobileBanner.jpg",
+        "alignment": "center",
+        "eyebrow": "",
+        "heading": "150+ Award Wins Brandwide. Over 1 Million Products Sold.",
+        "heading_size": "h2",
+        "copy": "Clinically tested. Ophthalmologist approved. Cruelty-free. Trusted by millions of real women.",
+        "cta_url": "",
+        "cta_copy": "",
+        "cta_url_alt": "",
+        "cta_copy_alt": "",
+        "overlay": 10
+      }
+    },
+    "product_carousel_zkrigY": {
+      "type": "product-carousel",
+      "blocks": {
+        "content_ixpRG6": {
+          "type": "content",
+          "settings": {
+            "product": "grandelash-md",
+            "category": ""
+          }
+        },
+        "content_R3WyGH": {
+          "type": "content",
+          "settings": {
+            "product": "grandebrow",
+            "category": ""
+          }
+        },
+        "content_PzxAa3": {
+          "type": "content",
+          "settings": {
+            "product": "grandehair-rejuvenation-serum",
+            "category": ""
+          }
+        },
+        "content_N73Rww": {
+          "type": "content",
+          "settings": {
+            "product": "grandelips-gloss",
+            "category": ""
+          }
+        }
+      },
+      "block_order": [
+        "content_ixpRG6",
+        "content_R3WyGH",
+        "content_PzxAa3",
+        "content_N73Rww"
+      ],
+      "custom_css": [],
+      "name": "Product Carousel",
+      "settings": {
+        "heading": "Try Our #1 Serums For Yourself",
+        "categories": false,
+        "cta_copy": "",
+        "cta_url": ""
+      }
+    },
+    "hero_carousel_VWxPyj": {
+      "type": "hero-carousel",
+      "blocks": {
+        "hero_slide_r88hUf": {
+          "type": "hero_slide",
+          "settings": {
+            "color": "dark",
+            "image_d": "shopify://shop_images/TheSerumExperts-DesktopHeroBanner-GIF_32360dd3-78d0-4b14-be3b-581c2ff74dfa.gif",
+            "video_poster_d": true,
+            "image_m": "shopify://shop_images/TheSerumExperts-MobileHeroBanner-GIF_7b1eed8b-d656-4f08-9e78-7956d0167254.gif",
+            "video_poster_m": true,
+            "video_autoplay": true,
+            "eyebrow": "",
+            "heading": "",
+            "heading_size": "h2",
+            "copy": "",
+            "cta_url": "",
+            "cta_copy": "",
+            "cta_url_alt": "",
+            "cta_copy_alt": "",
+            "overlay": 0
+          }
+        }
+      },
+      "block_order": [
+        "hero_slide_r88hUf"
+      ],
+      "name": "Hero Carousel",
+      "settings": {
+        "display": "full-bleed"
+      }
+    },
+    "banner_y3DKqg": {
+      "type": "banner",
+      "name": "Banner",
+      "settings": {
+        "color": "dark",
+        "background": "beige",
+        "alignment": "center",
+        "eyebrow": "",
+        "heading": "Show Us How You Own Your Natural",
+        "heading_size": "h3",
+        "copy": "Follow & Tag Us | @GrandeCosmetics",
+        "cta_url": "",
+        "cta_copy": "",
+        "cta_url_alt": "",
+        "cta_copy_alt": "",
+        "overlay": 0
+      }
+    },
+    "banner_drc4wx": {
+      "type": "banner",
+      "name": "Banner",
+      "settings": {
+        "color": "dark",
+        "background": "beige",
+        "alignment": "center",
+        "eyebrow": "",
+        "heading": "",
+        "heading_size": "h3",
+        "copy": "*Source: Circana/U.S. Prestige Beauty Total Measured Market, Lash/Brow Treatment Dollar Sales, Skincare Form/Texture: Serum, January – April 2023 combined **Paid participant. Yvette is not wearing mascara. Results may vary. Based on a 12 week consumer study with 30 subjects. Results will vary. ***Paid participant. Jan is not wearing lash or brow makeup. Results will vary. Based on a 16 week consumer study with 30 subjects. Results will vary. ****Paid participant. Results may vary. Based on a 16 week expert clinical grader evaluation with 39 subjects. Results will vary. *****Paid participant. Angela's natural lips after applying 2x daily for 30 days. Based on an expert clinical grader evaluation with 30 subjects. Results will vary.",
+        "cta_url": "",
+        "cta_copy": "",
+        "cta_url_alt": "",
+        "cta_copy_alt": "",
+        "overlay": 0
+      }
+    },
+    "ss_shoppable_video_tAC87n": {
+      "type": "ss-shoppable-video",
+      "blocks": {
+        "item_yGabqQ": {
+          "type": "item",
+          "settings": {
+            "video": "shopify://files/videos/Jan Social Spot.mp4",
+            "video_url": "",
+            "autoplay": true,
+            "product": "grandebrow",
+            "use_variants": true,
+            "modal_heading": "<h4>Real Stories</h4>",
+            "modal_text": ""
+          }
+        },
+        "item_Ua8jeG": {
+          "type": "item",
+          "disabled": true,
+          "settings": {
+            "video_url": "",
+            "autoplay": true,
+            "product": "",
+            "use_variants": true,
+            "modal_heading": "<h4>Modal heading</h4>",
+            "modal_text": "<p>Modal text</p>"
+          }
+        },
+        "item_U9TPbC": {
+          "type": "item",
+          "disabled": true,
+          "settings": {
+            "video_url": "",
+            "autoplay": true,
+            "product": "",
+            "use_variants": true,
+            "modal_heading": "<h4>Modal heading</h4>",
+            "modal_text": "<p>Modal text</p>"
+          }
+        },
+        "item_h6h9nW": {
+          "type": "item",
+          "disabled": true,
+          "settings": {
+            "video_url": "",
+            "autoplay": true,
+            "product": "",
+            "use_variants": true,
+            "modal_heading": "<h4>Modal heading</h4>",
+            "modal_text": "<p>Modal text</p>"
+          }
+        },
+        "item_RFabbA": {
+          "type": "item",
+          "disabled": true,
+          "settings": {
+            "video_url": "",
+            "autoplay": true,
+            "product": "",
+            "use_variants": true,
+            "modal_heading": "<h4>Modal heading</h4>",
+            "modal_text": "<p>Modal text</p>"
+          }
+        }
+      },
+      "block_order": [
+        "item_yGabqQ",
+        "item_Ua8jeG",
+        "item_U9TPbC",
+        "item_h6h9nW",
+        "item_RFabbA"
+      ],
+      "disabled": true,
+      "name": "SS - Shoppable video",
+      "settings": {
+        "heading": "<h2>REAL TESTIMONIALS</h2>",
+        "heading_custom": false,
+        "heading_font": "josefin_sans_n4",
+        "heading_size": 28,
+        "heading_size_mobile": 28,
+        "heading_height": 130,
+        "heading_align": "center",
+        "heading_align_mobile": "center",
+        "slider_view": 5,
+        "slider_view_mobile": 1.3,
+        "slider_gap": 16,
+        "slider_gap_mobile": 16,
+        "slider_mt": 20,
+        "card_radius": 10,
+        "card_border_thickness": 0,
+        "card_shadow": true,
+        "video_ratio": "portrait",
+        "video_ratio_mobile": "portrait",
+        "video_overlay": 0.2,
+        "image_width": 44,
+        "image_width_mobile": 44,
+        "image_radius": 6,
+        "image_border_thickness": 0,
+        "title_custom": false,
+        "title_font": "josefin_sans_n4",
+        "title_size": 14,
+        "title_size_mobile": 14,
+        "title_height": 130,
+        "title_uppercase": false,
+        "price_custom": false,
+        "price_font": "josefin_sans_n4",
+        "price_size": 14,
+        "price_size_mobile": 14,
+        "price_height": 130,
+        "button": "Add To Cart",
+        "button_soldout": "Sold Out",
+        "button_custom": false,
+        "button_font": "josefin_sans_n4",
+        "button_size": 16,
+        "button_size_mobile": 16,
+        "button_padding_vertical": 10,
+        "button_padding_vertical_mobile": 10,
+        "button_padding_horizontal": 10,
+        "button_padding_horizontal_mobile": 10,
+        "reload_after_adding": false,
+        "redirect_after_adding": false,
+        "option_custom": false,
+        "option_font": "josefin_sans_n4",
+        "option_size": 12,
+        "option_size_mobile": 12,
+        "option_height": 100,
+        "option_mt": 24,
+        "variants_price_custom": false,
+        "variants_price_font": "josefin_sans_n4",
+        "variants_price_size": 14,
+        "variants_price_size_mobile": 14,
+        "variants_price_height": 130,
+        "variants_price_mt": 10,
+        "variants_price_align": "center",
+        "variants_price_align_mobile": "center",
+        "modal_width": 740,
+        "modal_width_mobile": 100,
+        "modal_radius": 16,
+        "modal_border_thickness": 0,
+        "modal_overlay": 50,
+        "close_size": 42,
+        "close_size_mobile": 42,
+        "close_radius": 8,
+        "close_border_thickness": 0,
+        "buttons_size": 48,
+        "buttons_size_mobile": 48,
+        "buttons_radius": 8,
+        "buttons_border_thickness": 0,
+        "modal_video_radius": 0,
+        "modal_video_border_thickness": 0,
+        "modal_video_ratio": "portrait",
+        "modal_video_ratio_mobile": "portrait",
+        "modal_heading_custom": false,
+        "modal_heading_font": "josefin_sans_n4",
+        "modal_heading_size": 28,
+        "modal_heading_size_mobile": 28,
+        "modal_heading_height": 130,
+        "modal_heading_align": "center",
+        "modal_heading_align_mobile": "center",
+        "modal_text_custom": false,
+        "modal_text_font": "josefin_sans_n4",
+        "modal_text_size": 16,
+        "modal_text_size_mobile": 16,
+        "modal_text_height": 150,
+        "modal_text_align": "center",
+        "modal_text_align_mobile": "center",
+        "modal_text_mt": 16,
+        "use_modal_product": true,
+        "modal_image_width": 70,
+        "modal_image_width_mobile": 66,
+        "modal_image_radius": 12,
+        "modal_image_border_thickness": 0,
+        "modal_title_custom": false,
+        "modal_title_font": "josefin_sans_n4",
+        "modal_title_size": 16,
+        "modal_title_size_mobile": 16,
+        "modal_title_height": 130,
+        "modal_title_uppercase": false,
+        "modal_price_custom": false,
+        "modal_price_font": "josefin_sans_n4",
+        "modal_price_size": 14,
+        "modal_price_size_mobile": 14,
+        "modal_price_height": 130,
+        "modal_button": "Add To Cart",
+        "modal_button_soldout": "Sold Out",
+        "modal_button_custom": false,
+        "modal_button_font": "josefin_sans_n4",
+        "modal_button_size": 16,
+        "modal_button_size_mobile": 16,
+        "modal_button_radius": 8,
+        "modal_button_border_thickness": 1,
+        "modal_button_mt": 16,
+        "modal_button_align": "center",
+        "modal_button_align_mobile": "center",
+        "card_bg_color": "#ffffff",
+        "card_border_color": "#121212",
+        "video_overlay_color": "#121212",
+        "card_shadow_color": "#121212",
+        "title_color": "#ffffff",
+        "price_color": "#ffffff",
+        "image_border_color": "#121212",
+        "button_color": "#ffffff",
+        "button_hover_color": "#ffffff",
+        "button_bg_color": "#121212",
+        "button_bg_hover_color": "#121212",
+        "arrow_icon_color": "#ffffff",
+        "arrow_bg_color": "#121212",
+        "arrow_border_color": "#ffffff",
+        "option_color": "#121212",
+        "variants_price_color": "#121212",
+        "modal_heading_color": "#121212",
+        "modal_text_color": "#121212",
+        "modal_video_border_color": "#121212",
+        "modal_content_bg_color": "#ffffff",
+        "modal_border_color": "#121212",
+        "close_icon_color": "#ffffff",
+        "close_bg_color": "#ffffff",
+        "close_border_color": "#121212",
+        "buttons_icon_color": "#ffffff",
+        "buttons_bg_color": "#ffffff",
+        "buttons_border_color": "#121212",
+        "modal_title_color": "#121212",
+        "modal_price_color": "#121212",
+        "modal_image_border_color": "#121212",
+        "modal_button_color": "#ffffff",
+        "modal_button_hover_color": "#121212",
+        "modal_button_bg_color": "#121212",
+        "modal_button_bg_hover_color": "#ffffff",
+        "modal_button_border_color": "#121212",
+        "modal_button_border_hover_color": "#121212",
+        "heading_color": "#121212",
+        "background_color": "#ffffff",
+        "background_gradient": "",
+        "border_color": "#121212",
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "padding_horizontal": 5,
+        "padding_horizontal_mobile": 1.5,
+        "full_width": false,
+        "content_width": 1400,
+        "border_thickness": 0,
+        "lazy": true
+      }
+    }
+  },
+  "order": [
+    "shogun-helper",
+    "main",
+    "shogun-optimizer",
+    "banner_VkWm87",
+    "ticker_pmVNFL",
+    "banner_mtFbg7",
+    "banner_8EdnkP",
+    "categories_KRpera",
+    "split_banner_hHWqU4",
+    "before_after_fcMaGG",
+    "split_banner_GF3NUU",
+    "before_after_iephzh",
+    "ticker_ddXCgQ",
+    "split_banner_KiNC4h",
+    "before_after_tkjc8H",
+    "split_banner_VXagJD",
+    "before_after_hJUd34",
+    "banner_BpxyC8",
+    "product_carousel_zkrigY",
+    "hero_carousel_VWxPyj",
+    "banner_y3DKqg",
+    "banner_drc4wx",
+    "ss_shoppable_video_tAC87n"
+  ]
+}

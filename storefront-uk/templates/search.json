@@ -1,0 +1,30 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "hero": {
+      "type": "main-search-hero",
+      "settings": {}
+    },
+    "main": {
+      "type": "main-search",
+      "settings": {
+        "enable_filtering": true,
+        "enable_sorting": true,
+        "enable_quick_buy": true,
+        "columns_mobile": "2"
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "main"
+  ]
+}

@@ -1,0 +1,259 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "shogun-helper": {
+      "type": "shogun-helper",
+      "disabled": true,
+      "settings": {}
+    },
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {}
+    },
+    "shogun-optimizer": {
+      "type": "shogun-optimizer",
+      "disabled": true,
+      "settings": {}
+    },
+    "ticker_3kTJPp": {
+      "type": "ticker",
+      "blocks": {
+        "text_zAq9J3": {
+          "type": "text",
+          "settings": {
+            "svg_icon": "flower",
+            "text": "25% off with code LAMINATE25",
+            "url": ""
+          }
+        },
+        "text_pYqDdP": {
+          "type": "text",
+          "settings": {
+            "svg_icon": "flower",
+            "text": "Introductory Offer",
+            "url": ""
+          }
+        },
+        "text_R6FCi3": {
+          "type": "text",
+          "settings": {
+            "svg_icon": "flower",
+            "text": "Get it for $16.50",
+            "url": ""
+          }
+        }
+      },
+      "block_order": [
+        "text_zAq9J3",
+        "text_pYqDdP",
+        "text_R6FCi3"
+      ],
+      "settings": {
+        "optional_text": "",
+        "optional_url": "https:\/\/grandecosmetics.com\/cart\/41147612266633:1?discount=laminate25",
+        "speed": 3,
+        "color_scheme": "daisy"
+      }
+    },
+    "split_banner_DfEJ6M": {
+      "type": "split-banner",
+      "blocks": {
+        "body_copy_9FzqpF": {
+          "type": "body-copy",
+          "settings": {
+            "copy": "<p>Discover the secret to perfectly groomed brows with GrandeBROW-LAMINATE, designed to mimic a professional brow lamination without harsh chemicals. This nourishing formula, enriched with peptides and conditioning ingredients, not only tames your brows but also promotes their health.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "body_copy_9FzqpF"
+      ],
+      "custom_css": [],
+      "settings": {
+        "style": "coral",
+        "padding": "full-width",
+        "arrangement": "left_asset_right_content",
+        "header": "h2",
+        "alignment": "left",
+        "vertical_alignment": "middle",
+        "module_height": "image-height",
+        "image_d": "shopify:\/\/shop_images\/Gabby-Laminate-6938-copy_fff11cde-0914-4ed0-9d10-ce1e3d170375.jpg",
+        "video_poster_d": true,
+        "video_poster_m": true,
+        "video_autoplay": true,
+        "eyebrow": "Effortless Lamination Look That Lasts All Day",
+        "heading": "TikTok Viral Brow Styling Gel",
+        "cta_url": "https:\/\/grandecosmetics.com\/cart\/41147612266633:1?discount=laminate25",
+        "cta_copy": "Shop Now"
+      }
+    },
+    "before_after_cKxQdh": {
+      "type": "before-after",
+      "custom_css": [
+        "span.h4 {color: #ff7440;}"
+      ],
+      "settings": {
+        "switch_sides": false,
+        "metaobject_handle": "before-and-after-vuobrewj"
+      }
+    },
+    "split_banner_QcfAKf": {
+      "type": "split-banner",
+      "blocks": {
+        "body_copy_x8BMVi": {
+          "type": "body-copy",
+          "settings": {
+            "copy": "<h5>✅  Effortless Application <\/h5><p><br\/>Super easy to use with the included brush for perfect application every time.<\/p>"
+          }
+        },
+        "line_item_HgfD6V": {
+          "type": "line-item",
+          "settings": {
+            "line_item_icon_rotation": true,
+            "line_item_text": "<strong>BONUS:<\/strong> COMES WITH DUAL-ENDED BRUSH ($12 VALUE)"
+          }
+        },
+        "body_copy_7fWPwM": {
+          "type": "body-copy",
+          "settings": {
+            "copy": "<h5>✅  12-Hour Hold<\/h5><p><br\/>Keeps brows in place all day long without flaking or stiffness.<\/p>"
+          }
+        },
+        "body_copy_VMaXe6": {
+          "type": "body-copy",
+          "settings": {
+            "copy": "<h5>✅  <strong>Nourishing & Conditioning <\/strong><\/h5><p><br\/>Infused with peptides and conditioning ingredients to promote healthier, softer brows over time.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "body_copy_x8BMVi",
+        "line_item_HgfD6V",
+        "body_copy_7fWPwM",
+        "body_copy_VMaXe6"
+      ],
+      "custom_css": [],
+      "settings": {
+        "style": "beige",
+        "padding": "inset",
+        "arrangement": "left_asset_right_content",
+        "header": "h3",
+        "alignment": "left",
+        "vertical_alignment": "top",
+        "module_height": "image-height",
+        "video_poster_d": true,
+        "video_poster_m": true,
+        "video_d": "shopify:\/\/files\/videos\/UGC-GrandeBROW-LAMINATE-sq.mp4",
+        "video_autoplay": true,
+        "image_product": "shopify:\/\/shop_images\/LAMINATEMainImage_9bd858a6-f373-4831-a0bc-a9c4342e1130.jpg",
+        "eyebrow": "",
+        "heading": "Get Fuller, Laminated Looking Brows",
+        "cta_url": "https:\/\/grandecosmetics.com\/cart\/41147612266633:1?discount=laminate25",
+        "cta_copy": "Get It For $16.50 with code: LAMINATE25"
+      }
+    },
+    "ticker_gFkPDV": {
+      "type": "ticker",
+      "blocks": {
+        "text_TFxLRG": {
+          "type": "text",
+          "settings": {
+            "svg_icon": "flower",
+            "text": "25% off with code LAMINATE25",
+            "url": ""
+          }
+        },
+        "text_U9PYQh": {
+          "type": "text",
+          "settings": {
+            "svg_icon": "flower",
+            "text": "Introductory Offer",
+            "url": ""
+          }
+        },
+        "text_EwLAfT": {
+          "type": "text",
+          "settings": {
+            "svg_icon": "flower",
+            "text": "Get it for $16.50",
+            "url": ""
+          }
+        }
+      },
+      "block_order": [
+        "text_TFxLRG",
+        "text_U9PYQh",
+        "text_EwLAfT"
+      ],
+      "settings": {
+        "optional_text": "",
+        "optional_url": "https:\/\/grandecosmetics.com\/cart\/41147612266633:1?discount=laminate25",
+        "speed": 3,
+        "color_scheme": "daisy"
+      }
+    },
+    "fw_html_embed_VrXQbR": {
+      "type": "fw-html-embed",
+      "custom_css": [
+        "h5 {font-size: 45px; text-align: center;}"
+      ],
+      "settings": {
+        "title": "Tiktok Made Me Buy It",
+        "embed_code": "<script async type=\"text\/javascript\" src=\"\/\/asset.fwcdn3.com\/js\/embed-feed.js\"><\/script>\n\n    <fw-embed-feed channel=\"grandecosmetics\" playlist=\"5aqOj5\" mode=\"row\" open_in=\"default\" max_videos=\"0\" placement=\"middle\" player_placement=\"bottom-right\" branding=\"false\"><\/fw-embed-feed>"
+      }
+    },
+    "split_banner_MjdGJi": {
+      "type": "split-banner",
+      "blocks": {
+        "body_copy_CmLGdn": {
+          "type": "body-copy",
+          "settings": {
+            "copy": "<h3><em>The Best<\/em> Brow Gel on the Market<br\/><\/h3><h5><br\/>\"I kid you not this product is well worth your money. I've tried many brow gels out there and this bad boy is the best I've tried thus far.\"<\/h5>"
+          }
+        }
+      },
+      "block_order": [
+        "body_copy_CmLGdn"
+      ],
+      "custom_css": [],
+      "settings": {
+        "style": "beige",
+        "padding": "inset",
+        "arrangement": "left_asset_right_content",
+        "header": "h5",
+        "alignment": "centered",
+        "vertical_alignment": "middle",
+        "module_height": "image-height",
+        "image_d": "shopify:\/\/shop_images\/Evergreen_Product_Us-Them_static_1x1_6ff2533c-2e1c-470a-8e8b-7a1b9ff8915e.jpg",
+        "video_poster_d": true,
+        "video_poster_m": true,
+        "video_autoplay": true,
+        "eyebrow": "",
+        "heading": "★ ★ ★ ★ ★",
+        "cta_url": "https:\/\/grandecosmetics.com\/cart\/41147612266633:1?discount=laminate25",
+        "cta_copy": "Try It Now"
+      }
+    }
+  },
+  "order": [
+    "shogun-helper",
+    "main",
+    "shogun-optimizer",
+    "ticker_3kTJPp",
+    "split_banner_DfEJ6M",
+    "before_after_cKxQdh",
+    "split_banner_QcfAKf",
+    "ticker_gFkPDV",
+    "fw_html_embed_VrXQbR",
+    "split_banner_MjdGJi"
+  ]
+}

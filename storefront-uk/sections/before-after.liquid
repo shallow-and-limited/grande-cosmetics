@@ -1,0 +1,198 @@
+
+<script src="{{ 'before-after.min.js' | asset_url }}" defer></script>
+
+{{ 'before-after.min.css' | asset_url | stylesheet_tag }}
+
+{%  liquid 
+  if product != blank
+   assign metaobject = product.metafields.custom.before_and_after.value
+ else
+   assign metaobject = shop.metaobjects.before_and_after[section.settings.metaobject_handle]
+ endif
+ assign eyebrow = metaobject.eyebrow.value
+ assign title = metaobject.title | metafield_tag
+ assign statistics = metaobject.statistic.value
+ assign subtext = metaobject.subtext.value | metafield_tag
+ assign button_text = metaobject.button_text.value | default: 'Shop Now'
+ assign button_url = metaobject.button_link.value
+ assign disclaimer = metaobject.disclaimer.value
+ assign firstImages = metaobject.first_slider_images.value
+ assign firstProduct = metaobject.first_slider_product.value
+ assign secondImages = metaobject.second_slider_images.value
+ assign secondProduct = metaobject.second_slider_product.value
+ assign thirdImages = metaobject.third_slider_images.value
+ assign thirdProduct = metaobject.third_slider_product.value
+%}
+
+{% if metaobject != blank %}
+  <section class="before-after">
+    <div class="before-after__container {%if section.settings.switch_sides %}switch-sides{% endif %}">
+      <div class="before-after__content">
+        {% if eyebrow != blank %}
+          <p class="before-after__eyebrow s-3">{{ eyebrow }}</p>
+        {% endif %}
+        <h4 class="before-after__title">{{ title | replace: '<p>', '' | replace: '</p>', ''}}</h4>
+
+        {% if statistics != blank %}
+          {% for statistic in statistics %}
+            {% assign statistic_parts = statistic | split: '%' %}
+            <p class="p-2 before-after__statistic"><span class="h4">{{ statistic_parts[0] }}%</span>{{ statistic_parts[1] }}</p>
+          {% endfor %}
+        {% endif %}
+
+        {% if button_text != blank and button_url != blank %}
+          <a class="before-after__btn btn btn--primary" href="{{ button_url }}">{{ button_text }}</a>
+        {% endif %}
+
+        {% if disclaimer != blank %}
+          <p class="before-after__disclaimer p-3">{{ disclaimer }}</p>
+        {% endif %}
+
+        {% if product.metafields.reports_results != blank %}
+          <button class="before-after__results">Reports & Results</button>
+        {% endif %}
+      </div>
+      <div class="before-after__sliders">
+        <before-after-slider class="before-after__slider">
+          <div class="before-after__slider-wrapper">
+            {% for image in firstImages %}
+              {% if forloop.first %}
+                <div class="before-after__slider-before">
+                  {% render 'image', image: image, class: 'before-after__slider-content-image' %}
+                </div>
+                {% else %}
+                <div class="before-after__slider-after">
+                  {% render 'image', image: image, class: 'before-after__slider-content-image' %}
+                </div>
+              {% endif %}
+            {% endfor %}
+            {% unless firstImages.count == 1 %}
+              <div class="before-after__slider-scroller">
+                {% render 'icons', icon_name: 'arrow-left-filled' class="scroller__thumb"%}
+                {% render 'icons', icon_name: 'arrow-right-filled' class="scroller__thumb" %}
+              </div>
+            {% endunless %}
+          </div>
+        </before-after-slider>
+        {% if firstProduct != blank %}
+          <div class="before-after__product">
+            <div class="before-after__product-wrapper">
+              {% render 'image', image: firstProduct.featured_image, class: 'before-after__product-image' %}
+              <span>
+                {% if firstProduct.metafields.subcategory != blank %}
+                  <p class="p-4">{{ firstProduct.metafields.subcategory }}</p>
+                {% endif %}
+                <p class="p-3">{{ firstProduct.title }}</p>
+              </span>
+            </div>
+            <a class="before-after__product-btn btn btn--primary" href="{{ button_url | default: firstProduct.url }}">{{ button_text }}</a>
+          </div>
+        {% endif %}
+
+        {% if secondImages %}
+          <before-after-slider class="before-after__slider">
+            <div class="before-after__slider-wrapper">
+              {% for image in secondImages %}
+                {% if forloop.first %}
+                  <div class="before-after__slider-before">
+                    {% render 'image', image: image, class: 'before-after__slider-content-image' %}
+                  </div>
+                  {% else %}
+                  <div class="before-after__slider-after">
+                    {% render 'image', image: image, class: 'before-after__slider-content-image' %}
+                  </div>
+                {% endif %}
+              {% endfor %}
+              {% unless secondImages.count == 1 %}              
+                <div class="before-after__slider-scroller">
+                  {% render 'icons', icon_name: 'arrow-left-filled' class="scroller__thumb"%}
+                  {% render 'icons', icon_name: 'arrow-right-filled' class="scroller__thumb" %}
+                </div>
+              {% endunless %}
+            </div>
+          </before-after-slider>
+          {% if secondProduct != blank %}
+            <div class="before-after__product">
+              <div class="before-after__product-wrapper">
+                {% render 'image', image: secondProduct.featured_image, class: 'before-after__product-image' %}
+                <span>
+                  {% if secondProduct.metafields.subcategory != blank %}
+                    <p class="p-4">{{ secondProduct.metafields.subcategory }}</p>
+                  {% endif %}
+                  <p class="p-3">{{ secondProduct.title }}</p>
+                </span>
+              </div>
+              <a class="before-after__product-btn btn btn--primary" href="{{ button_url | default: secondProduct.url }}">{{ button_text }}</a>
+            </div>
+          {% endif %}
+        {% endif %}
+
+        {% if thirdImages %}
+          <before-after-slider class="before-after__slider">
+            <div class="before-after__slider-wrapper">
+              {% for image in thirdImages %}
+                {% if forloop.first %}
+                  <div class="before-after__slider-before">
+                    {% render 'image', image: image, class: 'before-after__slider-content-image' %}
+                  </div>
+                  {% else %}
+                  <div class="before-after__slider-after">
+                    {% render 'image', image: image, class: 'before-after__slider-content-image' %}
+                  </div>
+                {% endif %}
+              {% endfor %}
+              {% unless thirdImages.count == 1 %}              
+                <div class="before-after__slider-scroller">
+                  {% render 'icons', icon_name: 'arrow-left-filled' class="scroller__thumb"%}
+                  {% render 'icons', icon_name: 'arrow-right-filled' class="scroller__thumb" %}
+                </div>
+              {% endunless %}
+            </div>
+          </before-after-slider>
+          {% if thirdProduct != blank %}
+            <div class="before-after__product">
+              <div class="before-after__product-wrapper">
+                {% render 'image', image: thirdProduct.featured_image, class: 'before-after__product-image' %}
+                <span>
+                  {% if thirdProduct.metafields.subcategory != blank %}
+                    <p class="p-4">{{ thirdProduct.metafields.subcategory }}</p>
+                  {% endif %}
+                  <p class="p-3">{{ thirdProduct.title }}</p>
+                </span>
+              </div>
+              <a class="before-after__product-btn btn btn--primary" href="{{ button_url | default: thirdProduct.url }}">{{ button_text }}</a>
+            </div>
+          {% endif %}
+        {% endif %}
+      </div>
+    </div>
+  </section>
+{% endif %}
+
+
+
+{% schema %}
+{
+  "name": "Before After",
+  "settings": [
+    {
+      "type": "checkbox",
+      "label": "Switch Text and Image",
+      "id": "switch_sides",
+      "default": false
+    },
+    {
+      "type": "text",
+      "label": "Metaobject Handle",
+      "id": "metaobject_handle",
+      "info": "Not applicable on Product Pages"
+    }
+  ],
+  "presets": [
+    {
+      "category": "before-after",
+      "name": "Before After"
+    }
+  ]
+}
+{% endschema %}

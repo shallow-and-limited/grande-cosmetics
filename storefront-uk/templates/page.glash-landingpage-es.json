@@ -1,0 +1,419 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "shogun-helper": {
+      "type": "shogun-helper",
+      "settings": {}
+    },
+    "ticker_6LVUjg": {
+      "type": "ticker",
+      "blocks": {
+        "text_UNhzJm": {
+          "type": "text",
+          "settings": {
+            "svg_icon": "flower",
+            "text": "Introductory Offer",
+            "url": ""
+          }
+        },
+        "text_eDkCJE": {
+          "type": "text",
+          "settings": {
+            "svg_icon": "flower",
+            "text": "20% off with code: LASHENVY",
+            "url": ""
+          }
+        },
+        "text_tgUmmj": {
+          "type": "text",
+          "settings": {
+            "svg_icon": "flower",
+            "text": "Get it For $54.40",
+            "url": ""
+          }
+        }
+      },
+      "block_order": [
+        "text_UNhzJm",
+        "text_eDkCJE",
+        "text_tgUmmj"
+      ],
+      "disabled": true,
+      "settings": {
+        "optional_text": "",
+        "optional_url": "https:\/\/grandecosmetics.com\/cart\/15772016836674:1?discount=lashenvy",
+        "speed": 1.5,
+        "color_scheme": "blush"
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {}
+    },
+    "shogun-optimizer": {
+      "type": "shogun-optimizer",
+      "settings": {}
+    },
+    "split_banner_hHWqU4": {
+      "type": "split-banner",
+      "blocks": {
+        "body_copy_gLetnV": {
+          "type": "body-copy",
+          "settings": {
+            "copy": "<p>Por menos de $1 al día, puedes obtener pestañas que se vean más largas y gruesas. Disfrute de la comodidad de un tratamiento en casa que realza naturalmente sus pestañas sin necesidad de visitas frecuentes al salón. ¡Es la forma perfecta de conseguir las pestañas de tus sueños sin gastar una fortuna!<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "body_copy_gLetnV"
+      ],
+      "settings": {
+        "style": "rose",
+        "padding": "full-width",
+        "arrangement": "left_asset_right_content",
+        "header": "h2",
+        "alignment": "left",
+        "vertical_alignment": "middle",
+        "module_height": "image-height",
+        "image_d": "shopify:\/\/shop_images\/ingredientsforsuccess-_1.jpg",
+        "video_poster_d": true,
+        "video_poster_m": true,
+        "video_autoplay": true,
+        "eyebrow": "Marca n.º 1 de suero para pestañas y cejas en EE. UU.*",
+        "heading": "Suero Viral Para Pestañas de TikTok",
+        "cta_url": "https:\/\/grandecosmetics.com\/cart\/15772016836674:1?discount=lashenvy",
+        "cta_copy": "Shop Now"
+      }
+    },
+    "before_after_VP7B7W": {
+      "type": "before-after",
+      "settings": {
+        "switch_sides": false,
+        "metaobject_handle": "before-and-after-feqcgrxm"
+      }
+    },
+    "fw_html_embed_8DJ3yP": {
+      "type": "fw-html-embed",
+      "custom_css": [
+        "h5 {font-size: 45px; text-align: center;}"
+      ],
+      "settings": {
+        "title": "TikTok Me Hizo Comprarlo",
+        "embed_code": "<script async type=\"text\/javascript\" src=\"\/\/asset.fwcdn3.com\/js\/embed-feed.js\"><\/script>\n\n    <fw-embed-feed channel=\"grandecosmetics\" playlist=\"5LwELv\" mode=\"row\" open_in=\"default\" max_videos=\"0\" placement=\"middle\" player_placement=\"bottom-right\" branding=\"false\"><\/fw-embed-feed>"
+      }
+    },
+    "ticker_fGHDxK": {
+      "type": "ticker",
+      "blocks": {
+        "text_ng6aGW": {
+          "type": "text",
+          "settings": {
+            "svg_icon": "flower",
+            "text": "Introductory Offer",
+            "url": ""
+          }
+        },
+        "text_XmWJtT": {
+          "type": "text",
+          "settings": {
+            "svg_icon": "flower",
+            "text": "20% off with code: LASHENVY",
+            "url": ""
+          }
+        },
+        "text_XdKxCD": {
+          "type": "text",
+          "settings": {
+            "svg_icon": "flower",
+            "text": "Get it For $54.40",
+            "url": ""
+          }
+        }
+      },
+      "block_order": [
+        "text_ng6aGW",
+        "text_XmWJtT",
+        "text_XdKxCD"
+      ],
+      "disabled": true,
+      "settings": {
+        "optional_text": "",
+        "optional_url": "https:\/\/grandecosmetics.com\/cart\/15772016836674:1?discount=lashenvy",
+        "speed": 1.5,
+        "color_scheme": "blush"
+      }
+    },
+    "split_banner_CrjfPy": {
+      "type": "split-banner",
+      "blocks": {
+        "body_copy_RWeqME": {
+          "type": "body-copy",
+          "settings": {
+            "copy": "<h5>✅ Resultados comprobados clínicamente<\/h5><p><br\/>Pestañas más largas en tan solo 4-6 semanas, con resultados completos en 3 meses.<strong><br\/><\/strong><\/p>"
+          }
+        },
+        "body_copy_NVGgGR": {
+          "type": "body-copy",
+          "settings": {
+            "copy": "<h5>✅  Probado por oftalmólogos + 11 estudios sobre seguridad y rendimiento<\/h5><p><br\/>Todos los productos de Grande son sometidos a pruebas exhaustivas en instalaciones de investigación de terceros de clase mundial<\/p>"
+          }
+        },
+        "body_copy_D6c9Uz": {
+          "type": "body-copy",
+          "settings": {
+            "copy": "<h5>✅  Ingredientes respaldados por ciencia creíble<\/h5><p><br\/>GrandeLASH-MD está lleno de ingredientes que cuidan las pestañas, como el ácido hialurónico, los aminoácidos, la miel, el aloe vera y el extracto de semilla de uva. <\/p>"
+          }
+        },
+        "body_copy_zyrmWf": {
+          "type": "body-copy",
+          "settings": {
+            "copy": "<h5>✅  Compatible con extensiones de pestañas, levantamientos de pestañas, pestañas postizas y lentes de contacto<\/h5>"
+          }
+        }
+      },
+      "block_order": [
+        "body_copy_RWeqME",
+        "body_copy_NVGgGR",
+        "body_copy_D6c9Uz",
+        "body_copy_zyrmWf"
+      ],
+      "settings": {
+        "style": "beige",
+        "padding": "inset",
+        "arrangement": "left_asset_right_content",
+        "header": "h3",
+        "alignment": "left",
+        "vertical_alignment": "middle",
+        "module_height": "image-height",
+        "video_poster_d": true,
+        "video_poster_m": true,
+        "video_d": "shopify:\/\/files\/videos\/Nat-application.mp4",
+        "video_autoplay": true,
+        "eyebrow": "",
+        "heading": "Dile Adiós a las Pestañas Cortas",
+        "cta_url": "https:\/\/grandecosmetics.com\/cart\/15772016836674:1?discount=lashenvy",
+        "cta_copy": "Prueba el suero que se ha vuelto viral en TikTok"
+      }
+    },
+    "split_banner_RXag9R": {
+      "type": "split-banner",
+      "blocks": {
+        "body_copy_9i9CqY": {
+          "type": "body-copy",
+          "settings": {
+            "copy": "<p>Como los innovadores originales del suero para pestañas, a menudo somos imitados, pero nunca duplicados. Iniciamos la revolución del suero para pestañas y establecimos el estándar de la industria en pruebas de seguridad y rendimiento con nuestro producto favorito de culto: el suero potenciador de pestañas GrandeLASH-MD.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "body_copy_9i9CqY"
+      ],
+      "settings": {
+        "style": "beige",
+        "padding": "inset",
+        "arrangement": "right_asset_left_content",
+        "header": "h2",
+        "alignment": "centered",
+        "vertical_alignment": "middle",
+        "module_height": "image-height",
+        "image_d": "shopify:\/\/shop_images\/GrandeLash_Vs_Dupes-pink.png",
+        "video_poster_d": true,
+        "video_poster_m": true,
+        "video_autoplay": true,
+        "eyebrow": "Adiós duplicados",
+        "heading": "Hola objetivos de pestañas",
+        "cta_url": "https:\/\/grandecosmetics.com\/cart\/15772016836674:1?discount=lashenvy",
+        "cta_copy": "Compra el OG"
+      }
+    },
+    "press_XYJzha": {
+      "type": "press",
+      "blocks": {
+        "slide_ztWzzd": {
+          "type": "slide",
+          "settings": {
+            "quote": "\"Después de probar varios sérums para pestañas, este de Grande Cosmetics nos dejó impresionados por su capacidad para aumentar el volumen.\"",
+            "logo": "shopify:\/\/shop_images\/byrdie-logo_699e1858-06f1-4b11-b39a-741a99112b95.png"
+          }
+        },
+        "slide_NFTjWg": {
+          "type": "slide",
+          "settings": {
+            "quote": "GrandeLASH-MD es \"un favorito de los lectores de <em>Real Simple<\/em>\".",
+            "logo": "shopify:\/\/shop_images\/realsimplepink_1e9e42d7-8fb8-4b0a-b628-5c3f28065b78.png"
+          }
+        },
+        "slide_7NqHBh": {
+          "type": "slide",
+          "settings": {
+            "quote": "\"La fundadora de Grande Cosmetics, Alicia Grande, descifró el secreto para mejorar las pestañas con este pequeño tubo dorado mágico. Probado por oftalmólogos y clínicamente comprobado, transforma las pestañas cortas y débiles haciéndolas parecer más largas y más gruesas.\"",
+            "logo": "shopify:\/\/shop_images\/NewBeauty-1-q0aalw3k4p51an8zfmtpl6kt24uksdudr5b581kg7k_b703bce9-90cb-42fc-9dce-aca326d9287d.png"
+          }
+        }
+      },
+      "block_order": [
+        "slide_ztWzzd",
+        "slide_NFTjWg",
+        "slide_7NqHBh"
+      ],
+      "custom_css": [
+        "h3 {font-size: 35px !important;}"
+      ],
+      "settings": {}
+    },
+    "split_banner_KnQiPj": {
+      "type": "split-banner",
+      "blocks": {
+        "body_copy_eJkjwF": {
+          "type": "body-copy",
+          "settings": {
+            "copy": "<p>¡Confía en el proceso! Como la mayoría de las cosas buenas, los resultados de GrandeLASH-MD toman tiempo. Y como para alcanzar cualquier otro objetivo: la constancia es la clave. Pero no te preocupes: algunos usuarios de GrandeLASH-MD empiezan a notar pestañas más largas en tan solo 4 a 6 semanas.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "body_copy_eJkjwF"
+      ],
+      "settings": {
+        "style": "rose",
+        "padding": "inset",
+        "arrangement": "left_asset_right_content",
+        "header": "h3",
+        "alignment": "centered",
+        "vertical_alignment": "middle",
+        "module_height": "image-height",
+        "image_d": "shopify:\/\/shop_images\/4StagesTimeline-Spanish.png",
+        "video_poster_d": true,
+        "video_poster_m": true,
+        "video_autoplay": true,
+        "eyebrow": "Cronología de resultados",
+        "heading": "Las cuatro etapas del sérum para pestañas",
+        "cta_url": "https:\/\/grandecosmetics.com\/cart\/15772016836674:1?discount=lashenvy",
+        "cta_copy": "Comienza tu viaje de pestañas por $68"
+      }
+    },
+    "split_banner_ht6yqB": {
+      "type": "split-banner",
+      "blocks": {
+        "body_copy_QCUabg": {
+          "type": "body-copy",
+          "settings": {
+            "copy": "<h5>Ácido hialurónico<\/h5><p>💧 Ayuda a la hidratación de las pestañas y puede retener hasta 1000 veces su peso en agua<\/p>"
+          }
+        },
+        "body_copy_aF6rqM": {
+          "type": "body-copy",
+          "settings": {
+            "copy": "<h5>Fermento de raíz de rábano <\/h5><p>🌸 Rico en péptidos con propiedades acondicionadoras<\/p>"
+          }
+        },
+        "body_copy_pPPDaE": {
+          "type": "body-copy",
+          "settings": {
+            "copy": "<h5>Extracto de semilla de uva <\/h5><p>🍇 Un antioxidante, rico en vitamina E esencial para la salud de las pestañas<\/p>"
+          }
+        },
+        "body_copy_mYRc8G": {
+          "type": "body-copy",
+          "settings": {
+            "copy": "<h5>Aminoácidos <\/h5><p>👩‍🔬 Los componentes básicos del colágeno y esenciales para unas pestañas sanas y fortalecidas<\/p>"
+          }
+        },
+        "body_copy_XTbpKE": {
+          "type": "body-copy",
+          "settings": {
+            "copy": "<h5>Miel y aloe vera<\/h5><p>🍯 Una mezcla de extractos nutritivos para calmar las pestañas y la piel<\/p>"
+          }
+        },
+        "body_copy_TP7zUb": {
+          "type": "body-copy",
+          "settings": {
+            "copy": "<h5>Cloprostenato de isopropilo (I.C)<\/h5><p> 🧬 Un análogo de prostaglandina que ayuda a mejorar la apariencia de las pestañas<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "body_copy_QCUabg",
+        "body_copy_aF6rqM",
+        "body_copy_pPPDaE",
+        "body_copy_mYRc8G",
+        "body_copy_XTbpKE",
+        "body_copy_TP7zUb"
+      ],
+      "settings": {
+        "style": "beige",
+        "padding": "inset",
+        "arrangement": "right_asset_left_content",
+        "header": "h4",
+        "alignment": "left",
+        "vertical_alignment": "top",
+        "module_height": "image-height",
+        "image_d": "shopify:\/\/shop_images\/lash-ingredientstan-nolabels.jpg",
+        "video_poster_d": true,
+        "video_poster_m": true,
+        "video_autoplay": true,
+        "eyebrow": "",
+        "heading": "Repleto de ingredientes confiables y de alto rendimiento que cuidan las pestañas",
+        "cta_url": "https:\/\/grandecosmetics.com\/cart\/15772016836674:1?discount=lashenvy",
+        "cta_copy": "Pruébalo por tu cuenta"
+      }
+    },
+    "split_banner_VJPBTg": {
+      "type": "split-banner",
+      "blocks": {
+        "body_copy_qHPYkQ": {
+          "type": "body-copy",
+          "settings": {
+            "copy": "<h4>The Product That S<em>tarted It All <\/em><\/h4><p><br\/>Grande Cosmetics’ very first product was GrandeLASH-MD—a revolutionary lash enhancing serum that gave people longer, thicker looking lashes. From there, the serum caught on like wildfire and garnered a cult-following. Since 2008, we’ve transformed millions of lashes & are proud to say that we are America's #1 Lash & Brow Serum Brand* today.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "body_copy_qHPYkQ"
+      ],
+      "disabled": true,
+      "settings": {
+        "style": "beige",
+        "padding": "inset",
+        "arrangement": "left_asset_right_content",
+        "header": "h2",
+        "alignment": "centered",
+        "vertical_alignment": "middle",
+        "module_height": "image-height",
+        "image_d": "shopify:\/\/shop_images\/Alicia_858e10b5-e26c-48df-8e12-752856fd37da.jpg",
+        "video_poster_d": true,
+        "video_poster_m": true,
+        "video_autoplay": true,
+        "eyebrow": "",
+        "heading": "",
+        "cta_url": "shopify:\/\/products\/grandelash-md",
+        "cta_copy": "Shop the Award-Winning Serum"
+      }
+    }
+  },
+  "order": [
+    "shogun-helper",
+    "ticker_6LVUjg",
+    "main",
+    "shogun-optimizer",
+    "split_banner_hHWqU4",
+    "before_after_VP7B7W",
+    "fw_html_embed_8DJ3yP",
+    "ticker_fGHDxK",
+    "split_banner_CrjfPy",
+    "split_banner_RXag9R",
+    "press_XYJzha",
+    "split_banner_KnQiPj",
+    "split_banner_ht6yqB",
+    "split_banner_VJPBTg"
+  ]
+}

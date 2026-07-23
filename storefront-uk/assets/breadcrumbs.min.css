@@ -1,0 +1,2 @@
+.breadcrumbs{display:none}@media(min-width:1024px){.breadcrumbs{display:block;margin-top:1rem}}.breadcrumbs ol{justify-content:center;display:flex;flex-wrap:wrap;gap:.5rem;list-style-type:none;padding:0}.breadcrumbs ol .breadcrumb{display:flex;font:var(--font-p-4)}.breadcrumbs ol .breadcrumb a{color:var(--color-medium-grey);text-decoration:none}
+.breadcrumbs ol .breadcrumb::after{color:var(--color-medium-grey);content:"/";display:inline-block;margin:0 0 0 .5rem}

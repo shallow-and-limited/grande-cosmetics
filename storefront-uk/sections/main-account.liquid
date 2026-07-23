@@ -1,0 +1,266 @@
+{{ 'customer.min.css' | asset_url | stylesheet_tag }}
+
+{% assign _settings = section.settings %}
+{% assign _blocks = section.blocks %}
+
+<section>
+  <div id="account_section">
+    {% if _settings.bg_dsk != blank %}
+      <img class="customer__bg-dsk hide-mobile" src="{{ _settings.bg_dsk | image_url }}" alt="Account Background Image" width="{{ _settings.bg_dsk.width }}" height="{{ _settings.bg_dsk.height }}" />
+    {% endif %}
+    {% if _settings.bg_mob != blank %}
+      <img class="customer__bg-mob hide-desktop" src="{{ _settings.bg_mob | image_url }}" alt="Account Background Image" width="{{ _settings.bg_mob.width }}" height="{{ _settings.bg_mob.height }}" />
+    {% endif %}
+    <div>
+      <div class="account__welcome">
+        <div>
+          {% render 'icons', icon_name: 'glint-filled' %}
+        </div>
+        {% if customer.first_name %}
+          <h1 class="h3 color-white">Hi, {{ customer.first_name }}</h1>
+        {% else %}
+          <h1 class="h3 color-white">Hello!</h1>
+        {% endif %}
+        <a href="{{ routes.root_url }}pages/loyalty" class="account__welcome-btn"><span class="p-3">Redeem My Rewards</span></a> 
+        
+        <a href="{{ routes.account_logout_url }}" class="account__logout-btn"><span class="p-3">Log Out</span></a> 
+      </div>
+
+      <div class="account__blocks">
+        <div class="customer account account__block">
+          <a class="account__rc-link p-1 color-black flex-arrow" href="/tools/recurring/login">
+            Manage Subscriptions
+            {% render 'icons', icon_name: 'arrow-right' %}
+          </a>
+        </div>
+        <div class="customer account account__block ">
+          <h2 class="p-1 account__block-title">{{ 'customer.orders.title' | t }}</h2>
+
+          <div class="order-history">
+            {% paginate customer.orders by 5 %}
+              {%- if customer.orders.size > 0 -%}
+                {%- for order in customer.orders -%}
+                  <div class="order-history__order account-block-border">
+                    <order-carousel>
+                      <div class="order-carousel swiper" {% if order.line_items.size > 1 %}data-order-carousel{% endif %}>
+                        <div class="swiper-wrapper">                          
+                          {% for item in order.line_items %}
+                            <div class="swiper-slide">
+                              <img class="swiper-slide__img" width="90" height="90" src="{{ item.image | image_url: width: 90, height: 90 }}">
+                            </div>
+                          {% endfor %}
+                        </div>
+                        {% if order.line_items.size > 1 %}
+                          <button class="order-carousel__prev" data-previous aria-label="Previous Carousel Slide">
+                            {% render 'icons', icon_name: 'caret-left' %}
+                          </button>
+                          <button class="order-carousel__next" data-next aria-label="Next Carousel Slide">
+                            {% render 'icons', icon_name: 'caret-right' %}
+                          </button>
+                        {% endif %}
+                      </div>
+                    </order-carousel>
+                    <div class="order-history__wrapper">
+                      <div class="order-history__info">
+                        <div class="order-history__info-title p-4 bold">{{ order.item_count }} Item{% if order.item_count > 1 %}s{% endif %} </div>
+                        <div class="order-history__info-money p-4">{{ order.total_net_amount | money }}</div>  
+                        <div class="order-history__info-date p-4">{{ order.created_at | date: '%B %d, %Y' }}</div>
+                        <div class="order-history__info-num p-4">Order {{ order.name }}</div>
+                      </div>
+                      <div class="order-history__status">
+                        {%- if order.fulfillment_status == 'fulfilled' -%}
+                          <div class="order-history__status-label fulfilled p-4">{{ order.fulfillment_status_label }}</div>
+                        {%- else -%}
+                          <div class="order-history__status-label p-4">{{ order.fulfillment_status_label }}</div>
+                        {%- endif -%}
+                        <div class="order-history__status-details">
+                          <a href="{{ order.customer_url }}" class="color-black p-4">Order Details</a>
+                          {% render 'icons', icon_name: 'arrow-right' %}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                {%- endfor -%}
+              {%- else -%}
+                <p class="p-4">{{ 'customer.orders.none' | t }}</p>
+              {%- endif -%}
+              
+              <div class="order-history__bottom">
+                <div class="order-history__totals">
+                </div>
+                <div class="p-4 order-history__pagination">
+                  {%- if paginate.pages > 1 -%}
+                    {%- if paginate.parts.size > 0 -%}
+                      <nav class="pagination" role="navigation" aria-label="{{ 'general.pagination.label' | t }}">
+                        <ul role="list">
+                          {%- if paginate.previous -%}
+                            <li>
+                              <a href="{{ paginate.previous.url }}" aria-label="{{ 'general.pagination.previous' | t }}">
+                                <svg aria-hidden="true" focusable="false" viewBox="0 0 10 6">
+                                  <path fill-rule="evenodd" clip-rule="evenodd" d="M9.354.646a.5.5 0 00-.708 0L5 4.293 1.354.646a.5.5 0 00-.708.708l4 4a.5.5 0 00.708 0l4-4a.5.5 0 000-.708z" fill="currentColor">
+                                </svg>
+                              </a>
+                            </li>
+                          {%- endif -%}
+      
+                          {%- for part in paginate.parts -%}
+                            <li>
+                              {%- if part.is_link -%}
+                                <a href="{{ part.url }}" aria-label="{{ 'general.pagination.page' | t: number: part.title }}">
+                                  {{- part.title -}}
+                                </a>
+                              {%- else -%}
+                                {%- if part.title == paginate.current_page -%}
+                                  <span aria-current="page" aria-label="{{ 'general.pagination.page' | t: number: part.title }}">
+                                    {{- part.title -}}
+                                  </span>
+                                {%- else -%}
+                                  <span>{{ part.title }}</span>
+                                {%- endif -%}
+                              {%- endif -%}
+                            </li>
+                          {%- endfor -%}
+      
+                          {%- if paginate.next -%}
+                            <li>
+                              <a href="{{ paginate.next.url }}" aria-label="{{ 'general.pagination.next' | t }}">
+                                <svg aria-hidden="true" focusable="false" viewBox="0 0 10 6">
+                                  <path fill-rule="evenodd" clip-rule="evenodd" d="M9.354.646a.5.5 0 00-.708 0L5 4.293 1.354.646a.5.5 0 00-.708.708l4 4a.5.5 0 00.708 0l4-4a.5.5 0 000-.708z" fill="currentColor">
+                                </svg>
+                              </a>
+                            </li>
+                          {%- endif -%}
+                        </ul>
+                      </nav>
+                    {%- endif -%}
+                  {%- endif -%}
+                </div>
+              </div>
+            {% endpaginate %}
+          </div>
+        </div>
+        <div class="customer account account__block">
+          <div class="account-block-border">
+            <h2 class="p-1 account__block-title">Refer a Friend</h2>
+            <div class="p-4">{{ section.settings.refer_text }}</div>
+          </div>
+          <a class="customer-link p-4 flex-arrow" href="{{ section.settings.refer_btn_url }}">
+            {{ section.settings.refer_btn_text }}
+            {% render 'icons', icon_name: 'arrow-right' %}
+          </a>
+        </div>
+        <div class="customer account account__block">
+          <div class="account-block-border">
+            <h2 class="p-1 account__block-title">{{ 'customer.account.addresses' | t }}</h2>
+            <span class="p-4">
+              {{ customer.default_address | format_address }}
+            </span>
+          </div>
+
+          <a class="customer-link p-4 flex-arrow" href="{{ routes.account_addresses_url }}">
+            Address Book
+            {% render 'icons', icon_name: 'arrow-right' %}
+          </a>
+        </div>
+        {% render 'account-help' %}
+      </div>
+    </div>
+  </div>
+</section>
+
+<script src="{{ 'customer.min.js' | asset_url }}" defer="defer"></script>
+
+{% schema %}
+{
+  "name": "t:sections.main-account.name",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Background Images"
+    },
+    {
+      "type": "image_picker",
+      "id": "bg_dsk",
+      "label": "Desktop Background"
+    },
+    {
+      "type": "image_picker",
+      "id": "bg_mob",
+      "label": "Mobile Background"
+    },
+    {
+      "type": "header",
+      "content": "Refer a Friend Block"
+    },
+    {
+      "type": "textarea",
+      "id": "refer_text",
+      "label": "Refer a Friend text"
+    },
+    {
+      "type": "text",
+      "id": "refer_btn_text",
+      "label": "Refer Button Text",
+      "default": "Learn More"
+    },
+    {
+      "type": "url",
+      "id": "refer_btn_url",
+      "label": "Refer Button Link"
+    },
+    {
+      "type": "select",
+      "label": "Help Section Text Color",
+      "id": "color",
+      "default": "dark",
+      "options": [
+        {
+          "label": "Light",
+          "value": "light"
+        },
+        {
+          "label": "Dark",
+          "value": "dark"
+        }
+      ]
+    }
+  ],
+  "blocks": [
+    {
+      "type": "account_help_block",
+      "name": "Help Section Block",
+      "settings": [
+        {
+          "type": "select",
+          "label": "Icon",
+          "id": "icon",
+          "options": [
+            {
+              "label": "Chat",
+              "value": "chat"
+            },
+            {
+              "label": "Email",
+              "value": "email"
+            },
+            {
+              "label": "Phone",
+              "value": "phone"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Block text"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Block Link"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

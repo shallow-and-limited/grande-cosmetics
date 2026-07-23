@@ -1,0 +1,63 @@
+{{ 'recommended-products.min.css' | asset_url | stylesheet_tag }}
+{{ 'product-card.min.css' | asset_url | stylesheet_tag }}
+
+{% assign pagetype = request.page_type %}
+{% case pagetype %}
+{% when 'product' %}
+  {% assign _a = shopify--discovery--product_recommendation.related_products.value %}
+{% else %}
+  {% assign _a = article.metafields.details.product_recommendations.value %}
+{% endcase %}
+
+
+{%- liquid
+  assign _a = article.metafields.details.product_recommendations.value
+-%}
+{%  if _a %}
+  <div class="recommended-products" data-slide-up-container>
+    <div class="recommended-products__heading">
+      <h2 class="h4">
+        Recommended For You
+      </h2>
+    </div>
+    <div class="recommended-products__cta">
+      <a href="{{ article.metafields.details.recommended_products_cta.url }}" class="btn--link">Shop All</a>
+      {% if article.metafields.details.product_recommendations.value.count > 3 %}
+        <div class="carousel__pager">
+          <button class="pager-prev" data-previous aria-label="Previous Carousel Slide">
+            {% render 'icons', icon_name: 'arrow-left' %}
+          </button>
+          <button class="pager-next" data-next aria-label="Next Carousel Slide">
+            {% render 'icons', icon_name: 'arrow-right' %}
+          </button>
+        </div>
+      {% endif %}
+    </div>
+    <recommended-products class="recommended-products__wrapper" data-swiper-class="swiper">
+      <div
+        class="recommended-products__cards"
+        data-swiper-class="swiper-wrapper"
+      >
+        {% for recommendation in _a %}
+          <div class="recommended-products__card" data-swiper-class="swiper-slide">
+            {% render 'product-card', product: recommendation, isCarousel: true, card_index: forloop.index %}
+          </div>
+        {% endfor %}
+      </div>
+    </recommended-products>
+  </div>
+  <script src="{{ 'recommended-products.min.js' | asset_url }}" defer="defer"></script>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Recommended Products",
+  "tag": "section",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Recommended Products"
+    }
+  ]
+}
+{% endschema %}

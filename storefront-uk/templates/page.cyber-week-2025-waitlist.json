@@ -1,0 +1,261 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "shogun-helper": {
+      "type": "shogun-helper",
+      "disabled": true,
+      "settings": {}
+    },
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {}
+    },
+    "shogun-optimizer": {
+      "type": "shogun-optimizer",
+      "disabled": true,
+      "settings": {}
+    },
+    "hero_carousel_UrUUBH": {
+      "type": "hero-carousel",
+      "blocks": {
+        "hero_slide_T7RVGi": {
+          "type": "hero_slide",
+          "settings": {
+            "color": "light",
+            "alignment_v": "middle",
+            "alignment_h": "center",
+            "alignment_v_m": "middle_m",
+            "alignment_h_m": "center_m",
+            "image_d": "shopify:\/\/shop_images\/CyberWeek_SignUp_DesktopBanner.jpg",
+            "video_poster_d": true,
+            "image_m": "shopify:\/\/shop_images\/CyberWeek_SignUp_MobileBanner.jpg",
+            "video_poster_m": true,
+            "video_autoplay": true,
+            "eyebrow": "",
+            "heading": "",
+            "heading_size": "h2",
+            "copy": "",
+            "cta_url": "",
+            "cta_copy": "",
+            "cta_url_alt": "",
+            "cta_copy_alt": "",
+            "overlay": 0
+          }
+        }
+      },
+      "block_order": [
+        "hero_slide_T7RVGi"
+      ],
+      "name": "Hero Carousel",
+      "settings": {
+        "display": "full-bleed"
+      }
+    },
+    "split_banner_NEt8yf": {
+      "type": "split-banner",
+      "blocks": {
+        "body_copy_iRx8p8": {
+          "type": "body-copy",
+          "settings": {
+            "copy": "<p>This holiday season, we’re bringing back the joy of togetherness — both in spirit and in self-care. Inspired by retro holiday nostalgia, our Better Together collection celebrates the power of meaningful pairings: time with loved ones, thoughtful gifting, and beauty routines that work better in sync.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "body_copy_iRx8p8"
+      ],
+      "disabled": true,
+      "settings": {
+        "style": "beige",
+        "padding": "full-width",
+        "arrangement": "right_asset_left_content",
+        "header": "h2",
+        "alignment": "centered",
+        "vertical_alignment": "middle",
+        "module_height": "image-height",
+        "image_d": "shopify:\/\/shop_images\/Holiday2025-WaitlistBannerImage.jpg",
+        "video_poster_d": true,
+        "video_poster_m": true,
+        "video_autoplay": true,
+        "eyebrow": "2025 Holiday Collection Coming Soon",
+        "heading": "Holiday Set Drop: Be The First To Know",
+        "cta_url": "",
+        "cta_copy": ""
+      }
+    },
+    "ticker_jhee8w": {
+      "type": "ticker",
+      "blocks": {
+        "text_VKfDzC": {
+          "type": "text",
+          "settings": {
+            "svg_icon": "flower",
+            "text": "Sign Up To Be Notified",
+            "url": ""
+          }
+        },
+        "text_hrzLM8": {
+          "type": "text",
+          "settings": {
+            "svg_icon": "flower",
+            "text": "Once a Year Savings",
+            "url": ""
+          }
+        }
+      },
+      "block_order": [
+        "text_VKfDzC",
+        "text_hrzLM8"
+      ],
+      "settings": {
+        "optional_text": "",
+        "optional_url": "",
+        "speed": 2,
+        "color_scheme": "dark-pink"
+      }
+    },
+    "banner_CxehDA": {
+      "type": "banner",
+      "settings": {
+        "color": "dark",
+        "background": "beige",
+        "alignment": "center",
+        "eyebrow": "CYBER WEEK IS ALMOST HERE",
+        "heading": "Once-a-Year-Savings",
+        "heading_size": "h2",
+        "copy": "Join the waitlist to be the first save on full-size favorites, travel-size treats & so much more.",
+        "cta_url": "",
+        "cta_copy": "",
+        "cta_url_alt": "",
+        "cta_copy_alt": "",
+        "overlay": 0
+      }
+    },
+    "172434219355204037": {
+      "type": "apps",
+      "blocks": {
+        "klaviyo_email_marketing_sms_form_embed_block_VaWnPW": {
+          "type": "shopify:\/\/apps\/klaviyo-email-marketing-sms\/blocks\/form-embed-block\/2632fe16-c075-4321-a88b-50b567f42507",
+          "settings": {
+            "formId": "YzAKjS"
+          }
+        }
+      },
+      "block_order": [
+        "klaviyo_email_marketing_sms_form_embed_block_VaWnPW"
+      ],
+      "settings": {}
+    },
+    "categories_aagLUL": {
+      "type": "categories",
+      "blocks": {
+        "content_TNiDGy": {
+          "type": "content",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/LashModelBlock.jpg",
+            "heading_image": "",
+            "eyebrow": "",
+            "heading": "Shop Lashes",
+            "copy": "Perfect for GrandeLASH-MD Lovers that want other fuller + bolder looking features",
+            "cta_url": "shopify:\/\/collections\/lashes",
+            "cta_copy": "Shop Now",
+            "cta_url_alt": "",
+            "cta_copy_alt": ""
+          }
+        },
+        "content_9AyHjB": {
+          "type": "content",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/BrowModelBlock.jpg",
+            "heading_image": "",
+            "eyebrow": "",
+            "heading": "Shop Brows",
+            "copy": "Perfect for boosting your confidence with thicker, bolder looking brows",
+            "cta_url": "shopify:\/\/collections\/brows",
+            "cta_copy": "Shop Now",
+            "cta_url_alt": "",
+            "cta_copy_alt": ""
+          }
+        },
+        "content_CBgP7f": {
+          "type": "content",
+          "disabled": true,
+          "settings": {
+            "image": "shopify:\/\/shop_images\/LashVibes-MainImage.jpg",
+            "heading_image": "",
+            "eyebrow": "ONLY $69 | $117 VALUE",
+            "heading": "Lash Vibes",
+            "copy": "Perfect for the real lash lover to indulge in lash-boosting best sellers",
+            "cta_url": "",
+            "cta_copy": "Shop All",
+            "cta_url_alt": "",
+            "cta_copy_alt": ""
+          }
+        },
+        "content_APhpeH": {
+          "type": "content",
+          "disabled": true,
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Lash_BrowLegends-MainImage.jpg",
+            "heading_image": "",
+            "eyebrow": "ONLY $57 | $96 VALUE",
+            "heading": "Lash & Brow Legends",
+            "copy": "Perfect for serving looks like a pro with this salon-inspired, but DIY, set",
+            "cta_url": "",
+            "cta_copy": "Shop All",
+            "cta_url_alt": "",
+            "cta_copy_alt": ""
+          }
+        },
+        "content_j7kgx4": {
+          "type": "content",
+          "disabled": true,
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Lash_BrowVibes-MainImage.jpg",
+            "heading_image": "",
+            "eyebrow": "ONLY $69 | $131 VALUE",
+            "heading": "Lash & Brow Vibes",
+            "copy": "Perfect for creating a dramatic look with beauty enhancing serums + mascara",
+            "cta_url": "",
+            "cta_copy": "",
+            "cta_url_alt": "",
+            "cta_copy_alt": ""
+          }
+        }
+      },
+      "block_order": [
+        "content_TNiDGy",
+        "content_9AyHjB",
+        "content_CBgP7f",
+        "content_APhpeH",
+        "content_j7kgx4"
+      ],
+      "settings": {
+        "eyebrow": "Fill your cart while you wait 👀",
+        "heading": "",
+        "cta_copy": "",
+        "cta_url": ""
+      }
+    }
+  },
+  "order": [
+    "shogun-helper",
+    "main",
+    "shogun-optimizer",
+    "hero_carousel_UrUUBH",
+    "split_banner_NEt8yf",
+    "ticker_jhee8w",
+    "banner_CxehDA",
+    "172434219355204037",
+    "categories_aagLUL"
+  ]
+}

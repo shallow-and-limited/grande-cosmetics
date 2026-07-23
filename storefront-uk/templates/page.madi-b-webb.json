@@ -1,0 +1,302 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "shogun-helper": {
+      "type": "shogun-helper",
+      "settings": {}
+    },
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {}
+    },
+    "shogun-optimizer": {
+      "type": "shogun-optimizer",
+      "settings": {}
+    },
+    "split_banner_aCwNfT": {
+      "type": "split-banner",
+      "blocks": {
+        "body_copy_a8XLGN": {
+          "type": "body-copy",
+          "settings": {
+            "copy": "<p>stay connected with madi | <a href=\"https:\/\/www.instagram.com\/kalee_rogers\/?hl=en\" target=\"_blank\" title=\"https:\/\/www.instagram.com\/kalee_rogers\/?hl=en\">@madibwebb<\/a><\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "body_copy_a8XLGN"
+      ],
+      "custom_css": [
+        "p a {color: white;}"
+      ],
+      "settings": {
+        "style": "rose",
+        "padding": "full-width",
+        "arrangement": "left_asset_right_content",
+        "header": "h2",
+        "alignment": "left",
+        "vertical_alignment": "middle",
+        "module_height": "image-height",
+        "image_d": "shopify:\/\/shop_images\/Madi-Webb-30965-small-withTravelLash.jpg",
+        "video_poster_d": true,
+        "video_poster_m": true,
+        "video_autoplay": true,
+        "eyebrow": "LIVE GRANDE",
+        "heading": "Madi Webb x Grande Cosmetics",
+        "cta_url": "https:\/\/grandecosmetics.com\/products\/kalee-rogers-bundle",
+        "cta_copy": "Shop The Bundle"
+      }
+    },
+    "banner_HjctWi": {
+      "type": "banner",
+      "disabled": true,
+      "settings": {
+        "color": "light",
+        "background": "rose",
+        "image_d": "shopify:\/\/shop_images\/KaleeRogers-CollectionPage-Banner-9_a42ad777-2813-4e52-88d0-da13efb2f740.jpg",
+        "image_m": "shopify:\/\/shop_images\/KaleeRogers-CollectionPage-Banner-9-Mobile.jpg",
+        "alignment": "left",
+        "eyebrow": "LIVE GRANDE",
+        "heading": "Kalee Rogers x Grande Cosmetics",
+        "heading_size": "h2",
+        "copy": "stay connected with kalee | @kalee_rogers",
+        "cta_url": "shopify:\/\/products\/kaylee-bundle",
+        "cta_copy": "Shop The Bundle",
+        "cta_url_alt": "",
+        "cta_copy_alt": "",
+        "overlay": 0
+      }
+    },
+    "ticker_Wk94Jh": {
+      "type": "ticker",
+      "blocks": {
+        "text_kYMPx8": {
+          "type": "text",
+          "settings": {
+            "svg_icon": "flower",
+            "text": "Use Code: KALEEROGERS",
+            "url": ""
+          }
+        },
+        "text_i3ER67": {
+          "type": "text",
+          "settings": {
+            "svg_icon": "flower",
+            "text": "Get 15% Off",
+            "url": ""
+          }
+        }
+      },
+      "block_order": [
+        "text_kYMPx8",
+        "text_i3ER67"
+      ],
+      "disabled": true,
+      "settings": {
+        "optional_text": "",
+        "optional_url": "",
+        "speed": 3,
+        "color_scheme": "dark-pink"
+      }
+    },
+    "product_carousel_HkKyCt": {
+      "type": "product-carousel",
+      "blocks": {
+        "content_Vhm3CP": {
+          "type": "content",
+          "settings": {
+            "product": "grandelash-md-lash-enhancing-serum-6-week-supply",
+            "category": ""
+          }
+        },
+        "content_KWmFy7": {
+          "type": "content",
+          "settings": {
+            "product": "madi-webb-bundle",
+            "category": "Shop The Bundle"
+          }
+        },
+        "content_8Xgxj9": {
+          "type": "content",
+          "settings": {
+            "product": "grandewrap-tubing-mascara-with-provitamin-b5",
+            "category": ""
+          }
+        }
+      },
+      "block_order": [
+        "content_Vhm3CP",
+        "content_KWmFy7",
+        "content_8Xgxj9"
+      ],
+      "custom_css": [],
+      "settings": {
+        "heading": "",
+        "categories": true,
+        "cta_copy": "",
+        "cta_url": ""
+      }
+    },
+    "split_banner_RpcCep": {
+      "type": "split-banner",
+      "blocks": {
+        "body_copy_9mddpK": {
+          "type": "body-copy",
+          "settings": {
+            "copy": ""
+          }
+        }
+      },
+      "block_order": [
+        "body_copy_9mddpK"
+      ],
+      "settings": {
+        "style": "rose",
+        "padding": "full-width",
+        "arrangement": "right_asset_left_content",
+        "header": "h2",
+        "alignment": "centered",
+        "vertical_alignment": "middle",
+        "module_height": "image-height",
+        "image_d": "shopify:\/\/shop_images\/Madi-Webb-30965-small-wrap.jpg",
+        "video_poster_d": true,
+        "video_poster_m": true,
+        "video_autoplay": true,
+        "eyebrow": "NO GATEKEEPING ANYMORE!",
+        "heading": "\"<em>Everyone<\/em> was asking me what mascara I used!\"",
+        "cta_url": "shopify:\/\/products\/kaylee-bundle",
+        "cta_copy": "Get The Madi Look"
+      }
+    },
+    "product_carousel_UTdhw3": {
+      "type": "product-carousel",
+      "blocks": {
+        "content_TXRGgU": {
+          "type": "content",
+          "settings": {
+            "product": "grandedrama",
+            "category": ""
+          }
+        },
+        "content_giTGtA": {
+          "type": "content",
+          "settings": {
+            "product": "grandelips-gloss",
+            "category": ""
+          }
+        },
+        "content_T9EHpk": {
+          "type": "content",
+          "settings": {
+            "product": "grandeprimer",
+            "category": ""
+          }
+        }
+      },
+      "block_order": [
+        "content_TXRGgU",
+        "content_giTGtA",
+        "content_T9EHpk"
+      ],
+      "settings": {
+        "heading": "Add Madi's Faves To Your Routine",
+        "categories": false,
+        "cta_copy": "",
+        "cta_url": ""
+      }
+    },
+    "split_banner_J6idnr": {
+      "type": "split-banner",
+      "blocks": {
+        "body_copy_J6CKfn": {
+          "type": "body-copy",
+          "settings": {
+            "copy": "<h6><\/h6><p>stay connected with madi | <a href=\"https:\/\/www.instagram.com\/kalee_rogers\/?hl=en\" target=\"_blank\" title=\"https:\/\/www.instagram.com\/kalee_rogers\/?hl=en\">@madibwebb<\/a><\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "body_copy_J6CKfn"
+      ],
+      "custom_css": [
+        "p a {color: black;}"
+      ],
+      "settings": {
+        "style": "beige",
+        "padding": "full-width",
+        "arrangement": "left_asset_right_content",
+        "header": "h2",
+        "alignment": "left",
+        "vertical_alignment": "middle",
+        "module_height": "image-height",
+        "image_d": "shopify:\/\/shop_images\/Madi-Webb-30965.jpg",
+        "video_poster_d": true,
+        "video_poster_m": true,
+        "video_autoplay": true,
+        "eyebrow": "",
+        "heading": "\"Mark my words, <em>people are going to be talking about this\"<\/em>",
+        "cta_url": "shopify:\/\/products\/kaylee-bundle",
+        "cta_copy": "Try It For Yourself"
+      }
+    },
+    "product_carousel_M9gpFi": {
+      "type": "product-carousel",
+      "blocks": {
+        "content_AxnWCw": {
+          "type": "content",
+          "settings": {
+            "product": "grandelash-separator-lash-separating-comb",
+            "category": ""
+          }
+        },
+        "content_URbxkN": {
+          "type": "content",
+          "settings": {
+            "product": "grandefanatic-fanning-curling-mascara",
+            "category": ""
+          }
+        },
+        "content_fP7WCM": {
+          "type": "content",
+          "settings": {
+            "product": "grandebrow",
+            "category": ""
+          }
+        }
+      },
+      "block_order": [
+        "content_AxnWCw",
+        "content_URbxkN",
+        "content_fP7WCM"
+      ],
+      "settings": {
+        "heading": "More Of Madi's Faves",
+        "categories": false,
+        "cta_copy": "",
+        "cta_url": ""
+      }
+    }
+  },
+  "order": [
+    "shogun-helper",
+    "main",
+    "shogun-optimizer",
+    "split_banner_aCwNfT",
+    "banner_HjctWi",
+    "ticker_Wk94Jh",
+    "product_carousel_HkKyCt",
+    "split_banner_RpcCep",
+    "product_carousel_UTdhw3",
+    "split_banner_J6idnr",
+    "product_carousel_M9gpFi"
+  ]
+}

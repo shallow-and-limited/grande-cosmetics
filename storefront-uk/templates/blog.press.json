@@ -1,0 +1,67 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "blog_carousel_rzLXED": {
+      "type": "blog-carousel",
+      "blocks": {
+        "blog_carousel_block_tgQcaK": {
+          "type": "blog_carousel_block",
+          "settings": {
+            "article": "news\/no-falsies-february",
+            "heading": "It's No Falsies February!",
+            "cta_copy": "Read More"
+          }
+        },
+        "blog_carousel_block_XCPEDN": {
+          "type": "blog_carousel_block",
+          "settings": {
+            "article": "news\/grandelash-md-a-deep-dive-into-its-ingredients-safety-and-how-i-use-it",
+            "heading": "GrandeLash-MD Deep Dive",
+            "cta_copy": "Jump In"
+          }
+        },
+        "blog_carousel_block_LGVxwW": {
+          "type": "blog_carousel_block",
+          "settings": {
+            "article": "news\/how-to-slay-the-sunday-scaries",
+            "heading": "How to Slay the Sunday Scaries",
+            "cta_copy": "Slay Away!"
+          }
+        },
+        "blog_carousel_block_q4HPmF": {
+          "type": "blog_carousel_block",
+          "settings": {
+            "article": "news\/grandelash-md-masterclass-science-backed-truths-for-your-best-lashes",
+            "heading": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
+            "cta_copy": "Test CTA goes here"
+          }
+        }
+      },
+      "block_order": [
+        "blog_carousel_block_tgQcaK",
+        "blog_carousel_block_XCPEDN",
+        "blog_carousel_block_LGVxwW",
+        "blog_carousel_block_q4HPmF"
+      ],
+      "settings": {}
+    },
+    "main": {
+      "type": "main-blog",
+      "settings": {
+        "paginate_by": 3
+      }
+    }
+  },
+  "order": [
+    "blog_carousel_rzLXED",
+    "main"
+  ]
+}

@@ -1,0 +1,380 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "shogun-helper": {
+      "type": "shogun-helper",
+      "disabled": true,
+      "settings": {}
+    },
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {}
+    },
+    "shogun-optimizer": {
+      "type": "shogun-optimizer",
+      "disabled": true,
+      "settings": {}
+    },
+    "hero_carousel_YxRn9h": {
+      "type": "hero-carousel",
+      "blocks": {
+        "hero_slide_ymUtBm": {
+          "type": "hero_slide",
+          "settings": {
+            "color": "light",
+            "image_d": "shopify://shop_images/LashRepair-Banner-Desktop-2.jpg",
+            "video_poster_d": true,
+            "video_poster_m": true,
+            "video_autoplay": true,
+            "eyebrow": "TRANSFORM YOUR LASHES IN JUST 2 WEEKS",
+            "heading": "Ready For Lashes <em>That Wow?</em>",
+            "heading_size": "h2",
+            "copy": "Whether you’re all about enhancing your natural lashes or reducing lash fallout, GrandeLASH-MD and GrandeREPAIR have got you covered.",
+            "cta_url": "https://grandecosmetics.com/products/grandelash-md-granderepair-bundle-1",
+            "cta_copy": "Shop The Lash Duo",
+            "cta_url_alt": "",
+            "cta_copy_alt": "",
+            "overlay": 0
+          }
+        }
+      },
+      "block_order": [
+        "hero_slide_ymUtBm"
+      ],
+      "settings": {
+        "display": "full-bleed"
+      }
+    },
+    "ticker_J8WcQf": {
+      "type": "ticker",
+      "blocks": {
+        "text_EAzg3i": {
+          "type": "text",
+          "settings": {
+            "svg_icon": "flower",
+            "text": "Save 15% when you bundle these together",
+            "url": "https://grandecosmetics.com/products/grandelash-md-granderepair-bundle-1"
+          }
+        }
+      },
+      "block_order": [
+        "text_EAzg3i"
+      ],
+      "settings": {
+        "optional_text": "",
+        "optional_url": "https://grandecosmetics.com/products/grandelash-md-granderepair-bundle-1",
+        "speed": 3,
+        "color_scheme": "bloom"
+      }
+    },
+    "split_banner_FLEUHV": {
+      "type": "split-banner",
+      "blocks": {
+        "body_copy_F7xUYn": {
+          "type": "body-copy",
+          "settings": {
+            "copy": "<p>Get ready for lashes that look healthier, longer, and fuller in no time. Whether you’re all about enhancing your natural lashes or locking in your lash game, GrandeLASH-MD and GrandeREPAIR have got you covered.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "body_copy_F7xUYn"
+      ],
+      "disabled": true,
+      "settings": {
+        "style": "rose",
+        "padding": "full-width",
+        "arrangement": "left_asset_right_content",
+        "header": "h2",
+        "alignment": "left",
+        "vertical_alignment": "middle",
+        "module_height": "image-height",
+        "image_d": "shopify://shop_images/KaleeLashRepair.jpg",
+        "video_poster_d": true,
+        "video_poster_m": true,
+        "video_autoplay": true,
+        "eyebrow": "Transform Your Lashes in Just 2 Weeks",
+        "heading": "Ready for Lashes That Wow?",
+        "cta_url": "shopify://products/grandelash-md",
+        "cta_copy": "Shop the Lash Duo Now"
+      }
+    },
+    "split_banner_CiiLwn": {
+      "type": "split-banner",
+      "blocks": {
+        "body_copy_MYkJec": {
+          "type": "body-copy",
+          "settings": {
+            "copy": "<p><strong>💖 GrandeLASH-MD</strong>: Ready to serve you longer, fuller, and thicker looking lashes in just 4-6 weeks.<br/><br/><strong>💖 GrandeREPAIR</strong>: Your go-to for keeping lashes strong, flexible, and fabulous—because breakage is not in your lash vocabulary.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "body_copy_MYkJec"
+      ],
+      "settings": {
+        "style": "beige",
+        "padding": "inset",
+        "arrangement": "right_asset_left_content",
+        "header": "h3",
+        "alignment": "left",
+        "vertical_alignment": "middle",
+        "module_height": "image-height",
+        "image_d": "shopify://shop_images/Lash_Repair-small.jpg",
+        "video_poster_d": true,
+        "video_poster_m": true,
+        "video_autoplay": true,
+        "eyebrow": "Award-Winning Products",
+        "heading": "Meet Your Lash Dream Team",
+        "cta_url": "https://grandecosmetics.com/products/grandelash-md-granderepair-bundle-1",
+        "cta_copy": "Shop the Duo & Save 15%"
+      }
+    },
+    "banner_N8MAmx": {
+      "type": "banner",
+      "settings": {
+        "color": "light",
+        "background": "rose",
+        "alignment": "center",
+        "eyebrow": "",
+        "heading": "Amplify Your Lashes,  Babe",
+        "heading_size": "h3",
+        "copy": "This power pair that helps you achieve lash pro status. GrandeLASH-MD and GrandeREPAIR work wonders on their own, but are even better together.",
+        "cta_url": "shopify://products/grandelash-md-granderepair-bundle-1",
+        "cta_copy": "Shop The Dream Duo",
+        "cta_url_alt": "",
+        "cta_copy_alt": "",
+        "overlay": 0
+      }
+    },
+    "split_banner_rz3M9p": {
+      "type": "split-banner",
+      "blocks": {
+        "body_copy_3edgrq": {
+          "type": "body-copy",
+          "settings": {
+            "copy": "<p><strong>💖 Instantly</strong>: Say hello to softer, hydrated lashes.</p><p><strong><br/>🫶 In 2 Weeks</strong>: Healthier, stronger, full-on fabulous lashes.</p><p><strong><br/>⏰ Over Time</strong>: Unlock your full lash potential.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "body_copy_3edgrq"
+      ],
+      "settings": {
+        "style": "beige",
+        "padding": "full-width",
+        "arrangement": "left_asset_right_content",
+        "header": "h3",
+        "alignment": "left",
+        "vertical_alignment": "middle",
+        "module_height": "image-height",
+        "image_d": "shopify://shop_images/Kalee-Lash.png",
+        "video_poster_d": true,
+        "video_poster_m": true,
+        "video_autoplay": true,
+        "eyebrow": "",
+        "heading": "How Does It Work?",
+        "cta_url": "https://grandecosmetics.com/products/grandelash-md-granderepair-bundle-1",
+        "cta_copy": "Transform Your Lashes"
+      }
+    },
+    "fw_html_embed_XNMedp": {
+      "type": "fw-html-embed",
+      "custom_css": [
+        "h5 {font-size: 45px;}"
+      ],
+      "settings": {
+        "title": "Lash Love",
+        "embed_code": "<script async type=\"text/javascript\" src=\"//asset.fwcdn3.com/js/embed-feed.js\"></script>\n\n    <fw-embed-feed channel=\"grandecosmetics\" playlist=\"oBWrd2\" mode=\"row\" open_in=\"default\" max_videos=\"0\" placement=\"middle\" player_placement=\"bottom-right\" branding=\"false\"></fw-embed-feed>"
+      }
+    },
+    "split_banner_Ei6tNT": {
+      "type": "split-banner",
+      "blocks": {
+        "body_copy_JdJRF8": {
+          "type": "body-copy",
+          "settings": {
+            "copy": "<p>Lash fallout? Not here. GrandeREPAIR is powered by Widelash™ to strengthen and condition your lashes, giving them the love they need to stay full and fabulous.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "body_copy_JdJRF8"
+      ],
+      "settings": {
+        "style": "beige",
+        "padding": "inset",
+        "arrangement": "right_asset_left_content",
+        "header": "h3",
+        "alignment": "left",
+        "vertical_alignment": "middle",
+        "module_height": "image-height",
+        "image_d": "shopify://shop_images/GrandeREPAIR_Before_After-square_1622550a-2bd6-4c1c-856e-9abffcb89356.jpg",
+        "video_poster_d": true,
+        "video_poster_m": true,
+        "video_autoplay": true,
+        "image_product": "shopify://shop_images/Group_3270.png",
+        "eyebrow": "Keep Your Lashes Strong",
+        "heading": "AM: GrandeREPAIR",
+        "cta_url": "shopify://products/granderepair-leave-in-lash-conditioner",
+        "cta_copy": "Shop GrandeREPAIR"
+      }
+    },
+    "split_banner_fnG3q4": {
+      "type": "split-banner",
+      "blocks": {
+        "body_copy_8qUCpR": {
+          "type": "body-copy",
+          "settings": {
+            "copy": "<p>Dreaming of longer, fuller lashes? GrandeLASH-MD is clinically tested to deliver major lash love in just 4-6 weeks. Apply it once daily like liquid liner and let the magic happen.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "body_copy_8qUCpR"
+      ],
+      "settings": {
+        "style": "beige",
+        "padding": "inset",
+        "arrangement": "left_asset_right_content",
+        "header": "h3",
+        "alignment": "left",
+        "vertical_alignment": "middle",
+        "module_height": "image-height",
+        "image_d": "shopify://shop_images/Lash_Before_After.jpg",
+        "video_poster_d": true,
+        "video_poster_m": true,
+        "video_autoplay": true,
+        "image_product": "shopify://shop_images/Group_3274.png",
+        "eyebrow": "Longer Looking Lashes in 4-6 Weeks",
+        "heading": "PM: GrandeLASH-MD",
+        "cta_url": "shopify://products/grandelash-md",
+        "cta_copy": "Shop GrandeLASH-MD"
+      }
+    },
+    "testimonials_PEQyhM": {
+      "type": "testimonials",
+      "blocks": {
+        "testimonial_slide_color_6gg9D3": {
+          "type": "testimonial_slide_color",
+          "settings": {
+            "text_placement": "top",
+            "text_color": "white",
+            "eyebrow": "",
+            "quote_size": "h4",
+            "quote": "\"My lashes are stronger, healthier, and there is way less lash fall out since using them. GrandeREPAIR and my GrandeLASH-MD serum will continue to my holy grails.\"",
+            "text": "— Olivia",
+            "cta_url": "",
+            "cta_copy": ""
+          }
+        },
+        "testimonial_slide_color_6F4ADy": {
+          "type": "testimonial_slide_color",
+          "settings": {
+            "text_placement": "top",
+            "text_color": "white",
+            "eyebrow": "",
+            "quote_size": "h3",
+            "quote": "\"Using GrandeREPAIR has definitely improved how my lashes feel. I regularly use the GrandeLASH serum in my skincare routine and it was really easy to just add an extra step of this lash conditioner.\"",
+            "text": "— Sahar",
+            "cta_url": "",
+            "cta_copy": ""
+          }
+        }
+      },
+      "block_order": [
+        "testimonial_slide_color_6gg9D3",
+        "testimonial_slide_color_6F4ADy"
+      ],
+      "disabled": true,
+      "settings": {
+        "slide_type": "color_bg",
+        "background_color": "rose"
+      }
+    },
+    "product_carousel_ghQRyV": {
+      "type": "product-carousel",
+      "blocks": {
+        "content_K3naFT": {
+          "type": "content",
+          "settings": {
+            "product": "grandelash-md-granderepair-bundle-1",
+            "category": ""
+          }
+        },
+        "content_JCdUpw": {
+          "type": "content",
+          "settings": {
+            "product": "grandelash-md",
+            "category": ""
+          }
+        },
+        "content_wiLTqi": {
+          "type": "content",
+          "settings": {
+            "product": "granderepair-leave-in-lash-conditioner",
+            "category": ""
+          }
+        }
+      },
+      "block_order": [
+        "content_K3naFT",
+        "content_JCdUpw",
+        "content_wiLTqi"
+      ],
+      "settings": {
+        "heading": "Shop The Routine",
+        "categories": false,
+        "cta_copy": "",
+        "cta_url": ""
+      }
+    },
+    "split_banner_T6fwjb": {
+      "type": "split-banner",
+      "disabled": true,
+      "settings": {
+        "style": "beige",
+        "padding": "full-width",
+        "arrangement": "right_asset_left_content",
+        "header": "h2",
+        "alignment": "centered",
+        "vertical_alignment": "middle",
+        "module_height": "image-height",
+        "image_d": "shopify://shop_images/Group.png",
+        "video_poster_d": true,
+        "video_poster_m": true,
+        "video_autoplay": true,
+        "eyebrow": "",
+        "heading": "Let's Make Those Lash Goals Happen",
+        "cta_url": "https://grandecosmetics.com/products/grandelash-md-granderepair-bundle-1",
+        "cta_copy": "Bundle & Save 15%"
+      }
+    }
+  },
+  "order": [
+    "shogun-helper",
+    "main",
+    "shogun-optimizer",
+    "hero_carousel_YxRn9h",
+    "ticker_J8WcQf",
+    "split_banner_FLEUHV",
+    "split_banner_CiiLwn",
+    "banner_N8MAmx",
+    "split_banner_rz3M9p",
+    "fw_html_embed_XNMedp",
+    "split_banner_Ei6tNT",
+    "split_banner_fnG3q4",
+    "testimonials_PEQyhM",
+    "product_carousel_ghQRyV",
+    "split_banner_T6fwjb"
+  ]
+}

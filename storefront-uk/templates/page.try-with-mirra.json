@@ -1,0 +1,354 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "shogun-helper": {
+      "type": "shogun-helper",
+      "disabled": true,
+      "settings": {}
+    },
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {}
+    },
+    "split_banner_D8R9N8": {
+      "type": "split-banner",
+      "blocks": {
+        "body_copy_jGxfXc": {
+          "type": "body-copy",
+          "settings": {
+            "copy": "<p>We know how important it is to find the cosmetics that work best for you, especially when shopping online.<br/><br/>That's why we're now offering a <strong>Try Before You Buy </strong>service so you can try our products in the comfort of your own home, and only pay for what you love!</p>"
+          }
+        }
+      },
+      "block_order": [
+        "body_copy_jGxfXc"
+      ],
+      "custom_css": [
+        ".split-banner__background img {max-height: 720px; /* choose whatever size you want */ object-fit: contain;}"
+      ],
+      "name": "Split Banner",
+      "settings": {
+        "style": "beige",
+        "padding": "inset",
+        "arrangement": "left_asset_right_content",
+        "header": "h2",
+        "alignment": "centered",
+        "vertical_alignment": "middle",
+        "module_height": "image-height",
+        "image_d": "shopify://shop_images/GrandeLASH-MD-MODEL_4e58c343-22a6-44fd-9616-20042260dc3e.jpg",
+        "video_poster_d": true,
+        "video_poster_m": true,
+        "video_autoplay": true,
+        "eyebrow": "",
+        "heading": "Try Before You Buy",
+        "cta_url": "shopify://collections/try-before-you-buy",
+        "cta_copy": "Shop Now"
+      }
+    },
+    "split_banner_xdy3bB": {
+      "type": "split-banner",
+      "blocks": {
+        "body_copy_A9zyyD": {
+          "type": "body-copy",
+          "settings": {
+            "copy": "<p><strong>Add to Cart: </strong>Use the Try Before You Buy button when adding items to your cart.</p><p>‎ </p><p><strong>Checkout & Payment Hold: </strong>We temporarily freeze the full amount on your card to reserve your items. It will show as pending in your account, but not paid. You won’t be charged until you decide to keep the items.</p><p>‎ </p><p><strong>Try at Home:</strong> Once your order arrives, you will have 30 days to try your products at home.</p><p>‎ </p><p><strong>Complete Order: </strong>We'll send access to your Customer Portal where you can follow the steps to finalise your order. You'll only be charged for the items you decide to keep.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "body_copy_A9zyyD"
+      ],
+      "custom_css": [
+        ".split-banner__background img {max-height: 720px; /* choose whatever size you want */ object-fit: contain;}"
+      ],
+      "name": "Split Banner",
+      "settings": {
+        "style": "rose",
+        "padding": "inset",
+        "arrangement": "right_asset_left_content",
+        "header": "h2",
+        "alignment": "centered",
+        "vertical_alignment": "middle",
+        "module_height": "image-height",
+        "image_d": "shopify://shop_images/polly-sensitive-application.jpg",
+        "video_poster_d": true,
+        "video_poster_m": true,
+        "video_autoplay": true,
+        "eyebrow": "",
+        "heading": "How does it work?",
+        "cta_url": "shopify://collections/try-before-you-buy",
+        "cta_copy": "Shop Now"
+      }
+    },
+    "split_banner_rERdm4": {
+      "type": "split-banner",
+      "blocks": {
+        "body_copy_rih4X9": {
+          "type": "body-copy",
+          "settings": {
+            "copy": "<p>If you need to return anything, we'll send you a prepaid return label to download.</p><p>‎ </p><p><strong>Return Guidelines</strong>:</p><p>Returns must be posted within 3 days of completing the order.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "body_copy_rih4X9"
+      ],
+      "custom_css": [
+        ".split-banner__background img {max-height: 720px; /* choose whatever size you want */ object-fit: contain;}"
+      ],
+      "name": "Split Banner",
+      "settings": {
+        "style": "beige",
+        "padding": "inset",
+        "arrangement": "left_asset_right_content",
+        "header": "h2",
+        "alignment": "centered",
+        "vertical_alignment": "middle",
+        "module_height": "image-height",
+        "image_d": "shopify://shop_images/diana-brow-press.jpg",
+        "video_poster_d": true,
+        "video_poster_m": true,
+        "video_autoplay": true,
+        "eyebrow": "",
+        "heading": "Returns",
+        "cta_url": "shopify://collections/try-before-you-buy",
+        "cta_copy": "Shop Now"
+      }
+    },
+    "faq_N9Dj8n": {
+      "type": "faq",
+      "custom_css": [
+        ".faq-section {padding-top: 0px; padding-bottom: 0px;}"
+      ],
+      "name": "FAQ Section",
+      "settings": {}
+    },
+    "shogun-optimizer": {
+      "type": "shogun-optimizer",
+      "disabled": true,
+      "settings": {}
+    },
+    "banner_HjctWi": {
+      "type": "banner",
+      "disabled": true,
+      "settings": {
+        "color": "light",
+        "background": "beige",
+        "image_d": "shopify://shop_images/KaleeRogers-CollectionPage-Banner-8.jpg",
+        "alignment": "left",
+        "eyebrow": "",
+        "heading": "",
+        "heading_size": "h2",
+        "copy": "",
+        "cta_url": "",
+        "cta_copy": "",
+        "cta_url_alt": "",
+        "cta_copy_alt": "",
+        "overlay": 0
+      }
+    },
+    "ticker_Wk94Jh": {
+      "type": "ticker",
+      "blocks": {
+        "text_kYMPx8": {
+          "type": "text",
+          "settings": {
+            "svg_icon": "flower",
+            "text": "Use Code: KALEEROGERS",
+            "url": ""
+          }
+        },
+        "text_i3ER67": {
+          "type": "text",
+          "settings": {
+            "svg_icon": "flower",
+            "text": "Get 15% Off",
+            "url": ""
+          }
+        }
+      },
+      "block_order": [
+        "text_kYMPx8",
+        "text_i3ER67"
+      ],
+      "disabled": true,
+      "settings": {
+        "optional_text": "",
+        "optional_url": "",
+        "speed": 3,
+        "color_scheme": "dark-pink"
+      }
+    },
+    "product_carousel_HkKyCt": {
+      "type": "product-carousel",
+      "blocks": {
+        "content_Vhm3CP": {
+          "type": "content",
+          "settings": {
+            "product": "grandelash-md",
+            "category": ""
+          }
+        },
+        "content_KWmFy7": {
+          "type": "content",
+          "settings": {
+            "product": "kaylee-bundle",
+            "category": "Shop The Bundle"
+          }
+        },
+        "content_8Xgxj9": {
+          "type": "content",
+          "settings": {
+            "product": "grandedrama",
+            "category": ""
+          }
+        }
+      },
+      "block_order": [
+        "content_Vhm3CP",
+        "content_KWmFy7",
+        "content_8Xgxj9"
+      ],
+      "disabled": true,
+      "custom_css": [],
+      "settings": {
+        "heading": "",
+        "categories": true,
+        "cta_copy": "",
+        "cta_url": ""
+      }
+    },
+    "split_banner_RpcCep": {
+      "type": "split-banner",
+      "blocks": {
+        "body_copy_9mddpK": {
+          "type": "body-copy",
+          "settings": {
+            "copy": "<p>BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY</p>"
+          }
+        }
+      },
+      "block_order": [
+        "body_copy_9mddpK"
+      ],
+      "disabled": true,
+      "settings": {
+        "style": "blush",
+        "padding": "full-width",
+        "arrangement": "right_asset_left_content",
+        "header": "h4",
+        "alignment": "left",
+        "vertical_alignment": "middle",
+        "module_height": "image-height",
+        "video_poster_d": true,
+        "video_poster_m": true,
+        "video_d": "shopify://files/videos/Lash_Defense_Alicia_DO_AND_DONT__CC_Logo_V13.mp4",
+        "video_autoplay": true,
+        "eyebrow": "",
+        "heading": "Why You Need This Bundle",
+        "cta_url": "shopify://products/kaylee-bundle",
+        "cta_copy": "Shop Now"
+      }
+    },
+    "product_carousel_UTdhw3": {
+      "type": "product-carousel",
+      "blocks": {
+        "content_TXRGgU": {
+          "type": "content",
+          "settings": {
+            "product": "mini-magic-set-1",
+            "category": ""
+          }
+        },
+        "content_giTGtA": {
+          "type": "content",
+          "settings": {
+            "product": "grandelips-gloss",
+            "category": ""
+          }
+        },
+        "content_T9EHpk": {
+          "type": "content",
+          "settings": {
+            "product": "grandeprimer",
+            "category": ""
+          }
+        }
+      },
+      "block_order": [
+        "content_TXRGgU",
+        "content_giTGtA",
+        "content_T9EHpk"
+      ],
+      "disabled": true,
+      "settings": {
+        "heading": "Add Kalee's Faves To Your Routine",
+        "categories": false,
+        "cta_copy": "",
+        "cta_url": ""
+      }
+    },
+    "product_carousel_M9gpFi": {
+      "type": "product-carousel",
+      "blocks": {
+        "content_AxnWCw": {
+          "type": "content",
+          "settings": {
+            "product": "grandelash-separator-lash-separating-comb",
+            "category": ""
+          }
+        },
+        "content_URbxkN": {
+          "type": "content",
+          "settings": {
+            "product": "grandefanatic-fanning-curling-mascara",
+            "category": ""
+          }
+        },
+        "content_fP7WCM": {
+          "type": "content",
+          "settings": {
+            "product": "mighty-minis-set",
+            "category": ""
+          }
+        }
+      },
+      "block_order": [
+        "content_AxnWCw",
+        "content_URbxkN",
+        "content_fP7WCM"
+      ],
+      "disabled": true,
+      "settings": {
+        "heading": "",
+        "categories": false,
+        "cta_copy": "",
+        "cta_url": ""
+      }
+    }
+  },
+  "order": [
+    "shogun-helper",
+    "main",
+    "split_banner_D8R9N8",
+    "split_banner_xdy3bB",
+    "split_banner_rERdm4",
+    "faq_N9Dj8n",
+    "shogun-optimizer",
+    "banner_HjctWi",
+    "ticker_Wk94Jh",
+    "product_carousel_HkKyCt",
+    "split_banner_RpcCep",
+    "product_carousel_UTdhw3",
+    "product_carousel_M9gpFi"
+  ]
+}

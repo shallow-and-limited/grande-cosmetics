@@ -162,6 +162,11 @@
           "fast_latching": false,
           "url_path_patterns": ""
         }
+      },
+      "4146198581824321198": {
+        "type": "shopify://apps/postscript-sms-marketing/blocks/sdk/019be67b-1a2f-7589-97a3-72f1751f443e",
+        "disabled": false,
+        "settings": {}
       }
     }
   },
