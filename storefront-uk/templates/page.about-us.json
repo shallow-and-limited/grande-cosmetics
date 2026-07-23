@@ -1,0 +1,259 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {}
+    },
+    "split_banner_BbeYmF": {
+      "type": "split-banner",
+      "blocks": {
+        "body_copy_icAHtE": {
+          "type": "body-copy",
+          "settings": {
+            "copy": "<p>While the rest tell you to cover up, “make-up”, & conceal; we’re all about accentuating what’s real. Clinically proven formulas. Obvious results. Discover DIY beauty amplifiers to help you embrace your real, authentic self. </p>"
+          }
+        }
+      },
+      "block_order": [
+        "body_copy_icAHtE"
+      ],
+      "settings": {
+        "style": "rose",
+        "padding": "full-width",
+        "arrangement": "left_asset_right_content",
+        "header": "h2",
+        "alignment": "left",
+        "vertical_alignment": "middle",
+        "module_height": "image-height",
+        "image_d": "shopify://shop_images/people.jpg",
+        "video_poster_d": true,
+        "video_poster_m": true,
+        "video_autoplay": true,
+        "eyebrow": "",
+        "heading": "You, <em>Amplified</em>",
+        "cta_url": "shopify://collections/best-sellers",
+        "cta_copy": "Discover Now"
+      }
+    },
+    "ticker_ptmRqh": {
+      "type": "ticker",
+      "blocks": {
+        "text_VwneCr": {
+          "type": "text",
+          "settings": {
+            "svg_icon": "flower",
+            "text": "We’re all about <em>revealing</em>, not concealing",
+            "url": ""
+          }
+        },
+        "text_REkJaW": {
+          "type": "text",
+          "settings": {
+            "svg_icon": "flower",
+            "text": "We promise to deliver <em>real, undeniable</em> results",
+            "url": ""
+          }
+        },
+        "text_B8eMny": {
+          "type": "text",
+          "settings": {
+            "svg_icon": "flower",
+            "text": "Embrace your <em>real, authentic self</em>",
+            "url": ""
+          }
+        },
+        "text_Bah7VY": {
+          "type": "text",
+          "settings": {
+            "svg_icon": "flower",
+            "text": "Show up <em>unafraid + effortlessly confident</em>",
+            "url": ""
+          }
+        }
+      },
+      "block_order": [
+        "text_VwneCr",
+        "text_REkJaW",
+        "text_B8eMny",
+        "text_Bah7VY"
+      ],
+      "settings": {
+        "optional_text": "",
+        "optional_url": "",
+        "speed": 0.5,
+        "color_scheme": "blush"
+      }
+    },
+    "split_banner_4hGmbc": {
+      "type": "split-banner",
+      "blocks": {
+        "body_copy_hdkA7A": {
+          "type": "body-copy",
+          "settings": {
+            "copy": "<p>\"Living grande means claiming your confidence & building a life that’s bigger than beauty. It means treating yourself better than you did yesterday.<br/><br/>It’s taking 10 seconds to swipe on a lash serum for longer-looking lashes. </p><p>A brush of brow serum to help fill in gaps from over-plucking (yes, we’re talking to you). It’s mini moments of high-maintenance now, to be a low-maintenance future-you.<br/><br/>Putting yourself first isn’t a bad thing — it’s badass. You better believe we’re showing up as the best version of ourselves.  Motivated by moments where we can say “no, these are my real lashes!” And that's the beauty of it — allow you to show up unafraid, & effortlessly confident in what you bring to the table.  So what are you waiting for? It’s time to level up & start living Grande.\"<br/><br/>—xoxo, Alicia Grande<br/>CEO & Founder</p>"
+          }
+        }
+      },
+      "block_order": [
+        "body_copy_hdkA7A"
+      ],
+      "settings": {
+        "style": "beige",
+        "padding": "inset",
+        "arrangement": "left_asset_right_content",
+        "header": "h2",
+        "alignment": "left",
+        "vertical_alignment": "middle",
+        "module_height": "image-height",
+        "image_d": "shopify://shop_images/AboutUs_AliciaImage.jpg",
+        "video_poster_d": true,
+        "video_poster_m": true,
+        "video_autoplay": true,
+        "eyebrow": "",
+        "heading": "Live <em>Grande</em> | Our Ethos",
+        "cta_url": "shopify://collections/best-sellers",
+        "cta_copy": "Start Living"
+      }
+    },
+    "banner_rVe7zn": {
+      "type": "banner",
+      "settings": {
+        "color": "light",
+        "background": "rose",
+        "alignment": "center",
+        "eyebrow": "",
+        "heading": "We’re on a <em>mission</em> to create DIY beauty amplifiers that <em>lengthen, thicken, & densify real lashes, brows, hair, & lips.​</em>",
+        "heading_size": "h4",
+        "copy": "",
+        "cta_url": "",
+        "cta_copy": "",
+        "cta_url_alt": "",
+        "cta_copy_alt": "",
+        "overlay": 0
+      }
+    },
+    "split_banner_4PkF4c": {
+      "type": "split-banner",
+      "blocks": {
+        "body_copy_fcewdy": {
+          "type": "body-copy",
+          "settings": {
+            "copy": "<p>If you’re looking for clinically proven formulas that deliver real, undeniable results, you’ve landed in the right place. We started the lash serum revolution & set the industry's bar for safety & performance testing with our cult favorite: GrandeLASH-MD lash enhancing serum. From there, we went on to create a category that didn’t exist: enhancing serums & serum-infused makeup. Think scientific formulations that bring out your natural features (like your brows, hair, lips, & beyond) — all so you can feel like <em>the very best</em> version of yourself.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "body_copy_fcewdy"
+      ],
+      "settings": {
+        "style": "beige",
+        "padding": "full-width",
+        "arrangement": "right_asset_left_content",
+        "header": "h3",
+        "alignment": "left",
+        "vertical_alignment": "middle",
+        "module_height": "image-height",
+        "image_d": "shopify://shop_images/lashserum.jpg",
+        "video_poster_d": true,
+        "video_poster_m": true,
+        "video_autoplay": true,
+        "eyebrow": "OVER 17 YEARS OF BEAUTY ENHANCERS",
+        "heading": "The Original Lash Serum Innovators",
+        "cta_url": "shopify://products/grandelash-md",
+        "cta_copy": "Shop The OG"
+      }
+    },
+    "categories_gTNLMG": {
+      "type": "categories",
+      "blocks": {
+        "content_nMac6R": {
+          "type": "content",
+          "settings": {
+            "image": "shopify://shop_images/LongLashes-CategoryImage.jpg",
+            "heading_image": "Long <em>Lashes</em>",
+            "eyebrow": "",
+            "heading": "",
+            "copy": "",
+            "cta_url": "shopify://collections/lashes",
+            "cta_copy": "",
+            "cta_url_alt": "",
+            "cta_copy_alt": ""
+          }
+        },
+        "content_bPfycM": {
+          "type": "content",
+          "settings": {
+            "image": "shopify://shop_images/BoldBrows-CategoryImage.jpg",
+            "heading_image": "Bold <em>Brows</em>",
+            "eyebrow": "",
+            "heading": "",
+            "copy": "",
+            "cta_url": "shopify://collections/brows",
+            "cta_copy": "",
+            "cta_url_alt": "",
+            "cta_copy_alt": ""
+          }
+        },
+        "content_RJBMQ6": {
+          "type": "content",
+          "settings": {
+            "image": "shopify://shop_images/ThickHair-CategoryImage.jpg",
+            "heading_image": "Thick <em>Hair</em>",
+            "eyebrow": "",
+            "heading": "",
+            "copy": "",
+            "cta_url": "shopify://collections/hair",
+            "cta_copy": "",
+            "cta_url_alt": "",
+            "cta_copy_alt": ""
+          }
+        },
+        "content_63bk8G": {
+          "type": "content",
+          "settings": {
+            "image": "shopify://shop_images/FullLips-CategoryImage.jpg",
+            "heading_image": "Full <em>Lips</em>",
+            "eyebrow": "",
+            "heading": "",
+            "copy": "",
+            "cta_url": "shopify://collections/lips",
+            "cta_copy": "",
+            "cta_url_alt": "",
+            "cta_copy_alt": ""
+          }
+        }
+      },
+      "block_order": [
+        "content_nMac6R",
+        "content_bPfycM",
+        "content_RJBMQ6",
+        "content_63bk8G"
+      ],
+      "settings": {
+        "eyebrow": "",
+        "heading": "Our Beauty <em>Amplifiers</em>",
+        "cta_copy": "Shop Now",
+        "cta_url": "shopify://collections/best-sellers"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "split_banner_BbeYmF",
+    "ticker_ptmRqh",
+    "split_banner_4hGmbc",
+    "banner_rVe7zn",
+    "split_banner_4PkF4c",
+    "categories_gTNLMG"
+  ]
+}

@@ -1,0 +1,137 @@
+{% comment %} {{ 'image-carousel.min.css' | asset_url | stylesheet_tag }} {% endcomment %}
+{{ 'main-article.min.css' | asset_url | stylesheet_tag }}
+
+
+
+<main-article class="article-template" itemscope itemtype="http://schema.org/BlogPosting">
+  <div class="article-template__heading">
+    <h1 class="article-template__heading-copy h3">{{ article.title }}</h1>
+    <div class="article-template__heading-date-social">
+      <div class="article-template__heading-date">
+        <time class="p-3" datetime="{{ article.published_at | date: "%Y-%m-%d" }}" itemprop="datePublished">{{ article.published_at | date: "%B %d, %Y" }}</time>
+      </div>
+      <div class="article-template__heading-tags-social">
+        <div class="article-template__heading-tags">
+          {% for tag in article.tags %}
+            <a href="{{ blog.url }}/tagged/{{ tag }}" class="p-4 color-dark-gray" aria-label="Articles tagged with {{ tag }}"># {{ tag }}</a>
+          {% endfor %}
+        </div>
+        <div class="article-template__heading-social">
+          <span class="p-4">Share:</span>
+          <a href="#" aria-label="Instagram">{% render 'icons', icon_name: 'x' %}</a>
+          <a href="#" aria-label="Facebook">{% render 'icons', icon_name: 'facebook' %}</a>
+          <a href="#" aria-label="Pinterest">{% render 'icons', icon_name: 'pinterest' %}</a>
+        </div>            
+      </div>
+    </div>
+  </div>
+  <div class="article-template__image">
+    {% render 'image', image: article.image %}
+  </div>
+  <div class="article-template__content">
+    {{ article.content }}
+  </div>
+  <div class="article-template__footer-tags-social">
+    <div class="article-template__footer-tags">
+      {% for tag in article.tags %}
+        <a href="{{ blog.url }}/tagged/{{ tag }}" class="p-4 color-dark-gray" aria-label="Articles tagged with {{ tag }}"># {{ tag }}</a>
+      {% endfor %}
+    </div>
+    <div class="article-template__footer-social">
+      <span class="p-4">Share:</span>
+      <a href="#" aria-label="Instagram">{% render 'icons', icon_name: 'x' %}</a>
+      <a href="#" aria-label="Facebook">{% render 'icons', icon_name: 'facebook' %}</a>
+      <a href="#" aria-label="Pinterest">{% render 'icons', icon_name: 'pinterest' %}</a>
+    </div>
+    <a href="{{ blog.url }}" class="p-4 color-black article-template__footer-return">Back to Beauty News</a>
+  </div>  
+  {% render 'metaobject-section', object: article %}
+</main-article>
+
+<script src="{{ 'main-article.min.js' | asset_url }}" defer></script>
+
+{% schema %}
+{
+  "name": "t:sections.main-article.name",
+  "tag": "section",
+  "class": "section",
+  "blocks": [
+    {
+      "type": "@app"
+    },
+    {
+      "type": "featured_image",
+      "name": "t:sections.main-article.blocks.featured_image.name",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "header",
+          "content": "t:sections.main-article.blocks.featured_image.settings.text.title"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_title",
+          "label": "t:sections.main-article.blocks.featured_image.settings.text.show_title",
+          "default": true
+        },
+        {
+          "type": "checkbox",
+          "id": "show_author",
+          "label": "t:sections.main-article.blocks.featured_image.settings.text.show_author",
+          "default": true
+        }
+      ]
+    },
+    {
+      "type": "title",
+      "name": "t:sections.main-article.blocks.title.name",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "blog_show_date",
+          "default": true,
+          "label": "t:sections.main-article.blocks.title.settings.blog_show_date.label"
+        },
+        {
+          "type": "checkbox",
+          "id": "blog_show_author",
+          "default": false,
+          "label": "t:sections.main-article.blocks.title.settings.blog_show_author.label"
+        }
+      ]
+    },
+    {
+      "type": "content",
+      "name": "t:sections.main-article.blocks.content.name",
+      "limit": 3
+    },
+    {
+      "type": "share",
+      "name": "t:sections.main-article.blocks.share.name",
+      "limit": 2,
+      "settings": [
+        {
+          "type": "text",
+          "id": "share_label",
+          "label": "t:sections.main-article.blocks.share.settings.text.label",
+          "default": "Share"
+        },
+        {
+          "type": "paragraph",
+          "content": "t:sections.main-article.blocks.share.settings.featured_image_info.content"
+        },
+        {
+          "type": "paragraph",
+          "content": "t:sections.main-article.blocks.share.settings.title_info.content"
+        }
+      ]
+    },
+    {
+      "type": "slider",
+      "name": "t:sections.main-article.blocks.slider.name",
+      "limit": 2
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,108 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {}
+    },
+    "split_banner_8WTU9i": {
+      "type": "split-banner",
+      "blocks": {
+        "body_copy_amez3L": {
+          "type": "body-copy",
+          "settings": {
+            "copy": "<p>With a proprietary blend of lash-loving ingredients, GrandeLASH-MD is the first step to every lash care routine for the appearance of longer, thicker, healthier looking lashes – all your own!<br\/><br\/>Not only has GrandeLASH-MD been thoroughly tested for safety & performance in third-party studies, it's also received the seal of approval from a host of nationally recognized experts.<br\/><br\/>Dermatologists, trichologists, cosmetic surgeons, and trusted industry professionals use, recommend & love GrandeLASH-MD.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "body_copy_amez3L"
+      ],
+      "settings": {
+        "style": "rose",
+        "padding": "full-width",
+        "arrangement": "right_asset_left_content",
+        "header": "h3",
+        "alignment": "left",
+        "vertical_alignment": "middle",
+        "module_height": "image-height",
+        "image_d": "shopify:\/\/shop_images\/DR.jpg",
+        "video_poster_d": true,
+        "video_poster_m": true,
+        "video_autoplay": true,
+        "eyebrow": "GrandeLASH-MD",
+        "heading": "Backed by the Pros",
+        "cta_url": "",
+        "cta_copy": ""
+      }
+    },
+    "split_banner_y8333V": {
+      "type": "split-banner",
+      "blocks": {
+        "body_copy_V4xne9": {
+          "type": "body-copy",
+          "settings": {
+            "copy": "<p>Dr. Nazanin Saedi is a leading board-certified dermatologist serving patients throughout Philadelphia and the surrounding areas. She is a clinical associate professor at Thomas Jefferson University and the Department Co-Chair of the Laser and Aesthetics Surgery Center at Dermatology Associates of Plymouth Meeting.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "body_copy_V4xne9"
+      ],
+      "settings": {
+        "style": "beige",
+        "padding": "inset",
+        "arrangement": "left_asset_right_content",
+        "header": "h3",
+        "alignment": "centered",
+        "vertical_alignment": "middle",
+        "module_height": "image-height",
+        "image_d": "shopify:\/\/shop_images\/Screenshot_2024-09-04_at_10.22.09_AM.png",
+        "video_poster_d": false,
+        "video_poster_m": false,
+        "video_d": "shopify:\/\/files\/videos\/dr._naz___grandelash-md.mp4",
+        "video_autoplay": false,
+        "eyebrow": "From Dr. Nazanin Saedi, M.D.",
+        "heading": "Application Tips",
+        "cta_url": "",
+        "cta_copy": ""
+      }
+    },
+    "split_banner_T3Gzwt": {
+      "type": "split-banner",
+      "settings": {
+        "style": "beige",
+        "padding": "inset",
+        "arrangement": "right_asset_left_content",
+        "header": "h3",
+        "alignment": "centered",
+        "vertical_alignment": "middle",
+        "module_height": "image-height",
+        "image_d": "shopify:\/\/shop_images\/Screenshot_2024-09-04_at_10.22.09_AM.png",
+        "video_poster_d": true,
+        "video_poster_m": false,
+        "video_d": "shopify:\/\/files\/videos\/GrandeLASH(DRNAZ)_DEFENCE(Alt1)_Vertical_1min_Version1.mp4",
+        "video_autoplay": false,
+        "eyebrow": "Dr. Naz Explains",
+        "heading": "Cosmetic vs. Prescription  Lash Serums",
+        "cta_url": "",
+        "cta_copy": ""
+      }
+    }
+  },
+  "order": [
+    "main",
+    "split_banner_8WTU9i",
+    "split_banner_y8333V",
+    "split_banner_T3Gzwt"
+  ]
+}

@@ -1,0 +1,54 @@
+{{ 'promo-carousel.min.css' | asset_url | stylesheet_tag }}
+
+{% liquid
+  assign blocks = data.blocks.value
+
+  assign is_carousel = false
+  if blocks.count > 1
+    assign is_carousel = true
+  endif
+%}
+
+<product-promo-carousel class="promo-carousel">
+  <p class="p-4">{{ data.title }}</p>
+  <div class="promo-carousel__container">
+    <div class="swiper {% if is_carousel %}isCarousel{% endif %}" {% if is_carousel %}data-swiper{% endif %}>
+      <div class="swiper-wrapper">
+        {% for block in blocks %}
+          <div class="promo-carousel__wrapper swiper-slide" style="background-color: {{ block.background_color }};">
+            <div class="promo-carousel__grid">
+              {% render 'image', image: block.image, aspect_ratio: 1 %}
+              <div class="promo-carousel__text-container">
+                <h5 class="h5">{{ block.headline }}</h5>
+                <div class="p-4 promo-carousel__subtext">{{ block.subtext | metafield_tag }}</div>
+                <div class="promo-carousel__cta-wrapper">
+                  {% if block.cta_url_1 != blank and block.cta_text_1 != blank %}
+                    <a href="{{ block.cta_url_1 }}" target="_blank" class="p-3 promo-carousel__link">{{ block.cta_text_1 }}</a>
+                  {% endif %}
+                  {% if block.cta_url_2 != blank and block.cta_text_2 != blank %}
+                    <a href="{{ block.cta_url_2 }}" target="_blank" class="p-3 promo-carousel__link">{{ block.cta_text_2 }}</a>
+                  {% endif %}
+                </div>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+    {% if is_carousel %}
+      <div class="promo-carousel__overlay hide-mobile"></div>
+    {% endif %}
+  </div>
+  {% if is_carousel %}
+    <div class="promo-carousel__controls hide-mobile">
+      <button class="pager-prev" data-previous aria-label="Previous Carousel Slide">
+        {% render 'icons', icon_name: 'arrow-left' %}
+      </button>
+      <button class="pager-next" data-next aria-label="Next Carousel Slide">
+        {% render 'icons', icon_name: 'arrow-right' %}
+      </button>
+    </div>
+  {% endif %}
+</product-promo-carousel>
+
+<script src="{{ 'promo-carousel.min.js' | asset_url }}" defer="defer"></script>

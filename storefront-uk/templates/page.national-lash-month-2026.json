@@ -1,0 +1,353 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "shogun-helper": {
+      "type": "shogun-helper",
+      "settings": {}
+    },
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {}
+    },
+    "shogun-optimizer": {
+      "type": "shogun-optimizer",
+      "settings": {}
+    },
+    "hero_carousel_VWxPyj": {
+      "type": "hero-carousel",
+      "blocks": {
+        "hero_slide_r88hUf": {
+          "type": "hero_slide",
+          "settings": {
+            "color": "dark",
+            "alignment_v": "middle",
+            "alignment_h": "center",
+            "alignment_v_m": "middle_m",
+            "alignment_h_m": "center_m",
+            "image_d": "shopify://shop_images/NationalLashMonth-HomepageBanner_Desktop.jpg",
+            "video_poster_d": true,
+            "image_m": "shopify://shop_images/NationalLashMonth-HomepageBanner_Mobile.jpg",
+            "video_poster_m": true,
+            "video_autoplay": true,
+            "eyebrow": "",
+            "heading": "",
+            "heading_size": "h2",
+            "copy": "",
+            "cta_url": "shopify://collections/singles-day-11-steals",
+            "cta_copy": "",
+            "cta_url_alt": "",
+            "cta_copy_alt": "",
+            "overlay": 0
+          }
+        }
+      },
+      "block_order": [
+        "hero_slide_r88hUf"
+      ],
+      "name": "Hero Carousel",
+      "settings": {
+        "display": "full-bleed"
+      }
+    },
+    "ticker_3pyWYU": {
+      "type": "ticker",
+      "blocks": {
+        "text_YeREMV": {
+          "type": "text",
+          "settings": {
+            "svg_icon": "flower",
+            "text": "<em>Treat Yourself</em>",
+            "url": ""
+          }
+        },
+        "text_XrcTrw": {
+          "type": "text",
+          "settings": {
+            "svg_icon": "flower",
+            "text": "You Don't Want To Miss This",
+            "url": ""
+          }
+        }
+      },
+      "block_order": [
+        "text_YeREMV",
+        "text_XrcTrw"
+      ],
+      "name": "Ticker",
+      "settings": {
+        "optional_text": "",
+        "optional_url": "",
+        "speed": 2,
+        "color_scheme": "dark-pink"
+      }
+    },
+    "birthday_promo_i6BHpN": {
+      "type": "birthday-promo",
+      "blocks": {
+        "promo_card_iyY9Kg": {
+          "type": "promo-card",
+          "disabled": true,
+          "settings": {
+            "status": "active",
+            "active_image": "shopify://shop_images/Promo-Block-30Off-Serums.jpg",
+            "apply_effect": true,
+            "upcoming_image_color": "#e6006b",
+            "upcoming_image_opacity": 70,
+            "eyebrow": "Today's Sale",
+            "heading": "30% Off Serums",
+            "copy": "<br>\nHappening Now",
+            "cta": "Shop Now",
+            "link": "shopify://collections/best-sellers"
+          }
+        },
+        "promo_card_m7cEKV": {
+          "type": "promo-card",
+          "disabled": true,
+          "settings": {
+            "status": "active",
+            "active_image": "shopify://shop_images/Promo-Block-50Off-Mascara.jpg",
+            "apply_effect": true,
+            "upcoming_image_color": "#e6006b",
+            "upcoming_image_opacity": 70,
+            "eyebrow": "Today's Sale",
+            "heading": "50% Off Mascaras",
+            "copy": "<br>\nHappening Now",
+            "cta": "Shop Now",
+            "link": "shopify://collections/best-sellers"
+          }
+        },
+        "promo_card_JPkDwk": {
+          "type": "promo-card",
+          "settings": {
+            "status": "active",
+            "active_image": "shopify://shop_images/Promo-Block-FreeGiftWith65.jpg",
+            "apply_effect": true,
+            "upcoming_image_color": "#e6006b",
+            "upcoming_image_opacity": 70,
+            "eyebrow": "Free Gift",
+            "heading": "FREE Gift With Purchase",
+            "copy": "<br>\nwith order of $65+",
+            "cta": "Shop Now",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "promo_card_iyY9Kg",
+        "promo_card_m7cEKV",
+        "promo_card_JPkDwk"
+      ],
+      "name": "Birthday promo",
+      "settings": {
+        "heading": "Current Deals:"
+      }
+    },
+    "banner_trHUzE": {
+      "type": "banner",
+      "name": "Banner",
+      "settings": {
+        "color": "light",
+        "background": "beige",
+        "image_d": "shopify://shop_images/LaceBackground-BannerImage.jpg",
+        "alignment": "center",
+        "eyebrow": "",
+        "heading": "50% Off <em>Mascaras</em>",
+        "heading_size": "h1",
+        "copy": "",
+        "cta_url": "",
+        "cta_copy": "",
+        "cta_url_alt": "",
+        "cta_copy_alt": "",
+        "overlay": 0
+      }
+    },
+    "product_carousel_rgNnDc": {
+      "type": "product-carousel",
+      "blocks": {
+        "content_q6VrEP": {
+          "type": "content",
+          "settings": {
+            "product": "grandewrap-tubing-mascara-with-provitamin-b5",
+            "category": ""
+          }
+        },
+        "content_9JfUpe": {
+          "type": "content",
+          "settings": {
+            "product": "grandemascara",
+            "category": ""
+          }
+        },
+        "content_ECNjVP": {
+          "type": "content",
+          "settings": {
+            "product": "grandedrama",
+            "category": ""
+          }
+        }
+      },
+      "block_order": [
+        "content_q6VrEP",
+        "content_9JfUpe",
+        "content_ECNjVP"
+      ],
+      "name": "Product Carousel",
+      "settings": {
+        "heading": "",
+        "categories": false,
+        "cta_copy": "",
+        "cta_url": ""
+      }
+    },
+    "product_carousel_xQDfr4": {
+      "type": "product-carousel",
+      "blocks": {
+        "content_T6HPKB": {
+          "type": "content",
+          "settings": {
+            "product": "grandeprimer",
+            "category": ""
+          }
+        },
+        "content_MA3GRF": {
+          "type": "content",
+          "settings": {
+            "product": "grandemascara-conditioning-peptide-mascara-brown-1",
+            "category": ""
+          }
+        },
+        "content_7GNnmy": {
+          "type": "content",
+          "disabled": true,
+          "settings": {
+            "product": "grandemascara-waterproof-conditioning-peptide-mascara",
+            "category": ""
+          }
+        }
+      },
+      "block_order": [
+        "content_T6HPKB",
+        "content_MA3GRF",
+        "content_7GNnmy"
+      ],
+      "name": "Product Carousel",
+      "settings": {
+        "heading": "",
+        "categories": false,
+        "cta_copy": "",
+        "cta_url": ""
+      }
+    },
+    "banner_AgcYwr": {
+      "type": "banner",
+      "name": "Banner",
+      "settings": {
+        "color": "light",
+        "background": "beige",
+        "image_d": "shopify://shop_images/LaceBackground-BannerImage.jpg",
+        "alignment": "center",
+        "eyebrow": "",
+        "heading": "30% Off <em>Serums</em>",
+        "heading_size": "h1",
+        "copy": "",
+        "cta_url": "",
+        "cta_copy": "",
+        "cta_url_alt": "",
+        "cta_copy_alt": "",
+        "overlay": 0
+      }
+    },
+    "product_carousel_dxnWwh": {
+      "type": "product-carousel",
+      "blocks": {
+        "content_Md7cWQ": {
+          "type": "content",
+          "settings": {
+            "product": "grandelash-md",
+            "category": ""
+          }
+        },
+        "content_nRRFrR": {
+          "type": "content",
+          "settings": {
+            "product": "grandebrow",
+            "category": ""
+          }
+        },
+        "content_EUKkPk": {
+          "type": "content",
+          "settings": {
+            "product": "grandelash-sensitive",
+            "category": ""
+          }
+        },
+        "content_hPgJ3z": {
+          "type": "content",
+          "disabled": true,
+          "settings": {
+            "product": "grandehair-enhancing-serum",
+            "category": ""
+          }
+        }
+      },
+      "block_order": [
+        "content_Md7cWQ",
+        "content_nRRFrR",
+        "content_EUKkPk",
+        "content_hPgJ3z"
+      ],
+      "name": "Product Carousel",
+      "settings": {
+        "heading": "",
+        "categories": false,
+        "cta_copy": "",
+        "cta_url": ""
+      }
+    },
+    "product_carousel_pGmFEt": {
+      "type": "product-carousel",
+      "blocks": {
+        "content_NwgDgj": {
+          "type": "content",
+          "settings": {
+            "product": "grandehair-enhancing-serum",
+            "category": ""
+          }
+        }
+      },
+      "block_order": [
+        "content_NwgDgj"
+      ],
+      "name": "Product Carousel",
+      "settings": {
+        "heading": "",
+        "categories": false,
+        "cta_copy": "",
+        "cta_url": ""
+      }
+    }
+  },
+  "order": [
+    "shogun-helper",
+    "main",
+    "shogun-optimizer",
+    "hero_carousel_VWxPyj",
+    "ticker_3pyWYU",
+    "birthday_promo_i6BHpN",
+    "banner_trHUzE",
+    "product_carousel_rgNnDc",
+    "product_carousel_xQDfr4",
+    "banner_AgcYwr",
+    "product_carousel_dxnWwh",
+    "product_carousel_pGmFEt"
+  ]
+}

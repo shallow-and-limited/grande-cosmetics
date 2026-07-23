@@ -1,0 +1,53 @@
+
+{%- liquid
+  assign _s = section.settings
+  assign _metafields = collection.metafields.details
+  assign _metaobject = _metafields.collection_hero.value
+  assign parent_clp = _metafields.parent_clp.value
+-%}
+
+<section class="collection-hero {% if _metaobject.image_desktop == blank or _s.show_image == false %}collection-hero--simple{% endif %}">
+  <div class="collection-hero__wrapper">
+    {% if _metaobject.image_desktop != blank and _s.show_image %}
+      <div class="collection-hero__background">
+        {%
+          render 'image',
+          image: _metaobject.image_desktop,
+          image_m: _metaobject.image_mobile,
+          overlay: _metaobject.overlay,
+          max_width: 1440,
+        %}
+      </div>
+    {% endif %}
+
+    <div class="collection-hero__content {% if _metaobject.text_color == 'Light' %}collection-hero__content--light{% endif %}">
+      {%- if parent_clp != blank -%}
+        <a class="collection-hero__eyebrow s-3" href="{{ parent_clp.url }}">{{ parent_clp.title }}</a>
+        <span class="collection-hero__eyebrow s-3">/ {{ collection.title }}</span>
+      {%- endif -%}
+      <h1 class="collection-hero__heading h2">
+        {{ collection.title }}
+      </h1>
+      {%- if collection.description != blank and collection.description != '<p></p>'  and collection.description != '<p data-mce-fragment="1"><meta charset="utf-8"><br></p>'-%}
+        <div class="collection-hero__copy p-2">
+          {{ collection.description | strip_html }}
+        </div>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Collection Hero",
+  "class": "shopify-section--hero",
+  "settings": [
+    {
+      "type": "checkbox",
+      "label": "Show Image?",
+      "id": "show_image",
+      "default": true
+    }
+  ]
+}
+{% endschema %}

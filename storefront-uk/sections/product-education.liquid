@@ -1,0 +1,83 @@
+{% liquid
+  assign _metaobject = product.metafields.details.product_education_metaobject.value
+  assign _blocks = _metaobject.tab_content_blocks.value
+  assign media_size = _metaobject.carousel_media | split: ',' | size
+
+  if media_size > 1
+    assign isCarousel = true
+  endif
+%}
+
+{% if _metaobject %}
+
+  {{ 'product-education.min.css' | asset_url | stylesheet_tag }}
+
+  <product-education class="product-education" data-product-education data-muted="true">
+    <div class="grid grid--halves">
+      <div>
+        <div class="swiper" data-product-education-carousel data-is-carousel="{{ isCarousel }}">
+          <div class="swiper-wrapper">
+            {% for media in _metaobject.carousel_media.value %}
+              <div class="swiper-slide">
+                <div class="media-wrapper" {% if media.media_type == 'video' %}data-video{% endif %}>
+                  {{ media | media_tag: class: 'w-100', autoplay: true, loop: true, controls: false }}
+
+                  <div data-audio-icons>
+                    {% if media.media_type == 'video' %}
+                      {% render 'icons', icon_name: 'audio' %}
+                      {% render 'icons', icon_name: 'audio-mute' %}
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+          <div class="media-slider__controls hide-mobile">
+            <button class="pager-prev" data-previous aria-label="Previous Carousel Slide">
+              {% render 'icons', icon_name: 'arrow-left' %}
+            </button>
+            <button class="pager-next" data-next aria-label="Next Carousel Slide">
+              {% render 'icons', icon_name: 'arrow-right' %}
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="product-education__textContainer">
+        {% if _metaobject.header != blank %}
+          <h5 class="h5">{{ _metaobject.header }}</h5>
+        {% endif %}
+        {% if _metaobject.link_url != blank %}
+          <a class="btn--link" href="{{ _metaobject.link_url }}">{{ _metaobject.link_text }}</a>
+        {% endif %}
+        <hr class="line">
+        <div class="product-education__tabs-nav">
+          {% for block in _blocks %}
+            <button class="product-education__tab-title {% if forloop.first %}product-education__tab-title--selected{% endif %} p-1" data-tab="{{ forloop.index }}">{{ block.tab_title }}</button>
+            {% unless forloop.last %}
+              <span class="pipe"></span>
+            {% endunless %}
+          {% endfor  %}
+        </div>
+        {% for block in _blocks %}
+          <div class="product-education__tab-content {% if forloop.first %}product-education__tab-content--selected{% endif %} p-2" data-tab-content="{{ forloop.index }}">{{ block.tab_content | metafield_tag }}</div>
+        {% endfor  %}
+      </div>
+    </div>
+  </product-education>
+
+  <script src="{{ 'product-education.min.js' | asset_url }}" defer="defer"></script>
+{% endif %} 
+
+{% schema %}
+{
+  "name": "Product Education",
+  "settings": [
+    
+  ],
+  "presets": [
+    {
+      "name": "Product Education"
+    }
+  ]
+}
+{% endschema %}

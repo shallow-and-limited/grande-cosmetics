@@ -1,0 +1,440 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "shogun-helper": {
+      "type": "shogun-helper",
+      "settings": {}
+    },
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {}
+    },
+    "shogun-optimizer": {
+      "type": "shogun-optimizer",
+      "settings": {}
+    },
+    "hero_carousel_6jA4n6": {
+      "type": "hero-carousel",
+      "blocks": {
+        "hero_slide_CfgGUx": {
+          "type": "hero_slide",
+          "settings": {
+            "color": "dark",
+            "image_d": "shopify://shop_images/HeroMens_DesktopBanner.jpg",
+            "video_poster_d": true,
+            "video_poster_m": true,
+            "video_autoplay": true,
+            "eyebrow": "FROM THE #1 LASH & BROW SERUM BRAND*",
+            "heading": "Bring Out The <em>Confidence In You</em>",
+            "heading_size": "h2",
+            "copy": "From sparse brows and beards to thinning hair, explore formulas designed to tackle your toughest challenges.",
+            "cta_url": "shopify://collections/enhancing-serums",
+            "cta_copy": "Shop Enhancing Serums",
+            "cta_url_alt": "",
+            "cta_copy_alt": "",
+            "overlay": 0
+          }
+        }
+      },
+      "block_order": [
+        "hero_slide_CfgGUx"
+      ],
+      "name": "Hero Carousel",
+      "settings": {
+        "display": "full-bleed"
+      }
+    },
+    "banner_VkWm87": {
+      "type": "banner",
+      "disabled": true,
+      "name": "Banner",
+      "settings": {
+        "color": "light",
+        "background": "beige",
+        "image_d": "shopify://shop_images/Brown-DesktopBanner.jpg",
+        "alignment": "center",
+        "eyebrow": "From The #1 Lash & Brow Serum Brand*",
+        "heading": "Bring Out The Confidence In You",
+        "heading_size": "h2",
+        "copy": "From sparse brows and beards to thinning hair, explore formulas designed to tackle your toughest challenges.",
+        "cta_url": "shopify://collections/enhancing-serums",
+        "cta_copy": "Shop Award-Winning Serums",
+        "cta_url_alt": "",
+        "cta_copy_alt": "",
+        "overlay": 0
+      }
+    },
+    "banner_mtFbg7": {
+      "type": "banner",
+      "disabled": true,
+      "name": "Banner",
+      "settings": {
+        "color": "dark",
+        "background": "beige",
+        "image_d": "shopify://shop_images/TheSerumExperts-DesktopBanner-GIF.gif",
+        "alignment": "center",
+        "eyebrow": "",
+        "heading": "",
+        "heading_size": "h4",
+        "copy": "",
+        "cta_url": "",
+        "cta_copy": "Shop Serums",
+        "cta_url_alt": "",
+        "cta_copy_alt": "",
+        "overlay": 0
+      }
+    },
+    "banner_8EdnkP": {
+      "type": "banner",
+      "name": "Banner",
+      "settings": {
+        "color": "dark",
+        "background": "beige",
+        "alignment": "center",
+        "eyebrow": "",
+        "heading": "Real Men, Real Transformations",
+        "heading_size": "h4",
+        "copy": "Discover how these men completely transformed their hair — and confidence along the way.",
+        "cta_url": "",
+        "cta_copy": "",
+        "cta_url_alt": "",
+        "cta_copy_alt": "",
+        "overlay": 0
+      }
+    },
+    "categories_KRpera": {
+      "type": "categories",
+      "blocks": {
+        "content_8BJzRi": {
+          "type": "content",
+          "settings": {
+            "image": "shopify://shop_images/Yvette-CategoryPic_372bf217-b283-4460-8b00-14095cac24c5.jpg",
+            "heading_image": "",
+            "eyebrow": "Yvette",
+            "heading": "",
+            "copy": "“No more falsies — I wake up with lashes I love.”",
+            "cta_url": "",
+            "cta_copy": "Shop All",
+            "cta_url_alt": "",
+            "cta_copy_alt": ""
+          }
+        },
+        "content_njPfh7": {
+          "type": "content",
+          "settings": {
+            "image": "shopify://shop_images/Jan-CategoryPic_10c5b839-5cc4-411a-aa9d-f96c9bf13058.jpg",
+            "heading_image": "",
+            "eyebrow": "Jan",
+            "heading": "",
+            "copy": "“My brows came back; I don't need makeup to leave the house anymore”",
+            "cta_url": "",
+            "cta_copy": "Shop All",
+            "cta_url_alt": "",
+            "cta_copy_alt": ""
+          }
+        },
+        "content_bYnqh7": {
+          "type": "content",
+          "settings": {
+            "image": "shopify://shop_images/Inger-CategoryPic_7d5544c1-0ad8-4200-9feb-eb2827aa8d40.jpg",
+            "heading_image": "",
+            "eyebrow": "Inger",
+            "heading": "",
+            "copy": "“The bald spot is gone, finito, finished — t doesn't exist.”",
+            "cta_url": "",
+            "cta_copy": "Shop All",
+            "cta_url_alt": "",
+            "cta_copy_alt": ""
+          }
+        },
+        "content_irmNtn": {
+          "type": "content",
+          "settings": {
+            "image": "shopify://shop_images/Angela-CategoryPic_fe1f263e-06bc-4784-8559-568d8a624e05.jpg",
+            "heading_image": "",
+            "eyebrow": "Angela",
+            "heading": "",
+            "copy": "\"I feel like myself again; my lips look fuller & more kissable\"",
+            "cta_url": "",
+            "cta_copy": "Shop All",
+            "cta_url_alt": "",
+            "cta_copy_alt": ""
+          }
+        }
+      },
+      "block_order": [
+        "content_8BJzRi",
+        "content_njPfh7",
+        "content_bYnqh7",
+        "content_irmNtn"
+      ],
+      "disabled": true,
+      "name": "Categories",
+      "settings": {
+        "eyebrow": "",
+        "heading": "",
+        "cta_copy": "",
+        "cta_url": ""
+      }
+    },
+    "split_banner_KiNC4h": {
+      "type": "split-banner",
+      "blocks": {
+        "body_copy_B4tnFN": {
+          "type": "body-copy",
+          "settings": {
+            "copy": "<h6>Grande<strong>HAIR</strong> User </h6><p> </p><p>Chuck never lost all of his hair, but over time he had noticed his hair thinning by his temples. After 16 weeks, he was very surprised by the results!</p><h6></h6><p></p>"
+          }
+        }
+      },
+      "block_order": [
+        "body_copy_B4tnFN"
+      ],
+      "name": "Split Banner",
+      "settings": {
+        "style": "beige",
+        "padding": "full-width",
+        "arrangement": "left_asset_right_content",
+        "header": "h2",
+        "alignment": "left",
+        "vertical_alignment": "middle",
+        "module_height": "image-height",
+        "video_poster_d": true,
+        "video_poster_m": true,
+        "video_d": "shopify://files/videos/Chuck Final Square.mp4",
+        "video_autoplay": true,
+        "eyebrow": "",
+        "heading": "Meet Chuck",
+        "cta_url": "shopify://products/grandehair-enhancing-serum",
+        "cta_copy": "Get Your Confidence Back"
+      }
+    },
+    "before_after_tkjc8H": {
+      "type": "before-after",
+      "name": "Before After",
+      "settings": {
+        "switch_sides": false,
+        "metaobject_handle": "before-and-after-mb2yut3g"
+      }
+    },
+    "split_banner_hHWqU4": {
+      "type": "split-banner",
+      "blocks": {
+        "body_copy_gLetnV": {
+          "type": "body-copy",
+          "settings": {
+            "copy": "<h6>Grande<strong>HAIR</strong> User </h6><p> </p><p>Austin started losing his hair early at only 22 years old. Now at 50, he is ready to get his confidence back. Austin used GrandeHAIR everyday for 16 weeks and was shocked by his results!</p>"
+          }
+        }
+      },
+      "block_order": [
+        "body_copy_gLetnV"
+      ],
+      "settings": {
+        "style": "beige",
+        "padding": "full-width",
+        "arrangement": "right_asset_left_content",
+        "header": "h2",
+        "alignment": "left",
+        "vertical_alignment": "middle",
+        "module_height": "image-height",
+        "video_poster_d": true,
+        "video_poster_m": true,
+        "video_d": "shopify://files/videos/Austin Final Square.mp4",
+        "video_autoplay": true,
+        "eyebrow": "",
+        "heading": "Meet Austin",
+        "cta_url": "shopify://products/grandehair-rejuvenation-serum",
+        "cta_copy": "Get Your Confidence Back"
+      }
+    },
+    "before_after_fcMaGG": {
+      "type": "before-after",
+      "name": "Before After",
+      "settings": {
+        "switch_sides": false,
+        "metaobject_handle": "before-and-after-sktjbrda"
+      }
+    },
+    "split_banner_GF3NUU": {
+      "type": "split-banner",
+      "blocks": {
+        "body_copy_K9HVnq": {
+          "type": "body-copy",
+          "settings": {
+            "copy": "<h6>Grande<strong>HAIR</strong> User</h6><p></p><p> </p><p>Brian started losing his hair in his mid-twenties. He works with kids, and as we know, kids can be brutally honest. The kids he works with would make a point to mention his hair loss, so he decided enough was enough. 16 weeks later, and even the kids are saying he has hair again!</p><h6></h6>"
+          }
+        }
+      },
+      "block_order": [
+        "body_copy_K9HVnq"
+      ],
+      "name": "Split Banner",
+      "settings": {
+        "style": "beige",
+        "padding": "full-width",
+        "arrangement": "left_asset_right_content",
+        "header": "h2",
+        "alignment": "left",
+        "vertical_alignment": "middle",
+        "module_height": "image-height",
+        "video_poster_d": true,
+        "video_poster_m": true,
+        "video_d": "shopify://files/videos/Brian FInal Square.mp4",
+        "video_autoplay": true,
+        "eyebrow": "",
+        "heading": "Meet Brian",
+        "cta_url": "shopify://products/grandehair-rejuvenation-serum",
+        "cta_copy": "Get Your Confidence Back"
+      }
+    },
+    "before_after_iephzh": {
+      "type": "before-after",
+      "name": "Before After",
+      "settings": {
+        "switch_sides": false,
+        "metaobject_handle": "before-and-after-znwv6c0t"
+      }
+    },
+    "banner_BpxyC8": {
+      "type": "banner",
+      "name": "Banner",
+      "settings": {
+        "color": "light",
+        "background": "rose",
+        "image_d": "shopify://shop_images/Awards-DesktopBanner_260b53e0-cc22-42d8-bcb5-216cd64fe451.jpg",
+        "image_m": "shopify://shop_images/Awards-MobileBanner.jpg",
+        "alignment": "center",
+        "eyebrow": "",
+        "heading": "150+ Award Wins Brandwide. Over 1 Million Products Sold.",
+        "heading_size": "h2",
+        "copy": "Clinically tested. Ophthalmologist approved. Cruelty-free. Trusted by millions of real women.",
+        "cta_url": "",
+        "cta_copy": "",
+        "cta_url_alt": "",
+        "cta_copy_alt": "",
+        "overlay": 10
+      }
+    },
+    "product_carousel_zkrigY": {
+      "type": "product-carousel",
+      "blocks": {
+        "content_R3WyGH": {
+          "type": "content",
+          "settings": {
+            "product": "grandebrow",
+            "category": ""
+          }
+        },
+        "content_Pf3X4j": {
+          "type": "content",
+          "settings": {
+            "product": "grandebrow-2-in-1",
+            "category": ""
+          }
+        },
+        "content_ixpRG6": {
+          "type": "content",
+          "settings": {
+            "product": "grandelash-md",
+            "category": ""
+          }
+        },
+        "content_PzxAa3": {
+          "type": "content",
+          "settings": {
+            "product": "grandehair-rejuvenation-serum",
+            "category": ""
+          }
+        },
+        "content_bL3BcP": {
+          "type": "content",
+          "settings": {
+            "product": "grandetweezers",
+            "category": ""
+          }
+        }
+      },
+      "block_order": [
+        "content_R3WyGH",
+        "content_Pf3X4j",
+        "content_ixpRG6",
+        "content_PzxAa3",
+        "content_bL3BcP"
+      ],
+      "custom_css": [],
+      "name": "Product Carousel",
+      "settings": {
+        "heading": "Other Enhancing Products To Love:",
+        "categories": false,
+        "cta_copy": "",
+        "cta_url": ""
+      }
+    },
+    "banner_y3DKqg": {
+      "type": "banner",
+      "name": "Banner",
+      "settings": {
+        "color": "dark",
+        "background": "beige",
+        "alignment": "center",
+        "eyebrow": "",
+        "heading": "Show Us How Your New Confidence",
+        "heading_size": "h3",
+        "copy": "Follow & Tag Us | @GrandeCosmetics",
+        "cta_url": "",
+        "cta_copy": "",
+        "cta_url_alt": "",
+        "cta_copy_alt": "",
+        "overlay": 0
+      }
+    },
+    "banner_drc4wx": {
+      "type": "banner",
+      "name": "Banner",
+      "settings": {
+        "color": "dark",
+        "background": "beige",
+        "alignment": "center",
+        "eyebrow": "",
+        "heading": "",
+        "heading_size": "h3",
+        "copy": "*Source: Circana/U.S. Prestige Beauty Total Measured Market, Lash/Brow Treatment Dollar Sales, Skincare Form/Texture: Serum, January – April 2023 combined **Based on a 16 week expert clinical grader evaluation with 39 subjects. Results will vary.",
+        "cta_url": "",
+        "cta_copy": "",
+        "cta_url_alt": "",
+        "cta_copy_alt": "",
+        "overlay": 0
+      }
+    }
+  },
+  "order": [
+    "shogun-helper",
+    "main",
+    "shogun-optimizer",
+    "hero_carousel_6jA4n6",
+    "banner_VkWm87",
+    "banner_mtFbg7",
+    "banner_8EdnkP",
+    "categories_KRpera",
+    "split_banner_KiNC4h",
+    "before_after_tkjc8H",
+    "split_banner_hHWqU4",
+    "before_after_fcMaGG",
+    "split_banner_GF3NUU",
+    "before_after_iephzh",
+    "banner_BpxyC8",
+    "product_carousel_zkrigY",
+    "banner_y3DKqg",
+    "banner_drc4wx"
+  ]
+}

@@ -1,0 +1,82 @@
+{%- assign product_form_id = 'product-form-' | append: product.id -%}
+
+{% liquid
+  assign variant = product.selected_or_first_available_variant
+%}
+
+<div class="buy-buttons" data-product-form>
+  {%- form 'product',
+    product,
+    id: product_form_id,
+    class: 'form',
+    novalidate: 'novalidate',
+    data-type: 'add-to-cart__form',
+    method: 'post',
+    action: '/cart/add',
+    data-add-to-cart-form: 'true'
+  -%}
+    <input
+      type="hidden"
+      name="id"
+      value="{{ product.selected_or_first_available_variant.id }}"
+      data-selected-variant-id
+    >
+    <input
+      type="hidden"
+      value="{{ product.id }}"
+      data-selected-product
+    >
+
+    {% liquid
+      for selling_plan_group in product.selling_plan_groups
+        assign label = selling_plan_group.selling_plans.first.name
+        if label contains '3 month'
+          assign selling_plan = selling_plan_group.selling_plans.first.id
+          break
+        else
+          assign selling_plan = product.selling_plan_groups.first.selling_plans.first.id
+        endif
+      endfor
+    %}
+
+    <input type="hidden" name="selling_plan" value="{{ selling_plan }}" data-selling-plan-input>
+
+    <input min="1" type="hidden" id="quantity" name="quantity" value="1" style="display: none;">
+
+    {% if product.compare_at_price > product.price %}
+      <input
+        type="text"
+        name="properties[_comparePrice]"
+        value="{{ product.selected_or_first_available_variant.compare_at_price }}"
+        style="display: none;"
+      >
+    {% endif %}
+
+
+    {%- liquid 
+      assign disabled_class = "" 
+      assign disabled_attribute = "" 
+
+      if product.selected_or_first_available_variant.available == false
+        assign disabled_class = " add-to-cart__submit-btn--disabled " 
+        assign disabled_attribute = "disabled" 
+      endif
+    -%}
+
+    <button
+      type="submit"
+      data-add-to-cart-btn
+      class="add-to-cart__submit-btn btn btn--primary {{ disabled_class }}"
+      {{ disabled_attribute }} >
+      <span class="text-unavailable">{{ 'products.product.sold_out' | t }}</span>
+      <span class="text-available">
+        {{ 'products.product.add_to_cart' | t }}
+        •
+        {% render 'price', target: product.variants.first %}
+      </span>
+    </button>
+    {%- if show_dynamic_checkout -%}
+      {{ form | payment_button }}
+    {%- endif -%}
+  {%- endform -%}
+</div>

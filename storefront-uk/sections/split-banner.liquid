@@ -1,0 +1,351 @@
+{{ 'split-banner.min.css' | asset_url | stylesheet_tag }}
+
+{% assign _s = section.settings %}
+{% assign overlayOpacity = _s.overlay | divided_by: 100.0 %}
+{% assign autoplay = _s.video_autoplay %}
+{% assign videoIdMobile = "now" | date: "%N" | modulo: 100 %}
+{% assign videoIdDesktop = "now" | date: "%N" | modulo: 100 %}
+{% style %}
+  .split-banner--{{ section.id }} .split-banner__background::before {
+    background:  rgba(0, 0, 0, {{ overlayOpacity }});
+  }
+{% endstyle %}
+
+<split-banner>
+  <section class="split-banner split-banner__container split-banner--{{ section.id }} bg-{{ _s.style }} {{ _s.padding }} {{ _s.arrangement }} {{ _s.alignment }} {{ _s.module_height }}">
+    <div class="split-banner__background" data-media-scale-container-v2>
+      {%- if _s.video_d == blank -%}
+        {% render 'image',
+          image: _s.image_d | image_url,
+          image_m: _s.image_m,
+          loading: loading,
+          max_width: 1440,
+          data-attributes: 'data-media-scale-v2'
+        %}
+      {%- else -%}
+        {% if _s.video_m != blank %}
+          <video
+            class="video split-banner__video hide-desktop"
+            {% if autoplay %}autoplay{% endif %}
+            playsinline
+            muted
+            loop
+            {% if _s.image_m and _s.video_poster_m %}poster="{{ _s.image_m | image_url }}"{% endif %}
+            data-video-id="{{ videoIdMobile }}"            
+          >
+            {% for source in _s.video_m.sources %}
+              <source src="{{ source.url }}" type="{{ source.type }}">
+            {% endfor %}
+          </video>
+        {% endif %}
+        {% if _s.video_d != blank %}
+          <video
+            class="video split-banner__video{% if _s.video_m != blank %} hide-mobile{% endif %}"
+            {% if autoplay %}autoplay{% endif %}
+            playsinline
+            muted
+            loop
+            {% if _s.image_d and _s.video_poster_d %}poster="{{ _s.image_d | image_url }}"{% endif %}
+            data-video-id="{{ videoIdDesktop }}"
+          >
+            {% for source in _s.video_d.sources %}
+              <source src="{{ source.url }}" type="{{ source.type }}">
+            {% endfor %}
+          </video>
+        {% endif %}     
+      {% endif %}        
+      {%  if autoplay == false %}
+        {%  if _s.video_d %}
+          <div class="split-banner__video-controls hide-mobile paused">
+            <button class="hero-carousel__video-play" data-video-play data-video-id="{{ videoIdDesktop }}" aria-label="Play Video">
+              {% render 'icons', icon_name: 'play-video' %}
+            </button>
+            <button class="hero-carousel__video-pause" data-video-pause data-video-id="{{ videoIdDesktop }}" aria-label="Pause Video">
+              {% render 'icons', icon_name: 'pause-video' %}
+            </button>
+            <button class="hero-carousel__volume-on" data-volume-on data-video-id="{{ videoIdDesktop }}" aria-label="Volume on">
+              {% render 'icons', icon_name: 'volume-on' %}
+            </button>
+            <button class="hero-carousel__volume-off" data-volume-off data-video-id="{{ videoIdDesktop }}" aria-label="Volume off">
+              {% render 'icons', icon_name: 'volume-off' %}
+            </button>
+          </div>
+        {% endif %}
+        {%  if _s.video_m %}
+          <div class="split-banner__video-controls hide-desktop paused">
+            <button class="hero-carousel__video-play" data-video-play data-video-id="{{ videoIdMobile }}" aria-label="Play Video">
+              {% render 'icons', icon_name: 'play-video' %}
+            </button>
+            <button class="hero-carousel__video-pause" data-video-pause data-video-id="{{ videoIdMobile }}" aria-label="Pause Video">
+              {% render 'icons', icon_name: 'pause-video' %}
+            </button>
+            <button class="hero-carousel__volume-on" data-volume-on data-video-id="{{ videoIdMobile }}" aria-label="Volume on">
+              {% render 'icons', icon_name: 'volume-on' %}
+            </button>
+            <button class="hero-carousel__volume-off" data-volume-off data-video-id="{{ videoIdMobile }}" aria-label="Volume off">
+              {% render 'icons', icon_name: 'volume-off' %}
+            </button>            
+          </div>
+        {% endif %}
+      {% endif %}      
+    </div>
+    <div class="split-banner__content {{ _s.vertical_alignment }}">
+    {% if _s.image_product != blank %} 
+      <div class="split-banner__product-image">
+        {% render 'image',
+          image: _s.image_product
+        %}
+      </div>
+      {% endif %}
+    {% if _s.eyebrow != blank %}
+        <div class="split-banner__eyebrow s-3">
+          {{ _s.eyebrow }}
+        </div>
+      {% endif %}
+      {% if _s.heading != blank %}
+        <{{ _s.header }} class="split-banner__heading {{  _s.heading_size }}">
+          {{ _s.heading }}
+        </{{ _s.header }}>
+      {% endif %}
+      {% for block in section.blocks %}
+        {%  if block.type == "body-copy" %}
+          <div class="split-banner__copy">
+            {{ block.settings.copy }}        
+          </div>
+        {% elsif block.type == "line-item" %}
+          <div class="split-banner__line-item">
+            <div class="split-banner__line-item-icon{% if block.settings.line_item_icon_rotation %} rotating{% endif %}">
+              {% if block.settings.line_item_icon != blank %}
+                {% render 'image',
+                  image: block.settings.line_item_icon
+                %}
+              {% else %}
+                {% render 'icons', icon_name: 'star-pink' %}
+              {% endif %}
+            </div>
+            {% if block.settings.line_item_percent != blank %}
+              <div class="split-banner__line-item-percent">
+                <h5>{{ block.settings.line_item_percent }}%</h5>
+              </div>
+            {% endif %}
+            <div class="split-banner__line-item-text p-4">
+              {{ block.settings.line_item_text }}
+            </div>
+          </div>
+        {% endif %}
+      {% endfor %}
+      {% if _s.cta_copy != blank and _s.cta_url != blank %}
+        <div class="split-banner__cta">
+          <a
+            class="btn{% if _s.style == 'rose' or _s.style == 'daisy' or _s.style == 'coral' or _s.style == 'light-red' or _s.style == 'red' %} btn--primary-dark{% else %} btn--primary{% endif %}"
+            href="{{ _s.cta_url }}"
+          >
+            {{- _s.cta_copy -}}
+          </a>
+        </div>
+      {% endif %}
+    </div>
+  </section>
+</split-banner>
+
+<script src="{{ 'split-banner.min.js' | asset_url }}" defer></script>
+
+{% schema %}
+{
+  "name": "Split Banner",
+  "settings": [
+    {
+      "type": "select",
+      "id": "style",
+      "label": "Style",
+      "options": [
+        { "value": "rose", "label": "Rose" },
+        { "value": "blush", "label": "Blush" },
+        { "value": "beige", "label": "Beige" },
+        { "value": "daisy", "label": "Daisy" },
+        { "value": "coral", "label": "Coral Charm" },
+        { "value": "light-red", "label": "Light Red" },
+        { "value": "red", "label": "Dark Red" }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "padding",
+      "label": "Padding",
+      "options": [
+        { "value": "inset", "label": "Inset" },
+        { "value": "full-width", "label": "Full Width" }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "arrangement",
+      "label": "Arrangement",
+      "options": [
+        { "value": "left_asset_right_content", "label": "Left Asset / Right Content" },
+        { "value": "right_asset_left_content", "label": "Right Asset / Left Content" }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "header",
+      "label": "Header Font Styling",
+      "options": [
+        { "value": "h2", "label": "h2" },
+        { "value": "h3", "label": "h3" },
+        { "value": "h4", "label": "h4" },
+        { "value": "h5", "label": "h5" }        
+      ]
+    },
+    {
+      "type": "select",
+      "id": "alignment",
+      "label": "Alignment",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "centered", "label": "Centered" }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "vertical_alignment",
+      "label": "Vertical alignment of content (Image Height)",
+      "options": [
+        { "value": "top", "label": "Top" },
+        { "value": "middle", "label": "Middle" },
+        { "value": "bottom", "label": "Bottom" }
+      ]
+    },
+    {
+      "type": "header",
+      "content": "Module Height"
+    },    
+    {
+      "type": "select",
+      "id": "module_height",
+      "label": "Module Height",
+      "default": "content-based",
+      "options": [
+        {
+          "value": "content-based",
+          "label": "Content Based"
+        },
+        {
+          "value": "image-height",
+          "label": "Image Height"
+        }        
+      ]
+    },        
+    {
+      "type": "image_picker",
+      "id": "image_d",
+      "label": "Image - Desktop"
+    },
+    {
+      "type": "checkbox",
+      "id": "video_poster_d",
+      "label": "Use as poster for desktop video?",
+      "default": true,
+      "info": "If selected, this image will be used as a poster for the video on desktop when autoplay is disabled. If no image is chosen, the poster will be the first frame of the video."
+    },    
+    {
+      "type": "image_picker",
+      "id": "image_m",
+      "label": "Image - Mobile"
+    },
+    {
+      "type": "checkbox",
+      "id": "video_poster_m",
+      "label": "Use as poster for mobile video?",
+      "default": true,
+      "info": "If selected, this image will be used as a poster for the video on mobile when autoplay is disabled. If no image is chosen, the poster will be the first frame of the video. Also note that iPhones will not use the first frame, so it is advised to set this image."          
+    },            
+    {
+      "type": "video",
+      "id": "video_d",
+      "label": "Video - Desktop"
+    },
+    {
+      "type": "video",
+      "id": "video_m",
+      "label": "Video - Mobile"
+    },
+    {
+      "type": "checkbox",
+      "id": "video_autoplay",
+      "label": "Autoplay Video?",
+      "default": true
+    },    
+    {
+      "type": "image_picker",
+      "id": "image_product",
+      "label": "Product Image (Optional)"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading"
+    },
+    {
+      "type": "url",
+      "id": "cta_url",
+      "label": "CTA Url"
+    },
+    {
+      "type": "text",
+      "id": "cta_copy",
+      "label": "CTA Text"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "body-copy",
+      "name": "Body Copy",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "copy",
+          "label": "Copy"
+        }
+      ]
+    },
+    {
+      "type": "line-item",
+      "name": "Line Item",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "line_item_icon",
+          "label": "Line Item Icon (optional, if not provided, a star will be used)"
+        },        
+        {
+          "type": "checkbox",
+          "id": "line_item_icon_rotation",
+          "label": "Line Item Icon rotating?",
+          "default": true
+        },
+        {
+          "type": "number",
+          "id": "line_item_percent",
+          "label": "Line Item Percent (optional)"
+        },
+        {
+          "type": "text",
+          "id": "line_item_text",
+          "label": "Line Item Text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Split Banner"
+    }
+  ]
+}
+{% endschema %}

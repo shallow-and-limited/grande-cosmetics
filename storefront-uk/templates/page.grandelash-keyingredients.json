@@ -1,0 +1,173 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {}
+    },
+    "split_banner_FeLYwX": {
+      "type": "split-banner",
+      "blocks": {
+        "body_copy_Ybbk9z": {
+          "type": "body-copy",
+          "settings": {
+            "copy": "<p>Powered by a proprietary lash complex, this ophthalmologist-tested serum creates luxury-level lashes — all your own.<br\/><br\/>We carefully select high-performance ingredients (hello, peptides and so much more) for our formulas, and GrandeLASH-MD is no exception.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "body_copy_Ybbk9z"
+      ],
+      "settings": {
+        "style": "rose",
+        "padding": "full-width",
+        "arrangement": "left_asset_right_content",
+        "header": "h3",
+        "alignment": "left",
+        "vertical_alignment": "middle",
+        "module_height": "content-based",
+        "image_d": "shopify:\/\/shop_images\/ingredientsforsuccess-_1.jpg",
+        "video_poster_d": true,
+        "video_poster_m": true,
+        "video_autoplay": true,
+        "eyebrow": "GrandeLASH-MD",
+        "heading": "The Ingredients for Success",
+        "cta_url": "",
+        "cta_copy": ""
+      }
+    },
+    "split_banner_aaD4GB": {
+      "type": "split-banner",
+      "blocks": {
+        "body_copy_nMM8TW": {
+          "type": "body-copy",
+          "settings": {
+            "copy": "<h5>Isopropyl Cloprostenate (I.C)<\/h5>"
+          }
+        },
+        "line_item_eGcWcU": {
+          "type": "line-item",
+          "settings": {
+            "line_item_icon_rotation": true,
+            "line_item_text": "A prostaglandin analogue that helps to enhance the appearance of eyelashes"
+          }
+        },
+        "body_copy_hpzEY7": {
+          "type": "body-copy",
+          "settings": {
+            "copy": "<h5>Radish Root Ferment<\/h5>"
+          }
+        },
+        "line_item_fa4Ype": {
+          "type": "line-item",
+          "settings": {
+            "line_item_icon_rotation": true,
+            "line_item_text": "Peptide-packed for conditioning properties"
+          }
+        },
+        "body_copy_8xPbMd": {
+          "type": "body-copy",
+          "settings": {
+            "copy": "<h5><strong>Hyaluronic Acid<\/strong><\/h5>"
+          }
+        },
+        "line_item_NdTT83": {
+          "type": "line-item",
+          "settings": {
+            "line_item_icon_rotation": true,
+            "line_item_text": "Aids lash hydration & can hold up to 1000x its weight in water"
+          }
+        },
+        "body_copy_4pUXYc": {
+          "type": "body-copy",
+          "settings": {
+            "copy": "<h5>Grape Seed Extract<\/h5>"
+          }
+        },
+        "line_item_3jWHJX": {
+          "type": "line-item",
+          "settings": {
+            "line_item_icon_rotation": true,
+            "line_item_text": "An antioxidant, rich in vitamin E essential for lash health"
+          }
+        },
+        "body_copy_EMTy9L": {
+          "type": "body-copy",
+          "settings": {
+            "copy": "<h5>Amino Acids<\/h5>"
+          }
+        },
+        "line_item_X6AWAq": {
+          "type": "line-item",
+          "settings": {
+            "line_item_icon_rotation": true,
+            "line_item_text": "The building blocks of collagen & essential to healthy, fortified lashes"
+          }
+        },
+        "body_copy_itf8mA": {
+          "type": "body-copy",
+          "settings": {
+            "copy": "<h5>Honey & Aloe Vera<\/h5>"
+          }
+        },
+        "line_item_9eQBww": {
+          "type": "line-item",
+          "settings": {
+            "line_item_icon_rotation": true,
+            "line_item_text": "A nourishing extract blend to soothe lashes & skin"
+          }
+        }
+      },
+      "block_order": [
+        "body_copy_nMM8TW",
+        "line_item_eGcWcU",
+        "body_copy_hpzEY7",
+        "line_item_fa4Ype",
+        "body_copy_8xPbMd",
+        "line_item_NdTT83",
+        "body_copy_4pUXYc",
+        "line_item_3jWHJX",
+        "body_copy_EMTy9L",
+        "line_item_X6AWAq",
+        "body_copy_itf8mA",
+        "line_item_9eQBww"
+      ],
+      "settings": {
+        "style": "beige",
+        "padding": "inset",
+        "arrangement": "right_asset_left_content",
+        "header": "h4",
+        "alignment": "left",
+        "vertical_alignment": "middle",
+        "module_height": "image-height",
+        "image_d": "shopify:\/\/shop_images\/Lash-Ingredient-Image.jpg",
+        "video_poster_d": true,
+        "video_poster_m": true,
+        "video_autoplay": true,
+        "eyebrow": "",
+        "heading": "Packed with <em>Lash-Loving <\/em>Ingredients",
+        "cta_url": "",
+        "cta_copy": ""
+      }
+    },
+    "faq_fT9jwq": {
+      "type": "faq",
+      "settings": {}
+    }
+  },
+  "order": [
+    "main",
+    "split_banner_FeLYwX",
+    "split_banner_aaD4GB",
+    "faq_fT9jwq"
+  ]
+}

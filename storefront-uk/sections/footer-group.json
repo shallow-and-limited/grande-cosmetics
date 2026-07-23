@@ -1,0 +1,35 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "name": "Footer",
+  "type": "footer",
+  "sections": {
+    "footer_pDiTjY": {
+      "type": "footer",
+      "settings": {
+        "background_color": "#e6006b",
+        "color_copy": "light",
+        "menu": "footer",
+        "newsletter_heading": "Want to stay in the know?",
+        "klaviyo_form": "<div class=\"klaviyo-form-Rb75ss\"><\/div>",
+        "menu_legal": "legal-menu",
+        "copyright": "© Grande Cosmetics",
+        "facebook": "https:\/\/www.facebook.com\/GrandeCosmetics",
+        "twitter": "https:\/\/twitter.com\/grandecosmetics",
+        "youtube": "https:\/\/www.youtube.com\/grandecosmetics",
+        "tiktok": "https:\/\/www.tiktok.com\/@grandecosmetics?",
+        "instagram": "https:\/\/www.instagram.com\/grandecosmetics\/"
+      }
+    }
+  },
+  "order": [
+    "footer_pDiTjY"
+  ]
+}

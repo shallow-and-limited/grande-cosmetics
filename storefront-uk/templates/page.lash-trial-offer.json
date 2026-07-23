@@ -1,0 +1,360 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {}
+    },
+    "ticker_nLikDH": {
+      "type": "ticker",
+      "blocks": {
+        "text_N83HCN": {
+          "type": "text",
+          "settings": {
+            "svg_icon": "flower",
+            "text": "Longer, thicker looking lashes in just 4-6 weeks, full improvements in 3 months.",
+            "url": ""
+          }
+        }
+      },
+      "block_order": [
+        "text_N83HCN"
+      ],
+      "settings": {
+        "optional_text": "",
+        "optional_url": "",
+        "speed": 0.5,
+        "color_scheme": "blush"
+      }
+    },
+    "split_banner_4QnFDY": {
+      "type": "split-banner",
+      "blocks": {
+        "body_copy_LQGnca": {
+          "type": "body-copy",
+          "settings": {
+            "copy": "<p>4-week trial GrandeLASH-MD, **just pay $3.95 shipping + tax. Limit 1 per order.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "body_copy_LQGnca"
+      ],
+      "settings": {
+        "style": "rose",
+        "padding": "full-width",
+        "arrangement": "right_asset_left_content",
+        "header": "h3",
+        "alignment": "left",
+        "vertical_alignment": "middle",
+        "module_height": "image-height",
+        "image_d": "shopify:\/\/shop_images\/Ulta_Sephora_US_THG-Maddy-Bath40610.jpg",
+        "video_poster_d": true,
+        "video_poster_m": true,
+        "video_autoplay": true,
+        "eyebrow": "#1 Lash & Brow Serum Brand in the U.S.*",
+        "heading": "Try GrandeLASH-MD for free",
+        "cta_url": "https:\/\/grandecosmetics.com\/9890234434\/checkouts\/aab54e218779c4fa4866273fd2d0ba26?auto_redirect=false&discount=GLSAMPLE&edge_redirect=true&skip_shop_pay=true",
+        "cta_copy": "Try It Free"
+      }
+    },
+    "press_6zxgkx": {
+      "type": "press",
+      "blocks": {
+        "slide_BPqJA9": {
+          "type": "slide",
+          "settings": {
+            "quote": "\"After testing a number of eyelash serums, this one from Grande Cosmetics blew us away in the volume department.\"",
+            "logo": "shopify:\/\/shop_images\/byrdie-logo_699e1858-06f1-4b11-b39a-741a99112b95.png"
+          }
+        },
+        "slide_N9Jfw8": {
+          "type": "slide",
+          "settings": {
+            "quote": "GrandeLASH-MD is \"A <em>Real Simple<\/em> reader-favorite.\""
+          }
+        },
+        "slide_9ahjh9": {
+          "type": "slide",
+          "settings": {
+            "quote": "\"Grande Cosmetics founder Alicia Grande cracked the eyelash-enhancing code with this little gold tube of magic. Ophthalmologist-tested and clinically proven, it transforms short, weak lashes by making them appear longer and thicker.\"",
+            "logo": "shopify:\/\/shop_images\/NewBeauty-1-q0aalw3k4p51an8zfmtpl6kt24uksdudr5b581kg7k_b703bce9-90cb-42fc-9dce-aca326d9287d.png"
+          }
+        }
+      },
+      "block_order": [
+        "slide_BPqJA9",
+        "slide_N9Jfw8",
+        "slide_9ahjh9"
+      ],
+      "custom_css": [
+        "h3 {font-size: 35px !important;}"
+      ],
+      "settings": {}
+    },
+    "split_banner_jCHQnw": {
+      "type": "split-banner",
+      "blocks": {
+        "line_item_VzczQa": {
+          "type": "line-item",
+          "settings": {
+            "line_item_icon_rotation": true,
+            "line_item_text": "Cruelty Free"
+          }
+        },
+        "line_item_H8NbLP": {
+          "type": "line-item",
+          "settings": {
+            "line_item_icon_rotation": true,
+            "line_item_text": "Ophthalmologist Tested"
+          }
+        },
+        "line_item_HCtbL8": {
+          "type": "line-item",
+          "settings": {
+            "line_item_icon_rotation": true,
+            "line_item_text": "Safe to Use With Lash Extensions"
+          }
+        }
+      },
+      "block_order": [
+        "line_item_VzczQa",
+        "line_item_H8NbLP",
+        "line_item_HCtbL8"
+      ],
+      "settings": {
+        "style": "rose",
+        "padding": "full-width",
+        "arrangement": "left_asset_right_content",
+        "header": "h3",
+        "alignment": "left",
+        "vertical_alignment": "middle",
+        "module_height": "image-height",
+        "image_d": "shopify:\/\/shop_images\/lash-mini-banner-value.png",
+        "video_poster_d": true,
+        "image_m": "shopify:\/\/shop_images\/lash-mini-banner-value.png",
+        "video_poster_m": true,
+        "video_autoplay": true,
+        "eyebrow": "Longer-Looking Lashes for FREE",
+        "heading": "The Cult Favorite, Award-Winning Lash Serum",
+        "cta_url": "https:\/\/grandecosmetics.com\/9890234434\/checkouts\/aab54e218779c4fa4866273fd2d0ba26?auto_redirect=false&discount=GLSAMPLE&edge_redirect=true&skip_shop_pay=true",
+        "cta_copy": "Try GrandeLASH-MD"
+      }
+    },
+    "split_banner_rDkCLV": {
+      "type": "split-banner",
+      "blocks": {
+        "body_copy_ME4e98": {
+          "type": "body-copy",
+          "settings": {
+            "copy": "<h5>1. Get a <em>free<\/em> trial size<\/h5><p><br\/>Order a 4-week trial size, just pay $3.95 shipping + tax.<\/p>"
+          }
+        },
+        "body_copy_CzGbbh": {
+          "type": "body-copy",
+          "settings": {
+            "copy": "<h5>2. Use <em>daily<\/em> for 30 days<\/h5><p><br\/>Apply GrandeLASH-MD along the lash line daily to see initial lash improvements.<\/p>"
+          }
+        },
+        "body_copy_3WCAzm": {
+          "type": "body-copy",
+          "settings": {
+            "copy": "<h5>3. You're on your journey to<em> longer looking lashes<br\/><br\/><\/em><\/h5><p>After seeing initial improvements, purchase a Full-Size GrandeLASH-MD to reach full improvements (3 months).<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "body_copy_ME4e98",
+        "body_copy_CzGbbh",
+        "body_copy_3WCAzm"
+      ],
+      "settings": {
+        "style": "beige",
+        "padding": "inset",
+        "arrangement": "right_asset_left_content",
+        "header": "h3",
+        "alignment": "left",
+        "vertical_alignment": "top",
+        "module_height": "content-based",
+        "image_d": "shopify:\/\/shop_images\/LashModelBlock.jpg",
+        "video_poster_d": true,
+        "video_poster_m": true,
+        "video_autoplay": true,
+        "eyebrow": "",
+        "heading": "How It Works",
+        "cta_url": "https:\/\/grandecosmetics.com\/9890234434\/checkouts\/aab54e218779c4fa4866273fd2d0ba26?auto_redirect=false&discount=GLSAMPLE&edge_redirect=true&skip_shop_pay=true",
+        "cta_copy": "Try it Free"
+      }
+    },
+    "split_banner_xrbAjj": {
+      "type": "split-banner",
+      "blocks": {
+        "body_copy_KHrr4T": {
+          "type": "body-copy",
+          "settings": {
+            "copy": "<p>WEEK 1<\/p><h5>🙄 Skepticism <\/h5><p><br\/>Will this really work?<\/p>"
+          }
+        },
+        "body_copy_FindLi": {
+          "type": "body-copy",
+          "settings": {
+            "copy": "<p>WEEK 4<\/p><h5>🤔 Questioning<br\/><\/h5><p><br\/>I think I see something?<\/p>"
+          }
+        },
+        "body_copy_cYRWkB": {
+          "type": "body-copy",
+          "settings": {
+            "copy": "<p>WEEK 6<\/p><h5>😮 Hopeful<\/h5><p><br\/>I really do see something!<\/p>"
+          }
+        },
+        "body_copy_yEdeTD": {
+          "type": "body-copy",
+          "settings": {
+            "copy": "<p>WEEK 12<\/p><h5>🤯 Astonishment<br\/><\/h5><p><br\/>My lashes look UNREAL!<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "body_copy_KHrr4T",
+        "body_copy_FindLi",
+        "body_copy_cYRWkB",
+        "body_copy_yEdeTD"
+      ],
+      "settings": {
+        "style": "beige",
+        "padding": "inset",
+        "arrangement": "left_asset_right_content",
+        "header": "h3",
+        "alignment": "left",
+        "vertical_alignment": "top",
+        "module_height": "content-based",
+        "image_d": "shopify:\/\/shop_images\/GroupModelPhoto.jpg",
+        "video_poster_d": true,
+        "video_poster_m": true,
+        "video_autoplay": true,
+        "eyebrow": "",
+        "heading": "The 4 Stages of Lash Serum",
+        "cta_url": "https:\/\/grandecosmetics.com\/9890234434\/checkouts\/aab54e218779c4fa4866273fd2d0ba26?auto_redirect=false&discount=GLSAMPLE&edge_redirect=true&skip_shop_pay=true",
+        "cta_copy": "Try it Free"
+      }
+    },
+    "171691198165c10d40": {
+      "type": "apps",
+      "blocks": {
+        "firework_virtual_store_firework_embed_WFMMqk": {
+          "type": "shopify:\/\/apps\/firework-shoppable-video-ugc\/blocks\/firework-embed\/347a2e4c-f5cb-410d-8354-490d1e80558c",
+          "settings": {
+            "channel": "grandecosmetics",
+            "playlist": "v6KeM5",
+            "layout": "carousel",
+            "embedtitle": "TikTok Made Me Buy It",
+            "titlealignment": "center",
+            "embedtitlesize": 50,
+            "hashtag": "",
+            "size": "large",
+            "player_placement": "bottom-right",
+            "pip": true
+          }
+        }
+      },
+      "block_order": [
+        "firework_virtual_store_firework_embed_WFMMqk"
+      ],
+      "settings": {}
+    },
+    "categories_LryQWn": {
+      "type": "categories",
+      "disabled": true,
+      "settings": {
+        "eyebrow": "",
+        "heading": "See GrandeLASH-MD  Results",
+        "cta_copy": "",
+        "cta_url": ""
+      }
+    },
+    "split_banner_KG7mKR": {
+      "type": "split-banner",
+      "blocks": {
+        "body_copy_iP8BH4": {
+          "type": "body-copy",
+          "settings": {
+            "copy": "<p>Grande Cosmetics’ very first product was GrandeLASH-MD—a revolutionary lash enhancing serum that gave people longer, thicker looking lashes. From there, the serum caught on like wildfire and garnered a cult-following. Since 2008, we’ve transformed millions of lashes & are proud to say that we are America's #1 Lash & Brow Serum Brand* today.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "body_copy_iP8BH4"
+      ],
+      "settings": {
+        "style": "beige",
+        "padding": "full-width",
+        "arrangement": "left_asset_right_content",
+        "header": "h3",
+        "alignment": "left",
+        "vertical_alignment": "middle",
+        "module_height": "image-height",
+        "image_d": "shopify:\/\/shop_images\/Alicia-President-Founder.jpg",
+        "video_poster_d": true,
+        "video_poster_m": true,
+        "video_autoplay": true,
+        "eyebrow": "1 PRODUCT | 36X AWARD WINNER",
+        "heading": "The Product That Started It All",
+        "cta_url": "https:\/\/grandecosmetics.com\/9890234434\/checkouts\/aab54e218779c4fa4866273fd2d0ba26?auto_redirect=false&discount=GLSAMPLE&edge_redirect=true&skip_shop_pay=true",
+        "cta_copy": "Try GrandeLASH-MD"
+      }
+    },
+    "split_banner_PiiDzY": {
+      "type": "split-banner",
+      "blocks": {
+        "body_copy_zRBLGy": {
+          "type": "body-copy",
+          "settings": {
+            "copy": "<p>4-week trial GrandeLASH-MD, **just pay $3.95 shipping + tax<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "body_copy_zRBLGy"
+      ],
+      "settings": {
+        "style": "beige",
+        "padding": "full-width",
+        "arrangement": "right_asset_left_content",
+        "header": "h3",
+        "alignment": "left",
+        "vertical_alignment": "top",
+        "module_height": "content-based",
+        "image_d": "shopify:\/\/shop_images\/Maddie-EyeLiner40746.jpg",
+        "video_poster_d": true,
+        "video_poster_m": true,
+        "video_autoplay": true,
+        "eyebrow": "#1 Lash & Brow Serum Brand in the U.S.*",
+        "heading": "Get Envy-Worthy Lashes For Free",
+        "cta_url": "https:\/\/grandecosmetics.com\/9890234434\/checkouts\/aab54e218779c4fa4866273fd2d0ba26?auto_redirect=false&discount=GLSAMPLE&edge_redirect=true&skip_shop_pay=true",
+        "cta_copy": "Try GrandeLASH-MD"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "ticker_nLikDH",
+    "split_banner_4QnFDY",
+    "press_6zxgkx",
+    "split_banner_jCHQnw",
+    "split_banner_rDkCLV",
+    "split_banner_xrbAjj",
+    "171691198165c10d40",
+    "categories_LryQWn",
+    "split_banner_KG7mKR",
+    "split_banner_PiiDzY"
+  ]
+}

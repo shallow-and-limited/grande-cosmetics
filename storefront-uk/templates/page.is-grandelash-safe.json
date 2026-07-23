@@ -1,0 +1,65 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {}
+    },
+    "split_banner_diPYTC": {
+      "type": "split-banner",
+      "settings": {
+        "style": "rose",
+        "padding": "full-width",
+        "arrangement": "left_asset_right_content",
+        "header": "h3",
+        "alignment": "centered",
+        "vertical_alignment": "middle",
+        "module_height": "image-height",
+        "image_d": "shopify:\/\/shop_images\/LashModelBlock.jpg",
+        "video_poster_d": true,
+        "video_poster_m": true,
+        "video_autoplay": true,
+        "eyebrow": "",
+        "heading": "Is GrandeLASH-MD Safe? <br> We guarantee it!",
+        "cta_url": "",
+        "cta_copy": ""
+      }
+    },
+    "faq_kb9Qei": {
+      "type": "faq",
+      "settings": {}
+    },
+    "banner_4rBQ3z": {
+      "type": "banner",
+      "settings": {
+        "color": "dark",
+        "background": "beige",
+        "alignment": "center",
+        "eyebrow": "",
+        "heading": "",
+        "heading_size": "h2",
+        "copy": "For any additional questions or assistance, please contact our customer service team.",
+        "cta_url": "shopify:\/\/pages\/contact",
+        "cta_copy": "Contact Us",
+        "cta_url_alt": "",
+        "cta_copy_alt": "",
+        "overlay": 0
+      }
+    }
+  },
+  "order": [
+    "main",
+    "split_banner_diPYTC",
+    "faq_kb9Qei",
+    "banner_4rBQ3z"
+  ]
+}

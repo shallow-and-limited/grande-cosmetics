@@ -1,0 +1,223 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "shogun-helper": {
+      "type": "shogun-helper",
+      "settings": {}
+    },
+    "shogun-above": {
+      "type": "shogun-above",
+      "settings": {}
+    },
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "title_qVm9wT": {
+          "type": "title",
+          "settings": {}
+        },
+        "subtitle_RFcddk": {
+          "type": "subtitle",
+          "settings": {
+            "subtitle": "{{ product.metafields.details.subtitle.value }}"
+          }
+        },
+        "price_UdhhDU": {
+          "type": "price",
+          "settings": {}
+        },
+        "short_desc_7AaVCy": {
+          "type": "short_desc",
+          "settings": {}
+        },
+        "selectable_bundle_dqpp8n": {
+          "type": "selectable_bundle",
+          "settings": {
+            "show_dynamic_checkout": false,
+            "subscription_tooltip_text": ""
+          }
+        },
+        "rewards_E4PMJJ": {
+          "type": "rewards",
+          "settings": {}
+        },
+        "product_features_m4nhVy": {
+          "type": "product_features",
+          "settings": {}
+        },
+        "accordions_pepGdh": {
+          "type": "accordions",
+          "settings": {}
+        },
+        "faqs_YtqnhH": {
+          "type": "faqs",
+          "settings": {
+            "label": "Have a question? Read our FAQs",
+            "link-text": "Expand"
+          }
+        },
+        "report_gi3ajb": {
+          "type": "report",
+          "settings": {
+            "copy": "Committed to using safe & clinically–tested ingredients.",
+            "link-text": "See the Report",
+            "link-url": "https:\/\/grandecosmetics.com\/pages\/grandelash-md-safety-testing"
+          }
+        }
+      },
+      "block_order": [
+        "title_qVm9wT",
+        "subtitle_RFcddk",
+        "price_UdhhDU",
+        "short_desc_7AaVCy",
+        "selectable_bundle_dqpp8n",
+        "rewards_E4PMJJ",
+        "product_features_m4nhVy",
+        "accordions_pepGdh",
+        "faqs_YtqnhH",
+        "report_gi3ajb"
+      ],
+      "custom_css": [],
+      "settings": {}
+    },
+    "fw_html_embed_PFnERL": {
+      "type": "fw-html-embed",
+      "settings": {
+        "title": "Trending On TikTok",
+        "embed_code": "<script async type=\"text\/javascript\" src=\"\/\/asset.fwcdn3.com\/js\/embed-feed.js\"><\/script>\n\n    <fw-embed-feed channel=\"grandecosmetics\" playlist=\"5RJWb5\" mode=\"row\" open_in=\"default\" max_videos=\"0\" placement=\"middle\" player_placement=\"bottom-right\" branding=\"false\"><\/fw-embed-feed>"
+      }
+    },
+    "banner_zYcQEF": {
+      "type": "banner",
+      "settings": {
+        "color": "dark",
+        "background": "rose",
+        "alignment": "center",
+        "eyebrow": "",
+        "heading": "",
+        "heading_size": "h2",
+        "copy": "",
+        "cta_url": "",
+        "cta_copy": "",
+        "cta_url_alt": "",
+        "cta_copy_alt": "",
+        "overlay": 0
+      }
+    },
+    "benefits": {
+      "type": "benefits",
+      "settings": {}
+    },
+    "testimonials_kWzRwm": {
+      "type": "testimonials",
+      "disabled": true,
+      "settings": {
+        "slide_type": "image_bg",
+        "background_color": "beige"
+      }
+    },
+    "ticker_jXx7gz": {
+      "type": "ticker",
+      "settings": {
+        "optional_text": "",
+        "optional_url": "",
+        "speed": 1,
+        "color_scheme": "coral"
+      }
+    },
+    "categories_WVnWcQ": {
+      "type": "categories",
+      "settings": {
+        "eyebrow": "",
+        "heading": "",
+        "cta_copy": "",
+        "cta_url": ""
+      }
+    },
+    "before_after_gQDGbq": {
+      "type": "before-after",
+      "settings": {
+        "switch_sides": false,
+        "metaobject_handle": ""
+      }
+    },
+    "product_education_V69cBA": {
+      "type": "product-education",
+      "settings": {}
+    },
+    "product_carousel_VKNiJC": {
+      "type": "product-carousel",
+      "settings": {
+        "heading": "",
+        "categories": false,
+        "cta_copy": "",
+        "cta_url": ""
+      }
+    },
+    "1716494706cc8d339a": {
+      "type": "apps",
+      "blocks": {
+        "yotpo_product_reviews_ugc_reviews_9UdWPi": {
+          "type": "shopify:\/\/apps\/yotpo-product-reviews\/blocks\/reviews\/eb7dfd7d-db44-4334-bc49-c893b51b36cf",
+          "disabled": true,
+          "settings": {
+            "product": ""
+          }
+        }
+      },
+      "block_order": [
+        "yotpo_product_reviews_ugc_reviews_9UdWPi"
+      ],
+      "settings": {}
+    },
+    "3cbc6a3c1622afaae685": {
+      "type": "apps",
+      "blocks": {
+        "e167ceea-358f-422b-b853-e1eff466bb04": {
+          "type": "shopify:\/\/apps\/yotpo-product-reviews\/blocks\/reviews\/eb7dfd7d-db44-4334-bc49-c893b51b36cf",
+          "settings": {
+            "product": "{{product}}"
+          }
+        }
+      },
+      "block_order": [
+        "e167ceea-358f-422b-b853-e1eff466bb04"
+      ],
+      "settings": {}
+    },
+    "shogun-below": {
+      "type": "shogun-below",
+      "settings": {}
+    },
+    "shogun-optimizer": {
+      "type": "shogun-optimizer",
+      "settings": {}
+    }
+  },
+  "order": [
+    "shogun-helper",
+    "shogun-above",
+    "main",
+    "fw_html_embed_PFnERL",
+    "banner_zYcQEF",
+    "benefits",
+    "testimonials_kWzRwm",
+    "ticker_jXx7gz",
+    "categories_WVnWcQ",
+    "before_after_gQDGbq",
+    "product_education_V69cBA",
+    "product_carousel_VKNiJC",
+    "1716494706cc8d339a",
+    "3cbc6a3c1622afaae685",
+    "shogun-below",
+    "shogun-optimizer"
+  ]
+}

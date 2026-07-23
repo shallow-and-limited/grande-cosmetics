@@ -1,0 +1,16 @@
+{% if object.metafields.custom.section_order != blank %}
+  {% assign metaObjectList = object.metafields.custom.section_order.value %}
+  {% for metaObject in metaObjectList %}
+    {% if metaObject.section_name == 'Featured Images' %}
+      {% render 'featured-images' object: object, metaData: object.metafields.custom.featured_images.value %}
+    {%  elsif metaObject.section_name == 'Rich Text' %}
+      {% render 'rich-text' object: object, metaData: object.metafields.custom.rich_text.value %}
+    {% elsif metaObject.section_name == 'Sources' %}
+      {% render 'sources' object: object, metaData: object.metafields.custom.sources %}
+    {% elsif metaObject.section_name == 'Collection Carousel' %}
+      {% render 'featured-collection' object: object, metaData: object.metafields.custom.collection_carousel.value %}
+    {% elsif metaObject.section_name == 'Content Cards' %}
+      {% render 'content-cards' object: object, metaData: object.metafields.custom.content_cards.value %}
+    {% endif %}
+  {% endfor %}  
+{% endif %}

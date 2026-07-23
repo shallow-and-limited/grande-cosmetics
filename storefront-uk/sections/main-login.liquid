@@ -1,0 +1,221 @@
+{{ 'customer.min.css' | asset_url | stylesheet_tag }}
+
+{% assign _settings = section.settings %}
+{% assign _blocks = section.blocks %}
+
+<section>
+  <div id="login_section">
+    {% if _settings.bg_dsk != blank %}
+      <img class="customer__bg-dsk hide-mobile" src="{{ _settings.bg_dsk | image_url }}" alt="Account Background Image" width="{{ _settings.bg_dsk.width }}" height="{{ _settings.bg_dsk.height }}" />
+    {% endif %}
+    {% if _settings.bg_mob != blank %}
+      <img class="customer__bg-mob hide-desktop" src="{{ _settings.bg_mob | image_url }}" alt="Account Background Image" width="{{ _settings.bg_mob.width }}" height="{{ _settings.bg_mob.height }}" />
+    {% endif %}
+
+    <div class="customer login">
+      <h1 id="recover" class="p-1" tabindex="-1">
+        {{ 'customer.recover_password.title' | t }}
+      </h1>
+      <div>
+        <p class="p-3">
+          {{ 'customer.recover_password.subtext' | t }}
+        </p>
+
+        {%- form 'recover_customer_password' -%}
+          {% assign recover_success = form.posted_successfully? %}
+          <div class="field">
+            <input
+              class="p-3"
+              type="email"
+              value=""
+              name="email"
+              id="RecoverEmail"
+              autocorrect="off"
+              autocapitalize="off"
+              autocomplete="email"
+              {% if form.errors %}
+                aria-invalid="true"
+                aria-describedby="RecoverEmail-email-error"
+              {% endif %}
+              placeholder="{{ 'customer.login_page.email' | t }}"
+            >
+            <label hidden for="RecoverEmail">
+              {{ 'customer.login_page.email' | t }}
+            </label>
+          </div>
+          {%- if form.errors -%}
+            <small id="RecoverEmail-email-error" class="form__message p-4">
+              {% render 'icons', icon_name: 'error' %}
+              {{ form.errors.messages.form }}
+            </small>
+          {%- endif -%}
+
+          <button class="btn btn--primary">
+            {{ 'customer.login_page.submit' | t }}
+          </button>
+
+          <a class="btn btn--secondary" href="#login">
+            {{ 'customer.login_page.cancel' | t }}
+          </a>
+        {%- endform -%}
+      </div>
+
+      <h1 id="login" class="p-1" tabindex="-1">
+        {{ 'customer.login_page.title' | t }}
+      </h1>
+      <div>
+        {%- if recover_success == true -%}
+          <h3 class="form__message p-3" tabindex="-1" >
+            {% render 'icons', icon_name: 'success' %}
+            {{ 'customer.recover_password.success' | t }}
+          </h3>
+        {%- endif -%}
+        {%- form 'customer_login', novalidate: 'novalidate' -%}
+          {%- if form.errors -%}
+            <h2 class="form__message p-3" tabindex="-1" >
+              <span class="visually-hidden">{{ 'accessibility.error' | t }} </span>
+              {% render 'icons', icon_name: 'error' %}
+              {{ 'templates.contact.form.error_heading' | t }}
+            </h2>
+            <span class="p-4">{{ form.errors | default_errors }}</span>
+          {%- endif -%}
+
+          <div class="field">
+            <input
+              class="p-3"
+              type="email"
+              name="customer[email]"
+              id="CustomerEmail"
+              autocomplete="email"
+              autocorrect="off"
+              autocapitalize="off"
+              {% if form.errors contains 'form' %}
+                aria-invalid="true"
+              {% endif %}
+              placeholder="{{ 'customer.login_page.email' | t }}"
+            >
+            <label hidden for="CustomerEmail">
+              {{ 'customer.login_page.email' | t }}
+            </label>
+          </div>
+
+          {%- if form.password_needed -%}
+            <div class="field">
+              <input
+                class="p-3"
+                type="password"
+                value=""
+                name="customer[password]"
+                id="CustomerPassword"
+                autocomplete="current-password"
+                {% if form.errors contains 'form' %}
+                  aria-invalid="true"
+                {% endif %}
+                placeholder="{{ 'customer.login_page.password' | t }}"
+              >
+              <label hidden for="CustomerPassword">
+                {{ 'customer.login_page.password' | t }}
+              </label>
+            </div>
+
+            <a class="login__recover p-3" href="#recover">
+              {{ 'customer.login_page.forgot_password' | t }}
+            </a>
+          {%- endif -%}
+
+          <button class="btn btn--small">
+            {{ 'customer.login_page.sign_in' | t }}
+          </button>
+        {%- endform -%}
+      </div>
+
+      {%- if shop.checkout.guest_login -%}
+        <div>
+          <hr>
+          <h2>{{ 'customer.login_page.guest_title' | t }}</h2>
+
+          {%- form 'guest_login' -%}
+            <button>
+              {{ 'customer.login_page.guest_continue' | t }}
+            </button>
+          {%- endform -%}
+        </div>
+      {%- endif -%}
+    </div>
+
+    <div class="login__content">
+      <h4 class="login__content-heading s-3 uppercase">{{ _settings.content_heading }}</h4>
+      <p class="login__pre-text p-3">{{ _settings.content_pre_text }}</p>
+      <ul class="login__bullets">
+        {% for block in _blocks %}
+        <li class="login__bullet">
+          {% if block.settings.icon != blank %}
+            <img src="{{ block.settings.icon | image_url: width: 24 }}" width="24" height="24" />
+          {% endif %}
+          <span class="p-4">{{ block.settings.bullet_text }}</span>
+        </li>
+        {% endfor %}
+      </ul>
+      <a class="login__content-link" href="{{ routes.account_register_url }}">
+        <span class="p-4">{{ 'customer.login_page.create_account' | t }}</span>
+        {% render 'icons', icon_name: 'arrow-right' %}
+      </a>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "t:sections.main-login.name",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Background Images"
+    },
+    {
+      "type": "image_picker",
+      "id": "bg_dsk",
+      "label": "Desktop Background"
+    },
+    {
+      "type": "image_picker",
+      "id": "bg_mob",
+      "label": "Mobile Background"
+    },
+    {
+      "type": "header",
+      "content": "Login Content Block"
+    },
+    {
+      "type": "text",
+      "id": "content_heading",
+      "label": "Block Heading",
+      "default": "Not Signed Up Yet?"
+    },
+    {
+      "type": "text",
+      "id": "content_pre_text",
+      "label": "List Pre-Text",
+      "default": "Create an account to receive these benefits:"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "bullet_point",
+      "name": "Login Bullet Point",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon"
+        },
+        {
+          "type": "text",
+          "id": "bullet_text",
+          "label": "Text"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,400 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {}
+    },
+    "ticker_MDxmiw": {
+      "type": "ticker",
+      "blocks": {
+        "text_8V7tYJ": {
+          "type": "text",
+          "settings": {
+            "svg_icon": "flower",
+            "text": "Introductory Offer",
+            "url": ""
+          }
+        },
+        "text_mEgp7z": {
+          "type": "text",
+          "settings": {
+            "svg_icon": "flower",
+            "text": "30% off",
+            "url": "https:\/\/grandecosmetics.com\/products\/grandebrow-2-in-1-copy-1"
+          }
+        },
+        "text_nEXPiQ": {
+          "type": "text",
+          "settings": {
+            "svg_icon": "flower",
+            "text": "Get it for $26.60",
+            "url": ""
+          }
+        }
+      },
+      "block_order": [
+        "text_8V7tYJ",
+        "text_mEgp7z",
+        "text_nEXPiQ"
+      ],
+      "settings": {
+        "optional_text": "",
+        "optional_url": "https:\/\/grandecosmetics.com\/products\/grandebrow-2-in-1-copy-1",
+        "speed": 1,
+        "color_scheme": "daisy"
+      }
+    },
+    "split_banner_ahyxj3": {
+      "type": "split-banner",
+      "blocks": {
+        "body_copy_7AkJEj": {
+          "type": "body-copy",
+          "settings": {
+            "copy": "<p>GrandeBROW 2-in-1 is a double-duty tinted brow gel infused with brow enhancing serum, so you can achieve bolder brows NOW + thicker-looking brows in as little as 6 weeks.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "body_copy_7AkJEj"
+      ],
+      "settings": {
+        "style": "coral",
+        "padding": "full-width",
+        "arrangement": "left_asset_right_content",
+        "header": "h2",
+        "alignment": "left",
+        "vertical_alignment": "middle",
+        "module_height": "content-based",
+        "image_d": "shopify:\/\/shop_images\/2-In-1_Image.jpg",
+        "video_poster_d": true,
+        "video_poster_m": true,
+        "video_autoplay": true,
+        "eyebrow": "From the #1 Lash & Brow Serum Brand in the U.S.*",
+        "heading": "<em>The First Brow Gel<\/em> Of It's Kind",
+        "cta_url": "https:\/\/grandecosmetics.com\/products\/grandebrow-2-in-1-copy-1",
+        "cta_copy": "Shop Now"
+      }
+    },
+    "split_banner_gph9HF": {
+      "type": "split-banner",
+      "blocks": {
+        "body_copy_mznNrj": {
+          "type": "body-copy",
+          "settings": {
+            "copy": "<p>Get instant, buildable color while you wait for your long-term results. GrandeBROW 2-in-1 is available in 5 shades:<\/p>"
+          }
+        },
+        "line_item_zXebHW": {
+          "type": "line-item",
+          "settings": {
+            "line_item_icon": "shopify:\/\/shop_images\/Brow2in1-light.png",
+            "line_item_icon_rotation": false,
+            "line_item_text": "Light"
+          }
+        },
+        "line_item_Gwt8UC": {
+          "type": "line-item",
+          "settings": {
+            "line_item_icon": "shopify:\/\/shop_images\/Brow2in1-taupe.png",
+            "line_item_icon_rotation": false,
+            "line_item_text": "Taupe"
+          }
+        },
+        "line_item_eatg39": {
+          "type": "line-item",
+          "settings": {
+            "line_item_icon": "shopify:\/\/shop_images\/Brow2in1-medium.png",
+            "line_item_icon_rotation": false,
+            "line_item_text": "Medium"
+          }
+        },
+        "line_item_UFEE4g": {
+          "type": "line-item",
+          "settings": {
+            "line_item_icon": "shopify:\/\/shop_images\/Brow2in1-dark.png",
+            "line_item_icon_rotation": false,
+            "line_item_text": "Dark"
+          }
+        },
+        "line_item_PaFiYU": {
+          "type": "line-item",
+          "settings": {
+            "line_item_icon": "shopify:\/\/shop_images\/Brow2in1-auburn.png",
+            "line_item_icon_rotation": false,
+            "line_item_text": "Auburn"
+          }
+        },
+        "body_copy_nkGR9K": {
+          "type": "body-copy",
+          "settings": {
+            "copy": "<h5><em>100% felt it adds<br\/>instant color to brows**<\/em><\/h5>"
+          }
+        }
+      },
+      "block_order": [
+        "body_copy_mznNrj",
+        "line_item_zXebHW",
+        "line_item_Gwt8UC",
+        "line_item_eatg39",
+        "line_item_UFEE4g",
+        "line_item_PaFiYU",
+        "body_copy_nkGR9K"
+      ],
+      "settings": {
+        "style": "beige",
+        "padding": "inset",
+        "arrangement": "right_asset_left_content",
+        "header": "h3",
+        "alignment": "left",
+        "vertical_alignment": "middle",
+        "module_height": "image-height",
+        "image_d": "shopify:\/\/shop_images\/Brow2in1-InstantBA-GIF.gif",
+        "video_poster_d": true,
+        "video_poster_m": true,
+        "video_autoplay": true,
+        "eyebrow": "With Brow Gel",
+        "heading": "Instant Color",
+        "cta_url": "https:\/\/grandecosmetics.com\/products\/grandebrow-2-in-1-copy-1",
+        "cta_copy": "Try It Now"
+      }
+    },
+    "split_banner_VQqwLT": {
+      "type": "split-banner",
+      "blocks": {
+        "body_copy_74VGhE": {
+          "type": "body-copy",
+          "settings": {
+            "copy": "<p>Get clinically darker, thicker looking brows in as little as 6 weeks using GrandeBROW 2-in-1 every day. Check out these real no-makeup results from participants in our clinical study.<\/p>"
+          }
+        },
+        "body_copy_PxkpLA": {
+          "type": "body-copy",
+          "settings": {
+            "copy": "<h5><em>100% saw thicker looking brows over time**<\/em><\/h5>"
+          }
+        }
+      },
+      "block_order": [
+        "body_copy_74VGhE",
+        "body_copy_PxkpLA"
+      ],
+      "settings": {
+        "style": "beige",
+        "padding": "inset",
+        "arrangement": "left_asset_right_content",
+        "header": "h3",
+        "alignment": "left",
+        "vertical_alignment": "middle",
+        "module_height": "image-height",
+        "image_d": "shopify:\/\/shop_images\/Brow2in1_Square_Long_Term_B_A_2.gif",
+        "video_poster_d": true,
+        "video_poster_m": true,
+        "video_autoplay": true,
+        "eyebrow": "Makeup-Free",
+        "heading": "Long Term Results",
+        "cta_url": "https:\/\/grandecosmetics.com\/products\/grandebrow-2-in-1-copy-1",
+        "cta_copy": "Start Your Journey"
+      }
+    },
+    "ticker_G79UYn": {
+      "type": "ticker",
+      "blocks": {
+        "text_CAXKwP": {
+          "type": "text",
+          "settings": {
+            "svg_icon": "flower",
+            "text": "Introductory Offer",
+            "url": ""
+          }
+        },
+        "text_FbETXM": {
+          "type": "text",
+          "settings": {
+            "svg_icon": "flower",
+            "text": "30% off",
+            "url": ""
+          }
+        },
+        "text_nTpmry": {
+          "type": "text",
+          "settings": {
+            "svg_icon": "flower",
+            "text": "Get it for $26.60",
+            "url": ""
+          }
+        }
+      },
+      "block_order": [
+        "text_CAXKwP",
+        "text_FbETXM",
+        "text_nTpmry"
+      ],
+      "settings": {
+        "optional_text": "",
+        "optional_url": "https:\/\/grandecosmetics.com\/products\/grandebrow-2-in-1-copy-1",
+        "speed": 1,
+        "color_scheme": "coral"
+      }
+    },
+    "17171848690a7effb0": {
+      "type": "apps",
+      "blocks": {
+        "firework_virtual_store_firework_embed_HQLweH": {
+          "type": "shopify:\/\/apps\/firework-shoppable-video-ugc\/blocks\/firework-embed\/347a2e4c-f5cb-410d-8354-490d1e80558c",
+          "disabled": true,
+          "settings": {
+            "channel": "grandecosmetics",
+            "playlist": "v7b00g",
+            "layout": "carousel",
+            "embedtitle": "TikTok Made Me Buy It",
+            "titlealignment": "center",
+            "embedtitlesize": 45,
+            "hashtag": "",
+            "size": "large",
+            "player_placement": "bottom-right",
+            "pip": true
+          }
+        }
+      },
+      "block_order": [
+        "firework_virtual_store_firework_embed_HQLweH"
+      ],
+      "custom_css": [],
+      "settings": {}
+    },
+    "fw_html_embed_TVTaNp": {
+      "type": "fw-html-embed",
+      "custom_css": [
+        "h5 {font-size: 45px; text-align: center;}"
+      ],
+      "settings": {
+        "title": "TikTok Made Me Buy It",
+        "embed_code": "<script async type=\"text\/javascript\" src=\"\/\/asset.fwcdn3.com\/js\/embed-feed.js\"><\/script>\n\n    <fw-embed-feed channel=\"grandecosmetics\" playlist=\"v7b00g\" mode=\"row\" open_in=\"default\" max_videos=\"0\" placement=\"middle\" player_placement=\"bottom-right\" branding=\"false\"><\/fw-embed-feed>"
+      }
+    },
+    "testimonials_mbRL7q": {
+      "type": "testimonials",
+      "blocks": {
+        "testimonial_slide_image_C4FyAf": {
+          "type": "testimonial_slide_image",
+          "settings": {
+            "text_placement": "top",
+            "text_color": "white",
+            "eyebrow": "",
+            "quote_size": "h1",
+            "quote": "",
+            "text": "",
+            "cta_url": "",
+            "cta_copy": ""
+          }
+        }
+      },
+      "block_order": [
+        "testimonial_slide_image_C4FyAf"
+      ],
+      "settings": {
+        "slide_type": "image_bg",
+        "background_color": "beige"
+      }
+    },
+    "split_banner_3TNFrk": {
+      "type": "split-banner",
+      "blocks": {
+        "body_copy_HQYdyn": {
+          "type": "body-copy",
+          "settings": {
+            "copy": "<h5>✅  Effortless Application <\/h5><p><br\/>Say goodbye to sparse brows! This serum-infused brow gel helps transform the look of sparse, thinning, over-plucked or tail-less brows with consistent daily use.<\/p>"
+          }
+        },
+        "body_copy_9PLQ86": {
+          "type": "body-copy",
+          "settings": {
+            "copy": "<h5>✅  Smudge Proof <\/h5><p><br\/>Our long-lasting formula ensures your brows stay on point for up to 12 hours, no matter what the day brings.<\/p>"
+          }
+        },
+        "body_copy_qEbdri": {
+          "type": "body-copy",
+          "settings": {
+            "copy": "<h5>✅  Best Of Both Worlds<\/h5><p><br\/>Why settle for just one benefit when you can have two? Our innovative formula combines tinting and fuller, thicker looking brows over time for maximum impact.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "body_copy_HQYdyn",
+        "body_copy_9PLQ86",
+        "body_copy_qEbdri"
+      ],
+      "settings": {
+        "style": "beige",
+        "padding": "inset",
+        "arrangement": "right_asset_left_content",
+        "header": "h3",
+        "alignment": "left",
+        "vertical_alignment": "middle",
+        "module_height": "image-height",
+        "image_d": "shopify:\/\/shop_images\/GrandeBROW-2-in-1-Medium-Swatch-AltImage-Grande.png",
+        "video_poster_d": true,
+        "video_poster_m": true,
+        "video_autoplay": true,
+        "eyebrow": "Backed By GrandeBROW Technology",
+        "heading": "Get Fuller, Thicker-Looking Brows",
+        "cta_url": "https:\/\/grandecosmetics.com\/products\/grandebrow-2-in-1-copy-1",
+        "cta_copy": "Get it for $26.60 with code: DOUBLEDUTY"
+      }
+    },
+    "split_banner_RPa9mN": {
+      "type": "split-banner",
+      "blocks": {
+        "body_copy_3rmNVR": {
+          "type": "body-copy",
+          "settings": {
+            "copy": "<p>That's how long it took Alicia Grande, the founder of Grande Cosmetics, to create GrandeBROW 2-in-1. It proved surprisingly difficult to infuse the brow serum into a brow gel without compromising the formula.<br\/><br\/><strong>She wanted to make sure that it: <\/strong> <br\/><strong>a) <\/strong>was first & foremost: a really, really good tinted brow gel &  <br\/><strong>b)<\/strong> that it delivered real results powered by award-winning GrandeBROW Enhancing Serum technology.<br\/><br\/><strong>We're happy to report that persistance paid off:<\/strong><br\/>This 5x award winning brow gel is now the only product of it's kind - giving you not only an instant tint, but also fuller looking brows over time.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "body_copy_3rmNVR"
+      ],
+      "settings": {
+        "style": "beige",
+        "padding": "inset",
+        "arrangement": "left_asset_right_content",
+        "header": "h3",
+        "alignment": "left",
+        "vertical_alignment": "top",
+        "module_height": "image-height",
+        "image_d": "shopify:\/\/shop_images\/Alicia_Block.png",
+        "video_poster_d": true,
+        "video_poster_m": true,
+        "video_autoplay": true,
+        "eyebrow": "The Story Behind The Product",
+        "heading": "3 Years, 20 Formulation Attempts",
+        "cta_url": "https:\/\/grandecosmetics.com\/products\/grandebrow-2-in-1-copy-1",
+        "cta_copy": "Try The Award Winning Brow Gel"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "ticker_MDxmiw",
+    "split_banner_ahyxj3",
+    "split_banner_gph9HF",
+    "split_banner_VQqwLT",
+    "ticker_G79UYn",
+    "17171848690a7effb0",
+    "fw_html_embed_TVTaNp",
+    "testimonials_mbRL7q",
+    "split_banner_3TNFrk",
+    "split_banner_RPa9mN"
+  ]
+}

@@ -1,0 +1,308 @@
+{{ 'main-collection.min.css' | asset_url | stylesheet_tag }}
+{{ 'main-search.min.css' | asset_url | stylesheet_tag }}
+{%- if search.results_count > 0 -%}
+
+  {%- capture contentForQuerystring -%}{{ content_for_header }}{%- endcapture -%}
+  {%- assign pageUrl = contentForQuerystring
+    | split: '"pageurl":"'
+    | last
+    | split: '"'
+    | first
+    | split: '.myshopify.com'
+    | last
+    | replace: '\/', '/'
+    | replace: '%20', ' '
+    | replace: '\u0026', '&'
+  -%}
+  {% capture finalurl %}https://{{ pageUrl }}{% endcapture %}
+
+
+  <main-collection id="product-grid-section" data-id="{{ section.id }}" class="main-collection main-search__collection {% if finalurl contains 'article' %}main-search__articles main-collection--nofilters{% endif %}">
+    <form>
+      {% paginate search.results by limit %}
+
+      {%- if paginate.page_size > paginate.items -%}
+          {% assign current_size = paginate.items | times: 1.0 %}
+        {%- else -%}
+          {% assign current_size = paginate.page_size | times: 1.0 %}
+        {%- endif -%}
+      
+      {% liquid
+        assign product_result_count = 0
+        assign article_result_count = 0
+        assign article_current_size = 0
+        for item in search.results
+          if item.object_type == 'product'
+            assign has_products = true
+            assign product_result_count = product_result_count | plus: 1
+          elsif item.object_type == 'article'
+            assign has_articles = true
+            assign article_result_count = article_result_count | plus: 1
+          endif
+        endfor        
+      %} 
+
+        <div class="main-collection__wrapper">
+          <div class="main-collection__product-grid{% if finalurl contains 'product' %} products-only{% endif %}">
+            <div class="grid grid--collection" data-collection-grid="{{ size }}">
+
+                <div class="filters" data-filters>
+                  <form>
+                    {% render 'main-search-filters', results: search, pager: paginate, current_size: current_size, size: size %}
+                  </form>
+                </div>
+
+              <div>
+                <div class="product-grid {% if _s.columns_desktop == '4' %}product-grid--fourths{% endif %} {% if _s.columns_mobile == '1' %}product-grid--single-mobile{% endif %}" data-product-grid data-media-slide-container>
+                  {%- unless filtered == true or current_tags -%}
+                    {% for block in section.blocks %}
+                      {%- liquid 
+                        assign _b = block.settings
+                        assign span = 1
+                        assign offset = 1
+          
+                        if _b.display == 'horizontal'
+                          assign span = 2
+                          assign offset = 2
+                        endif
+                      -%}
+                      
+                      <div class="editorial-card editorial-card--{{ _b.display }}" data-id="{{ block.id }}"-container>
+                        <style>
+                          .editorial-card[data-id="{{ block.id }}"] {
+                            --card-row:  {{ _b.row }};
+                            --card-span:  {{ _b.display }};
+                            --card-column: {{ _b.column }};
+                          }
+                        </style>
+                        {% render 'image'
+                          image: _b.image_desktop,
+                          class: 'editorial-card__image',
+                          image_m: _b.image_mobile
+                        %}
+                        {%- if _b.eyebrow != blank -%}
+                          <h4 class="editorial-card__eyebrow p-3 color-white">{{ _b.eyebrow }}</h4>
+                        {%- endif -%}
+                        {%- if _b.heading != blank -%}
+                          <h4 class="editorial-card__heading {% if _b.display == '2' %}h3{% else %}h4{% endif %} color-white">{{ _b.heading }}</h4>
+                        {%- endif -%}
+                        {% if _b.cta_copy != blank and _b.cta_url != blank %}
+                          <a class="editorial-card__cta btn btn--primary-dark" href="{{ _b.cta_url }}">
+                            {{ _b.cta_copy }}
+                          </a>
+                        {% endif %}
+                      </div>
+                    {% endfor %}
+                  {%- endunless -%}
+                  {% for item in search.results %}
+                    {%  if finalurl contains 'product' %}
+                      {% render 'product-card', product: item, collection: search, attr: 'data-product-card', card_index: forloop.index %}
+                    {% else %}
+                      {% render 'blog-card', article: item, card_index: forloop.index %}
+                      {% assign article_current_size = article_current_size | plus: 1 %}
+                    {% endif %}
+                  {% endfor %}
+                </div>
+              </div>
+            </div>
+    
+          </div>
+          <div class="main-collection__pagination">
+            <p class="p-3 color-dark-gray main-collection__pagination-count">Viewing <span data-product-count>{{ current_size | floor }}</span> of <span data-collection-count>{{ search.results_count }}</span> Results</p>
+            {% if paginate.next != blank %}
+              <div class="main-collection__load-more">
+                <a
+                  href="{{ paginate.next.url }}"
+                  class="btn btn--primary"
+                  data-load-more
+                  >Load More</a
+                >
+              </div>
+            {% endif %}
+          </div>
+        </div>
+      {% endpaginate %}
+        <!-- start_search_collection_js_code -->
+        
+        <script>
+          window.pwr = window.pwr || function () {
+            (pwr.q = pwr.q || []).push(arguments); 
+          };
+          pwr('render', [
+            {% for product in search.results %}
+            {
+              api_key: '{{ settings.powerreviews_api_key }}',
+              locale: '{{ settings.powerreviews_locale }}',
+              merchant_group_id: '{{ settings.powerreviews_group_id }}',
+              merchant_id: '{{ settings.powerreviews_merchant_id }}',
+              page_id: '{{ product.id }}',
+              components: {
+                CategorySnippet: 'snippet-{{ product.id }}'
+              }
+              } {% if forloop.last == false %}, {% endif %}
+            {% endfor %}
+          ]);
+        </script>
+        <!-- end_search_collection_js_code -->      
+    </form>
+  </main-collection>
+
+  <script src="{{ 'main-collection.min.js' | asset_url }}" defer="defer"></script>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Main Search",
+  "class": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Header 1 - Search"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_filtering",
+      "default": true,
+      "label": "Enable Filtering"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_sorting",
+      "default": true,
+      "label": "Enable Sorting"
+    },
+    {
+      "type": "header",
+      "content": "Header 2 - Search"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_quick_buy",
+      "default": true,
+      "label": "Enable Quick Buy"
+    },
+    {
+      "type": "select",
+      "id": "columns_mobile",
+      "default": "2",
+      "label": "Columns Mobile",
+      "options": [
+        {
+          "value": "1",
+          "label": "1"
+        },
+        {
+          "value": "2",
+          "label": "2"
+        }
+      ]
+    }
+  ],
+  "blocks": [
+    {
+      "type": "content_card",
+      "name": "Content Card",
+      "settings": [
+        {
+          "type": "range",
+          "id": "row",
+          "min": 1,
+          "max": 6,
+          "step": 1,
+          "label": "Content Card Row",
+          "default": 1
+        },
+        {
+          "type": "range",
+          "id": "column",
+          "min": 1,
+          "max": 3,
+          "step": 1,
+          "label": "Content Card Column",
+          "default": 1
+        },
+        {
+          "type": "select",
+          "label": "Card Display",
+          "id": "display",
+          "options": [
+            {
+              "label": "Horizontal",
+              "value": "horizontal"
+            },
+            {
+              "label": "Vertical",
+              "value": "vertical"
+            }
+          ],
+          "default": "horizontal"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_desktop",
+          "label": "Image - Desktop"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_mobile",
+          "label": "Image - Mobile"
+        },
+        {
+          "type": "select",
+          "label": "Content Color",
+          "id": "color",
+          "options": [
+            {
+              "label": "Light",
+              "value": "white"
+            },
+            {
+              "label": "Dark",
+              "value": "black"
+            }
+          ],
+          "default": "white"
+        },
+        {
+          "type": "text",
+          "id": "eyebrow",
+          "label": "Eyebrow",
+          "placeholder": "Content Card Eyebrow"
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "placeholder": "Content Card Heading"
+        },
+        {
+          "type": "select",
+          "label": "CTA Type",
+          "id": "cta_type",
+          "options": [
+            {
+              "label": "Primary",
+              "value": "primary-light"
+            },
+            {
+              "label": "Secondary",
+              "value": "secondary"
+            }
+          ],
+          "default": "primary-light"
+        },
+        {
+          "type": "url",
+          "label": "CTA Url",
+          "id": "cta_url"
+        },
+        {
+          "type": "text",
+          "label": "CTA Copy",
+          "id": "cta_copy"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

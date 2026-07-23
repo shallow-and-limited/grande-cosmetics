@@ -1,0 +1,207 @@
+{{ 'customer.min.css' | asset_url | stylesheet_tag }}
+
+{% assign _settings = section.settings %}
+{% assign _blocks = section.blocks %}
+
+<section>
+  <div id="register_section">
+    {% if _settings.bg_dsk != blank %}
+      <img class="customer__bg-dsk hide-mobile" src="{{ _settings.bg_dsk | image_url }}" alt="Account Background Image" width="{{ _settings.bg_dsk.width }}" height="{{ _settings.bg_dsk.height }}" />
+    {% endif %}
+    {% if _settings.bg_mob != blank %}
+      <img class="customer__bg-mob hide-desktop" src="{{ _settings.bg_mob | image_url }}" alt="Account Background Image" width="{{ _settings.bg_mob.width }}" height="{{ _settings.bg_mob.height }}" />
+    {% endif %}
+    <div class="customer register">
+      {% render 'icons', icon_name: 'error', class: 'hide' %}
+      <h1 class="p-1">
+        {{ 'customer.register.title' | t }}
+      </h1>
+      <div class="register__content">
+        <p class="register__pre-text p-3">{{ _settings.content_pre_text }}</p>
+        <ul class="register__bullets">
+          {% for block in _blocks %}
+          <li class="register__bullet">
+            {% if block.settings.icon != blank %}
+              <img src="{{ block.settings.icon | image_url: width: 24 }}" width="24" height="24" />
+            {% endif %}
+            <span class="p-4">{{ block.settings.bullet_text }}</span>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+      {%- form 'create_customer', novalidate: 'novalidate' -%}
+        {%- if form.errors -%}
+          <h2 class="form__message p-3" tabindex="-1">
+            {% render 'icons', icon_name: 'error' %}
+            {{ 'templates.contact.form.error_heading' | t }}
+          </h2>
+          <ul>
+            {%- for field in form.errors -%}
+              <li>
+                {%- if field == 'form' -%}
+                  <span class="p-3">{{ form.errors.messages[field] }}</span>
+                {%- else -%}
+                  <a class="no-underline" href="#RegisterForm-{{ field }}">
+                    <span class="p-3">
+                      {{ form.errors.translated_fields[field] | capitalize }}
+                      {{ form.errors.messages[field] }}
+                    </span>
+                  </a>
+                {%- endif -%}
+              </li>
+            {%- endfor -%}
+          </ul>
+        {%- endif -%}
+        <div class="field">
+          <input
+            class="p-3"
+            type="text"
+            name="customer[first_name]"
+            id="RegisterForm-FirstName"
+            {% if form.first_name %}
+              value="{{ form.first_name }}"
+            {% endif %}
+            autocomplete="given-name"
+            placeholder="{{ 'customer.register.first_name' | t }}"
+          >
+          <label for="RegisterForm-FirstName">
+            {{ 'customer.register.first_name' | t }}
+          </label>
+        </div>
+        <div class="field">
+          <input
+            class="p-3"
+            type="text"
+            name="customer[last_name]"
+            id="RegisterForm-LastName"
+            {% if form.last_name %}
+              value="{{ form.last_name }}"
+            {% endif %}
+            autocomplete="family-name"
+            placeholder="{{ 'customer.register.last_name' | t }}"
+          >
+          <label for="RegisterForm-LastName">
+            {{ 'customer.register.last_name' | t }}
+          </label>
+        </div>
+        <div class="field {% if form.errors contains 'email' %}field__error{% endif %}">
+          <input
+            class="p-3"
+            type="email"
+            name="customer[email]"
+            id="RegisterForm-email"
+            {% if form.email %}
+              value="{{ form.email }}"
+            {% endif %}
+            spellcheck="false"
+            autocapitalize="off"
+            autocomplete="email"
+            aria-required="true"
+            {% if form.errors contains 'email' %}
+              aria-invalid="true"
+              aria-describedby="RegisterForm-email-error"
+            {% endif %}
+            placeholder="{{ 'customer.register.email' | t }}"
+          >
+          <label for="RegisterForm-email">
+            {{ 'customer.register.email' | t }}
+          </label>
+        </div>
+        {%- if form.errors contains 'email' -%}
+          <span id="RegisterForm-email-error" class="form__message p-4">
+            {% render 'icons', icon_name: 'error' %}
+            {{ form.errors.translated_fields.email | capitalize }}
+            {{ form.errors.messages.email }}.
+          </span>
+        {%- endif -%}
+        <div class="field {% if form.errors contains 'password' %}field__error{% endif %}">
+          <input
+            class="p-3"
+            type="password"
+            name="customer[password]"
+            id="RegisterForm-password"
+            aria-required="true"
+            {% if form.errors contains 'password' %}
+              aria-invalid="true"
+              aria-describedby="RegisterForm-password-error"
+            {% endif %}
+            placeholder="{{ 'customer.register.password' | t }}"
+          >
+          <label for="RegisterForm-password">
+            {{ 'customer.register.password' | t }}
+          </label>
+        </div>
+        {%- if form.errors contains 'password' -%}
+          <span id="RegisterForm-password-error" class="form__message p-4">
+            {% render 'icons', icon_name: 'error' %}
+            {{ form.errors.translated_fields.password | capitalize }}
+            {{ form.errors.messages.password }}.
+          </span>
+        {%- endif -%}
+        <button class="btn btn--primary">
+          {{ 'customer.register.submit' | t }}
+        </button>
+      {%- endform -%}
+      <div class="register__links">
+        <span class="p-3"><a href="{{ routes.root_url }}pages/privacy">Privacy Policy</a></span>
+        <span class="p-3">Have an account? <a href="{{ routes.account_login_url }}" class="register__links-submit">Sign In</a></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "t:sections.main-register.name",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Background Images"
+    },
+    {
+      "type": "image_picker",
+      "id": "bg_dsk",
+      "label": "Desktop Background"
+    },
+    {
+      "type": "image_picker",
+      "id": "bg_mob",
+      "label": "Mobile Background"
+    },
+    {
+      "type": "header",
+      "content": "Register Content Block"
+    },
+    {
+      "type": "text",
+      "id": "content_heading",
+      "label": "Block Heading",
+      "default": "Not Signed Up Yet?"
+    },
+    {
+      "type": "text",
+      "id": "content_pre_text",
+      "label": "List Pre-Text",
+      "default": "Create an account to receive these benefits:"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "bullet_point",
+      "name": "Login Bullet Point",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon"
+        },
+        {
+          "type": "text",
+          "id": "bullet_text",
+          "label": "Text"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

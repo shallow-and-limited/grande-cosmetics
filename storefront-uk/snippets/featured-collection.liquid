@@ -1,0 +1,29 @@
+{% assign features = metaData %}
+  <div class="featured-collection featured-collection__container">
+    <div class="featured-collection__heading">
+      <h3 class="featured-collection__title">Related collection</h3>
+      <a href="{{ features.collection.value.url }}" class="featured-collection__link p-1 color-black">Shop All</a>
+    </div>
+    <featured-collection class="featured-collection__slider" data-swiper-class="swiper">
+      <div class="featured-collection__slides" data-swiper-class="swiper-wrapper">
+        {%  assign collectionProducts = features.collection.value.products %}
+        {% for item in collectionProducts %}
+          <div class="featured-collection__slide" data-swiper-class="swiper-slide">          
+            {% render 'product-card', product: item, collection: collectionProducts, attr: 'data-product-card', card_index: forloop.index %}
+          </div>
+        {% endfor %}
+      </div>
+    </featured-collection>
+    <div class="featured-collection__nav featured-items__nav">
+      <div class="featured-items__pagination" data-pagination-collection></div>
+      <div class="featured-items__nav-arrows">
+        <button class="featured-items-carousel__prev hide-mobile" data-slide-previous-collection aria-label="Previous Carousel Slide">
+          {% render 'icons', icon_name: 'arrow-left' %}
+        </button>
+        <button class="featured-items-carousel__next hide-mobile" data-slide-next-collection aria-label="Next Carousel Slide">
+          {% render 'icons', icon_name: 'arrow-right' %}
+        </button>                    
+      </div>
+    </div>
+  </div>
+

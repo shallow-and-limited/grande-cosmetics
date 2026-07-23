@@ -1,0 +1,66 @@
+{{ 'benefits.min.css' | asset_url | stylesheet_tag }}
+
+{% liquid
+  assign _s = section.settings
+  assign _metaobject = product.metafields.details.benefits_metaobject.value
+%}
+
+<section class="benefits">
+  <hr class="line">
+  <div class="space-between">
+    <div>
+      <h3 class="h3"><i>{{ _metaobject.title }}</i></h3>
+    </div>
+    <div>
+      {% if _metaobject.subtext != blank %}
+        <div class="p-4 w-bold color-dark-pink">{{ _metaobject.subtext }}</div>
+      {% endif %}
+    </div>
+  </div>
+  <div class="space-between grid-lower">
+    <div class="benefits-wrapper">
+      {% if _metaobject.content != blank %}
+        <div class="benefits-text">{{ _metaobject.content | metafield_tag }}</div>
+      {% endif %}
+    </div>
+    <div>
+      {% if _metaobject.image != blank %}
+        {{ _metaobject.image | image_url: width: _metaobject.image.width | image_tag: class: 'benefits__image' }}
+      {% endif %}
+    </div>
+  </div>
+
+  {% if _s.list_icon != blank %}
+    <style>
+      .benefits .benefits-text ul {
+        list-style-type: none;
+        margin-left: 30px;
+      }
+      .benefits .benefits-text ul li::before {
+        content: '';
+        width: 17px;
+        height: 17px;
+        margin-right: 13px;
+        display: inline-block;
+        background: url('{{ _s.list_icon | img_url: "100x" }}');
+        background-size: cover;
+        vertical-align: sub;
+        margin-left: -30px;
+      }
+    </style>
+  {% endif %}
+</section>
+
+{% schema %}
+{
+  "name": "Benefits",
+  "settings": [
+    {
+      "type": "image_picker",
+      "label": "List Icon",
+      "id": "list_icon",
+      "info": "Custom Icon for the Content's List Item Marker"
+    } 
+  ]
+}
+{% endschema %}

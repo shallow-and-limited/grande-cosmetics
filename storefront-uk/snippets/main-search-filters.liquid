@@ -1,0 +1,115 @@
+{% comment %}
+  Renders facets (active filters and sorting)
+
+  Accepts:
+  - results: {Object} Collection or Search object
+  - enable_sorting: {Boolean} Show sorting when true
+
+  Usage:
+  {% render 'facets', results: collection, pager: paginate, enable_sorting: true %}
+{% endcomment %}
+
+{%- liquid
+  assign pager = pager
+  assign results = results
+  assign sort_by = results.sort_by | default: 'manual'
+  assign total_active_values = 0
+  assign current_size = current_size
+  assign size = size
+  if results.url
+    assign results_url = results.url | append: '&type=product'
+  else
+    assign terms = results.terms | escape
+    assign results_url = '?q=' | append: terms | append: '&options%5Bprefix%5D=last&sort_by=' | append: sort_by | append: '&type=product'
+  endif
+-%}
+
+<filter-sort-form>
+  {% assign count = current_size | floor | plus: 0 %}
+  <section class="main-collection__filter-sort {% if count == '1' %}d-none{% endif %}">
+    <div class="space-between">
+      <p class="sort__count p-3">
+        <span>
+          <span data-product-count>{{ current_size | floor }}</span>
+          Item{% if current_size > 1 %}s{% endif %}
+        </span>
+      </p>
+      <div class="main-collection__filter p-3 hide-desktop" data-filter-toggle>
+        Filter & Sort
+        {% render 'icons', icon_name: 'filter' %}
+      </div>
+    </div>
+    {% render 'filters', results: results, current_size: current_size, sort_by: sort_by %}
+    <div class="main-collection__facets" data-active-filters>
+      {% if results.filters.size > 0 %}
+        {%- for tag in current_tags -%}
+          <span href="{{ value.url_to_remove }}" class="filter-tag filter-tag--hover p-3">
+            {{ tag | replace: 'features:', '' | link_to_remove_tag: tag }}
+            {% render 'icons', icon_name: 'close' %}
+            <span class="visually-hidden">Clear Filter</span>
+          </span>
+        {%- endfor -%}
+        {%- for filter in results.filters -%}
+          {% if filter.type == 'price_range' %}
+            {%- if filter.min_value.value != null or filter.max_value.value != null -%}
+              <a href="{{ filter.url_to_remove }}" class="filter-tag filter-tag--hover p-3">
+                {% if filter.min_value.value %}
+                  {{ filter.min_value.value | money }} - 
+                {% else %}
+                  {{ 0 | money }} - 
+                {% endif %}
+                {%- if filter.max_value.value -%}
+                  {{ filter.max_value.value | money }}
+                {%- else -%}
+                  {{ filter.range_max | money }}
+                {%- endif -%}
+                {% render 'icons', icon_name: 'close' %}
+                <span class="visually-hidden">Clear Filter</span>
+              </a>
+            {%- endif -%}
+          {% else %}
+            {%- assign total_active_values = total_active_values | plus: filter.active_values.size -%}
+            {%- for value in filter.active_values -%}
+              <a href="{{ value.url_to_remove }}" class="filter-tag filter-tag--hover p-3">
+                {{ value.label | escape }}
+                {% render 'icons', icon_name: 'close' %}
+                <span class="visually-hidden">Clear Filter</span>
+              </a>
+            {%- endfor -%}
+          {% endif %}
+        {%- endfor -%}
+        {% if total_active_values > 0 %}
+          <a href="{{ results_url | append: '&type=product' }}" class="btn--link clear" data-clear>
+            <span>Clear All</span>
+          </a>
+        {% endif %}
+      {% endif %}
+    </div>
+  </section>
+  <div class="main-collection__sort">
+    <button class="main-collection__hide-filters p-3 hide-mobile" type="button" data-hide-filters>
+      <span class="hide">Hide Filters</span>
+      <span class="show">Show Filters</span>
+      {% render 'icons', icon_name: 'filters' %}
+    </button>
+    <span class="p-3 sort__toggle hide-mobile" data-sort-toggle>
+      {% liquid
+        assign allowed_sort_options = 'manual|Featured,created-descending|Newest,price-descending|Price: High to Low,price-ascending|Price: Low to High' | split: ','
+        for option_value in allowed_sort_options
+          assign value = option_value | split: '|' | first | escape
+          assign label = option_value | split: '|' | last | escape
+          if value == sort_by
+            assign sort_label = label
+            break
+          endif
+        endfor
+      %}
+      Sort by: <span data-sort-label>{{ sort_label }}</span>
+      <button aria-label="collapse">
+        {% render 'icons', icon_name: 'arrow-down-filled' class: 'close-icon' %}
+      </button>
+    </span>
+
+    {% render 'sort-radios', isDesktop: true, sort_by: sort_by %}
+  </div>
+</filter-sort-form>

@@ -1,0 +1,56 @@
+{{ 'main-blog.min.css' | asset_url | stylesheet_tag }}
+
+<main-blog>
+  {%- paginate blog.articles by section.settings.paginate_by -%}
+    <div class="main-blog page-width section-{{ section.id }}-padding">
+      <div class="main-blog__tag">
+        {% if blog.all_tags.size > 0 %}
+        <ul class="main-blog__tag-list">
+          <li class="main-blog__tag-item" data-tag="All">
+            <a href="{{ blog.url }}" class="main-blog__tag-title p-2 font-primary {% if request.path == blog.url %}main-blog__tag-title--active{% endif %}">All Stories</a>
+          </li>
+          {%- for tag in blog.all_tags -%}
+          {% assign tagHandle = tag | handle %}
+            <li class="main-blog__tag-item" data-tag="{{ tag }}">
+              <a href="{{ blog.url }}/tagged/{{ tagHandle}}" class="main-blog__tag-title p-2 font-primary {% if request.path contains tagHandle %}main-blog__tag-title--active{% endif %}{% if forloop.last %} last{% endif %}">{{ tag }}</a>
+            </li>
+          {%- endfor -%}
+        </ul>
+        {% endif %}
+      </div>
+      
+      <div class="main-blog__articles container">
+        {%- for article in blog.articles -%}
+          <div class="main-blog__articles__article" data-article data-tags="{{ article.tags }}">
+            {% render 'blog-card', article: article, card_index: forloop.index %}
+          </div>
+        {%- endfor -%}
+      </div>
+
+      <div class="main-blog__pagination container{% if paginate.next %} line-bg{% endif %}">
+        {%- if paginate.next -%}
+          <input type="hidden" value="{{ paginate.next.url }}" data-next-link>
+          <button class="btn btn--primary btn--load-more s-2" type="button" name="button" data-load-more>Load More</button>
+        {%- endif -%}
+      </div>
+    </div>
+  {%- endpaginate -%}
+</main-blog>
+
+<script src="{{ 'main-blog.min.js' | asset_url }}" defer></script>
+
+{% schema %}
+{
+  "name": "t:sections.main-blog.name",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "number",
+      "id": "paginate_by",
+      "label": "Articles per page",
+      "default": 12
+    }
+  ]
+}
+{% endschema %}
