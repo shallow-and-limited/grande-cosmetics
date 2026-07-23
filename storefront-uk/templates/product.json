@@ -62,35 +62,6 @@
             "one_time_text": ""
           }
         },
-        "try_with_mirra_try_with_mirra_product_button_wLwpnU": {
-          "type": "shopify://apps/try-with-mirra/blocks/try-with-mirra-product-button/17eab015-3219-4f1b-8ced-c0ffd59b7b46",
-          "settings": {
-            "buttonBackgroundColor": "#e6006b",
-            "buttonTextColor": "#ffffff",
-            "buttonTextOption": "try-before-you-buy",
-            "maxWidth": 100,
-            "height": 2.5,
-            "marginTop": 0.5,
-            "margin": "auto",
-            "mobileWidth": "100",
-            "width": "100",
-            "mobileBreakpoint": 768,
-            "verticalAlignLogo": "middle",
-            "enable_loading_state": true,
-            "custom_css": ".mirra-button::after {\n  content: \" • $0\";\n}\n\n.mirra-button {\n  background-color: #E6006B !important;\n  transition: background-color .25s ease-in-out,color .25s ease-in-out,border .25s ease-in-out,box-shadow .25s ease-in-out,transform .25s ease-in-out;\n  width: 100% !important;\n}\n\n.mirra-button:hover {\n  background-color: #D60064 !important;\n}\n\n@media (min-width: 1920px) {\n  .mirra-button {\n    max-width: 17.5rem;\n  }\n}",
-            "mirra_button_classes": ""
-          }
-        },
-        "klarna_on_site_messaging_app_block_VjrYQa": {
-          "type": "shopify://apps/klarna-on-site-messaging/blocks/app-block/b95936a9-74b6-4a95-8103-6a1b6459c25e",
-          "settings": {
-            "data_key": "credit-promotion-auto-size",
-            "theme": "default",
-            "topPadding": "0",
-            "bottomPadding": "0",
-            "messagePrefix": "or"
-          }
-        },
         "rewards_E4PMJJ": {
           "type": "rewards",
           "settings": {}
@@ -129,8 +100,6 @@
         "bundled_products_XC6XQ8",
         "promo_carousel_73KPU4",
         "variant_picker_8iFKwU",
-        "try_with_mirra_try_with_mirra_product_button_wLwpnU",
-        "klarna_on_site_messaging_app_block_VjrYQa",
         "rewards_E4PMJJ",
         "product_features_m4nhVy",
         "accordions_pepGdh",
@@ -263,17 +232,6 @@
     },
     "177386287647b8fc41": {
       "type": "apps",
-      "blocks": {
-        "regios_discounts_product_page_discount_armGjg": {
-          "type": "shopify://apps/regios-discounts/blocks/product_page_discount/dc1514bb-4830-4102-bffa-e8b300bac5bd",
-          "settings": {
-            "product": "{{product}}"
-          }
-        }
-      },
-      "block_order": [
-        "regios_discounts_product_page_discount_armGjg"
-      ],
       "settings": {}
     }
   },

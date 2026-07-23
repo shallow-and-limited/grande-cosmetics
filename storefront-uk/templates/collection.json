@@ -99,19 +99,6 @@
     },
     "177386276716a119a6": {
       "type": "apps",
-      "blocks": {
-        "regios_discounts_collection_page_discount_LwcWBi": {
-          "type": "shopify://apps/regios-discounts/blocks/collection_page_discount/dc1514bb-4830-4102-bffa-e8b300bac5bd",
-          "settings": {
-            "collection": "{{ collection }}",
-            "products_per_page": 48,
-            "key": ""
-          }
-        }
-      },
-      "block_order": [
-        "regios_discounts_collection_page_discount_LwcWBi"
-      ],
       "settings": {}
     }
   },

@@ -9,17 +9,6 @@
  */
 {
   "sections": {
-    "ticker_k3iEyA": {
-      "type": "ticker",
-      "disabled": true,
-      "name": "Ticker",
-      "settings": {
-        "optional_text": "",
-        "optional_url": "",
-        "speed": 3,
-        "color_scheme": "beige"
-      }
-    },
     "hero_carousel_f9TTYr": {
       "type": "hero-carousel",
       "blocks": {
@@ -31,9 +20,7 @@
             "alignment_h": "center",
             "alignment_v_m": "top_m",
             "alignment_h_m": "center_m",
-            "image_d": "shopify://shop_images/Summer_Fridays_Homepage_Banners-Desktop.png",
             "video_poster_d": true,
-            "image_m": "shopify://shop_images/Summer_Fridays_Homepage_Banners-Mobile.png",
             "video_poster_m": true,
             "video_autoplay": true,
             "eyebrow": "summer friday steals. brow edition",
@@ -56,9 +43,7 @@
             "alignment_h": "right",
             "alignment_v_m": "top_m",
             "alignment_h_m": "left_m",
-            "image_d": "shopify://shop_images/ConfidenceAtYourCore_DesktopBanner.jpg",
             "video_poster_d": true,
-            "image_m": "shopify://shop_images/ConfidenceAtYourCore_MobileBanner.jpg",
             "video_poster_m": true,
             "video_autoplay": true,
             "eyebrow": "it's time for",
@@ -81,9 +66,7 @@
             "alignment_h": "center",
             "alignment_v_m": "middle_m",
             "alignment_h_m": "center_m",
-            "image_d": "shopify://shop_images/BuildABundle-DesktopBanner.jpg",
             "video_poster_d": true,
-            "image_m": "shopify://shop_images/BuildABundle-MobileBanner.jpg",
             "video_poster_m": true,
             "video_autoplay": true,
             "eyebrow": "WE'RE BETTER TOGETHER 🤝",
@@ -113,7 +96,6 @@
         "text_NkzUy9": {
           "type": "text",
           "settings": {
-            "icon": "shopify://shop_images/Mask_group.png",
             "svg_icon": "flower",
             "text": "#1 Lash & Brow Serum Brand in the U.S.*",
             "url": "shopify://blogs/news"
@@ -122,7 +104,6 @@
         "text_aFJGkj": {
           "type": "text",
           "settings": {
-            "icon": "shopify://shop_images/Mask_group.png",
             "svg_icon": "flower",
             "text": "11+ Safety & Performance Studies",
             "url": ""
@@ -131,7 +112,6 @@
         "text_9JPXte": {
           "type": "text",
           "settings": {
-            "icon": "shopify://shop_images/Mask_group.png",
             "svg_icon": "flower",
             "text": "90-Day Money Back Guarantee",
             "url": ""
@@ -200,104 +180,6 @@
         "color_scheme": "dark-pink"
       }
     },
-    "hero_carousel_UfHHkP": {
-      "type": "hero-carousel",
-      "blocks": {
-        "hero_slide_ArDKkA": {
-          "type": "hero_slide",
-          "disabled": true,
-          "settings": {
-            "color": "light",
-            "alignment_v": "middle",
-            "alignment_h": "center",
-            "alignment_v_m": "middle_m",
-            "alignment_h_m": "center_m",
-            "image_d": "shopify://shop_images/11DollarSteals_DesktopBanner_35a09aeb-9713-4e12-aaba-5be387eec2fb.jpg",
-            "video_poster_d": true,
-            "image_m": "shopify://shop_images/11DollarSteals_MobileBanner_01e076ca-1696-4a25-bda7-dd961ac3aa05.jpg",
-            "video_poster_m": true,
-            "video_autoplay": true,
-            "eyebrow": "RUN, DON'T WALK 🏃‍♀️💨",
-            "heading": "$11 Steals",
-            "heading_size": "h1",
-            "copy": "you don't want to miss this 👀",
-            "cta_url": "https://grandecosmetics.com/collections/singles-day-11-steals",
-            "cta_copy": "Fill Your Cart",
-            "cta_url_alt": "",
-            "cta_copy_alt": "",
-            "overlay": 0
-          }
-        },
-        "hero_slide_ywwB7w": {
-          "type": "hero_slide",
-          "disabled": true,
-          "settings": {
-            "color": "dark",
-            "alignment_v": "middle",
-            "alignment_h": "center",
-            "alignment_v_m": "middle_m",
-            "alignment_h_m": "center_m",
-            "image_d": "shopify://shop_images/DaysOfGifting-Sets_DesktopBanner-WithBubble.jpg",
-            "video_poster_d": true,
-            "image_m": "shopify://shop_images/DaysOfGifting-Sets_MobileBanner-WithBubble.jpg",
-            "video_poster_m": true,
-            "video_autoplay": true,
-            "eyebrow": "Days of Gifting",
-            "heading": "40% Off Sets",
-            "heading_size": "h1",
-            "copy": "Discount reflected in cart",
-            "cta_url": "https://grandecosmetics.com/collections/days-of-gifting",
-            "cta_copy": "Shop The Sale",
-            "cta_url_alt": "",
-            "cta_copy_alt": "",
-            "overlay": 0
-          }
-        },
-        "hero_slide_CerbWC": {
-          "type": "hero_slide",
-          "settings": {
-            "color": "dark",
-            "alignment_v": "middle",
-            "alignment_h": "center",
-            "alignment_v_m": "middle_m",
-            "alignment_h_m": "center_m",
-            "image_d": "shopify://shop_images/FreeFullSizeLips_DesktopBanner-3.jpg",
-            "video_poster_d": true,
-            "image_m": "shopify://shop_images/FreeFullSizeLips_MobileBanner-3.jpg",
-            "video_poster_m": true,
-            "video_autoplay": true,
-            "eyebrow": "DID SOMEONE SAY FREE? 👀",
-            "heading": "Free GrandeLIPS With Purchase",
-            "heading_size": "h2",
-            "copy": "<p>1 FREE Clear GrandeLIPS on all orders $50+</p>\n<p>4 FREE GrandeLIPS in shades Clear, Barely There, Pale Rose, + Spicy Mauve on all orders $75+</p>",
-            "cta_url": "shopify://collections/best-sellers",
-            "cta_copy": "Fill Your Cart",
-            "cta_url_alt": "",
-            "cta_copy_alt": "",
-            "overlay": 0
-          }
-        }
-      },
-      "block_order": [
-        "hero_slide_ArDKkA",
-        "hero_slide_ywwB7w",
-        "hero_slide_CerbWC"
-      ],
-      "disabled": true,
-      "settings": {
-        "display": "full-bleed"
-      }
-    },
-    "ticker_4Q8FUW": {
-      "type": "ticker",
-      "disabled": true,
-      "settings": {
-        "optional_text": "",
-        "optional_url": "#",
-        "speed": 0.5,
-        "color_scheme": "beige"
-      }
-    },
     "ticker_Ce4M4p": {
       "type": "ticker",
       "settings": {
@@ -307,135 +189,12 @@
         "color_scheme": "beige"
       }
     },
-    "birthday_promo_pTmGcn": {
-      "type": "birthday-promo",
-      "blocks": {
-        "promo_card_GV8PeE": {
-          "type": "promo-card",
-          "settings": {
-            "status": "active",
-            "active_image": "shopify://shop_images/Promo-Block-Free2in1-GWP-WithValue.jpg",
-            "apply_effect": true,
-            "upcoming_image_color": "#ff76b8",
-            "upcoming_image_opacity": 70,
-            "eyebrow": "Free Gift",
-            "heading": "Free Sample of GrandeBROW 2-In-1",
-            "copy": "<br>\nOn all orders. Pick your shade in checkout!",
-            "cta": "Shop Now",
-            "link": "shopify://collections/best-sellers"
-          }
-        },
-        "promo_card_nQYzb8": {
-          "type": "promo-card",
-          "settings": {
-            "status": "active",
-            "active_image": "shopify://shop_images/Promo-Block-FreeSingleLip-GWP-WithValue.jpg",
-            "apply_effect": true,
-            "upcoming_image_color": "#ff76b8",
-            "upcoming_image_opacity": 70,
-            "eyebrow": "Free Gift",
-            "heading": "Free Clear GrandeLIPS",
-            "copy": "<br>\nWhen you spend $50+",
-            "cta": "Shop Now",
-            "link": "shopify://collections/best-sellers"
-          }
-        },
-        "promo_card_jjF4bQ": {
-          "type": "promo-card",
-          "disabled": true,
-          "settings": {
-            "status": "active",
-            "active_image": "shopify://shop_images/Promo-Block-FreeLip-AllShades-GWP-2.jpg",
-            "apply_effect": true,
-            "upcoming_image_color": "#ff76b8",
-            "upcoming_image_opacity": 70,
-            "eyebrow": "Free Gift",
-            "heading": "4 FREE GrandeLIPS",
-            "copy": "<br>When you spend $75+",
-            "cta": "Shop Now",
-            "link": "shopify://collections/best-sellers"
-          }
-        }
-      },
-      "block_order": [
-        "promo_card_GV8PeE",
-        "promo_card_nQYzb8",
-        "promo_card_jjF4bQ"
-      ],
-      "disabled": true,
-      "name": "Birthday promo",
-      "settings": {
-        "heading": "Current Free Gifts With Purchase:"
-      }
-    },
-    "birthday_promo_K3PkxL": {
-      "type": "birthday-promo",
-      "blocks": {
-        "promo_card_dCHkzB": {
-          "type": "promo-card",
-          "settings": {
-            "status": "active",
-            "active_image": "shopify://shop_images/Feb2026_Promo_FreeGWPs_Primer_3922fbec-4ffc-4232-9423-8384296ddae9.jpg",
-            "apply_effect": true,
-            "upcoming_image_color": "#ff76b8",
-            "upcoming_image_opacity": 70,
-            "eyebrow": "Free Gift",
-            "heading": "Free GrandePRIMER",
-            "copy": "",
-            "cta": "Shop Now",
-            "link": "shopify://collections/best-sellers"
-          }
-        },
-        "promo_card_zk7pGH": {
-          "type": "promo-card",
-          "settings": {
-            "status": "active",
-            "active_image": "shopify://shop_images/Feb2026_Promo_FreeGWPs-Repair_007d0790-4e3f-4062-a1c5-0435ae1abf42.jpg",
-            "apply_effect": true,
-            "upcoming_image_color": "#ff76b8",
-            "upcoming_image_opacity": 70,
-            "eyebrow": "Free Gift",
-            "heading": "Free GrandeREPAIR",
-            "copy": "",
-            "cta": "Shop Now",
-            "link": "shopify://collections/best-sellers"
-          }
-        },
-        "promo_card_byjrqT": {
-          "type": "promo-card",
-          "settings": {
-            "status": "active",
-            "active_image": "shopify://shop_images/Feb2026_Promo_FreeGWPs-MiniMagic_21951974-c087-4a72-a436-bee75472f9f3.jpg",
-            "apply_effect": true,
-            "upcoming_image_color": "#ff76b8",
-            "upcoming_image_opacity": 70,
-            "eyebrow": "Free Gift",
-            "heading": "Free Mini Magic Set",
-            "copy": "",
-            "cta": "Shop Now",
-            "link": "shopify://collections/best-sellers"
-          }
-        }
-      },
-      "block_order": [
-        "promo_card_dCHkzB",
-        "promo_card_zk7pGH",
-        "promo_card_byjrqT"
-      ],
-      "disabled": true,
-      "name": "Birthday promo",
-      "settings": {
-        "heading": "Pick Your Free Gift With Orders $65+:"
-      }
-    },
     "banner_ByqeGc": {
       "type": "banner",
       "name": "Banner",
       "settings": {
         "color": "light",
         "background": "rose",
-        "image_d": "shopify://shop_images/GrandeLASH-BannerImage-BottlesOnPink-Desktop.jpg",
-        "image_m": "shopify://shop_images/GrandeLASH-BannerImage-BottlesOnPink-Mobile.jpg",
         "alignment": "center",
         "eyebrow": "Over 10 Million Bottles Sold",
         "heading": "1 Lash Serum Sold Every 14 Seconds",
@@ -455,34 +214,12 @@
         "metaobject_handle": "before-and-after-irxkry5r"
       }
     },
-    "banner_q7mkhT": {
-      "type": "banner",
-      "disabled": true,
-      "name": "Banner",
-      "settings": {
-        "color": "light",
-        "background": "rose",
-        "image_d": "shopify://shop_images/GrandeLASH-BannerImage-BottlesOnPink-Desktop.jpg",
-        "image_m": "shopify://shop_images/GrandeLASH-BannerImage-BottlesOnPink-Mobile.jpg",
-        "alignment": "center",
-        "eyebrow": "In a world of dupes,  the original reigns supreme.",
-        "heading": "The Creators of GrandeLASH-MD",
-        "heading_size": "h1",
-        "copy": "the #1 Lash Serum Brand In The U.S.*",
-        "cta_url": "shopify://products/grandelash-md",
-        "cta_copy": "Shop The Serum",
-        "cta_url_alt": "",
-        "cta_copy_alt": "",
-        "overlay": 40
-      }
-    },
     "categories_tDjQ97": {
       "type": "categories",
       "blocks": {
         "content_gwPAar": {
           "type": "content",
           "settings": {
-            "image": "shopify://shop_images/LashMD-Model-HomepageImage.jpg",
             "heading_image": "",
             "eyebrow": "",
             "heading": "<br>Shop Our #1",
@@ -496,7 +233,6 @@
         "content_eCJxdn": {
           "type": "content",
           "settings": {
-            "image": "shopify://shop_images/LashMD-HomepageImage.jpg",
             "heading_image": "",
             "eyebrow": "",
             "heading": "<br>Get 15% Off",
@@ -510,7 +246,6 @@
         "content_eCJxdm": {
           "type": "content",
           "settings": {
-            "image": "shopify://shop_images/Alicia-HomepageImage.jpg",
             "heading_image": "",
             "eyebrow": "",
             "heading": "<br>Who We Are",
@@ -530,85 +265,6 @@
       "settings": {
         "eyebrow": "",
         "heading": "",
-        "cta_copy": "",
-        "cta_url": "/"
-      }
-    },
-    "5127abd9-2eed-4d32-9a9c-834bd04785e2": {
-      "type": "product-carousel",
-      "blocks": {
-        "content_3JJP6h": {
-          "type": "content",
-          "settings": {
-            "product": "grandebrow",
-            "category": "Best Sellers"
-          }
-        },
-        "content_hJ3r3T": {
-          "type": "content",
-          "settings": {
-            "product": "grandelash-md",
-            "category": "Best Sellers"
-          }
-        },
-        "content_DbfkKF": {
-          "type": "content",
-          "settings": {
-            "product": "grandelash-sensitive",
-            "category": "New"
-          }
-        },
-        "content_EegVdG": {
-          "type": "content",
-          "settings": {
-            "product": "grandebrow-2-in-1",
-            "category": "Best Sellers"
-          }
-        },
-        "content_6HbNhW": {
-          "type": "content",
-          "settings": {
-            "product": "grandelips-gloss",
-            "category": "Best Sellers"
-          }
-        },
-        "content_GQ7haD": {
-          "type": "content",
-          "settings": {
-            "product": "grandelash-md",
-            "category": "TikTok Viral"
-          }
-        },
-        "content_kcFzzg": {
-          "type": "content",
-          "settings": {
-            "product": "grandebrow-2-in-1",
-            "category": "TikTok Viral"
-          }
-        },
-        "content_xECwxm": {
-          "type": "content",
-          "settings": {
-            "product": "grandemascara",
-            "category": "TikTok Viral"
-          }
-        }
-      },
-      "block_order": [
-        "content_3JJP6h",
-        "content_hJ3r3T",
-        "content_DbfkKF",
-        "content_EegVdG",
-        "content_6HbNhW",
-        "content_GQ7haD",
-        "content_kcFzzg",
-        "content_xECwxm"
-      ],
-      "disabled": true,
-      "settings": {
-        "regios_key": "",
-        "heading": "",
-        "categories": true,
         "cta_copy": "",
         "cta_url": "/"
       }
@@ -636,7 +292,6 @@
         "content_gWHEdT": {
           "type": "content",
           "settings": {
-            "image": "shopify://shop_images/LongLashes-CategoryImage.jpg",
             "heading_image": "Long Lashes",
             "eyebrow": "",
             "heading": "",
@@ -650,7 +305,6 @@
         "content_G8HNE7": {
           "type": "content",
           "settings": {
-            "image": "shopify://shop_images/BoldBrows-CategoryImage.jpg",
             "heading_image": "Bold Brows",
             "eyebrow": "",
             "heading": "",
@@ -664,7 +318,6 @@
         "content_yfHPJB": {
           "type": "content",
           "settings": {
-            "image": "shopify://shop_images/ThickHair-CategoryImage.jpg",
             "heading_image": "Thick Hair",
             "eyebrow": "",
             "heading": "",
@@ -678,7 +331,6 @@
         "content_EQtN8q": {
           "type": "content",
           "settings": {
-            "image": "shopify://shop_images/FullLips-CategoryImage.jpg",
             "heading_image": "Full Lips",
             "eyebrow": "",
             "heading": "",
@@ -750,32 +402,12 @@
         "cta_url": ""
       }
     },
-    "banner_e6TQgD": {
-      "type": "banner",
-      "disabled": true,
-      "name": "Banner",
-      "settings": {
-        "color": "dark",
-        "background": "beige",
-        "alignment": "center",
-        "eyebrow": "",
-        "heading": "Be The First To Know 👀",
-        "heading_size": "h4",
-        "copy": "sign up for email + SMS alerts to be the first to know about the best deals and new product launches!",
-        "cta_url": "",
-        "cta_copy": "",
-        "cta_url_alt": "",
-        "cta_copy_alt": "",
-        "overlay": 0
-      }
-    },
     "ss_shoppable_video_Y74Bja": {
       "type": "ss-shoppable-video",
       "blocks": {
         "item_erxytW": {
           "type": "item",
           "settings": {
-            "video": "shopify://files/videos/Yvette Social Spot.mp4",
             "video_url": "",
             "autoplay": true,
             "product": "grandelash-md",
@@ -787,7 +419,6 @@
         "item_apVWgX": {
           "type": "item",
           "settings": {
-            "video": "shopify://files/videos/Jan Social Spot.mp4",
             "video_url": "",
             "autoplay": true,
             "product": "grandebrow",
@@ -799,7 +430,6 @@
         "item_nE447D": {
           "type": "item",
           "settings": {
-            "video": "shopify://files/videos/Angela Social Spot.mp4",
             "video_url": "",
             "autoplay": true,
             "product": "grandelips-gloss",
@@ -811,7 +441,6 @@
         "item_3DUXrW": {
           "type": "item",
           "settings": {
-            "video": "shopify://files/videos/Inger Social Spot.mp4",
             "video_url": "",
             "autoplay": true,
             "product": "grandehair-rejuvenation-serum",
@@ -1012,139 +641,18 @@
         "border_thickness": 0,
         "lazy": true
       }
-    },
-    "press_db6zc7": {
-      "type": "press",
-      "blocks": {
-        "slide_iwiMfm": {
-          "type": "slide",
-          "settings": {
-            "quote": "\"Grande Cosmetics founder Alicia Grande <em>cracked the eyelash-enhancing code with this little gold tube of magic.\"</em>",
-            "logo": "shopify://shop_images/NewBeauty-1-q0aalw3k4p51an8zfmtpl6kt24uksdudr5b581kg7k_b703bce9-90cb-42fc-9dce-aca326d9287d.png"
-          }
-        },
-        "slide_PcFcUf": {
-          "type": "slide",
-          "settings": {
-            "quote": "\"After testing a number of eyelash serums, this one from Grande Cosmetics <em>blew us away in the volume department.\"</em>",
-            "logo": "shopify://shop_images/byrdie-logo_699e1858-06f1-4b11-b39a-741a99112b95.png"
-          }
-        },
-        "slide_kRniyB": {
-          "type": "slide",
-          "settings": {
-            "quote": "\"I discovered a <em>holy grail serum </em>from a brand that changed the hair game.\"",
-            "logo": "shopify://shop_images/in-style-logo_093f28de-3b51-4f5c-88b9-9b2e4bb340e9.png"
-          }
-        },
-        "slide_L9qVLm": {
-          "type": "slide",
-          "settings": {
-            "quote": "\"I never thought a brow gel would\nreally \"wow\" me, <em>but Grande Cosmetics' new Brow Styling Gel has done that.\"</em>",
-            "logo": "shopify://shop_images/byrdie-logo_699e1858-06f1-4b11-b39a-741a99112b95.png"
-          }
-        },
-        "slide_Hq7kg4": {
-          "type": "slide",
-          "settings": {
-            "quote": "<em>\"This product does double duty: </em>Not only is it a brow gel but it’s also an enhancing serum that helps thicken hair with consistent use.\"",
-            "logo": "shopify://shop_images/forbes-logo-pink_a49fc2ed-950b-4a23-99c8-1497759bc652.png"
-          }
-        }
-      },
-      "block_order": [
-        "slide_iwiMfm",
-        "slide_PcFcUf",
-        "slide_kRniyB",
-        "slide_L9qVLm",
-        "slide_Hq7kg4"
-      ],
-      "disabled": true,
-      "settings": {}
-    },
-    "17145921696844db17": {
-      "type": "apps",
-      "blocks": {
-        "firework_virtual_store_firework_embed_UxUNWr": {
-          "type": "shopify://apps/firework-shoppable-video-ugc/blocks/firework-embed/347a2e4c-f5cb-410d-8354-490d1e80558c",
-          "settings": {
-            "channel": "grandecosmetics",
-            "playlist": "5RJWb5",
-            "layout": "carousel",
-            "embedtitle": "Trending On TikTok",
-            "titlealignment": "left",
-            "embedtitlesize": 30,
-            "size": "large",
-            "player_placement": "bottom-right",
-            "hashtag": "",
-            "pip": true,
-            "enable_seo": true
-          }
-        },
-        "rebuy_personalization_engine_rebuy_widget_fDFp4B": {
-          "type": "shopify://apps/rebuy-personalization-engine/blocks/rebuy-widget/a26ae9b9-933b-40bf-bbc6-bf1220bbc4dc",
-          "settings": {
-            "enabled": true,
-            "id": "240568",
-            "product_id_enabled": true,
-            "collection_id_enabled": false
-          }
-        }
-      },
-      "block_order": [
-        "firework_virtual_store_firework_embed_UxUNWr",
-        "rebuy_personalization_engine_rebuy_widget_fDFp4B"
-      ],
-      "disabled": true,
-      "settings": {}
-    },
-    "fw_html_embed_ePNXM8": {
-      "type": "fw-html-embed",
-      "disabled": true,
-      "settings": {
-        "title": "Trending On TikTok",
-        "embed_code": "<script async type=\"text/javascript\" src=\"//asset.fwcdn3.com/js/embed-feed.js\"></script>\n\n    <fw-embed-feed channel=\"grandecosmetics\" playlist=\"5RJWb5\" mode=\"row\" open_in=\"default\" max_videos=\"0\" placement=\"middle\" player_placement=\"bottom-right\" branding=\"false\"></fw-embed-feed>"
-      }
-    },
-    "1768396840b4082a47": {
-      "type": "apps",
-      "blocks": {
-        "klaviyo_email_marketing_sms_form_embed_block_txfUHN": {
-          "type": "shopify://apps/klaviyo-email-marketing-sms/blocks/form-embed-block/2632fe16-c075-4321-a88b-50b567f42507",
-          "settings": {
-            "formId": "YzAKjS"
-          }
-        }
-      },
-      "block_order": [
-        "klaviyo_email_marketing_sms_form_embed_block_txfUHN"
-      ],
-      "disabled": true,
-      "settings": {}
     }
   },
   "order": [
-    "ticker_k3iEyA",
     "hero_carousel_f9TTYr",
     "ticker_EfRyde",
-    "hero_carousel_UfHHkP",
-    "ticker_4Q8FUW",
     "ticker_Ce4M4p",
-    "birthday_promo_pTmGcn",
-    "birthday_promo_K3PkxL",
     "banner_ByqeGc",
     "before_after_KxU3G6",
-    "banner_q7mkhT",
     "categories_tDjQ97",
-    "5127abd9-2eed-4d32-9a9c-834bd04785e2",
     "banner_EbLkcJ",
     "categories_BYn98Q",
     "product_carousel_hbgrnV",
-    "banner_e6TQgD",
-    "ss_shoppable_video_Y74Bja",
-    "press_db6zc7",
-    "17145921696844db17",
-    "fw_html_embed_ePNXM8",
-    "1768396840b4082a47"
+    "ss_shoppable_video_Y74Bja"
   ]
 }
