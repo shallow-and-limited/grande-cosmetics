@@ -1,0 +1,7 @@
+[environments.usa]
+store = "grande-cosmetics"
+theme = "155282178185"
+
+[environments.uk]
+store = "grande-cosmetics-uk"
+theme = "194205548913"
