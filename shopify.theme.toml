@@ -1,0 +1,10 @@
+[environments.usa]
+theme = "155213824137"
+store = "grande-cosmetics"
+path = "./storefront"
+
+
+[environments.uk]
+theme = "194205548913"
+store = "grande-cosmetics-uk"
+path = "./storefront-uk"

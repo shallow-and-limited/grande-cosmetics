@@ -2,71 +2,29 @@
 <!doctype html>
 <html class="no-js" lang="{{ request.locale.iso_code }}">
   <head>
-    {%- assign type = 'us' -%}
-    {%- if shop.name contains 'Grande Cosmetics UK' -%}
-      {%- assign type = 'uk' -%}
+    {%- if request.design_mode == false -%}
+      <script src="https://cmp.osano.com/AzqTU8UCNqbF03lez/1ce67a0e-cd34-495b-b6e9-b496e34c4646/osano.js"></script>
     {%- endif -%}
 
-    {%- if type == 'us' -%}
-      {%- if request.design_mode == false -%}
-        <script src="https://cmp.osano.com/AzqTU8UCNqbF03lez/1ce67a0e-cd34-495b-b6e9-b496e34c4646/osano.js"></script>
-      {%- endif -%}
+    {% render 'visually_io_sdk' %}
 
-      {% render 'visually_io_sdk' %}
-      {% render 'gtm-consent-mode' %}
+    {% comment %} Google Consent Mode v2 — must run before GTM so its tags respect opt-out. {% endcomment %}
+    {% render 'gtm-consent-mode' %}
 
-      {% comment %}
-        === Google Tag Manager (GTM) ===
-        Required for marketing.
-        Do not remove or modify.
-        Removing this will stop active advertising campaigns.
-      {% endcomment %}
-      {% render 'gtm-head' %}
-    {% elsif type == 'uk' %}
-      {% render 'limespot' %}
-
-      <!-- Global site tag (gtag.js) - Google Ads: 304210622 -->
-      <script async src="https://www.googletagmanager.com/gtag/js?id=AW-304210622"></script>
-      <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() {
-          dataLayer.push(arguments);
-        }
-        gtag('js', new Date());
-
-        gtag('config', 'AW-304210622');
-      </script>
-      <script>
-        gtag('event', 'page_view', {
-          send_to: 'AW-304210622',
-          value: 'replace with value',
-          items: [
-            {
-              id: 'replace with value',
-              google_business_vertical: 'retail',
-            },
-          ],
-        });
-      </script>
-
-      <!-- Global Site Tag (gtag.js) - Google AdWords: 966742208 -->
-      <script async src="https://www.googletagmanager.com/gtag/js?id=AW-966742208"></script>
-      <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() {
-          dataLayer.push(arguments);
-        }
-        gtag('js', new Date());
-        gtag('config', 'AW-966742208', { send_page_view: false });
-      </script>
-    {% endif %}
+    {% comment %}
+      === Google Tag Manager (GTM) ===
+      Required for marketing.
+      Do not remove or modify.
+      Removing this will stop active advertising campaigns.
+    {% endcomment %}
+    {% render 'gtm-head' %}
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="theme-color" content="">
     <link rel="canonical" href="{{ canonical_url }}">
-    <link rel="preconnect" href="https://cdn.shopify.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.shopify.com" crossorigin>    
 
     <title>
       {{ page_title }}
@@ -88,132 +46,10 @@
 
     {{ content_for_header }}
 
-    {% if type == 'uk' %}
-      <script type="text/javascript">
-        (function e() {
-          var e = document.createElement('script');
-          (e.type = 'text/javascript'),
-            (e.async = !0),
-            (e.src = '//staticw2.yotpo.com/mH2Yxct9RufKle6ymszOW8qtO18YBwzzqNTzwXzX/widget.js');
-          var t = document.getElementsByTagName('script')[0];
-          t.parentNode.insertBefore(e, t);
-        })();
-      </script>
-
-      <script
-        src="//a.mailmunch.co/app/v1/site.js"
-        id="mailmunch-script"
-        data-mailmunch-site-id="722058"
-        async="async"
-      ></script>
-
-      <!-- Hotjar Tracking Code for https://grandecosmetics.com/ -->
-      <script>
-        (function (h, o, t, j, a, r) {
-          h.hj =
-            h.hj ||
-            function () {
-              (h.hj.q = h.hj.q || []).push(arguments);
-            };
-          h._hjSettings = { hjid: 1757778, hjsv: 6 };
-          a = o.getElementsByTagName('head')[0];
-          r = o.createElement('script');
-          r.async = 1;
-          r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
-          a.appendChild(r);
-        })(window, document, 'https://static.hotjar.com/c/hotjar-', '.js?sv=');
-      </script>
-      <!-- Hotjar Tracking Code for https://grandecosmetics.com/ -->
-
-      <script>
-        var CRL8_SITENAME = 'grandecosmetics-1cup2r';
-        !(function () {
-          var e = (window.crl8 = window.crl8 || {}),
-            n = !1,
-            i = [];
-          (e.ready = function (e) {
-            n ? e() : i.push(e);
-          }),
-            (e.pixel =
-              e.pixel ||
-              function () {
-                e.pixel.q.push(arguments);
-              }),
-            (e.pixel.q = e.pixel.q || []);
-          var t = window.document,
-            o = t.createElement('script'),
-            c = e.debug || -1 !== t.location.search.indexOf('crl8-debug=true') ? 'js' : 'min.js';
-          (o.async = !0),
-            (o.src = t.location.protocol + '//edge.curalate.com/sites/' + CRL8_SITENAME + '/site/latest/site.' + c),
-            (o.onload = function () {
-              (n = !0),
-                i.forEach(function (e) {
-                  e();
-                });
-            });
-          var r = t.getElementsByTagName('script')[0];
-          r.parentNode.insertBefore(o, r.nextSibling);
-        })();
-      </script>
-
-      <script>
-        (function () {
-          var ta = document.createElement('script');
-          ta.type = 'text/javascript';
-          ta.async = true;
-          ta.src = 'https://analytics.tiktok.com/i18n/pixel/sdk.js?sdkid=BSC90JO16HBE43RL0DFG';
-          var s = document.getElementsByTagName('script')[0];
-          s.parentNode.insertBefore(ta, s);
-        })();
-      </script>
-
-      <!-- Impact UTT script start -->
-      <script type="text/javascript">
-        (function (a, b, c, d, e, f, g) {
-          e['ire_o'] = c;
-          e[c] =
-            e[c] ||
-            function () {
-              (e[c].a = e[c].a || []).push(arguments);
-            };
-          f = d.createElement(b);
-          g = d.getElementsByTagName(b)[0];
-          f.async = 1;
-          f.src = a;
-          g.parentNode.insertBefore(f, g);
-        })(
-          'https://d.impactradius-event.com/A2499838-850d-4750-a42e-7558d30896141.js',
-          'script',
-          'ire',
-          document,
-          window
-        );
-      </script>
-      <!-- Impact UTT script end -->
-
-      <!-- Wooly Analytics -->
-      <script
-        async
-        type="application/javascript"
-        src="https://saa.wooly.com/wooly-analytics.js?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2Nlc3NUb1VzZXJJZCI6IjEwMTY4NTYiLCJzZXNzaW9uVXNlcklkIjoiMTAxNjg1NiIsInJpZ2h0SWQiOiIyMyIsImFjY2Vzc0lkIjoiNiIsIm5iZiI6MTYzMjUwMDgzNCwiZXhwIjoxNjMyNTA0NDM0LCJpYXQiOjE2MzI1MDA4MzR9.RfTX8OZNawRmT5jr5KeiXSTje1BtCUJjQHOoljHJGFY"
-      ></script>
-
-      {% render 'dataLayer-allPages' %}
-
-      <!-- Impact identify function script start -->
-      <script type="text/javascript">
-        ire('identify', {
-          customerId: '{{ customer.id }}',
-          customerEmail: '{%- if customer -%}{{ customer.email | sha1 }}{%- endif -%}',
-        });
-      </script>
-      <!-- Impact identify function script end -->
-    {% endif %}
-
     {% render 'theme-styles' %}
     {% render 'theme-scripts' %}
 
-    <link rel="stylesheet" href="{{ 'base.css' | asset_url }}">
+    <link rel="stylesheet" href="{{ 'base.css' | asset_url }}" />
 
     <script src="{{ 'global.min.js' | asset_url }}" defer="defer"></script>
 
@@ -229,16 +65,13 @@
     id="page-{{ page_title | handle }}"
     class="page-{{ page_title | handle }} template-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }}"
   >
-    {%- if type == 'us' -%}
-      {% comment %}
-        === Google Tag Manager (GTM) ===
-        Required for marketing.
-        Do not remove or modify.
-        Removing this will stop active advertising campaigns.
-      {% endcomment %}
-      {% render 'gtm-body' %}
-    {% endif %}
-
+    {% comment %}
+      === Google Tag Manager (GTM) ===
+      Required for marketing.
+      Do not remove or modify.
+      Removing this will stop active advertising campaigns.
+    {% endcomment %}
+    {% render 'gtm-body' %}
     {% sections 'header-group' %}
 
     <a class="skip-to-content-link button visually-hidden" href="#MainContent">
@@ -252,10 +85,6 @@
       {% endif %}
     >
       {{ content_for_layout }}
-
-      {% if type == 'uk' %}
-        <limespot></limespot>
-      {% endif %}
     </main>
 
     {% sections 'footer-group' %}
@@ -264,339 +93,172 @@
       {%- render 'cart-drawer' -%}
     {% endif %}
 
-    {% if type == 'us' %}
-      <script>
-        (function () {
-          var s = document.createElement('script');
-          var h = document.querySelector('head') || document.body;
-          s.src = 'https://acsbapp.com/apps/app/dist/js/app.js';
-          s.async = true;
-          s.onload = function () {
-            acsbJS.init({
-              statementLink: '',
-              footerHtml: '',
-              hideMobile: false,
-              hideTrigger: false,
-              disableBgProcess: false,
-              language: 'en',
-              position: 'left',
-              leadColor: '#e6006b',
-              triggerColor: '#e6006b',
-              triggerRadius: '50%',
+    <script>
+      (function () {
+        var s = document.createElement('script');
+        var h = document.querySelector('head') || document.body;
+        s.src = 'https://acsbapp.com/apps/app/dist/js/app.js';
+        s.async = true;
+        s.onload = function () {
+          acsbJS.init({
+            statementLink: '',
+            footerHtml: '',
+            hideMobile: false,
+            hideTrigger: false,
+            disableBgProcess: false,
+            language: 'en',
+            position: 'left',
+            leadColor: '#e6006b',
+            triggerColor: '#e6006b',
+            triggerRadius: '50%',
+            triggerPositionX: 'right',
+            triggerPositionY: 'bottom',
+            triggerIcon: 'people',
+            triggerSize: 'medium',
+            triggerOffsetX: 20,
+            triggerOffsetY: 20,
+            mobile: {
+              triggerSize: 'small',
               triggerPositionX: 'right',
               triggerPositionY: 'bottom',
-              triggerIcon: 'people',
-              triggerSize: 'medium',
-              triggerOffsetX: 20,
-              triggerOffsetY: 20,
-              mobile: {
-                triggerSize: 'small',
-                triggerPositionX: 'right',
-                triggerPositionY: 'bottom',
-                triggerOffsetX: 10,
-                triggerOffsetY: 10,
-                triggerRadius: '50%',
-              },
-            });
-          };
-          h.appendChild(s);
-        })();
-      </script>
-
-      <script src="https://a.klaviyo.com/media/js/onsite/onsite.js"></script>
-      <script>
-        var klaviyo = klaviyo || [];
-        klaviyo.init({
-          account: 'N8s8sW',
-          platform: 'shopify',
-        });
-        klaviyo.enable('backinstock', {
-          trigger: {
-            product_page_text: 'Notify Me When Available',
-            product_page_class: 'add-to-cart__submit-btn btn btn--primary',
-            product_page_text_align: 'center',
-            product_page_margin: '1.5rem 0px 0px 0px',
-            product_page_width: '100%',
-            replace_anchor: true,
-          },
-          modal: {
-            headline: '{product_name}',
-            body_content: 'Register to receive a notification when this item comes back in stock.',
-            email_field_label: 'Email',
-            button_label: 'Notify me when available',
-            subscription_success_label: "You're in! We'll let you know when it's back.",
-            footer_content: '',
-            drop_background_color: '#000',
-            background_color: '#fff',
-            text_color: '#0A0A0A',
-            button_text_color: '#fff',
-            button_background_color: '#D60064',
-            close_button_color: '#0A0A0A',
-            error_background_color: '#fcd6d7',
-            error_text_color: '#C72E2F',
-            success_background_color: '#D60064',
-            success_text_color: '#fff',
-            font_family: 'ITC Avant Garde Gothic Pro',
-            headers_font_family: 'ITC Avant Garde Gothic Pro',
-            additional_styles:
-              "@use url('https://cdn.shopify.com/s/files/1/0098/9023/4434/files/ITCAvantGardePro-Md.woff?v=1717711002');",
-          },
-        });
-      </script>
-
-      <script src="https://js.adsrvr.org/up_loader.1.1.0.js" type="text/javascript"></script>
-      <script type="text/javascript">
-        ttd_dom_ready(function () {
-          if (typeof TTDUniversalPixelApi === 'function') {
-            var universalPixelApi = new TTDUniversalPixelApi();
-            universalPixelApi.init('vp8y0pg', ['y96p1n3'], 'https://insight.adsrvr.org/track/up');
-          }
-        });
-      </script>
-
-      <script
-        src="//action.dstillery.com/orbserv/nsjs?adv=cl168243922649999&ns=7932&nc=Grande-Cosmetics-Site-Visitor&ncv=63"
-        type="text/javascript"
-      ></script>
-
-      <noscript
-        ><img
-          width="1"
-          height="1"
-          src="//action.dstillery.com/orbserv/nspix?adv=cl168243922649999&ns=7932&nc=Grande-Cosmetics-Site-Visitor&ncv=63"
-      ></noscript>
-
-      <script type="text/javascript">
-        //DO NOT REMOVE - DRIVES REVENUE
-        var AddShoppersWidgetOptions = { loadCss: false, pushResponse: false };
-        !(function () {
-          var t = document.createElement('script');
-          (t.type = 'text/javascript'),
-            (t.async = !0),
-            (t.id = 'AddShoppers'),
-            (t.src = 'https://shop.pe/widget/widget_async.js#62e1a7eae5721f04e3e2c799'),
-            document.getElementsByTagName('head')[0].appendChild(t);
-        })();
-      </script>
-
-      <!-- Widget : Gift with Purchase - 4.2024 -->
-      <div class="visually-hidden" data-rebuy-id="53922"></div>
-      <!-- End Widget : Gift with Purchase - 4.2024 -->
-      <!-- Widget : Gift with Purchase tired -->
-      <div class="visually-hidden" data-rebuy-id="251210"></div>
-      <!-- End Widget : Gift with Purchase tired -->
-      <!-- Widget : Copy of Gift with Purchase - 4.2024 -->
-      <div class="visually-hidden" data-rebuy-id="251158"></div>
-      <!-- End Widget : Copy of Gift with Purchase - 4.2024 -->
-      <!-- Widget : Free GrandeRepair w/ 1st Subscription Order -->
-      <div class="visually-hidden" data-rebuy-id="278388"></div>
-      <!-- End Widget : Free GrandeRepair w/ 1st Subscription Order -->
-
-      <script defer src="https://static.shopmy.us/Affiliates/sms_aff_clicktrack.js"></script>
-
-      <style>
-        body > img {
-          display: none;
-        }
-        .shopify-section-group-footer-group ~ img {
-          display: none;
-        }
-      </style>
-
-      <script>
-        window.Shopify.loadFeatures(
-          [
-            {
-              name: 'consent-tracking-api',
-              version: '0.1',
+              triggerOffsetX: 10,
+              triggerOffsetY: 10,
+              triggerRadius: '50%',
             },
-          ],
-          function (error) {
-            if (!error) {
-              try {
-                window.Osano.cm.ready('shopify');
-              } catch (error) {
-                console.error('Osano must be loaded before initializing the Shopify API.');
-              }
+          });
+        };
+        h.appendChild(s);
+      })();
+    </script>
+
+    <script src="https://a.klaviyo.com/media/js/onsite/onsite.js"></script>
+    <script>
+      var klaviyo = klaviyo || [];
+      klaviyo.init({
+        account: 'N8s8sW',
+        platform: 'shopify',
+      });
+      klaviyo.enable('backinstock', {
+        trigger: {
+          product_page_text: 'Notify Me When Available',
+          product_page_class: 'add-to-cart__submit-btn btn btn--primary',
+          product_page_text_align: 'center',
+          product_page_margin: '1.5rem 0px 0px 0px',
+          product_page_width: '100%',
+          replace_anchor: true,
+        },
+        modal: {
+          headline: '{product_name}',
+          body_content: 'Register to receive a notification when this item comes back in stock.',
+          email_field_label: 'Email',
+          button_label: 'Notify me when available',
+          subscription_success_label: "You're in! We'll let you know when it's back.",
+          footer_content: '',
+          drop_background_color: '#000',
+          background_color: '#fff',
+          text_color: '#0A0A0A',
+          button_text_color: '#fff',
+          button_background_color: '#D60064',
+          close_button_color: '#0A0A0A',
+          error_background_color: '#fcd6d7',
+          error_text_color: '#C72E2F',
+          success_background_color: '#D60064',
+          success_text_color: '#fff',
+          font_family: 'ITC Avant Garde Gothic Pro',
+          headers_font_family: 'ITC Avant Garde Gothic Pro',
+          additional_styles:
+            "@use url('https://cdn.shopify.com/s/files/1/0098/9023/4434/files/ITCAvantGardePro-Md.woff?v=1717711002');",
+        },
+      });
+    </script>
+
+    <script src="https://js.adsrvr.org/up_loader.1.1.0.js" type="text/javascript"></script>
+    <script type="text/javascript">
+      ttd_dom_ready(function () {
+        if (typeof TTDUniversalPixelApi === 'function') {
+          var universalPixelApi = new TTDUniversalPixelApi();
+          universalPixelApi.init('vp8y0pg', ['y96p1n3'], 'https://insight.adsrvr.org/track/up');
+        }
+      });
+    </script>
+
+    <script
+      src="//action.dstillery.com/orbserv/nsjs?adv=cl168243922649999&ns=7932&nc=Grande-Cosmetics-Site-Visitor&ncv=63"
+      type="text/javascript"
+    ></script>
+
+    <noscript
+      ><img
+        width="1"
+        height="1"
+        src="//action.dstillery.com/orbserv/nspix?adv=cl168243922649999&ns=7932&nc=Grande-Cosmetics-Site-Visitor&ncv=63"
+    ></noscript>
+
+    <script type="text/javascript">
+      //DO NOT REMOVE - DRIVES REVENUE
+      var AddShoppersWidgetOptions = { loadCss: false, pushResponse: false };
+      !(function () {
+        var t = document.createElement('script');
+        (t.type = 'text/javascript'),
+          (t.async = !0),
+          (t.id = 'AddShoppers'),
+          (t.src = 'https://shop.pe/widget/widget_async.js#62e1a7eae5721f04e3e2c799'),
+          document.getElementsByTagName('head')[0].appendChild(t);
+      })();
+    </script>
+
+    <!-- Widget : Gift with Purchase - 4.2024 -->
+    <div class="visually-hidden" data-rebuy-id="53922"></div>
+    <!-- End Widget : Gift with Purchase - 4.2024 -->
+    <!-- Widget : Gift with Purchase tired -->
+    <div class="visually-hidden" data-rebuy-id="251210"></div>
+    <!-- End Widget : Gift with Purchase tired -->
+    <!-- Widget : Copy of Gift with Purchase - 4.2024 -->
+    <div class="visually-hidden" data-rebuy-id="251158"></div>
+    <!-- End Widget : Copy of Gift with Purchase - 4.2024 -->
+    <!-- Widget : Free GrandeRepair w/ 1st Subscription Order -->
+    <div class="visually-hidden" data-rebuy-id="278388"></div>
+    <!-- End Widget : Free GrandeRepair w/ 1st Subscription Order -->
+
+    <script defer src="https://static.shopmy.us/Affiliates/sms_aff_clicktrack.js"></script>
+
+    <style>
+      body > img {
+        display: none;
+      }
+      .shopify-section-group-footer-group ~ img {
+        display: none;
+      }
+    </style>
+
+    <script>
+      window.Shopify.loadFeatures(
+        [
+          {
+            name: 'consent-tracking-api',
+            version: '0.1',
+          },
+        ],
+        function (error) {
+          if (!error) {
+            try {
+              window.Osano.cm.ready('shopify');
+
+              window.Osano.cm.addEventListener('osano-cm-consent-saved', (c) => {
+                window.Shopify.customerPrivacy.setTrackingConsent({
+                  analytics:    c.ANALYTICS       === 'ACCEPT',
+                  marketing:    c.MARKETING        === 'ACCEPT',
+                  preferences:  c.PERSONALIZATION  === 'ACCEPT',
+                  sale_of_data: c.MARKETING        === 'ACCEPT',
+                }, () => {});
+              });
+            } catch (error) {
+              console.error('Osano must be loaded before initializing the Shopify API.');
             }
           }
-        );
-      </script>
-    {% elsif type == 'uk' %}
-      {% render 'elevar-body-end-uk' %}
+        }
+      );
+    </script>  
 
-      <script
-        async
-        type="text/javascript"
-        src="https://static.klaviyo.com/onsite/js/klaviyo.js?company_id=RqByY8"
-      ></script>
-      <script>
-        (function () {
-          var s = document.createElement('script'),
-            e = !document.body ? document.querySelector('head') : document.body;
-          s.src = 'https://acsbapp.com/apps/app/dist/js/app.js';
-          s.async = true;
-          s.onload = function () {
-            acsbJS.init({
-              statementLink: '',
-              footerHtml: '',
-              hideMobile: false,
-              hideTrigger: false,
-              language: 'en',
-              position: 'left',
-              leadColor: '#eb3688',
-              triggerColor: '#eb3688',
-              triggerRadius: '50%',
-              triggerPositionX: 'left',
-              triggerPositionY: 'bottom',
-              triggerIcon: 'people',
-              triggerSize: 'medium',
-              triggerOffsetX: 90,
-              triggerOffsetY: 10,
-              mobile: {
-                triggerSize: 'small',
-                triggerPositionX: 'right',
-                triggerPositionY: 'bottom',
-                triggerOffsetX: 10,
-                triggerOffsetY: 10,
-                triggerRadius: '50%',
-              },
-            });
-          };
-          e.appendChild(s);
-        })();
-      </script>
-      <script src="https://cdn.attn.tv/grandecosmeticsgb/dtag.js"></script>
-
-      <script type="text/javascript" src="//d116tqlcqfmz3v.cloudfront.net/grande-864/isotope.js"></script>
-      <script type="text/javascript">
-        Curalate.FanReels.Isotope.init({ code: 'grande' });
-      </script>
-
-      {% render 'criteo-tracking-uk' %}
-      {% render 'booster-discounts-uk' %}
-
-      <!-- Quantcast Tag -->
-      <script type="text/javascript">
-        var _qevents = _qevents || [];
-
-        (function () {
-          var elem = document.createElement('script');
-          elem.src =
-            (document.location.protocol == 'https:' ? 'https://secure' : 'http://edge') + '.quantserve.com/quant.js';
-          elem.async = true;
-          elem.type = 'text/javascript';
-          var scpt = document.getElementsByTagName('script')[0];
-          scpt.parentNode.insertBefore(elem, scpt);
-        })();
-
-        _qevents.push({
-          qacct: 'p-xsRSg4KGH-uW4',
-        });
-      </script>
-
-      <noscript>
-        <div style="display:none;">
-          <img src="//pixel.quantserve.com/pixel/p-xsRSg4KGH-uW4.gif" border="0" height="1" width="1" alt="Quantcast">
-        </div>
-      </noscript>
-      <!-- End Quantcast tag -->
-
-      <script type="text/javascript">
-        // Editable fields:
-        var afterpay_min = 0;            // As per your Afterpay contract.
-        var afterpay_max = 1000.00;         // As per your Afterpay contract.
-        var afterpay_logo_theme = 'colour'; // Can be 'colour', 'black' or 'white'.
-
-        // Overrides:
-        var afterpay_product_selector = 'div.cv__price-wrap';
-        // var afterpay_cart_integration_enabled = true;
-        var afterpay_cart_static_selector = '.cart-tax-info';
-        // var afterpay_variable_price_fallback_selector = '#ProductPrice';
-        // var afterpay_variable_price_fallback = true; // Requires afterpay_product_selector
-        var afterpay_show_currency_code = false;
-        var afterpay_modal_responsive = true;
-        // var afterpay_hide_range_decimals = true;
-        // var afterpay_hide_lower_limit = false;
-        var afterpay_hide_upper_limit = true;
-        var afterpay_modal_open_icon = true;
-
-        // Non-editable fields:
-        var afterpay_shop_currency = {{ shop.currency | json }};
-        var afterpay_shop_money_format = {{ shop.money_format | json }};
-        var afterpay_shop_permanent_domain = {{ shop.permanent_domain | json }};
-        var afterpay_theme_name = {{ theme.name | json }};
-        var afterpay_product = {{ product | json }};
-        var afterpay_current_variant = {{ product.selected_or_first_available_variant | json }};
-        var afterpay_cart_total_price = {{ cart.total_price | json }};
-        var afterpay_js_snippet_version = '1.0.2';
-      </script>
-
-      <script type="text/javascript" src="https://static.afterpay.com/shopify-afterpay-javascript.js"></script>
-
-      <!-- google dynamic remarketing tag for theme.liquid -->
-      {% if template contains 'product' %}
-        <script type="text/javascript">
-          var json_product = {{ product | json }};
-        </script>
-        <script>
-          var ecomm_prodid = [];
-          for (var i = 0; i < json_product.variants.length; i++)
-            ecomm_prodid.push('shopify_GB_{{product.id}}_' + json_product.variants[i].id);
-        </script>
-        <script type="text/javascript">
-          var google_tag_params = {
-            ecomm_prodid: ecomm_prodid,
-            ecomm_pagetype: 'product',
-            ecomm_totalvalue: parseFloat('{{ product.price | money_without_currency | remove: ","}}'),
-          };
-        </script>
-      {% elsif template contains 'collection' %}
-        <script type="text/javascript">
-          var google_tag_params = {
-            ecomm_pagetype: 'category',
-          };
-        </script>
-      {% elsif template contains 'cart' %}
-        <script type="text/javascript">
-          var id = new Array();
-          {% for item in cart.items %}
-          id.push('shopify_GB_{{item.product.id}}_{{item.variant.id}}');
-           {% endfor %}
-
-           var google_tag_params = {
-             ecomm_prodid: id,
-             ecomm_pagetype: 'cart',
-             ecomm_totalvalue: parseFloat('{{ cart.total_price | money_without_currency | remove: ","}}')
-           };
-        </script>
-      {% elsif template contains 'search' %}
-        <script type="text/javascript">
-          var google_tag_params = {
-            ecomm_pagetype: 'searchresults',
-          };
-        </script>
-      {% elsif template contains 'index' %}
-        <script type="text/javascript">
-          var google_tag_params = {
-            ecomm_pagetype: 'home',
-          };
-        </script>
-      {% else %}
-        <script type="text/javascript">
-          var google_tag_params = {
-            ecomm_pagetype: 'other',
-          };
-        </script>
-      {% endif %}
-      <script>
-        gtag('event', 'page_view', {
-          send_to: 'AW-966742208',
-          ecomm_prodid: window.google_tag_params.ecomm_prodid,
-          ecomm_pagetype: window.google_tag_params.ecomm_pagetype,
-          ecomm_totalvalue: window.google_tag_params.ecomm_totalvalue,
-        });
-      </script>
-    {% endif %}
   </body>
 </html>

@@ -1,0 +1,66 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "shogun-helper": {
+      "type": "shogun-helper",
+      "disabled": true,
+      "settings": {}
+    },
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "custom_css": [],
+      "settings": {}
+    },
+    "shogun-optimizer": {
+      "type": "shogun-optimizer",
+      "disabled": true,
+      "settings": {}
+    },
+    "shogun_custom_html_A4DKHB": {
+      "type": "shogun-custom-html",
+      "disabled": true,
+      "name": "Shogun Custom HTML",
+      "settings": {
+        "html": "<div class=\"octane-ai-quiz \" data-quiz-id=\"BHYELob0rB0Pj92N\" data-embed-type=\"fullpage\" data-mobile-height=\"match_browser\" data-desktop-height=\"match_browser\">\n    \n</div>\n<script src=\"https://app.octaneai.com/bdicewporsyq8gvx/quiz.js\" defer></script>"
+      }
+    },
+    "17815399199adea7f5": {
+      "type": "apps",
+      "blocks": {
+        "octane_ai_advanced_quiz_maker_octaneai_section_YwtdbP": {
+          "type": "shopify://apps/octane-ai-advanced-quiz-maker/blocks/octaneai_section/db2513a5-c9b0-40fd-9058-42c28e6e6502",
+          "settings": {
+            "octane_id": "bdicewporsyq8gvx:BHYELob0rB0Pj92N:quiz",
+            "embed_type": "fullpage",
+            "enable_loading": false,
+            "stroke_color": "#000000",
+            "mobile_height": "match_browser",
+            "mobile_custom_height_px": 600,
+            "desktop_height": "match_browser",
+            "desktop_custom_height_px": 600
+          }
+        }
+      },
+      "block_order": [
+        "octane_ai_advanced_quiz_maker_octaneai_section_YwtdbP"
+      ],
+      "settings": {}
+    }
+  },
+  "order": [
+    "shogun-helper",
+    "main",
+    "shogun-optimizer",
+    "shogun_custom_html_A4DKHB",
+    "17815399199adea7f5"
+  ]
+}
