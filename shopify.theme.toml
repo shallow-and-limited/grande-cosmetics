@@ -3,6 +3,10 @@ theme = "155814363273"
 store = "grande-cosmetics"
 path = "./storefront"
 
+[environments.usadev]
+theme = "155844903049"
+store = "grande-cosmetics"
+path = "./storefront"
 
 [environments.uk]
 theme = "194205548913"
