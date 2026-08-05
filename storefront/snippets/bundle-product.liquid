@@ -1,0 +1,75 @@
+{%- comment -%}
+  Renders a single selectable tile inside a Bundle Builder kit.
+
+  @param variant {Variant}            required
+  @param button_text {String}
+  @param option_filters {Boolean}     emit data-options
+  @param type_filters {Boolean}       emit data-type
+  @param metafield_filters {Array}    "namespace.key" strings to emit as data-<key>
+{%- endcomment -%}
+
+{%- liquid
+  assign product = variant.product
+  assign media = variant.featured_media | default: product.featured_media
+  assign image = media.preview_image | default: product.featured_image
+  assign title = product.title
+  if product.variants.size > 1
+    assign title = title | append: ' - ' | append: variant.title
+  endif
+-%}
+
+{%- if variant != blank -%}
+  <div
+    class="bundle__product"
+    data-bundle-product
+    {%- if option_filters %} data-options="{{ variant.options | join: ',' | escape }}"{% endif -%}
+    {%- if type_filters %} data-type="{{ product.type | escape }}"{% endif -%}
+    {%- if metafield_filters != blank -%}
+      {%- for filter in metafield_filters -%}
+        {%- liquid
+          assign key = filter | split: '.' | first
+          assign field = filter | split: '.' | last
+          assign metafield = product.metafields[key][field]
+        -%}
+        {%- if metafield.type == 'list.single_line_text_field' %} data-{{ field | handle }}="{{ metafield.value | join: ',' | escape }}"
+        {%- else %} data-{{ field | handle }}="{{ metafield | escape }}"
+        {%- endif -%}
+      {%- endfor -%}
+    {%- endif -%}
+  >
+    <div class="bundle__product-image">
+      {%- render 'image', image: image, aspect_ratio: 1, class: 'bundle__product-media', alt: title -%}
+    </div>
+
+    <div class="bundle__product-details">
+      <h4 class="bundle__product-title p-3">{{ title }}</h4>
+
+      {%- if product.metafields.details.subtitle != blank -%}
+        <div class="bundle__product-description p-4">
+          {{ product.metafields.details.subtitle }}
+        </div>
+      {%- endif -%}
+
+      <div class="bundle__product-price p-3 w-bold">
+        {{ variant.price | money }}
+      </div>
+
+      <button
+        type="button"
+        class="bundle__product-action btn btn--small p-4"
+        data-bundle-add
+        data-variant-id="{{ variant.id }}"
+        data-variant-image="{{ image | image_url: width: 140 }}"
+        data-variant-title="{{ title | escape }}"
+        {% unless variant.available %}disabled{% endunless %}
+      >
+        {%- if variant.available -%}
+          {{ button_text | default: 'Add to Bundle' }}
+          {% render 'icons', icon_name: 'plus' %}
+        {%- else -%}
+          {{ 'sold_out' | t }}
+        {%- endif -%}
+      </button>
+    </div>
+  </div>
+{%- endif -%}

@@ -1,0 +1,515 @@
+/**
+ * Bundle Builder (sections/bundles.liquid)
+ *
+ * Self-contained: only depends on the design tokens in global.min.css
+ * (--color-*, --font-*, --offset/--m_offset) plus the theme's shared
+ * `.tabs / .tab / .tab--selected`, `.btn`, `.image` and typography classes.
+ *
+ * Desktop breakpoint is 1024px, matching the rest of the theme.
+ */
+
+.bundle--hidden {
+  display: none !important;
+}
+
+/**
+ * The `icons` snippet hardcodes #0A0A0A / black, which clashes with the rose
+ * add button and the merchant-chosen summary colors. Presentation attributes
+ * lose to any CSS rule, so re-pointing them at currentColor wins. Stroked and
+ * filled icons are handled separately — swapping the wrong one blobs the glyph.
+ */
+.bundle svg.icon--caret-down path,
+.bundle svg.icon--filter path {
+  stroke: currentColor;
+}
+
+.bundle svg.icon--plus path {
+  fill: currentColor;
+}
+
+/* ------------------------------------------------------------- layout */
+
+.bundle {
+  --bundle-border: var(--color-light-gray, #dfdada);
+  --bundle-radius: 0.75rem;
+  --bundle-gap: 1rem;
+}
+
+.bundle--page-width,
+.bundle--screen-width {
+  padding-left: var(--m_offset, 20px);
+  padding-right: var(--m_offset, 20px);
+}
+
+.bundle--page-width {
+  max-width: 1440px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media screen and (min-width: 1024px) {
+  .bundle--page-width,
+  .bundle--screen-width {
+    padding-left: var(--offset, 32px);
+    padding-right: var(--offset, 32px);
+  }
+}
+
+.bundle__header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.bundle__header--center {
+  text-align: center;
+  align-items: center;
+}
+
+.bundle__header--right {
+  text-align: right;
+  align-items: flex-end;
+}
+
+.bundle__heading,
+.bundle__subheading > *:first-child {
+  margin-top: 0;
+}
+
+.bundle__heading,
+.bundle__subheading > *:last-child {
+  margin-bottom: 0;
+}
+
+/* --------------------------------------------------------------- tabs */
+
+.bundle__tabs {
+  position: relative;
+  margin-bottom: var(--bundle-gap);
+}
+
+.bundle__tab-list {
+  display: flex;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0 0 0.25rem;
+  list-style: none;
+
+  overflow-x: auto;
+  scroll-snap-type: x proximity;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.bundle__tab-list::-webkit-scrollbar {
+  display: none;
+}
+
+.bundle__tab-item {
+  flex-shrink: 0;
+  scroll-snap-align: start;
+}
+
+.bundle__tab {
+  cursor: pointer;
+  white-space: nowrap;
+  background: transparent;
+  border: 0.0625rem solid var(--bundle-border);
+  border-radius: 30px;
+}
+
+.bundle__tab.tab--selected {
+  border-color: var(--color-rose, #e6006b);
+}
+
+/* ------------------------------------------------------------- panels */
+
+.bundle__panel {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--bundle-gap);
+}
+
+@media screen and (min-width: 1024px) {
+  .bundle__panel {
+    grid-template-columns: 1fr 20rem;
+    gap: 2rem;
+    align-items: start;
+  }
+}
+
+.bundle__products {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.bundle__intro {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.bundle__intro > * {
+  margin: 0;
+}
+
+.bundle__warning {
+  color: var(--color-text-gray, #545454);
+}
+
+.bundle__collection-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+
+  border-top: 0.0625rem solid var(--bundle-border);
+  margin-top: 1.25rem;
+  padding-top: 1.25rem;
+}
+
+@media screen and (min-width: 1024px) {
+  .bundle__collection-wrapper {
+    flex-direction: row;
+    gap: 2rem;
+  }
+}
+
+/* ------------------------------------------------------------ filters */
+
+.bundle__filter-container,
+.bundle__filters {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@media screen and (min-width: 1024px) {
+  .bundle__filter-container,
+  .bundle__filters {
+    width: 16rem;
+    flex-shrink: 0;
+  }
+}
+
+.bundle__filter-container > .bundle__filter-title {
+  border-bottom: 0.0625rem solid var(--bundle-border);
+}
+
+.bundle__filter-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 0.75rem 0;
+  margin: 0;
+  cursor: pointer;
+  list-style: none;
+}
+
+.bundle__filter-title::-webkit-details-marker {
+  display: none;
+}
+
+.bundle__filter-title svg {
+  width: 0.75rem;
+  height: auto;
+  flex-shrink: 0;
+  transition: transform 300ms ease-in-out;
+}
+
+.bundle__filter-container > .bundle__filter-title svg {
+  width: 1.25rem;
+}
+
+.bundle__filter-details[open] > .bundle__filter-title svg,
+.bundle__filter-container[open] > .bundle__filter-title svg {
+  transform: rotate(180deg);
+}
+
+.bundle__filter-content {
+  margin: 0 0 0.75rem;
+  padding: 0;
+  list-style: none;
+}
+
+.bundle__filter-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.bundle__filter-input {
+  width: 1rem;
+  height: 1rem;
+  flex-shrink: 0;
+  accent-color: var(--color-rose, #e6006b);
+  cursor: pointer;
+}
+
+.bundle__filter-label {
+  flex: 1;
+  padding: 0.3125rem 0;
+  cursor: pointer;
+}
+
+/* ---------------------------------------------------------- collection */
+
+.bundle__collection {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--bundle-gap);
+  width: 100%;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+
+@media screen and (min-width: 1024px) {
+  .bundle__collection {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.bundle__collection-empty {
+  grid-column: 1 / -1;
+  padding-top: 1rem;
+  text-align: center;
+}
+
+.bundle__product {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 0.0625rem solid var(--bundle-border);
+  border-radius: var(--bundle-radius);
+}
+
+.bundle__product-image {
+  overflow: hidden;
+}
+
+.bundle__product-details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  flex-grow: 1;
+  padding: 0.75rem;
+  text-align: center;
+}
+
+@media screen and (min-width: 1024px) {
+  .bundle__product-details {
+    padding: 1rem;
+  }
+}
+
+.bundle__product-title,
+.bundle__product-description,
+.bundle__product-price {
+  margin: 0;
+}
+
+.bundle__product-description {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  color: var(--color-text-gray, #545454);
+}
+
+.bundle__product-action {
+  margin-top: auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.375rem;
+  cursor: pointer;
+}
+
+.bundle__product-action svg {
+  width: 0.75rem;
+  height: 0.75rem;
+}
+
+.bundle__product-action[disabled] {
+  cursor: not-allowed;
+}
+
+/* ------------------------------------------------------------- summary */
+
+.bundle-summary {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem;
+  border-radius: var(--bundle-radius);
+
+  background: var(--bundle-summary-background, var(--color-beige, #fdf1e4));
+  color: var(--bundle-summary-text, var(--color-noir, #0a0a0a));
+}
+
+.bundle-summary__header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  text-align: center;
+  cursor: default;
+}
+
+.bundle-summary__title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin: 0;
+  color: inherit;
+}
+
+.bundle-summary__toggle svg {
+  width: 0.875rem;
+  height: 0.875rem;
+  transition: transform 300ms ease-in-out;
+}
+
+.bundle-summary__products {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.bundle-summary__product {
+  display: grid;
+  grid-template-columns: 3.75rem 1fr;
+  gap: 0.75rem;
+  align-items: start;
+}
+
+.bundle-summary__product-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 0.375rem;
+}
+
+.bundle-summary__product-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  color: inherit;
+  min-width: 0;
+}
+
+.bundle-summary__product-title {
+  color: inherit;
+}
+
+.bundle-summary__product-action {
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  text-align: left;
+}
+
+.bundle-summary__progress {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.bundle-summary__progress-bar {
+  position: relative;
+  height: 0.3125rem;
+  border-radius: 0.3125rem;
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.15);
+}
+
+.bundle-summary__progress-bar span {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 0;
+  background: var(--bundle-summary-text, var(--color-noir, #0a0a0a));
+  transition: width 300ms ease-in-out;
+}
+
+.bundle-summary__progress-content {
+  text-align: center;
+  color: inherit;
+}
+
+.bundle-summary__action {
+  width: 100%;
+}
+
+.bundle-summary__error {
+  padding: 0.5rem;
+  border-radius: 0.375rem;
+  background: #ffebee;
+  color: var(--color-red, #e2200b);
+}
+
+/* Mobile: the summary docks to the bottom of the viewport and expands on tap. */
+@media screen and (max-width: 1023px) {
+  .bundle-summary {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    z-index: 2;
+    width: 100%;
+    border-radius: var(--bundle-radius) var(--bundle-radius) 0 0;
+    box-shadow: 0 -0.25rem 1rem rgba(0, 0, 0, 0.12);
+
+    transform: translateY(calc(100% - (1.5rem + 2rem)));
+    transition: transform 300ms ease-in-out;
+  }
+
+  .bundle-summary--open {
+    transform: translateY(0);
+    max-height: 85vh;
+    overflow-y: auto;
+  }
+
+  .bundle-summary__header {
+    cursor: pointer;
+  }
+
+  .bundle-summary__toggle svg {
+    transform: rotate(180deg);
+  }
+
+  .bundle-summary--open .bundle-summary__toggle svg {
+    transform: rotate(0deg);
+  }
+
+  .bundle-summary__products {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem 0.5rem;
+  }
+
+  .bundle-summary__product {
+    grid-template-columns: 3rem 1fr;
+  }
+
+  /* Room for the docked summary so it can't cover the last row of products. */
+  .bundle__products {
+    padding-bottom: 4rem;
+  }
+}

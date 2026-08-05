@@ -1,0 +1,604 @@
+{%- comment -%}
+  Bundle Builder ("Build Your Own Bundle")
+
+  Ported from the Lilly Lashes theme. Each block is a "kit": a tab with its own
+  product pool, filters, target size and progress/discount messaging.
+
+  Product source per kit (first non-blank wins):
+    1. `variants` — a `bundle` metaobject whose `variant` field is a list of
+       variant references. This is the source the section was designed around.
+    2. `collection` — fallback that uses each product's first available variant,
+       so the section is usable before the metaobject definitions exist.
+
+  Filters come from `bundle_filters` metaobjects with the fields:
+    filter (label), filter_type ("Product Type" | "Variant Option" | "Metafield"),
+    values (comma separated), metafield_key, metafield_value.
+
+  The discount itself is NOT applied here — the section only stamps a `_kit`
+  line item property on everything it adds. A cart/automatic discount in Shopify
+  admin has to key off that property.
+{%- endcomment -%}
+
+{{ 'bundles.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'bundles.js' | asset_url }}" defer="defer"></script>
+
+{%- style -%}
+  #Bundle-{{ section.id }} {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 1024px) {
+    #Bundle-{{ section.id }} {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<div id="Bundle-{{ section.id }}" class="bundle bundle--{{ section.settings.layout }}">
+  {%- if section.settings.title != blank or section.settings.description != blank -%}
+    <div class="bundle__header bundle__header--{{ section.settings.heading_alignment }}">
+      {%- if section.settings.title != blank -%}
+        <h2 class="bundle__heading {{ section.settings.heading_size }}">{{ section.settings.title }}</h2>
+      {%- endif -%}
+
+      {%- if section.settings.description != blank -%}
+        <div class="bundle__subheading {{ section.settings.text_style }}">
+          {{ section.settings.description }}
+        </div>
+      {%- endif -%}
+    </div>
+  {%- endif -%}
+
+  <bundle-builder class="bundle__builder">
+    {%- if section.blocks.size > 1 -%}
+      <div class="bundle__tabs tabs" role="tablist" aria-label="{{ section.settings.title | default: 'Bundles' | escape }}">
+        <ul class="bundle__tab-list" role="presentation">
+          {%- for block in section.blocks -%}
+            <li class="bundle__tab-item" role="presentation">
+              <button
+                type="button"
+                role="tab"
+                class="bundle__tab tab p-2{% if forloop.first %} tab--selected{% endif %}"
+                id="BundleTab-{{ section.id }}-{{ forloop.index }}"
+                aria-controls="BundlePanel-{{ section.id }}-{{ forloop.index }}"
+                aria-selected="{% if forloop.first %}true{% else %}false{% endif %}"
+                {% unless forloop.first %}tabindex="-1"{% endunless %}
+                data-bundle-tab
+              >
+                {{- block.settings.type | default: block.settings.title -}}
+              </button>
+            </li>
+          {%- endfor -%}
+        </ul>
+      </div>
+    {%- endif -%}
+
+    {%- for block in section.blocks -%}
+      {%- liquid
+        assign panel_index = forloop.index
+        assign kit_id = block.settings.bundle_id | default: block.id
+        assign kit_variants = block.settings.variants.variant.value
+
+        assign metafield_filters = ''
+        assign type_filters = false
+        assign option_filters = false
+      -%}
+
+      <div
+        class="bundle__panel{% unless forloop.first %} bundle--hidden{% endunless %}"
+        id="BundlePanel-{{ section.id }}-{{ panel_index }}"
+        role="tabpanel"
+        aria-labelledby="BundleTab-{{ section.id }}-{{ panel_index }}"
+        data-bundle-panel
+        data-kit-id="{{ kit_id | escape }}"
+        style="
+          --bundle-summary-text: {{ block.settings.summary_text_color }};
+          --bundle-summary-background: {{ block.settings.summary_background_color }};
+        "
+        {{ block.shopify_attributes }}
+      >
+        <div class="bundle__products">
+          {%- if block.settings.title != blank or block.settings.content != blank or block.settings.warning != blank -%}
+            <div class="bundle__intro">
+              {%- if block.settings.title != blank -%}
+                <h3 class="bundle__title {{ block.settings.title_size }}">{{ block.settings.title }}</h3>
+              {%- endif -%}
+
+              {%- if block.settings.content != blank -%}
+                <div class="bundle__content p-3">{{ block.settings.content }}</div>
+              {%- endif -%}
+
+              {%- if block.settings.warning != blank -%}
+                <div class="bundle__warning p-4">{{ block.settings.warning }}</div>
+              {%- endif -%}
+            </div>
+          {%- endif -%}
+
+          <div class="bundle__collection-wrapper">
+            {%- comment -%}
+              Rendered open so the desktop layout (where the summary is hidden)
+              is correct before JS runs; bundles.js collapses them on mobile.
+            {%- endcomment -%}
+            {%- if block.settings.filters != blank -%}
+              <details class="bundle__filter-container" data-bundle-filter-container open>
+                <summary class="bundle__filter-title p-2 hide-desktop">
+                  {{ 'products.facets.filter_button' | t }}
+                  {% render 'icons', icon_name: 'filter' %}
+                </summary>
+
+                <ul class="bundle__filters" role="list">
+                  {%- for filter in block.settings.filters -%}
+                    {%- liquid
+                      assign filter_key = filter.filter_type | handle
+
+                      if filter.filter_type == 'Product Type'
+                        assign type_filters = true
+                      elsif filter.filter_type == 'Variant Option'
+                        assign option_filters = true
+                      elsif filter.filter_type == 'Metafield'
+                        assign filter_key = filter.metafield_value | handle
+                        assign metafield_filters = metafield_filters | append: filter.metafield_key | append: '.' | append: filter.metafield_value | append: ','
+                      endif
+                    -%}
+
+                    <li class="bundle__filter">
+                      <details class="bundle__filter-details" data-bundle-filter-container open>
+                        <summary class="bundle__filter-title p-2">
+                          {{ filter.filter }}
+                          {% render 'icons', icon_name: 'caret-down' %}
+                        </summary>
+
+                        <form class="bundle__filter-form" data-bundle-filter-form>
+                          <ul class="bundle__filter-content" role="list">
+                            {%- assign filter_values = filter.values | split: ',' -%}
+                            {%- for filter_value in filter_values -%}
+                              {%- liquid
+                                assign filter_value = filter_value | strip
+                                assign input_id = 'BundleFilter-' | append: section.id | append: '-' | append: panel_index | append: '-' | append: filter_key | append: '-' | append: forloop.index
+                              -%}
+                              <li class="bundle__filter-item">
+                                <input
+                                  id="{{ input_id }}"
+                                  type="checkbox"
+                                  name="{{ filter_key }}"
+                                  value="{{ filter_value | escape }}"
+                                  class="bundle__filter-input"
+                                  data-filter-key="{{ filter_key }}"
+                                >
+                                <label for="{{ input_id }}" class="bundle__filter-label p-3">
+                                  {{- filter_value -}}
+                                </label>
+                              </li>
+                            {%- endfor -%}
+                          </ul>
+                        </form>
+                      </details>
+                    </li>
+                  {%- endfor -%}
+                </ul>
+              </details>
+            {%- endif -%}
+
+            {%- if metafield_filters != blank -%}
+              {%- assign metafield_filters = metafield_filters | split: ',' -%}
+            {%- endif -%}
+
+            <div class="bundle__collection">
+              {%- if kit_variants != blank -%}
+                {%- for variant in kit_variants -%}
+                  {%- render 'bundle-product',
+                    variant: variant,
+                    button_text: block.settings.button_text,
+                    option_filters: option_filters,
+                    type_filters: type_filters,
+                    metafield_filters: metafield_filters
+                  -%}
+                {%- endfor -%}
+              {%- elsif block.settings.collection != blank -%}
+                {%- for product in block.settings.collection.products -%}
+                  {%- render 'bundle-product',
+                    variant: product.selected_or_first_available_variant,
+                    button_text: block.settings.button_text,
+                    option_filters: option_filters,
+                    type_filters: type_filters,
+                    metafield_filters: metafield_filters
+                  -%}
+                {%- endfor -%}
+              {%- endif -%}
+
+              <div class="bundle__collection-empty h5 bundle--hidden" data-bundle-empty>
+                {{ block.settings.no_products_found }}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bundle-summary" data-bundle-summary>
+          {%- comment -%} aria-expanded is set by bundles.js — mobile only. {%- endcomment -%}
+          <button
+            type="button"
+            class="bundle-summary__header"
+            data-bundle-summary-toggle
+          >
+            <span class="bundle-summary__title h5">
+              <span>{{ block.settings.progress_title }}</span>
+
+              <span class="bundle-summary__toggle hide-desktop">
+                {% render 'icons', icon_name: 'caret-down' %}
+              </span>
+            </span>
+
+            {%- if block.settings.progress_description != blank -%}
+              <span class="bundle-summary__description p-4">
+                {{ block.settings.progress_description }}
+              </span>
+            {%- endif -%}
+          </button>
+
+          <ul
+            class="bundle-summary__products"
+            role="list"
+            data-bundle-summary-list
+            data-remove-label="{{ block.settings.remove_text | default: 'Remove' | escape }}"
+          ></ul>
+
+          <div class="bundle-summary__progress">
+            <div class="bundle-summary__progress-bar" aria-hidden="true" data-bundle-progress-bar>
+              <span></span>
+            </div>
+
+            <div class="bundle-summary__progress-content p-4" data-bundle-progress-content>
+              {{
+                block.settings.progress_bar_content
+                | replace: '|number|', block.settings.size
+                | replace: '|type|', block.settings.type
+              }}
+            </div>
+          </div>
+
+          <button
+            type="button"
+            class="bundle-summary__action btn btn--primary"
+            data-bundle-checkout
+            disabled
+          >
+            {{ block.settings.progress_button }}
+          </button>
+
+          <div class="bundle-summary__error p-4 bundle--hidden" role="alert" data-bundle-error></div>
+        </div>
+      </div>
+    {%- endfor -%}
+
+    <script type="application/json" data-bundle-data>
+      {
+        "kits": [
+          {%- for block in section.blocks -%}
+            {
+              "id": {{ block.settings.bundle_id | default: block.id | json }},
+              "type": {{ block.settings.type | json }},
+              "size": {{ block.settings.size | default: 1 | at_least: 1 | json }},
+              "progress_incomplete": {{ block.settings.progress_bar_content | json }},
+              "progress_complete": {{ block.settings.progress_bar_complete | json }}
+            }{% unless forloop.last %},{% endunless %}
+          {%- endfor -%}
+        ]
+      }
+    </script>
+  </bundle-builder>
+</div>
+
+{% schema %}
+{
+  "name": "Bundle Builder",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "select",
+      "id": "layout",
+      "label": "Layout",
+      "options": [
+        {
+          "value": "page-width",
+          "label": "Page width"
+        },
+        {
+          "value": "screen-width",
+          "label": "Screen width"
+        },
+        {
+          "value": "full-width",
+          "label": "Full width (no padding)"
+        }
+      ],
+      "default": "page-width"
+    },
+    {
+      "type": "header",
+      "content": "Header"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "select",
+      "id": "heading_alignment",
+      "label": "Heading alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "label": "Heading size",
+      "options": [
+        {
+          "value": "h5",
+          "label": "H5"
+        },
+        {
+          "value": "h4",
+          "label": "H4"
+        },
+        {
+          "value": "h3",
+          "label": "H3"
+        },
+        {
+          "value": "h2",
+          "label": "H2"
+        },
+        {
+          "value": "h1",
+          "label": "H1"
+        }
+      ],
+      "default": "h4"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description"
+    },
+    {
+      "type": "select",
+      "id": "text_style",
+      "label": "Text style",
+      "options": [
+        {
+          "value": "p-4",
+          "label": "Small"
+        },
+        {
+          "value": "p-3",
+          "label": "Regular"
+        },
+        {
+          "value": "p-2",
+          "label": "Large"
+        }
+      ],
+      "default": "p-3"
+    },
+    {
+      "type": "header",
+      "content": "Section padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding top",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding bottom",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "default": 36
+    }
+  ],
+  "blocks": [
+    {
+      "type": "kit",
+      "name": "Kit",
+      "settings": [
+        {
+          "type": "header",
+          "content": "Bundle settings"
+        },
+        {
+          "type": "text",
+          "id": "bundle_id",
+          "label": "Bundle ID",
+          "info": "Added to every line item as the `_kit` property. Use it as the condition for the bundle discount in Shopify admin. Falls back to the block ID when blank."
+        },
+        {
+          "type": "text",
+          "id": "type",
+          "label": "Type",
+          "info": "Tab label. Also replaces |type| in the progress text."
+        },
+        {
+          "type": "number",
+          "id": "size",
+          "label": "Kit size",
+          "default": 3
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "select",
+          "id": "title_size",
+          "label": "Title size",
+          "options": [
+            {
+              "value": "h3",
+              "label": "H3"
+            },
+            {
+              "value": "h4",
+              "label": "H4"
+            },
+            {
+              "value": "h5",
+              "label": "H5"
+            },
+            {
+              "value": "p-1",
+              "label": "P1"
+            },
+            {
+              "value": "p-2",
+              "label": "P2"
+            }
+          ],
+          "default": "h5"
+        },
+        {
+          "type": "textarea",
+          "id": "content",
+          "label": "Content"
+        },
+        {
+          "type": "textarea",
+          "id": "warning",
+          "label": "Subcontent"
+        },
+        {
+          "type": "text",
+          "id": "button_text",
+          "label": "Add button text",
+          "default": "Add to Bundle"
+        },
+        {
+          "type": "header",
+          "content": "Products"
+        },
+        {
+          "type": "metaobject",
+          "id": "variants",
+          "label": "Variants object",
+          "metaobject_type": "bundle",
+          "info": "A `bundle` metaobject whose `variant` field lists the variants a shopper can pick from."
+        },
+        {
+          "type": "collection",
+          "id": "collection",
+          "label": "Collection (fallback)",
+          "info": "Used only when no variants object is set. Adds each product's first available variant."
+        },
+        {
+          "type": "header",
+          "content": "Filters"
+        },
+        {
+          "type": "metaobject_list",
+          "id": "filters",
+          "label": "Filters objects",
+          "metaobject_type": "bundle_filters"
+        },
+        {
+          "type": "text",
+          "id": "no_products_found",
+          "label": "No products found title",
+          "default": "No products found. Try removing some filters."
+        },
+        {
+          "type": "header",
+          "content": "Summary"
+        },
+        {
+          "type": "color",
+          "id": "summary_text_color",
+          "label": "Summary text color",
+          "default": "#0A0A0A"
+        },
+        {
+          "type": "color",
+          "id": "summary_background_color",
+          "label": "Summary background color",
+          "default": "#FDF1E4"
+        },
+        {
+          "type": "text",
+          "id": "progress_title",
+          "label": "Summary title",
+          "default": "Your Bundle"
+        },
+        {
+          "type": "text",
+          "id": "progress_description",
+          "label": "Summary description"
+        },
+        {
+          "type": "text",
+          "id": "remove_text",
+          "label": "Remove link text",
+          "default": "Remove"
+        },
+        {
+          "type": "text",
+          "id": "progress_bar_content",
+          "label": "Progress bar content",
+          "default": "Add |number| |type| and <b>Get 20% OFF</b>",
+          "info": "|number| is replaced with the number of items still needed, |type| with the kit type."
+        },
+        {
+          "type": "text",
+          "id": "progress_bar_complete",
+          "label": "Progress bar complete",
+          "default": "<b>You have 20% off!</b>"
+        },
+        {
+          "type": "text",
+          "id": "progress_button",
+          "label": "Progress button",
+          "default": "Add to Bag"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Bundle Builder",
+      "blocks": [
+        {
+          "type": "kit"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
