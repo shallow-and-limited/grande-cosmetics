@@ -22,6 +22,7 @@
         },
         "text_bfL8A4": {
           "type": "text",
+          "disabled": true,
           "settings": {
             "message": "<p><a href=\"/collections/christmas-in-july\" title=\"Christmas in July\"><strong>SHOP 40% OFF HOLIDAY SETS</strong></a></p>"
           }
@@ -81,7 +82,7 @@
       "settings": {
         "font_size_desktop": "12px",
         "font_size_mobile": "11px",
-        "custom_links": "<p><a href=\"/pages/loyalty\" title=\"Loyalty\">Rewards</a>   |   <a href=\"/pages/loyalty\" title=\"Loyalty\">Refer a Friend</a></p>"
+        "custom_links": "<p><a href=\"/pages/vip-rewards\" title=\"Rewards\">Rewards</a>   |   <a href=\"/pages/vip-referral\" title=\"VIP Referral\">Refer a Friend</a></p>"
       }
     },
     "header": {

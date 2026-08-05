@@ -31,7 +31,7 @@
           "type": "text",
           "settings": {
             "svg_icon": "flower",
-            "text": "BUY ANY FULL SIZE SERUM",
+            "text": "BUY GRANDELASH-MD OR GRANDEBROW",
             "url": ""
           }
         },
@@ -39,32 +39,14 @@
           "type": "text",
           "settings": {
             "svg_icon": "flower",
-            "text": "GET TRAVEL SIZE GRANDEBROW 2-IN-1 FREE",
-            "url": ""
-          }
-        },
-        "text_hiHdpc": {
-          "type": "text",
-          "settings": {
-            "svg_icon": "flower",
-            "text": "CODE: CONFIDENCE",
-            "url": ""
-          }
-        },
-        "text_bCXCGN": {
-          "type": "text",
-          "settings": {
-            "svg_icon": "flower",
-            "text": "WHILE SUPPLIES LAST",
+            "text": "GET A FREE MASCARA",
             "url": ""
           }
         }
       },
       "block_order": [
         "text_FNPRBY",
-        "text_PhTbi4",
-        "text_hiHdpc",
-        "text_bCXCGN"
+        "text_PhTbi4"
       ],
       "name": "Ticker",
       "settings": {
@@ -80,7 +62,7 @@
         "heading_fWm3EJ": {
           "type": "heading",
           "settings": {
-            "heading": "<h2>Proof you can see.<br/><em>Confidence</em> you can feel.</h2>",
+            "heading": "<h2>Real People. <em>Real Results.</em></h2>",
             "heading_custom": false,
             "heading_font": "josefin_sans_n4",
             "heading_size": 52,
@@ -93,7 +75,7 @@
         "text_6fG4Bd": {
           "type": "text",
           "settings": {
-            "text": "<p>25 real people. 4 months. 4 serum-infused products.</p>",
+            "text": "<p>Reveal your best natural lashes & brows with transformative serums.</p>",
             "text_custom": true,
             "text_font": "quattrocento_sans_n4",
             "text_size": 18,
@@ -312,6 +294,7 @@
         "heading_aRckGj",
         "text_LQTx8t"
       ],
+      "disabled": true,
       "name": "SS - Parallax Banner",
       "settings": {
         "parallax": false,
@@ -486,6 +469,7 @@
         "heading_wr9pKm",
         "text_n9rzAW"
       ],
+      "disabled": true,
       "name": "SS - Parallax Banner",
       "settings": {
         "parallax": false,
@@ -524,6 +508,7 @@
     },
     "ss_waves_FBmRKx": {
       "type": "ss-waves",
+      "disabled": true,
       "name": "SS - Wave",
       "settings": {
         "wave_height": -40,
@@ -599,9 +584,9 @@
           "type": "author",
           "settings": {
             "use_author_image": true,
-            "author_image": "shopify://shop_images/Valerie-Quote2.png",
-            "image_width": 80,
-            "image_width_mobile": 64,
+            "author_image": "shopify://shop_images/grandelash_f0caefdf-880a-4501-bd9c-da4c80aeff4e.png",
+            "image_width": 100,
+            "image_width_mobile": 80,
             "image_radius": 50,
             "image_border_thickness": 0,
             "text": "<p><em>\"By week six I was getting compliments. By month three I threw out my strip lashes for good.\"</em></p>",
@@ -631,7 +616,36 @@
           "type": "button",
           "settings": {
             "button": "ADD TO CART",
-            "url": "https://grandecosmetics.com/cart/add/15772016902210",
+            "url": "https://grandecosmetics.com/cart/add/47702262743177",
+            "open_in_new_tab": false,
+            "button_style": "outline",
+            "button_custom": true,
+            "button_font": "josefin_sans_n4",
+            "button_size": 14,
+            "button_size_mobile": 14,
+            "button_advanced": false,
+            "button_height": 100,
+            "button_padding_horizontal": 28,
+            "button_padding_horizontal_mobile": 28,
+            "button_padding_vertical": 16,
+            "button_padding_vertical_mobile": 16,
+            "button_radius": 100,
+            "button_border_thickness": 1,
+            "button_mt": 20,
+            "button_mt_mobile": 16,
+            "button_color": "#ffffff",
+            "button_hover_color": "#121212",
+            "button_bg_color": "#fc2d76",
+            "button_bg_hover_color": "#fc2d76",
+            "button_border_color": "#fc2d76",
+            "button_border_hover_color": "#121212"
+          }
+        },
+        "button_WwaYBx": {
+          "type": "button",
+          "settings": {
+            "button": "LEARN MORE",
+            "url": "https://grandecosmetics.com/cart/add/47702262743177",
             "open_in_new_tab": false,
             "button_style": "outline",
             "button_custom": true,
@@ -660,7 +674,7 @@
           "type": "caption",
           "settings": {
             "icon": "none",
-            "text": "<p>$68 + FREE Travel Size GrandeBROW 2-in-1<br/>In Choice of Shade with Code: CONFIDENCE</p>",
+            "text": "<p>$68 + FREE Mascara</p>",
             "text_custom": true,
             "text_font": "quattrocento_sans_n4",
             "text_size": 16,
@@ -712,6 +726,7 @@
         "text_FrM7pJ",
         "author_FTf4jL",
         "button_GQbYDM",
+        "button_WwaYBx",
         "caption_R69qzK",
         "feature_AdPRfL",
         "feature_aTWQkE",
@@ -789,7 +804,7 @@
         "margin_bottom": 0,
         "margin_horizontal": 0,
         "margin_horizontal_mobile": 0,
-        "padding_top": 36,
+        "padding_top": 60,
         "padding_bottom": 36,
         "padding_horizontal": 5,
         "padding_horizontal_mobile": 1.5,
@@ -877,9 +892,9 @@
           "type": "author",
           "settings": {
             "use_author_image": true,
-            "author_image": "shopify://shop_images/QuoteBubble.png",
-            "image_width": 80,
-            "image_width_mobile": 64,
+            "author_image": "shopify://shop_images/Brow-34503_1.png",
+            "image_width": 100,
+            "image_width_mobile": 80,
             "image_radius": 50,
             "image_border_thickness": 0,
             "text": "<p><em>\"I've used brow pencils for 15 years. I genuinely don't need them anymore.\"</em></p>",
@@ -909,7 +924,7 @@
           "type": "button",
           "settings": {
             "button": "ADD TO CART",
-            "url": "https://grandecosmetics.com/cart/add/33398307127433",
+            "url": "https://grandecosmetics.com/cart/add/44223734775945",
             "open_in_new_tab": false,
             "button_style": "outline",
             "button_custom": true,
@@ -938,7 +953,7 @@
           "type": "caption",
           "settings": {
             "icon": "none",
-            "text": "<p>$72 + FREE Travel Size GrandeBROW 2-in-1<br/>In Choice of Shade with Code: CONFIDENCE</p>",
+            "text": "<p>$72 + FREE Mascara</p>",
             "text_custom": true,
             "text_font": "quattrocento_sans_n4",
             "text_size": 16,
@@ -1080,6 +1095,7 @@
     },
     "ss_waves_7K8GU3": {
       "type": "ss-waves",
+      "disabled": true,
       "name": "SS - Wave",
       "settings": {
         "wave_height": -40,
@@ -1212,23 +1228,6 @@
             "button_border_hover_color": "#121212"
           }
         },
-        "caption_EVLQCp": {
-          "type": "caption",
-          "settings": {
-            "icon": "none",
-            "text": "<p>$48 + FREE Travel Size GrandeBROW 2-in-1<br/>In Choice of Shade with Code: CONFIDENCE</p>",
-            "text_custom": true,
-            "text_font": "quattrocento_sans_n4",
-            "text_size": 16,
-            "text_size_mobile": 16,
-            "text_advanced": false,
-            "text_height": 150,
-            "text_mt": 20,
-            "text_mt_mobile": 16,
-            "icon_color": "#121212",
-            "text_color": "#121212"
-          }
-        },
         "feature_MHpxNA": {
           "type": "feature",
           "settings": {
@@ -1268,12 +1267,12 @@
         "text_L6NFii",
         "author_dYr9dF",
         "button_RtrwfR",
-        "caption_EVLQCp",
         "feature_MHpxNA",
         "feature_6aahyp",
         "feature_Ymz9DV",
         "feature_Bm6JiA"
       ],
+      "disabled": true,
       "name": "Feature - Sensitive",
       "settings": {
         "layout": "content_image",
@@ -1358,6 +1357,7 @@
     },
     "ss_waves_N7YMwU": {
       "type": "ss-waves",
+      "disabled": true,
       "name": "SS - Wave",
       "settings": {
         "wave_height": -40,
@@ -1490,23 +1490,6 @@
             "button_border_hover_color": "#121212"
           }
         },
-        "caption_UaFbB3": {
-          "type": "caption",
-          "settings": {
-            "icon": "none",
-            "text": "<p>FREE Travel Size with purchase of any full size serum using code: CONFIDENCE</p>",
-            "text_custom": true,
-            "text_font": "quattrocento_sans_n4",
-            "text_size": 16,
-            "text_size_mobile": 16,
-            "text_advanced": false,
-            "text_height": 150,
-            "text_mt": 20,
-            "text_mt_mobile": 16,
-            "icon_color": "#121212",
-            "text_color": "#121212"
-          }
-        },
         "feature_9kQbBf": {
           "type": "feature",
           "settings": {
@@ -1546,12 +1529,12 @@
         "text_VaD9MJ",
         "author_Ubjzpx",
         "button_9p6jeW",
-        "caption_UaFbB3",
         "feature_9kQbBf",
         "feature_DktXXN",
         "feature_DgaeaF",
         "feature_NtgDGc"
       ],
+      "disabled": true,
       "name": "Feature - GrandeBROW 2in1",
       "settings": {
         "layout": "image_content",
@@ -1641,7 +1624,7 @@
         "wave_height": -40,
         "wave_curvature": 250,
         "wave_style": "less",
-        "wave_side": "180",
+        "wave_side": "0",
         "animation": false,
         "animation_duration": 5,
         "background_color": "#fdf1e5",
@@ -1676,21 +1659,11 @@
             "sub_title": "GrandeBROW",
             "title": "Kristen<br>90's Brow Over-Plucker"
           }
-        },
-        "card_NLQWmB": {
-          "type": "card",
-          "settings": {
-            "before_image": "shopify://shop_images/Tracy-Before.png",
-            "after_image": "shopify://shop_images/Tracy-After.png",
-            "sub_title": "GrandeBROW 2-in-1",
-            "title": "Tracy<br>On-the-Go Routine"
-          }
         }
       },
       "block_order": [
         "card_WAEtBD",
-        "card_RPPeyx",
-        "card_NLQWmB"
+        "card_RPPeyx"
       ],
       "name": "SS - Before/after image #10",
       "settings": {
@@ -1702,7 +1675,7 @@
         "heading_height": 130,
         "heading_align": "center",
         "heading_align_mobile": "center",
-        "cards_view": 3,
+        "cards_view": 2,
         "cards_view_mobile": "1",
         "cards_gap": 14,
         "cards_gap_mobile": 12,
@@ -1766,7 +1739,7 @@
         "toggles_bg_color": "rgba(0,0,0,0)",
         "toggles_border_color": "#fc2d76",
         "heading_color": "#121212",
-        "background_color": "#fdf1e5",
+        "background_color": "#ffc1c1",
         "background_gradient": "",
         "border_color": "#121212",
         "margin_top": 0,
@@ -1786,6 +1759,7 @@
     },
     "ss_waves_ep3jDP": {
       "type": "ss-waves",
+      "disabled": true,
       "name": "SS - Wave",
       "settings": {
         "wave_height": -40,
@@ -1795,7 +1769,7 @@
         "animation": false,
         "animation_duration": 5,
         "background_color": "#9c4c2c",
-        "wave_color": "#fdf1e5",
+        "wave_color": "#ffc1c1",
         "margin_top": -64,
         "margin_bottom": 0,
         "padding_top": 0,
@@ -1825,7 +1799,7 @@
         "text_fbRGHi": {
           "type": "text",
           "settings": {
-            "text": "<p>Now it's your turn - and your free Travel Size GrandeBROW 2-in-1 is waiting.</p>",
+            "text": "<p>Now it's your turn - and your free Mascara is waiting.</p>",
             "text_custom": true,
             "text_font": "quattrocento_sans_n4",
             "text_size": 22,
@@ -1840,6 +1814,7 @@
         "heading_prWwbQ",
         "text_fbRGHi"
       ],
+      "disabled": true,
       "name": "SS - Parallax Banner",
       "settings": {
         "parallax": false,
@@ -1904,33 +1879,26 @@
         "content_TXRGgU": {
           "type": "content",
           "settings": {
-            "product": "grandelash-md",
+            "product": "grandebrow-free-mascara",
             "category": ""
           }
         },
         "content_giTGtA": {
           "type": "content",
           "settings": {
-            "product": "grandebrow",
-            "category": ""
-          }
-        },
-        "content_T9EHpk": {
-          "type": "content",
-          "settings": {
-            "product": "grandehair-enhancing-serum",
+            "product": "grandelash-md-free-mascara",
             "category": ""
           }
         }
       },
       "block_order": [
         "content_TXRGgU",
-        "content_giTGtA",
-        "content_T9EHpk"
+        "content_giTGtA"
       ],
+      "disabled": true,
       "settings": {
         "regios_key": "",
-        "heading": "Shop Serums",
+        "heading": "Start Your Transformation",
         "categories": false,
         "cta_copy": "",
         "cta_url": ""

@@ -568,10 +568,16 @@
         "fixed_direct_payment_terms": "TRY BEFORE YOU BUY: The full amount will appear as a pending transaction to reserve your items. You are only charged for what you keep."
       },
       "contact": {
-        "optional_phone_label": "Phone (optional) "
+        "optional_phone_label": "Phone (optional) ",
+        "phone_tooltip": "Send me updates about my order! Message and data rates apply. View our Terms of Service (https://grandecosmetics.com/pages/messaging-terms-conditions) and Privacy Policy (https://grandecosmetics.com/pages/messaging-service-privacy-policy)."
       },
       "marketing": {
-        "accept_sms_checkbox_label": "Text me with news and offers"
+        "accept_sms_checkbox_label": "Text me with news and offers",
+        "sms": {
+          "disclaimer": {
+            "description_html": "*By providing your number and clicking the button, you agree to receive recurring auto-dialed marketing SMS (including cart reminders; AI content; artificial or prerecorded voices) and our <a href=\"https://grandecosmetics.com/pages/messaging-terms-conditions\" target=\"_blank\">TERMS OF SERVICE</a> (including arbitration). Consent is not required to purchase. Msg & data rates may apply. Msg frequency varies. Reply HELP for help; STOP to opt-out. View <a href=\"https://grandecosmetics.com/pages/messaging-service-privacy-policy\" target=\"_blank\">PRIVACY POLICY</a>."
+          }
+        }
       }
     }
   }

@@ -25,6 +25,7 @@
       "blocks": {
         "hero_slide_Up8Chg": {
           "type": "hero_slide",
+          "disabled": true,
           "settings": {
             "color": "dark",
             "alignment_v": "middle",
@@ -49,7 +50,6 @@
         },
         "hero_slide_UqApiR": {
           "type": "hero_slide",
-          "disabled": true,
           "settings": {
             "color": "dark",
             "alignment_v": "middle",
@@ -499,9 +499,9 @@
             "image": "shopify://shop_images/LashMD-HomepageImage.jpg",
             "heading_image": "",
             "eyebrow": "",
-            "heading": "<br>Get 15% Off",
+            "heading": "Get 15% Off",
             "copy": "when you sign up for SMS alerts",
-            "cta_url": "https://grandecosmetics.attn.tv/p/2nC/landing-page",
+            "cta_url": "https://grandecosmetics.com/a/ps/landing_pages/937383/sms-signup-52c794",
             "cta_copy": "Sign Up Now",
             "cta_url_alt": "/",
             "cta_copy_alt": ""
