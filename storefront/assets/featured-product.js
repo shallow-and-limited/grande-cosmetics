@@ -308,12 +308,12 @@
             return;
           }
 
+          // Matches main-product.min.js: refresh the drawer if the theme renders
+          // one, otherwise stay put. Never navigate to /cart — `<cart-drawer>` is
+          // gated behind `settings.cart_drawer_enabled` (layout/theme.liquid), so
+          // a redirect fallback fires on every add whenever that setting is off.
           const cartDrawer = document.querySelector('cart-drawer');
-          if (cartDrawer) {
-            cartDrawer.fullUpdate(true);
-          } else {
-            window.location = window.routes.cart_url;
-          }
+          if (cartDrawer) cartDrawer.fullUpdate(true);
         })
         .catch((error) => console.error('featured-product: add to cart failed', error))
         .finally(() => this.submitButton.classList.remove('loading'));
