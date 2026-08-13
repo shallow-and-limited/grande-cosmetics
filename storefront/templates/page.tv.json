@@ -58,111 +58,15 @@
     },
     "ss_parallax_banner_Wi83ra": {
       "type": "ss-parallax-banner",
-      "blocks": {
-        "heading_fWm3EJ": {
-          "type": "heading",
-          "settings": {
-            "heading": "<h2>Real People. <em>Real Results.</em></h2>",
-            "heading_custom": false,
-            "heading_font": "josefin_sans_n4",
-            "heading_size": 52,
-            "heading_size_mobile": 30,
-            "heading_height": 130,
-            "heading_mt": 0,
-            "heading_color": "#ffffff"
-          }
-        },
-        "text_6fG4Bd": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Reveal your best natural lashes & brows with transformative serums.</p>",
-            "text_custom": true,
-            "text_font": "quattrocento_sans_n4",
-            "text_size": 18,
-            "text_size_mobile": 16,
-            "text_height": 150,
-            "text_mt": 16,
-            "text_color": "#ffffff"
-          }
-        },
-        "button_QY7bDU": {
-          "type": "button",
-          "disabled": true,
-          "settings": {
-            "button": "START YOUR TRANSFORMATION",
-            "button_url": "shopify://products/grandelash-md",
-            "button_custom": true,
-            "button_font": "quattrocento_sans_n7",
-            "button_size": 16,
-            "button_size_mobile": 14,
-            "button_height": 100,
-            "button_padding_vertical": 16,
-            "button_padding_vertical_mobile": 16,
-            "button_padding_horizontal": 50,
-            "button_padding_horizontal_mobile": 50,
-            "button_radius": 100,
-            "button_border_thickness": 1,
-            "button_mt": 16,
-            "button_gap": 28,
-            "button_ellipse": false,
-            "button_shadow": false,
-            "button_style": "outline",
-            "button_color": "#ffffff",
-            "button_hover_color": "#ffffff",
-            "button_bg_color": "#fc2d76",
-            "button_bg_hover_color": "#fc2d76",
-            "button_border_color": "#fc2d76",
-            "button_border_hover_color": "#fc2d76",
-            "button_shadow_color": "#000000"
-          }
-        },
-        "button_tiRFCR": {
-          "type": "button",
-          "disabled": true,
-          "settings": {
-            "button": "WATCH THE JOURNEYS",
-            "button_url": "",
-            "button_custom": true,
-            "button_font": "quattrocento_sans_n7",
-            "button_size": 16,
-            "button_size_mobile": 14,
-            "button_height": 100,
-            "button_padding_vertical": 16,
-            "button_padding_vertical_mobile": 16,
-            "button_padding_horizontal": 50,
-            "button_padding_horizontal_mobile": 50,
-            "button_radius": 100,
-            "button_border_thickness": 1,
-            "button_mt": 16,
-            "button_gap": 28,
-            "button_ellipse": false,
-            "button_shadow": false,
-            "button_style": "outline",
-            "button_color": "#ffffff",
-            "button_hover_color": "#ffffff",
-            "button_bg_color": "#fc2d76",
-            "button_bg_hover_color": "#fc2d76",
-            "button_border_color": "#fc2d76",
-            "button_border_hover_color": "#fc2d76",
-            "button_shadow_color": "#000000"
-          }
-        }
-      },
-      "block_order": [
-        "heading_fWm3EJ",
-        "text_6fG4Bd",
-        "button_QY7bDU",
-        "button_tiRFCR"
-      ],
       "name": "SS - Parallax Banner",
       "settings": {
         "parallax": false,
         "parallax_mobile": false,
         "banner_height": "fixed_height",
-        "banner_fixed_height": 900,
-        "banner_fixed_height_mobile": 580,
-        "image": "shopify://shop_images/Homepage_Banners-Desktop_-_LashBrowConfidence_V4.jpg",
-        "image_mobile": "shopify://shop_images/Homepage_Banners-Mobile_-_LashBrowConfidence.jpg",
+        "banner_fixed_height": 400,
+        "banner_fixed_height_mobile": 290,
+        "image": "shopify://shop_images/Confidence_Banner_-_Desktop.jpg",
+        "image_mobile": "shopify://shop_images/Confidence_Banner_-_Mobile.jpg",
         "overlay": 0,
         "content_maxwidth": 65,
         "content_maxwidth_mobile": 100,
@@ -190,74 +94,22 @@
         "lazy": true
       }
     },
-    "ss_parallax_banner_CmyCXy": {
-      "type": "ss-parallax-banner",
-      "blocks": {
-        "heading_cq8gje": {
-          "type": "heading",
-          "settings": {
-            "heading": "<h2>What happens when beauty stops being about <em>covering up.</em></h2>",
-            "heading_custom": false,
-            "heading_font": "josefin_sans_n4",
-            "heading_size": 52,
-            "heading_size_mobile": 30,
-            "heading_height": 130,
-            "heading_mt": 0,
-            "heading_color": "#121212"
-          }
-        },
-        "text_bL6tVn": {
-          "type": "text",
-          "settings": {
-            "text": "<p><strong>Hormones, aging, menopause, postpartum, stress, GLP-1 medications—</strong> so many things can cause lash and brow thinning. And for most people, nobody ever tells them that a solution even exists.</p><p></p><p>GrandeLASH-MD was born from that frustration. A once-nightly ritual—one swipe along the lash line—that supports visibly longer, fuller-looking lashes over time. No extensions. No faking it. Just your own lashes, at their best.</p><p>The Lash & Brow Confidence Project is our proof. <strong>25 real people. Unfiltered. Unscripted.</strong> We followed their frustrations, their skepticism, and—for most—their genuine surprise at what happened next.</p>",
-            "text_custom": true,
-            "text_font": "quattrocento_sans_n4",
-            "text_size": 18,
-            "text_size_mobile": 16,
-            "text_height": 150,
-            "text_mt": 38,
-            "text_color": "#121212"
-          }
-        }
-      },
-      "block_order": [
-        "heading_cq8gje",
-        "text_bL6tVn"
-      ],
-      "disabled": true,
-      "name": "SS - Parallax Banner",
+    "banner_wxhgAq": {
+      "type": "banner",
+      "name": "Banner",
       "settings": {
-        "parallax": false,
-        "parallax_mobile": false,
-        "banner_height": "fixed_height",
-        "banner_fixed_height": 540,
-        "banner_fixed_height_mobile": 610,
-        "image": "shopify://shop_images/Screenshot_2026-06-11_at_1.57.08_PM.png",
-        "overlay": 0,
-        "content_maxwidth": 65,
-        "content_maxwidth_mobile": 100,
-        "content_horizontal_position": "center",
-        "content_horizontal_position_mobile": "center",
-        "content_vertical_position": "center",
-        "content_vertical_position_mobile": "center",
-        "content_padding_vertical": 28,
-        "content_padding_vertical_mobile": 20,
-        "content_padding_horizontal": 20,
-        "content_padding_horizontal_mobile": 20,
-        "overlay_color": "#000000",
-        "background_color": "#ffffff",
-        "background_gradient": "",
-        "border_color": "#000000",
-        "margin_top": 0,
-        "margin_bottom": 0,
-        "padding_top": 20,
-        "padding_bottom": 44,
-        "padding_horizontal": 5,
-        "padding_horizontal_mobile": 1.5,
-        "full_width": true,
-        "content_width": 120,
-        "border_thickness": 0,
-        "lazy": true
+        "color": "dark",
+        "background": "beige",
+        "alignment": "left",
+        "eyebrow": "",
+        "heading": "Your Best Lashes & Brows Start Here.",
+        "heading_size": "h2",
+        "copy": "Clinically tested serums for longer looking lashes & fuller looking brows – from America’s #1 lash & brow serum brand*",
+        "cta_url": "",
+        "cta_copy": "",
+        "cta_url_alt": "",
+        "cta_copy_alt": "",
+        "overlay": 0
       }
     },
     "ss_parallax_banner_yQctDG": {
@@ -508,7 +360,6 @@
     },
     "ss_waves_FBmRKx": {
       "type": "ss-waves",
-      "disabled": true,
       "name": "SS - Wave",
       "settings": {
         "wave_height": -40,
@@ -585,8 +436,8 @@
           "settings": {
             "use_author_image": true,
             "author_image": "shopify://shop_images/grandelash_f0caefdf-880a-4501-bd9c-da4c80aeff4e.png",
-            "image_width": 100,
-            "image_width_mobile": 80,
+            "image_width": 80,
+            "image_width_mobile": 64,
             "image_radius": 50,
             "image_border_thickness": 0,
             "text": "<p><em>\"By week six I was getting compliments. By month three I threw out my strip lashes for good.\"</em></p>",
@@ -616,35 +467,6 @@
           "type": "button",
           "settings": {
             "button": "ADD TO CART",
-            "url": "https://grandecosmetics.com/cart/add/47702262743177",
-            "open_in_new_tab": false,
-            "button_style": "outline",
-            "button_custom": true,
-            "button_font": "josefin_sans_n4",
-            "button_size": 14,
-            "button_size_mobile": 14,
-            "button_advanced": false,
-            "button_height": 100,
-            "button_padding_horizontal": 28,
-            "button_padding_horizontal_mobile": 28,
-            "button_padding_vertical": 16,
-            "button_padding_vertical_mobile": 16,
-            "button_radius": 100,
-            "button_border_thickness": 1,
-            "button_mt": 20,
-            "button_mt_mobile": 16,
-            "button_color": "#ffffff",
-            "button_hover_color": "#121212",
-            "button_bg_color": "#fc2d76",
-            "button_bg_hover_color": "#fc2d76",
-            "button_border_color": "#fc2d76",
-            "button_border_hover_color": "#121212"
-          }
-        },
-        "button_WwaYBx": {
-          "type": "button",
-          "settings": {
-            "button": "LEARN MORE",
             "url": "https://grandecosmetics.com/cart/add/47702262743177",
             "open_in_new_tab": false,
             "button_style": "outline",
@@ -726,7 +548,6 @@
         "text_FrM7pJ",
         "author_FTf4jL",
         "button_GQbYDM",
-        "button_WwaYBx",
         "caption_R69qzK",
         "feature_AdPRfL",
         "feature_aTWQkE",
@@ -804,7 +625,7 @@
         "margin_bottom": 0,
         "margin_horizontal": 0,
         "margin_horizontal_mobile": 0,
-        "padding_top": 60,
+        "padding_top": 36,
         "padding_bottom": 36,
         "padding_horizontal": 5,
         "padding_horizontal_mobile": 1.5,
@@ -893,8 +714,8 @@
           "settings": {
             "use_author_image": true,
             "author_image": "shopify://shop_images/Brow-34503_1.png",
-            "image_width": 100,
-            "image_width_mobile": 80,
+            "image_width": 80,
+            "image_width_mobile": 64,
             "image_radius": 50,
             "image_border_thickness": 0,
             "text": "<p><em>\"I've used brow pencils for 15 years. I genuinely don't need them anymore.\"</em></p>",
@@ -1091,29 +912,6 @@
         "border_thickness": 0,
         "section_radius": 0,
         "lazy": true
-      }
-    },
-    "ss_waves_7K8GU3": {
-      "type": "ss-waves",
-      "disabled": true,
-      "name": "SS - Wave",
-      "settings": {
-        "wave_height": -40,
-        "wave_curvature": 250,
-        "wave_style": "less",
-        "wave_side": "0",
-        "animation": false,
-        "animation_duration": 5,
-        "background_color": "#fdf1e4",
-        "wave_color": "#ffbc59",
-        "margin_top": -64,
-        "margin_bottom": 0,
-        "padding_top": 0,
-        "padding_bottom": 0,
-        "padding_horizontal": 0,
-        "padding_horizontal_mobile": 0,
-        "full_width": true,
-        "content_width": 120
       }
     },
     "ss_featured_product_4_eHMCX8": {
@@ -1353,29 +1151,6 @@
         "border_thickness": 0,
         "section_radius": 0,
         "lazy": true
-      }
-    },
-    "ss_waves_N7YMwU": {
-      "type": "ss-waves",
-      "disabled": true,
-      "name": "SS - Wave",
-      "settings": {
-        "wave_height": -40,
-        "wave_curvature": 250,
-        "wave_style": "less",
-        "wave_side": "0",
-        "animation": false,
-        "animation_duration": 5,
-        "background_color": "#ffbc59",
-        "wave_color": "#ffc1c1",
-        "margin_top": -64,
-        "margin_bottom": 0,
-        "padding_top": 0,
-        "padding_bottom": 0,
-        "padding_horizontal": 0,
-        "padding_horizontal_mobile": 0,
-        "full_width": true,
-        "content_width": 120
       }
     },
     "ss_featured_product_4_UaWDFQ": {
@@ -1739,7 +1514,7 @@
         "toggles_bg_color": "rgba(0,0,0,0)",
         "toggles_border_color": "#fc2d76",
         "heading_color": "#121212",
-        "background_color": "#ffc1c1",
+        "background_color": "#FFC1C1",
         "background_gradient": "",
         "border_color": "#121212",
         "margin_top": 0,
@@ -1759,17 +1534,16 @@
     },
     "ss_waves_ep3jDP": {
       "type": "ss-waves",
-      "disabled": true,
       "name": "SS - Wave",
       "settings": {
         "wave_height": -40,
         "wave_curvature": 250,
         "wave_style": "less",
-        "wave_side": "180",
+        "wave_side": "0",
         "animation": false,
         "animation_duration": 5,
-        "background_color": "#9c4c2c",
-        "wave_color": "#ffc1c1",
+        "background_color": "#FFC1C1",
+        "wave_color": "#fdf1e5",
         "margin_top": -64,
         "margin_bottom": 0,
         "padding_top": 0,
@@ -1778,76 +1552,6 @@
         "padding_horizontal_mobile": 0,
         "full_width": true,
         "content_width": 120
-      }
-    },
-    "ss_parallax_banner_4MjXW3": {
-      "type": "ss-parallax-banner",
-      "blocks": {
-        "heading_prWwbQ": {
-          "type": "heading",
-          "settings": {
-            "heading": "<h2>This is what happens when<br/>beauty <em>actually</em> works.</h2>",
-            "heading_custom": false,
-            "heading_font": "josefin_sans_n4",
-            "heading_size": 52,
-            "heading_size_mobile": 30,
-            "heading_height": 130,
-            "heading_mt": 0,
-            "heading_color": "#ffffff"
-          }
-        },
-        "text_fbRGHi": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Now it's your turn - and your free Mascara is waiting.</p>",
-            "text_custom": true,
-            "text_font": "quattrocento_sans_n4",
-            "text_size": 22,
-            "text_size_mobile": 16,
-            "text_height": 150,
-            "text_mt": 16,
-            "text_color": "#ffc1c1"
-          }
-        }
-      },
-      "block_order": [
-        "heading_prWwbQ",
-        "text_fbRGHi"
-      ],
-      "disabled": true,
-      "name": "SS - Parallax Banner",
-      "settings": {
-        "parallax": false,
-        "parallax_mobile": false,
-        "banner_height": "fixed_height",
-        "banner_fixed_height": 510,
-        "banner_fixed_height_mobile": 330,
-        "image": "shopify://shop_images/Screenshot_2026-06-11_at_1.49.05_PM.png",
-        "overlay": 0,
-        "content_maxwidth": 65,
-        "content_maxwidth_mobile": 100,
-        "content_horizontal_position": "center",
-        "content_horizontal_position_mobile": "center",
-        "content_vertical_position": "center",
-        "content_vertical_position_mobile": "center",
-        "content_padding_vertical": 32,
-        "content_padding_vertical_mobile": 20,
-        "content_padding_horizontal": 20,
-        "content_padding_horizontal_mobile": 20,
-        "overlay_color": "#000000",
-        "background_color": "#ffffff",
-        "background_gradient": "",
-        "border_color": "#000000",
-        "margin_top": 0,
-        "margin_bottom": 0,
-        "padding_top": 36,
-        "padding_bottom": 36,
-        "padding_horizontal": 5,
-        "padding_horizontal_mobile": 1.5,
-        "full_width": true,
-        "content_width": 120,
-        "border_thickness": 0,
-        "lazy": true
       }
     },
     "ss_waves_6KU3GK": {
@@ -1872,37 +1576,6 @@
         "full_width": true,
         "content_width": 120
       }
-    },
-    "product_carousel_UTdhw3": {
-      "type": "product-carousel",
-      "blocks": {
-        "content_TXRGgU": {
-          "type": "content",
-          "settings": {
-            "product": "grandebrow-free-mascara",
-            "category": ""
-          }
-        },
-        "content_giTGtA": {
-          "type": "content",
-          "settings": {
-            "product": "grandelash-md-free-mascara",
-            "category": ""
-          }
-        }
-      },
-      "block_order": [
-        "content_TXRGgU",
-        "content_giTGtA"
-      ],
-      "disabled": true,
-      "settings": {
-        "regios_key": "",
-        "heading": "Start Your Transformation",
-        "categories": false,
-        "cta_copy": "",
-        "cta_url": ""
-      }
     }
   },
   "order": [
@@ -1911,7 +1584,7 @@
     "shogun-optimizer",
     "ticker_VhL46P",
     "ss_parallax_banner_Wi83ra",
-    "ss_parallax_banner_CmyCXy",
+    "banner_wxhgAq",
     "ss_parallax_banner_yQctDG",
     "ss_guarantee_8ddtK7",
     "ss_parallax_banner_NyMLfX",
@@ -1919,15 +1592,11 @@
     "ss_featured_product_4_JRdETM",
     "ss_waves_MMCzbb",
     "ss_featured_product_4_rGyN7M",
-    "ss_waves_7K8GU3",
     "ss_featured_product_4_eHMCX8",
-    "ss_waves_N7YMwU",
     "ss_featured_product_4_UaWDFQ",
     "ss_waves_Ti7hwe",
     "ss_before_after_image_10_xp9qNh",
     "ss_waves_ep3jDP",
-    "ss_parallax_banner_4MjXW3",
-    "ss_waves_6KU3GK",
-    "product_carousel_UTdhw3"
+    "ss_waves_6KU3GK"
   ]
 }

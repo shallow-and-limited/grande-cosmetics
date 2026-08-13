@@ -1,3 +1,8 @@
+[environments.usaprd]
+theme = "156021031049"
+store = "grande-cosmetics"
+path = "./storefront"
+
 [environments.usa]
 theme = "155814363273"
 store = "grande-cosmetics"
