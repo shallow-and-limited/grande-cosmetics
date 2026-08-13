@@ -1,0 +1,16 @@
+{%- comment -%}
+  Product title block. Shared by `main-product` and `featured-product`.
+
+  Accepts:
+  - product: {Object} Product (required)
+  - block: {Object} Section block (optional, for shopify_attributes)
+  - heading_tag: {String} Heading element to use. Default: 'h1'
+{%- endcomment -%}
+
+{%- assign heading_tag = heading_tag | default: 'h1' -%}
+
+<div {{ block.shopify_attributes }} class="main-product__title">
+  <div class="main-product__title-wrapper">
+    <{{ heading_tag }} class="main-product__title-text h5" data-product-title>{{ product.title }}</{{ heading_tag }}>
+  </div>
+</div>

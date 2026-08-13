@@ -1,8 +1,18 @@
-{%- assign product_form_id = 'product-form-' | append: product.id -%}
+{%- comment -%}
+  Accepts:
+  - product: {Object} Product (required)
+  - show_dynamic_checkout: {Boolean} Render the dynamic checkout buttons
+  - hide_price: {Boolean} Hide the price inside the add-to-cart label
+  - upsell: {Boolean} Upsell variation of the button label
+  - uid: {String} Suffix that makes the form/input ids unique when several product
+    sections share a page. Empty on the PDP, '-{section.id}' elsewhere.
+{%- endcomment -%}
 
-{% liquid
+{%- liquid
+  assign uid = uid | default: ''
+  assign product_form_id = 'product-form-' | append: product.id | append: uid
   assign variant = product.selected_or_first_available_variant
-%}
+-%}
 
 {% if product.selling_plan_groups.first != blank %}
   {% liquid
@@ -48,7 +58,7 @@
 
     <input type="hidden" name="selling_plan" data-selling-plan-input>
 
-    <input min="1" type="hidden" id="quantity" name="quantity" value="1" style="display: none;">
+    <input min="1" type="hidden" id="quantity{{ uid }}" name="quantity" value="1" style="display: none;">
 
     {% if product.compare_at_price > product.price %}
       <input
@@ -110,8 +120,5 @@
         </span>
       {% endif %}
     </button>
-    {%- if show_dynamic_checkout -%}
-      {{ form | payment_button }}
-    {%- endif -%}
   {%- endform -%}
 </div>

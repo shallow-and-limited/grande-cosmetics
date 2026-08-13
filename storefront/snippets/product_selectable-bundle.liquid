@@ -1,0 +1,17 @@
+{%- comment -%}
+  Selectable bundle block. Shared by `main-product` and `featured-product`.
+
+  Accepts:
+  - product: {Object} Product (required)
+  - block: {Object} Section block (required)
+  - uid: {String} Suffix that makes DOM ids unique when several product sections
+    share a page. Empty on the PDP, '-{section.id}' elsewhere.
+{%- endcomment -%}
+
+{% render 'selectable-bundle',
+  product: product,
+  _metafields: product.metafields.details,
+  block: block,
+  _b: block.settings,
+  uid: uid
+%}

@@ -1,0 +1,53 @@
+{%- comment -%}
+  Reports & Results block, sourced from the `details.reports_results` product metafield.
+  Shared by `main-product` and `featured-product`.
+
+  Accepts:
+  - product: {Object} Product (required)
+  - block: {Object} Section block (required) — uses `settings.icon`, `settings.copy`,
+    `settings.link-text`
+  - uid: {String} Suffix that makes the modal id unique when several product sections
+    share a page. Empty on the PDP, '-{section.id}' elsewhere.
+{%- endcomment -%}
+
+{%- liquid
+  assign _b = block.settings
+  assign _report = product.metafields.details.reports_results.value
+  assign uid = uid | default: ''
+  assign modalID = 'report' | append: uid
+  assign modalTitle = 'Reports & Results'
+-%}
+
+{% if _report != blank %}
+  <div {{ block.shopify_attributes }} class="main-product__report">
+    {{ _b.icon | image_url: width: _b.icon.width | image_tag: class: '' }}
+
+    <div class="main-product__report-text">
+      {% if _b.copy != blank %}
+        <p class="p-2">{{ _b.copy }}</p>
+      {% endif %}
+
+      <button class="product-form__link" data-product-modal-trigger="{{ modalID }}">{{ _b.link-text }}</button>
+
+      {% capture modalContent %}
+        <h4 class="h4">{{ _report.title }}</h4>
+        <p class="p-4">{{ _report.copy }}</p>
+
+        {% for content_block in _report.content_blocks.value %}
+          <accordion-tab class="accordion-tab accordion-tab--open">
+            <div class="s-3">{{ content_block.title }}</div>
+            {% render 'image', image: content_block.icon %}
+            <div class="accordion-tab__content">{{ content_block.copy | metafield_tag }}</div>
+          </accordion-tab>
+        {% endfor %}
+      {% endcapture %}
+
+      {% render 'product-modal',
+        id: modalID,
+        modifier: 'report',
+        title: modalTitle,
+        content: modalContent
+      %}
+    </div>
+  </div>
+{% endif %}

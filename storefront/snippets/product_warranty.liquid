@@ -1,0 +1,17 @@
+{%- comment -%}
+  Warranty block, sourced from the `custom.warranty` product metafield.
+  Shared by `main-product` and `featured-product`.
+
+  Accepts:
+  - product: {Object} Product (required)
+  - block: {Object} Section block (required) — uses `settings.warranty_heading`
+  - uid: {String} Suffix that makes the accordion id unique across sections
+{%- endcomment -%}
+
+{% render 'product_metafield-tab',
+  content: product.metafields.custom.warranty,
+  heading: block.settings.warranty_heading,
+  key: 'warranty',
+  block: block,
+  uid: uid
+%}

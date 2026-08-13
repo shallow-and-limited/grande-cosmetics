@@ -1,0 +1,86 @@
+{%- comment -%}
+  Description / How to use / Ingredients accordions.
+  Shared by `main-product` and `featured-product`.
+
+  Accepts:
+  - product: {Object} Product (required)
+  - block: {Object} Section block (optional, for shopify_attributes)
+  - uid: {String} Suffix that makes the accordion ids unique when several product
+    sections share a page. Empty on the PDP, '-{section.id}' elsewhere.
+{%- endcomment -%}
+
+{%- liquid
+  assign _metafields = product.metafields.details
+  assign uid = uid | default: ''
+-%}
+
+{% capture accordion_icons %}
+  {% render 'icons', icon_name: 'plus' %}
+  {% render 'icons', icon_name: 'minus' %}
+{% endcapture %}
+
+<main-product__info-blocks
+  {{ block.shopify_attributes }}
+  class="main-product__tabs main-product__tabs--description"
+>
+  {% if product.description != blank %}
+    <div
+      id="prod-description{{ uid }}"
+      class="main-product__tab main-product__tab--description accordion--expanded"
+      data-accordion="description{{ uid }}"
+    >
+      <div class="main-product__tab-title p-3" data-tab="description{{ uid }}">
+        {{ accordion_icons }}
+        Description
+      </div>
+      <div class="main-product__tab-text__container">
+        <div class="main-product__tab-text p-4">
+          {{ product.description }}
+        </div>
+      </div>
+    </div>
+  {% endif %}
+
+  {% if _metafields.how_to_use != blank %}
+    <div class="main-product__tab main-product__tab--howtouse" data-accordion="howtouse{{ uid }}">
+      <div class="main-product__tab-title p-3" data-tab="howtouse{{ uid }}">
+        {{ accordion_icons }}
+        How to Use
+      </div>
+      <div class="main-product__tab-text__container">
+        <div class="main-product__tab-text p-4">
+          {{ _metafields.how_to_use | metafield_tag }}
+        </div>
+      </div>
+    </div>
+  {% endif %}
+
+  {% if _metafields.ingredients != blank or _metafields.ingredients_list != blank %}
+    {% assign ingredients = _metafields.ingredients.value %}
+    <div class="main-product__tab main-product__tab--ingredients" data-accordion="ingredients{{ uid }}">
+      <div class="main-product__tab-title p-3" data-tab="ingredients{{ uid }}">
+        {{ accordion_icons }}
+        Ingredients
+      </div>
+      <div class="main-product__tab-text__container">
+        <div class="main-product__tab-text p-4">
+          {% for ingredient in ingredients %}
+            <div class="main-product__ingredient">
+              {% if ingredient.icon != blank %}
+                {{ ingredient.icon | image_url: width: ingredient.icon.width | image_tag: class: '' }}
+              {% endif %}
+              <div class="main-product__ingredient--text">
+                <p class="main-product__ingredient--title p-5 w-bold">{{ ingredient.title }}</p>
+                <p class="main-product__ingredient--copy p-4">{{ ingredient.copy }}</p>
+              </div>
+            </div>
+          {% endfor %}
+          {% if _metafields.ingredients_list != blank %}
+            <div class="main-product__ingredient--title p-5 w-bold">Ingredients List:</div>
+            <div class="main-product__ingredient--copy p-4">{{ _metafields.ingredients_list }}</div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  {% endif %}
+</main-product__info-blocks>

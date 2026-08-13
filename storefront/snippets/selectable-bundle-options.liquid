@@ -1,5 +1,12 @@
+{%- comment -%}
+  Accepts:
+  - product: {Object} Product (required)
+  - uid: {String} Suffix that makes DOM ids unique across sections
+{%- endcomment -%}
+
 {% assign bundle_items = product.metafields.custom.selectable_bundle.value %}
 {% assign option_sets = product.options_with_values %}
+{% assign uid = uid | default: '' %}
 
 
 
@@ -57,10 +64,10 @@
 	
 					<input
 						type="radio"
-						id="option-{{ forloop.index0 }}-selected"
+						id="option-{{ forloop.index0 }}-selected{{ uid }}"
 						value="{{ selected_value | escape }}"
 						class="d-none"
-						name="{{ matched_options.name }}"
+						name="{{ matched_options.name }}{{ uid }}"
 						checked
 						role="option">
 			
@@ -98,15 +105,15 @@
 								{% assign swatch_code = _variant.metafields.details.swatch_hex_code %}
 								<input
 									type="radio"
-									id="swatch-{{ forloop.parentloop.index0 }}-{{ forloop.index0 }}"
-									name="option-{{ forloop.parentloop.index0 }}"
+									id="swatch-{{ forloop.parentloop.index0 }}-{{ forloop.index0 }}{{ uid }}"
+									name="option-{{ forloop.parentloop.index0 }}{{ uid }}"
 									value="{{ val | escape }}"
 									class="product-form__swatch-input"
 									data-option-index="{{ option_set_index }}"
 									data-variant-title="{{ val }}"
 									{% if forloop.first %}checked{% endif %} />
 								<label
-									for="swatch-{{ forloop.parentloop.index0 }}-{{ forloop.index0 }}"
+									for="swatch-{{ forloop.parentloop.index0 }}-{{ forloop.index0 }}{{ uid }}"
 									class="product-form__swatch swatch"
 									style="cursor: pointer;" >
 									<div class="swatch__inner" {% if swatch_code != blank %} style="background-color: {{ swatch_code }};"{% endif %}>
@@ -130,21 +137,21 @@
 									{% endif %}
 								{% endfor %}
 								<label
-									for="{{ _variant.id }}"
+									for="{{ _variant.id }}{{ uid }}"
 									class="p-3 tab{% if forloop.first %} tab--selected{% endif %}"
 									data-tab>
 									{{ val }}
 								</label>
 								<input
 									type="radio"
-									id="{{ _variant.id }}"
+									id="{{ _variant.id }}{{ uid }}"
 									value="{{ val | escape }}"
 									class=""
 									data-option="{{ matched_options.name }}"
 									data-option-value="{{ matched_options.name }}"
 									data-option-index="{{ option_set_index }}"
 									data-supply="{{ matched_options.name }}"
-									name="{{ bundle_product.title }}"
+									name="{{ bundle_product.title }}{{ uid }}"
 									data-variant-title="{{ val }}"
 									{% if forloop.first %}checked{% endif %}
 									role="option" >

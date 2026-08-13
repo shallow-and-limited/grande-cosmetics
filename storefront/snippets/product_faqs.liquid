@@ -1,0 +1,54 @@
+{%- comment -%}
+  FAQ modal trigger + modal, sourced from the `details.faq` product metafield.
+  Shared by `main-product` and `featured-product`.
+
+  Accepts:
+  - product: {Object} Product (required)
+  - block: {Object} Section block (required) — uses `settings.label` and `settings.link-text`
+  - uid: {String} Suffix that makes the modal id unique when several product sections
+    share a page. Empty on the PDP, '-{section.id}' elsewhere.
+{%- endcomment -%}
+
+{%- liquid
+  assign _b = block.settings
+  assign _faq = product.metafields.details.faq.value
+  assign uid = uid | default: ''
+  assign modalID = 'faqs' | append: uid
+  assign modalTitle = 'FAQs'
+-%}
+
+{% if _faq != blank %}
+  {{ 'accordion-tab.min.css' | asset_url | stylesheet_tag }}
+  <button {{ block.shopify_attributes }} class="w-100" data-product-modal-trigger="{{ modalID }}">
+    <div class="main-product__faqs main-product__block space-between">
+      {% if _b.label != blank %}
+        <div class="btn--link">{{ _b.label }}</div>
+      {% endif %}
+      <span class="btn--link">
+        {{ _b.link-text }}
+        {% render 'icons', icon_name: 'expand' %}
+      </span>
+    </div>
+  </button>
+
+  {% capture modalContent %}
+    <h4 class="h4">{{ _faq.title | metafield_tag }}</h4>
+
+    {% for faq_block in _faq.faq_blocks.value %}
+      <accordion-tab class="accordion-tab {% if forloop.first %}accordion-tab--open{% endif %}" data-accordion>
+        <div class="accordion-tab__title p-2" data-accordion-opener>{{ faq_block.question }}</div>
+        {% render 'icons', icon_name: 'caret-down' %}
+        <div class="accordion-tab__content p-4">{{ faq_block.answer | metafield_tag }}</div>
+      </accordion-tab>
+    {% endfor %}
+  {% endcapture %}
+
+  {% render 'product-modal',
+    id: modalID,
+    modifier: 'faqs',
+    title: modalTitle,
+    content: modalContent
+  %}
+
+  <script src="{{ 'accordion-tab.min.js' | asset_url }}" defer="defer"></script>
+{% endif %}

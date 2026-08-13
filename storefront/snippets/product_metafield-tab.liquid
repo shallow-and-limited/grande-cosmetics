@@ -1,0 +1,38 @@
+{%- comment -%}
+  A single collapsible tab whose body is a rich-text product metafield.
+  Backs the Details / Warranty / PDF Guides blocks.
+
+  Accepts:
+  - content: {Metafield} Metafield to render (required — nothing renders when blank)
+  - heading: {String} Tab heading (required)
+  - key: {String} Slug used for the accordion wiring, e.g. 'details'
+  - block: {Object} Section block (optional, for shopify_attributes)
+  - uid: {String} Suffix that makes the accordion id unique when several product
+    sections share a page. Empty on the PDP, '-{section.id}' elsewhere.
+{%- endcomment -%}
+
+{%- assign uid = uid | default: '' -%}
+
+{% if content != blank %}
+  <main-product__info-blocks
+    {{ block.shopify_attributes }}
+    class="main-product__tabs main-product__tabs--{{ key }}"
+  >
+    <div class="main-product__tab" data-accordion="{{ key }}{{ uid }}">
+      <div class="main-product__tab-{{ key }}">
+        <div class="main-product__tab-title p-3" data-tab="{{ key }}{{ uid }}">
+          {{ heading }}
+          {% render 'icons', icon_name: 'plus' %}
+          {% render 'icons', icon_name: 'minus' %}
+        </div>
+        <div class="main-product__tab-text__container">
+          <div class="main-product__tab-text p-3">
+            <div class="main-product__tab-inner">
+              {{ content | metafield_tag }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main-product__info-blocks>
+{% endif %}

@@ -1,0 +1,12 @@
+{%- comment -%}
+  Shipping details line. Shared by `main-product` and `featured-product`.
+
+  Accepts:
+  - block: {Object} Section block (required) — uses `settings.shipping_details_text`
+{%- endcomment -%}
+
+{% if block.settings.shipping_details_text != blank %}
+  <div {{ block.shopify_attributes }} class="main-product__block main-product__shipping-details p-4">
+    <span>{{ block.settings.shipping_details_text }}</span>
+  </div>
+{% endif %}

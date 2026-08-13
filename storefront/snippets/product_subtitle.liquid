@@ -1,0 +1,8 @@
+{%- comment -%}
+  Subtitle block. Shared by `main-product` and `featured-product`.
+
+  Accepts:
+  - block: {Object} Section block (required) — uses `settings.subtitle`
+{%- endcomment -%}
+
+<div {{ block.shopify_attributes }} class="main-product__subtitle p-3">{{ block.settings.subtitle }}</div>

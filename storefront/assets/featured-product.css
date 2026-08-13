@@ -1,0 +1,104 @@
+/**
+ * featured-product.css
+ *
+ * Layout shell for `sections/featured-product.liquid`.
+ *
+ * Everything inside the section — blocks, pickers, buy buttons, modals — reuses
+ * the `main-product__*` / `product-form__*` classes, so only the outer wrapper
+ * needs its own rules. Deliberately not named `main-product__*`: main-product.min.js
+ * looks up `.main-product__wrap` document-wide and must never find this section.
+ */
+
+.featured-product {
+  background-color: var(--color-beige);
+  padding: 0 1.75rem 3.125rem;
+}
+
+@media (min-width: 1024px) {
+  .featured-product {
+    padding: 0 3.4375rem 4.375rem;
+  }
+}
+
+.featured-product--no-background {
+  background-color: transparent;
+}
+
+.featured-product__wrap {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+}
+
+@media (min-width: 1024px) {
+  .featured-product__wrap {
+    flex-direction: row;
+    align-items: flex-start;
+    padding-top: 3rem;
+  }
+
+  .featured-product__wrap--media-right {
+    flex-direction: row-reverse;
+  }
+}
+
+.featured-product__info {
+  max-width: 100%;
+  width: 100%;
+}
+
+@media (max-width: 1023px) {
+  .featured-product__info {
+    padding-right: 1.75rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .featured-product__info {
+    width: 50%;
+  }
+
+  .featured-product__info-wrapper {
+    width: 100%;
+    max-width: 41.5625rem;
+    padding-left: 3.375rem;
+    margin: 0 auto;
+  }
+
+  .featured-product__wrap--media-right .featured-product__info-wrapper {
+    padding-left: 0;
+    padding-right: 3.375rem;
+  }
+}
+
+/* No media gallery: let the info column use the full width. */
+.featured-product__wrap--no-media .featured-product__info {
+  width: 100%;
+}
+
+@media (min-width: 1024px) {
+  .featured-product__wrap--no-media .featured-product__info-wrapper {
+    padding-left: 0;
+    max-width: 41.5625rem;
+  }
+}
+
+.featured-product .media__slide,
+.featured-product .media-slider img {
+  max-width: 100%;
+  width: 100%;
+}
+
+/* main-product.min.css caps this at 22.5rem for the PDP's narrower column. */
+.featured-product .main-product__info-blocks {
+  max-width: 100%;
+}
+
+.featured-product__placeholder {
+  padding: 3rem 0;
+  text-align: center;
+}

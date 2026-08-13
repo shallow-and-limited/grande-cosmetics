@@ -1,0 +1,17 @@
+{%- comment -%}
+  PDF Guides block, sourced from the `custom.pdf_guides` product metafield.
+  Shared by `main-product` and `featured-product`.
+
+  Accepts:
+  - product: {Object} Product (required)
+  - block: {Object} Section block (required) — uses `settings.pdf_heading`
+  - uid: {String} Suffix that makes the accordion id unique across sections
+{%- endcomment -%}
+
+{% render 'product_metafield-tab',
+  content: product.metafields.custom.pdf_guides,
+  heading: block.settings.pdf_heading,
+  key: 'pdf_guides',
+  block: block,
+  uid: uid
+%}

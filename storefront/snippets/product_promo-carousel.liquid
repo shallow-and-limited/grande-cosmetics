@@ -1,0 +1,18 @@
+{%- comment -%}
+  Promo carousel block, sourced from the `details.promo_carousel` product metafield.
+  Shared by `main-product` and `featured-product`.
+
+  Accepts:
+  - product: {Object} Product (required)
+  - block: {Object} Section block (optional, for shopify_attributes)
+{%- endcomment -%}
+
+{%- liquid
+  assign carousel_data = product.metafields.details.promo_carousel.value
+-%}
+
+{% if carousel_data != blank %}
+  <div {{ block.shopify_attributes }}>
+    {% render 'promo-carousel', data: carousel_data %}
+  </div>
+{% endif %}

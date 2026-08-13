@@ -1,0 +1,22 @@
+{%- comment -%}
+  Lists the products contained in a bundle (`custom.bundled_products` metafield).
+  Shared by `main-product` and `featured-product`.
+
+  Accepts:
+  - product: {Object} Product (required)
+  - block: {Object} Section block (optional, for shopify_attributes)
+{%- endcomment -%}
+
+{% if product.metafields.custom.bundled_products != blank %}
+  {% assign subproducts = product.metafields.custom.bundled_products.value %}
+  <div {{ block.shopify_attributes }} class="bundled-products">
+    <div class="p-3 bundled-products__heading">Includes{% if subproducts.size %} {{ subproducts.size }} items{% endif %}:</div>
+    <ul class="bundled-products__list">
+      {% for subproduct in subproducts %}
+        <li class="bundled-products__product">
+          <a href="{{ subproduct.url }}" class="p-4 btn--link">{{ subproduct.title }}</a>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+{% endif %}

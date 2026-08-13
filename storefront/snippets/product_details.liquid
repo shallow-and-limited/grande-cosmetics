@@ -1,0 +1,17 @@
+{%- comment -%}
+  Details block, sourced from the `custom.details` product metafield.
+  Shared by `main-product` and `featured-product`.
+
+  Accepts:
+  - product: {Object} Product (required)
+  - block: {Object} Section block (required) — uses `settings.details_heading`
+  - uid: {String} Suffix that makes the accordion id unique across sections
+{%- endcomment -%}
+
+{% render 'product_metafield-tab',
+  content: product.metafields.custom.details,
+  heading: block.settings.details_heading,
+  key: 'details',
+  block: block,
+  uid: uid
+%}

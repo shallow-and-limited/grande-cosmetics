@@ -1,44 +1,55 @@
-{{ 'main-product.min.css' | asset_url | stylesheet_tag }}
-
 {%- comment -%}
-  Every block below is rendered through a shared `product_*` snippet so this
-  section and `featured-product` stay in step. `uid` is empty here: the PDP only
-  ever renders one product, so its ids stay unsuffixed.
+  Featured Product
+
+  A portable version of `main-product`: the product comes from a section setting
+  instead of the template, and every block is rendered through the shared
+  `product_*` snippets so the two sections stay in step.
+
+  Several of these can live on one page. Anything that would otherwise collide —
+  radio group names, `<label for>` targets, modal ids, accordion ids — is
+  suffixed with the section id, and the add-to-cart behaviour is handled by
+  `<featured-product-form>` (featured-product.js), which scopes itself to
+  `[data-product-scope]` rather than the document.
 {%- endcomment -%}
 
+{{ 'main-product.min.css' | asset_url | stylesheet_tag }}
+{{ 'featured-product.css' | asset_url | stylesheet_tag }}
+
+<script src="{{ 'featured-product.js' | asset_url }}" defer="defer"></script>
+
 {%- liquid
-  assign variant = product.selected_or_first_available_variant
-  assign uid = ''
-  assign swatches = swatches | default: true, allow_false: true
-  unless swatches == true
-    assign swatch_class = 'main-product--no-swatches'
-  endunless
-
-  for tag in product.tags
-    if tag contains 'style:'
-      assign product_style = tag
-      break
-    endif
-  endfor
-
-  assign gid = 'gid://shopify/Product/' | append: product.id
+  assign product = section.settings.product
+  assign uid = '-' | append: section.id
+  assign show_media = section.settings.show_media
+  if product.media.size == 0
+    assign show_media = false
+  endif
 -%}
 
-<section id="top" class="main-product" data-product-top data-product-scope data-section-type="main-product" data-section-id="{{ section.id }}">
-  <div class="main-product__wrap" data-product-id="{{ product.id }}" data-main-product>
-    {% render 'media-gallery', product: product %}
-    <div class="main-product__info container">
-      <div class="main-product__info-wrapper">
-        <product-info>
-          <script
-            data-section-data
-            type="application/json"
-          >
-            {
-              "style": {{ product_style | default: product_gid | json }},
-              "id": {{ gid | json }}
-            }
-          </script>
+{%- if product == blank -%}
+  {%- if request.design_mode -%}
+    <div class="featured-product featured-product__placeholder">
+      <p class="p-3">Select a product in the section settings.</p>
+    </div>
+  {%- endif -%}
+{%- else -%}
+  <section
+    id="featured-product{{ uid }}"
+    class="featured-product{% unless section.settings.show_background %} featured-product--no-background{% endunless %}"
+    data-product-scope
+    data-section-type="featured-product"
+    data-section-id="{{ section.id }}"
+  >
+    <div
+      class="featured-product__wrap{% if show_media %} featured-product__wrap--media-{{ section.settings.media_position }}{% else %} featured-product__wrap--no-media{% endif %}"
+      data-product-id="{{ product.id }}"
+    >
+      {%- if show_media -%}
+        {% render 'media-gallery', product: product %}
+      {%- endif -%}
+
+      <div class="featured-product__info container">
+        <div class="featured-product__info-wrapper">
           <div class="main-product__info-blocks">
             <div class="product-modal__overlay" data-product-modal-overlay></div>
 
@@ -48,7 +59,7 @@
                   {% render block %}
 
                 {%- when 'title' -%}
-                  {% render 'product_title', product: product, block: block, heading_tag: 'h1' %}
+                  {% render 'product_title', product: product, block: block, heading_tag: 'h2' %}
 
                 {%- when 'price' -%}
                   {% render 'product_price', product: product, block: block %}
@@ -76,7 +87,8 @@
                     product: product,
                     block: block,
                     section_id: section.id,
-                    uid: uid
+                    uid: uid,
+                    featured: true
                   %}
 
                 {%- when 'selectable_bundle' -%}
@@ -108,66 +120,53 @@
               {%- endcase -%}
             {%- endfor -%}
           </div>
-        </product-info>
+        </div>
       </div>
     </div>
-  </div>
-
-  <div class="main-product__sticky-bar" data-sticky-add-to-cart>
-    <div class="space-between">
-      <span>
-        {% render 'image', image: product.images.first, class: 'main-product__sticky-bar-image hide-mobile' %}
-        <span class="main-product__sticky-bar-title p-3">{{ product.title }}</span>
-      </span>
-      <span>
-        <span class="edit-group">
-          {% assign sticky_title = product.variants.first.title | downcase %}
-          {% unless sticky_title == 'default title' %}
-            <span class="p-3" data-sticky-variant-title>{{ product.variants.first.title }}</span>
-          {% endunless %}
-          <a href="#top" class="btn--link">Edit</a>
-        </span>
-        <button class="btn btn--primary {% if variant.available == false or quantity_rule_soldout %}disabled{% endif %}" onclick="document.querySelector('[data-add-to-cart-btn]').click();" data-sticky-add-to-cart-btn>
-          <span class="text-unavailable">{{ 'products.product.sold_out' | t }}</span>
-          <span class="text-available">
-            {{ 'products.product.add_to_cart' | t }}
-
-            •
-            <div class="regios-dopp-generic-price-container" data-regios-dopp-discount-even-when-hidden="true">
-              {% if variant.compare_at_price > variant.price %}
-                <div class="regios-dopp-generic-price-item--regular">{{ variant.compare_at_price | money_without_trailing_zeros }}</div>
-                <div class="regios-dopp-generic-price-item--sale">{{ variant.price | money_without_trailing_zeros }}</div>
-              {% else %}
-                <!-- `regios-dopp-generic-price-item--regular` must be present, even if the item isn't already on sale -->
-                <div class="regios-dopp-generic-price-item--regular" style="display: none"></div>
-                <div class="regios-dopp-generic-price-item--sale">{{ variant.price | money_without_trailing_zeros }}</div>
-              {% endif %}
-            </div>
-          </span>
-        </button>
-      </span>
-    </div>
-  </div>
-  <div class="main-product__sticky-mobile-watcher" data-mobile-sticky-watcher></div>
-  <style>
-    .footer {
-      padding-bottom: 115px;
-
-    }
-    @media (min-width: 1024px) {
-      .footer {
-        padding-bottom: 63px;
-      }
-    }
-  </style>
-</section>
+  </section>
+{%- endif -%}
 
 {% schema %}
 {
-  "name": "Main Product",
-  "enabled_on": {
-    "templates": ["product"]
-  },
+  "name": "Featured Product",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Featured Product"
+    },
+    {
+      "type": "product",
+      "id": "product",
+      "label": "Product"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_media",
+      "label": "Show media gallery",
+      "default": true
+    },
+    {
+      "type": "select",
+      "id": "media_position",
+      "label": "Media position",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "right", "label": "Right" }
+      ],
+      "default": "left",
+      "info": "Desktop only. The gallery always sits above the details on mobile."
+    },
+    {
+      "type": "checkbox",
+      "id": "show_background",
+      "label": "Show section background",
+      "default": true
+    }
+  ],
   "blocks": [
     {
       "type": "@app"
@@ -386,7 +385,13 @@
   ],
   "presets": [
     {
-      "name": "Main Product"
+      "name": "Featured Product",
+      "blocks": [
+        { "type": "title" },
+        { "type": "price" },
+        { "type": "short_desc" },
+        { "type": "variant_picker" }
+      ]
     }
   ]
 }

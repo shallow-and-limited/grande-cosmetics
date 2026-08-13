@@ -1,0 +1,14 @@
+{%- comment -%}
+  Promo text block, sourced from the `details.promo_text` product metafield.
+  Shared by `main-product` and `featured-product`.
+
+  Accepts:
+  - product: {Object} Product (required)
+  - block: {Object} Section block (optional, for shopify_attributes)
+{%- endcomment -%}
+
+{%- assign _metafields = product.metafields.details -%}
+
+{% if _metafields.promo_text != blank %}
+  <p {{ block.shopify_attributes }} class="p-4 main-product__promo-text color-dark-pink">{{ _metafields.promo_text }}</p>
+{% endif %}

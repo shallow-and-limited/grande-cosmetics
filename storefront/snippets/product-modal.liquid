@@ -1,4 +1,13 @@
-<product-modal class="product-modal product-modal--{{ id }}" data-product-modal="{{ id }}">
+{%- comment -%}
+  Accepts:
+  - id: {String} Unique id, matched against `data-product-modal-trigger` (required)
+  - title: {String} Modal heading
+  - content: {String} Pre-rendered modal body
+  - modifier: {String} BEM modifier for styling. Defaults to `id` — pass it
+    explicitly when `id` carries a per-section suffix.
+{%- endcomment -%}
+
+<product-modal class="product-modal product-modal--{{ modifier | default: id }}" data-product-modal="{{ id }}">
   <div class="product-modal__heading">
     <h4 class="p-1">{{ title }}</h4>
     <button class="product-modal__close" data-modal-close>

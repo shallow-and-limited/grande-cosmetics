@@ -1,4 +1,15 @@
+{%- comment -%}
+  Accepts:
+  - product: {Object} Product (required)
+  - _metafields: {Object} product.metafields.details
+  - uid: {String} Suffix that makes DOM ids and radio group names unique when
+    several product sections share a page. Empty on the PDP, '-{section.id}'
+    elsewhere — without it, two pickers for the same product would share a radio
+    group and every `<label for>` would target the first section's inputs.
+{%- endcomment -%}
+
 {%- liquid
+  assign uid = uid | default: ''
   assign variants_available_arr = product.variants | map: 'available'
   assign variants_option1_arr = product.variants | map: 'option1'
   assign variants_option2_arr = product.variants | map: 'option2'
@@ -105,7 +116,7 @@
 
           {% liquid
             assign _quantityGuide = _metafields.quantity_guide.value
-            assign modalID = 'how-much'
+            assign modalID = 'how-much' | append: uid
             assign modalTitle = 'How much do I need?'
           %}
           {% if _quantityGuide != blank %}
@@ -140,6 +151,7 @@
             {% endcapture %}
             {% render 'product-modal',
               id: modalID,
+              modifier: 'how-much',
               title: modalTitle,
               content: modalContent
             %}
@@ -168,18 +180,30 @@
               endfor
               assign currentIndex = forloop.index | minus: 1
               assign variant = product.variants[currentIndex]
+
+              comment
+                Derived from the option, not the variant: `product.variants[i]` is
+                only the right variant for single-option products, so a variant id
+                would collide between option groups.
+              endcomment
+              assign option_input_id = 'opt-' | append: option.position | append: '-' | append: currentIndex | append: uid
             -%}
-            <label for="{{ variant.id }}" class="p-3 tab {% if product.selected_or_first_available_variant.id == variant.id %}tab--selected{% endif %} {% if option_disabled %}tab--disabled{% endif %}" data-tab>{{ value }}</label>
-            <input 
+            <label for="{{ option_input_id }}" class="p-3 tab {% if product.selected_or_first_available_variant.id == variant.id %}tab--selected{% endif %} {% if option_disabled %}tab--disabled{% endif %}" data-tab>{{ value }}</label>
+            <input
               type="radio"
-              id="{{ variant.id }}"
+              id="{{ option_input_id }}"
               value="{{ variant.id }}"
               class="{% if option_disabled %}disabled{% endif %}"
               data-option="{{ option.name }}"
               data-option-value="{{ option.name }}"
+              data-option-title="{{ value | escape }}"
               data-supply="{{ option.name }}"
-              name="{{ product.title }}"
-              data-variant-title="{{ value }}"
+              {%- comment -%}
+                One radio group per option, not per product — otherwise a product
+                with e.g. Color + Size can only ever have one value checked.
+              {%- endcomment -%}
+              name="{{ product.title | escape }}-{{ option.position }}{{ uid }}"
+              data-variant-title="{{ value | escape }}"
               data-variant-image="{{ variant.featured_media.id }}"
               {% if product.selected_or_first_available_variant.id == variant.id %}checked{% endif %}
               role="option"
@@ -193,7 +217,7 @@
           {% assign productTags = product.tags | join: ',' %}
         {% endif %}
       {% endif %}
-      <select class="product-form__variants" id="variants-select" data-option-values name="{{ option.name }}">
+      <select class="product-form__variants" id="variants-select{{ uid }}" data-option-values name="{{ option.name }}">
         {%- for value in option.values -%}
           {%- liquid
             assign option_disabled = true

@@ -1,0 +1,22 @@
+{%- comment -%}
+  Short description block, sourced from the `details.short_desc` product metafield.
+  Shared by `main-product` and `featured-product`.
+
+  Accepts:
+  - product: {Object} Product (required)
+  - block: {Object} Section block (optional, for shopify_attributes)
+  - uid: {String} Suffix that makes DOM ids unique when several product sections
+    share a page. Empty on the PDP, '-{section.id}' elsewhere.
+{%- endcomment -%}
+
+{%- liquid
+  assign _metafields = product.metafields.details
+  assign uid = uid | default: ''
+-%}
+
+{% if _metafields.short_desc != blank %}
+  <div {{ block.shopify_attributes }} class="main-product__block p-4 w-bold">
+    {{ _metafields.short_desc }}
+    <a href="#prod-description{{ uid }}" class="product-form__link">See Full Details</a>
+  </div>
+{% endif %}

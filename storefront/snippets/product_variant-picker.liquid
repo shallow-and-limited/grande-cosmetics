@@ -1,0 +1,204 @@
+{%- comment -%}
+  Variant picker + subscription selector + buy buttons.
+  Shared by `main-product` and `featured-product`.
+
+  The two sections use different custom elements on purpose:
+
+  - `<product-form>` (main-product.min.js) drives the PDP. It reaches across the
+    whole document (sticky bar, media gallery, loyalty points, URL rewriting), so
+    there can only ever be one of them on a page.
+  - `<featured-product-form>` (featured-product.js) is scoped to its own section,
+    so any number of them can live on a page together.
+
+  Accepts:
+  - product: {Object} Product (required)
+  - block: {Object} Section block (required)
+  - section_id: {String} section.id — namespaces the subscription inputs (required)
+  - featured: {Boolean} Render the section-scoped element instead of the PDP one
+  - uid: {String} Suffix that makes DOM ids unique when several product sections
+    share a page. Empty on the PDP, '-{section.id}' elsewhere.
+{%- endcomment -%}
+
+{%- liquid
+  assign _b = block.settings
+  assign _metafields = product.metafields.details
+  assign uid = uid | default: ''
+  assign variant = product.selected_or_first_available_variant
+  assign product_form_id = 'product-form-' | append: product.id | append: uid
+
+  if featured
+    assign form_element = 'featured-product-form'
+  else
+    assign form_element = 'product-form'
+  endif
+-%}
+
+<{{ form_element }}
+  {{ block.shopify_attributes }}
+  data-variants="{{ product.variants | json | escape }}"
+  {% if featured %}
+    data-product-url="{{ product.url }}"
+    data-section-id="{{ section_id }}"
+  {% endif %}
+>
+  {%- if featured -%}
+    {%- comment -%}
+      Money strings are rendered server-side so the section formats prices exactly
+      the way Liquid does — no client-side currency guessing.
+    {%- endcomment -%}
+    <script type="application/json" data-featured-product-data>
+      {
+        "options": {{ product.options | json }},
+        "variants": [
+          {%- for v in product.variants -%}
+            {
+              "id": {{ v.id }},
+              "available": {{ v.available }},
+              "options": {{ v.options | json }},
+              "option1": {{ v.option1 | json }},
+              "price": {{ v.price | money_without_trailing_zeros | json }},
+              "compare_at_price": {% if v.compare_at_price > v.price %}{{ v.compare_at_price | money_without_trailing_zeros | json }}{% else %}null{% endif %},
+              "selling_plan_price": {% if v.selling_plan_allocations.first %}{{ v.selling_plan_allocations.first.price | money_without_trailing_zeros | json }}{% else %}null{% endif %}
+            }{% unless forloop.last %},{% endunless %}
+          {%- endfor -%}
+        ]
+      }
+    </script>
+  {%- endif -%}
+
+  <div class="product-form">
+    {% render 'product-options', product: product, _metafields: _metafields, uid: uid %}
+
+    {%- if product.selling_plan_groups != blank %}
+      <script src="{{ 'product-subscriptions.js' | asset_url }}" defer="defer"></script>
+      <product-subscription
+        data-product-subscription
+        id="ProductSubscription-{{ section_id }}"
+        class="product__subscriptions"
+      >
+        <div class="product__subscription active">
+          <div class="product__subscription-heading">
+            <input
+              data-subscription-input
+              class="product__subscription-input"
+              type="radio"
+              value="Subscription Purchase"
+              name="selling_plan_group-{{ section_id }}"
+              id="SubscriptionSubscribe-{{ section_id }}"
+              {% if variant.selling_plan_allocations != blank %}
+                checked
+              {% else %}
+                disabled
+              {% endif %}
+            >
+            <label
+              for="SubscriptionSubscribe-{{ section_id }}"
+              class="product__subscription-label body bold"
+            >
+              {{ _b.subscription_label }}
+            </label>
+
+            <div class="product__subscription-price">
+              {% if variant.selling_plan_allocations != blank %}
+                <span class="product__subscription-price-label body bold">
+                  {{ product.selected_or_first_available_selling_plan_allocation.price | money }}
+                </span>
+                <span class="product__subscription-price-value body body--small strike">
+                  {{ variant.price | money }}
+                </span>
+              {% else %}
+                <span class="product__subscription-price-label body bold">N/A</span>
+              {% endif %}
+            </div>
+          </div>
+
+          <div class="field field--select">
+            <select
+              data-selling-plan
+              name="selling_plan"
+              class="field__select"
+              form="{{ product_form_id }}"
+              {% if variant.selling_plan_allocations == blank %}
+                disabled
+              {% endif %}
+            >
+              {%- for group in product.selling_plan_groups -%}
+                <option value="{{ group.selling_plans[0].id }}">
+                  {{ group.name }}
+                </option>
+              {%- endfor -%}
+            </select>
+            {% render 'icon-caret' %}
+          </div>
+
+          {%- if _b.subscription_text != blank -%}
+            <div class="product__subscription-content body body--small">
+              {{ _b.subscription_text }}
+            </div>
+          {%- endif -%}
+        </div>
+
+        <div class="product__subscription-seperator">
+          <span>{{ _b.subscription_or }}</span>
+        </div>
+
+        <div class="product__subscription">
+          <div class="product__subscription-heading">
+            <input
+              data-onetime-input
+              class="product__subscription-input"
+              type="radio"
+              value="One-time Purchase"
+              name="selling_plan_group-{{ section_id }}"
+              id="SubscriptionOnetime-{{ section_id }}"
+              {% if variant.selling_plan_allocations == blank %}
+                checked
+              {% endif %}
+            >
+            <label for="SubscriptionOnetime-{{ section_id }}" class="product__subscription-label body bold">
+              {{ _b.one_time_label }}
+            </label>
+
+            <div class="product__subscription-price">
+              <span class="product__subscription-price-value body body--small bold">
+                <div class="regios-dopp-generic-price-container" data-regios-dopp-discount-even-when-hidden="true">
+                  {% if variant.compare_at_price > variant.price %}
+                    <div class="regios-dopp-generic-price-item--regular">{{ variant.compare_at_price | money_without_trailing_zeros }}</div>
+                    <div class="regios-dopp-generic-price-item--sale">{{ variant.price | money_without_trailing_zeros }}</div>
+                  {% else %}
+                    <!-- `regios-dopp-generic-price-item--regular` must be present, even if the item isn't already on sale -->
+                    <div class="regios-dopp-generic-price-item--regular" style="display: none"></div>
+                    <div class="regios-dopp-generic-price-item--sale">{{ product.price | money_without_trailing_zeros }}</div>
+                  {% endif %}
+                </div>
+              </span>
+            </div>
+          </div>
+
+          {%- if _b.one_time_text != blank -%}
+            <div class="product__subscription-content product__subscription-content--onetime body body--small">
+              {{ _b.one_time_text }}
+            </div>
+          {%- endif -%}
+        </div>
+      </product-subscription>
+    {%- endif -%}
+
+    {% render 'buy-buttons',
+      product: product,
+      show_dynamic_checkout: _b.show_dynamic_checkout,
+      hide_price: true,
+      uid: uid
+    %}
+  </div>
+</{{ form_element }}>
+
+{%- comment -%}
+  featured-product.js is loaded by the section itself — its modal and accordion
+  fallbacks are needed even when this block isn't present.
+{%- endcomment -%}
+{% unless featured %}
+  <script src="{{ 'main-product.min.js' | asset_url }}" defer="defer"></script>
+{% endunless %}
+
+{% render 'product_notify-form', product: product, uid: uid %}

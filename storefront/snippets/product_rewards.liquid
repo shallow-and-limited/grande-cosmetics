@@ -1,0 +1,17 @@
+{%- comment -%}
+  Grande Rewards teaser. The points value is filled in client-side.
+  Shared by `main-product` and `featured-product`.
+
+  Accepts:
+  - block: {Object} Section block (optional, for shopify_attributes)
+{%- endcomment -%}
+
+<div {{ block.shopify_attributes }} class="main-product__rewards space-between">
+  <div class="p-4">
+    Earn
+    {% render 'icons', icon_name: 'sparkle' %}
+    <span data-lion-points-possible></span>
+    with Grande Rewards.
+  </div>
+  <a href="{{ routes.root_url }}pages/loyalty" class="btn--link">Join Now</a>
+</div>

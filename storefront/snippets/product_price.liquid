@@ -1,0 +1,45 @@
+{%- comment -%}
+  Product price block. Shared by `main-product` and `featured-product`.
+
+  The `regios-dopp-generic-price-*` markup is required by the Regios discount app —
+  `--regular` must always be present, even when the product isn't on sale.
+
+  Accepts:
+  - product: {Object} Product (required)
+  - block: {Object} Section block (optional, for shopify_attributes)
+  - show_reviews: {Boolean} Render the Yotpo star rating widget. Default: true
+{%- endcomment -%}
+
+{%- liquid
+  assign variant = product.selected_or_first_available_variant
+  assign show_reviews = show_reviews | default: true, allow_false: true
+-%}
+
+<div {{ block.shopify_attributes }} class="main-product__price p-4" data-product-prices>
+  <div class="main-product__price-wrapper">
+    <div class="regios-dopp-generic-price-container" data-regios-dopp-discount-even-when-hidden="true">
+      {% if variant.compare_at_price > variant.price %}
+        <div class="regios-dopp-generic-price-item--regular">{{ variant.compare_at_price | money_without_trailing_zeros }}</div>
+        <div class="regios-dopp-generic-price-item--sale">{{ variant.price | money_without_trailing_zeros }}</div>
+      {% else %}
+        <!-- `regios-dopp-generic-price-item--regular` must be present, even if the item isn't already on sale -->
+        <div class="regios-dopp-generic-price-item--regular" style="display: none"></div>
+        <div class="regios-dopp-generic-price-item--sale">{{ product.price | money_without_trailing_zeros }}</div>
+      {% endif %}
+    </div>
+
+    <div class="regios-dopp-description"></div>
+
+    <div id="tt-teaser-widget"></div>
+  </div>
+
+  {% if show_reviews %}
+    <div
+      class="yotpo-widget-instance"
+      data-yotpo-instance-id="{{ settings.yotpo_instance_id }}"
+      data-yotpo-product-id="{{ product.id }}"
+      data-yotpo-cart-product-id=""
+      data-yotpo-section-id="{{ template.name }}"
+    ></div>
+  {% endif %}
+</div>
