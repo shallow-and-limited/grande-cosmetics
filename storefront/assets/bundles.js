@@ -4,8 +4,8 @@
  * Ported from the Lilly Lashes theme onto this theme's cart plumbing:
  *  - adds via the global `window.addToCart()` from global.min.js (same call the
  *    PDP and product cards use) instead of Dawn's product-form fetch
- *  - refreshes <cart-drawer> with fullUpdate(true) when the drawer is enabled,
- *    otherwise falls back to the cart page
+ *  - never navigates on success: Rebuy Smart Cart opens itself off the
+ *    /cart/add.js request. See revealCart().
  *
  * Every kit lives in its own [data-bundle-panel]. All lookups are scoped to that
  * panel, so merchant-entered bundle IDs never end up inside a CSS selector.
@@ -419,15 +419,12 @@ if (!customElements.get('bundle-builder')) {
               });
             }
 
-            const cartDrawer = document.querySelector('cart-drawer');
+            // The items are in the cart now — reset so a second click can't
+            // silently add the same bundle again.
+            this.productList = [];
+            this.update();
 
-            if (cartDrawer && typeof cartDrawer.fullUpdate === 'function') {
-              this.productList = [];
-              this.update();
-              cartDrawer.fullUpdate(true);
-            } else {
-              window.location = this.cartUrl();
-            }
+            this.revealCart();
           })
           .catch((error) => {
             console.error(error);
@@ -436,6 +433,47 @@ if (!customElements.get('bundle-builder')) {
           .finally(() => {
             kit.checkoutButton.disabled = this.selectedCount() < kit.size;
           });
+      }
+
+      /**
+       * This store's live cart is Rebuy Smart Cart, injected by the
+       * rebuy-global-embed app block. Rebuy reacts to the /cart/add.js request
+       * on its own — which is why the PDP (main-product.min.js), the product
+       * cards (product-card.min.js) and the bulk form all do nothing after
+       * adding. So the important thing here is to NOT navigate away; Rebuy
+       * opens itself, and header.min.js refetches /cart.js to update the count
+       * when `body.rebuy-cart-visible` flips.
+       *
+       * The theme-native <cart-drawer> is still handled first for whenever
+       * `settings.cart_drawer_enabled` gets turned on. Navigating to the cart
+       * page is now only a last resort for a store with neither cart UI.
+       */
+      revealCart() {
+        const cartDrawer = document.querySelector('cart-drawer');
+
+        if (cartDrawer && typeof cartDrawer.fullUpdate === 'function') {
+          cartDrawer.fullUpdate(true);
+          return;
+        }
+
+        if (window.Rebuy) {
+          // Defensive nudge in case Smart Cart's "open cart on add" is off.
+          // Only ever *open* — never toggle — so this stays harmless when Rebuy
+          // has already opened itself. Method name varies by Smart Cart version.
+          const smartCart = window.Rebuy.SmartCart;
+
+          if (smartCart) {
+            ['show', 'open', 'openCart'].some((method) => {
+              if (typeof smartCart[method] !== 'function') return false;
+              smartCart[method]();
+              return true;
+            });
+          }
+
+          return;
+        }
+
+        window.location = this.cartUrl();
       }
 
       addToCart(items) {

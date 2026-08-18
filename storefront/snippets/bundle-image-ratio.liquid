@@ -1,0 +1,59 @@
+{%- comment -%}
+  Outputs one aspect ratio (width / height) for a Bundle Builder kit: the ratio
+  of the *tallest* image in the kit.
+
+  Tile width is fixed by the grid, so height is the only free dimension — the
+  biggest box is therefore the tallest image, which is the SMALLEST width/height
+  ratio. Sharing that box means every other image fits inside it, and paired
+  with `object-fit: contain` (bundles.css) nothing is ever cropped.
+
+  Falls back to 1 (square) when nothing has usable dimensions.
+
+  Usage: capture the result, then coerce it back to a number.
+    {%- capture ratio -%}{%- render 'bundle-image-ratio', variants: v -%}{%- endcapture -%}
+    {%- assign ratio = ratio | strip | times: 1.0 -%}
+
+  @param variants {Array}        variant list from the `bundle` metaobject
+  @param collection {Collection} fallback source, matching sections/bundles.liquid
+{%- endcomment -%}
+
+{%- liquid
+  assign ratio = 0
+
+  for variant in variants
+    assign media = variant.featured_media | default: variant.product.featured_media
+    assign image = media.preview_image | default: variant.product.featured_image
+    assign candidate = image.aspect_ratio
+
+    if candidate > 0
+      if ratio == 0
+        assign ratio = candidate
+      elsif candidate < ratio
+        assign ratio = candidate
+      endif
+    endif
+  endfor
+
+  if variants == blank
+    for product in collection.products
+      assign variant = product.selected_or_first_available_variant
+      assign media = variant.featured_media | default: product.featured_media
+      assign image = media.preview_image | default: product.featured_image
+      assign candidate = image.aspect_ratio
+
+      if candidate > 0
+        if ratio == 0
+          assign ratio = candidate
+        elsif candidate < ratio
+          assign ratio = candidate
+        endif
+      endif
+    endfor
+  endif
+
+  if ratio == 0
+    assign ratio = 1
+  endif
+
+  echo ratio
+-%}

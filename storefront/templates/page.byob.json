@@ -1,0 +1,100 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "shogun-helper": {
+      "type": "shogun-helper",
+      "disabled": true,
+      "settings": {}
+    },
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {}
+    },
+    "shogun-optimizer": {
+      "type": "shogun-optimizer",
+      "disabled": true,
+      "settings": {}
+    },
+    "banner_HjctWi": {
+      "type": "banner",
+      "settings": {
+        "color": "light",
+        "background": "beige",
+        "image_d": "shopify://shop_images/GrandeLASH-BannerImage-BottlesOnPink-Desktop.jpg",
+        "image_m": "shopify://shop_images/GrandeLASH-BannerImage-BottlesOnPink-Mobile.jpg",
+        "alignment": "left",
+        "eyebrow": "",
+        "heading": "",
+        "heading_size": "h2",
+        "copy": "",
+        "cta_url": "",
+        "cta_copy": "",
+        "cta_url_alt": "",
+        "cta_copy_alt": "",
+        "overlay": 0
+      }
+    },
+    "bundles_zHkxqD": {
+      "type": "bundles",
+      "blocks": {
+        "kit_rXt7Bd": {
+          "type": "kit",
+          "settings": {
+            "bundle_id": "GC_bundle_1",
+            "type": "TESTING",
+            "size": 3,
+            "title": "",
+            "title_size": "h5",
+            "content": "",
+            "warning": "",
+            "button_text": "Add to Bundle",
+            "variants": "test-bundle",
+            "collection": "cyber-week",
+            "filters": [
+              "20-m-l-40-m-l"
+            ],
+            "no_products_found": "No products found. Try removing some filters.",
+            "summary_text_color": "#0a0a0a",
+            "summary_background_color": "#fdf1e4",
+            "progress_title": "Your Bundle",
+            "progress_description": "",
+            "remove_text": "Remove",
+            "progress_bar_content": "Add |number| |type| and Get 20% OFF",
+            "progress_bar_complete": "You have 20% off!",
+            "progress_button": "Add to Bag"
+          }
+        }
+      },
+      "block_order": [
+        "kit_rXt7Bd"
+      ],
+      "name": "Bundle Builder",
+      "settings": {
+        "layout": "screen-width",
+        "title": "Lash Bundle",
+        "heading_alignment": "left",
+        "heading_size": "h4",
+        "description": "<p>Choose any 3 products for 20% off</p>",
+        "text_style": "p-3",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    }
+  },
+  "order": [
+    "shogun-helper",
+    "main",
+    "shogun-optimizer",
+    "banner_HjctWi",
+    "bundles_zHkxqD"
+  ]
+}

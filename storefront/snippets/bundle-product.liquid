@@ -2,6 +2,8 @@
   Renders a single selectable tile inside a Bundle Builder kit.
 
   @param variant {Variant}            required
+  @param aspect_ratio {Number}        shared image box for the kit, from
+                                      'bundle-image-ratio'; defaults to square
   @param button_text {String}
   @param option_filters {Boolean}     emit data-options
   @param type_filters {Boolean}       emit data-type
@@ -12,6 +14,7 @@
   assign product = variant.product
   assign media = variant.featured_media | default: product.featured_media
   assign image = media.preview_image | default: product.featured_image
+  assign aspect_ratio = aspect_ratio | default: 1
   assign title = product.title
   if product.variants.size > 1
     assign title = title | append: ' - ' | append: variant.title
@@ -38,7 +41,12 @@
     {%- endif -%}
   >
     <div class="bundle__product-image">
-      {%- render 'image', image: image, aspect_ratio: 1, class: 'bundle__product-media', alt: title -%}
+      {%- render 'image',
+        image: image,
+        aspect_ratio: aspect_ratio,
+        class: 'bundle__product-media',
+        alt: title
+      -%}
     </div>
 
     <div class="bundle__product-details">

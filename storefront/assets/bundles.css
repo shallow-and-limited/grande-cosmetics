@@ -290,6 +290,19 @@
   overflow: hidden;
 }
 
+/**
+ * All tiles in a kit share one box, sized to the tallest product image
+ * (snippets/bundle-image-ratio.liquid). The `image` snippet's default is
+ * `object-fit: cover`, which crops anything that isn't an exact match — and it
+ * rounds the ratio to 2dp, so even the tallest image would lose a sliver.
+ * `contain` letterboxes instead, so nothing is ever cut off. Extra `.bundle`
+ * so this outranks `.image picture img` regardless of stylesheet order.
+ */
+.bundle .bundle__product-media picture img {
+  object-fit: contain;
+  object-position: center;
+}
+
 .bundle__product-details {
   display: flex;
   flex-direction: column;

@@ -86,6 +86,15 @@
         assign option_filters = false
       -%}
 
+      {%- comment -%}
+        One shared image box per kit, sized to the tallest product image so no
+        tile crops. See snippets/bundle-image-ratio.liquid.
+      {%- endcomment -%}
+      {%- capture kit_image_ratio -%}
+        {%- render 'bundle-image-ratio', variants: kit_variants, collection: block.settings.collection -%}
+      {%- endcapture -%}
+      {%- assign kit_image_ratio = kit_image_ratio | strip | times: 1.0 -%}
+
       <div
         class="bundle__panel{% unless forloop.first %} bundle--hidden{% endunless %}"
         id="BundlePanel-{{ section.id }}-{{ panel_index }}"
@@ -190,6 +199,7 @@
                 {%- for variant in kit_variants -%}
                   {%- render 'bundle-product',
                     variant: variant,
+                    aspect_ratio: kit_image_ratio,
                     button_text: block.settings.button_text,
                     option_filters: option_filters,
                     type_filters: type_filters,
@@ -200,6 +210,7 @@
                 {%- for product in block.settings.collection.products -%}
                   {%- render 'bundle-product',
                     variant: product.selected_or_first_available_variant,
+                    aspect_ratio: kit_image_ratio,
                     button_text: block.settings.button_text,
                     option_filters: option_filters,
                     type_filters: type_filters,
