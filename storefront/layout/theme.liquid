@@ -172,40 +172,22 @@
       });
     </script>
 
-    <script src="https://js.adsrvr.org/up_loader.1.1.0.js" type="text/javascript"></script>
-    <script type="text/javascript">
-      ttd_dom_ready(function () {
-        if (typeof TTDUniversalPixelApi === 'function') {
-          var universalPixelApi = new TTDUniversalPixelApi();
-          universalPixelApi.init('vp8y0pg', ['y96p1n3'], 'https://insight.adsrvr.org/track/up');
-        }
-      });
-    </script>
+    {% comment %}
+      === Marketing tags (consent-gated) ===
+      The Trade Desk, Dstillery, AddShoppers and ShopMy used to be hardcoded here and
+      loaded unconditionally, so they fired even for visitors who chose
+      "Deny Non-Essential". They are now injected only once Osano reports marketing
+      consent. See snippets/consent-gated-marketing.liquid.
 
-    <script
-      src="//action.dstillery.com/orbserv/nsjs?adv=cl168243922649999&ns=7932&nc=Grande-Cosmetics-Site-Visitor&ncv=63"
-      type="text/javascript"
-    ></script>
-
-    <noscript
-      ><img
-        width="1"
-        height="1"
-        src="//action.dstillery.com/orbserv/nspix?adv=cl168243922649999&ns=7932&nc=Grande-Cosmetics-Site-Visitor&ncv=63"
-    ></noscript>
-
-    <script type="text/javascript">
-      //DO NOT REMOVE - DRIVES REVENUE
-      var AddShoppersWidgetOptions = { loadCss: false, pushResponse: false };
-      !(function () {
-        var t = document.createElement('script');
-        (t.type = 'text/javascript'),
-          (t.async = !0),
-          (t.id = 'AddShoppers'),
-          (t.src = 'https://shop.pe/widget/widget_async.js#62e1a7eae5721f04e3e2c799'),
-          document.getElementsByTagName('head')[0].appendChild(t);
-      })();
-    </script>
+      Still required for marketing — do not delete. If a tag needs to change, change it
+      inside the snippet so it stays behind the consent gate.
+    {% endcomment %}
+    {% render 'consent-gated-marketing',
+      trade_desk: true,
+      dstillery: true,
+      addshoppers: true,
+      shopmy: true
+    %}
 
     <!-- Widget : Gift with Purchase - 4.2024 -->
     <div class="visually-hidden" data-rebuy-id="53922"></div>
@@ -220,8 +202,6 @@
     <div class="visually-hidden" data-rebuy-id="278388"></div>
     <!-- End Widget : Free GrandeRepair w/ 1st Subscription Order -->
 
-    <script defer src="https://static.shopmy.us/Affiliates/sms_aff_clicktrack.js"></script>
-
     <style>
       body > img {
         display: none;
@@ -231,6 +211,18 @@
       }
     </style>
 
+    {% comment %}
+      === Osano -> Shopify Customer Privacy API bridge ===
+      Relays the visitor's Osano choice to Shopify so Shopify-side pixels (Web Pixels
+      API, app pixels, Shopify's own marketing tags) respect it.
+
+      This previously bound only 'osano-cm-consent-saved', which fires when a visitor
+      makes or changes a choice in the banner. It never fired for a RETURNING visitor
+      whose choice was already stored, so on every later visit Shopify's consent state
+      was never restricted and Shopify-side pixels treated that visitor as consented.
+      'osano-cm-initialized' fixes that — it fires once Osano has loaded the stored
+      consent. Both events are now bound, matching 'gtm-consent-mode'.
+    {% endcomment %}
     <script>
       window.Shopify.loadFeatures(
         [
@@ -240,25 +232,33 @@
           },
         ],
         function (error) {
-          if (!error) {
-            try {
-              window.Osano.cm.ready('shopify');
+          if (error) return;
+          try {
+            window.Osano.cm.ready('shopify');
 
-              window.Osano.cm.addEventListener('osano-cm-consent-saved', (c) => {
-                window.Shopify.customerPrivacy.setTrackingConsent({
-                  analytics:    c.ANALYTICS       === 'ACCEPT',
+            var relay = function (c) {
+              if (!c) return;
+              window.Shopify.customerPrivacy.setTrackingConsent(
+                {
+                  analytics:    c.ANALYTICS        === 'ACCEPT',
                   marketing:    c.MARKETING        === 'ACCEPT',
                   preferences:  c.PERSONALIZATION  === 'ACCEPT',
                   sale_of_data: c.MARKETING        === 'ACCEPT',
-                }, () => {});
-              });
-            } catch (error) {
-              console.error('Osano must be loaded before initializing the Shopify API.');
-            }
+                },
+                function () {}
+              );
+            };
+
+            // Returning visitors with a stored choice.
+            window.Osano.cm.addEventListener('osano-cm-initialized', relay);
+            // Visitors making or changing a choice in this session.
+            window.Osano.cm.addEventListener('osano-cm-consent-saved', relay);
+          } catch (e) {
+            console.error('Osano must be loaded before initializing the Shopify API.');
           }
         }
       );
-    </script>  
+    </script>
 
   </body>
 </html>

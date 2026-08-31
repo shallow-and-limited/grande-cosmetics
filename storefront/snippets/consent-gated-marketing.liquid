@@ -1,0 +1,113 @@
+{% comment %}
+  === Consent-gated marketing tags ===
+  Holds non-essential advertising/attribution scripts until the visitor's Osano
+  consent state actually permits them. Previously these were hardcoded directly in
+  the layouts and fired unconditionally, so they ran even after a visitor chose
+  "Deny Non-Essential".
+
+  Why a snippet and not Osano's own script blocking:
+  Osano can auto-block scripts it recognises, but it did not block these. Gating
+  them here does not depend on Osano's classification database being right about a
+  given vendor — the script simply is not injected until consent is present.
+
+  How it behaves:
+  - Injects nothing on first paint. Nothing loads, no cookies are set.
+  - 'osano-cm-initialized' covers returning visitors whose choice is already stored.
+  - 'osano-cm-consent-saved' covers a visitor changing their preferences in-session.
+  - Each vendor is injected at most once per page, even if consent is re-saved.
+  - Fails closed: if Osano is blocked, absent, or never initializes, nothing loads.
+
+  Category assignment:
+  Every vendor below is gated on MARKETING. All four are advertising or cross-site
+  attribution vendors. Which Osano category a vendor belongs to is a legal/privacy
+  decision, not a technical one — if privacy re-classifies one, change its category
+  constant here and in the Osano dashboard so the two agree.
+
+  Usage — pass only the vendors that layout previously loaded, so gating does not
+  silently ADD a tracker to a page that never had it:
+    render this snippet with the params trade_desk, dstillery, addshoppers, shopmy —
+    each true or false. An omitted param is treated as false.
+{% endcomment %}
+<script>
+  (function () {
+    var injected = {};
+
+    function inject(key, src, options) {
+      if (injected[key]) return;
+      injected[key] = true;
+      var opts = options || {};
+      var s = document.createElement('script');
+      s.type = 'text/javascript';
+      s.async = true;
+      s.src = src;
+      if (opts.id) s.id = opts.id;
+      if (opts.onload) s.onload = opts.onload;
+      document.head.appendChild(s);
+    }
+
+    function loadGranted() {
+      {%- if trade_desk %}
+        // The Trade Desk — universal pixel.
+        inject('trade_desk', 'https://js.adsrvr.org/up_loader.1.1.0.js', {
+          onload: function () {
+            function init() {
+              if (typeof TTDUniversalPixelApi !== 'function') return;
+              var api = new TTDUniversalPixelApi();
+              api.init('vp8y0pg', ['y96p1n3'], 'https://insight.adsrvr.org/track/up');
+            }
+            // up_loader defines ttd_dom_ready; by the time consent arrives the DOM is
+            // normally already parsed, so fall back to calling init directly.
+            if (typeof ttd_dom_ready === 'function') ttd_dom_ready(init);
+            else init();
+          }
+        });
+      {%- endif %}
+
+      {%- if dstillery %}
+        // Dstillery — site-visitor audience tag.
+        // NOTE: the matching <noscript> 1x1 pixel that used to sit beside this tag was
+        // removed. A noscript pixel only fires when JavaScript is off, which is exactly
+        // when no consent UI can run, so it cannot be gated on consent at all.
+        inject(
+          'dstillery',
+          '//action.dstillery.com/orbserv/nsjs?adv=cl168243922649999&ns=7932&nc=Grande-Cosmetics-Site-Visitor&ncv=63'
+        );
+      {%- endif %}
+
+      {%- if addshoppers %}
+        // AddShoppers / shop.pe — onsite retargeting + identity widget.
+        // Options must exist on window before the widget script evaluates.
+        window.AddShoppersWidgetOptions = { loadCss: false, pushResponse: false };
+        inject('addshoppers', 'https://shop.pe/widget/widget_async.js#62e1a7eae5721f04e3e2c799', {
+          id: 'AddShoppers'
+        });
+      {%- endif %}
+
+      {%- if shopmy %}
+        // ShopMy — affiliate click attribution.
+        inject('shopmy', 'https://static.shopmy.us/Affiliates/sms_aff_clicktrack.js');
+      {%- endif %}
+    }
+
+    function onConsent(consent) {
+      if (!consent || consent.MARKETING !== 'ACCEPT') return;
+      loadGranted();
+    }
+
+    function bind() {
+      if (!window.Osano || !window.Osano.cm) return false;
+      Osano.cm.addEventListener('osano-cm-initialized', onConsent);
+      Osano.cm.addEventListener('osano-cm-consent-saved', onConsent);
+      return true;
+    }
+
+    // Mirrors the binding strategy in 'gtm-consent-mode': Osano loads first and
+    // synchronously, but its consent manager may initialize slightly later.
+    if (!bind()) {
+      var tries = 0;
+      var poll = setInterval(function () {
+        if (bind() || ++tries > 50) clearInterval(poll);
+      }, 100);
+    }
+  })();
+</script>
