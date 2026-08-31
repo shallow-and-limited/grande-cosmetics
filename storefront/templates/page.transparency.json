@@ -43,7 +43,7 @@
         "background": "rose",
         "alignment": "center",
         "eyebrow": "",
-        "heading": "Beauty in <em>Transparency<\/em>",
+        "heading": "Beauty in <em>Transparency</em>",
         "heading_size": "h2",
         "copy": "Beauty isn't just looking good, but also feeling good about the products you use. While there are endless sources of intel & opinions to be found, we work hard to give you the information and transparency you need to make choices based on scientific, factual information.",
         "cta_url": "",
@@ -53,116 +53,512 @@
         "overlay": 0
       }
     },
-    "split_banner_rxCQXW": {
-      "type": "split-banner",
+    "ss_image_with_text_21_w33mUh": {
+      "type": "ss-image-with-text-21",
       "blocks": {
-        "body_copy_ybV3Qp": {
-          "type": "body-copy",
+        "heading_HCPkxG": {
+          "type": "heading",
           "settings": {
-            "copy": "<p>We not only test for safety and efficacy, we get the seal of approval from a host of nationally recognized experts (dermatologists, trichologists, cosmetic surgeons), and trusted industry professionals who use, recommend -- and love -- GrandeLASH-MD.<\/p>"
+            "heading": "<h2>Backed by the Pros</h2>",
+            "heading_custom": false,
+            "heading_font": "josefin_sans_n4",
+            "heading_size": 52,
+            "heading_size_mobile": 32,
+            "heading_height": 130,
+            "heading_mt": 0,
+            "heading_mt_mobile": 0,
+            "heading_color": "#000000"
+          }
+        },
+        "text_EgaMGX": {
+          "type": "text",
+          "settings": {
+            "text": "<p>We not only test for safety and efficacy, we get the seal of approval from a host of nationally recognized experts (dermatologists, trichologists, cosmetic surgeons), and trusted industry professionals who use, recommend - and love - GrandeLASH-MD.</p>",
+            "text_custom": true,
+            "text_font": "quattrocento_sans_n4",
+            "text_size": 17,
+            "text_size_mobile": 16,
+            "text_height": 150,
+            "text_mt": 30,
+            "text_mt_mobile": 30,
+            "text_color": "#000000"
+          }
+        },
+        "button_KgJKBL": {
+          "type": "button",
+          "settings": {
+            "button": "Learn More",
+            "button_url": "https://grandecosmetics.com/pages/backed-by-the-pros",
+            "button_custom": true,
+            "button_font": "quattrocento_sans_n7",
+            "button_size": 16,
+            "button_size_mobile": 16,
+            "button_height": 100,
+            "button_mt": 50,
+            "button_mt_mobile": 50,
+            "button_padding_vertical": 16,
+            "button_padding_vertical_mobile": 16,
+            "button_padding_horizontal": 24,
+            "button_padding_horizontal_mobile": 24,
+            "button_radius": 100,
+            "button_border_thickness": 1,
+            "button_style": "outline",
+            "button_color": "#FFFFFF",
+            "button_hover_color": "#E6006B",
+            "button_bg_color": "#E6006B",
+            "button_bg_hover_color": "#FFFFFF",
+            "button_border_color": "#E6006B",
+            "button_border_hover_color": "#E6006B"
+          }
+        },
+        "button_KtRKk6": {
+          "type": "button",
+          "settings": {
+            "button": "Add GrandeLASH-MD to Cart",
+            "button_url": "https://grandecosmetics.com/cart/add/15772016902210",
+            "button_custom": true,
+            "button_font": "quattrocento_sans_n7",
+            "button_size": 16,
+            "button_size_mobile": 16,
+            "button_height": 100,
+            "button_mt": 50,
+            "button_mt_mobile": 50,
+            "button_padding_vertical": 16,
+            "button_padding_vertical_mobile": 16,
+            "button_padding_horizontal": 24,
+            "button_padding_horizontal_mobile": 24,
+            "button_radius": 100,
+            "button_border_thickness": 1,
+            "button_style": "outline",
+            "button_color": "#FFFFFF",
+            "button_hover_color": "#E6006B",
+            "button_bg_color": "#E6006B",
+            "button_bg_hover_color": "#FFFFFF",
+            "button_border_color": "#E6006B",
+            "button_border_hover_color": "#E6006B"
           }
         }
       },
       "block_order": [
-        "body_copy_ybV3Qp"
+        "heading_HCPkxG",
+        "text_EgaMGX",
+        "button_KgJKBL",
+        "button_KtRKk6"
       ],
+      "name": "Backed By the Pros",
       "settings": {
-        "style": "beige",
-        "padding": "inset",
-        "arrangement": "right_asset_left_content",
-        "header": "h3",
-        "alignment": "centered",
-        "vertical_alignment": "middle",
-        "module_height": "image-height",
-        "image_d": "shopify:\/\/shop_images\/DR.jpg",
-        "eyebrow": "",
-        "heading": "Backed by the Pros",
-        "cta_url": "https:\/\/grandecosmetics.com\/pages\/backed-by-the-pros",
-        "cta_copy": "Learn More"
+        "layout_gap": 0,
+        "layout_gap_mobile": 0,
+        "content_horizontal_align": "start",
+        "content_horizontal_align_mobile": "start",
+        "content_vertical_align": "center",
+        "content_padding_vertical": 60,
+        "content_padding_vertical_mobile": 60,
+        "content_padding_horizontal": 60,
+        "content_padding_horizontal_mobile": 30,
+        "image": "shopify://shop_images/DR.jpg",
+        "image_position": "right",
+        "image_position_mobile": "top",
+        "image_ratio": "original",
+        "image_ratio_mobile": "original",
+        "image_overlay": 0,
+        "background_color": "#FDF1E4",
+        "background_gradient": "",
+        "border_color": "#000000",
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "margin_horizontal": 0,
+        "margin_horizontal_mobile": 0,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_horizontal": 0,
+        "padding_horizontal_mobile": 0,
+        "full_width": true,
+        "content_width": 1200,
+        "border_thickness": 0,
+        "section_radius": 0,
+        "lazy": true
       }
     },
-    "split_banner_W6CJ77": {
-      "type": "split-banner",
+    "ss_image_with_text_21_edkXpQ": {
+      "type": "ss-image-with-text-21",
       "blocks": {
-        "body_copy_bFLYU3": {
-          "type": "body-copy",
+        "heading_xTPWB8": {
+          "type": "heading",
           "settings": {
-            "copy": "<p>We carefully select high-performance ingredients (hello, peptides and so much more) for our formulas, and GrandeLASH-MD is no exception. It's all about choosing the right ingredients, and combining them in the right way to get the results you want and love. <\/p>"
+            "heading": "<h2>The Ingredients for Success</h2>",
+            "heading_custom": false,
+            "heading_font": "josefin_sans_n4",
+            "heading_size": 52,
+            "heading_size_mobile": 32,
+            "heading_height": 130,
+            "heading_mt": 0,
+            "heading_mt_mobile": 0,
+            "heading_color": "#000000"
+          }
+        },
+        "text_TREdBy": {
+          "type": "text",
+          "settings": {
+            "text": "<p>We carefully select high-performance ingredients (hello, peptides and so much more) for our formulas, and GrandeLASH-MD is no exception. It's all about choosing the right ingredients, and combining them in the right way to get the results you want and love. </p>",
+            "text_custom": true,
+            "text_font": "quattrocento_sans_n4",
+            "text_size": 17,
+            "text_size_mobile": 16,
+            "text_height": 150,
+            "text_mt": 30,
+            "text_mt_mobile": 30,
+            "text_color": "#000000"
+          }
+        },
+        "button_rkyUet": {
+          "type": "button",
+          "settings": {
+            "button": "Learn More",
+            "button_url": "https://grandecosmetics.com/pages/grandelashmd-key-ingredients",
+            "button_custom": true,
+            "button_font": "quattrocento_sans_n7",
+            "button_size": 16,
+            "button_size_mobile": 16,
+            "button_height": 100,
+            "button_mt": 50,
+            "button_mt_mobile": 50,
+            "button_padding_vertical": 16,
+            "button_padding_vertical_mobile": 16,
+            "button_padding_horizontal": 24,
+            "button_padding_horizontal_mobile": 24,
+            "button_radius": 100,
+            "button_border_thickness": 1,
+            "button_style": "outline",
+            "button_color": "#FFFFFF",
+            "button_hover_color": "#E6006B",
+            "button_bg_color": "#E6006B",
+            "button_bg_hover_color": "#FFFFFF",
+            "button_border_color": "#E6006B",
+            "button_border_hover_color": "#E6006B"
+          }
+        },
+        "button_NrJwVi": {
+          "type": "button",
+          "settings": {
+            "button": "Add GrandeLASH-MD to Cart",
+            "button_url": "https://grandecosmetics.com/cart/add/15772016902210",
+            "button_custom": true,
+            "button_font": "quattrocento_sans_n7",
+            "button_size": 16,
+            "button_size_mobile": 16,
+            "button_height": 100,
+            "button_mt": 50,
+            "button_mt_mobile": 50,
+            "button_padding_vertical": 16,
+            "button_padding_vertical_mobile": 16,
+            "button_padding_horizontal": 24,
+            "button_padding_horizontal_mobile": 24,
+            "button_radius": 100,
+            "button_border_thickness": 1,
+            "button_style": "outline",
+            "button_color": "#FFFFFF",
+            "button_hover_color": "#E6006B",
+            "button_bg_color": "#E6006B",
+            "button_bg_hover_color": "#FFFFFF",
+            "button_border_color": "#E6006B",
+            "button_border_hover_color": "#E6006B"
           }
         }
       },
       "block_order": [
-        "body_copy_bFLYU3"
+        "heading_xTPWB8",
+        "text_TREdBy",
+        "button_rkyUet",
+        "button_NrJwVi"
       ],
+      "name": "Ingredients for Success",
       "settings": {
-        "style": "beige",
-        "padding": "inset",
-        "arrangement": "left_asset_right_content",
-        "header": "h3",
-        "alignment": "centered",
-        "vertical_alignment": "middle",
-        "module_height": "image-height",
-        "image_d": "shopify:\/\/shop_images\/Science_641bc01e-1b4e-4501-80c7-b1c2a4da6c62.jpg",
-        "eyebrow": "",
-        "heading": "The Ingredients for Success",
-        "cta_url": "https:\/\/grandecosmetics.com\/pages\/grandelashmd-key-ingredients",
-        "cta_copy": "Learn More"
+        "layout_gap": 0,
+        "layout_gap_mobile": 0,
+        "content_horizontal_align": "start",
+        "content_horizontal_align_mobile": "start",
+        "content_vertical_align": "center",
+        "content_padding_vertical": 60,
+        "content_padding_vertical_mobile": 60,
+        "content_padding_horizontal": 60,
+        "content_padding_horizontal_mobile": 30,
+        "image": "shopify://shop_images/Science_641bc01e-1b4e-4501-80c7-b1c2a4da6c62.jpg",
+        "image_position": "left",
+        "image_position_mobile": "top",
+        "image_ratio": "original",
+        "image_ratio_mobile": "original",
+        "image_overlay": 0,
+        "background_color": "#FDF1E4",
+        "background_gradient": "",
+        "border_color": "#000000",
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "margin_horizontal": 0,
+        "margin_horizontal_mobile": 0,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_horizontal": 0,
+        "padding_horizontal_mobile": 0,
+        "full_width": true,
+        "content_width": 1200,
+        "border_thickness": 0,
+        "section_radius": 0,
+        "lazy": true
       }
     },
-    "split_banner_efhWa3": {
-      "type": "split-banner",
+    "ss_image_with_text_21_YWXfYB": {
+      "type": "ss-image-with-text-21",
       "blocks": {
-        "body_copy_zmgrnf": {
-          "type": "body-copy",
+        "heading_E8Kwqj": {
+          "type": "heading",
           "settings": {
-            "copy": "<p>When it comes to product performance, we never settle for mediocre. Just like our other proven formulas, GrandeLASH-MD really works - and is the gold standard of lash enhancers for a reason.Like all skincare products, proper application is the first step to your best results!<\/p>"
+            "heading": "<h2>Proper Application is 🔑</h2>",
+            "heading_custom": false,
+            "heading_font": "josefin_sans_n4",
+            "heading_size": 52,
+            "heading_size_mobile": 32,
+            "heading_height": 130,
+            "heading_mt": 0,
+            "heading_mt_mobile": 0,
+            "heading_color": "#000000"
+          }
+        },
+        "text_FHa86t": {
+          "type": "text",
+          "settings": {
+            "text": "<p>When it comes to product performance, we never settle for mediocre. Just like our other proven formulas, GrandeLASH-MD really works - and is the gold standard of lash enhancers for a reason.Like all skincare products, proper application is the first step to your best results!</p>",
+            "text_custom": true,
+            "text_font": "quattrocento_sans_n4",
+            "text_size": 17,
+            "text_size_mobile": 16,
+            "text_height": 150,
+            "text_mt": 30,
+            "text_mt_mobile": 30,
+            "text_color": "#000000"
+          }
+        },
+        "button_mWwYnq": {
+          "type": "button",
+          "settings": {
+            "button": "Learn More",
+            "button_url": "https://grandecosmetics.com/pages/how-to-apply-grandelash-md",
+            "button_custom": true,
+            "button_font": "quattrocento_sans_n7",
+            "button_size": 16,
+            "button_size_mobile": 16,
+            "button_height": 100,
+            "button_mt": 50,
+            "button_mt_mobile": 50,
+            "button_padding_vertical": 16,
+            "button_padding_vertical_mobile": 16,
+            "button_padding_horizontal": 24,
+            "button_padding_horizontal_mobile": 24,
+            "button_radius": 100,
+            "button_border_thickness": 1,
+            "button_style": "outline",
+            "button_color": "#FFFFFF",
+            "button_hover_color": "#E6006B",
+            "button_bg_color": "#E6006B",
+            "button_bg_hover_color": "#FFFFFF",
+            "button_border_color": "#E6006B",
+            "button_border_hover_color": "#E6006B"
+          }
+        },
+        "button_YdKGWW": {
+          "type": "button",
+          "settings": {
+            "button": "Add GrandeLASH-MD to Cart",
+            "button_url": "https://grandecosmetics.com/cart/add/15772016902210",
+            "button_custom": true,
+            "button_font": "quattrocento_sans_n7",
+            "button_size": 16,
+            "button_size_mobile": 16,
+            "button_height": 100,
+            "button_mt": 50,
+            "button_mt_mobile": 50,
+            "button_padding_vertical": 16,
+            "button_padding_vertical_mobile": 16,
+            "button_padding_horizontal": 24,
+            "button_padding_horizontal_mobile": 24,
+            "button_radius": 100,
+            "button_border_thickness": 1,
+            "button_style": "outline",
+            "button_color": "#FFFFFF",
+            "button_hover_color": "#E6006B",
+            "button_bg_color": "#E6006B",
+            "button_bg_hover_color": "#FFFFFF",
+            "button_border_color": "#E6006B",
+            "button_border_hover_color": "#E6006B"
           }
         }
       },
       "block_order": [
-        "body_copy_zmgrnf"
+        "heading_E8Kwqj",
+        "text_FHa86t",
+        "button_mWwYnq",
+        "button_YdKGWW"
       ],
+      "name": "Proper Application",
       "settings": {
-        "style": "beige",
-        "padding": "inset",
-        "arrangement": "right_asset_left_content",
-        "header": "h3",
-        "alignment": "centered",
-        "vertical_alignment": "middle",
-        "module_height": "image-height",
-        "image_d": "shopify:\/\/shop_images\/Application.jpg",
-        "eyebrow": "",
-        "heading": "Proper Application is 🔑",
-        "cta_url": "https:\/\/grandecosmetics.com\/pages\/how-to-apply-grandelash-md",
-        "cta_copy": "Learn More"
+        "layout_gap": 0,
+        "layout_gap_mobile": 0,
+        "content_horizontal_align": "start",
+        "content_horizontal_align_mobile": "start",
+        "content_vertical_align": "center",
+        "content_padding_vertical": 60,
+        "content_padding_vertical_mobile": 60,
+        "content_padding_horizontal": 60,
+        "content_padding_horizontal_mobile": 30,
+        "image": "shopify://shop_images/Application.jpg",
+        "image_position": "right",
+        "image_position_mobile": "top",
+        "image_ratio": "original",
+        "image_ratio_mobile": "original",
+        "image_overlay": 0,
+        "background_color": "#FDF1E4",
+        "background_gradient": "",
+        "border_color": "#000000",
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "margin_horizontal": 0,
+        "margin_horizontal_mobile": 0,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_horizontal": 0,
+        "padding_horizontal_mobile": 0,
+        "full_width": true,
+        "content_width": 1200,
+        "border_thickness": 0,
+        "section_radius": 0,
+        "lazy": true
       }
     },
-    "split_banner_FYQr44": {
-      "type": "split-banner",
+    "ss_image_with_text_21_HVFXRX": {
+      "type": "ss-image-with-text-21",
       "blocks": {
-        "body_copy_cQPiHk": {
-          "type": "body-copy",
+        "heading_MfzF9Y": {
+          "type": "heading",
           "settings": {
-            "copy": "<p>Take a peek into Grande's ISO 22716 GMP certified lab. From formulation, to filling, to testing: there's so much that goes into bringing you the best DIY beauty solutions on the market.<\/p>"
+            "heading": "<h2>Behind the Scenes</h2>",
+            "heading_custom": false,
+            "heading_font": "josefin_sans_n4",
+            "heading_size": 52,
+            "heading_size_mobile": 32,
+            "heading_height": 130,
+            "heading_mt": 0,
+            "heading_mt_mobile": 0,
+            "heading_color": "#000000"
+          }
+        },
+        "text_hHNm9p": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Take a peek into Grande's ISO 22716 GMP certified lab. From formulation, to filling, to testing: there's so much that goes into bringing you the best DIY beauty solutions on the market.</p>",
+            "text_custom": true,
+            "text_font": "quattrocento_sans_n4",
+            "text_size": 17,
+            "text_size_mobile": 16,
+            "text_height": 150,
+            "text_mt": 30,
+            "text_mt_mobile": 30,
+            "text_color": "#000000"
+          }
+        },
+        "button_krpNAa": {
+          "type": "button",
+          "settings": {
+            "button": "Learn More",
+            "button_url": "https://grandecosmetics.com/pages/grandelash-md-manufacturer",
+            "button_custom": true,
+            "button_font": "quattrocento_sans_n7",
+            "button_size": 16,
+            "button_size_mobile": 16,
+            "button_height": 100,
+            "button_mt": 50,
+            "button_mt_mobile": 50,
+            "button_padding_vertical": 16,
+            "button_padding_vertical_mobile": 16,
+            "button_padding_horizontal": 24,
+            "button_padding_horizontal_mobile": 24,
+            "button_radius": 100,
+            "button_border_thickness": 1,
+            "button_style": "outline",
+            "button_color": "#FFFFFF",
+            "button_hover_color": "#E6006B",
+            "button_bg_color": "#E6006B",
+            "button_bg_hover_color": "#FFFFFF",
+            "button_border_color": "#E6006B",
+            "button_border_hover_color": "#E6006B"
+          }
+        },
+        "button_rfBLYq": {
+          "type": "button",
+          "settings": {
+            "button": "Add GrandeLASH-MD to Cart",
+            "button_url": "https://grandecosmetics.com/cart/add/15772016902210",
+            "button_custom": true,
+            "button_font": "quattrocento_sans_n7",
+            "button_size": 16,
+            "button_size_mobile": 16,
+            "button_height": 100,
+            "button_mt": 50,
+            "button_mt_mobile": 50,
+            "button_padding_vertical": 16,
+            "button_padding_vertical_mobile": 16,
+            "button_padding_horizontal": 24,
+            "button_padding_horizontal_mobile": 24,
+            "button_radius": 100,
+            "button_border_thickness": 1,
+            "button_style": "outline",
+            "button_color": "#FFFFFF",
+            "button_hover_color": "#E6006B",
+            "button_bg_color": "#E6006B",
+            "button_bg_hover_color": "#FFFFFF",
+            "button_border_color": "#E6006B",
+            "button_border_hover_color": "#E6006B"
           }
         }
       },
       "block_order": [
-        "body_copy_cQPiHk"
+        "heading_MfzF9Y",
+        "text_hHNm9p",
+        "button_krpNAa",
+        "button_rfBLYq"
       ],
+      "name": "Behind the Scenes",
       "settings": {
-        "style": "beige",
-        "padding": "inset",
-        "arrangement": "left_asset_right_content",
-        "header": "h3",
-        "alignment": "centered",
-        "vertical_alignment": "middle",
-        "module_height": "image-height",
-        "image_d": "shopify:\/\/shop_images\/BTS.jpg",
-        "eyebrow": "",
-        "heading": "Behind the Scenes",
-        "cta_url": "https:\/\/grandecosmetics.com\/pages\/grandelash-md-manufacturer",
-        "cta_copy": "Learn More"
+        "layout_gap": 0,
+        "layout_gap_mobile": 0,
+        "content_horizontal_align": "start",
+        "content_horizontal_align_mobile": "start",
+        "content_vertical_align": "center",
+        "content_padding_vertical": 60,
+        "content_padding_vertical_mobile": 60,
+        "content_padding_horizontal": 60,
+        "content_padding_horizontal_mobile": 30,
+        "image": "shopify://shop_images/BTS.jpg",
+        "image_position": "left",
+        "image_position_mobile": "top",
+        "image_ratio": "original",
+        "image_ratio_mobile": "original",
+        "image_overlay": 0,
+        "background_color": "#FDF1E4",
+        "background_gradient": "",
+        "border_color": "#000000",
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "margin_horizontal": 0,
+        "margin_horizontal_mobile": 0,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_horizontal": 0,
+        "padding_horizontal_mobile": 0,
+        "full_width": true,
+        "content_width": 1200,
+        "border_thickness": 0,
+        "section_radius": 0,
+        "lazy": true
       }
     }
   },
@@ -170,9 +566,9 @@
     "main",
     "ticker_bG6bAR",
     "banner_KycjnM",
-    "split_banner_rxCQXW",
-    "split_banner_W6CJ77",
-    "split_banner_efhWa3",
-    "split_banner_FYQr44"
+    "ss_image_with_text_21_w33mUh",
+    "ss_image_with_text_21_edkXpQ",
+    "ss_image_with_text_21_YWXfYB",
+    "ss_image_with_text_21_HVFXRX"
   ]
 }

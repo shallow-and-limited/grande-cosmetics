@@ -21,13 +21,54 @@
       "type": "shogun-optimizer",
       "settings": {}
     },
+    "featured_product_6PAAtT": {
+      "type": "featured-product",
+      "blocks": {
+        "title_giqW7T": {
+          "type": "title",
+          "settings": {}
+        },
+        "price_iYgkxQ": {
+          "type": "price",
+          "settings": {}
+        },
+        "short_desc_T9FKpN": {
+          "type": "short_desc",
+          "settings": {}
+        },
+        "variant_picker_VAeq8U": {
+          "type": "variant_picker",
+          "settings": {
+            "show_dynamic_checkout": true,
+            "subscription_label": "Subscribe & Save",
+            "subscription_text": "",
+            "subscription_or": "OR",
+            "one_time_label": "One-time Purchase",
+            "one_time_text": ""
+          }
+        }
+      },
+      "block_order": [
+        "title_giqW7T",
+        "price_iYgkxQ",
+        "short_desc_T9FKpN",
+        "variant_picker_VAeq8U"
+      ],
+      "name": "Featured Product",
+      "settings": {
+        "product": "grandebrow-2-in-1",
+        "show_media": true,
+        "media_position": "left",
+        "show_background": true
+      }
+    },
     "banner_HjctWi": {
       "type": "banner",
       "disabled": true,
       "settings": {
         "color": "light",
         "background": "beige",
-        "image_d": "shopify:\/\/shop_images\/KaleeRogers-CollectionPage-Banner-8.jpg",
+        "image_d": "shopify://shop_images/KaleeRogers-CollectionPage-Banner-8.jpg",
         "alignment": "left",
         "eyebrow": "",
         "heading": "",
@@ -105,6 +146,7 @@
       "disabled": true,
       "custom_css": [],
       "settings": {
+        "regios_key": "",
         "heading": "",
         "categories": true,
         "cta_copy": "",
@@ -117,7 +159,7 @@
         "body_copy_9mddpK": {
           "type": "body-copy",
           "settings": {
-            "copy": "<p>BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY<\/p>"
+            "copy": "<p>BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY BODY</p>"
           }
         }
       },
@@ -135,11 +177,11 @@
         "module_height": "image-height",
         "video_poster_d": true,
         "video_poster_m": true,
-        "video_d": "shopify:\/\/files\/videos\/Lash_Defense_Alicia_DO_AND_DONT__CC_Logo_V13.mp4",
+        "video_d": "shopify://files/videos/Lash_Defense_Alicia_DO_AND_DONT__CC_Logo_V13.mp4",
         "video_autoplay": true,
         "eyebrow": "",
         "heading": "Why You Need This Bundle",
-        "cta_url": "shopify:\/\/products\/kaylee-bundle",
+        "cta_url": "shopify://products/kaylee-bundle",
         "cta_copy": "Shop Now"
       }
     },
@@ -175,6 +217,7 @@
       ],
       "disabled": true,
       "settings": {
+        "regios_key": "",
         "heading": "Add Kalee's Faves To Your Routine",
         "categories": false,
         "cta_copy": "",
@@ -213,6 +256,7 @@
       ],
       "disabled": true,
       "settings": {
+        "regios_key": "",
         "heading": "",
         "categories": false,
         "cta_copy": "",
@@ -224,6 +268,7 @@
     "shogun-helper",
     "main",
     "shogun-optimizer",
+    "featured_product_6PAAtT",
     "banner_HjctWi",
     "ticker_Wk94Jh",
     "product_carousel_HkKyCt",

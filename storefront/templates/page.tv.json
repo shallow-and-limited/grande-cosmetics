@@ -29,9 +29,10 @@
       "blocks": {
         "text_FNPRBY": {
           "type": "text",
+          "disabled": true,
           "settings": {
             "svg_icon": "flower",
-            "text": "BUY GRANDELASH-MD OR GRANDEBROW",
+            "text": "BUY GRANDELASH OR GRANDEBROW",
             "url": ""
           }
         },
@@ -39,7 +40,7 @@
           "type": "text",
           "settings": {
             "svg_icon": "flower",
-            "text": "GET A FREE MASCARA",
+            "text": "FREE MASCARA WITH SERUM",
             "url": ""
           }
         }
@@ -52,7 +53,7 @@
       "settings": {
         "optional_text": "",
         "optional_url": "",
-        "speed": 1.5,
+        "speed": 0.5,
         "color_scheme": "dark-pink"
       }
     },
@@ -63,10 +64,10 @@
         "parallax": false,
         "parallax_mobile": false,
         "banner_height": "fixed_height",
-        "banner_fixed_height": 400,
-        "banner_fixed_height_mobile": 290,
-        "image": "shopify://shop_images/Confidence_Banner_-_Desktop.jpg",
-        "image_mobile": "shopify://shop_images/Confidence_Banner_-_Mobile.jpg",
+        "banner_fixed_height": 660,
+        "banner_fixed_height_mobile": 600,
+        "image": "shopify://shop_images/Grande_Cosmetics_TV_Page_2.png",
+        "image_mobile": "shopify://shop_images/Grande_Cosmetics_TV_Page_Mobile_2.png",
         "overlay": 0,
         "content_maxwidth": 65,
         "content_maxwidth_mobile": 100,
@@ -96,6 +97,7 @@
     },
     "banner_wxhgAq": {
       "type": "banner",
+      "disabled": true,
       "name": "Banner",
       "settings": {
         "color": "dark",
@@ -433,6 +435,7 @@
         },
         "author_FTf4jL": {
           "type": "author",
+          "disabled": true,
           "settings": {
             "use_author_image": true,
             "author_image": "shopify://shop_images/grandelash_f0caefdf-880a-4501-bd9c-da4c80aeff4e.png",
@@ -467,7 +470,7 @@
           "type": "button",
           "settings": {
             "button": "ADD TO CART",
-            "url": "https://grandecosmetics.com/cart/add/47702262743177",
+            "url": "shopify://products/grandelash-md-free-mascara",
             "open_in_new_tab": false,
             "button_style": "outline",
             "button_custom": true,
@@ -581,10 +584,10 @@
         "play_padding_mobile": 14,
         "play_radius": 100,
         "play_border_thickness": 0,
-        "first_image": "shopify://shop_images/Kirsten-1.png",
-        "second_image": "shopify://shop_images/Kirsten-BA-1.png",
+        "first_image": "shopify://shop_images/GrandeLASHMD_and_GrandeMASCARA.jpg",
+        "second_image": "shopify://shop_images/Lash_Before_After_3.jpg",
         "use_third_image": true,
-        "third_image": "shopify://shop_images/Kirsten-BA-2.png",
+        "third_image": "shopify://shop_images/Mascara_Before_After_1.jpg",
         "image_ratio": "square",
         "image_ratio_mobile": "square",
         "image_radius": 16,
@@ -697,7 +700,7 @@
         "text_9xtjYe": {
           "type": "text",
           "settings": {
-            "text": "<p>Supports the appearance of longer, fuller-looking lashes over time. Your makeup-free brow essential.</p>",
+            "text": "<p>A revolutionary brow enhancing serum infused with a blend of vitamins, antioxidants, and amino acids to promote the appearance of fuller, bolder looking brows.</p>",
             "text_custom": true,
             "text_font": "quattrocento_sans_n4",
             "text_size": 16,
@@ -711,6 +714,7 @@
         },
         "author_xFzwCr": {
           "type": "author",
+          "disabled": true,
           "settings": {
             "use_author_image": true,
             "author_image": "shopify://shop_images/Brow-34503_1.png",
@@ -745,7 +749,7 @@
           "type": "button",
           "settings": {
             "button": "ADD TO CART",
-            "url": "https://grandecosmetics.com/cart/add/44223734775945",
+            "url": "shopify://products/grandebrow-free-mascara",
             "open_in_new_tab": false,
             "button_style": "outline",
             "button_custom": true,
@@ -859,10 +863,10 @@
         "play_padding_mobile": 14,
         "play_radius": 100,
         "play_border_thickness": 0,
-        "first_image": "shopify://shop_images/Jean-1.png",
-        "second_image": "shopify://shop_images/Jean-BA-1.png",
+        "first_image": "shopify://shop_images/GrandeBROW_and_GrandeMASCARA.jpg",
+        "second_image": "shopify://shop_images/Lamination_Station_Before_After_1.jpg",
         "use_third_image": true,
-        "third_image": "shopify://shop_images/Jean-BA-2.png",
+        "third_image": "shopify://shop_images/Mascara_Before_After_1.jpg",
         "image_ratio": "square",
         "image_ratio_mobile": "square",
         "image_radius": 16,
@@ -1514,7 +1518,7 @@
         "toggles_bg_color": "rgba(0,0,0,0)",
         "toggles_border_color": "#fc2d76",
         "heading_color": "#121212",
-        "background_color": "#FFC1C1",
+        "background_color": "#ffc1c1",
         "background_gradient": "",
         "border_color": "#121212",
         "margin_top": 0,
@@ -1542,7 +1546,7 @@
         "wave_side": "0",
         "animation": false,
         "animation_duration": 5,
-        "background_color": "#FFC1C1",
+        "background_color": "#ffc1c1",
         "wave_color": "#fdf1e5",
         "margin_top": -64,
         "margin_bottom": 0,

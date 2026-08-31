@@ -13,7 +13,7 @@
     "storefront_api_key": "66293c018a0c8a2396a88167c3793f51",
     "favicon": "shopify://shop_images/CircleLogo-NoBackground.png",
     "yotpo_instance_id": "772720",
-    "cart_drawer_enabled": false,
+    "cart_drawer_enabled": true,
     "shipping_calculator_enabled": true,
     "shipping_calculator_threshold": "5000",
     "cart_drawer_collection_1": "10-steals",
@@ -85,11 +85,6 @@
       },
       "735721325670868888": {
         "type": "shopify://apps/checkmate/blocks/checked_network/697a3444-1374-4f13-ba8c-ec03db25ebf0",
-        "disabled": false,
-        "settings": {}
-      },
-      "17428600031447253342": {
-        "type": "shopify://apps/attentive/blocks/attn-tag/8df62c72-8fe4-407e-a5b3-72132be30a0d",
         "disabled": false,
         "settings": {}
       },

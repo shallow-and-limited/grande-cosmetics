@@ -25,6 +25,7 @@
       "blocks": {
         "hero_slide_Up8Chg": {
           "type": "hero_slide",
+          "disabled": true,
           "settings": {
             "color": "dark",
             "alignment_v": "middle",
@@ -49,7 +50,6 @@
         },
         "hero_slide_UqApiR": {
           "type": "hero_slide",
-          "disabled": true,
           "settings": {
             "color": "dark",
             "alignment_v": "middle",
