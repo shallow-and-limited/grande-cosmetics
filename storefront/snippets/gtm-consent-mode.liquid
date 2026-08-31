@@ -57,6 +57,19 @@
         analytics_storage: toState(consent, 'ANALYTICS'),
         personalization_storage: toState(consent, 'PERSONALIZATION')
       });
+
+      // Also expose the raw Osano categories to GTM. The four Consent Mode signals
+      // above are only auto-enforced by Google's own tags; every non-Google tag in the
+      // container (Microsoft Ads, AdRoll, Flashtalking, ...) must opt in via its own
+      // "Consent Settings -> Require additional consent for tag to fire". This event
+      // gives those container-side rules — triggers, blocking triggers, exceptions —
+      // a variable to read that reflects the visitor's actual category choice.
+      window.dataLayer.push({
+        event: 'osano_consent_updated',
+        osano_marketing: marketing,
+        osano_analytics: toState(consent, 'ANALYTICS'),
+        osano_personalization: toState(consent, 'PERSONALIZATION')
+      });
     }
 
     function bind() {
