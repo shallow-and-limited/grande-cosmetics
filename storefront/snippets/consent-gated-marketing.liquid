@@ -16,6 +16,8 @@
   - 'osano-cm-consent-saved' covers a visitor changing their preferences in-session.
   - Each vendor is injected at most once per page, even if consent is re-saved.
   - Fails closed: if Osano is blocked, absent, or never initializes, nothing loads.
+  - Withdrawing marketing consent after these tags have loaded reloads the page; see
+    teardown() for why DOM removal alone is not enough.
 
   Category assignment:
   Every vendor below is gated on MARKETING. All four are advertising or cross-site
@@ -31,10 +33,14 @@
 <script>
   (function () {
     var injected = {};
+    // Whether anything was actually injected during THIS page load. Drives teardown:
+    // a visitor who denies without ever having granted needs no teardown.
+    var injectedAny = false;
 
     function inject(key, src, options) {
       if (injected[key]) return;
       injected[key] = true;
+      injectedAny = true;
       var opts = options || {};
       var s = document.createElement('script');
       s.type = 'text/javascript';
@@ -89,9 +95,35 @@
       {%- endif %}
     }
 
+    function teardown() {
+      // Removing the injected <script> elements would not undo what they already did.
+      // Globals, timers, event listeners and in-flight/keepalive beacons all survive DOM
+      // removal, and a beacon that has already been dispatched cannot be recalled at all.
+      // A reload is the only reliable way to get these vendors out of the page runtime.
+      //
+      // Cookie cleanup is deliberately NOT attempted here:
+      //   - Cookies each vendor sets on its OWN domain (adroll.com, adsrvr.org, ...) are
+      //     unreachable from this origin by design. Only the vendor or the browser can
+      //     clear those.
+      //   - Which FIRST-party cookies these four vendors set has not been audited yet.
+      //     Guessing names would produce code that silently does nothing. Populate this
+      //     from the incognito HAR audit, and check whether Osano already clears cookies
+      //     on withdrawal before duplicating it here.
+      window.location.reload();
+    }
+
     function onConsent(consent) {
-      if (!consent || consent.MARKETING !== 'ACCEPT') return;
-      loadGranted();
+      var granted = !!consent && consent.MARKETING === 'ACCEPT';
+
+      if (granted) {
+        loadGranted();
+        return;
+      }
+
+      // Consent withdrawn after these tags had already loaded in this page load.
+      // No reload risk on the denied-from-the-start path: nothing was injected, so
+      // injectedAny is false, and it is false again on the page that reload produces.
+      if (injectedAny) teardown();
     }
 
     function bind() {

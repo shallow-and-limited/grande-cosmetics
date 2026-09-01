@@ -64,11 +64,17 @@
       // "Consent Settings -> Require additional consent for tag to fire". This event
       // gives those container-side rules — triggers, blocking triggers, exceptions —
       // a variable to read that reflects the visitor's actual category choice.
+      //
+      // The timestamp is for correlating a consent change against tag activity when
+      // reconstructing a session. It is NOT the compliance record: the authoritative,
+      // durable consent receipts live in Osano, and that is what CCPA/CPRA opt-out
+      // honoring evidence should be pulled from.
       window.dataLayer.push({
         event: 'osano_consent_updated',
         osano_marketing: marketing,
         osano_analytics: toState(consent, 'ANALYTICS'),
-        osano_personalization: toState(consent, 'PERSONALIZATION')
+        osano_personalization: toState(consent, 'PERSONALIZATION'),
+        osano_consent_at: new Date().toISOString()
       });
     }
 

@@ -16,7 +16,9 @@ This file can be re-written at any time.
     <link rel="canonical" href="{{ canonical_url }}">
     <link rel="preconnect" href="https://cdn.shopify.com" crossorigin>
 
-    <script src="https://cmp.osano.com/AzqTU8UCNqbF03lez/1ce67a0e-cd34-495b-b6e9-b496e34c4646/osano.js"></script>
+    {%- if request.design_mode == false -%}
+      <script src="https://cmp.osano.com/AzqTU8UCNqbF03lez/1ce67a0e-cd34-495b-b6e9-b496e34c4646/osano.js"></script>
+    {%- endif -%}
 
     {% comment %} Google Consent Mode v2 — must run before content_for_header (which can inject Google tags). {% endcomment %}
     {% render 'gtm-consent-mode' %}
