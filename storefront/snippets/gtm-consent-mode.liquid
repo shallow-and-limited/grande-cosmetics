@@ -37,7 +37,11 @@
 
   // Consent Mode v2 recommended settings.
   gtag('set', 'ads_data_redaction', true);
-  gtag('set', 'url_passthrough', true);
+  // Deliberately false. When ad_storage is denied, url_passthrough keeps ad click
+  // identifiers (gclid/gbraid/wbraid) alive by appending them to internal link URLs,
+  // i.e. it preserves ad measurement for visitors who opted out. Turned off while the
+  // privacy dispute is open; flip back to true only with privacy/legal sign-off.
+  gtag('set', 'url_passthrough', false);
 </script>
 
 <script>
