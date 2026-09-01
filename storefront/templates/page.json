@@ -39,7 +39,6 @@
         "variant_picker_VAeq8U": {
           "type": "variant_picker",
           "settings": {
-            "show_dynamic_checkout": true,
             "subscription_label": "Subscribe & Save",
             "subscription_text": "",
             "subscription_or": "OR",
