@@ -1,6 +1,23 @@
-// Consent 
+// ============================================================
+// GTM custom pixel — container GTM-WPNHLMK
+// MODIFIED 2026-09-01 (Grande Cosmetics):
+//   1. GTM is now loaded lazily, only once consent allows, instead of on every
+//      page load regardless of consent.
+//   2. canMarketing() is now actually used — it was defined and never called, so
+//      marketing consent was not honored anywhere.
+//   3. console.log calls are behind a DEBUG flag. They were shipping event
+//      payloads — including checkout data and an email address — to the browser
+//      console in production.
+// ============================================================
+
+// ---------- Consent ----------
 window.dataLayer = window.dataLayer || [];
-function gtag(){ window.dataLayer.push(arguments); }
+function gtag() { window.dataLayer.push(arguments); }
+
+// Flip to true only while debugging. Never ship enabled: the payloads below
+// contain customer and order data.
+const DEBUG = false;
+function log() { if (DEBUG) console.log.apply(console, arguments); }
 
 // Default everything DENIED before GTM loads
 gtag('consent', 'default', {
@@ -8,36 +25,59 @@ gtag('consent', 'default', {
   ad_personalization: 'denied', analytics_storage: 'denied',
 });
 
-// Track Shopify's consent state and push updates to Consent Mode
+// Each custom pixel runs in its own sandboxed iframe with its own window, so the
+// theme's Consent Mode defaults do not reach this code. Consent is read from
+// Shopify here, independently.
 let consent = init.customerPrivacy || {};
-function syncConsent(c) {
-  consent = c || {};
-  gtag('consent', 'update', {
-    ad_storage:         consent.marketingAllowed ? 'granted' : 'denied',
-    ad_user_data:       consent.marketingAllowed ? 'granted' : 'denied',
-    ad_personalization: consent.marketingAllowed ? 'granted' : 'denied',
-    analytics_storage:  consent.analyticsProcessingAllowed ? 'granted' : 'denied',
-  });
-}
-syncConsent(init.customerPrivacy);
-api.customerPrivacy.subscribe('visitorConsentCollected', (e) => syncConsent(e.customerPrivacy));
 
 const canAnalytics = () => consent.analyticsProcessingAllowed === true;
 const canMarketing = () => consent.marketingAllowed === true;
 
-console.log(`[Shopify Pixel] ${canAnalytics()}`);
+// GTM is loaded lazily: nothing is requested from googletagmanager.com until the
+// visitor has granted something. Handlers below drop events until then, so there
+// is no pre-consent backlog waiting to be flushed.
+let gtmLoaded = false;
+function loadGtm() {
+  if (gtmLoaded) return;
+  if (!canAnalytics() && !canMarketing()) return;
+  gtmLoaded = true;
+  (function (w, d, s, l, i) {
+    w[l] = w[l] || [];
+    w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+    var f = d.getElementsByTagName(s)[0],
+      j = d.createElement(s),
+      dl = l != "dataLayer" ? "&l=" + l : "";
+    j.async = true;
+    j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+    f.parentNode.insertBefore(j, f);
+  })(window, document, "script", "dataLayer", "GTM-WPNHLMK");
+}
 
-// initialize GTM tag
-(function (w, d, s, l, i) {
-  w[l] = w[l] || [];
-  w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
-  var f = d.getElementsByTagName(s)[0],
-    j = d.createElement(s),
-    dl = l != "dataLayer" ? "&l=" + l : "";
-  j.async = true;
-  j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
-  f.parentNode.insertBefore(j, f);
-})(window, document, "script", "dataLayer", "GTM-WPNHLMK");
+// Track Shopify's consent state and push updates to Consent Mode
+function syncConsent(c) {
+  consent = c || {};
+  gtag('consent', 'update', {
+    ad_storage:         canMarketing() ? 'granted' : 'denied',
+    ad_user_data:       canMarketing() ? 'granted' : 'denied',
+    ad_personalization: canMarketing() ? 'granted' : 'denied',
+    analytics_storage:  canAnalytics() ? 'granted' : 'denied',
+  });
+
+  // Consent Mode only auto-enforces Google's own tags. Expose the state as a
+  // dataLayer event so non-Google tags in GTM-WPNHLMK can gate on it via
+  // triggers, blocking triggers and exceptions.
+  window.dataLayer.push({
+    event: 'shopify_consent_updated',
+    analytics_allowed: canAnalytics(),
+    marketing_allowed: canMarketing(),
+    consent_at: new Date().toISOString(),
+  });
+
+  loadGtm();
+}
+
+syncConsent(init.customerPrivacy);
+api.customerPrivacy.subscribe('visitorConsentCollected', (e) => syncConsent(e.customerPrivacy));
 
 // standard events
 
@@ -55,7 +95,7 @@ analytics.subscribe("page_viewed", (event) => {
     referrer: event.context.document.referrer,
   };
   window.dataLayer.push(pageviewEventPayload);
-  console.log(pageviewEventPayload);
+  log(pageviewEventPayload);
 });
 
 // standard ecommerce events
@@ -117,10 +157,10 @@ analytics.subscribe("checkout_started", (event) => {
     },
   };
   window.dataLayer.push(customerEventPayload);
-  console.log(customerEventPayload);
+  log(customerEventPayload);
   window.dataLayer.push({ ecommerce: null });
   window.dataLayer.push(ga4EventPayload);
-  console.log(ga4EventPayload);
+  log(ga4EventPayload);
 });
 
 analytics.subscribe("checkout_shipping_info_submitted", (event) => {
@@ -181,10 +221,10 @@ analytics.subscribe("checkout_shipping_info_submitted", (event) => {
     },
   };
   window.dataLayer.push(customerEventPayload);
-  console.log(customerEventPayload);
+  log(customerEventPayload);
   window.dataLayer.push({ ecommerce: null });
   window.dataLayer.push(ga4EventPayload);
-  console.log(ga4EventPayload);
+  log(ga4EventPayload);
 });
 
 analytics.subscribe("payment_info_submitted", (event) => {
@@ -245,16 +285,16 @@ analytics.subscribe("payment_info_submitted", (event) => {
     },
   };
   window.dataLayer.push(customerEventPayload);
-  console.log(customerEventPayload);
+  log(customerEventPayload);
   window.dataLayer.push({ ecommerce: null });
   window.dataLayer.push(ga4EventPayload);
-  console.log(ga4EventPayload);
+  log(ga4EventPayload);
 });
 
 analytics.subscribe("checkout_completed", (event) => {
   if (!canAnalytics()) return;
   
-  console.log(event);
+  log(event);
   const checkout = event.data.checkout;
   const customer = init.data.customer;
   const customerEventPayload = {
@@ -340,10 +380,10 @@ analytics.subscribe("checkout_completed", (event) => {
       }
   };
   window.dataLayer.push(customerEventPayload);
-  console.log(customerEventPayload);
+  log(customerEventPayload);
   window.dataLayer.push({ ecommerce: null });
   window.dataLayer.push(ga4EventPayload);
-  console.log(ga4EventPayload);
+  log(ga4EventPayload);
 });
 
 analytics.subscribe("product_added_to_cart", (event) => {
@@ -375,7 +415,7 @@ analytics.subscribe("product_added_to_cart", (event) => {
   };
   window.dataLayer.push({ ecommerce: null });
   window.dataLayer.push(ga4EventPayload);
-  console.log(ga4EventPayload);
+  log(ga4EventPayload);
 });
 
 analytics.subscribe("product_removed_from_cart", (event) => {
@@ -407,7 +447,7 @@ analytics.subscribe("product_removed_from_cart", (event) => {
   };
   window.dataLayer.push({ ecommerce: null });
   window.dataLayer.push(ga4EventPayload);
-  console.log(ga4EventPayload);
+  log(ga4EventPayload);
 });
 
 analytics.subscribe("product_viewed", (event) => {
@@ -437,7 +477,7 @@ analytics.subscribe("product_viewed", (event) => {
   };
   window.dataLayer.push({ ecommerce: null });
   window.dataLayer.push(ga4EventPayload);
-  console.log(ga4EventPayload);
+  log(ga4EventPayload);
 });
 
 analytics.subscribe("cart_viewed", (event) => {
@@ -469,7 +509,7 @@ analytics.subscribe("cart_viewed", (event) => {
   };
   window.dataLayer.push({ ecommerce: null });
   window.dataLayer.push(ga4EventPayload);
-  console.log(ga4EventPayload);
+  log(ga4EventPayload);
 });
 
 analytics.subscribe("collection_viewed", (event) => {
@@ -504,7 +544,7 @@ const ga4EventPayload = {
 };
 window.dataLayer.push({ ecommerce: null });
 window.dataLayer.push(ga4EventPayload);
-console.log(ga4EventPayload);
+log(ga4EventPayload);
 });
 
 // custom events
@@ -525,7 +565,7 @@ analytics.subscribe("gtmEvent", (event) => {
     email_address: event?.customData?.email_address,
   };
   window.dataLayer.push(eventPayload);
-  console.log(eventPayload);
+  log(eventPayload);
 });
 
 analytics.subscribe("gtmEcommerceEvent", (event) => {
@@ -553,5 +593,5 @@ analytics.subscribe("gtmEcommerceEvent", (event) => {
   };
   window.dataLayer.push({ ecommerce: null });
   window.dataLayer.push(ga4EventPayload);
-  console.log(ga4EventPayload);
+  log(ga4EventPayload);
   });

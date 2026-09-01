@@ -3,21 +3,86 @@
 // Unauthorized copying or distribution is prohibited.
 // V.6.3. Purchase Update
 // ============================================================
+// MODIFIED 2026-09-01 (Grande Cosmetics) — consent gating added.
+//
+// As shipped, this pixel had no consent logic: it loaded its GTM container and
+// pushed every event, including the raw site-search query, regardless of the
+// visitor's choice. It now denies by default, syncs from Shopify's Customer
+// Privacy API, loads GTM only once consent allows, and gates every handler.
+//
+// If Agility ships a new version of this data layer, THESE CHANGES MUST BE
+// RE-APPLIED — a straight vendor paste-over silently removes all of it.
+// ============================================================
 
-// Define dataLayer and the gtag function.
+// ---------- Consent ----------
 window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
+function gtag() { window.dataLayer.push(arguments); }
 
-// Initialize GTM tag
-(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer', 'GTM-T672VVBN');
+// Deny everything before GTM loads or any event fires. Google's own tags read
+// these signals; the per-handler guards below cover everything else.
+gtag('consent', 'default', {
+  ad_storage: 'denied',
+  ad_user_data: 'denied',
+  ad_personalization: 'denied',
+  analytics_storage: 'denied',
+});
+
+// Each custom pixel runs in its own sandboxed iframe with its own window, so the
+// theme's Consent Mode defaults do not reach this code. Consent has to be read
+// from Shopify here, independently.
+let consent = init.customerPrivacy || {};
+
+const canAnalytics = () => consent.analyticsProcessingAllowed === true;
+const canMarketing = () => consent.marketingAllowed === true;
+
+// GTM is loaded lazily: nothing is requested from googletagmanager.com until the
+// visitor has granted something. Events that fire before then are dropped by the
+// guards rather than queued, so no pre-consent data is waiting to be flushed.
+let gtmLoaded = false;
+function loadGtm() {
+  if (gtmLoaded) return;
+  if (!canAnalytics() && !canMarketing()) return;
+  gtmLoaded = true;
+  (function (w, d, s, l, i) {
+    w[l] = w[l] || [];
+    w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+    var f = d.getElementsByTagName(s)[0],
+      j = d.createElement(s),
+      dl = l != 'dataLayer' ? '&l=' + l : '';
+    j.async = true;
+    j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+    f.parentNode.insertBefore(j, f);
+  })(window, document, 'script', 'dataLayer', 'GTM-T672VVBN');
+}
+
+function syncConsent(c) {
+  consent = c || {};
+  gtag('consent', 'update', {
+    ad_storage: canMarketing() ? 'granted' : 'denied',
+    ad_user_data: canMarketing() ? 'granted' : 'denied',
+    ad_personalization: canMarketing() ? 'granted' : 'denied',
+    analytics_storage: canAnalytics() ? 'granted' : 'denied',
+  });
+
+  // Expose the state to container GTM-T672VVBN so tags there can gate on it,
+  // which matters because Consent Mode alone only auto-enforces Google's tags.
+  window.dataLayer.push({
+    event: 'shopify_consent_updated',
+    analytics_allowed: canAnalytics(),
+    marketing_allowed: canMarketing(),
+    consent_at: new Date().toISOString(),
+  });
+
+  loadGtm();
+}
+
+syncConsent(init.customerPrivacy);
+api.customerPrivacy.subscribe('visitorConsentCollected', (e) => syncConsent(e.customerPrivacy));
 
 
 /* ========== Page Viewed ========== */
 analytics.subscribe("page_viewed", (event) => {
+  if (!canAnalytics()) return;
   const path = event.context?.document?.location?.pathname || "";
   const isProductPage = /\/products\/[^\/]+/.test(path);
   const isCollectionPage = !isProductPage && /\/collections\/[^\/]+/.test(path);
@@ -34,6 +99,7 @@ analytics.subscribe("page_viewed", (event) => {
 
 /* ========== Purchase ========== */
 analytics.subscribe("checkout_completed", (event) => {
+  if (!canAnalytics()) return;
   dataLayer.push({ ecommerce: null });
 
   const items = event.data?.checkout?.lineItems?.map((item) => {
@@ -77,6 +143,7 @@ analytics.subscribe("checkout_completed", (event) => {
 
 /* ========== Add to Cart ========== */
 analytics.subscribe("product_added_to_cart", (event) => {
+  if (!canAnalytics()) return;
   dataLayer.push({ ecommerce: null });
 
   const unitPrice = parseFloat(event.data?.cartLine?.merchandise?.price?.amount) || 0;
@@ -108,6 +175,7 @@ analytics.subscribe("product_added_to_cart", (event) => {
 
 /* ========== View Item ========== */
 analytics.subscribe("product_viewed", (event) => {
+  if (!canAnalytics()) return;
   dataLayer.push({ ecommerce: null });
 
   dataLayer.push({
@@ -131,6 +199,7 @@ analytics.subscribe("product_viewed", (event) => {
 
 /* ========== Collection Viewed ========== */
 analytics.subscribe("collection_viewed", (event) => {
+  if (!canAnalytics()) return;
   const collection = event.data?.collection;
 
   const products = collection?.productVariants?.map((variant) => {
@@ -160,6 +229,11 @@ analytics.subscribe("collection_viewed", (event) => {
 
 /* ========== Search Submitted ========== */
 analytics.subscribe("search_submitted", (event) => {
+  // The raw search query is the data element at issue in the privacy demand, and
+  // container GTM-T672VVBN has no per-tag consent configured yet — so anything
+  // pushed here is reachable by ad tags. Treat search as marketing scope until
+  // that container work lands, then this can relax to analytics-only.
+  if (!canAnalytics() || !canMarketing()) return;
   const itemNames = event.data?.searchResult?.productVariants
     ?.map(item => item.product?.title)
     ?.filter(Boolean)
@@ -181,6 +255,7 @@ analytics.subscribe("search_submitted", (event) => {
 
 /* ========== Begin Checkout ========== */
 analytics.subscribe("checkout_started", (event) => {
+  if (!canAnalytics()) return;
   dataLayer.push({ ecommerce: null });
 
   const items = event.data?.checkout?.lineItems?.map((item) => {
@@ -213,6 +288,7 @@ analytics.subscribe("checkout_started", (event) => {
 
 /* ========== View Cart ========== */
 analytics.subscribe("cart_viewed", (event) => {
+  if (!canAnalytics()) return;
   dataLayer.push({ ecommerce: null });
 
   const items = event.data?.cart?.lines?.map((line) => {
