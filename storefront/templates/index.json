@@ -25,24 +25,23 @@
       "blocks": {
         "hero_slide_Up8Chg": {
           "type": "hero_slide",
-          "disabled": true,
           "settings": {
             "color": "dark",
             "alignment_v": "middle",
             "alignment_h": "left",
-            "alignment_v_m": "middle_m",
+            "alignment_v_m": "top_m",
             "alignment_h_m": "left_m",
-            "image_d": "shopify://shop_images/KaleeRogers-CollectionPage-Banner-9_3aa750a2-2d04-44b1-813f-d699369ccab1.jpg",
+            "image_d": "shopify://shop_images/GrandeTUBULAR_Homepage_Banner.png",
             "video_poster_d": true,
-            "image_m": "shopify://shop_images/KaleeRogers-CollectionPage-Banner-9-Mobile.jpg",
+            "image_m": "shopify://shop_images/GrandeTUBULAR_Homepage_Banner_-_Mobile.png",
             "video_poster_m": true,
             "video_autoplay": true,
-            "eyebrow": "lash bash",
-            "heading": "Get a Free Travel Size GrandeLASH-MD",
+            "eyebrow": "prep. style. repeat.",
+            "heading": "Meet GrandeTUBULAR",
             "heading_size": "h3",
-            "copy": "When You Buy GrandeLASH-MD 4ml",
-            "cta_url": "shopify://products/grandelash-md",
-            "cta_copy": "Shop the Sale",
+            "copy": "Your Mascara Will Never Be The Same",
+            "cta_url": "shopify://products/grandetubular",
+            "cta_copy": "Shop Now",
             "cta_url_alt": "",
             "cta_copy_alt": "",
             "overlay": 0
@@ -50,6 +49,7 @@
         },
         "hero_slide_UqApiR": {
           "type": "hero_slide",
+          "disabled": true,
           "settings": {
             "color": "dark",
             "alignment_v": "middle",
